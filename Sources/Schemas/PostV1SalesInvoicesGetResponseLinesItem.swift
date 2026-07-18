@@ -15,6 +15,13 @@ public struct PostV1SalesInvoicesGetResponseLinesItem: Codable, Hashable, Sendab
     public let lineVat: String
     public let lineGross: String
     public let sortOrder: Int64
+    public let recognitionMethod: PostV1SalesInvoicesGetResponseLinesItemRecognitionMethod
+    public let recognitionStartDate: Nullable<String>
+    public let recognitionEndDate: Nullable<String>
+    public let recognitionMilestones: Nullable<[PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem]>
+    public let standaloneSellingPrice: Nullable<String>
+    public let allocatedNet: Nullable<String>
+    public let refundEstimatePercent: Nullable<String>
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -33,6 +40,13 @@ public struct PostV1SalesInvoicesGetResponseLinesItem: Codable, Hashable, Sendab
         lineVat: String,
         lineGross: String,
         sortOrder: Int64,
+        recognitionMethod: PostV1SalesInvoicesGetResponseLinesItemRecognitionMethod,
+        recognitionStartDate: Nullable<String>,
+        recognitionEndDate: Nullable<String>,
+        recognitionMilestones: Nullable<[PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem]>,
+        standaloneSellingPrice: Nullable<String>,
+        allocatedNet: Nullable<String>,
+        refundEstimatePercent: Nullable<String>,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -49,6 +63,13 @@ public struct PostV1SalesInvoicesGetResponseLinesItem: Codable, Hashable, Sendab
         self.lineVat = lineVat
         self.lineGross = lineGross
         self.sortOrder = sortOrder
+        self.recognitionMethod = recognitionMethod
+        self.recognitionStartDate = recognitionStartDate
+        self.recognitionEndDate = recognitionEndDate
+        self.recognitionMilestones = recognitionMilestones
+        self.standaloneSellingPrice = standaloneSellingPrice
+        self.allocatedNet = allocatedNet
+        self.refundEstimatePercent = refundEstimatePercent
         self.additionalProperties = additionalProperties
     }
 
@@ -68,6 +89,13 @@ public struct PostV1SalesInvoicesGetResponseLinesItem: Codable, Hashable, Sendab
         self.lineVat = try container.decode(String.self, forKey: .lineVat)
         self.lineGross = try container.decode(String.self, forKey: .lineGross)
         self.sortOrder = try container.decode(Int64.self, forKey: .sortOrder)
+        self.recognitionMethod = try container.decode(PostV1SalesInvoicesGetResponseLinesItemRecognitionMethod.self, forKey: .recognitionMethod)
+        self.recognitionStartDate = try container.decode(Nullable<String>.self, forKey: .recognitionStartDate)
+        self.recognitionEndDate = try container.decode(Nullable<String>.self, forKey: .recognitionEndDate)
+        self.recognitionMilestones = try container.decode(Nullable<[PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem]>.self, forKey: .recognitionMilestones)
+        self.standaloneSellingPrice = try container.decode(Nullable<String>.self, forKey: .standaloneSellingPrice)
+        self.allocatedNet = try container.decode(Nullable<String>.self, forKey: .allocatedNet)
+        self.refundEstimatePercent = try container.decode(Nullable<String>.self, forKey: .refundEstimatePercent)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -88,6 +116,13 @@ public struct PostV1SalesInvoicesGetResponseLinesItem: Codable, Hashable, Sendab
         try container.encode(self.lineVat, forKey: .lineVat)
         try container.encode(self.lineGross, forKey: .lineGross)
         try container.encode(self.sortOrder, forKey: .sortOrder)
+        try container.encode(self.recognitionMethod, forKey: .recognitionMethod)
+        try container.encode(self.recognitionStartDate, forKey: .recognitionStartDate)
+        try container.encode(self.recognitionEndDate, forKey: .recognitionEndDate)
+        try container.encode(self.recognitionMilestones, forKey: .recognitionMilestones)
+        try container.encode(self.standaloneSellingPrice, forKey: .standaloneSellingPrice)
+        try container.encode(self.allocatedNet, forKey: .allocatedNet)
+        try container.encode(self.refundEstimatePercent, forKey: .refundEstimatePercent)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -106,5 +141,12 @@ public struct PostV1SalesInvoicesGetResponseLinesItem: Codable, Hashable, Sendab
         case lineVat
         case lineGross
         case sortOrder
+        case recognitionMethod
+        case recognitionStartDate
+        case recognitionEndDate
+        case recognitionMilestones
+        case standaloneSellingPrice
+        case allocatedNet
+        case refundEstimatePercent
     }
 }

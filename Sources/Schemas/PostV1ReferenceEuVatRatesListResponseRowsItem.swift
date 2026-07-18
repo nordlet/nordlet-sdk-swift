@@ -6,6 +6,7 @@ public struct PostV1ReferenceEuVatRatesListResponseRowsItem: Codable, Hashable, 
     public let ratePercent: String
     public let validFrom: Nullable<String>
     public let validTo: Nullable<String>
+    public let source: PostV1ReferenceEuVatRatesListResponseRowsItemSource
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -15,6 +16,7 @@ public struct PostV1ReferenceEuVatRatesListResponseRowsItem: Codable, Hashable, 
         ratePercent: String,
         validFrom: Nullable<String>,
         validTo: Nullable<String>,
+        source: PostV1ReferenceEuVatRatesListResponseRowsItemSource,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.countryCode = countryCode
@@ -22,6 +24,7 @@ public struct PostV1ReferenceEuVatRatesListResponseRowsItem: Codable, Hashable, 
         self.ratePercent = ratePercent
         self.validFrom = validFrom
         self.validTo = validTo
+        self.source = source
         self.additionalProperties = additionalProperties
     }
 
@@ -32,6 +35,7 @@ public struct PostV1ReferenceEuVatRatesListResponseRowsItem: Codable, Hashable, 
         self.ratePercent = try container.decode(String.self, forKey: .ratePercent)
         self.validFrom = try container.decode(Nullable<String>.self, forKey: .validFrom)
         self.validTo = try container.decode(Nullable<String>.self, forKey: .validTo)
+        self.source = try container.decode(PostV1ReferenceEuVatRatesListResponseRowsItemSource.self, forKey: .source)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -43,6 +47,7 @@ public struct PostV1ReferenceEuVatRatesListResponseRowsItem: Codable, Hashable, 
         try container.encode(self.ratePercent, forKey: .ratePercent)
         try container.encode(self.validFrom, forKey: .validFrom)
         try container.encode(self.validTo, forKey: .validTo)
+        try container.encode(self.source, forKey: .source)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -52,5 +57,6 @@ public struct PostV1ReferenceEuVatRatesListResponseRowsItem: Codable, Hashable, 
         case ratePercent
         case validFrom
         case validTo
+        case source
     }
 }

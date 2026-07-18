@@ -1580,6 +1580,21 @@ import Api
                     "taxableAmount": "taxableAmount",
                     "vatAmount": "vatAmount"
                   },
+                  "corrections": [
+                    {
+                      "countryCode": "countryCode",
+                      "periodYear": 1000000,
+                      "periodQuarter": 1000000,
+                      "periodMonth": 1000000,
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "documents": 1000000
+                    }
+                  ],
+                  "correctionsTotal": {
+                    "taxableAmount": "taxableAmount",
+                    "vatAmount": "vatAmount"
+                  },
                   "warnings": [
                     "warnings"
                   ],
@@ -1609,6 +1624,21 @@ import Api
                 )
             ],
             totals: PostV1DeclarationsEuOssComputeResponseTotals(
+                taxableAmount: "taxableAmount",
+                vatAmount: "vatAmount"
+            ),
+            corrections: [
+                PostV1DeclarationsEuOssComputeResponseCorrectionsItem(
+                    countryCode: "countryCode",
+                    periodYear: 1000000,
+                    periodQuarter: Nullable<Int64>.value(1000000),
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    taxableAmount: "taxableAmount",
+                    vatAmount: "vatAmount",
+                    documents: 1000000
+                )
+            ],
+            correctionsTotal: PostV1DeclarationsEuOssComputeResponseCorrectionsTotal(
                 taxableAmount: "taxableAmount",
                 vatAmount: "vatAmount"
             ),
@@ -1659,6 +1689,30 @@ import Api
                     "taxableAmount": "taxableAmount",
                     "vatAmount": "vatAmount"
                   },
+                  "corrections": [
+                    {
+                      "countryCode": "countryCode",
+                      "periodYear": 1000000,
+                      "periodQuarter": 1000000,
+                      "periodMonth": 1000000,
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "documents": 1000000
+                    },
+                    {
+                      "countryCode": "countryCode",
+                      "periodYear": 1000000,
+                      "periodQuarter": 1000000,
+                      "periodMonth": 1000000,
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "documents": 1000000
+                    }
+                  ],
+                  "correctionsTotal": {
+                    "taxableAmount": "taxableAmount",
+                    "vatAmount": "vatAmount"
+                  },
                   "warnings": [
                     "warnings",
                     "warnings"
@@ -1697,6 +1751,30 @@ import Api
                 )
             ],
             totals: PostV1DeclarationsEuOssComputeResponseTotals(
+                taxableAmount: "taxableAmount",
+                vatAmount: "vatAmount"
+            ),
+            corrections: [
+                PostV1DeclarationsEuOssComputeResponseCorrectionsItem(
+                    countryCode: "countryCode",
+                    periodYear: 1000000,
+                    periodQuarter: Nullable<Int64>.value(1000000),
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    taxableAmount: "taxableAmount",
+                    vatAmount: "vatAmount",
+                    documents: 1000000
+                ),
+                PostV1DeclarationsEuOssComputeResponseCorrectionsItem(
+                    countryCode: "countryCode",
+                    periodYear: 1000000,
+                    periodQuarter: Nullable<Int64>.value(1000000),
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    taxableAmount: "taxableAmount",
+                    vatAmount: "vatAmount",
+                    documents: 1000000
+                )
+            ],
+            correctionsTotal: PostV1DeclarationsEuOssComputeResponseCorrectionsTotal(
                 taxableAmount: "taxableAmount",
                 vatAmount: "vatAmount"
             ),
@@ -1740,6 +1818,21 @@ import Api
                     "taxableAmount": "taxableAmount",
                     "vatAmount": "vatAmount"
                   },
+                  "corrections": [
+                    {
+                      "countryCode": "countryCode",
+                      "periodYear": 1000000,
+                      "periodQuarter": 1000000,
+                      "periodMonth": 1000000,
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "documents": 1000000
+                    }
+                  ],
+                  "correctionsTotal": {
+                    "taxableAmount": "taxableAmount",
+                    "vatAmount": "vatAmount"
+                  },
                   "warnings": [
                     "warnings"
                   ],
@@ -1769,6 +1862,21 @@ import Api
                 )
             ],
             totals: PostV1DeclarationsEuIossComputeResponseTotals(
+                taxableAmount: "taxableAmount",
+                vatAmount: "vatAmount"
+            ),
+            corrections: [
+                PostV1DeclarationsEuIossComputeResponseCorrectionsItem(
+                    countryCode: "countryCode",
+                    periodYear: 1000000,
+                    periodQuarter: Nullable<Int64>.value(1000000),
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    taxableAmount: "taxableAmount",
+                    vatAmount: "vatAmount",
+                    documents: 1000000
+                )
+            ],
+            correctionsTotal: PostV1DeclarationsEuIossComputeResponseCorrectionsTotal(
                 taxableAmount: "taxableAmount",
                 vatAmount: "vatAmount"
             ),
@@ -1819,6 +1927,30 @@ import Api
                     "taxableAmount": "taxableAmount",
                     "vatAmount": "vatAmount"
                   },
+                  "corrections": [
+                    {
+                      "countryCode": "countryCode",
+                      "periodYear": 1000000,
+                      "periodQuarter": 1000000,
+                      "periodMonth": 1000000,
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "documents": 1000000
+                    },
+                    {
+                      "countryCode": "countryCode",
+                      "periodYear": 1000000,
+                      "periodQuarter": 1000000,
+                      "periodMonth": 1000000,
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "documents": 1000000
+                    }
+                  ],
+                  "correctionsTotal": {
+                    "taxableAmount": "taxableAmount",
+                    "vatAmount": "vatAmount"
+                  },
                   "warnings": [
                     "warnings",
                     "warnings"
@@ -1860,6 +1992,30 @@ import Api
                 taxableAmount: "taxableAmount",
                 vatAmount: "vatAmount"
             ),
+            corrections: [
+                PostV1DeclarationsEuIossComputeResponseCorrectionsItem(
+                    countryCode: "countryCode",
+                    periodYear: 1000000,
+                    periodQuarter: Nullable<Int64>.value(1000000),
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    taxableAmount: "taxableAmount",
+                    vatAmount: "vatAmount",
+                    documents: 1000000
+                ),
+                PostV1DeclarationsEuIossComputeResponseCorrectionsItem(
+                    countryCode: "countryCode",
+                    periodYear: 1000000,
+                    periodQuarter: Nullable<Int64>.value(1000000),
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    taxableAmount: "taxableAmount",
+                    vatAmount: "vatAmount",
+                    documents: 1000000
+                )
+            ],
+            correctionsTotal: PostV1DeclarationsEuIossComputeResponseCorrectionsTotal(
+                taxableAmount: "taxableAmount",
+                vatAmount: "vatAmount"
+            ),
             warnings: [
                 "warnings",
                 "warnings"
@@ -1868,6 +2024,1042 @@ import Api
         )
         let response = try await client.declarations.postV1DeclarationsEuIossCompute(
             request: .init(
+                year: 1000000,
+                month: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuDistanceSalesThresholdGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "thresholdEur": "thresholdEur",
+                  "homeCountryCode": "homeCountryCode",
+                  "currentYear": {
+                    "year": 1000000,
+                    "totalAmount": "totalAmount",
+                    "documents": 1000000
+                  },
+                  "precedingYear": {
+                    "year": 1000000,
+                    "totalAmount": "totalAmount",
+                    "documents": 1000000
+                  },
+                  "belowThreshold": true,
+                  "headroomAmount": "headroomAmount",
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuDistanceSalesThresholdGetResponse(
+            thresholdEur: "thresholdEur",
+            homeCountryCode: "homeCountryCode",
+            currentYear: PostV1DeclarationsEuDistanceSalesThresholdGetResponseCurrentYear(
+                year: 1000000,
+                totalAmount: "totalAmount",
+                documents: 1000000
+            ),
+            precedingYear: PostV1DeclarationsEuDistanceSalesThresholdGetResponsePrecedingYear(
+                year: 1000000,
+                totalAmount: "totalAmount",
+                documents: 1000000
+            ),
+            belowThreshold: true,
+            headroomAmount: "headroomAmount",
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsEuDistanceSalesThresholdGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuDistanceSalesThresholdGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "thresholdEur": "thresholdEur",
+                  "homeCountryCode": "homeCountryCode",
+                  "currentYear": {
+                    "year": 1000000,
+                    "totalAmount": "totalAmount",
+                    "documents": 1000000
+                  },
+                  "precedingYear": {
+                    "year": 1000000,
+                    "totalAmount": "totalAmount",
+                    "documents": 1000000
+                  },
+                  "belowThreshold": true,
+                  "headroomAmount": "headroomAmount",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuDistanceSalesThresholdGetResponse(
+            thresholdEur: "thresholdEur",
+            homeCountryCode: "homeCountryCode",
+            currentYear: PostV1DeclarationsEuDistanceSalesThresholdGetResponseCurrentYear(
+                year: 1000000,
+                totalAmount: "totalAmount",
+                documents: 1000000
+            ),
+            precedingYear: PostV1DeclarationsEuDistanceSalesThresholdGetResponsePrecedingYear(
+                year: 1000000,
+                totalAmount: "totalAmount",
+                documents: 1000000
+            ),
+            belowThreshold: true,
+            headroomAmount: "headroomAmount",
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsEuDistanceSalesThresholdGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuUnionTurnoverGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "capEur": "capEur",
+                  "currency": "currency",
+                  "isVatPayer": true,
+                  "currentYear": {
+                    "year": 1000000,
+                    "amount": "amount",
+                    "documents": 1000000
+                  },
+                  "previousYear": {
+                    "year": 1000000,
+                    "amount": "amount",
+                    "documents": 1000000
+                  },
+                  "status": "below",
+                  "headroomAmount": "headroomAmount",
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuUnionTurnoverGetResponse(
+            capEur: "capEur",
+            currency: "currency",
+            isVatPayer: true,
+            currentYear: PostV1DeclarationsEuUnionTurnoverGetResponseCurrentYear(
+                year: 1000000,
+                amount: "amount",
+                documents: 1000000
+            ),
+            previousYear: PostV1DeclarationsEuUnionTurnoverGetResponsePreviousYear(
+                year: 1000000,
+                amount: "amount",
+                documents: 1000000
+            ),
+            status: .below,
+            headroomAmount: Nullable<String>.value("headroomAmount"),
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsEuUnionTurnoverGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuUnionTurnoverGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "capEur": "capEur",
+                  "currency": "currency",
+                  "isVatPayer": true,
+                  "currentYear": {
+                    "year": 1000000,
+                    "amount": "amount",
+                    "documents": 1000000
+                  },
+                  "previousYear": {
+                    "year": 1000000,
+                    "amount": "amount",
+                    "documents": 1000000
+                  },
+                  "status": "below",
+                  "headroomAmount": "headroomAmount",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuUnionTurnoverGetResponse(
+            capEur: "capEur",
+            currency: "currency",
+            isVatPayer: true,
+            currentYear: PostV1DeclarationsEuUnionTurnoverGetResponseCurrentYear(
+                year: 1000000,
+                amount: "amount",
+                documents: 1000000
+            ),
+            previousYear: PostV1DeclarationsEuUnionTurnoverGetResponsePreviousYear(
+                year: 1000000,
+                amount: "amount",
+                documents: 1000000
+            ),
+            status: .below,
+            headroomAmount: Nullable<String>.value("headroomAmount"),
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsEuUnionTurnoverGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuSmeCrossBorderReportCompute1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "quarter": 1000000,
+                  "fromDate": "fromDate",
+                  "toDate": "toDate",
+                  "currency": "currency",
+                  "rows": [
+                    {
+                      "countryCode": "countryCode",
+                      "amount": "amount",
+                      "documents": 1000000
+                    }
+                  ],
+                  "total": "total",
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuSmeCrossBorderReportComputeResponse(
+            year: 1000000,
+            quarter: 1000000,
+            fromDate: "fromDate",
+            toDate: "toDate",
+            currency: "currency",
+            rows: [
+                PostV1DeclarationsEuSmeCrossBorderReportComputeResponseRowsItem(
+                    countryCode: "countryCode",
+                    amount: "amount",
+                    documents: 1000000
+                )
+            ],
+            total: "total",
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsEuSmeCrossBorderReportCompute(
+            request: .init(
+                year: 1000000,
+                quarter: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuSmeCrossBorderReportCompute2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "quarter": 1000000,
+                  "fromDate": "fromDate",
+                  "toDate": "toDate",
+                  "currency": "currency",
+                  "rows": [
+                    {
+                      "countryCode": "countryCode",
+                      "amount": "amount",
+                      "documents": 1000000
+                    },
+                    {
+                      "countryCode": "countryCode",
+                      "amount": "amount",
+                      "documents": 1000000
+                    }
+                  ],
+                  "total": "total",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuSmeCrossBorderReportComputeResponse(
+            year: 1000000,
+            quarter: 1000000,
+            fromDate: "fromDate",
+            toDate: "toDate",
+            currency: "currency",
+            rows: [
+                PostV1DeclarationsEuSmeCrossBorderReportComputeResponseRowsItem(
+                    countryCode: "countryCode",
+                    amount: "amount",
+                    documents: 1000000
+                ),
+                PostV1DeclarationsEuSmeCrossBorderReportComputeResponseRowsItem(
+                    countryCode: "countryCode",
+                    amount: "amount",
+                    documents: 1000000
+                )
+            ],
+            total: "total",
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsEuSmeCrossBorderReportCompute(
+            request: .init(
+                year: 1000000,
+                quarter: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuSmeThresholdsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "nationalCapEur": "nationalCapEur",
+                  "unionTurnoverCapEur": "unionTurnoverCapEur",
+                  "thresholds": [
+                    {
+                      "countryCode": "countryCode",
+                      "currency": "currency",
+                      "nationalThreshold": "nationalThreshold",
+                      "sectors": [
+                        {
+                          "label": "label",
+                          "amount": "amount"
+                        }
+                      ],
+                      "intraEuAcquisitionsTrigger": {
+                        "amount": "amount",
+                        "currency": "currency",
+                        "note": "note"
+                      },
+                      "note": "note",
+                      "source": "source"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuSmeThresholdsListResponse(
+            nationalCapEur: "nationalCapEur",
+            unionTurnoverCapEur: "unionTurnoverCapEur",
+            thresholds: [
+                PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItem(
+                    countryCode: "countryCode",
+                    currency: "currency",
+                    nationalThreshold: Nullable<String>.value("nationalThreshold"),
+                    sectors: Optional([
+                        PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemSectorsItem(
+                            label: "label",
+                            amount: "amount"
+                        )
+                    ]),
+                    intraEuAcquisitionsTrigger: Optional(PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemIntraEuAcquisitionsTrigger(
+                        amount: "amount",
+                        currency: "currency",
+                        note: "note"
+                    )),
+                    note: Optional("note"),
+                    source: "source"
+                )
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsEuSmeThresholdsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuSmeThresholdsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "nationalCapEur": "nationalCapEur",
+                  "unionTurnoverCapEur": "unionTurnoverCapEur",
+                  "thresholds": [
+                    {
+                      "countryCode": "countryCode",
+                      "currency": "currency",
+                      "nationalThreshold": "nationalThreshold",
+                      "sectors": [
+                        {
+                          "label": "label",
+                          "amount": "amount",
+                          "note": "note"
+                        },
+                        {
+                          "label": "label",
+                          "amount": "amount",
+                          "note": "note"
+                        }
+                      ],
+                      "intraEuAcquisitionsTrigger": {
+                        "amount": "amount",
+                        "currency": "currency",
+                        "note": "note"
+                      },
+                      "note": "note",
+                      "source": "source"
+                    },
+                    {
+                      "countryCode": "countryCode",
+                      "currency": "currency",
+                      "nationalThreshold": "nationalThreshold",
+                      "sectors": [
+                        {
+                          "label": "label",
+                          "amount": "amount",
+                          "note": "note"
+                        },
+                        {
+                          "label": "label",
+                          "amount": "amount",
+                          "note": "note"
+                        }
+                      ],
+                      "intraEuAcquisitionsTrigger": {
+                        "amount": "amount",
+                        "currency": "currency",
+                        "note": "note"
+                      },
+                      "note": "note",
+                      "source": "source"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuSmeThresholdsListResponse(
+            nationalCapEur: "nationalCapEur",
+            unionTurnoverCapEur: "unionTurnoverCapEur",
+            thresholds: [
+                PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItem(
+                    countryCode: "countryCode",
+                    currency: "currency",
+                    nationalThreshold: Nullable<String>.value("nationalThreshold"),
+                    sectors: Optional([
+                        PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemSectorsItem(
+                            label: "label",
+                            amount: "amount",
+                            note: Optional("note")
+                        ),
+                        PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemSectorsItem(
+                            label: "label",
+                            amount: "amount",
+                            note: Optional("note")
+                        )
+                    ]),
+                    intraEuAcquisitionsTrigger: Optional(PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemIntraEuAcquisitionsTrigger(
+                        amount: "amount",
+                        currency: "currency",
+                        note: "note"
+                    )),
+                    note: Optional("note"),
+                    source: "source"
+                ),
+                PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItem(
+                    countryCode: "countryCode",
+                    currency: "currency",
+                    nationalThreshold: Nullable<String>.value("nationalThreshold"),
+                    sectors: Optional([
+                        PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemSectorsItem(
+                            label: "label",
+                            amount: "amount",
+                            note: Optional("note")
+                        ),
+                        PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemSectorsItem(
+                            label: "label",
+                            amount: "amount",
+                            note: Optional("note")
+                        )
+                    ]),
+                    intraEuAcquisitionsTrigger: Optional(PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemIntraEuAcquisitionsTrigger(
+                        amount: "amount",
+                        currency: "currency",
+                        note: "note"
+                    )),
+                    note: Optional("note"),
+                    source: "source"
+                )
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsEuSmeThresholdsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuSmeThresholdGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "countryCode": "countryCode",
+                  "isVatPayer": true,
+                  "baseCurrency": "baseCurrency",
+                  "year": 1000000,
+                  "threshold": {
+                    "currency": "currency",
+                    "nationalThreshold": "nationalThreshold",
+                    "sectors": [
+                      {
+                        "label": "label",
+                        "amount": "amount"
+                      }
+                    ],
+                    "note": "note",
+                    "source": "source"
+                  },
+                  "turnover": {
+                    "amount": "amount",
+                    "currency": "currency",
+                    "documents": 1000000
+                  },
+                  "precedingTurnover": {
+                    "year": 1000000,
+                    "amount": "amount",
+                    "documents": 1000000
+                  },
+                  "status": "not_applicable",
+                  "headroomAmount": "headroomAmount",
+                  "intraEu": {
+                    "trigger": "trigger",
+                    "currency": "currency",
+                    "acquisitionsFromMemberStates": "acquisitionsFromMemberStates",
+                    "servicesToMemberStates": "servicesToMemberStates",
+                    "total": "total",
+                    "status": "below",
+                    "note": "note"
+                  },
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuSmeThresholdGetResponse(
+            countryCode: "countryCode",
+            isVatPayer: true,
+            baseCurrency: "baseCurrency",
+            year: 1000000,
+            threshold: Nullable<PostV1DeclarationsEuSmeThresholdGetResponseThreshold>.value(PostV1DeclarationsEuSmeThresholdGetResponseThreshold(
+                currency: "currency",
+                nationalThreshold: Nullable<String>.value("nationalThreshold"),
+                sectors: Optional([
+                    PostV1DeclarationsEuSmeThresholdGetResponseThresholdSectorsItem(
+                        label: "label",
+                        amount: "amount"
+                    )
+                ]),
+                note: Optional("note"),
+                source: "source"
+            )),
+            turnover: PostV1DeclarationsEuSmeThresholdGetResponseTurnover(
+                amount: "amount",
+                currency: "currency",
+                documents: 1000000
+            ),
+            precedingTurnover: PostV1DeclarationsEuSmeThresholdGetResponsePrecedingTurnover(
+                year: 1000000,
+                amount: "amount",
+                documents: 1000000
+            ),
+            status: .notApplicable,
+            headroomAmount: Nullable<String>.value("headroomAmount"),
+            intraEu: Nullable<PostV1DeclarationsEuSmeThresholdGetResponseIntraEu>.value(PostV1DeclarationsEuSmeThresholdGetResponseIntraEu(
+                trigger: "trigger",
+                currency: "currency",
+                acquisitionsFromMemberStates: "acquisitionsFromMemberStates",
+                servicesToMemberStates: "servicesToMemberStates",
+                total: "total",
+                status: .below,
+                note: "note"
+            )),
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsEuSmeThresholdGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuSmeThresholdGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "countryCode": "countryCode",
+                  "isVatPayer": true,
+                  "baseCurrency": "baseCurrency",
+                  "year": 1000000,
+                  "threshold": {
+                    "currency": "currency",
+                    "nationalThreshold": "nationalThreshold",
+                    "sectors": [
+                      {
+                        "label": "label",
+                        "amount": "amount",
+                        "note": "note"
+                      },
+                      {
+                        "label": "label",
+                        "amount": "amount",
+                        "note": "note"
+                      }
+                    ],
+                    "note": "note",
+                    "source": "source"
+                  },
+                  "turnover": {
+                    "amount": "amount",
+                    "currency": "currency",
+                    "documents": 1000000
+                  },
+                  "precedingTurnover": {
+                    "year": 1000000,
+                    "amount": "amount",
+                    "documents": 1000000
+                  },
+                  "status": "not_applicable",
+                  "headroomAmount": "headroomAmount",
+                  "intraEu": {
+                    "trigger": "trigger",
+                    "currency": "currency",
+                    "acquisitionsFromMemberStates": "acquisitionsFromMemberStates",
+                    "servicesToMemberStates": "servicesToMemberStates",
+                    "total": "total",
+                    "status": "below",
+                    "note": "note"
+                  },
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuSmeThresholdGetResponse(
+            countryCode: "countryCode",
+            isVatPayer: true,
+            baseCurrency: "baseCurrency",
+            year: 1000000,
+            threshold: Nullable<PostV1DeclarationsEuSmeThresholdGetResponseThreshold>.value(PostV1DeclarationsEuSmeThresholdGetResponseThreshold(
+                currency: "currency",
+                nationalThreshold: Nullable<String>.value("nationalThreshold"),
+                sectors: Optional([
+                    PostV1DeclarationsEuSmeThresholdGetResponseThresholdSectorsItem(
+                        label: "label",
+                        amount: "amount",
+                        note: Optional("note")
+                    ),
+                    PostV1DeclarationsEuSmeThresholdGetResponseThresholdSectorsItem(
+                        label: "label",
+                        amount: "amount",
+                        note: Optional("note")
+                    )
+                ]),
+                note: Optional("note"),
+                source: "source"
+            )),
+            turnover: PostV1DeclarationsEuSmeThresholdGetResponseTurnover(
+                amount: "amount",
+                currency: "currency",
+                documents: 1000000
+            ),
+            precedingTurnover: PostV1DeclarationsEuSmeThresholdGetResponsePrecedingTurnover(
+                year: 1000000,
+                amount: "amount",
+                documents: 1000000
+            ),
+            status: .notApplicable,
+            headroomAmount: Nullable<String>.value("headroomAmount"),
+            intraEu: Nullable<PostV1DeclarationsEuSmeThresholdGetResponseIntraEu>.value(PostV1DeclarationsEuSmeThresholdGetResponseIntraEu(
+                trigger: "trigger",
+                currency: "currency",
+                acquisitionsFromMemberStates: "acquisitionsFromMemberStates",
+                servicesToMemberStates: "servicesToMemberStates",
+                total: "total",
+                status: .below,
+                note: "note"
+            )),
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsEuSmeThresholdGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuVatReturnPacksList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "packs": [
+                    {
+                      "countryCode": "countryCode",
+                      "formKey": "formKey",
+                      "formName": "formName",
+                      "frequency": "monthly",
+                      "source": "source"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuVatReturnPacksListResponse(
+            packs: [
+                PostV1DeclarationsEuVatReturnPacksListResponsePacksItem(
+                    countryCode: "countryCode",
+                    formKey: "formKey",
+                    formName: "formName",
+                    frequency: .monthly,
+                    source: "source"
+                )
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsEuVatReturnPacksList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuVatReturnPacksList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "packs": [
+                    {
+                      "countryCode": "countryCode",
+                      "formKey": "formKey",
+                      "formName": "formName",
+                      "frequency": "monthly",
+                      "source": "source"
+                    },
+                    {
+                      "countryCode": "countryCode",
+                      "formKey": "formKey",
+                      "formName": "formName",
+                      "frequency": "monthly",
+                      "source": "source"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuVatReturnPacksListResponse(
+            packs: [
+                PostV1DeclarationsEuVatReturnPacksListResponsePacksItem(
+                    countryCode: "countryCode",
+                    formKey: "formKey",
+                    formName: "formName",
+                    frequency: .monthly,
+                    source: "source"
+                ),
+                PostV1DeclarationsEuVatReturnPacksListResponsePacksItem(
+                    countryCode: "countryCode",
+                    formKey: "formKey",
+                    formName: "formName",
+                    frequency: .monthly,
+                    source: "source"
+                )
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsEuVatReturnPacksList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuVatReturnCompute1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "countryCode": "countryCode",
+                  "formKey": "formKey",
+                  "formName": "formName",
+                  "frequency": "monthly",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "boxes": [
+                    {
+                      "code": "code",
+                      "label": "label",
+                      "amount": "amount"
+                    }
+                  ],
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "notes": [
+                    "notes"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuVatReturnComputeResponse(
+            countryCode: "countryCode",
+            formKey: "formKey",
+            formName: "formName",
+            frequency: .monthly,
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            boxes: [
+                PostV1DeclarationsEuVatReturnComputeResponseBoxesItem(
+                    code: "code",
+                    label: "label",
+                    amount: "amount"
+                )
+            ],
+            warnings: [
+                "warnings"
+            ],
+            notes: [
+                "notes"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.postV1DeclarationsEuVatReturnCompute(
+            request: .init(
+                countryCode: "countryCode",
+                year: 1000000,
+                month: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsEuVatReturnCompute2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "countryCode": "countryCode",
+                  "formKey": "formKey",
+                  "formName": "formName",
+                  "frequency": "monthly",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "boxes": [
+                    {
+                      "code": "code",
+                      "label": "label",
+                      "amount": "amount"
+                    },
+                    {
+                      "code": "code",
+                      "label": "label",
+                      "amount": "amount"
+                    }
+                  ],
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "notes": [
+                    "notes",
+                    "notes"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsEuVatReturnComputeResponse(
+            countryCode: "countryCode",
+            formKey: "formKey",
+            formName: "formName",
+            frequency: .monthly,
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            boxes: [
+                PostV1DeclarationsEuVatReturnComputeResponseBoxesItem(
+                    code: "code",
+                    label: "label",
+                    amount: "amount"
+                ),
+                PostV1DeclarationsEuVatReturnComputeResponseBoxesItem(
+                    code: "code",
+                    label: "label",
+                    amount: "amount"
+                )
+            ],
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            notes: [
+                "notes",
+                "notes"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.postV1DeclarationsEuVatReturnCompute(
+            request: .init(
+                countryCode: "xy",
                 year: 1000000,
                 month: 1000000
             ),

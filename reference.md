@@ -704,6 +704,20 @@ try await main()
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Effective EU VAT rate mapping for this company: EC TEDB defaults, replaced per country by any company overrides. Verify the mapping fits the goods and services you sell before relying on it.
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -738,6 +752,85 @@ try await main()
 <dd>
 
 **request:** `Requests.PostV1ReferenceEuVatRatesListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceEuVatRatesSetOverrides</a>(request: Requests.PostV1ReferenceEuVatRatesSetOverridesRequest, requestOptions: RequestOptions?) -> PostV1ReferenceEuVatRatesSetOverridesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replace the VAT rate mapping this company uses for one EU country. Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.reference.postV1ReferenceEuVatRatesSetOverrides(request: .init(
+        countryCode: "countryCode",
+        rates: [
+            PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem(
+                category: .standard,
+                ratePercent: "ratePercent"
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ReferenceEuVatRatesSetOverridesRequest` 
     
 </dd>
 </dl>
@@ -4626,6 +4719,63 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionSchedulesList</a>(request: Requests.PostV1SalesRecognitionSchedulesListRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionSchedulesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.postV1SalesRecognitionSchedulesList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1SalesRecognitionSchedulesListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesApplyAdvance</a>(request: Requests.PostV1SalesInvoicesApplyAdvanceRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesApplyAdvanceResponse</code></summary>
 <dl>
 <dd>
@@ -5123,6 +5273,485 @@ try await main()
 <dd>
 
 **request:** `Requests.PostV1SalesActsPdfRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionCompute</a>(request: Requests.PostV1SalesRecognitionComputeRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionComputeResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.postV1SalesRecognitionCompute(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1SalesRecognitionComputeRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionRun</a>(request: Requests.PostV1SalesRecognitionRunRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionRunResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.postV1SalesRecognitionRun(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1SalesRecognitionRunRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionProgress</a>(request: Requests.PostV1SalesRecognitionProgressRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionProgressResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.postV1SalesRecognitionProgress(request: .init(
+        invoiceLineId: "invoiceLineId",
+        percentComplete: "percentComplete"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1SalesRecognitionProgressRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionModify</a>(request: Requests.PostV1SalesRecognitionModifyRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionModifyResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Apply an IFRS 15 contract modification to a deferred invoice line. Prospective: cancel the pending schedule and respread the unrecognized remainder over the new terms. Cumulative catch-up (ratable only): recompute revenue as if the new terms applied from the start and post the difference immediately.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.postV1SalesRecognitionModify(request: .init(
+        invoiceLineId: "invoiceLineId",
+        approach: .prospective
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1SalesRecognitionModifyRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionRunsList</a>(request: Requests.PostV1SalesRecognitionRunsListRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionRunsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.postV1SalesRecognitionRunsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1SalesRecognitionRunsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionSummary</a>(request: Requests.PostV1SalesRecognitionSummaryRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionSummaryResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.postV1SalesRecognitionSummary(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1SalesRecognitionSummaryRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRefundLiabilityList</a>(request: Requests.PostV1SalesRefundLiabilityListRequest, requestOptions: RequestOptions?) -> PostV1SalesRefundLiabilityListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.postV1SalesRefundLiabilityList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1SalesRefundLiabilityListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRefundLiabilityTrueUp</a>(request: Requests.PostV1SalesRefundLiabilityTrueUpRequest, requestOptions: RequestOptions?) -> PostV1SalesRefundLiabilityTrueUpResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.postV1SalesRefundLiabilityTrueUp(request: .init(
+        invoiceId: "invoiceId",
+        estimatedTotal: "estimatedTotal"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1SalesRefundLiabilityTrueUpRequest` 
     
 </dd>
 </dl>
@@ -6134,6 +6763,412 @@ try await main()
 <dd>
 
 **request:** `Requests.PostV1DeclarationsEuIossComputeRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuDistanceSalesThresholdGet</a>(request: Requests.PostV1DeclarationsEuDistanceSalesThresholdGetRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuDistanceSalesThresholdGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.postV1DeclarationsEuDistanceSalesThresholdGet(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1DeclarationsEuDistanceSalesThresholdGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuUnionTurnoverGet</a>(request: Requests.PostV1DeclarationsEuUnionTurnoverGetRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuUnionTurnoverGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.postV1DeclarationsEuUnionTurnoverGet(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1DeclarationsEuUnionTurnoverGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuSmeCrossBorderReportCompute</a>(request: Requests.PostV1DeclarationsEuSmeCrossBorderReportComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuSmeCrossBorderReportComputeResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.postV1DeclarationsEuSmeCrossBorderReportCompute(request: .init(
+        year: 1000000,
+        quarter: 1000000
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1DeclarationsEuSmeCrossBorderReportComputeRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuSmeThresholdsList</a>(request: Requests.PostV1DeclarationsEuSmeThresholdsListRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuSmeThresholdsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.postV1DeclarationsEuSmeThresholdsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1DeclarationsEuSmeThresholdsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuSmeThresholdGet</a>(request: Requests.PostV1DeclarationsEuSmeThresholdGetRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuSmeThresholdGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.postV1DeclarationsEuSmeThresholdGet(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1DeclarationsEuSmeThresholdGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuVatReturnPacksList</a>(request: Requests.PostV1DeclarationsEuVatReturnPacksListRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuVatReturnPacksListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.postV1DeclarationsEuVatReturnPacksList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1DeclarationsEuVatReturnPacksListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuVatReturnCompute</a>(request: Requests.PostV1DeclarationsEuVatReturnComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuVatReturnComputeResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.postV1DeclarationsEuVatReturnCompute(request: .init(
+        countryCode: "countryCode",
+        year: 1000000,
+        month: 1000000
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1DeclarationsEuVatReturnComputeRequest` 
     
 </dd>
 </dl>
@@ -10713,6 +11748,120 @@ try await main()
 <dd>
 
 **request:** `Requests.PostV1AgreementsAgreementsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsAgreementsGenerateInvoice</a>(request: Requests.PostV1AgreementsAgreementsGenerateInvoiceRequest, requestOptions: RequestOptions?) -> PostV1AgreementsAgreementsGenerateInvoiceResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.agreements.postV1AgreementsAgreementsGenerateInvoice(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1AgreementsAgreementsGenerateInvoiceRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsAgreementsBillingRun</a>(request: Requests.PostV1AgreementsAgreementsBillingRunRequest, requestOptions: RequestOptions?) -> PostV1AgreementsAgreementsBillingRunResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.agreements.postV1AgreementsAgreementsBillingRun(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1AgreementsAgreementsBillingRunRequest` 
     
 </dd>
 </dl>

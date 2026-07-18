@@ -6,6 +6,7 @@ public struct PostV1AgreementsAgreementsGetResponseItemsItem: Codable, Hashable,
     public let description: String
     public let quantity: Nullable<String>
     public let unitPrice: Nullable<String>
+    public let vatRatePercent: Nullable<String>
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -15,6 +16,7 @@ public struct PostV1AgreementsAgreementsGetResponseItemsItem: Codable, Hashable,
         description: String,
         quantity: Nullable<String>,
         unitPrice: Nullable<String>,
+        vatRatePercent: Nullable<String>,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -22,6 +24,7 @@ public struct PostV1AgreementsAgreementsGetResponseItemsItem: Codable, Hashable,
         self.description = description
         self.quantity = quantity
         self.unitPrice = unitPrice
+        self.vatRatePercent = vatRatePercent
         self.additionalProperties = additionalProperties
     }
 
@@ -32,6 +35,7 @@ public struct PostV1AgreementsAgreementsGetResponseItemsItem: Codable, Hashable,
         self.description = try container.decode(String.self, forKey: .description)
         self.quantity = try container.decode(Nullable<String>.self, forKey: .quantity)
         self.unitPrice = try container.decode(Nullable<String>.self, forKey: .unitPrice)
+        self.vatRatePercent = try container.decode(Nullable<String>.self, forKey: .vatRatePercent)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -43,6 +47,7 @@ public struct PostV1AgreementsAgreementsGetResponseItemsItem: Codable, Hashable,
         try container.encode(self.description, forKey: .description)
         try container.encode(self.quantity, forKey: .quantity)
         try container.encode(self.unitPrice, forKey: .unitPrice)
+        try container.encode(self.vatRatePercent, forKey: .vatRatePercent)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -52,5 +57,6 @@ public struct PostV1AgreementsAgreementsGetResponseItemsItem: Codable, Hashable,
         case description
         case quantity
         case unitPrice
+        case vatRatePercent
     }
 }

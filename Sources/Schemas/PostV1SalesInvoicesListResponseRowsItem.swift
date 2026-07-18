@@ -19,6 +19,7 @@ public struct PostV1SalesInvoicesListResponseRowsItem: Codable, Hashable, Sendab
     public let journalTransactionId: Nullable<String>
     public let appliedToInvoiceId: Nullable<String>
     public let creditedInvoiceId: Nullable<String>
+    public let agreementId: Nullable<String>
     public let vatScheme: Nullable<PostV1SalesInvoicesListResponseRowsItemVatScheme>
     public let vatCountryCode: Nullable<String>
     public let deemedSupplier: Bool
@@ -47,6 +48,7 @@ public struct PostV1SalesInvoicesListResponseRowsItem: Codable, Hashable, Sendab
         journalTransactionId: Nullable<String>,
         appliedToInvoiceId: Nullable<String>,
         creditedInvoiceId: Nullable<String>,
+        agreementId: Nullable<String>,
         vatScheme: Nullable<PostV1SalesInvoicesListResponseRowsItemVatScheme>,
         vatCountryCode: Nullable<String>,
         deemedSupplier: Bool,
@@ -73,6 +75,7 @@ public struct PostV1SalesInvoicesListResponseRowsItem: Codable, Hashable, Sendab
         self.journalTransactionId = journalTransactionId
         self.appliedToInvoiceId = appliedToInvoiceId
         self.creditedInvoiceId = creditedInvoiceId
+        self.agreementId = agreementId
         self.vatScheme = vatScheme
         self.vatCountryCode = vatCountryCode
         self.deemedSupplier = deemedSupplier
@@ -102,6 +105,7 @@ public struct PostV1SalesInvoicesListResponseRowsItem: Codable, Hashable, Sendab
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
         self.appliedToInvoiceId = try container.decode(Nullable<String>.self, forKey: .appliedToInvoiceId)
         self.creditedInvoiceId = try container.decode(Nullable<String>.self, forKey: .creditedInvoiceId)
+        self.agreementId = try container.decode(Nullable<String>.self, forKey: .agreementId)
         self.vatScheme = try container.decode(Nullable<PostV1SalesInvoicesListResponseRowsItemVatScheme>.self, forKey: .vatScheme)
         self.vatCountryCode = try container.decode(Nullable<String>.self, forKey: .vatCountryCode)
         self.deemedSupplier = try container.decode(Bool.self, forKey: .deemedSupplier)
@@ -132,6 +136,7 @@ public struct PostV1SalesInvoicesListResponseRowsItem: Codable, Hashable, Sendab
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
         try container.encode(self.appliedToInvoiceId, forKey: .appliedToInvoiceId)
         try container.encode(self.creditedInvoiceId, forKey: .creditedInvoiceId)
+        try container.encode(self.agreementId, forKey: .agreementId)
         try container.encode(self.vatScheme, forKey: .vatScheme)
         try container.encode(self.vatCountryCode, forKey: .vatCountryCode)
         try container.encode(self.deemedSupplier, forKey: .deemedSupplier)
@@ -160,6 +165,7 @@ public struct PostV1SalesInvoicesListResponseRowsItem: Codable, Hashable, Sendab
         case journalTransactionId
         case appliedToInvoiceId
         case creditedInvoiceId
+        case agreementId
         case vatScheme
         case vatCountryCode
         case deemedSupplier

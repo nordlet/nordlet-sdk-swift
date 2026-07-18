@@ -10,6 +10,7 @@ extension Requests {
         public let endDate: String?
         public let autoRenew: Bool?
         public let value: String?
+        public let billingPeriod: PostV1AgreementsAgreementsCreateRequestBillingPeriod?
         public let currency: String?
         public let status: PostV1AgreementsAgreementsCreateRequestStatus?
         public let notes: String?
@@ -26,6 +27,7 @@ extension Requests {
             endDate: String? = nil,
             autoRenew: Bool? = nil,
             value: String? = nil,
+            billingPeriod: PostV1AgreementsAgreementsCreateRequestBillingPeriod? = nil,
             currency: String? = nil,
             status: PostV1AgreementsAgreementsCreateRequestStatus? = nil,
             notes: String? = nil,
@@ -40,6 +42,7 @@ extension Requests {
             self.endDate = endDate
             self.autoRenew = autoRenew
             self.value = value
+            self.billingPeriod = billingPeriod
             self.currency = currency
             self.status = status
             self.notes = notes
@@ -57,6 +60,7 @@ extension Requests {
             self.endDate = try container.decodeIfPresent(String.self, forKey: .endDate)
             self.autoRenew = try container.decodeIfPresent(Bool.self, forKey: .autoRenew)
             self.value = try container.decodeIfPresent(String.self, forKey: .value)
+            self.billingPeriod = try container.decodeIfPresent(PostV1AgreementsAgreementsCreateRequestBillingPeriod.self, forKey: .billingPeriod)
             self.currency = try container.decodeIfPresent(String.self, forKey: .currency)
             self.status = try container.decodeIfPresent(PostV1AgreementsAgreementsCreateRequestStatus.self, forKey: .status)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
@@ -75,6 +79,7 @@ extension Requests {
             try container.encodeIfPresent(self.endDate, forKey: .endDate)
             try container.encodeIfPresent(self.autoRenew, forKey: .autoRenew)
             try container.encodeIfPresent(self.value, forKey: .value)
+            try container.encodeIfPresent(self.billingPeriod, forKey: .billingPeriod)
             try container.encodeIfPresent(self.currency, forKey: .currency)
             try container.encodeIfPresent(self.status, forKey: .status)
             try container.encodeIfPresent(self.notes, forKey: .notes)
@@ -91,6 +96,7 @@ extension Requests {
             case endDate
             case autoRenew
             case value
+            case billingPeriod
             case currency
             case status
             case notes

@@ -27,6 +27,7 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
+                  "agreementId": "agreementId",
                   "vatScheme": "domestic",
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
@@ -48,7 +49,20 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": null,
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     }
                   ]
                 }
@@ -79,6 +93,7 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            agreementId: Nullable<String>.value("agreementId"),
             vatScheme: Nullable<PostV1SalesInvoicesCreateResponseVatScheme>.value(.domestic),
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
@@ -100,7 +115,20 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: .null,
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ]
         )
@@ -142,6 +170,7 @@ import Api
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
+                  "agreementId": "x",
                   "vatScheme": "domestic",
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
@@ -163,7 +192,25 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     },
                     {
                       "id": "x",
@@ -179,7 +226,25 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     }
                   ]
                 }
@@ -210,6 +275,7 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
+            agreementId: Nullable<String>.value("x"),
             vatScheme: Nullable<PostV1SalesInvoicesCreateResponseVatScheme>.value(.domestic),
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
@@ -231,7 +297,25 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 ),
                 PostV1SalesInvoicesCreateResponseLinesItem(
                     id: "x",
@@ -247,7 +331,25 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ]
         )
@@ -292,6 +394,7 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
+                  "agreementId": "agreementId",
                   "vatScheme": "domestic",
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
@@ -313,7 +416,20 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": null,
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     }
                   ]
                 }
@@ -344,6 +460,7 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            agreementId: Nullable<String>.value("agreementId"),
             vatScheme: Nullable<PostV1SalesInvoicesGetResponseVatScheme>.value(.domestic),
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
@@ -365,7 +482,20 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: .null,
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ]
         )
@@ -400,6 +530,7 @@ import Api
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
+                  "agreementId": "x",
                   "vatScheme": "domestic",
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
@@ -421,7 +552,25 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     },
                     {
                       "id": "x",
@@ -437,7 +586,25 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     }
                   ]
                 }
@@ -468,6 +635,7 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
+            agreementId: Nullable<String>.value("x"),
             vatScheme: Nullable<PostV1SalesInvoicesGetResponseVatScheme>.value(.domestic),
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
@@ -489,7 +657,25 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 ),
                 PostV1SalesInvoicesGetResponseLinesItem(
                     id: "x",
@@ -505,7 +691,25 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ]
         )
@@ -788,6 +992,7 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
+                  "agreementId": "agreementId",
                   "vatScheme": "domestic",
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
@@ -809,7 +1014,20 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": null,
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     }
                   ]
                 }
@@ -840,6 +1058,7 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            agreementId: Nullable<String>.value("agreementId"),
             vatScheme: Nullable<PostV1SalesInvoicesUpdateResponseVatScheme>.value(.domestic),
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
@@ -861,7 +1080,20 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: .null,
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ]
         )
@@ -896,6 +1128,7 @@ import Api
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
+                  "agreementId": "x",
                   "vatScheme": "domestic",
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
@@ -917,7 +1150,25 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     },
                     {
                       "id": "x",
@@ -933,7 +1184,25 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     }
                   ]
                 }
@@ -964,6 +1233,7 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
+            agreementId: Nullable<String>.value("x"),
             vatScheme: Nullable<PostV1SalesInvoicesUpdateResponseVatScheme>.value(.domestic),
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
@@ -985,7 +1255,25 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 ),
                 PostV1SalesInvoicesUpdateResponseLinesItem(
                     id: "x",
@@ -1001,7 +1289,25 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ]
         )
@@ -1088,6 +1394,7 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
+                  "agreementId": "agreementId",
                   "vatScheme": "domestic",
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
@@ -1109,7 +1416,20 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": null,
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     }
                   ]
                 }
@@ -1140,6 +1460,7 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            agreementId: Nullable<String>.value("agreementId"),
             vatScheme: Nullable<PostV1SalesInvoicesIssueResponseVatScheme>.value(.domestic),
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
@@ -1161,7 +1482,20 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: .null,
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ]
         )
@@ -1196,6 +1530,7 @@ import Api
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
+                  "agreementId": "x",
                   "vatScheme": "domestic",
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
@@ -1217,7 +1552,25 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     },
                     {
                       "id": "x",
@@ -1233,7 +1586,25 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     }
                   ]
                 }
@@ -1264,6 +1635,7 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
+            agreementId: Nullable<String>.value("x"),
             vatScheme: Nullable<PostV1SalesInvoicesIssueResponseVatScheme>.value(.domestic),
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
@@ -1285,7 +1657,25 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 ),
                 PostV1SalesInvoicesIssueResponseLinesItem(
                     id: "x",
@@ -1301,12 +1691,182 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ]
         )
         let response = try await client.sales.postV1SalesInvoicesIssue(
             request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionSchedulesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "invoiceId": "invoiceId",
+                      "invoiceLineId": "invoiceLineId",
+                      "method": "point_in_time",
+                      "status": "pending",
+                      "scheduleDate": "scheduleDate",
+                      "description": "description",
+                      "amount": "amount",
+                      "journalTransactionId": "journalTransactionId",
+                      "recognizedAt": "recognizedAt",
+                      "sortOrder": 1000000,
+                      "createdAt": "createdAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionSchedulesListResponse(
+            rows: [
+                PostV1SalesRecognitionSchedulesListResponseRowsItem(
+                    id: "id",
+                    invoiceId: "invoiceId",
+                    invoiceLineId: "invoiceLineId",
+                    method: .pointInTime,
+                    status: .pending,
+                    scheduleDate: Nullable<String>.value("scheduleDate"),
+                    description: Nullable<String>.value("description"),
+                    amount: "amount",
+                    journalTransactionId: Nullable<String>.value("journalTransactionId"),
+                    recognizedAt: Nullable<String>.value("recognizedAt"),
+                    sortOrder: 1000000,
+                    createdAt: "createdAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000
+        )
+        let response = try await client.sales.postV1SalesRecognitionSchedulesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionSchedulesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "invoiceId": "x",
+                      "invoiceLineId": "x",
+                      "method": "point_in_time",
+                      "status": "pending",
+                      "scheduleDate": "scheduleDate",
+                      "description": "description",
+                      "amount": "amount",
+                      "journalTransactionId": "x",
+                      "recognizedAt": "recognizedAt",
+                      "sortOrder": 1000000,
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "id": "x",
+                      "invoiceId": "x",
+                      "invoiceLineId": "x",
+                      "method": "point_in_time",
+                      "status": "pending",
+                      "scheduleDate": "scheduleDate",
+                      "description": "description",
+                      "amount": "amount",
+                      "journalTransactionId": "x",
+                      "recognizedAt": "recognizedAt",
+                      "sortOrder": 1000000,
+                      "createdAt": "createdAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionSchedulesListResponse(
+            rows: [
+                PostV1SalesRecognitionSchedulesListResponseRowsItem(
+                    id: "x",
+                    invoiceId: "x",
+                    invoiceLineId: "x",
+                    method: .pointInTime,
+                    status: .pending,
+                    scheduleDate: Nullable<String>.value("scheduleDate"),
+                    description: Nullable<String>.value("description"),
+                    amount: "amount",
+                    journalTransactionId: Nullable<String>.value("x"),
+                    recognizedAt: Nullable<String>.value("recognizedAt"),
+                    sortOrder: 1000000,
+                    createdAt: "createdAt"
+                ),
+                PostV1SalesRecognitionSchedulesListResponseRowsItem(
+                    id: "x",
+                    invoiceId: "x",
+                    invoiceLineId: "x",
+                    method: .pointInTime,
+                    status: .pending,
+                    scheduleDate: Nullable<String>.value("scheduleDate"),
+                    description: Nullable<String>.value("description"),
+                    amount: "amount",
+                    journalTransactionId: Nullable<String>.value("x"),
+                    recognizedAt: Nullable<String>.value("recognizedAt"),
+                    sortOrder: 1000000,
+                    createdAt: "createdAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000
+        )
+        let response = try await client.sales.postV1SalesRecognitionSchedulesList(
+            request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -1336,6 +1896,7 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
+                  "agreementId": "agreementId",
                   "vatScheme": "domestic",
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
@@ -1357,7 +1918,20 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": null,
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     }
                   ]
                 }
@@ -1388,6 +1962,7 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            agreementId: Nullable<String>.value("agreementId"),
             vatScheme: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatScheme>.value(.domestic),
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
@@ -1409,7 +1984,20 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: .null,
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ]
         )
@@ -1447,6 +2035,7 @@ import Api
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
+                  "agreementId": "x",
                   "vatScheme": "domestic",
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
@@ -1468,7 +2057,25 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     },
                     {
                       "id": "x",
@@ -1484,7 +2091,25 @@ import Api
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
-                      "sortOrder": 1000000
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
                     }
                   ]
                 }
@@ -1515,6 +2140,7 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
+            agreementId: Nullable<String>.value("x"),
             vatScheme: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatScheme>.value(.domestic),
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
@@ -1536,7 +2162,25 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 ),
                 PostV1SalesInvoicesApplyAdvanceResponseLinesItem(
                     id: "x",
@@ -1552,7 +2196,25 @@ import Api
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
-                    sortOrder: 1000000
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ]
         )
@@ -1592,6 +2254,7 @@ import Api
                       "journalTransactionId": "journalTransactionId",
                       "appliedToInvoiceId": "appliedToInvoiceId",
                       "creditedInvoiceId": "creditedInvoiceId",
+                      "agreementId": "agreementId",
                       "vatScheme": "domestic",
                       "vatCountryCode": "vatCountryCode",
                       "deemedSupplier": true,
@@ -1633,6 +2296,7 @@ import Api
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
                     appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
                     creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+                    agreementId: Nullable<String>.value("agreementId"),
                     vatScheme: Nullable<PostV1SalesInvoicesListResponseRowsItemVatScheme>.value(.domestic),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true,
@@ -1678,6 +2342,7 @@ import Api
                       "journalTransactionId": "x",
                       "appliedToInvoiceId": "x",
                       "creditedInvoiceId": "x",
+                      "agreementId": "x",
                       "vatScheme": "domestic",
                       "vatCountryCode": "vatCountryCode",
                       "deemedSupplier": true,
@@ -1704,6 +2369,7 @@ import Api
                       "journalTransactionId": "x",
                       "appliedToInvoiceId": "x",
                       "creditedInvoiceId": "x",
+                      "agreementId": "x",
                       "vatScheme": "domestic",
                       "vatCountryCode": "vatCountryCode",
                       "deemedSupplier": true,
@@ -1745,6 +2411,7 @@ import Api
                     journalTransactionId: Nullable<String>.value("x"),
                     appliedToInvoiceId: Nullable<String>.value("x"),
                     creditedInvoiceId: Nullable<String>.value("x"),
+                    agreementId: Nullable<String>.value("x"),
                     vatScheme: Nullable<PostV1SalesInvoicesListResponseRowsItemVatScheme>.value(.domestic),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true,
@@ -1771,6 +2438,7 @@ import Api
                     journalTransactionId: Nullable<String>.value("x"),
                     appliedToInvoiceId: Nullable<String>.value("x"),
                     creditedInvoiceId: Nullable<String>.value("x"),
+                    agreementId: Nullable<String>.value("x"),
                     vatScheme: Nullable<PostV1SalesInvoicesListResponseRowsItemVatScheme>.value(.domestic),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true,
@@ -2827,6 +3495,840 @@ import Api
         )
         let response = try await client.sales.postV1SalesActsPdf(
             request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionCompute1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "asOfDate": "asOfDate",
+                  "totalAmount": "totalAmount",
+                  "rows": [
+                    {
+                      "scheduleId": "scheduleId",
+                      "invoiceId": "invoiceId",
+                      "invoiceFullNumber": "invoiceFullNumber",
+                      "invoiceLineId": "invoiceLineId",
+                      "lineDescription": "lineDescription",
+                      "scheduleDate": "scheduleDate",
+                      "description": "description",
+                      "amount": "amount"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionComputeResponse(
+            asOfDate: "asOfDate",
+            totalAmount: "totalAmount",
+            rows: [
+                PostV1SalesRecognitionComputeResponseRowsItem(
+                    scheduleId: "scheduleId",
+                    invoiceId: "invoiceId",
+                    invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
+                    invoiceLineId: "invoiceLineId",
+                    lineDescription: "lineDescription",
+                    scheduleDate: Nullable<String>.value("scheduleDate"),
+                    description: Nullable<String>.value("description"),
+                    amount: "amount"
+                )
+            ]
+        )
+        let response = try await client.sales.postV1SalesRecognitionCompute(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionCompute2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "asOfDate": "asOfDate",
+                  "totalAmount": "totalAmount",
+                  "rows": [
+                    {
+                      "scheduleId": "x",
+                      "invoiceId": "x",
+                      "invoiceFullNumber": "invoiceFullNumber",
+                      "invoiceLineId": "x",
+                      "lineDescription": "lineDescription",
+                      "scheduleDate": "scheduleDate",
+                      "description": "description",
+                      "amount": "amount"
+                    },
+                    {
+                      "scheduleId": "x",
+                      "invoiceId": "x",
+                      "invoiceFullNumber": "invoiceFullNumber",
+                      "invoiceLineId": "x",
+                      "lineDescription": "lineDescription",
+                      "scheduleDate": "scheduleDate",
+                      "description": "description",
+                      "amount": "amount"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionComputeResponse(
+            asOfDate: "asOfDate",
+            totalAmount: "totalAmount",
+            rows: [
+                PostV1SalesRecognitionComputeResponseRowsItem(
+                    scheduleId: "x",
+                    invoiceId: "x",
+                    invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
+                    invoiceLineId: "x",
+                    lineDescription: "lineDescription",
+                    scheduleDate: Nullable<String>.value("scheduleDate"),
+                    description: Nullable<String>.value("description"),
+                    amount: "amount"
+                ),
+                PostV1SalesRecognitionComputeResponseRowsItem(
+                    scheduleId: "x",
+                    invoiceId: "x",
+                    invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
+                    invoiceLineId: "x",
+                    lineDescription: "lineDescription",
+                    scheduleDate: Nullable<String>.value("scheduleDate"),
+                    description: Nullable<String>.value("description"),
+                    amount: "amount"
+                )
+            ]
+        )
+        let response = try await client.sales.postV1SalesRecognitionCompute(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionRun1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "runId": "runId",
+                  "runDate": "runDate",
+                  "trigger": "manual",
+                  "scheduleCount": 1000000,
+                  "totalAmount": "totalAmount",
+                  "journalTransactionId": "journalTransactionId"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionRunResponse(
+            runId: "runId",
+            runDate: "runDate",
+            trigger: .manual,
+            scheduleCount: 1000000,
+            totalAmount: "totalAmount",
+            journalTransactionId: "journalTransactionId"
+        )
+        let response = try await client.sales.postV1SalesRecognitionRun(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionRun2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "runId": "x",
+                  "runDate": "runDate",
+                  "trigger": "manual",
+                  "scheduleCount": 1000000,
+                  "totalAmount": "totalAmount",
+                  "journalTransactionId": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionRunResponse(
+            runId: "x",
+            runDate: "runDate",
+            trigger: .manual,
+            scheduleCount: 1000000,
+            totalAmount: "totalAmount",
+            journalTransactionId: "x"
+        )
+        let response = try await client.sales.postV1SalesRecognitionRun(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionProgress1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "runId": "runId",
+                  "runDate": "runDate",
+                  "scheduleCount": 1000000,
+                  "totalAmount": "totalAmount",
+                  "journalTransactionId": "journalTransactionId"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionProgressResponse(
+            runId: "runId",
+            runDate: "runDate",
+            scheduleCount: 1000000,
+            totalAmount: "totalAmount",
+            journalTransactionId: "journalTransactionId"
+        )
+        let response = try await client.sales.postV1SalesRecognitionProgress(
+            request: .init(
+                invoiceLineId: "invoiceLineId",
+                percentComplete: "percentComplete"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionProgress2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "runId": "x",
+                  "runDate": "runDate",
+                  "scheduleCount": 1000000,
+                  "totalAmount": "totalAmount",
+                  "journalTransactionId": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionProgressResponse(
+            runId: "x",
+            runDate: "runDate",
+            scheduleCount: 1000000,
+            totalAmount: "totalAmount",
+            journalTransactionId: "x"
+        )
+        let response = try await client.sales.postV1SalesRecognitionProgress(
+            request: .init(
+                invoiceLineId: "x",
+                percentComplete: "percentComplete"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionModify1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "invoiceLineId": "invoiceLineId",
+                  "approach": "prospective",
+                  "cancelledCount": 1000000,
+                  "newPendingCount": 1000000,
+                  "catchUpAmount": "catchUpAmount",
+                  "journalTransactionId": "journalTransactionId",
+                  "newEndDate": "newEndDate"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionModifyResponse(
+            invoiceLineId: "invoiceLineId",
+            approach: .prospective,
+            cancelledCount: 1000000,
+            newPendingCount: 1000000,
+            catchUpAmount: "catchUpAmount",
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            newEndDate: Nullable<String>.value("newEndDate")
+        )
+        let response = try await client.sales.postV1SalesRecognitionModify(
+            request: .init(
+                invoiceLineId: "invoiceLineId",
+                approach: .prospective
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionModify2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "invoiceLineId": "x",
+                  "approach": "prospective",
+                  "cancelledCount": 1000000,
+                  "newPendingCount": 1000000,
+                  "catchUpAmount": "catchUpAmount",
+                  "journalTransactionId": "x",
+                  "newEndDate": "newEndDate"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionModifyResponse(
+            invoiceLineId: "x",
+            approach: .prospective,
+            cancelledCount: 1000000,
+            newPendingCount: 1000000,
+            catchUpAmount: "catchUpAmount",
+            journalTransactionId: Nullable<String>.value("x"),
+            newEndDate: Nullable<String>.value("newEndDate")
+        )
+        let response = try await client.sales.postV1SalesRecognitionModify(
+            request: .init(
+                invoiceLineId: "x",
+                approach: .prospective
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionRunsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "runDate": "runDate",
+                      "trigger": "manual",
+                      "scheduleCount": 1000000,
+                      "totalAmount": "totalAmount",
+                      "journalTransactionId": "journalTransactionId",
+                      "createdAt": "createdAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionRunsListResponse(
+            rows: [
+                PostV1SalesRecognitionRunsListResponseRowsItem(
+                    id: "id",
+                    runDate: "runDate",
+                    trigger: .manual,
+                    scheduleCount: 1000000,
+                    totalAmount: "totalAmount",
+                    journalTransactionId: "journalTransactionId",
+                    createdAt: "createdAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000
+        )
+        let response = try await client.sales.postV1SalesRecognitionRunsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionRunsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "runDate": "runDate",
+                      "trigger": "manual",
+                      "scheduleCount": 1000000,
+                      "totalAmount": "totalAmount",
+                      "journalTransactionId": "x",
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "id": "x",
+                      "runDate": "runDate",
+                      "trigger": "manual",
+                      "scheduleCount": 1000000,
+                      "totalAmount": "totalAmount",
+                      "journalTransactionId": "x",
+                      "createdAt": "createdAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionRunsListResponse(
+            rows: [
+                PostV1SalesRecognitionRunsListResponseRowsItem(
+                    id: "x",
+                    runDate: "runDate",
+                    trigger: .manual,
+                    scheduleCount: 1000000,
+                    totalAmount: "totalAmount",
+                    journalTransactionId: "x",
+                    createdAt: "createdAt"
+                ),
+                PostV1SalesRecognitionRunsListResponseRowsItem(
+                    id: "x",
+                    runDate: "runDate",
+                    trigger: .manual,
+                    scheduleCount: 1000000,
+                    totalAmount: "totalAmount",
+                    journalTransactionId: "x",
+                    createdAt: "createdAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000
+        )
+        let response = try await client.sales.postV1SalesRecognitionRunsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionSummary1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "invoiceId": "invoiceId",
+                      "invoiceFullNumber": "invoiceFullNumber",
+                      "invoiceLineId": "invoiceLineId",
+                      "lineDescription": "lineDescription",
+                      "method": "point_in_time",
+                      "deferredTotal": "deferredTotal",
+                      "recognizedToDate": "recognizedToDate",
+                      "remaining": "remaining",
+                      "pendingCount": 1000000,
+                      "nextScheduleDate": "nextScheduleDate"
+                    }
+                  ],
+                  "totals": {
+                    "deferredTotal": "deferredTotal",
+                    "recognizedToDate": "recognizedToDate",
+                    "remaining": "remaining"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionSummaryResponse(
+            rows: [
+                PostV1SalesRecognitionSummaryResponseRowsItem(
+                    invoiceId: "invoiceId",
+                    invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
+                    invoiceLineId: "invoiceLineId",
+                    lineDescription: "lineDescription",
+                    method: .pointInTime,
+                    deferredTotal: "deferredTotal",
+                    recognizedToDate: "recognizedToDate",
+                    remaining: "remaining",
+                    pendingCount: 1000000,
+                    nextScheduleDate: Nullable<String>.value("nextScheduleDate")
+                )
+            ],
+            totals: PostV1SalesRecognitionSummaryResponseTotals(
+                deferredTotal: "deferredTotal",
+                recognizedToDate: "recognizedToDate",
+                remaining: "remaining"
+            )
+        )
+        let response = try await client.sales.postV1SalesRecognitionSummary(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRecognitionSummary2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "invoiceId": "x",
+                      "invoiceFullNumber": "invoiceFullNumber",
+                      "invoiceLineId": "x",
+                      "lineDescription": "lineDescription",
+                      "method": "point_in_time",
+                      "deferredTotal": "deferredTotal",
+                      "recognizedToDate": "recognizedToDate",
+                      "remaining": "remaining",
+                      "pendingCount": 1000000,
+                      "nextScheduleDate": "nextScheduleDate"
+                    },
+                    {
+                      "invoiceId": "x",
+                      "invoiceFullNumber": "invoiceFullNumber",
+                      "invoiceLineId": "x",
+                      "lineDescription": "lineDescription",
+                      "method": "point_in_time",
+                      "deferredTotal": "deferredTotal",
+                      "recognizedToDate": "recognizedToDate",
+                      "remaining": "remaining",
+                      "pendingCount": 1000000,
+                      "nextScheduleDate": "nextScheduleDate"
+                    }
+                  ],
+                  "totals": {
+                    "deferredTotal": "deferredTotal",
+                    "recognizedToDate": "recognizedToDate",
+                    "remaining": "remaining"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRecognitionSummaryResponse(
+            rows: [
+                PostV1SalesRecognitionSummaryResponseRowsItem(
+                    invoiceId: "x",
+                    invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
+                    invoiceLineId: "x",
+                    lineDescription: "lineDescription",
+                    method: .pointInTime,
+                    deferredTotal: "deferredTotal",
+                    recognizedToDate: "recognizedToDate",
+                    remaining: "remaining",
+                    pendingCount: 1000000,
+                    nextScheduleDate: Nullable<String>.value("nextScheduleDate")
+                ),
+                PostV1SalesRecognitionSummaryResponseRowsItem(
+                    invoiceId: "x",
+                    invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
+                    invoiceLineId: "x",
+                    lineDescription: "lineDescription",
+                    method: .pointInTime,
+                    deferredTotal: "deferredTotal",
+                    recognizedToDate: "recognizedToDate",
+                    remaining: "remaining",
+                    pendingCount: 1000000,
+                    nextScheduleDate: Nullable<String>.value("nextScheduleDate")
+                )
+            ],
+            totals: PostV1SalesRecognitionSummaryResponseTotals(
+                deferredTotal: "deferredTotal",
+                recognizedToDate: "recognizedToDate",
+                remaining: "remaining"
+            )
+        )
+        let response = try await client.sales.postV1SalesRecognitionSummary(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRefundLiabilityList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "invoiceId": "invoiceId",
+                      "invoiceFullNumber": "invoiceFullNumber",
+                      "estimated": "estimated",
+                      "consumed": "consumed",
+                      "settlementRefunds": "settlementRefunds",
+                      "remaining": "remaining",
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRefundLiabilityListResponse(
+            rows: [
+                PostV1SalesRefundLiabilityListResponseRowsItem(
+                    id: "id",
+                    invoiceId: "invoiceId",
+                    invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
+                    estimated: "estimated",
+                    consumed: "consumed",
+                    settlementRefunds: "settlementRefunds",
+                    remaining: "remaining",
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000
+        )
+        let response = try await client.sales.postV1SalesRefundLiabilityList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRefundLiabilityList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "invoiceId": "x",
+                      "invoiceFullNumber": "invoiceFullNumber",
+                      "estimated": "estimated",
+                      "consumed": "consumed",
+                      "settlementRefunds": "settlementRefunds",
+                      "remaining": "remaining",
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    },
+                    {
+                      "id": "x",
+                      "invoiceId": "x",
+                      "invoiceFullNumber": "invoiceFullNumber",
+                      "estimated": "estimated",
+                      "consumed": "consumed",
+                      "settlementRefunds": "settlementRefunds",
+                      "remaining": "remaining",
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRefundLiabilityListResponse(
+            rows: [
+                PostV1SalesRefundLiabilityListResponseRowsItem(
+                    id: "x",
+                    invoiceId: "x",
+                    invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
+                    estimated: "estimated",
+                    consumed: "consumed",
+                    settlementRefunds: "settlementRefunds",
+                    remaining: "remaining",
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                ),
+                PostV1SalesRefundLiabilityListResponseRowsItem(
+                    id: "x",
+                    invoiceId: "x",
+                    invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
+                    estimated: "estimated",
+                    consumed: "consumed",
+                    settlementRefunds: "settlementRefunds",
+                    remaining: "remaining",
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000
+        )
+        let response = try await client.sales.postV1SalesRefundLiabilityList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRefundLiabilityTrueUp1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "invoiceId": "invoiceId",
+                  "estimated": "estimated",
+                  "consumed": "consumed",
+                  "remaining": "remaining",
+                  "delta": "delta",
+                  "journalTransactionId": "journalTransactionId"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRefundLiabilityTrueUpResponse(
+            invoiceId: "invoiceId",
+            estimated: "estimated",
+            consumed: "consumed",
+            remaining: "remaining",
+            delta: "delta",
+            journalTransactionId: "journalTransactionId"
+        )
+        let response = try await client.sales.postV1SalesRefundLiabilityTrueUp(
+            request: .init(
+                invoiceId: "invoiceId",
+                estimatedTotal: "estimatedTotal"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesRefundLiabilityTrueUp2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "invoiceId": "x",
+                  "estimated": "estimated",
+                  "consumed": "consumed",
+                  "remaining": "remaining",
+                  "delta": "delta",
+                  "journalTransactionId": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesRefundLiabilityTrueUpResponse(
+            invoiceId: "x",
+            estimated: "estimated",
+            consumed: "consumed",
+            remaining: "remaining",
+            delta: "delta",
+            journalTransactionId: "x"
+        )
+        let response = try await client.sales.postV1SalesRefundLiabilityTrueUp(
+            request: .init(
+                invoiceId: "x",
+                estimatedTotal: "estimatedTotal"
+            ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

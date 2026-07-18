@@ -9,4 +9,5 @@ public enum PostV1SalesInvoicesGetResponseVatScheme: String, Codable, Hashable, 
     case marketplaceDeemed = "marketplace_deemed"
     case export
     case outOfScope = "out_of_scope"
+    case smeExempt = "sme_exempt"
 }

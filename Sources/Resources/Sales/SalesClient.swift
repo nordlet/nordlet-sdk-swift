@@ -97,6 +97,16 @@ public final class SalesClient: Sendable {
         )
     }
 
+    public func postV1SalesRecognitionSchedulesList(request: Requests.PostV1SalesRecognitionSchedulesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionSchedulesListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/recognition-schedules/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1SalesRecognitionSchedulesListResponse.self
+        )
+    }
+
     public func postV1SalesInvoicesApplyAdvance(request: Requests.PostV1SalesInvoicesApplyAdvanceRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesApplyAdvanceResponse {
         return try await httpClient.performRequest(
             method: .post,
@@ -184,6 +194,89 @@ public final class SalesClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: PostV1SalesActsPdfResponse.self
+        )
+    }
+
+    public func postV1SalesRecognitionCompute(request: Requests.PostV1SalesRecognitionComputeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionComputeResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/recognition/compute",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1SalesRecognitionComputeResponse.self
+        )
+    }
+
+    public func postV1SalesRecognitionRun(request: Requests.PostV1SalesRecognitionRunRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionRunResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/recognition/run",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1SalesRecognitionRunResponse.self
+        )
+    }
+
+    public func postV1SalesRecognitionProgress(request: Requests.PostV1SalesRecognitionProgressRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionProgressResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/recognition/progress",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1SalesRecognitionProgressResponse.self
+        )
+    }
+
+    /// Apply an IFRS 15 contract modification to a deferred invoice line. Prospective: cancel the pending schedule and respread the unrecognized remainder over the new terms. Cumulative catch-up (ratable only): recompute revenue as if the new terms applied from the start and post the difference immediately.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1SalesRecognitionModify(request: Requests.PostV1SalesRecognitionModifyRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionModifyResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/recognition/modify",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1SalesRecognitionModifyResponse.self
+        )
+    }
+
+    public func postV1SalesRecognitionRunsList(request: Requests.PostV1SalesRecognitionRunsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionRunsListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/recognition/runs/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1SalesRecognitionRunsListResponse.self
+        )
+    }
+
+    public func postV1SalesRecognitionSummary(request: Requests.PostV1SalesRecognitionSummaryRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionSummaryResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/recognition/summary",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1SalesRecognitionSummaryResponse.self
+        )
+    }
+
+    public func postV1SalesRefundLiabilityList(request: Requests.PostV1SalesRefundLiabilityListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRefundLiabilityListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/refund-liability/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1SalesRefundLiabilityListResponse.self
+        )
+    }
+
+    public func postV1SalesRefundLiabilityTrueUp(request: Requests.PostV1SalesRefundLiabilityTrueUpRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRefundLiabilityTrueUpResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/refund-liability/true-up",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1SalesRefundLiabilityTrueUpResponse.self
         )
     }
 }

@@ -5,6 +5,7 @@ public struct PostV1AgreementsAgreementsCreateRequestItemsItem: Codable, Hashabl
     public let description: String
     public let quantity: String?
     public let unitPrice: String?
+    public let vatRatePercent: String?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -13,12 +14,14 @@ public struct PostV1AgreementsAgreementsCreateRequestItemsItem: Codable, Hashabl
         description: String,
         quantity: String? = nil,
         unitPrice: String? = nil,
+        vatRatePercent: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.itemId = itemId
         self.description = description
         self.quantity = quantity
         self.unitPrice = unitPrice
+        self.vatRatePercent = vatRatePercent
         self.additionalProperties = additionalProperties
     }
 
@@ -28,6 +31,7 @@ public struct PostV1AgreementsAgreementsCreateRequestItemsItem: Codable, Hashabl
         self.description = try container.decode(String.self, forKey: .description)
         self.quantity = try container.decodeIfPresent(String.self, forKey: .quantity)
         self.unitPrice = try container.decodeIfPresent(String.self, forKey: .unitPrice)
+        self.vatRatePercent = try container.decodeIfPresent(String.self, forKey: .vatRatePercent)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -38,6 +42,7 @@ public struct PostV1AgreementsAgreementsCreateRequestItemsItem: Codable, Hashabl
         try container.encode(self.description, forKey: .description)
         try container.encodeIfPresent(self.quantity, forKey: .quantity)
         try container.encodeIfPresent(self.unitPrice, forKey: .unitPrice)
+        try container.encodeIfPresent(self.vatRatePercent, forKey: .vatRatePercent)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -46,5 +51,6 @@ public struct PostV1AgreementsAgreementsCreateRequestItemsItem: Codable, Hashabl
         case description
         case quantity
         case unitPrice
+        case vatRatePercent
     }
 }

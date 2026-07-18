@@ -117,6 +117,76 @@ public final class DeclarationsClient: Sendable {
         )
     }
 
+    public func postV1DeclarationsEuDistanceSalesThresholdGet(request: Requests.PostV1DeclarationsEuDistanceSalesThresholdGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DeclarationsEuDistanceSalesThresholdGetResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/eu/distance-sales-threshold/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1DeclarationsEuDistanceSalesThresholdGetResponse.self
+        )
+    }
+
+    public func postV1DeclarationsEuUnionTurnoverGet(request: Requests.PostV1DeclarationsEuUnionTurnoverGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DeclarationsEuUnionTurnoverGetResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/eu/union-turnover/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1DeclarationsEuUnionTurnoverGetResponse.self
+        )
+    }
+
+    public func postV1DeclarationsEuSmeCrossBorderReportCompute(request: Requests.PostV1DeclarationsEuSmeCrossBorderReportComputeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DeclarationsEuSmeCrossBorderReportComputeResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/eu/sme-cross-border-report/compute",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1DeclarationsEuSmeCrossBorderReportComputeResponse.self
+        )
+    }
+
+    public func postV1DeclarationsEuSmeThresholdsList(request: Requests.PostV1DeclarationsEuSmeThresholdsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DeclarationsEuSmeThresholdsListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/eu/sme-thresholds/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1DeclarationsEuSmeThresholdsListResponse.self
+        )
+    }
+
+    public func postV1DeclarationsEuSmeThresholdGet(request: Requests.PostV1DeclarationsEuSmeThresholdGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DeclarationsEuSmeThresholdGetResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/eu/sme-threshold/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1DeclarationsEuSmeThresholdGetResponse.self
+        )
+    }
+
+    public func postV1DeclarationsEuVatReturnPacksList(request: Requests.PostV1DeclarationsEuVatReturnPacksListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DeclarationsEuVatReturnPacksListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/eu/vat-return/packs/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1DeclarationsEuVatReturnPacksListResponse.self
+        )
+    }
+
+    public func postV1DeclarationsEuVatReturnCompute(request: Requests.PostV1DeclarationsEuVatReturnComputeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DeclarationsEuVatReturnComputeResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/eu/vat-return/compute",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1DeclarationsEuVatReturnComputeResponse.self
+        )
+    }
+
     public func postV1DeclarationsConfigsList(request: Requests.PostV1DeclarationsConfigsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DeclarationsConfigsListResponse {
         return try await httpClient.performRequest(
             method: .post,

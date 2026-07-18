@@ -8,6 +8,7 @@ extension Requests {
         public let endDate: Nullable<String>?
         public let autoRenew: Bool?
         public let value: Nullable<String>?
+        public let billingPeriod: Nullable<PostV1AgreementsAgreementsUpdateRequestBillingPeriod>?
         public let status: PostV1AgreementsAgreementsUpdateRequestStatus?
         public let notes: Nullable<String>?
         /// Additional properties that are not explicitly defined in the schema
@@ -20,6 +21,7 @@ extension Requests {
             endDate: Nullable<String>? = nil,
             autoRenew: Bool? = nil,
             value: Nullable<String>? = nil,
+            billingPeriod: Nullable<PostV1AgreementsAgreementsUpdateRequestBillingPeriod>? = nil,
             status: PostV1AgreementsAgreementsUpdateRequestStatus? = nil,
             notes: Nullable<String>? = nil,
             additionalProperties: [String: JSONValue] = .init()
@@ -30,6 +32,7 @@ extension Requests {
             self.endDate = endDate
             self.autoRenew = autoRenew
             self.value = value
+            self.billingPeriod = billingPeriod
             self.status = status
             self.notes = notes
             self.additionalProperties = additionalProperties
@@ -43,6 +46,7 @@ extension Requests {
             self.endDate = try container.decodeNullableIfPresent(String.self, forKey: .endDate)
             self.autoRenew = try container.decodeIfPresent(Bool.self, forKey: .autoRenew)
             self.value = try container.decodeNullableIfPresent(String.self, forKey: .value)
+            self.billingPeriod = try container.decodeNullableIfPresent(PostV1AgreementsAgreementsUpdateRequestBillingPeriod.self, forKey: .billingPeriod)
             self.status = try container.decodeIfPresent(PostV1AgreementsAgreementsUpdateRequestStatus.self, forKey: .status)
             self.notes = try container.decodeNullableIfPresent(String.self, forKey: .notes)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -57,6 +61,7 @@ extension Requests {
             try container.encodeNullableIfPresent(self.endDate, forKey: .endDate)
             try container.encodeIfPresent(self.autoRenew, forKey: .autoRenew)
             try container.encodeNullableIfPresent(self.value, forKey: .value)
+            try container.encodeNullableIfPresent(self.billingPeriod, forKey: .billingPeriod)
             try container.encodeIfPresent(self.status, forKey: .status)
             try container.encodeNullableIfPresent(self.notes, forKey: .notes)
         }
@@ -69,6 +74,7 @@ extension Requests {
             case endDate
             case autoRenew
             case value
+            case billingPeriod
             case status
             case notes
         }

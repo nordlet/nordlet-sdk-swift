@@ -5,6 +5,7 @@ extension Requests {
         public let name: String?
         public let code: String?
         public let vatCode: String?
+        public let smeExemptionNumber: String?
         public let isVatPayer: Bool?
         public let address: PostV1AccountCompaniesUpdateRequestAddress?
         public let email: String?
@@ -21,6 +22,7 @@ extension Requests {
             name: String? = nil,
             code: String? = nil,
             vatCode: String? = nil,
+            smeExemptionNumber: String? = nil,
             isVatPayer: Bool? = nil,
             address: PostV1AccountCompaniesUpdateRequestAddress? = nil,
             email: String? = nil,
@@ -35,6 +37,7 @@ extension Requests {
             self.name = name
             self.code = code
             self.vatCode = vatCode
+            self.smeExemptionNumber = smeExemptionNumber
             self.isVatPayer = isVatPayer
             self.address = address
             self.email = email
@@ -52,6 +55,7 @@ extension Requests {
             self.name = try container.decodeIfPresent(String.self, forKey: .name)
             self.code = try container.decodeIfPresent(String.self, forKey: .code)
             self.vatCode = try container.decodeIfPresent(String.self, forKey: .vatCode)
+            self.smeExemptionNumber = try container.decodeIfPresent(String.self, forKey: .smeExemptionNumber)
             self.isVatPayer = try container.decodeIfPresent(Bool.self, forKey: .isVatPayer)
             self.address = try container.decodeIfPresent(PostV1AccountCompaniesUpdateRequestAddress.self, forKey: .address)
             self.email = try container.decodeIfPresent(String.self, forKey: .email)
@@ -70,6 +74,7 @@ extension Requests {
             try container.encodeIfPresent(self.name, forKey: .name)
             try container.encodeIfPresent(self.code, forKey: .code)
             try container.encodeIfPresent(self.vatCode, forKey: .vatCode)
+            try container.encodeIfPresent(self.smeExemptionNumber, forKey: .smeExemptionNumber)
             try container.encodeIfPresent(self.isVatPayer, forKey: .isVatPayer)
             try container.encodeIfPresent(self.address, forKey: .address)
             try container.encodeIfPresent(self.email, forKey: .email)
@@ -86,6 +91,7 @@ extension Requests {
             case name
             case code
             case vatCode
+            case smeExemptionNumber
             case isVatPayer
             case address
             case email

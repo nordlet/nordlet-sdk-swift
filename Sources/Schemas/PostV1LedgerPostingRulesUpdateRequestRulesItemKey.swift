@@ -18,4 +18,7 @@ public enum PostV1LedgerPostingRulesUpdateRequestRulesItemKey: String, Codable, 
     case settlementsCommissionRevenue = "settlements.commissionRevenue"
     case settlementsSellerPayable = "settlements.sellerPayable"
     case settlementsSuspense = "settlements.suspense"
+    case revenueDeferredIncome = "revenue.deferredIncome"
+    case revenueContractAsset = "revenue.contractAsset"
+    case revenueRefundLiability = "revenue.refundLiability"
 }

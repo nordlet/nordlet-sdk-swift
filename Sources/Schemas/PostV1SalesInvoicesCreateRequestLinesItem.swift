@@ -10,6 +10,9 @@ public struct PostV1SalesInvoicesCreateRequestLinesItem: Codable, Hashable, Send
     public let vatRatePercent: String?
     public let vatClassifierCode: String?
     public let costCenterId: String?
+    public let recognition: PostV1SalesInvoicesCreateRequestLinesItemRecognition?
+    public let standaloneSellingPrice: String?
+    public let refundEstimatePercent: String?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -23,6 +26,9 @@ public struct PostV1SalesInvoicesCreateRequestLinesItem: Codable, Hashable, Send
         vatRatePercent: String? = nil,
         vatClassifierCode: String? = nil,
         costCenterId: String? = nil,
+        recognition: PostV1SalesInvoicesCreateRequestLinesItemRecognition? = nil,
+        standaloneSellingPrice: String? = nil,
+        refundEstimatePercent: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.itemId = itemId
@@ -34,6 +40,9 @@ public struct PostV1SalesInvoicesCreateRequestLinesItem: Codable, Hashable, Send
         self.vatRatePercent = vatRatePercent
         self.vatClassifierCode = vatClassifierCode
         self.costCenterId = costCenterId
+        self.recognition = recognition
+        self.standaloneSellingPrice = standaloneSellingPrice
+        self.refundEstimatePercent = refundEstimatePercent
         self.additionalProperties = additionalProperties
     }
 
@@ -48,6 +57,9 @@ public struct PostV1SalesInvoicesCreateRequestLinesItem: Codable, Hashable, Send
         self.vatRatePercent = try container.decodeIfPresent(String.self, forKey: .vatRatePercent)
         self.vatClassifierCode = try container.decodeIfPresent(String.self, forKey: .vatClassifierCode)
         self.costCenterId = try container.decodeIfPresent(String.self, forKey: .costCenterId)
+        self.recognition = try container.decodeIfPresent(PostV1SalesInvoicesCreateRequestLinesItemRecognition.self, forKey: .recognition)
+        self.standaloneSellingPrice = try container.decodeIfPresent(String.self, forKey: .standaloneSellingPrice)
+        self.refundEstimatePercent = try container.decodeIfPresent(String.self, forKey: .refundEstimatePercent)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -63,6 +75,9 @@ public struct PostV1SalesInvoicesCreateRequestLinesItem: Codable, Hashable, Send
         try container.encodeIfPresent(self.vatRatePercent, forKey: .vatRatePercent)
         try container.encodeIfPresent(self.vatClassifierCode, forKey: .vatClassifierCode)
         try container.encodeIfPresent(self.costCenterId, forKey: .costCenterId)
+        try container.encodeIfPresent(self.recognition, forKey: .recognition)
+        try container.encodeIfPresent(self.standaloneSellingPrice, forKey: .standaloneSellingPrice)
+        try container.encodeIfPresent(self.refundEstimatePercent, forKey: .refundEstimatePercent)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -76,5 +91,8 @@ public struct PostV1SalesInvoicesCreateRequestLinesItem: Codable, Hashable, Send
         case vatRatePercent
         case vatClassifierCode
         case costCenterId
+        case recognition
+        case standaloneSellingPrice
+        case refundEstimatePercent
     }
 }

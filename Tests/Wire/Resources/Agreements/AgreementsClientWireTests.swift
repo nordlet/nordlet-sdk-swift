@@ -182,6 +182,7 @@ import Api
                   "endDate": "endDate",
                   "autoRenew": true,
                   "value": "value",
+                  "billingPeriod": "monthly",
                   "currency": "currency",
                   "status": "draft",
                   "notes": "notes",
@@ -192,7 +193,8 @@ import Api
                       "itemId": "itemId",
                       "description": "description",
                       "quantity": "quantity",
-                      "unitPrice": "unitPrice"
+                      "unitPrice": "unitPrice",
+                      "vatRatePercent": "vatRatePercent"
                     }
                   ]
                 }
@@ -214,6 +216,7 @@ import Api
             endDate: Nullable<String>.value("endDate"),
             autoRenew: true,
             value: Nullable<String>.value("value"),
+            billingPeriod: Nullable<PostV1AgreementsAgreementsCreateResponseBillingPeriod>.value(.monthly),
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
@@ -224,7 +227,8 @@ import Api
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
-                    unitPrice: Nullable<String>.value("unitPrice")
+                    unitPrice: Nullable<String>.value("unitPrice"),
+                    vatRatePercent: Nullable<String>.value("vatRatePercent")
                 )
             ]
         )
@@ -254,6 +258,7 @@ import Api
                   "endDate": "endDate",
                   "autoRenew": true,
                   "value": "value",
+                  "billingPeriod": "monthly",
                   "currency": "currency",
                   "status": "draft",
                   "notes": "notes",
@@ -264,14 +269,16 @@ import Api
                       "itemId": "x",
                       "description": "description",
                       "quantity": "quantity",
-                      "unitPrice": "unitPrice"
+                      "unitPrice": "unitPrice",
+                      "vatRatePercent": "vatRatePercent"
                     },
                     {
                       "id": "x",
                       "itemId": "x",
                       "description": "description",
                       "quantity": "quantity",
-                      "unitPrice": "unitPrice"
+                      "unitPrice": "unitPrice",
+                      "vatRatePercent": "vatRatePercent"
                     }
                   ]
                 }
@@ -293,6 +300,7 @@ import Api
             endDate: Nullable<String>.value("endDate"),
             autoRenew: true,
             value: Nullable<String>.value("value"),
+            billingPeriod: Nullable<PostV1AgreementsAgreementsCreateResponseBillingPeriod>.value(.monthly),
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
@@ -303,14 +311,16 @@ import Api
                     itemId: Nullable<String>.value("x"),
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
-                    unitPrice: Nullable<String>.value("unitPrice")
+                    unitPrice: Nullable<String>.value("unitPrice"),
+                    vatRatePercent: Nullable<String>.value("vatRatePercent")
                 ),
                 PostV1AgreementsAgreementsCreateResponseItemsItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
-                    unitPrice: Nullable<String>.value("unitPrice")
+                    unitPrice: Nullable<String>.value("unitPrice"),
+                    vatRatePercent: Nullable<String>.value("vatRatePercent")
                 )
             ]
         )
@@ -340,6 +350,7 @@ import Api
                   "endDate": "endDate",
                   "autoRenew": true,
                   "value": "value",
+                  "billingPeriod": "monthly",
                   "currency": "currency",
                   "status": "draft",
                   "notes": "notes",
@@ -350,7 +361,8 @@ import Api
                       "itemId": "itemId",
                       "description": "description",
                       "quantity": "quantity",
-                      "unitPrice": "unitPrice"
+                      "unitPrice": "unitPrice",
+                      "vatRatePercent": "vatRatePercent"
                     }
                   ]
                 }
@@ -372,6 +384,7 @@ import Api
             endDate: Nullable<String>.value("endDate"),
             autoRenew: true,
             value: Nullable<String>.value("value"),
+            billingPeriod: Nullable<PostV1AgreementsAgreementsGetResponseBillingPeriod>.value(.monthly),
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
@@ -382,7 +395,8 @@ import Api
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
-                    unitPrice: Nullable<String>.value("unitPrice")
+                    unitPrice: Nullable<String>.value("unitPrice"),
+                    vatRatePercent: Nullable<String>.value("vatRatePercent")
                 )
             ]
         )
@@ -408,6 +422,7 @@ import Api
                   "endDate": "endDate",
                   "autoRenew": true,
                   "value": "value",
+                  "billingPeriod": "monthly",
                   "currency": "currency",
                   "status": "draft",
                   "notes": "notes",
@@ -418,14 +433,16 @@ import Api
                       "itemId": "x",
                       "description": "description",
                       "quantity": "quantity",
-                      "unitPrice": "unitPrice"
+                      "unitPrice": "unitPrice",
+                      "vatRatePercent": "vatRatePercent"
                     },
                     {
                       "id": "x",
                       "itemId": "x",
                       "description": "description",
                       "quantity": "quantity",
-                      "unitPrice": "unitPrice"
+                      "unitPrice": "unitPrice",
+                      "vatRatePercent": "vatRatePercent"
                     }
                   ]
                 }
@@ -447,6 +464,7 @@ import Api
             endDate: Nullable<String>.value("endDate"),
             autoRenew: true,
             value: Nullable<String>.value("value"),
+            billingPeriod: Nullable<PostV1AgreementsAgreementsGetResponseBillingPeriod>.value(.monthly),
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
@@ -457,14 +475,16 @@ import Api
                     itemId: Nullable<String>.value("x"),
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
-                    unitPrice: Nullable<String>.value("unitPrice")
+                    unitPrice: Nullable<String>.value("unitPrice"),
+                    vatRatePercent: Nullable<String>.value("vatRatePercent")
                 ),
                 PostV1AgreementsAgreementsGetResponseItemsItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
-                    unitPrice: Nullable<String>.value("unitPrice")
+                    unitPrice: Nullable<String>.value("unitPrice"),
+                    vatRatePercent: Nullable<String>.value("vatRatePercent")
                 )
             ]
         )
@@ -490,6 +510,7 @@ import Api
                   "endDate": "endDate",
                   "autoRenew": true,
                   "value": "value",
+                  "billingPeriod": "monthly",
                   "currency": "currency",
                   "status": "draft",
                   "notes": "notes",
@@ -500,7 +521,8 @@ import Api
                       "itemId": "itemId",
                       "description": "description",
                       "quantity": "quantity",
-                      "unitPrice": "unitPrice"
+                      "unitPrice": "unitPrice",
+                      "vatRatePercent": "vatRatePercent"
                     }
                   ]
                 }
@@ -522,6 +544,7 @@ import Api
             endDate: Nullable<String>.value("endDate"),
             autoRenew: true,
             value: Nullable<String>.value("value"),
+            billingPeriod: Nullable<PostV1AgreementsAgreementsUpdateResponseBillingPeriod>.value(.monthly),
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
@@ -532,7 +555,8 @@ import Api
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
-                    unitPrice: Nullable<String>.value("unitPrice")
+                    unitPrice: Nullable<String>.value("unitPrice"),
+                    vatRatePercent: Nullable<String>.value("vatRatePercent")
                 )
             ]
         )
@@ -558,6 +582,7 @@ import Api
                   "endDate": "endDate",
                   "autoRenew": true,
                   "value": "value",
+                  "billingPeriod": "monthly",
                   "currency": "currency",
                   "status": "draft",
                   "notes": "notes",
@@ -568,14 +593,16 @@ import Api
                       "itemId": "x",
                       "description": "description",
                       "quantity": "quantity",
-                      "unitPrice": "unitPrice"
+                      "unitPrice": "unitPrice",
+                      "vatRatePercent": "vatRatePercent"
                     },
                     {
                       "id": "x",
                       "itemId": "x",
                       "description": "description",
                       "quantity": "quantity",
-                      "unitPrice": "unitPrice"
+                      "unitPrice": "unitPrice",
+                      "vatRatePercent": "vatRatePercent"
                     }
                   ]
                 }
@@ -597,6 +624,7 @@ import Api
             endDate: Nullable<String>.value("endDate"),
             autoRenew: true,
             value: Nullable<String>.value("value"),
+            billingPeriod: Nullable<PostV1AgreementsAgreementsUpdateResponseBillingPeriod>.value(.monthly),
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
@@ -607,14 +635,16 @@ import Api
                     itemId: Nullable<String>.value("x"),
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
-                    unitPrice: Nullable<String>.value("unitPrice")
+                    unitPrice: Nullable<String>.value("unitPrice"),
+                    vatRatePercent: Nullable<String>.value("vatRatePercent")
                 ),
                 PostV1AgreementsAgreementsUpdateResponseItemsItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
-                    unitPrice: Nullable<String>.value("unitPrice")
+                    unitPrice: Nullable<String>.value("unitPrice"),
+                    vatRatePercent: Nullable<String>.value("vatRatePercent")
                 )
             ]
         )
@@ -694,6 +724,7 @@ import Api
                       "endDate": "endDate",
                       "autoRenew": true,
                       "value": "value",
+                      "billingPeriod": "monthly",
                       "currency": "currency",
                       "status": "draft",
                       "notes": "notes",
@@ -724,6 +755,7 @@ import Api
                     endDate: Nullable<String>.value("endDate"),
                     autoRenew: true,
                     value: Nullable<String>.value("value"),
+                    billingPeriod: Nullable<PostV1AgreementsAgreementsListResponseRowsItemBillingPeriod>.value(.monthly),
                     currency: "currency",
                     status: .draft,
                     notes: Nullable<String>.value("notes"),
@@ -758,6 +790,7 @@ import Api
                       "endDate": "endDate",
                       "autoRenew": true,
                       "value": "value",
+                      "billingPeriod": "monthly",
                       "currency": "currency",
                       "status": "draft",
                       "notes": "notes",
@@ -773,6 +806,7 @@ import Api
                       "endDate": "endDate",
                       "autoRenew": true,
                       "value": "value",
+                      "billingPeriod": "monthly",
                       "currency": "currency",
                       "status": "draft",
                       "notes": "notes",
@@ -803,6 +837,7 @@ import Api
                     endDate: Nullable<String>.value("endDate"),
                     autoRenew: true,
                     value: Nullable<String>.value("value"),
+                    billingPeriod: Nullable<PostV1AgreementsAgreementsListResponseRowsItemBillingPeriod>.value(.monthly),
                     currency: "currency",
                     status: .draft,
                     notes: Nullable<String>.value("notes"),
@@ -818,6 +853,7 @@ import Api
                     endDate: Nullable<String>.value("endDate"),
                     autoRenew: true,
                     value: Nullable<String>.value("value"),
+                    billingPeriod: Nullable<PostV1AgreementsAgreementsListResponseRowsItemBillingPeriod>.value(.monthly),
                     currency: "currency",
                     status: .draft,
                     notes: Nullable<String>.value("notes"),
@@ -829,6 +865,208 @@ import Api
             total: 1000000
         )
         let response = try await client.agreements.postV1AgreementsAgreementsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AgreementsAgreementsGenerateInvoice1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "invoiceId": "invoiceId",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "renewedEndDate": "renewedEndDate"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AgreementsAgreementsGenerateInvoiceResponse(
+            invoiceId: "invoiceId",
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            renewedEndDate: Nullable<String>.value("renewedEndDate")
+        )
+        let response = try await client.agreements.postV1AgreementsAgreementsGenerateInvoice(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AgreementsAgreementsGenerateInvoice2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "invoiceId": "x",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "renewedEndDate": "renewedEndDate"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AgreementsAgreementsGenerateInvoiceResponse(
+            invoiceId: "x",
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            renewedEndDate: Nullable<String>.value("renewedEndDate")
+        )
+        let response = try await client.agreements.postV1AgreementsAgreementsGenerateInvoice(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AgreementsAgreementsBillingRun1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "generated": [
+                    {
+                      "agreementId": "agreementId",
+                      "invoiceId": "invoiceId",
+                      "periodStart": "periodStart",
+                      "periodEnd": "periodEnd"
+                    }
+                  ],
+                  "expired": [
+                    "expired"
+                  ],
+                  "errors": [
+                    {
+                      "agreementId": "agreementId",
+                      "message": "message"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AgreementsAgreementsBillingRunResponse(
+            generated: [
+                PostV1AgreementsAgreementsBillingRunResponseGeneratedItem(
+                    agreementId: "agreementId",
+                    invoiceId: "invoiceId",
+                    periodStart: "periodStart",
+                    periodEnd: "periodEnd"
+                )
+            ],
+            expired: [
+                "expired"
+            ],
+            errors: [
+                PostV1AgreementsAgreementsBillingRunResponseErrorsItem(
+                    agreementId: "agreementId",
+                    message: "message"
+                )
+            ]
+        )
+        let response = try await client.agreements.postV1AgreementsAgreementsBillingRun(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AgreementsAgreementsBillingRun2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "generated": [
+                    {
+                      "agreementId": "x",
+                      "invoiceId": "x",
+                      "periodStart": "periodStart",
+                      "periodEnd": "periodEnd"
+                    },
+                    {
+                      "agreementId": "x",
+                      "invoiceId": "x",
+                      "periodStart": "periodStart",
+                      "periodEnd": "periodEnd"
+                    }
+                  ],
+                  "expired": [
+                    "expired",
+                    "expired"
+                  ],
+                  "errors": [
+                    {
+                      "agreementId": "x",
+                      "message": "message"
+                    },
+                    {
+                      "agreementId": "x",
+                      "message": "message"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AgreementsAgreementsBillingRunResponse(
+            generated: [
+                PostV1AgreementsAgreementsBillingRunResponseGeneratedItem(
+                    agreementId: "x",
+                    invoiceId: "x",
+                    periodStart: "periodStart",
+                    periodEnd: "periodEnd"
+                ),
+                PostV1AgreementsAgreementsBillingRunResponseGeneratedItem(
+                    agreementId: "x",
+                    invoiceId: "x",
+                    periodStart: "periodStart",
+                    periodEnd: "periodEnd"
+                )
+            ],
+            expired: [
+                "expired",
+                "expired"
+            ],
+            errors: [
+                PostV1AgreementsAgreementsBillingRunResponseErrorsItem(
+                    agreementId: "x",
+                    message: "message"
+                ),
+                PostV1AgreementsAgreementsBillingRunResponseErrorsItem(
+                    agreementId: "x",
+                    message: "message"
+                )
+            ]
+        )
+        let response = try await client.agreements.postV1AgreementsAgreementsBillingRun(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

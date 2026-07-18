@@ -127,6 +127,9 @@ public final class ReferenceClient: Sendable {
         )
     }
 
+    /// Effective EU VAT rate mapping for this company: EC TEDB defaults, replaced per country by any company overrides. Verify the mapping fits the goods and services you sell before relying on it.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func postV1ReferenceEuVatRatesList(request: Requests.PostV1ReferenceEuVatRatesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceEuVatRatesListResponse {
         return try await httpClient.performRequest(
             method: .post,
@@ -134,6 +137,19 @@ public final class ReferenceClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: PostV1ReferenceEuVatRatesListResponse.self
+        )
+    }
+
+    /// Replace the VAT rate mapping this company uses for one EU country. Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1ReferenceEuVatRatesSetOverrides(request: Requests.PostV1ReferenceEuVatRatesSetOverridesRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceEuVatRatesSetOverridesResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/reference/eu-vat-rates/set-overrides",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ReferenceEuVatRatesSetOverridesResponse.self
         )
     }
 

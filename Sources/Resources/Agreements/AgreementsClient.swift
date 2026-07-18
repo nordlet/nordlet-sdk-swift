@@ -77,6 +77,26 @@ public final class AgreementsClient: Sendable {
         )
     }
 
+    public func postV1AgreementsAgreementsGenerateInvoice(request: Requests.PostV1AgreementsAgreementsGenerateInvoiceRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsAgreementsGenerateInvoiceResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/agreements/agreements/generate-invoice",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AgreementsAgreementsGenerateInvoiceResponse.self
+        )
+    }
+
+    public func postV1AgreementsAgreementsBillingRun(request: Requests.PostV1AgreementsAgreementsBillingRunRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsAgreementsBillingRunResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/agreements/agreements/billing/run",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AgreementsAgreementsBillingRunResponse.self
+        )
+    }
+
     public func postV1AgreementsInsurancePoliciesCreate(request: Requests.PostV1AgreementsInsurancePoliciesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsInsurancePoliciesCreateResponse {
         return try await httpClient.performRequest(
             method: .post,

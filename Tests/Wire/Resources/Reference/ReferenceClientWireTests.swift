@@ -1053,13 +1053,15 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "notice": "notice",
                   "rows": [
                     {
                       "countryCode": "countryCode",
                       "category": "standard",
                       "ratePercent": "ratePercent",
                       "validFrom": "validFrom",
-                      "validTo": "validTo"
+                      "validTo": "validTo",
+                      "source": "default"
                     }
                   ]
                 }
@@ -1072,13 +1074,15 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = PostV1ReferenceEuVatRatesListResponse(
+            notice: "notice",
             rows: [
                 PostV1ReferenceEuVatRatesListResponseRowsItem(
                     countryCode: "countryCode",
                     category: .standard,
                     ratePercent: "ratePercent",
                     validFrom: Nullable<String>.value("validFrom"),
-                    validTo: Nullable<String>.value("validTo")
+                    validTo: Nullable<String>.value("validTo"),
+                    source: .default
                 )
             ]
         )
@@ -1095,20 +1099,23 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "notice": "notice",
                   "rows": [
                     {
                       "countryCode": "countryCode",
                       "category": "standard",
                       "ratePercent": "ratePercent",
                       "validFrom": "validFrom",
-                      "validTo": "validTo"
+                      "validTo": "validTo",
+                      "source": "default"
                     },
                     {
                       "countryCode": "countryCode",
                       "category": "standard",
                       "ratePercent": "ratePercent",
                       "validFrom": "validFrom",
-                      "validTo": "validTo"
+                      "validTo": "validTo",
+                      "source": "default"
                     }
                   ]
                 }
@@ -1121,25 +1128,140 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = PostV1ReferenceEuVatRatesListResponse(
+            notice: "notice",
             rows: [
                 PostV1ReferenceEuVatRatesListResponseRowsItem(
                     countryCode: "countryCode",
                     category: .standard,
                     ratePercent: "ratePercent",
                     validFrom: Nullable<String>.value("validFrom"),
-                    validTo: Nullable<String>.value("validTo")
+                    validTo: Nullable<String>.value("validTo"),
+                    source: .default
                 ),
                 PostV1ReferenceEuVatRatesListResponseRowsItem(
                     countryCode: "countryCode",
                     category: .standard,
                     ratePercent: "ratePercent",
                     validFrom: Nullable<String>.value("validFrom"),
-                    validTo: Nullable<String>.value("validTo")
+                    validTo: Nullable<String>.value("validTo"),
+                    source: .default
                 )
             ]
         )
         let response = try await client.reference.postV1ReferenceEuVatRatesList(
             request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReferenceEuVatRatesSetOverrides1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "countryCode": "countryCode",
+                  "source": "default",
+                  "notice": "notice",
+                  "rows": [
+                    {
+                      "category": "standard",
+                      "ratePercent": "ratePercent"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReferenceEuVatRatesSetOverridesResponse(
+            countryCode: "countryCode",
+            source: .default,
+            notice: "notice",
+            rows: [
+                PostV1ReferenceEuVatRatesSetOverridesResponseRowsItem(
+                    category: .standard,
+                    ratePercent: "ratePercent"
+                )
+            ]
+        )
+        let response = try await client.reference.postV1ReferenceEuVatRatesSetOverrides(
+            request: .init(
+                countryCode: "countryCode",
+                rates: [
+                    PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem(
+                        category: .standard,
+                        ratePercent: "ratePercent"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReferenceEuVatRatesSetOverrides2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "countryCode": "countryCode",
+                  "source": "default",
+                  "notice": "notice",
+                  "rows": [
+                    {
+                      "category": "standard",
+                      "ratePercent": "ratePercent"
+                    },
+                    {
+                      "category": "standard",
+                      "ratePercent": "ratePercent"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReferenceEuVatRatesSetOverridesResponse(
+            countryCode: "countryCode",
+            source: .default,
+            notice: "notice",
+            rows: [
+                PostV1ReferenceEuVatRatesSetOverridesResponseRowsItem(
+                    category: .standard,
+                    ratePercent: "ratePercent"
+                ),
+                PostV1ReferenceEuVatRatesSetOverridesResponseRowsItem(
+                    category: .standard,
+                    ratePercent: "ratePercent"
+                )
+            ]
+        )
+        let response = try await client.reference.postV1ReferenceEuVatRatesSetOverrides(
+            request: .init(
+                countryCode: "xy",
+                rates: [
+                    PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem(
+                        category: .standard,
+                        ratePercent: "ratePercent"
+                    ),
+                    PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem(
+                        category: .standard,
+                        ratePercent: "ratePercent"
+                    )
+                ]
+            ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

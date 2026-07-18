@@ -5,6 +5,7 @@ public struct PostV1AccountCompaniesProfileResponse: Codable, Hashable, Sendable
     public let name: String
     public let code: Nullable<String>
     public let vatCode: Nullable<String>
+    public let smeExemptionNumber: Nullable<String>
     public let isVatPayer: Bool
     public let isSandbox: Bool
     public let countryCode: String
@@ -26,6 +27,7 @@ public struct PostV1AccountCompaniesProfileResponse: Codable, Hashable, Sendable
         name: String,
         code: Nullable<String>,
         vatCode: Nullable<String>,
+        smeExemptionNumber: Nullable<String>,
         isVatPayer: Bool,
         isSandbox: Bool,
         countryCode: String,
@@ -45,6 +47,7 @@ public struct PostV1AccountCompaniesProfileResponse: Codable, Hashable, Sendable
         self.name = name
         self.code = code
         self.vatCode = vatCode
+        self.smeExemptionNumber = smeExemptionNumber
         self.isVatPayer = isVatPayer
         self.isSandbox = isSandbox
         self.countryCode = countryCode
@@ -67,6 +70,7 @@ public struct PostV1AccountCompaniesProfileResponse: Codable, Hashable, Sendable
         self.name = try container.decode(String.self, forKey: .name)
         self.code = try container.decode(Nullable<String>.self, forKey: .code)
         self.vatCode = try container.decode(Nullable<String>.self, forKey: .vatCode)
+        self.smeExemptionNumber = try container.decode(Nullable<String>.self, forKey: .smeExemptionNumber)
         self.isVatPayer = try container.decode(Bool.self, forKey: .isVatPayer)
         self.isSandbox = try container.decode(Bool.self, forKey: .isSandbox)
         self.countryCode = try container.decode(String.self, forKey: .countryCode)
@@ -90,6 +94,7 @@ public struct PostV1AccountCompaniesProfileResponse: Codable, Hashable, Sendable
         try container.encode(self.name, forKey: .name)
         try container.encode(self.code, forKey: .code)
         try container.encode(self.vatCode, forKey: .vatCode)
+        try container.encode(self.smeExemptionNumber, forKey: .smeExemptionNumber)
         try container.encode(self.isVatPayer, forKey: .isVatPayer)
         try container.encode(self.isSandbox, forKey: .isSandbox)
         try container.encode(self.countryCode, forKey: .countryCode)
@@ -111,6 +116,7 @@ public struct PostV1AccountCompaniesProfileResponse: Codable, Hashable, Sendable
         case name
         case code
         case vatCode
+        case smeExemptionNumber
         case isVatPayer
         case isSandbox
         case countryCode

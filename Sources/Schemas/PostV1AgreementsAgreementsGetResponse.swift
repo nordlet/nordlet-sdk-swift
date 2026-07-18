@@ -10,6 +10,7 @@ public struct PostV1AgreementsAgreementsGetResponse: Codable, Hashable, Sendable
     public let endDate: Nullable<String>
     public let autoRenew: Bool
     public let value: Nullable<String>
+    public let billingPeriod: Nullable<PostV1AgreementsAgreementsGetResponseBillingPeriod>
     public let currency: String
     public let status: PostV1AgreementsAgreementsGetResponseStatus
     public let notes: Nullable<String>
@@ -28,6 +29,7 @@ public struct PostV1AgreementsAgreementsGetResponse: Codable, Hashable, Sendable
         endDate: Nullable<String>,
         autoRenew: Bool,
         value: Nullable<String>,
+        billingPeriod: Nullable<PostV1AgreementsAgreementsGetResponseBillingPeriod>,
         currency: String,
         status: PostV1AgreementsAgreementsGetResponseStatus,
         notes: Nullable<String>,
@@ -44,6 +46,7 @@ public struct PostV1AgreementsAgreementsGetResponse: Codable, Hashable, Sendable
         self.endDate = endDate
         self.autoRenew = autoRenew
         self.value = value
+        self.billingPeriod = billingPeriod
         self.currency = currency
         self.status = status
         self.notes = notes
@@ -63,6 +66,7 @@ public struct PostV1AgreementsAgreementsGetResponse: Codable, Hashable, Sendable
         self.endDate = try container.decode(Nullable<String>.self, forKey: .endDate)
         self.autoRenew = try container.decode(Bool.self, forKey: .autoRenew)
         self.value = try container.decode(Nullable<String>.self, forKey: .value)
+        self.billingPeriod = try container.decode(Nullable<PostV1AgreementsAgreementsGetResponseBillingPeriod>.self, forKey: .billingPeriod)
         self.currency = try container.decode(String.self, forKey: .currency)
         self.status = try container.decode(PostV1AgreementsAgreementsGetResponseStatus.self, forKey: .status)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
@@ -83,6 +87,7 @@ public struct PostV1AgreementsAgreementsGetResponse: Codable, Hashable, Sendable
         try container.encode(self.endDate, forKey: .endDate)
         try container.encode(self.autoRenew, forKey: .autoRenew)
         try container.encode(self.value, forKey: .value)
+        try container.encode(self.billingPeriod, forKey: .billingPeriod)
         try container.encode(self.currency, forKey: .currency)
         try container.encode(self.status, forKey: .status)
         try container.encode(self.notes, forKey: .notes)
@@ -101,6 +106,7 @@ public struct PostV1AgreementsAgreementsGetResponse: Codable, Hashable, Sendable
         case endDate
         case autoRenew
         case value
+        case billingPeriod
         case currency
         case status
         case notes

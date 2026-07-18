@@ -7,6 +7,8 @@ public struct PostV1DeclarationsEuIossComputeResponse: Codable, Hashable, Sendab
     public let memberStateOfIdentification: String
     public let rows: [PostV1DeclarationsEuIossComputeResponseRowsItem]
     public let totals: PostV1DeclarationsEuIossComputeResponseTotals
+    public let corrections: [PostV1DeclarationsEuIossComputeResponseCorrectionsItem]
+    public let correctionsTotal: PostV1DeclarationsEuIossComputeResponseCorrectionsTotal
     public let warnings: [String]
     public let periodMonth: Int64
     /// Additional properties that are not explicitly defined in the schema
@@ -19,6 +21,8 @@ public struct PostV1DeclarationsEuIossComputeResponse: Codable, Hashable, Sendab
         memberStateOfIdentification: String,
         rows: [PostV1DeclarationsEuIossComputeResponseRowsItem],
         totals: PostV1DeclarationsEuIossComputeResponseTotals,
+        corrections: [PostV1DeclarationsEuIossComputeResponseCorrectionsItem],
+        correctionsTotal: PostV1DeclarationsEuIossComputeResponseCorrectionsTotal,
         warnings: [String],
         periodMonth: Int64,
         additionalProperties: [String: JSONValue] = .init()
@@ -29,6 +33,8 @@ public struct PostV1DeclarationsEuIossComputeResponse: Codable, Hashable, Sendab
         self.memberStateOfIdentification = memberStateOfIdentification
         self.rows = rows
         self.totals = totals
+        self.corrections = corrections
+        self.correctionsTotal = correctionsTotal
         self.warnings = warnings
         self.periodMonth = periodMonth
         self.additionalProperties = additionalProperties
@@ -42,6 +48,8 @@ public struct PostV1DeclarationsEuIossComputeResponse: Codable, Hashable, Sendab
         self.memberStateOfIdentification = try container.decode(String.self, forKey: .memberStateOfIdentification)
         self.rows = try container.decode([PostV1DeclarationsEuIossComputeResponseRowsItem].self, forKey: .rows)
         self.totals = try container.decode(PostV1DeclarationsEuIossComputeResponseTotals.self, forKey: .totals)
+        self.corrections = try container.decode([PostV1DeclarationsEuIossComputeResponseCorrectionsItem].self, forKey: .corrections)
+        self.correctionsTotal = try container.decode(PostV1DeclarationsEuIossComputeResponseCorrectionsTotal.self, forKey: .correctionsTotal)
         self.warnings = try container.decode([String].self, forKey: .warnings)
         self.periodMonth = try container.decode(Int64.self, forKey: .periodMonth)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -56,6 +64,8 @@ public struct PostV1DeclarationsEuIossComputeResponse: Codable, Hashable, Sendab
         try container.encode(self.memberStateOfIdentification, forKey: .memberStateOfIdentification)
         try container.encode(self.rows, forKey: .rows)
         try container.encode(self.totals, forKey: .totals)
+        try container.encode(self.corrections, forKey: .corrections)
+        try container.encode(self.correctionsTotal, forKey: .correctionsTotal)
         try container.encode(self.warnings, forKey: .warnings)
         try container.encode(self.periodMonth, forKey: .periodMonth)
     }
@@ -68,6 +78,8 @@ public struct PostV1DeclarationsEuIossComputeResponse: Codable, Hashable, Sendab
         case memberStateOfIdentification
         case rows
         case totals
+        case corrections
+        case correctionsTotal
         case warnings
         case periodMonth
     }
