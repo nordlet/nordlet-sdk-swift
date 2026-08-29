@@ -11,6 +11,7 @@ public struct PostV1SalesInvoicesGetResponseLinesItem: Codable, Hashable, Sendab
     public let vatRatePercent: String
     public let vatClassifierCode: Nullable<String>
     public let costCenterId: Nullable<String>
+    public let projectId: Nullable<String>
     public let lineNet: String
     public let lineVat: String
     public let lineGross: String
@@ -36,6 +37,7 @@ public struct PostV1SalesInvoicesGetResponseLinesItem: Codable, Hashable, Sendab
         vatRatePercent: String,
         vatClassifierCode: Nullable<String>,
         costCenterId: Nullable<String>,
+        projectId: Nullable<String>,
         lineNet: String,
         lineVat: String,
         lineGross: String,
@@ -59,6 +61,7 @@ public struct PostV1SalesInvoicesGetResponseLinesItem: Codable, Hashable, Sendab
         self.vatRatePercent = vatRatePercent
         self.vatClassifierCode = vatClassifierCode
         self.costCenterId = costCenterId
+        self.projectId = projectId
         self.lineNet = lineNet
         self.lineVat = lineVat
         self.lineGross = lineGross
@@ -85,6 +88,7 @@ public struct PostV1SalesInvoicesGetResponseLinesItem: Codable, Hashable, Sendab
         self.vatRatePercent = try container.decode(String.self, forKey: .vatRatePercent)
         self.vatClassifierCode = try container.decode(Nullable<String>.self, forKey: .vatClassifierCode)
         self.costCenterId = try container.decode(Nullable<String>.self, forKey: .costCenterId)
+        self.projectId = try container.decode(Nullable<String>.self, forKey: .projectId)
         self.lineNet = try container.decode(String.self, forKey: .lineNet)
         self.lineVat = try container.decode(String.self, forKey: .lineVat)
         self.lineGross = try container.decode(String.self, forKey: .lineGross)
@@ -112,6 +116,7 @@ public struct PostV1SalesInvoicesGetResponseLinesItem: Codable, Hashable, Sendab
         try container.encode(self.vatRatePercent, forKey: .vatRatePercent)
         try container.encode(self.vatClassifierCode, forKey: .vatClassifierCode)
         try container.encode(self.costCenterId, forKey: .costCenterId)
+        try container.encode(self.projectId, forKey: .projectId)
         try container.encode(self.lineNet, forKey: .lineNet)
         try container.encode(self.lineVat, forKey: .lineVat)
         try container.encode(self.lineGross, forKey: .lineGross)
@@ -137,6 +142,7 @@ public struct PostV1SalesInvoicesGetResponseLinesItem: Codable, Hashable, Sendab
         case vatRatePercent
         case vatClassifierCode
         case costCenterId
+        case projectId
         case lineNet
         case lineVat
         case lineGross

@@ -6,6 +6,7 @@ public struct PostV1LedgerJournalTransactionsGetResponseEntriesItem: Codable, Ha
     public let accountCode: String
     public let accountName: String
     public let costCenterId: Nullable<String>
+    public let projectId: Nullable<String>
     public let debit: String
     public let credit: String
     public let description: Nullable<String>
@@ -18,6 +19,7 @@ public struct PostV1LedgerJournalTransactionsGetResponseEntriesItem: Codable, Ha
         accountCode: String,
         accountName: String,
         costCenterId: Nullable<String>,
+        projectId: Nullable<String>,
         debit: String,
         credit: String,
         description: Nullable<String>,
@@ -28,6 +30,7 @@ public struct PostV1LedgerJournalTransactionsGetResponseEntriesItem: Codable, Ha
         self.accountCode = accountCode
         self.accountName = accountName
         self.costCenterId = costCenterId
+        self.projectId = projectId
         self.debit = debit
         self.credit = credit
         self.description = description
@@ -41,6 +44,7 @@ public struct PostV1LedgerJournalTransactionsGetResponseEntriesItem: Codable, Ha
         self.accountCode = try container.decode(String.self, forKey: .accountCode)
         self.accountName = try container.decode(String.self, forKey: .accountName)
         self.costCenterId = try container.decode(Nullable<String>.self, forKey: .costCenterId)
+        self.projectId = try container.decode(Nullable<String>.self, forKey: .projectId)
         self.debit = try container.decode(String.self, forKey: .debit)
         self.credit = try container.decode(String.self, forKey: .credit)
         self.description = try container.decode(Nullable<String>.self, forKey: .description)
@@ -55,6 +59,7 @@ public struct PostV1LedgerJournalTransactionsGetResponseEntriesItem: Codable, Ha
         try container.encode(self.accountCode, forKey: .accountCode)
         try container.encode(self.accountName, forKey: .accountName)
         try container.encode(self.costCenterId, forKey: .costCenterId)
+        try container.encode(self.projectId, forKey: .projectId)
         try container.encode(self.debit, forKey: .debit)
         try container.encode(self.credit, forKey: .credit)
         try container.encode(self.description, forKey: .description)
@@ -67,6 +72,7 @@ public struct PostV1LedgerJournalTransactionsGetResponseEntriesItem: Codable, Ha
         case accountCode
         case accountName
         case costCenterId
+        case projectId
         case debit
         case credit
         case description

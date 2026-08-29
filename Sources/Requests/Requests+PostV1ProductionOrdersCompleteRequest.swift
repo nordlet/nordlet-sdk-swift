@@ -3,6 +3,7 @@ import Foundation
 extension Requests {
     public struct PostV1ProductionOrdersCompleteRequest: Codable, Hashable, Sendable {
         public let id: String
+        public let scrappedQuantity: String?
         public let componentsAccountCode: String?
         public let finishedAccountCode: String?
         /// Additional properties that are not explicitly defined in the schema
@@ -10,11 +11,13 @@ extension Requests {
 
         public init(
             id: String,
+            scrappedQuantity: String? = nil,
             componentsAccountCode: String? = nil,
             finishedAccountCode: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.id = id
+            self.scrappedQuantity = scrappedQuantity
             self.componentsAccountCode = componentsAccountCode
             self.finishedAccountCode = finishedAccountCode
             self.additionalProperties = additionalProperties
@@ -23,6 +26,7 @@ extension Requests {
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.id = try container.decode(String.self, forKey: .id)
+            self.scrappedQuantity = try container.decodeIfPresent(String.self, forKey: .scrappedQuantity)
             self.componentsAccountCode = try container.decodeIfPresent(String.self, forKey: .componentsAccountCode)
             self.finishedAccountCode = try container.decodeIfPresent(String.self, forKey: .finishedAccountCode)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -32,6 +36,7 @@ extension Requests {
             var container = encoder.container(keyedBy: CodingKeys.self)
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.id, forKey: .id)
+            try container.encodeIfPresent(self.scrappedQuantity, forKey: .scrappedQuantity)
             try container.encodeIfPresent(self.componentsAccountCode, forKey: .componentsAccountCode)
             try container.encodeIfPresent(self.finishedAccountCode, forKey: .finishedAccountCode)
         }
@@ -39,6 +44,7 @@ extension Requests {
         /// Keys for encoding/decoding struct properties.
         enum CodingKeys: String, CodingKey, CaseIterable {
             case id
+            case scrappedQuantity
             case componentsAccountCode
             case finishedAccountCode
         }

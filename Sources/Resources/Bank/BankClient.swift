@@ -87,6 +87,66 @@ public final class BankClient: Sendable {
         )
     }
 
+    public func postV1BankMandatesCreate(request: Requests.PostV1BankMandatesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMandatesCreateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/mandates/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankMandatesCreateResponse.self
+        )
+    }
+
+    public func postV1BankMandatesUpdate(request: Requests.PostV1BankMandatesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMandatesUpdateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/mandates/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankMandatesUpdateResponse.self
+        )
+    }
+
+    public func postV1BankMandatesCancel(request: Requests.PostV1BankMandatesCancelRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMandatesCancelResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/mandates/cancel",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankMandatesCancelResponse.self
+        )
+    }
+
+    public func postV1BankMandatesGet(request: Requests.PostV1BankMandatesGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMandatesGetResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/mandates/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankMandatesGetResponse.self
+        )
+    }
+
+    public func postV1BankMandatesList(request: Requests.PostV1BankMandatesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMandatesListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/mandates/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankMandatesListResponse.self
+        )
+    }
+
+    public func postV1BankDirectDebitsExport(request: Requests.PostV1BankDirectDebitsExportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankDirectDebitsExportResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/direct-debits/export",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankDirectDebitsExportResponse.self
+        )
+    }
+
     public func postV1BankTransactionsSuggestMatches(request: Requests.PostV1BankTransactionsSuggestMatchesRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankTransactionsSuggestMatchesResponse {
         return try await httpClient.performRequest(
             method: .post,
@@ -144,6 +204,86 @@ public final class BankClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: PostV1BankSettlementsPostResponse.self
+        )
+    }
+
+    public func listThePsd2BanksAspsPsAvailableToConnect(request: Requests.PostV1BankFeedsBanksListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsBanksListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/feeds/banks/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankFeedsBanksListResponse.self
+        )
+    }
+
+    public func beginBankAuthorizationRedirectTheUserToTheReturnedUrl(request: Requests.PostV1BankFeedsConnectionsStartRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsConnectionsStartResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/feeds/connections/start",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankFeedsConnectionsStartResponse.self
+        )
+    }
+
+    public func exchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposes(request: Requests.PostV1BankFeedsConnectionsCompleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsConnectionsCompleteResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/feeds/connections/complete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankFeedsConnectionsCompleteResponse.self
+        )
+    }
+
+    public func postV1BankFeedsConnectionsGet(request: Requests.PostV1BankFeedsConnectionsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsConnectionsGetResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/feeds/connections/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankFeedsConnectionsGetResponse.self
+        )
+    }
+
+    public func postV1BankFeedsConnectionsList(request: Requests.PostV1BankFeedsConnectionsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsConnectionsListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/feeds/connections/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankFeedsConnectionsListResponse.self
+        )
+    }
+
+    public func revokeTheConsentAtTheBankAndDropTheStoredConnection(request: Requests.PostV1BankFeedsConnectionsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsConnectionsDeleteResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/feeds/connections/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankFeedsConnectionsDeleteResponse.self
+        )
+    }
+
+    public func pointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSynced(request: Requests.PostV1BankFeedsAccountsLinkRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsAccountsLinkResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/feeds/accounts/link",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankFeedsAccountsLinkResponse.self
+        )
+    }
+
+    public func pullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSynced(request: Requests.PostV1BankFeedsSyncRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsSyncResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/feeds/sync",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankFeedsSyncResponse.self
         )
     }
 }

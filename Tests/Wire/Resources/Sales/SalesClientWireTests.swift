@@ -46,6 +46,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "costCenterId",
+                      "projectId": "projectId",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -64,7 +65,48 @@ import Api
                       "allocatedNet": "allocatedNet",
                       "refundEstimatePercent": "refundEstimatePercent"
                     }
-                  ]
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "id",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "importId",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": null
+                      }
+                    ]
+                  }
                 }
                 """#.utf8
             )
@@ -112,6 +154,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("costCenterId"),
+                    projectId: Nullable<String>.value("projectId"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -130,7 +173,48 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
-            ]
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesCreateResponseVatEvidence>.value(PostV1SalesInvoicesCreateResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesCreateResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesCreateResponseVatEvidencePartner(
+                    id: "id",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesCreateResponseVatEvidenceVies>.value(PostV1SalesInvoicesCreateResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesCreateResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesCreateResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesCreateResponseVatEvidenceRateTable(
+                    importId: "importId",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesCreateResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: .null
+                    )
+                ]
+            ))
         )
         let response = try await client.sales.postV1SalesInvoicesCreate(
             request: .init(
@@ -189,6 +273,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "x",
+                      "projectId": "x",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -223,6 +308,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "x",
+                      "projectId": "x",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -246,7 +332,53 @@ import Api
                       "allocatedNet": "allocatedNet",
                       "refundEstimatePercent": "refundEstimatePercent"
                     }
-                  ]
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "x",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "x",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      },
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      }
+                    ]
+                  }
                 }
                 """#.utf8
             )
@@ -294,6 +426,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -328,6 +461,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -351,7 +485,53 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
-            ]
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesCreateResponseVatEvidence>.value(PostV1SalesInvoicesCreateResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesCreateResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesCreateResponseVatEvidencePartner(
+                    id: "x",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesCreateResponseVatEvidenceVies>.value(PostV1SalesInvoicesCreateResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesCreateResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesCreateResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesCreateResponseVatEvidenceRateTable(
+                    importId: "x",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesCreateResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    ),
+                    PostV1SalesInvoicesCreateResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    )
+                ]
+            ))
         )
         let response = try await client.sales.postV1SalesInvoicesCreate(
             request: .init(
@@ -413,6 +593,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "costCenterId",
+                      "projectId": "projectId",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -431,7 +612,48 @@ import Api
                       "allocatedNet": "allocatedNet",
                       "refundEstimatePercent": "refundEstimatePercent"
                     }
-                  ]
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "id",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "importId",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": null
+                      }
+                    ]
+                  }
                 }
                 """#.utf8
             )
@@ -479,6 +701,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("costCenterId"),
+                    projectId: Nullable<String>.value("projectId"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -497,7 +720,48 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
-            ]
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesGetResponseVatEvidence>.value(PostV1SalesInvoicesGetResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesGetResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesGetResponseVatEvidencePartner(
+                    id: "id",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesGetResponseVatEvidenceVies>.value(PostV1SalesInvoicesGetResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesGetResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesGetResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesGetResponseVatEvidenceRateTable(
+                    importId: "importId",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesGetResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: .null
+                    )
+                ]
+            ))
         )
         let response = try await client.sales.postV1SalesInvoicesGet(
             request: .init(id: "id"),
@@ -549,6 +813,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "x",
+                      "projectId": "x",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -583,6 +848,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "x",
+                      "projectId": "x",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -606,7 +872,53 @@ import Api
                       "allocatedNet": "allocatedNet",
                       "refundEstimatePercent": "refundEstimatePercent"
                     }
-                  ]
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "x",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "x",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      },
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      }
+                    ]
+                  }
                 }
                 """#.utf8
             )
@@ -654,6 +966,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -688,6 +1001,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -711,7 +1025,53 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
-            ]
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesGetResponseVatEvidence>.value(PostV1SalesInvoicesGetResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesGetResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesGetResponseVatEvidencePartner(
+                    id: "x",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesGetResponseVatEvidenceVies>.value(PostV1SalesInvoicesGetResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesGetResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesGetResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesGetResponseVatEvidenceRateTable(
+                    importId: "x",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesGetResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    ),
+                    PostV1SalesInvoicesGetResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    )
+                ]
+            ))
         )
         let response = try await client.sales.postV1SalesInvoicesGet(
             request: .init(id: "x"),
@@ -968,6 +1328,170 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func postV1SalesInvoicesEinvoiceXml1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "format": "format",
+                  "system": "system",
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesEinvoiceXmlResponse(
+            format: "format",
+            system: "system",
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.sales.postV1SalesInvoicesEinvoiceXml(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesInvoicesEinvoiceXml2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "format": "format",
+                  "system": "system",
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesEinvoiceXmlResponse(
+            format: "format",
+            system: "system",
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.sales.postV1SalesInvoicesEinvoiceXml(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesInvoicesEinvoiceSend1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "sent": true,
+                  "system": "system",
+                  "format": "format",
+                  "messageId": "messageId",
+                  "fileId": "fileId",
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesEinvoiceSendResponse(
+            sent: true,
+            system: "system",
+            format: "format",
+            messageId: "messageId",
+            fileId: "fileId",
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.sales.postV1SalesInvoicesEinvoiceSend(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesInvoicesEinvoiceSend2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "sent": true,
+                  "system": "system",
+                  "format": "format",
+                  "messageId": "messageId",
+                  "fileId": "x",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesEinvoiceSendResponse(
+            sent: true,
+            system: "system",
+            format: "format",
+            messageId: "messageId",
+            fileId: "x",
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.sales.postV1SalesInvoicesEinvoiceSend(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1SalesInvoicesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -1011,6 +1535,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "costCenterId",
+                      "projectId": "projectId",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -1029,7 +1554,48 @@ import Api
                       "allocatedNet": "allocatedNet",
                       "refundEstimatePercent": "refundEstimatePercent"
                     }
-                  ]
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "id",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "importId",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": null
+                      }
+                    ]
+                  }
                 }
                 """#.utf8
             )
@@ -1077,6 +1643,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("costCenterId"),
+                    projectId: Nullable<String>.value("projectId"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1095,7 +1662,48 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
-            ]
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidence>.value(PostV1SalesInvoicesUpdateResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesUpdateResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesUpdateResponseVatEvidencePartner(
+                    id: "id",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidenceVies>.value(PostV1SalesInvoicesUpdateResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesUpdateResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesUpdateResponseVatEvidenceRateTable(
+                    importId: "importId",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesUpdateResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: .null
+                    )
+                ]
+            ))
         )
         let response = try await client.sales.postV1SalesInvoicesUpdate(
             request: .init(id: "id"),
@@ -1147,6 +1755,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "x",
+                      "projectId": "x",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -1181,6 +1790,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "x",
+                      "projectId": "x",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -1204,7 +1814,53 @@ import Api
                       "allocatedNet": "allocatedNet",
                       "refundEstimatePercent": "refundEstimatePercent"
                     }
-                  ]
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "x",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "x",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      },
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      }
+                    ]
+                  }
                 }
                 """#.utf8
             )
@@ -1252,6 +1908,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1286,6 +1943,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1309,7 +1967,53 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
-            ]
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidence>.value(PostV1SalesInvoicesUpdateResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesUpdateResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesUpdateResponseVatEvidencePartner(
+                    id: "x",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidenceVies>.value(PostV1SalesInvoicesUpdateResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesUpdateResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesUpdateResponseVatEvidenceRateTable(
+                    importId: "x",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesUpdateResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    ),
+                    PostV1SalesInvoicesUpdateResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    )
+                ]
+            ))
         )
         let response = try await client.sales.postV1SalesInvoicesUpdate(
             request: .init(id: "x"),
@@ -1413,6 +2117,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "costCenterId",
+                      "projectId": "projectId",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -1431,7 +2136,48 @@ import Api
                       "allocatedNet": "allocatedNet",
                       "refundEstimatePercent": "refundEstimatePercent"
                     }
-                  ]
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "id",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "importId",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": null
+                      }
+                    ]
+                  }
                 }
                 """#.utf8
             )
@@ -1479,6 +2225,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("costCenterId"),
+                    projectId: Nullable<String>.value("projectId"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1497,7 +2244,48 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
-            ]
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesIssueResponseVatEvidence>.value(PostV1SalesInvoicesIssueResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesIssueResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesIssueResponseVatEvidencePartner(
+                    id: "id",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesIssueResponseVatEvidenceVies>.value(PostV1SalesInvoicesIssueResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesIssueResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesIssueResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesIssueResponseVatEvidenceRateTable(
+                    importId: "importId",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesIssueResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: .null
+                    )
+                ]
+            ))
         )
         let response = try await client.sales.postV1SalesInvoicesIssue(
             request: .init(id: "id"),
@@ -1549,6 +2337,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "x",
+                      "projectId": "x",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -1583,6 +2372,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "x",
+                      "projectId": "x",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -1606,7 +2396,53 @@ import Api
                       "allocatedNet": "allocatedNet",
                       "refundEstimatePercent": "refundEstimatePercent"
                     }
-                  ]
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "x",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "x",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      },
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      }
+                    ]
+                  }
                 }
                 """#.utf8
             )
@@ -1654,6 +2490,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1688,6 +2525,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1711,7 +2549,53 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
-            ]
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesIssueResponseVatEvidence>.value(PostV1SalesInvoicesIssueResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesIssueResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesIssueResponseVatEvidencePartner(
+                    id: "x",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesIssueResponseVatEvidenceVies>.value(PostV1SalesInvoicesIssueResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesIssueResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesIssueResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesIssueResponseVatEvidenceRateTable(
+                    importId: "x",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesIssueResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    ),
+                    PostV1SalesInvoicesIssueResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    )
+                ]
+            ))
         )
         let response = try await client.sales.postV1SalesInvoicesIssue(
             request: .init(id: "x"),
@@ -1915,6 +2799,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "costCenterId",
+                      "projectId": "projectId",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -1933,7 +2818,48 @@ import Api
                       "allocatedNet": "allocatedNet",
                       "refundEstimatePercent": "refundEstimatePercent"
                     }
-                  ]
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "id",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "importId",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": null
+                      }
+                    ]
+                  }
                 }
                 """#.utf8
             )
@@ -1981,6 +2907,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("costCenterId"),
+                    projectId: Nullable<String>.value("projectId"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1999,7 +2926,48 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
-            ]
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidence>.value(PostV1SalesInvoicesApplyAdvanceResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesApplyAdvanceResponseVatEvidencePartner(
+                    id: "id",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceVies>.value(PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRateTable(
+                    importId: "importId",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: .null
+                    )
+                ]
+            ))
         )
         let response = try await client.sales.postV1SalesInvoicesApplyAdvance(
             request: .init(
@@ -2054,6 +3022,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "x",
+                      "projectId": "x",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -2088,6 +3057,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "costCenterId": "x",
+                      "projectId": "x",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -2111,7 +3081,53 @@ import Api
                       "allocatedNet": "allocatedNet",
                       "refundEstimatePercent": "refundEstimatePercent"
                     }
-                  ]
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "x",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "x",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      },
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      }
+                    ]
+                  }
                 }
                 """#.utf8
             )
@@ -2159,6 +3175,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -2193,6 +3210,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -2216,7 +3234,53 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
-            ]
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidence>.value(PostV1SalesInvoicesApplyAdvanceResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesApplyAdvanceResponseVatEvidencePartner(
+                    id: "x",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceVies>.value(PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRateTable(
+                    importId: "x",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    ),
+                    PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    )
+                ]
+            ))
         )
         let response = try await client.sales.postV1SalesInvoicesApplyAdvance(
             request: .init(

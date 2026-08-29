@@ -208,6 +208,12 @@ import Api
                   "locale": "locale",
                   "activeCompanyId": "activeCompanyId",
                   "role": "role",
+                  "billing": {
+                    "status": "trial",
+                    "plan": "plan",
+                    "balanceCents": 1000000,
+                    "trialEndsAt": "trialEndsAt"
+                  },
                   "companies": [
                     {
                       "id": "id",
@@ -241,6 +247,12 @@ import Api
             locale: "locale",
             activeCompanyId: Nullable<String>.value("activeCompanyId"),
             role: Nullable<String>.value("role"),
+            billing: PostV1AccountMeResponseBilling(
+                status: .trial,
+                plan: "plan",
+                balanceCents: 1000000,
+                trialEndsAt: Nullable<String>.value("trialEndsAt")
+            ),
             companies: [
                 PostV1AccountMeResponseCompaniesItem(
                     id: "id",
@@ -278,6 +290,12 @@ import Api
                   "locale": "locale",
                   "activeCompanyId": "x",
                   "role": "role",
+                  "billing": {
+                    "status": "trial",
+                    "plan": "plan",
+                    "balanceCents": 1000000,
+                    "trialEndsAt": "trialEndsAt"
+                  },
                   "companies": [
                     {
                       "id": "x",
@@ -321,6 +339,12 @@ import Api
             locale: "locale",
             activeCompanyId: Nullable<String>.value("x"),
             role: Nullable<String>.value("role"),
+            billing: PostV1AccountMeResponseBilling(
+                status: .trial,
+                plan: "plan",
+                balanceCents: 1000000,
+                trialEndsAt: Nullable<String>.value("trialEndsAt")
+            ),
             companies: [
                 PostV1AccountMeResponseCompaniesItem(
                     id: "x",
@@ -1153,6 +1177,7 @@ import Api
                   "iban": "iban",
                   "bankName": "bankName",
                   "peppolId": "peppolId",
+                  "sepaCreditorId": "sepaCreditorId",
                   "logoFileId": "logoFileId"
                 }
                 """#.utf8
@@ -1186,6 +1211,7 @@ import Api
             iban: Nullable<String>.value("iban"),
             bankName: Nullable<String>.value("bankName"),
             peppolId: Nullable<String>.value("peppolId"),
+            sepaCreditorId: Nullable<String>.value("sepaCreditorId"),
             logoFileId: Nullable<String>.value("logoFileId")
         )
         let response = try await client.account.postV1AccountCompaniesProfile(
@@ -1223,6 +1249,7 @@ import Api
                   "iban": "iban",
                   "bankName": "bankName",
                   "peppolId": "peppolId",
+                  "sepaCreditorId": "sepaCreditorId",
                   "logoFileId": "logoFileId"
                 }
                 """#.utf8
@@ -1256,6 +1283,7 @@ import Api
             iban: Nullable<String>.value("iban"),
             bankName: Nullable<String>.value("bankName"),
             peppolId: Nullable<String>.value("peppolId"),
+            sepaCreditorId: Nullable<String>.value("sepaCreditorId"),
             logoFileId: Nullable<String>.value("logoFileId")
         )
         let response = try await client.account.postV1AccountCompaniesProfile(
@@ -1293,6 +1321,7 @@ import Api
                   "iban": "iban",
                   "bankName": "bankName",
                   "peppolId": "peppolId",
+                  "sepaCreditorId": "sepaCreditorId",
                   "logoFileId": "logoFileId"
                 }
                 """#.utf8
@@ -1326,6 +1355,7 @@ import Api
             iban: Nullable<String>.value("iban"),
             bankName: Nullable<String>.value("bankName"),
             peppolId: Nullable<String>.value("peppolId"),
+            sepaCreditorId: Nullable<String>.value("sepaCreditorId"),
             logoFileId: Nullable<String>.value("logoFileId")
         )
         let response = try await client.account.postV1AccountCompaniesUpdate(
@@ -1363,6 +1393,7 @@ import Api
                   "iban": "iban",
                   "bankName": "bankName",
                   "peppolId": "peppolId",
+                  "sepaCreditorId": "sepaCreditorId",
                   "logoFileId": "logoFileId"
                 }
                 """#.utf8
@@ -1396,6 +1427,7 @@ import Api
             iban: Nullable<String>.value("iban"),
             bankName: Nullable<String>.value("bankName"),
             peppolId: Nullable<String>.value("peppolId"),
+            sepaCreditorId: Nullable<String>.value("sepaCreditorId"),
             logoFileId: Nullable<String>.value("logoFileId")
         )
         let response = try await client.account.postV1AccountCompaniesUpdate(

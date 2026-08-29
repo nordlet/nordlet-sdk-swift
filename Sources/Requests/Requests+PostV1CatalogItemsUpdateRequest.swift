@@ -4,6 +4,7 @@ extension Requests {
     public struct PostV1CatalogItemsUpdateRequest: Codable, Hashable, Sendable {
         public let id: String
         public let type: PostV1CatalogItemsUpdateRequestType?
+        public let tracking: PostV1CatalogItemsUpdateRequestTracking?
         public let name: String?
         public let code: String?
         public let barcode: String?
@@ -28,6 +29,7 @@ extension Requests {
         public init(
             id: String,
             type: PostV1CatalogItemsUpdateRequestType? = nil,
+            tracking: PostV1CatalogItemsUpdateRequestTracking? = nil,
             name: String? = nil,
             code: String? = nil,
             barcode: String? = nil,
@@ -50,6 +52,7 @@ extension Requests {
         ) {
             self.id = id
             self.type = type
+            self.tracking = tracking
             self.name = name
             self.code = code
             self.barcode = barcode
@@ -75,6 +78,7 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.id = try container.decode(String.self, forKey: .id)
             self.type = try container.decodeIfPresent(PostV1CatalogItemsUpdateRequestType.self, forKey: .type)
+            self.tracking = try container.decodeIfPresent(PostV1CatalogItemsUpdateRequestTracking.self, forKey: .tracking)
             self.name = try container.decodeIfPresent(String.self, forKey: .name)
             self.code = try container.decodeIfPresent(String.self, forKey: .code)
             self.barcode = try container.decodeIfPresent(String.self, forKey: .barcode)
@@ -101,6 +105,7 @@ extension Requests {
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.id, forKey: .id)
             try container.encodeIfPresent(self.type, forKey: .type)
+            try container.encodeIfPresent(self.tracking, forKey: .tracking)
             try container.encodeIfPresent(self.name, forKey: .name)
             try container.encodeIfPresent(self.code, forKey: .code)
             try container.encodeIfPresent(self.barcode, forKey: .barcode)
@@ -125,6 +130,7 @@ extension Requests {
         enum CodingKeys: String, CodingKey, CaseIterable {
             case id
             case type
+            case tracking
             case name
             case code
             case barcode

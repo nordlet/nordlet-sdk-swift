@@ -11,6 +11,7 @@ public struct PostV1ConsolidationReportResponse: Codable, Hashable, Sendable {
     public let equityMethod: PostV1ConsolidationReportResponseEquityMethod
     public let members: [PostV1ConsolidationReportResponseMembersItem]
     public let eliminations: PostV1ConsolidationReportResponseEliminations
+    public let cashFlow: PostV1ConsolidationReportResponseCashFlow
     public let intercompanyCandidates: [PostV1ConsolidationReportResponseIntercompanyCandidatesItem]
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -26,6 +27,7 @@ public struct PostV1ConsolidationReportResponse: Codable, Hashable, Sendable {
         equityMethod: PostV1ConsolidationReportResponseEquityMethod,
         members: [PostV1ConsolidationReportResponseMembersItem],
         eliminations: PostV1ConsolidationReportResponseEliminations,
+        cashFlow: PostV1ConsolidationReportResponseCashFlow,
         intercompanyCandidates: [PostV1ConsolidationReportResponseIntercompanyCandidatesItem],
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -39,6 +41,7 @@ public struct PostV1ConsolidationReportResponse: Codable, Hashable, Sendable {
         self.equityMethod = equityMethod
         self.members = members
         self.eliminations = eliminations
+        self.cashFlow = cashFlow
         self.intercompanyCandidates = intercompanyCandidates
         self.additionalProperties = additionalProperties
     }
@@ -55,6 +58,7 @@ public struct PostV1ConsolidationReportResponse: Codable, Hashable, Sendable {
         self.equityMethod = try container.decode(PostV1ConsolidationReportResponseEquityMethod.self, forKey: .equityMethod)
         self.members = try container.decode([PostV1ConsolidationReportResponseMembersItem].self, forKey: .members)
         self.eliminations = try container.decode(PostV1ConsolidationReportResponseEliminations.self, forKey: .eliminations)
+        self.cashFlow = try container.decode(PostV1ConsolidationReportResponseCashFlow.self, forKey: .cashFlow)
         self.intercompanyCandidates = try container.decode([PostV1ConsolidationReportResponseIntercompanyCandidatesItem].self, forKey: .intercompanyCandidates)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -72,6 +76,7 @@ public struct PostV1ConsolidationReportResponse: Codable, Hashable, Sendable {
         try container.encode(self.equityMethod, forKey: .equityMethod)
         try container.encode(self.members, forKey: .members)
         try container.encode(self.eliminations, forKey: .eliminations)
+        try container.encode(self.cashFlow, forKey: .cashFlow)
         try container.encode(self.intercompanyCandidates, forKey: .intercompanyCandidates)
     }
 
@@ -87,6 +92,7 @@ public struct PostV1ConsolidationReportResponse: Codable, Hashable, Sendable {
         case equityMethod
         case members
         case eliminations
+        case cashFlow
         case intercompanyCandidates
     }
 }

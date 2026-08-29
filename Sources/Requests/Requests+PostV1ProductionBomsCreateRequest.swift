@@ -6,6 +6,7 @@ extension Requests {
         public let name: String
         public let finishedItemId: String
         public let outputQuantity: String?
+        public let routingId: String?
         public let lines: [PostV1ProductionBomsCreateRequestLinesItem]
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -15,6 +16,7 @@ extension Requests {
             name: String,
             finishedItemId: String,
             outputQuantity: String? = nil,
+            routingId: String? = nil,
             lines: [PostV1ProductionBomsCreateRequestLinesItem],
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -22,6 +24,7 @@ extension Requests {
             self.name = name
             self.finishedItemId = finishedItemId
             self.outputQuantity = outputQuantity
+            self.routingId = routingId
             self.lines = lines
             self.additionalProperties = additionalProperties
         }
@@ -32,6 +35,7 @@ extension Requests {
             self.name = try container.decode(String.self, forKey: .name)
             self.finishedItemId = try container.decode(String.self, forKey: .finishedItemId)
             self.outputQuantity = try container.decodeIfPresent(String.self, forKey: .outputQuantity)
+            self.routingId = try container.decodeIfPresent(String.self, forKey: .routingId)
             self.lines = try container.decode([PostV1ProductionBomsCreateRequestLinesItem].self, forKey: .lines)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -43,6 +47,7 @@ extension Requests {
             try container.encode(self.name, forKey: .name)
             try container.encode(self.finishedItemId, forKey: .finishedItemId)
             try container.encodeIfPresent(self.outputQuantity, forKey: .outputQuantity)
+            try container.encodeIfPresent(self.routingId, forKey: .routingId)
             try container.encode(self.lines, forKey: .lines)
         }
 
@@ -52,6 +57,7 @@ extension Requests {
             case name
             case finishedItemId
             case outputQuantity
+            case routingId
             case lines
         }
     }

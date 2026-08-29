@@ -4,6 +4,7 @@ public struct PostV1InventoryStockMovementsListResponseRowsItem: Codable, Hashab
     public let id: String
     public let warehouseId: String
     public let itemId: String
+    public let lotId: Nullable<String>
     public let date: String
     public let direction: PostV1InventoryStockMovementsListResponseRowsItemDirection
     public let quantity: String
@@ -21,6 +22,7 @@ public struct PostV1InventoryStockMovementsListResponseRowsItem: Codable, Hashab
         id: String,
         warehouseId: String,
         itemId: String,
+        lotId: Nullable<String>,
         date: String,
         direction: PostV1InventoryStockMovementsListResponseRowsItemDirection,
         quantity: String,
@@ -36,6 +38,7 @@ public struct PostV1InventoryStockMovementsListResponseRowsItem: Codable, Hashab
         self.id = id
         self.warehouseId = warehouseId
         self.itemId = itemId
+        self.lotId = lotId
         self.date = date
         self.direction = direction
         self.quantity = quantity
@@ -54,6 +57,7 @@ public struct PostV1InventoryStockMovementsListResponseRowsItem: Codable, Hashab
         self.id = try container.decode(String.self, forKey: .id)
         self.warehouseId = try container.decode(String.self, forKey: .warehouseId)
         self.itemId = try container.decode(String.self, forKey: .itemId)
+        self.lotId = try container.decode(Nullable<String>.self, forKey: .lotId)
         self.date = try container.decode(String.self, forKey: .date)
         self.direction = try container.decode(PostV1InventoryStockMovementsListResponseRowsItemDirection.self, forKey: .direction)
         self.quantity = try container.decode(String.self, forKey: .quantity)
@@ -73,6 +77,7 @@ public struct PostV1InventoryStockMovementsListResponseRowsItem: Codable, Hashab
         try container.encode(self.id, forKey: .id)
         try container.encode(self.warehouseId, forKey: .warehouseId)
         try container.encode(self.itemId, forKey: .itemId)
+        try container.encode(self.lotId, forKey: .lotId)
         try container.encode(self.date, forKey: .date)
         try container.encode(self.direction, forKey: .direction)
         try container.encode(self.quantity, forKey: .quantity)
@@ -90,6 +95,7 @@ public struct PostV1InventoryStockMovementsListResponseRowsItem: Codable, Hashab
         case id
         case warehouseId
         case itemId
+        case lotId
         case date
         case direction
         case quantity

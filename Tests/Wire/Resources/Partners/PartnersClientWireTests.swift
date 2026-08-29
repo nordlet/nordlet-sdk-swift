@@ -1125,6 +1125,300 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func postV1PartnersVatReviewsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "partnerId": "partnerId",
+                      "vatCode": "vatCode",
+                      "reason": "invalid",
+                      "status": "open",
+                      "resolution": "confirmed_valid",
+                      "resolutionNote": "resolutionNote",
+                      "details": {},
+                      "resolvedAt": "resolvedAt",
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PartnersVatReviewsListResponse(
+            rows: [
+                PostV1PartnersVatReviewsListResponseRowsItem(
+                    id: "id",
+                    partnerId: "partnerId",
+                    vatCode: "vatCode",
+                    reason: .invalid,
+                    status: .open,
+                    resolution: Nullable<PostV1PartnersVatReviewsListResponseRowsItemResolution>.value(.confirmedValid),
+                    resolutionNote: Nullable<String>.value("resolutionNote"),
+                    details: Nullable<PostV1PartnersVatReviewsListResponseRowsItemDetails>.value(PostV1PartnersVatReviewsListResponseRowsItemDetails(
+
+                    )),
+                    resolvedAt: Nullable<String>.value("resolvedAt"),
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000
+        )
+        let response = try await client.partners.postV1PartnersVatReviewsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1PartnersVatReviewsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "partnerId": "x",
+                      "vatCode": "vatCode",
+                      "reason": "invalid",
+                      "status": "open",
+                      "resolution": "confirmed_valid",
+                      "resolutionNote": "resolutionNote",
+                      "details": {
+                        "message": "message",
+                        "partnerName": "partnerName",
+                        "viesName": "viesName",
+                        "viesAddress": "viesAddress",
+                        "requestIdentifier": "requestIdentifier"
+                      },
+                      "resolvedAt": "resolvedAt",
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    },
+                    {
+                      "id": "x",
+                      "partnerId": "x",
+                      "vatCode": "vatCode",
+                      "reason": "invalid",
+                      "status": "open",
+                      "resolution": "confirmed_valid",
+                      "resolutionNote": "resolutionNote",
+                      "details": {
+                        "message": "message",
+                        "partnerName": "partnerName",
+                        "viesName": "viesName",
+                        "viesAddress": "viesAddress",
+                        "requestIdentifier": "requestIdentifier"
+                      },
+                      "resolvedAt": "resolvedAt",
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PartnersVatReviewsListResponse(
+            rows: [
+                PostV1PartnersVatReviewsListResponseRowsItem(
+                    id: "x",
+                    partnerId: "x",
+                    vatCode: "vatCode",
+                    reason: .invalid,
+                    status: .open,
+                    resolution: Nullable<PostV1PartnersVatReviewsListResponseRowsItemResolution>.value(.confirmedValid),
+                    resolutionNote: Nullable<String>.value("resolutionNote"),
+                    details: Nullable<PostV1PartnersVatReviewsListResponseRowsItemDetails>.value(PostV1PartnersVatReviewsListResponseRowsItemDetails(
+                        message: Optional("message"),
+                        partnerName: Optional("partnerName"),
+                        viesName: Optional(Nullable<String>.value("viesName")),
+                        viesAddress: Optional(Nullable<String>.value("viesAddress")),
+                        requestIdentifier: Optional(Nullable<String>.value("requestIdentifier"))
+                    )),
+                    resolvedAt: Nullable<String>.value("resolvedAt"),
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                ),
+                PostV1PartnersVatReviewsListResponseRowsItem(
+                    id: "x",
+                    partnerId: "x",
+                    vatCode: "vatCode",
+                    reason: .invalid,
+                    status: .open,
+                    resolution: Nullable<PostV1PartnersVatReviewsListResponseRowsItemResolution>.value(.confirmedValid),
+                    resolutionNote: Nullable<String>.value("resolutionNote"),
+                    details: Nullable<PostV1PartnersVatReviewsListResponseRowsItemDetails>.value(PostV1PartnersVatReviewsListResponseRowsItemDetails(
+                        message: Optional("message"),
+                        partnerName: Optional("partnerName"),
+                        viesName: Optional(Nullable<String>.value("viesName")),
+                        viesAddress: Optional(Nullable<String>.value("viesAddress")),
+                        requestIdentifier: Optional(Nullable<String>.value("requestIdentifier"))
+                    )),
+                    resolvedAt: Nullable<String>.value("resolvedAt"),
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000
+        )
+        let response = try await client.partners.postV1PartnersVatReviewsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1PartnersVatReviewsResolve1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "partnerId": "partnerId",
+                  "vatCode": "vatCode",
+                  "reason": "invalid",
+                  "status": "open",
+                  "resolution": "confirmed_valid",
+                  "resolutionNote": "resolutionNote",
+                  "details": {
+                    "message": "message",
+                    "partnerName": "partnerName",
+                    "viesName": "viesName",
+                    "viesAddress": "viesAddress",
+                    "requestIdentifier": "requestIdentifier"
+                  },
+                  "resolvedAt": "resolvedAt",
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PartnersVatReviewsResolveResponse(
+            id: "id",
+            partnerId: "partnerId",
+            vatCode: "vatCode",
+            reason: .invalid,
+            status: .open,
+            resolution: Nullable<PostV1PartnersVatReviewsResolveResponseResolution>.value(.confirmedValid),
+            resolutionNote: Nullable<String>.value("resolutionNote"),
+            details: Nullable<PostV1PartnersVatReviewsResolveResponseDetails>.value(PostV1PartnersVatReviewsResolveResponseDetails(
+                message: Optional("message"),
+                partnerName: Optional("partnerName"),
+                viesName: Optional(Nullable<String>.value("viesName")),
+                viesAddress: Optional(Nullable<String>.value("viesAddress")),
+                requestIdentifier: Optional(Nullable<String>.value("requestIdentifier"))
+            )),
+            resolvedAt: Nullable<String>.value("resolvedAt"),
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.partners.postV1PartnersVatReviewsResolve(
+            request: .init(
+                id: "id",
+                resolution: .confirmedValid
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1PartnersVatReviewsResolve2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "partnerId": "x",
+                  "vatCode": "vatCode",
+                  "reason": "invalid",
+                  "status": "open",
+                  "resolution": "confirmed_valid",
+                  "resolutionNote": "resolutionNote",
+                  "details": {
+                    "message": "message",
+                    "partnerName": "partnerName",
+                    "viesName": "viesName",
+                    "viesAddress": "viesAddress",
+                    "requestIdentifier": "requestIdentifier"
+                  },
+                  "resolvedAt": "resolvedAt",
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PartnersVatReviewsResolveResponse(
+            id: "x",
+            partnerId: "x",
+            vatCode: "vatCode",
+            reason: .invalid,
+            status: .open,
+            resolution: Nullable<PostV1PartnersVatReviewsResolveResponseResolution>.value(.confirmedValid),
+            resolutionNote: Nullable<String>.value("resolutionNote"),
+            details: Nullable<PostV1PartnersVatReviewsResolveResponseDetails>.value(PostV1PartnersVatReviewsResolveResponseDetails(
+                message: Optional("message"),
+                partnerName: Optional("partnerName"),
+                viesName: Optional(Nullable<String>.value("viesName")),
+                viesAddress: Optional(Nullable<String>.value("viesAddress")),
+                requestIdentifier: Optional(Nullable<String>.value("requestIdentifier"))
+            )),
+            resolvedAt: Nullable<String>.value("resolvedAt"),
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.partners.postV1PartnersVatReviewsResolve(
+            request: .init(
+                id: "x",
+                resolution: .confirmedValid
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1PartnersCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

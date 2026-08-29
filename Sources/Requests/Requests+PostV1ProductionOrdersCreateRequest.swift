@@ -5,6 +5,7 @@ extension Requests {
         public let type: PostV1ProductionOrdersCreateRequestType?
         public let bomId: String
         public let warehouseId: String
+        public let routingId: String?
         public let quantity: String
         public let date: String
         public let notes: String?
@@ -15,6 +16,7 @@ extension Requests {
             type: PostV1ProductionOrdersCreateRequestType? = nil,
             bomId: String,
             warehouseId: String,
+            routingId: String? = nil,
             quantity: String,
             date: String,
             notes: String? = nil,
@@ -23,6 +25,7 @@ extension Requests {
             self.type = type
             self.bomId = bomId
             self.warehouseId = warehouseId
+            self.routingId = routingId
             self.quantity = quantity
             self.date = date
             self.notes = notes
@@ -34,6 +37,7 @@ extension Requests {
             self.type = try container.decodeIfPresent(PostV1ProductionOrdersCreateRequestType.self, forKey: .type)
             self.bomId = try container.decode(String.self, forKey: .bomId)
             self.warehouseId = try container.decode(String.self, forKey: .warehouseId)
+            self.routingId = try container.decodeIfPresent(String.self, forKey: .routingId)
             self.quantity = try container.decode(String.self, forKey: .quantity)
             self.date = try container.decode(String.self, forKey: .date)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
@@ -46,6 +50,7 @@ extension Requests {
             try container.encodeIfPresent(self.type, forKey: .type)
             try container.encode(self.bomId, forKey: .bomId)
             try container.encode(self.warehouseId, forKey: .warehouseId)
+            try container.encodeIfPresent(self.routingId, forKey: .routingId)
             try container.encode(self.quantity, forKey: .quantity)
             try container.encode(self.date, forKey: .date)
             try container.encodeIfPresent(self.notes, forKey: .notes)
@@ -56,6 +61,7 @@ extension Requests {
             case type
             case bomId
             case warehouseId
+            case routingId
             case quantity
             case date
             case notes

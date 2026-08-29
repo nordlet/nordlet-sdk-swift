@@ -18,6 +18,7 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
     public let iban: Nullable<String>
     public let bankName: Nullable<String>
     public let peppolId: Nullable<String>
+    public let sepaCreditorId: Nullable<String>
     public let logoFileId: Nullable<String>
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -40,6 +41,7 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         iban: Nullable<String>,
         bankName: Nullable<String>,
         peppolId: Nullable<String>,
+        sepaCreditorId: Nullable<String>,
         logoFileId: Nullable<String>,
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -60,6 +62,7 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         self.iban = iban
         self.bankName = bankName
         self.peppolId = peppolId
+        self.sepaCreditorId = sepaCreditorId
         self.logoFileId = logoFileId
         self.additionalProperties = additionalProperties
     }
@@ -83,6 +86,7 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         self.iban = try container.decode(Nullable<String>.self, forKey: .iban)
         self.bankName = try container.decode(Nullable<String>.self, forKey: .bankName)
         self.peppolId = try container.decode(Nullable<String>.self, forKey: .peppolId)
+        self.sepaCreditorId = try container.decode(Nullable<String>.self, forKey: .sepaCreditorId)
         self.logoFileId = try container.decode(Nullable<String>.self, forKey: .logoFileId)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -107,6 +111,7 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         try container.encode(self.iban, forKey: .iban)
         try container.encode(self.bankName, forKey: .bankName)
         try container.encode(self.peppolId, forKey: .peppolId)
+        try container.encode(self.sepaCreditorId, forKey: .sepaCreditorId)
         try container.encode(self.logoFileId, forKey: .logoFileId)
     }
 
@@ -129,6 +134,7 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         case iban
         case bankName
         case peppolId
+        case sepaCreditorId
         case logoFileId
     }
 }

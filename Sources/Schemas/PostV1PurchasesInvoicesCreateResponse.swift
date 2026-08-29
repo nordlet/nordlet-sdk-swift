@@ -17,6 +17,7 @@ public struct PostV1PurchasesInvoicesCreateResponse: Codable, Hashable, Sendable
     public let paidAmount: String
     public let journalTransactionId: Nullable<String>
     public let creditedInvoiceId: Nullable<String>
+    public let purchaseOrderId: Nullable<String>
     public let notes: Nullable<String>
     public let createdAt: String
     public let updatedAt: String
@@ -41,6 +42,7 @@ public struct PostV1PurchasesInvoicesCreateResponse: Codable, Hashable, Sendable
         paidAmount: String,
         journalTransactionId: Nullable<String>,
         creditedInvoiceId: Nullable<String>,
+        purchaseOrderId: Nullable<String>,
         notes: Nullable<String>,
         createdAt: String,
         updatedAt: String,
@@ -63,6 +65,7 @@ public struct PostV1PurchasesInvoicesCreateResponse: Codable, Hashable, Sendable
         self.paidAmount = paidAmount
         self.journalTransactionId = journalTransactionId
         self.creditedInvoiceId = creditedInvoiceId
+        self.purchaseOrderId = purchaseOrderId
         self.notes = notes
         self.createdAt = createdAt
         self.updatedAt = updatedAt
@@ -88,6 +91,7 @@ public struct PostV1PurchasesInvoicesCreateResponse: Codable, Hashable, Sendable
         self.paidAmount = try container.decode(String.self, forKey: .paidAmount)
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
         self.creditedInvoiceId = try container.decode(Nullable<String>.self, forKey: .creditedInvoiceId)
+        self.purchaseOrderId = try container.decode(Nullable<String>.self, forKey: .purchaseOrderId)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
@@ -114,6 +118,7 @@ public struct PostV1PurchasesInvoicesCreateResponse: Codable, Hashable, Sendable
         try container.encode(self.paidAmount, forKey: .paidAmount)
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
         try container.encode(self.creditedInvoiceId, forKey: .creditedInvoiceId)
+        try container.encode(self.purchaseOrderId, forKey: .purchaseOrderId)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
@@ -138,6 +143,7 @@ public struct PostV1PurchasesInvoicesCreateResponse: Codable, Hashable, Sendable
         case paidAmount
         case journalTransactionId
         case creditedInvoiceId
+        case purchaseOrderId
         case notes
         case createdAt
         case updatedAt

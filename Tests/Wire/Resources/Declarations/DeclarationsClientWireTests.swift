@@ -3068,6 +3068,162 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func postV1DeclarationsPlJpkV7MGenerate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "xml": "xml",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "declaration": [
+                    {
+                      "field": "field",
+                      "label": "label",
+                      "value": "value"
+                    }
+                  ],
+                  "counts": {
+                    "salesRows": 1000000,
+                    "purchaseRows": 1000000
+                  },
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "notes": [
+                    "notes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsPlJpkV7MGenerateResponse(
+            fileName: "fileName",
+            xml: "xml",
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            declaration: [
+                PostV1DeclarationsPlJpkV7MGenerateResponseDeclarationItem(
+                    field: "field",
+                    label: "label",
+                    value: "value"
+                )
+            ],
+            counts: PostV1DeclarationsPlJpkV7MGenerateResponseCounts(
+                salesRows: 1000000,
+                purchaseRows: 1000000
+            ),
+            warnings: [
+                "warnings"
+            ],
+            notes: [
+                "notes"
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsPlJpkV7MGenerate(
+            request: .init(
+                year: 1000000,
+                month: 1000000,
+                kodUrzedu: "kodUrzedu",
+                email: "email"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DeclarationsPlJpkV7MGenerate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "xml": "xml",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "declaration": [
+                    {
+                      "field": "field",
+                      "label": "label",
+                      "value": "value"
+                    },
+                    {
+                      "field": "field",
+                      "label": "label",
+                      "value": "value"
+                    }
+                  ],
+                  "counts": {
+                    "salesRows": 1000000,
+                    "purchaseRows": 1000000
+                  },
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "notes": [
+                    "notes",
+                    "notes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DeclarationsPlJpkV7MGenerateResponse(
+            fileName: "fileName",
+            xml: "xml",
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            declaration: [
+                PostV1DeclarationsPlJpkV7MGenerateResponseDeclarationItem(
+                    field: "field",
+                    label: "label",
+                    value: "value"
+                ),
+                PostV1DeclarationsPlJpkV7MGenerateResponseDeclarationItem(
+                    field: "field",
+                    label: "label",
+                    value: "value"
+                )
+            ],
+            counts: PostV1DeclarationsPlJpkV7MGenerateResponseCounts(
+                salesRows: 1000000,
+                purchaseRows: 1000000
+            ),
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            notes: [
+                "notes",
+                "notes"
+            ]
+        )
+        let response = try await client.declarations.postV1DeclarationsPlJpkV7MGenerate(
+            request: .init(
+                year: 1000000,
+                month: 1000000,
+                kodUrzedu: "kodUrzedu",
+                email: "email"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1DeclarationsConfigsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

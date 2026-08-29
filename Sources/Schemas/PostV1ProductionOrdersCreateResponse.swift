@@ -5,13 +5,20 @@ public struct PostV1ProductionOrdersCreateResponse: Codable, Hashable, Sendable 
     public let type: PostV1ProductionOrdersCreateResponseType
     public let bomId: String
     public let warehouseId: String
+    public let routingId: Nullable<String>
     public let quantity: String
     public let date: String
     public let status: PostV1ProductionOrdersCreateResponseStatus
+    public let scrappedQuantity: Nullable<String>
+    public let materialCost: Nullable<String>
+    public let laborCost: Nullable<String>
+    public let scrapCost: Nullable<String>
     public let totalCost: Nullable<String>
     public let journalTransactionId: Nullable<String>
     public let notes: Nullable<String>
     public let createdAt: String
+    public let operations: [PostV1ProductionOrdersCreateResponseOperationsItem]
+    public let qualityChecks: [PostV1ProductionOrdersCreateResponseQualityChecksItem]
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -20,26 +27,40 @@ public struct PostV1ProductionOrdersCreateResponse: Codable, Hashable, Sendable 
         type: PostV1ProductionOrdersCreateResponseType,
         bomId: String,
         warehouseId: String,
+        routingId: Nullable<String>,
         quantity: String,
         date: String,
         status: PostV1ProductionOrdersCreateResponseStatus,
+        scrappedQuantity: Nullable<String>,
+        materialCost: Nullable<String>,
+        laborCost: Nullable<String>,
+        scrapCost: Nullable<String>,
         totalCost: Nullable<String>,
         journalTransactionId: Nullable<String>,
         notes: Nullable<String>,
         createdAt: String,
+        operations: [PostV1ProductionOrdersCreateResponseOperationsItem],
+        qualityChecks: [PostV1ProductionOrdersCreateResponseQualityChecksItem],
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
         self.type = type
         self.bomId = bomId
         self.warehouseId = warehouseId
+        self.routingId = routingId
         self.quantity = quantity
         self.date = date
         self.status = status
+        self.scrappedQuantity = scrappedQuantity
+        self.materialCost = materialCost
+        self.laborCost = laborCost
+        self.scrapCost = scrapCost
         self.totalCost = totalCost
         self.journalTransactionId = journalTransactionId
         self.notes = notes
         self.createdAt = createdAt
+        self.operations = operations
+        self.qualityChecks = qualityChecks
         self.additionalProperties = additionalProperties
     }
 
@@ -49,13 +70,20 @@ public struct PostV1ProductionOrdersCreateResponse: Codable, Hashable, Sendable 
         self.type = try container.decode(PostV1ProductionOrdersCreateResponseType.self, forKey: .type)
         self.bomId = try container.decode(String.self, forKey: .bomId)
         self.warehouseId = try container.decode(String.self, forKey: .warehouseId)
+        self.routingId = try container.decode(Nullable<String>.self, forKey: .routingId)
         self.quantity = try container.decode(String.self, forKey: .quantity)
         self.date = try container.decode(String.self, forKey: .date)
         self.status = try container.decode(PostV1ProductionOrdersCreateResponseStatus.self, forKey: .status)
+        self.scrappedQuantity = try container.decode(Nullable<String>.self, forKey: .scrappedQuantity)
+        self.materialCost = try container.decode(Nullable<String>.self, forKey: .materialCost)
+        self.laborCost = try container.decode(Nullable<String>.self, forKey: .laborCost)
+        self.scrapCost = try container.decode(Nullable<String>.self, forKey: .scrapCost)
         self.totalCost = try container.decode(Nullable<String>.self, forKey: .totalCost)
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
+        self.operations = try container.decode([PostV1ProductionOrdersCreateResponseOperationsItem].self, forKey: .operations)
+        self.qualityChecks = try container.decode([PostV1ProductionOrdersCreateResponseQualityChecksItem].self, forKey: .qualityChecks)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -66,13 +94,20 @@ public struct PostV1ProductionOrdersCreateResponse: Codable, Hashable, Sendable 
         try container.encode(self.type, forKey: .type)
         try container.encode(self.bomId, forKey: .bomId)
         try container.encode(self.warehouseId, forKey: .warehouseId)
+        try container.encode(self.routingId, forKey: .routingId)
         try container.encode(self.quantity, forKey: .quantity)
         try container.encode(self.date, forKey: .date)
         try container.encode(self.status, forKey: .status)
+        try container.encode(self.scrappedQuantity, forKey: .scrappedQuantity)
+        try container.encode(self.materialCost, forKey: .materialCost)
+        try container.encode(self.laborCost, forKey: .laborCost)
+        try container.encode(self.scrapCost, forKey: .scrapCost)
         try container.encode(self.totalCost, forKey: .totalCost)
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.createdAt, forKey: .createdAt)
+        try container.encode(self.operations, forKey: .operations)
+        try container.encode(self.qualityChecks, forKey: .qualityChecks)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -81,12 +116,19 @@ public struct PostV1ProductionOrdersCreateResponse: Codable, Hashable, Sendable 
         case type
         case bomId
         case warehouseId
+        case routingId
         case quantity
         case date
         case status
+        case scrappedQuantity
+        case materialCost
+        case laborCost
+        case scrapCost
         case totalCost
         case journalTransactionId
         case notes
         case createdAt
+        case operations
+        case qualityChecks
     }
 }

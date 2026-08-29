@@ -771,6 +771,148 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceEuVatRatesImportsList</a>(request: Requests.PostV1ReferenceEuVatRatesImportsListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceEuVatRatesImportsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+History of EU VAT rate imports from the EC TEDB VatRetrievalService: when rates were pulled, what changed, and whether the run succeeded. The initial seed run carries the built-in snapshot.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.reference.postV1ReferenceEuVatRatesImportsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ReferenceEuVatRatesImportsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceEuVatRatesSync</a>(request: Requests.PostV1ReferenceEuVatRatesSyncRequest, requestOptions: RequestOptions?) -> PostV1ReferenceEuVatRatesSyncResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Trigger an immediate pull of EU VAT rates from the EC TEDB VatRetrievalService. Rates are shared reference data: new rates open with today as their effective date, rates that disappeared are closed with a validity end date. Returns the finished import run.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.reference.postV1ReferenceEuVatRatesSync(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ReferenceEuVatRatesSyncRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceEuVatRatesSetOverrides</a>(request: Requests.PostV1ReferenceEuVatRatesSetOverridesRequest, requestOptions: RequestOptions?) -> PostV1ReferenceEuVatRatesSetOverridesResponse</code></summary>
 <dl>
 <dd>
@@ -2043,6 +2185,123 @@ try await main()
 <dd>
 
 **request:** `Requests.PostV1PartnersValidateVatRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersVatReviewsList</a>(request: Requests.PostV1PartnersVatReviewsListRequest, requestOptions: RequestOptions?) -> PostV1PartnersVatReviewsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.partners.postV1PartnersVatReviewsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PartnersVatReviewsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersVatReviewsResolve</a>(request: Requests.PostV1PartnersVatReviewsResolveRequest, requestOptions: RequestOptions?) -> PostV1PartnersVatReviewsResolveResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.partners.postV1PartnersVatReviewsResolve(request: .init(
+        id: "id",
+        resolution: .confirmedValid
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PartnersVatReviewsResolveRequest` 
     
 </dd>
 </dl>
@@ -4548,6 +4807,148 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesEinvoiceXml</a>(request: Requests.PostV1SalesInvoicesEinvoiceXmlRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesEinvoiceXmlResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Render an issued invoice as the national e-invoicing payload for the company country: FatturaPA (IT), KSeF FA(3) (PL) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is flagged, never invented.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.postV1SalesInvoicesEinvoiceXml(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1SalesInvoicesEinvoiceXmlRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesEinvoiceSend</a>(request: Requests.PostV1SalesInvoicesEinvoiceSendRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesEinvoiceSendResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the national e-invoicing payload and deliver it to the bridge endpoint configured for the country gateway in compliance settings. The bridge (an accredited intermediary or connector) handles the certified national channel - SdI accreditation, KSeF sessions or ANAF SPV OAuth.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.postV1SalesInvoicesEinvoiceSend(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1SalesInvoicesEinvoiceSendRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesUpdate</a>(request: Requests.PostV1SalesInvoicesUpdateRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesUpdateResponse</code></summary>
 <dl>
 <dd>
@@ -6123,6 +6524,1177 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersCreate</a>(request: Requests.PostV1PurchasesOrdersCreateRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesOrdersCreate(request: .init(
+        partnerId: "partnerId",
+        orderDate: "orderDate",
+        lines: [
+            PostV1PurchasesOrdersCreateRequestLinesItem(
+
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesOrdersCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersUpdate</a>(request: Requests.PostV1PurchasesOrdersUpdateRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesOrdersUpdate(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesOrdersUpdateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersGet</a>(request: Requests.PostV1PurchasesOrdersGetRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesOrdersGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesOrdersGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersList</a>(request: Requests.PostV1PurchasesOrdersListRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesOrdersList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesOrdersListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersSubmit</a>(request: Requests.PostV1PurchasesOrdersSubmitRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersSubmitResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesOrdersSubmit(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesOrdersSubmitRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersApprove</a>(request: Requests.PostV1PurchasesOrdersApproveRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersApproveResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesOrdersApprove(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesOrdersApproveRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersReject</a>(request: Requests.PostV1PurchasesOrdersRejectRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersRejectResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesOrdersReject(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesOrdersRejectRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersCancel</a>(request: Requests.PostV1PurchasesOrdersCancelRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersCancelResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesOrdersCancel(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesOrdersCancelRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersClose</a>(request: Requests.PostV1PurchasesOrdersCloseRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersCloseResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesOrdersClose(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesOrdersCloseRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersDelete</a>(request: Requests.PostV1PurchasesOrdersDeleteRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesOrdersDelete(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesOrdersDeleteRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesReceiptsCreate</a>(request: Requests.PostV1PurchasesReceiptsCreateRequest, requestOptions: RequestOptions?) -> PostV1PurchasesReceiptsCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesReceiptsCreate(request: .init(
+        orderId: "orderId",
+        receiptDate: "receiptDate",
+        lines: [
+            PostV1PurchasesReceiptsCreateRequestLinesItem(
+                orderLineId: "orderLineId",
+                quantity: "quantity"
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesReceiptsCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesReceiptsGet</a>(request: Requests.PostV1PurchasesReceiptsGetRequest, requestOptions: RequestOptions?) -> PostV1PurchasesReceiptsGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesReceiptsGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesReceiptsGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesReceiptsList</a>(request: Requests.PostV1PurchasesReceiptsListRequest, requestOptions: RequestOptions?) -> PostV1PurchasesReceiptsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesReceiptsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesReceiptsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesInvoicesMatch</a>(request: Requests.PostV1PurchasesInvoicesMatchRequest, requestOptions: RequestOptions?) -> PostV1PurchasesInvoicesMatchResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.postV1PurchasesInvoicesMatch(request: .init(invoiceId: "invoiceId"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1PurchasesInvoicesMatchRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## Capture
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">readAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraft</a>(request: Requests.PostV1CaptureDocumentsUploadRequest, requestOptions: RequestOptions?) -> PostV1CaptureDocumentsUploadResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.capture.readAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraft(request: .init(
+        fileName: "fileName",
+        mimeType: "mimeType",
+        content: "content"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1CaptureDocumentsUploadRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">reReadAStoredCaptureReplacingThePreviousDraft</a>(request: Requests.PostV1CaptureDocumentsExtractRequest, requestOptions: RequestOptions?) -> PostV1CaptureDocumentsExtractResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.capture.reReadAStoredCaptureReplacingThePreviousDraft(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1CaptureDocumentsExtractRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">postV1CaptureDocumentsGet</a>(request: Requests.PostV1CaptureDocumentsGetRequest, requestOptions: RequestOptions?) -> PostV1CaptureDocumentsGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.capture.postV1CaptureDocumentsGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1CaptureDocumentsGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">postV1CaptureDocumentsList</a>(request: Requests.PostV1CaptureDocumentsListRequest, requestOptions: RequestOptions?) -> PostV1CaptureDocumentsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.capture.postV1CaptureDocumentsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1CaptureDocumentsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">postV1CaptureDocumentsDelete</a>(request: Requests.PostV1CaptureDocumentsDeleteRequest, requestOptions: RequestOptions?) -> PostV1CaptureDocumentsDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.capture.postV1CaptureDocumentsDelete(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1CaptureDocumentsDeleteRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">saveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocument</a>(request: Requests.PostV1CaptureDocumentsConfirmRequest, requestOptions: RequestOptions?) -> PostV1CaptureDocumentsConfirmResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.capture.saveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocument(request: .init(
+        id: "id",
+        documentNumber: "documentNumber",
+        documentDate: "documentDate",
+        lines: [
+            PostV1CaptureDocumentsConfirmRequestLinesItem(
+
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1CaptureDocumentsConfirmRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Declarations
 <details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtIntrastatCompute</a>(request: Requests.PostV1DeclarationsLtIntrastatComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtIntrastatComputeResponse</code></summary>
 <dl>
@@ -7169,6 +8741,82 @@ try await main()
 <dd>
 
 **request:** `Requests.PostV1DeclarationsEuVatReturnComputeRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlJpkV7MGenerate</a>(request: Requests.PostV1DeclarationsPlJpkV7MGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlJpkV7MGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Generate the Polish JPK_V7M(3) file (VAT declaration with evidence) for a month, per the MF schema in force since February 2026. Amounts must already be in PLN; rows are marked BFK until a KSeF integration supplies invoice numbers. Review the warnings before submitting via e-dokumenty.mf.gov.pl.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.postV1DeclarationsPlJpkV7MGenerate(request: .init(
+        year: 1000000,
+        month: 1000000,
+        kodUrzedu: "kodUrzedu",
+        email: "email"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1DeclarationsPlJpkV7MGenerateRequest` 
     
 </dd>
 </dl>
@@ -10717,6 +12365,477 @@ try await main()
 </dl>
 </details>
 
+## Fleet
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetVehiclesCreate</a>(request: Requests.PostV1FleetVehiclesCreateRequest, requestOptions: RequestOptions?) -> PostV1FleetVehiclesCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.fleet.postV1FleetVehiclesCreate(request: .init(
+        plateNumber: "plateNumber",
+        make: "make",
+        model: "model"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1FleetVehiclesCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetVehiclesUpdate</a>(request: Requests.PostV1FleetVehiclesUpdateRequest, requestOptions: RequestOptions?) -> PostV1FleetVehiclesUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.fleet.postV1FleetVehiclesUpdate(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1FleetVehiclesUpdateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetVehiclesGet</a>(request: Requests.PostV1FleetVehiclesGetRequest, requestOptions: RequestOptions?) -> PostV1FleetVehiclesGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.fleet.postV1FleetVehiclesGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1FleetVehiclesGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetVehiclesList</a>(request: Requests.PostV1FleetVehiclesListRequest, requestOptions: RequestOptions?) -> PostV1FleetVehiclesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.fleet.postV1FleetVehiclesList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1FleetVehiclesListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetAssignmentsCreate</a>(request: Requests.PostV1FleetAssignmentsCreateRequest, requestOptions: RequestOptions?) -> PostV1FleetAssignmentsCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.fleet.postV1FleetAssignmentsCreate(request: .init(
+        vehicleId: "vehicleId",
+        employeeId: "employeeId",
+        fromDate: "fromDate"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1FleetAssignmentsCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetAssignmentsEnd</a>(request: Requests.PostV1FleetAssignmentsEndRequest, requestOptions: RequestOptions?) -> PostV1FleetAssignmentsEndResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.fleet.postV1FleetAssignmentsEnd(request: .init(
+        id: "id",
+        toDate: "toDate"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1FleetAssignmentsEndRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetAssignmentsList</a>(request: Requests.PostV1FleetAssignmentsListRequest, requestOptions: RequestOptions?) -> PostV1FleetAssignmentsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.fleet.postV1FleetAssignmentsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1FleetAssignmentsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetNaturaPreview</a>(request: Requests.PostV1FleetNaturaPreviewRequest, requestOptions: RequestOptions?) -> PostV1FleetNaturaPreviewResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.fleet.postV1FleetNaturaPreview(request: .init(
+        year: 1000000,
+        month: 1000000
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1FleetNaturaPreviewRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Payroll
 <details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">postV1PayrollDepartmentsCreate</a>(request: Requests.PostV1PayrollDepartmentsCreateRequest, requestOptions: RequestOptions?) -> PostV1PayrollDepartmentsCreateResponse</code></summary>
 <dl>
@@ -12656,7 +14775,1230 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryLotsList</a>(request: Requests.PostV1InventoryLotsListRequest, requestOptions: RequestOptions?) -> PostV1InventoryLotsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.inventory.postV1InventoryLotsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1InventoryLotsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryLotsGet</a>(request: Requests.PostV1InventoryLotsGetRequest, requestOptions: RequestOptions?) -> PostV1InventoryLotsGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.inventory.postV1InventoryLotsGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1InventoryLotsGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryLotsUpdate</a>(request: Requests.PostV1InventoryLotsUpdateRequest, requestOptions: RequestOptions?) -> PostV1InventoryLotsUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.inventory.postV1InventoryLotsUpdate(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1InventoryLotsUpdateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryLandedCostsCreate</a>(request: Requests.PostV1InventoryLandedCostsCreateRequest, requestOptions: RequestOptions?) -> PostV1InventoryLandedCostsCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.inventory.postV1InventoryLandedCostsCreate(request: .init(
+        date: "date",
+        amount: "amount"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1InventoryLandedCostsCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryLandedCostsGet</a>(request: Requests.PostV1InventoryLandedCostsGetRequest, requestOptions: RequestOptions?) -> PostV1InventoryLandedCostsGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.inventory.postV1InventoryLandedCostsGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1InventoryLandedCostsGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryLandedCostsList</a>(request: Requests.PostV1InventoryLandedCostsListRequest, requestOptions: RequestOptions?) -> PostV1InventoryLandedCostsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.inventory.postV1InventoryLandedCostsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1InventoryLandedCostsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryReorderRulesCreate</a>(request: Requests.PostV1InventoryReorderRulesCreateRequest, requestOptions: RequestOptions?) -> PostV1InventoryReorderRulesCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.inventory.postV1InventoryReorderRulesCreate(request: .init(
+        itemId: "itemId",
+        minQty: "minQty"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1InventoryReorderRulesCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryReorderRulesUpdate</a>(request: Requests.PostV1InventoryReorderRulesUpdateRequest, requestOptions: RequestOptions?) -> PostV1InventoryReorderRulesUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.inventory.postV1InventoryReorderRulesUpdate(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1InventoryReorderRulesUpdateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryReorderRulesDelete</a>(request: Requests.PostV1InventoryReorderRulesDeleteRequest, requestOptions: RequestOptions?) -> PostV1InventoryReorderRulesDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.inventory.postV1InventoryReorderRulesDelete(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1InventoryReorderRulesDeleteRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryReorderRulesList</a>(request: Requests.PostV1InventoryReorderRulesListRequest, requestOptions: RequestOptions?) -> PostV1InventoryReorderRulesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.inventory.postV1InventoryReorderRulesList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1InventoryReorderRulesListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryReorderRulesCheck</a>(request: Requests.PostV1InventoryReorderRulesCheckRequest, requestOptions: RequestOptions?) -> PostV1InventoryReorderRulesCheckResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.inventory.postV1InventoryReorderRulesCheck(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1InventoryReorderRulesCheckRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Production
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionWorkCentersCreate</a>(request: Requests.PostV1ProductionWorkCentersCreateRequest, requestOptions: RequestOptions?) -> PostV1ProductionWorkCentersCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionWorkCentersCreate(request: .init(
+        code: "code",
+        name: "name"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionWorkCentersCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionWorkCentersUpdate</a>(request: Requests.PostV1ProductionWorkCentersUpdateRequest, requestOptions: RequestOptions?) -> PostV1ProductionWorkCentersUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionWorkCentersUpdate(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionWorkCentersUpdateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionWorkCentersList</a>(request: Requests.PostV1ProductionWorkCentersListRequest, requestOptions: RequestOptions?) -> PostV1ProductionWorkCentersListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionWorkCentersList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionWorkCentersListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionRoutingsCreate</a>(request: Requests.PostV1ProductionRoutingsCreateRequest, requestOptions: RequestOptions?) -> PostV1ProductionRoutingsCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionRoutingsCreate(request: .init(
+        code: "code",
+        name: "name",
+        operations: [
+            PostV1ProductionRoutingsCreateRequestOperationsItem(
+                sequence: 1000000,
+                name: "name",
+                workCenterId: "workCenterId"
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionRoutingsCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionRoutingsGet</a>(request: Requests.PostV1ProductionRoutingsGetRequest, requestOptions: RequestOptions?) -> PostV1ProductionRoutingsGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionRoutingsGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionRoutingsGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionRoutingsList</a>(request: Requests.PostV1ProductionRoutingsListRequest, requestOptions: RequestOptions?) -> PostV1ProductionRoutingsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionRoutingsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionRoutingsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionMaintenanceCreate</a>(request: Requests.PostV1ProductionMaintenanceCreateRequest, requestOptions: RequestOptions?) -> PostV1ProductionMaintenanceCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionMaintenanceCreate(request: .init(
+        workCenterId: "workCenterId",
+        type: .preventive,
+        plannedDate: "plannedDate"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionMaintenanceCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionMaintenanceComplete</a>(request: Requests.PostV1ProductionMaintenanceCompleteRequest, requestOptions: RequestOptions?) -> PostV1ProductionMaintenanceCompleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionMaintenanceComplete(request: .init(
+        id: "id",
+        completedDate: "completedDate"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionMaintenanceCompleteRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionMaintenanceCancel</a>(request: Requests.PostV1ProductionMaintenanceCancelRequest, requestOptions: RequestOptions?) -> PostV1ProductionMaintenanceCancelResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionMaintenanceCancel(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionMaintenanceCancelRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionMaintenanceList</a>(request: Requests.PostV1ProductionMaintenanceListRequest, requestOptions: RequestOptions?) -> PostV1ProductionMaintenanceListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionMaintenanceList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionMaintenanceListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionBomsCreate</a>(request: Requests.PostV1ProductionBomsCreateRequest, requestOptions: RequestOptions?) -> PostV1ProductionBomsCreateResponse</code></summary>
 <dl>
 <dd>
@@ -12881,6 +16223,243 @@ try await main()
 <dd>
 
 **request:** `Requests.PostV1ProductionOrdersCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionOrdersRecordOperation</a>(request: Requests.PostV1ProductionOrdersRecordOperationRequest, requestOptions: RequestOptions?) -> PostV1ProductionOrdersRecordOperationResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionOrdersRecordOperation(request: .init(
+        id: "id",
+        actualMinutes: "actualMinutes"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionOrdersRecordOperationRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionQualityChecksAdd</a>(request: Requests.PostV1ProductionQualityChecksAddRequest, requestOptions: RequestOptions?) -> PostV1ProductionQualityChecksAddResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionQualityChecksAdd(request: .init(
+        orderId: "orderId",
+        name: "name"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionQualityChecksAddRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionQualityChecksRecord</a>(request: Requests.PostV1ProductionQualityChecksRecordRequest, requestOptions: RequestOptions?) -> PostV1ProductionQualityChecksRecordResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionQualityChecksRecord(request: .init(
+        id: "id",
+        result: .passed
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionQualityChecksRecordRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionQualityChecksList</a>(request: Requests.PostV1ProductionQualityChecksListRequest, requestOptions: RequestOptions?) -> PostV1ProductionQualityChecksListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.production.postV1ProductionQualityChecksList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProductionQualityChecksListRequest` 
     
 </dd>
 </dl>
@@ -13807,6 +17386,584 @@ try await main()
 <dd>
 
 **request:** `Requests.PostV1CashAdvanceHoldersBalancesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## Projects
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsCreate</a>(request: Requests.PostV1ProjectsCreateRequest, requestOptions: RequestOptions?) -> PostV1ProjectsCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.projects.postV1ProjectsCreate(request: .init(
+        code: "code",
+        name: "name"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProjectsCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsUpdate</a>(request: Requests.PostV1ProjectsUpdateRequest, requestOptions: RequestOptions?) -> PostV1ProjectsUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.projects.postV1ProjectsUpdate(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProjectsUpdateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsGet</a>(request: Requests.PostV1ProjectsGetRequest, requestOptions: RequestOptions?) -> PostV1ProjectsGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.projects.postV1ProjectsGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProjectsGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsList</a>(request: Requests.PostV1ProjectsListRequest, requestOptions: RequestOptions?) -> PostV1ProjectsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.projects.postV1ProjectsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProjectsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsTimeEntriesCreate</a>(request: Requests.PostV1ProjectsTimeEntriesCreateRequest, requestOptions: RequestOptions?) -> PostV1ProjectsTimeEntriesCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.projects.postV1ProjectsTimeEntriesCreate(request: .init(
+        projectId: "projectId",
+        date: "date",
+        hours: "hours"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProjectsTimeEntriesCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsTimeEntriesUpdate</a>(request: Requests.PostV1ProjectsTimeEntriesUpdateRequest, requestOptions: RequestOptions?) -> PostV1ProjectsTimeEntriesUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.projects.postV1ProjectsTimeEntriesUpdate(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProjectsTimeEntriesUpdateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsTimeEntriesDelete</a>(request: Requests.PostV1ProjectsTimeEntriesDeleteRequest, requestOptions: RequestOptions?) -> PostV1ProjectsTimeEntriesDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.projects.postV1ProjectsTimeEntriesDelete(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProjectsTimeEntriesDeleteRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsTimeEntriesList</a>(request: Requests.PostV1ProjectsTimeEntriesListRequest, requestOptions: RequestOptions?) -> PostV1ProjectsTimeEntriesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.projects.postV1ProjectsTimeEntriesList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProjectsTimeEntriesListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsTimeEntriesBill</a>(request: Requests.PostV1ProjectsTimeEntriesBillRequest, requestOptions: RequestOptions?) -> PostV1ProjectsTimeEntriesBillResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.projects.postV1ProjectsTimeEntriesBill(request: .init(projectId: "projectId"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProjectsTimeEntriesBillRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsReport</a>(request: Requests.PostV1ProjectsReportRequest, requestOptions: RequestOptions?) -> PostV1ProjectsReportResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.projects.postV1ProjectsReport(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ProjectsReportRequest` 
     
 </dd>
 </dl>
@@ -15413,6 +19570,357 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMandatesCreate</a>(request: Requests.PostV1BankMandatesCreateRequest, requestOptions: RequestOptions?) -> PostV1BankMandatesCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postV1BankMandatesCreate(request: .init(
+        partnerId: "partnerId",
+        iban: "iban",
+        signatureDate: "signatureDate"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankMandatesCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMandatesUpdate</a>(request: Requests.PostV1BankMandatesUpdateRequest, requestOptions: RequestOptions?) -> PostV1BankMandatesUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postV1BankMandatesUpdate(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankMandatesUpdateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMandatesCancel</a>(request: Requests.PostV1BankMandatesCancelRequest, requestOptions: RequestOptions?) -> PostV1BankMandatesCancelResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postV1BankMandatesCancel(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankMandatesCancelRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMandatesGet</a>(request: Requests.PostV1BankMandatesGetRequest, requestOptions: RequestOptions?) -> PostV1BankMandatesGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postV1BankMandatesGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankMandatesGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMandatesList</a>(request: Requests.PostV1BankMandatesListRequest, requestOptions: RequestOptions?) -> PostV1BankMandatesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postV1BankMandatesList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankMandatesListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankDirectDebitsExport</a>(request: Requests.PostV1BankDirectDebitsExportRequest, requestOptions: RequestOptions?) -> PostV1BankDirectDebitsExportResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postV1BankDirectDebitsExport(request: .init(
+        bankAccountId: "bankAccountId",
+        saleInvoiceIds: [
+            "saleInvoiceIds"
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankDirectDebitsExportRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankTransactionsSuggestMatches</a>(request: Requests.PostV1BankTransactionsSuggestMatchesRequest, requestOptions: RequestOptions?) -> PostV1BankTransactionsSuggestMatchesResponse</code></summary>
 <dl>
 <dd>
@@ -15742,6 +20250,468 @@ try await main()
 <dd>
 
 **request:** `Requests.PostV1BankSettlementsPostRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">listThePsd2BanksAspsPsAvailableToConnect</a>(request: Requests.PostV1BankFeedsBanksListRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsBanksListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.listThePsd2BanksAspsPsAvailableToConnect(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankFeedsBanksListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">beginBankAuthorizationRedirectTheUserToTheReturnedUrl</a>(request: Requests.PostV1BankFeedsConnectionsStartRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsConnectionsStartResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.beginBankAuthorizationRedirectTheUserToTheReturnedUrl(request: .init(
+        aspspName: "aspspName",
+        aspspCountry: "aspspCountry"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankFeedsConnectionsStartRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">exchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposes</a>(request: Requests.PostV1BankFeedsConnectionsCompleteRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsConnectionsCompleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.exchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposes(request: .init(
+        reference: "reference",
+        code: "code"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankFeedsConnectionsCompleteRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankFeedsConnectionsGet</a>(request: Requests.PostV1BankFeedsConnectionsGetRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsConnectionsGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postV1BankFeedsConnectionsGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankFeedsConnectionsGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankFeedsConnectionsList</a>(request: Requests.PostV1BankFeedsConnectionsListRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsConnectionsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postV1BankFeedsConnectionsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankFeedsConnectionsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">revokeTheConsentAtTheBankAndDropTheStoredConnection</a>(request: Requests.PostV1BankFeedsConnectionsDeleteRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsConnectionsDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.revokeTheConsentAtTheBankAndDropTheStoredConnection(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankFeedsConnectionsDeleteRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">pointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSynced</a>(request: Requests.PostV1BankFeedsAccountsLinkRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsAccountsLinkResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.pointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSynced(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankFeedsAccountsLinkRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">pullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSynced</a>(request: Requests.PostV1BankFeedsSyncRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsSyncResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.pullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSynced(request: .init(connectionId: "connectionId"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankFeedsSyncRequest` 
     
 </dd>
 </dl>
@@ -17995,6 +22965,344 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationIntercompanyCandidates</a>(request: Requests.PostV1ConsolidationIntercompanyCandidatesRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationIntercompanyCandidatesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Partners in member companies that look like other members of the same group (matched on company code or VAT code), with any existing intercompany link. Confirming a candidate via intercompany/links/set enables invoice mirroring.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.consolidation.postV1ConsolidationIntercompanyCandidates(request: .init(groupId: "groupId"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ConsolidationIntercompanyCandidatesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationIntercompanyLinksSet</a>(request: Requests.PostV1ConsolidationIntercompanyLinksSetRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationIntercompanyLinksSetResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Confirm that a partner record in one member company represents another member company of the group. Once links exist in both directions, issuing an intercompany sale invoice automatically creates the matching draft purchase invoice in the counterparty.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.consolidation.postV1ConsolidationIntercompanyLinksSet(request: .init(
+        groupId: "groupId",
+        partnerId: "partnerId",
+        counterpartyCompanyId: "counterpartyCompanyId"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ConsolidationIntercompanyLinksSetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationIntercompanyLinksList</a>(request: Requests.PostV1ConsolidationIntercompanyLinksListRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationIntercompanyLinksListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.consolidation.postV1ConsolidationIntercompanyLinksList(request: .init(groupId: "groupId"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ConsolidationIntercompanyLinksListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationIntercompanyLinksRemove</a>(request: Requests.PostV1ConsolidationIntercompanyLinksRemoveRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationIntercompanyLinksRemoveResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.consolidation.postV1ConsolidationIntercompanyLinksRemove(request: .init(
+        groupId: "groupId",
+        id: "id"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ConsolidationIntercompanyLinksRemoveRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationIntercompanyReport</a>(request: Requests.PostV1ConsolidationIntercompanyReportRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationIntercompanyReportResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Intercompany reconciliation for a period: every issued intercompany sale invoice with its mirrored or manually recorded counterpart, unmatched documents on both sides, and per-currency totals with differences. Confirmed pairs are the basis for consolidation eliminations.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.consolidation.postV1ConsolidationIntercompanyReport(request: .init(
+        groupId: "groupId",
+        fromDate: "fromDate",
+        toDate: "toDate"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1ConsolidationIntercompanyReportRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationReport</a>(request: Requests.PostV1ConsolidationReportRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationReportResponse</code></summary>
 <dl>
 <dd>
@@ -18099,6 +23407,295 @@ try await main()
 <dd>
 
 **request:** `Requests.PostV1PublicIntegrationRequestsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## Billing
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">postV1BillingAccountGet</a>(request: Requests.PostV1BillingAccountGetRequest, requestOptions: RequestOptions?) -> PostV1BillingAccountGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.billing.postV1BillingAccountGet(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BillingAccountGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">postV1BillingAccountSetPlan</a>(request: Requests.PostV1BillingAccountSetPlanRequest, requestOptions: RequestOptions?) -> PostV1BillingAccountSetPlanResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.billing.postV1BillingAccountSetPlan(request: .init(plan: .starter))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BillingAccountSetPlanRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">postV1BillingTopupCreate</a>(request: Requests.PostV1BillingTopupCreateRequest, requestOptions: RequestOptions?) -> PostV1BillingTopupCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.billing.postV1BillingTopupCreate(request: .init(amountCents: 1000000))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BillingTopupCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">postV1BillingTransactionsList</a>(request: Requests.PostV1BillingTransactionsListRequest, requestOptions: RequestOptions?) -> PostV1BillingTransactionsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.billing.postV1BillingTransactionsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BillingTransactionsListRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">postV1BillingUsageList</a>(request: Requests.PostV1BillingUsageListRequest, requestOptions: RequestOptions?) -> PostV1BillingUsageListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.billing.postV1BillingUsageList(request: .init(
+        from: "from",
+        to: "to"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BillingUsageListRequest` 
     
 </dd>
 </dl>

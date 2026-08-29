@@ -13,6 +13,7 @@ extension Requests {
         public let iban: String?
         public let bankName: String?
         public let peppolId: String?
+        public let sepaCreditorId: String?
         public let defaultInvoiceCurrency: String?
         /// Jurisdiction the company is registered in (immutable after creation)
         public let countryCode: PostV1AccountCompaniesCreateRequestCountryCode?
@@ -33,6 +34,7 @@ extension Requests {
             iban: String? = nil,
             bankName: String? = nil,
             peppolId: String? = nil,
+            sepaCreditorId: String? = nil,
             defaultInvoiceCurrency: String? = nil,
             countryCode: PostV1AccountCompaniesCreateRequestCountryCode? = nil,
             isSandbox: Bool? = nil,
@@ -49,6 +51,7 @@ extension Requests {
             self.iban = iban
             self.bankName = bankName
             self.peppolId = peppolId
+            self.sepaCreditorId = sepaCreditorId
             self.defaultInvoiceCurrency = defaultInvoiceCurrency
             self.countryCode = countryCode
             self.isSandbox = isSandbox
@@ -68,6 +71,7 @@ extension Requests {
             self.iban = try container.decodeIfPresent(String.self, forKey: .iban)
             self.bankName = try container.decodeIfPresent(String.self, forKey: .bankName)
             self.peppolId = try container.decodeIfPresent(String.self, forKey: .peppolId)
+            self.sepaCreditorId = try container.decodeIfPresent(String.self, forKey: .sepaCreditorId)
             self.defaultInvoiceCurrency = try container.decodeIfPresent(String.self, forKey: .defaultInvoiceCurrency)
             self.countryCode = try container.decodeIfPresent(PostV1AccountCompaniesCreateRequestCountryCode.self, forKey: .countryCode)
             self.isSandbox = try container.decodeIfPresent(Bool.self, forKey: .isSandbox)
@@ -88,6 +92,7 @@ extension Requests {
             try container.encodeIfPresent(self.iban, forKey: .iban)
             try container.encodeIfPresent(self.bankName, forKey: .bankName)
             try container.encodeIfPresent(self.peppolId, forKey: .peppolId)
+            try container.encodeIfPresent(self.sepaCreditorId, forKey: .sepaCreditorId)
             try container.encodeIfPresent(self.defaultInvoiceCurrency, forKey: .defaultInvoiceCurrency)
             try container.encodeIfPresent(self.countryCode, forKey: .countryCode)
             try container.encodeIfPresent(self.isSandbox, forKey: .isSandbox)
@@ -106,6 +111,7 @@ extension Requests {
             case iban
             case bankName
             case peppolId
+            case sepaCreditorId
             case defaultInvoiceCurrency
             case countryCode
             case isSandbox

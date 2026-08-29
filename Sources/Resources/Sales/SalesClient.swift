@@ -67,6 +67,32 @@ public final class SalesClient: Sendable {
         )
     }
 
+    /// Render an issued invoice as the national e-invoicing payload for the company country: FatturaPA (IT), KSeF FA(3) (PL) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is flagged, never invented.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1SalesInvoicesEinvoiceXml(request: Requests.PostV1SalesInvoicesEinvoiceXmlRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesEinvoiceXmlResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/invoices/einvoice-xml",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1SalesInvoicesEinvoiceXmlResponse.self
+        )
+    }
+
+    /// Build the national e-invoicing payload and deliver it to the bridge endpoint configured for the country gateway in compliance settings. The bridge (an accredited intermediary or connector) handles the certified national channel - SdI accreditation, KSeF sessions or ANAF SPV OAuth.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1SalesInvoicesEinvoiceSend(request: Requests.PostV1SalesInvoicesEinvoiceSendRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesEinvoiceSendResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/invoices/einvoice-send",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1SalesInvoicesEinvoiceSendResponse.self
+        )
+    }
+
     public func postV1SalesInvoicesUpdate(request: Requests.PostV1SalesInvoicesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesUpdateResponse {
         return try await httpClient.performRequest(
             method: .post,

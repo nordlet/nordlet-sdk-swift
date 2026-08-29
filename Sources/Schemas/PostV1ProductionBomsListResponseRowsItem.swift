@@ -6,6 +6,7 @@ public struct PostV1ProductionBomsListResponseRowsItem: Codable, Hashable, Senda
     public let name: String
     public let finishedItemId: String
     public let outputQuantity: String
+    public let routingId: Nullable<String>
     public let isActive: Bool
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -16,6 +17,7 @@ public struct PostV1ProductionBomsListResponseRowsItem: Codable, Hashable, Senda
         name: String,
         finishedItemId: String,
         outputQuantity: String,
+        routingId: Nullable<String>,
         isActive: Bool,
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -24,6 +26,7 @@ public struct PostV1ProductionBomsListResponseRowsItem: Codable, Hashable, Senda
         self.name = name
         self.finishedItemId = finishedItemId
         self.outputQuantity = outputQuantity
+        self.routingId = routingId
         self.isActive = isActive
         self.additionalProperties = additionalProperties
     }
@@ -35,6 +38,7 @@ public struct PostV1ProductionBomsListResponseRowsItem: Codable, Hashable, Senda
         self.name = try container.decode(String.self, forKey: .name)
         self.finishedItemId = try container.decode(String.self, forKey: .finishedItemId)
         self.outputQuantity = try container.decode(String.self, forKey: .outputQuantity)
+        self.routingId = try container.decode(Nullable<String>.self, forKey: .routingId)
         self.isActive = try container.decode(Bool.self, forKey: .isActive)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -47,6 +51,7 @@ public struct PostV1ProductionBomsListResponseRowsItem: Codable, Hashable, Senda
         try container.encode(self.name, forKey: .name)
         try container.encode(self.finishedItemId, forKey: .finishedItemId)
         try container.encode(self.outputQuantity, forKey: .outputQuantity)
+        try container.encode(self.routingId, forKey: .routingId)
         try container.encode(self.isActive, forKey: .isActive)
     }
 
@@ -57,6 +62,7 @@ public struct PostV1ProductionBomsListResponseRowsItem: Codable, Hashable, Senda
         case name
         case finishedItemId
         case outputQuantity
+        case routingId
         case isActive
     }
 }

@@ -418,6 +418,7 @@ import Api
                       "contractId": "contractId",
                       "employeeName": "employeeName",
                       "gross": "gross",
+                      "natura": "natura",
                       "additions": [
                         {
                           "name": "name",
@@ -470,6 +471,7 @@ import Api
                     contractId: Nullable<String>.value("contractId"),
                     employeeName: "employeeName",
                     gross: "gross",
+                    natura: "natura",
                     additions: [
                         PostV1PayrollRunsCreateResponseLinesItemAdditionsItem(
                             name: "name",
@@ -529,6 +531,7 @@ import Api
                       "contractId": "x",
                       "employeeName": "employeeName",
                       "gross": "gross",
+                      "natura": "natura",
                       "additions": [
                         {
                           "name": "name",
@@ -564,6 +567,7 @@ import Api
                       "contractId": "x",
                       "employeeName": "employeeName",
                       "gross": "gross",
+                      "natura": "natura",
                       "additions": [
                         {
                           "name": "name",
@@ -625,6 +629,7 @@ import Api
                     contractId: Nullable<String>.value("x"),
                     employeeName: "employeeName",
                     gross: "gross",
+                    natura: "natura",
                     additions: [
                         PostV1PayrollRunsCreateResponseLinesItemAdditionsItem(
                             name: "name",
@@ -660,6 +665,7 @@ import Api
                     contractId: Nullable<String>.value("x"),
                     employeeName: "employeeName",
                     gross: "gross",
+                    natura: "natura",
                     additions: [
                         PostV1PayrollRunsCreateResponseLinesItemAdditionsItem(
                             name: "name",
@@ -728,6 +734,7 @@ import Api
                       "contractId": "contractId",
                       "employeeName": "employeeName",
                       "gross": "gross",
+                      "natura": "natura",
                       "additions": [
                         {
                           "name": "name",
@@ -780,6 +787,7 @@ import Api
                     contractId: Nullable<String>.value("contractId"),
                     employeeName: "employeeName",
                     gross: "gross",
+                    natura: "natura",
                     additions: [
                         PostV1PayrollRunsGetResponseLinesItemAdditionsItem(
                             name: "name",
@@ -836,6 +844,7 @@ import Api
                       "contractId": "x",
                       "employeeName": "employeeName",
                       "gross": "gross",
+                      "natura": "natura",
                       "additions": [
                         {
                           "name": "name",
@@ -871,6 +880,7 @@ import Api
                       "contractId": "x",
                       "employeeName": "employeeName",
                       "gross": "gross",
+                      "natura": "natura",
                       "additions": [
                         {
                           "name": "name",
@@ -932,6 +942,7 @@ import Api
                     contractId: Nullable<String>.value("x"),
                     employeeName: "employeeName",
                     gross: "gross",
+                    natura: "natura",
                     additions: [
                         PostV1PayrollRunsGetResponseLinesItemAdditionsItem(
                             name: "name",
@@ -967,6 +978,7 @@ import Api
                     contractId: Nullable<String>.value("x"),
                     employeeName: "employeeName",
                     gross: "gross",
+                    natura: "natura",
                     additions: [
                         PostV1PayrollRunsGetResponseLinesItemAdditionsItem(
                             name: "name",

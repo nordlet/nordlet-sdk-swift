@@ -27,6 +27,7 @@ public struct PostV1SalesInvoicesUpdateResponse: Codable, Hashable, Sendable {
     public let createdAt: String
     public let updatedAt: String
     public let lines: [PostV1SalesInvoicesUpdateResponseLinesItem]
+    public let vatEvidence: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidence>
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -57,6 +58,7 @@ public struct PostV1SalesInvoicesUpdateResponse: Codable, Hashable, Sendable {
         createdAt: String,
         updatedAt: String,
         lines: [PostV1SalesInvoicesUpdateResponseLinesItem],
+        vatEvidence: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidence>,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -85,6 +87,7 @@ public struct PostV1SalesInvoicesUpdateResponse: Codable, Hashable, Sendable {
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.lines = lines
+        self.vatEvidence = vatEvidence
         self.additionalProperties = additionalProperties
     }
 
@@ -116,6 +119,7 @@ public struct PostV1SalesInvoicesUpdateResponse: Codable, Hashable, Sendable {
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
         self.lines = try container.decode([PostV1SalesInvoicesUpdateResponseLinesItem].self, forKey: .lines)
+        self.vatEvidence = try container.decode(Nullable<PostV1SalesInvoicesUpdateResponseVatEvidence>.self, forKey: .vatEvidence)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -148,6 +152,7 @@ public struct PostV1SalesInvoicesUpdateResponse: Codable, Hashable, Sendable {
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
         try container.encode(self.lines, forKey: .lines)
+        try container.encode(self.vatEvidence, forKey: .vatEvidence)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -178,5 +183,6 @@ public struct PostV1SalesInvoicesUpdateResponse: Codable, Hashable, Sendable {
         case createdAt
         case updatedAt
         case lines
+        case vatEvidence
     }
 }

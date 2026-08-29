@@ -6,6 +6,7 @@ public struct PostV1PayrollRunsGetResponseLinesItem: Codable, Hashable, Sendable
     public let contractId: Nullable<String>
     public let employeeName: String
     public let gross: String
+    public let natura: String
     public let additions: [PostV1PayrollRunsGetResponseLinesItemAdditionsItem]
     public let deductions: [PostV1PayrollRunsGetResponseLinesItemDeductionsItem]
     public let taxableBase: String
@@ -23,6 +24,7 @@ public struct PostV1PayrollRunsGetResponseLinesItem: Codable, Hashable, Sendable
         contractId: Nullable<String>,
         employeeName: String,
         gross: String,
+        natura: String,
         additions: [PostV1PayrollRunsGetResponseLinesItemAdditionsItem],
         deductions: [PostV1PayrollRunsGetResponseLinesItemDeductionsItem],
         taxableBase: String,
@@ -38,6 +40,7 @@ public struct PostV1PayrollRunsGetResponseLinesItem: Codable, Hashable, Sendable
         self.contractId = contractId
         self.employeeName = employeeName
         self.gross = gross
+        self.natura = natura
         self.additions = additions
         self.deductions = deductions
         self.taxableBase = taxableBase
@@ -56,6 +59,7 @@ public struct PostV1PayrollRunsGetResponseLinesItem: Codable, Hashable, Sendable
         self.contractId = try container.decode(Nullable<String>.self, forKey: .contractId)
         self.employeeName = try container.decode(String.self, forKey: .employeeName)
         self.gross = try container.decode(String.self, forKey: .gross)
+        self.natura = try container.decode(String.self, forKey: .natura)
         self.additions = try container.decode([PostV1PayrollRunsGetResponseLinesItemAdditionsItem].self, forKey: .additions)
         self.deductions = try container.decode([PostV1PayrollRunsGetResponseLinesItemDeductionsItem].self, forKey: .deductions)
         self.taxableBase = try container.decode(String.self, forKey: .taxableBase)
@@ -75,6 +79,7 @@ public struct PostV1PayrollRunsGetResponseLinesItem: Codable, Hashable, Sendable
         try container.encode(self.contractId, forKey: .contractId)
         try container.encode(self.employeeName, forKey: .employeeName)
         try container.encode(self.gross, forKey: .gross)
+        try container.encode(self.natura, forKey: .natura)
         try container.encode(self.additions, forKey: .additions)
         try container.encode(self.deductions, forKey: .deductions)
         try container.encode(self.taxableBase, forKey: .taxableBase)
@@ -92,6 +97,7 @@ public struct PostV1PayrollRunsGetResponseLinesItem: Codable, Hashable, Sendable
         case contractId
         case employeeName
         case gross
+        case natura
         case additions
         case deductions
         case taxableBase

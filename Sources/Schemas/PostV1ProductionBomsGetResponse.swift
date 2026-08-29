@@ -6,6 +6,7 @@ public struct PostV1ProductionBomsGetResponse: Codable, Hashable, Sendable {
     public let name: String
     public let finishedItemId: String
     public let outputQuantity: String
+    public let routingId: Nullable<String>
     public let isActive: Bool
     public let lines: [PostV1ProductionBomsGetResponseLinesItem]
     /// Additional properties that are not explicitly defined in the schema
@@ -17,6 +18,7 @@ public struct PostV1ProductionBomsGetResponse: Codable, Hashable, Sendable {
         name: String,
         finishedItemId: String,
         outputQuantity: String,
+        routingId: Nullable<String>,
         isActive: Bool,
         lines: [PostV1ProductionBomsGetResponseLinesItem],
         additionalProperties: [String: JSONValue] = .init()
@@ -26,6 +28,7 @@ public struct PostV1ProductionBomsGetResponse: Codable, Hashable, Sendable {
         self.name = name
         self.finishedItemId = finishedItemId
         self.outputQuantity = outputQuantity
+        self.routingId = routingId
         self.isActive = isActive
         self.lines = lines
         self.additionalProperties = additionalProperties
@@ -38,6 +41,7 @@ public struct PostV1ProductionBomsGetResponse: Codable, Hashable, Sendable {
         self.name = try container.decode(String.self, forKey: .name)
         self.finishedItemId = try container.decode(String.self, forKey: .finishedItemId)
         self.outputQuantity = try container.decode(String.self, forKey: .outputQuantity)
+        self.routingId = try container.decode(Nullable<String>.self, forKey: .routingId)
         self.isActive = try container.decode(Bool.self, forKey: .isActive)
         self.lines = try container.decode([PostV1ProductionBomsGetResponseLinesItem].self, forKey: .lines)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -51,6 +55,7 @@ public struct PostV1ProductionBomsGetResponse: Codable, Hashable, Sendable {
         try container.encode(self.name, forKey: .name)
         try container.encode(self.finishedItemId, forKey: .finishedItemId)
         try container.encode(self.outputQuantity, forKey: .outputQuantity)
+        try container.encode(self.routingId, forKey: .routingId)
         try container.encode(self.isActive, forKey: .isActive)
         try container.encode(self.lines, forKey: .lines)
     }
@@ -62,6 +67,7 @@ public struct PostV1ProductionBomsGetResponse: Codable, Hashable, Sendable {
         case name
         case finishedItemId
         case outputQuantity
+        case routingId
         case isActive
         case lines
     }

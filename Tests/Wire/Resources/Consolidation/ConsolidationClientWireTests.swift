@@ -557,6 +557,850 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func postV1ConsolidationIntercompanyCandidates1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "memberCompanyId": "memberCompanyId",
+                      "memberName": "memberName",
+                      "partnerId": "partnerId",
+                      "partnerName": "partnerName",
+                      "partnerCode": "partnerCode",
+                      "matchesCompanyId": "matchesCompanyId",
+                      "matchesCompanyName": "matchesCompanyName",
+                      "matchedOn": "code",
+                      "linkId": "linkId"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ConsolidationIntercompanyCandidatesResponse(
+            rows: [
+                PostV1ConsolidationIntercompanyCandidatesResponseRowsItem(
+                    memberCompanyId: "memberCompanyId",
+                    memberName: "memberName",
+                    partnerId: "partnerId",
+                    partnerName: "partnerName",
+                    partnerCode: Nullable<String>.value("partnerCode"),
+                    matchesCompanyId: "matchesCompanyId",
+                    matchesCompanyName: "matchesCompanyName",
+                    matchedOn: .code,
+                    linkId: Nullable<String>.value("linkId")
+                )
+            ]
+        )
+        let response = try await client.consolidation.postV1ConsolidationIntercompanyCandidates(
+            request: .init(groupId: "groupId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ConsolidationIntercompanyCandidates2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "memberCompanyId": "x",
+                      "memberName": "memberName",
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "partnerCode": "partnerCode",
+                      "matchesCompanyId": "x",
+                      "matchesCompanyName": "matchesCompanyName",
+                      "matchedOn": "code",
+                      "linkId": "x"
+                    },
+                    {
+                      "memberCompanyId": "x",
+                      "memberName": "memberName",
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "partnerCode": "partnerCode",
+                      "matchesCompanyId": "x",
+                      "matchesCompanyName": "matchesCompanyName",
+                      "matchedOn": "code",
+                      "linkId": "x"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ConsolidationIntercompanyCandidatesResponse(
+            rows: [
+                PostV1ConsolidationIntercompanyCandidatesResponseRowsItem(
+                    memberCompanyId: "x",
+                    memberName: "memberName",
+                    partnerId: "x",
+                    partnerName: "partnerName",
+                    partnerCode: Nullable<String>.value("partnerCode"),
+                    matchesCompanyId: "x",
+                    matchesCompanyName: "matchesCompanyName",
+                    matchedOn: .code,
+                    linkId: Nullable<String>.value("x")
+                ),
+                PostV1ConsolidationIntercompanyCandidatesResponseRowsItem(
+                    memberCompanyId: "x",
+                    memberName: "memberName",
+                    partnerId: "x",
+                    partnerName: "partnerName",
+                    partnerCode: Nullable<String>.value("partnerCode"),
+                    matchesCompanyId: "x",
+                    matchesCompanyName: "matchesCompanyName",
+                    matchedOn: .code,
+                    linkId: Nullable<String>.value("x")
+                )
+            ]
+        )
+        let response = try await client.consolidation.postV1ConsolidationIntercompanyCandidates(
+            request: .init(groupId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ConsolidationIntercompanyLinksSet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "groupId": "groupId",
+                  "companyId": "companyId",
+                  "partnerId": "partnerId",
+                  "counterpartyCompanyId": "counterpartyCompanyId"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ConsolidationIntercompanyLinksSetResponse(
+            id: "id",
+            groupId: "groupId",
+            companyId: "companyId",
+            partnerId: "partnerId",
+            counterpartyCompanyId: "counterpartyCompanyId"
+        )
+        let response = try await client.consolidation.postV1ConsolidationIntercompanyLinksSet(
+            request: .init(
+                groupId: "groupId",
+                partnerId: "partnerId",
+                counterpartyCompanyId: "counterpartyCompanyId"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ConsolidationIntercompanyLinksSet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "groupId": "x",
+                  "companyId": "x",
+                  "partnerId": "x",
+                  "counterpartyCompanyId": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ConsolidationIntercompanyLinksSetResponse(
+            id: "x",
+            groupId: "x",
+            companyId: "x",
+            partnerId: "x",
+            counterpartyCompanyId: "x"
+        )
+        let response = try await client.consolidation.postV1ConsolidationIntercompanyLinksSet(
+            request: .init(
+                groupId: "x",
+                partnerId: "x",
+                counterpartyCompanyId: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ConsolidationIntercompanyLinksList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "companyId": "companyId",
+                      "companyName": "companyName",
+                      "partnerId": "partnerId",
+                      "partnerName": "partnerName",
+                      "counterpartyCompanyId": "counterpartyCompanyId",
+                      "counterpartyCompanyName": "counterpartyCompanyName",
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ConsolidationIntercompanyLinksListResponse(
+            rows: [
+                PostV1ConsolidationIntercompanyLinksListResponseRowsItem(
+                    id: "id",
+                    companyId: "companyId",
+                    companyName: "companyName",
+                    partnerId: "partnerId",
+                    partnerName: "partnerName",
+                    counterpartyCompanyId: "counterpartyCompanyId",
+                    counterpartyCompanyName: "counterpartyCompanyName",
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.consolidation.postV1ConsolidationIntercompanyLinksList(
+            request: .init(groupId: "groupId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ConsolidationIntercompanyLinksList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "companyId": "x",
+                      "companyName": "companyName",
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "counterpartyCompanyId": "x",
+                      "counterpartyCompanyName": "counterpartyCompanyName",
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "id": "x",
+                      "companyId": "x",
+                      "companyName": "companyName",
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "counterpartyCompanyId": "x",
+                      "counterpartyCompanyName": "counterpartyCompanyName",
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ConsolidationIntercompanyLinksListResponse(
+            rows: [
+                PostV1ConsolidationIntercompanyLinksListResponseRowsItem(
+                    id: "x",
+                    companyId: "x",
+                    companyName: "companyName",
+                    partnerId: "x",
+                    partnerName: "partnerName",
+                    counterpartyCompanyId: "x",
+                    counterpartyCompanyName: "counterpartyCompanyName",
+                    createdAt: "createdAt"
+                ),
+                PostV1ConsolidationIntercompanyLinksListResponseRowsItem(
+                    id: "x",
+                    companyId: "x",
+                    companyName: "companyName",
+                    partnerId: "x",
+                    partnerName: "partnerName",
+                    counterpartyCompanyId: "x",
+                    counterpartyCompanyName: "counterpartyCompanyName",
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.consolidation.postV1ConsolidationIntercompanyLinksList(
+            request: .init(groupId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ConsolidationIntercompanyLinksRemove1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "ok": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ConsolidationIntercompanyLinksRemoveResponse(
+            ok: true
+        )
+        let response = try await client.consolidation.postV1ConsolidationIntercompanyLinksRemove(
+            request: .init(
+                groupId: "groupId",
+                id: "id"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ConsolidationIntercompanyLinksRemove2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "ok": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ConsolidationIntercompanyLinksRemoveResponse(
+            ok: true
+        )
+        let response = try await client.consolidation.postV1ConsolidationIntercompanyLinksRemove(
+            request: .init(
+                groupId: "x",
+                id: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ConsolidationIntercompanyReport1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fromDate": "fromDate",
+                  "toDate": "toDate",
+                  "directions": [
+                    {
+                      "sellerCompanyId": "sellerCompanyId",
+                      "sellerName": "sellerName",
+                      "buyerCompanyId": "buyerCompanyId",
+                      "buyerName": "buyerName",
+                      "documents": [
+                        {
+                          "sourceInvoiceId": "sourceInvoiceId",
+                          "fullNumber": "fullNumber",
+                          "issueDate": "issueDate",
+                          "type": "invoice",
+                          "currency": "currency",
+                          "grossTotal": "grossTotal",
+                          "paymentStatus": "unpaid",
+                          "match": "mirrored",
+                          "counterpart": null
+                        }
+                      ],
+                      "unmatchedPurchases": [
+                        {
+                          "invoiceId": "invoiceId",
+                          "documentNumber": "documentNumber",
+                          "documentDate": "documentDate",
+                          "currency": "currency",
+                          "grossTotal": "grossTotal",
+                          "status": "draft"
+                        }
+                      ],
+                      "totals": [
+                        {
+                          "currency": "currency",
+                          "salesGross": "salesGross",
+                          "purchasesGross": "purchasesGross",
+                          "grossDifference": "grossDifference",
+                          "openReceivable": "openReceivable",
+                          "openPayable": "openPayable",
+                          "openDifference": "openDifference"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ConsolidationIntercompanyReportResponse(
+            fromDate: "fromDate",
+            toDate: "toDate",
+            directions: [
+                PostV1ConsolidationIntercompanyReportResponseDirectionsItem(
+                    sellerCompanyId: "sellerCompanyId",
+                    sellerName: "sellerName",
+                    buyerCompanyId: "buyerCompanyId",
+                    buyerName: "buyerName",
+                    documents: [
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItem(
+                            sourceInvoiceId: "sourceInvoiceId",
+                            fullNumber: "fullNumber",
+                            issueDate: "issueDate",
+                            type: .invoice,
+                            currency: "currency",
+                            grossTotal: "grossTotal",
+                            paymentStatus: .unpaid,
+                            match: .mirrored,
+                            counterpart: .null
+                        )
+                    ],
+                    unmatchedPurchases: [
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemUnmatchedPurchasesItem(
+                            invoiceId: "invoiceId",
+                            documentNumber: "documentNumber",
+                            documentDate: "documentDate",
+                            currency: "currency",
+                            grossTotal: "grossTotal",
+                            status: .draft
+                        )
+                    ],
+                    totals: [
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemTotalsItem(
+                            currency: "currency",
+                            salesGross: "salesGross",
+                            purchasesGross: "purchasesGross",
+                            grossDifference: "grossDifference",
+                            openReceivable: "openReceivable",
+                            openPayable: "openPayable",
+                            openDifference: "openDifference"
+                        )
+                    ]
+                )
+            ]
+        )
+        let response = try await client.consolidation.postV1ConsolidationIntercompanyReport(
+            request: .init(
+                groupId: "groupId",
+                fromDate: "fromDate",
+                toDate: "toDate"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ConsolidationIntercompanyReport2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fromDate": "fromDate",
+                  "toDate": "toDate",
+                  "directions": [
+                    {
+                      "sellerCompanyId": "x",
+                      "sellerName": "sellerName",
+                      "buyerCompanyId": "x",
+                      "buyerName": "buyerName",
+                      "documents": [
+                        {
+                          "sourceInvoiceId": "x",
+                          "fullNumber": "fullNumber",
+                          "issueDate": "issueDate",
+                          "type": "invoice",
+                          "currency": "currency",
+                          "grossTotal": "grossTotal",
+                          "paymentStatus": "unpaid",
+                          "match": "mirrored",
+                          "counterpart": {
+                            "invoiceId": "x",
+                            "status": "draft",
+                            "paymentStatus": "unpaid",
+                            "grossTotal": "grossTotal",
+                            "amountsMatch": true
+                          }
+                        },
+                        {
+                          "sourceInvoiceId": "x",
+                          "fullNumber": "fullNumber",
+                          "issueDate": "issueDate",
+                          "type": "invoice",
+                          "currency": "currency",
+                          "grossTotal": "grossTotal",
+                          "paymentStatus": "unpaid",
+                          "match": "mirrored",
+                          "counterpart": {
+                            "invoiceId": "x",
+                            "status": "draft",
+                            "paymentStatus": "unpaid",
+                            "grossTotal": "grossTotal",
+                            "amountsMatch": true
+                          }
+                        }
+                      ],
+                      "unmatchedPurchases": [
+                        {
+                          "invoiceId": "x",
+                          "documentNumber": "documentNumber",
+                          "documentDate": "documentDate",
+                          "currency": "currency",
+                          "grossTotal": "grossTotal",
+                          "status": "draft"
+                        },
+                        {
+                          "invoiceId": "x",
+                          "documentNumber": "documentNumber",
+                          "documentDate": "documentDate",
+                          "currency": "currency",
+                          "grossTotal": "grossTotal",
+                          "status": "draft"
+                        }
+                      ],
+                      "totals": [
+                        {
+                          "currency": "currency",
+                          "salesGross": "salesGross",
+                          "purchasesGross": "purchasesGross",
+                          "grossDifference": "grossDifference",
+                          "openReceivable": "openReceivable",
+                          "openPayable": "openPayable",
+                          "openDifference": "openDifference"
+                        },
+                        {
+                          "currency": "currency",
+                          "salesGross": "salesGross",
+                          "purchasesGross": "purchasesGross",
+                          "grossDifference": "grossDifference",
+                          "openReceivable": "openReceivable",
+                          "openPayable": "openPayable",
+                          "openDifference": "openDifference"
+                        }
+                      ]
+                    },
+                    {
+                      "sellerCompanyId": "x",
+                      "sellerName": "sellerName",
+                      "buyerCompanyId": "x",
+                      "buyerName": "buyerName",
+                      "documents": [
+                        {
+                          "sourceInvoiceId": "x",
+                          "fullNumber": "fullNumber",
+                          "issueDate": "issueDate",
+                          "type": "invoice",
+                          "currency": "currency",
+                          "grossTotal": "grossTotal",
+                          "paymentStatus": "unpaid",
+                          "match": "mirrored",
+                          "counterpart": {
+                            "invoiceId": "x",
+                            "status": "draft",
+                            "paymentStatus": "unpaid",
+                            "grossTotal": "grossTotal",
+                            "amountsMatch": true
+                          }
+                        },
+                        {
+                          "sourceInvoiceId": "x",
+                          "fullNumber": "fullNumber",
+                          "issueDate": "issueDate",
+                          "type": "invoice",
+                          "currency": "currency",
+                          "grossTotal": "grossTotal",
+                          "paymentStatus": "unpaid",
+                          "match": "mirrored",
+                          "counterpart": {
+                            "invoiceId": "x",
+                            "status": "draft",
+                            "paymentStatus": "unpaid",
+                            "grossTotal": "grossTotal",
+                            "amountsMatch": true
+                          }
+                        }
+                      ],
+                      "unmatchedPurchases": [
+                        {
+                          "invoiceId": "x",
+                          "documentNumber": "documentNumber",
+                          "documentDate": "documentDate",
+                          "currency": "currency",
+                          "grossTotal": "grossTotal",
+                          "status": "draft"
+                        },
+                        {
+                          "invoiceId": "x",
+                          "documentNumber": "documentNumber",
+                          "documentDate": "documentDate",
+                          "currency": "currency",
+                          "grossTotal": "grossTotal",
+                          "status": "draft"
+                        }
+                      ],
+                      "totals": [
+                        {
+                          "currency": "currency",
+                          "salesGross": "salesGross",
+                          "purchasesGross": "purchasesGross",
+                          "grossDifference": "grossDifference",
+                          "openReceivable": "openReceivable",
+                          "openPayable": "openPayable",
+                          "openDifference": "openDifference"
+                        },
+                        {
+                          "currency": "currency",
+                          "salesGross": "salesGross",
+                          "purchasesGross": "purchasesGross",
+                          "grossDifference": "grossDifference",
+                          "openReceivable": "openReceivable",
+                          "openPayable": "openPayable",
+                          "openDifference": "openDifference"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ConsolidationIntercompanyReportResponse(
+            fromDate: "fromDate",
+            toDate: "toDate",
+            directions: [
+                PostV1ConsolidationIntercompanyReportResponseDirectionsItem(
+                    sellerCompanyId: "x",
+                    sellerName: "sellerName",
+                    buyerCompanyId: "x",
+                    buyerName: "buyerName",
+                    documents: [
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItem(
+                            sourceInvoiceId: "x",
+                            fullNumber: "fullNumber",
+                            issueDate: "issueDate",
+                            type: .invoice,
+                            currency: "currency",
+                            grossTotal: "grossTotal",
+                            paymentStatus: .unpaid,
+                            match: .mirrored,
+                            counterpart: Nullable<PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart>.value(PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart(
+                                invoiceId: "x",
+                                status: .draft,
+                                paymentStatus: .unpaid,
+                                grossTotal: "grossTotal",
+                                amountsMatch: true
+                            ))
+                        ),
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItem(
+                            sourceInvoiceId: "x",
+                            fullNumber: "fullNumber",
+                            issueDate: "issueDate",
+                            type: .invoice,
+                            currency: "currency",
+                            grossTotal: "grossTotal",
+                            paymentStatus: .unpaid,
+                            match: .mirrored,
+                            counterpart: Nullable<PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart>.value(PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart(
+                                invoiceId: "x",
+                                status: .draft,
+                                paymentStatus: .unpaid,
+                                grossTotal: "grossTotal",
+                                amountsMatch: true
+                            ))
+                        )
+                    ],
+                    unmatchedPurchases: [
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemUnmatchedPurchasesItem(
+                            invoiceId: "x",
+                            documentNumber: "documentNumber",
+                            documentDate: "documentDate",
+                            currency: "currency",
+                            grossTotal: "grossTotal",
+                            status: .draft
+                        ),
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemUnmatchedPurchasesItem(
+                            invoiceId: "x",
+                            documentNumber: "documentNumber",
+                            documentDate: "documentDate",
+                            currency: "currency",
+                            grossTotal: "grossTotal",
+                            status: .draft
+                        )
+                    ],
+                    totals: [
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemTotalsItem(
+                            currency: "currency",
+                            salesGross: "salesGross",
+                            purchasesGross: "purchasesGross",
+                            grossDifference: "grossDifference",
+                            openReceivable: "openReceivable",
+                            openPayable: "openPayable",
+                            openDifference: "openDifference"
+                        ),
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemTotalsItem(
+                            currency: "currency",
+                            salesGross: "salesGross",
+                            purchasesGross: "purchasesGross",
+                            grossDifference: "grossDifference",
+                            openReceivable: "openReceivable",
+                            openPayable: "openPayable",
+                            openDifference: "openDifference"
+                        )
+                    ]
+                ),
+                PostV1ConsolidationIntercompanyReportResponseDirectionsItem(
+                    sellerCompanyId: "x",
+                    sellerName: "sellerName",
+                    buyerCompanyId: "x",
+                    buyerName: "buyerName",
+                    documents: [
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItem(
+                            sourceInvoiceId: "x",
+                            fullNumber: "fullNumber",
+                            issueDate: "issueDate",
+                            type: .invoice,
+                            currency: "currency",
+                            grossTotal: "grossTotal",
+                            paymentStatus: .unpaid,
+                            match: .mirrored,
+                            counterpart: Nullable<PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart>.value(PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart(
+                                invoiceId: "x",
+                                status: .draft,
+                                paymentStatus: .unpaid,
+                                grossTotal: "grossTotal",
+                                amountsMatch: true
+                            ))
+                        ),
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItem(
+                            sourceInvoiceId: "x",
+                            fullNumber: "fullNumber",
+                            issueDate: "issueDate",
+                            type: .invoice,
+                            currency: "currency",
+                            grossTotal: "grossTotal",
+                            paymentStatus: .unpaid,
+                            match: .mirrored,
+                            counterpart: Nullable<PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart>.value(PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart(
+                                invoiceId: "x",
+                                status: .draft,
+                                paymentStatus: .unpaid,
+                                grossTotal: "grossTotal",
+                                amountsMatch: true
+                            ))
+                        )
+                    ],
+                    unmatchedPurchases: [
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemUnmatchedPurchasesItem(
+                            invoiceId: "x",
+                            documentNumber: "documentNumber",
+                            documentDate: "documentDate",
+                            currency: "currency",
+                            grossTotal: "grossTotal",
+                            status: .draft
+                        ),
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemUnmatchedPurchasesItem(
+                            invoiceId: "x",
+                            documentNumber: "documentNumber",
+                            documentDate: "documentDate",
+                            currency: "currency",
+                            grossTotal: "grossTotal",
+                            status: .draft
+                        )
+                    ],
+                    totals: [
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemTotalsItem(
+                            currency: "currency",
+                            salesGross: "salesGross",
+                            purchasesGross: "purchasesGross",
+                            grossDifference: "grossDifference",
+                            openReceivable: "openReceivable",
+                            openPayable: "openPayable",
+                            openDifference: "openDifference"
+                        ),
+                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemTotalsItem(
+                            currency: "currency",
+                            salesGross: "salesGross",
+                            purchasesGross: "purchasesGross",
+                            grossDifference: "grossDifference",
+                            openReceivable: "openReceivable",
+                            openPayable: "openPayable",
+                            openDifference: "openDifference"
+                        )
+                    ]
+                )
+            ]
+        )
+        let response = try await client.consolidation.postV1ConsolidationIntercompanyReport(
+            request: .init(
+                groupId: "x",
+                fromDate: "fromDate",
+                toDate: "toDate"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1ConsolidationReport1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -675,6 +1519,51 @@ import Api
                     ],
                     "balanced": true,
                     "net": "net"
+                  },
+                  "cashFlow": {
+                    "openingCash": "openingCash",
+                    "closingCash": "closingCash",
+                    "netChange": "netChange",
+                    "operating": {
+                      "inflow": "inflow",
+                      "outflow": "outflow",
+                      "net": "net",
+                      "rows": [
+                        {
+                          "code": "code",
+                          "name": "name",
+                          "inflow": "inflow",
+                          "outflow": "outflow"
+                        }
+                      ]
+                    },
+                    "investing": {
+                      "inflow": "inflow",
+                      "outflow": "outflow",
+                      "net": "net",
+                      "rows": [
+                        {
+                          "code": "code",
+                          "name": "name",
+                          "inflow": "inflow",
+                          "outflow": "outflow"
+                        }
+                      ]
+                    },
+                    "financing": {
+                      "inflow": "inflow",
+                      "outflow": "outflow",
+                      "net": "net",
+                      "rows": [
+                        {
+                          "code": "code",
+                          "name": "name",
+                          "inflow": "inflow",
+                          "outflow": "outflow"
+                        }
+                      ]
+                    },
+                    "balanced": true
                   },
                   "intercompanyCandidates": [
                     {
@@ -810,6 +1699,51 @@ import Api
                 ],
                 balanced: true,
                 net: "net"
+            ),
+            cashFlow: PostV1ConsolidationReportResponseCashFlow(
+                openingCash: "openingCash",
+                closingCash: "closingCash",
+                netChange: "netChange",
+                operating: PostV1ConsolidationReportResponseCashFlowOperating(
+                    inflow: "inflow",
+                    outflow: "outflow",
+                    net: "net",
+                    rows: [
+                        PostV1ConsolidationReportResponseCashFlowOperatingRowsItem(
+                            code: "code",
+                            name: "name",
+                            inflow: "inflow",
+                            outflow: "outflow"
+                        )
+                    ]
+                ),
+                investing: PostV1ConsolidationReportResponseCashFlowInvesting(
+                    inflow: "inflow",
+                    outflow: "outflow",
+                    net: "net",
+                    rows: [
+                        PostV1ConsolidationReportResponseCashFlowInvestingRowsItem(
+                            code: "code",
+                            name: "name",
+                            inflow: "inflow",
+                            outflow: "outflow"
+                        )
+                    ]
+                ),
+                financing: PostV1ConsolidationReportResponseCashFlowFinancing(
+                    inflow: "inflow",
+                    outflow: "outflow",
+                    net: "net",
+                    rows: [
+                        PostV1ConsolidationReportResponseCashFlowFinancingRowsItem(
+                            code: "code",
+                            name: "name",
+                            inflow: "inflow",
+                            outflow: "outflow"
+                        )
+                    ]
+                ),
+                balanced: true
             ),
             intercompanyCandidates: [
                 PostV1ConsolidationReportResponseIntercompanyCandidatesItem(
@@ -979,6 +1913,69 @@ import Api
                     ],
                     "balanced": true,
                     "net": "net"
+                  },
+                  "cashFlow": {
+                    "openingCash": "openingCash",
+                    "closingCash": "closingCash",
+                    "netChange": "netChange",
+                    "operating": {
+                      "inflow": "inflow",
+                      "outflow": "outflow",
+                      "net": "net",
+                      "rows": [
+                        {
+                          "code": "code",
+                          "name": "name",
+                          "inflow": "inflow",
+                          "outflow": "outflow"
+                        },
+                        {
+                          "code": "code",
+                          "name": "name",
+                          "inflow": "inflow",
+                          "outflow": "outflow"
+                        }
+                      ]
+                    },
+                    "investing": {
+                      "inflow": "inflow",
+                      "outflow": "outflow",
+                      "net": "net",
+                      "rows": [
+                        {
+                          "code": "code",
+                          "name": "name",
+                          "inflow": "inflow",
+                          "outflow": "outflow"
+                        },
+                        {
+                          "code": "code",
+                          "name": "name",
+                          "inflow": "inflow",
+                          "outflow": "outflow"
+                        }
+                      ]
+                    },
+                    "financing": {
+                      "inflow": "inflow",
+                      "outflow": "outflow",
+                      "net": "net",
+                      "rows": [
+                        {
+                          "code": "code",
+                          "name": "name",
+                          "inflow": "inflow",
+                          "outflow": "outflow"
+                        },
+                        {
+                          "code": "code",
+                          "name": "name",
+                          "inflow": "inflow",
+                          "outflow": "outflow"
+                        }
+                      ]
+                    },
+                    "balanced": true
                   },
                   "intercompanyCandidates": [
                     {
@@ -1150,6 +2147,69 @@ import Api
                 ],
                 balanced: true,
                 net: "net"
+            ),
+            cashFlow: PostV1ConsolidationReportResponseCashFlow(
+                openingCash: "openingCash",
+                closingCash: "closingCash",
+                netChange: "netChange",
+                operating: PostV1ConsolidationReportResponseCashFlowOperating(
+                    inflow: "inflow",
+                    outflow: "outflow",
+                    net: "net",
+                    rows: [
+                        PostV1ConsolidationReportResponseCashFlowOperatingRowsItem(
+                            code: "code",
+                            name: "name",
+                            inflow: "inflow",
+                            outflow: "outflow"
+                        ),
+                        PostV1ConsolidationReportResponseCashFlowOperatingRowsItem(
+                            code: "code",
+                            name: "name",
+                            inflow: "inflow",
+                            outflow: "outflow"
+                        )
+                    ]
+                ),
+                investing: PostV1ConsolidationReportResponseCashFlowInvesting(
+                    inflow: "inflow",
+                    outflow: "outflow",
+                    net: "net",
+                    rows: [
+                        PostV1ConsolidationReportResponseCashFlowInvestingRowsItem(
+                            code: "code",
+                            name: "name",
+                            inflow: "inflow",
+                            outflow: "outflow"
+                        ),
+                        PostV1ConsolidationReportResponseCashFlowInvestingRowsItem(
+                            code: "code",
+                            name: "name",
+                            inflow: "inflow",
+                            outflow: "outflow"
+                        )
+                    ]
+                ),
+                financing: PostV1ConsolidationReportResponseCashFlowFinancing(
+                    inflow: "inflow",
+                    outflow: "outflow",
+                    net: "net",
+                    rows: [
+                        PostV1ConsolidationReportResponseCashFlowFinancingRowsItem(
+                            code: "code",
+                            name: "name",
+                            inflow: "inflow",
+                            outflow: "outflow"
+                        ),
+                        PostV1ConsolidationReportResponseCashFlowFinancingRowsItem(
+                            code: "code",
+                            name: "name",
+                            inflow: "inflow",
+                            outflow: "outflow"
+                        )
+                    ]
+                ),
+                balanced: true
             ),
             intercompanyCandidates: [
                 PostV1ConsolidationReportResponseIntercompanyCandidatesItem(

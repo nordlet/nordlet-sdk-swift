@@ -12,6 +12,8 @@ public enum PostV1LedgerPostingRulesUpdateRequestRulesItemKey: String, Codable, 
     case purchasesDefaultExpense = "purchases.defaultExpense"
     case inventoryCogs = "inventory.cogs"
     case inventoryStock = "inventory.stock"
+    case productionLaborApplied = "production.laborApplied"
+    case productionScrap = "production.scrap"
     case bankFxGain = "bank.fxGain"
     case bankFxLoss = "bank.fxLoss"
     case settlementsFees = "settlements.fees"

@@ -3,6 +3,7 @@ import Foundation
 public struct PostV1CatalogItemsCreateResponse: Codable, Hashable, Sendable {
     public let id: String
     public let type: PostV1CatalogItemsCreateResponseType
+    public let tracking: PostV1CatalogItemsCreateResponseTracking
     public let name: String
     public let code: Nullable<String>
     public let barcode: Nullable<String>
@@ -29,6 +30,7 @@ public struct PostV1CatalogItemsCreateResponse: Codable, Hashable, Sendable {
     public init(
         id: String,
         type: PostV1CatalogItemsCreateResponseType,
+        tracking: PostV1CatalogItemsCreateResponseTracking,
         name: String,
         code: Nullable<String>,
         barcode: Nullable<String>,
@@ -53,6 +55,7 @@ public struct PostV1CatalogItemsCreateResponse: Codable, Hashable, Sendable {
     ) {
         self.id = id
         self.type = type
+        self.tracking = tracking
         self.name = name
         self.code = code
         self.barcode = barcode
@@ -80,6 +83,7 @@ public struct PostV1CatalogItemsCreateResponse: Codable, Hashable, Sendable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
         self.type = try container.decode(PostV1CatalogItemsCreateResponseType.self, forKey: .type)
+        self.tracking = try container.decode(PostV1CatalogItemsCreateResponseTracking.self, forKey: .tracking)
         self.name = try container.decode(String.self, forKey: .name)
         self.code = try container.decode(Nullable<String>.self, forKey: .code)
         self.barcode = try container.decode(Nullable<String>.self, forKey: .barcode)
@@ -108,6 +112,7 @@ public struct PostV1CatalogItemsCreateResponse: Codable, Hashable, Sendable {
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.id, forKey: .id)
         try container.encode(self.type, forKey: .type)
+        try container.encode(self.tracking, forKey: .tracking)
         try container.encode(self.name, forKey: .name)
         try container.encode(self.code, forKey: .code)
         try container.encode(self.barcode, forKey: .barcode)
@@ -134,6 +139,7 @@ public struct PostV1CatalogItemsCreateResponse: Codable, Hashable, Sendable {
     enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case type
+        case tracking
         case name
         case code
         case barcode

@@ -1155,6 +1155,206 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func postV1ReferenceEuVatRatesImportsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "situationOn": "situationOn",
+                      "status": "running",
+                      "trigger": "seed",
+                      "ratesFetched": 1000000,
+                      "ratesInserted": 1000000,
+                      "ratesClosed": 1000000,
+                      "error": "error",
+                      "startedAt": "startedAt",
+                      "finishedAt": "finishedAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReferenceEuVatRatesImportsListResponse(
+            rows: [
+                PostV1ReferenceEuVatRatesImportsListResponseRowsItem(
+                    id: "id",
+                    situationOn: "situationOn",
+                    status: .running,
+                    trigger: .seed,
+                    ratesFetched: 1000000,
+                    ratesInserted: 1000000,
+                    ratesClosed: 1000000,
+                    error: Nullable<String>.value("error"),
+                    startedAt: "startedAt",
+                    finishedAt: Nullable<String>.value("finishedAt")
+                )
+            ]
+        )
+        let response = try await client.reference.postV1ReferenceEuVatRatesImportsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReferenceEuVatRatesImportsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "situationOn": "situationOn",
+                      "status": "running",
+                      "trigger": "seed",
+                      "ratesFetched": 1000000,
+                      "ratesInserted": 1000000,
+                      "ratesClosed": 1000000,
+                      "error": "error",
+                      "startedAt": "startedAt",
+                      "finishedAt": "finishedAt"
+                    },
+                    {
+                      "id": "x",
+                      "situationOn": "situationOn",
+                      "status": "running",
+                      "trigger": "seed",
+                      "ratesFetched": 1000000,
+                      "ratesInserted": 1000000,
+                      "ratesClosed": 1000000,
+                      "error": "error",
+                      "startedAt": "startedAt",
+                      "finishedAt": "finishedAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReferenceEuVatRatesImportsListResponse(
+            rows: [
+                PostV1ReferenceEuVatRatesImportsListResponseRowsItem(
+                    id: "x",
+                    situationOn: "situationOn",
+                    status: .running,
+                    trigger: .seed,
+                    ratesFetched: 1000000,
+                    ratesInserted: 1000000,
+                    ratesClosed: 1000000,
+                    error: Nullable<String>.value("error"),
+                    startedAt: "startedAt",
+                    finishedAt: Nullable<String>.value("finishedAt")
+                ),
+                PostV1ReferenceEuVatRatesImportsListResponseRowsItem(
+                    id: "x",
+                    situationOn: "situationOn",
+                    status: .running,
+                    trigger: .seed,
+                    ratesFetched: 1000000,
+                    ratesInserted: 1000000,
+                    ratesClosed: 1000000,
+                    error: Nullable<String>.value("error"),
+                    startedAt: "startedAt",
+                    finishedAt: Nullable<String>.value("finishedAt")
+                )
+            ]
+        )
+        let response = try await client.reference.postV1ReferenceEuVatRatesImportsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReferenceEuVatRatesSync1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "situationOn": "situationOn",
+                  "status": "running",
+                  "ratesFetched": 1000000,
+                  "ratesInserted": 1000000,
+                  "ratesClosed": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReferenceEuVatRatesSyncResponse(
+            id: "id",
+            situationOn: "situationOn",
+            status: .running,
+            ratesFetched: 1000000,
+            ratesInserted: 1000000,
+            ratesClosed: 1000000
+        )
+        let response = try await client.reference.postV1ReferenceEuVatRatesSync(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReferenceEuVatRatesSync2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "situationOn": "situationOn",
+                  "status": "running",
+                  "ratesFetched": 1000000,
+                  "ratesInserted": 1000000,
+                  "ratesClosed": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReferenceEuVatRatesSyncResponse(
+            id: "x",
+            situationOn: "situationOn",
+            status: .running,
+            ratesFetched: 1000000,
+            ratesInserted: 1000000,
+            ratesClosed: 1000000
+        )
+        let response = try await client.reference.postV1ReferenceEuVatRatesSync(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1ReferenceEuVatRatesSetOverrides1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

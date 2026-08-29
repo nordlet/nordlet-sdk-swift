@@ -7,16 +7,19 @@ public final class ApiClient: Sendable {
     public let catalog: CatalogClient
     public let sales: SalesClient
     public let purchases: PurchasesClient
+    public let capture: CaptureClient
     public let declarations: DeclarationsClient
     public let ledger: LedgerClient
     public let assets: AssetsClient
     public let hr: HrClient
+    public let fleet: FleetClient
     public let payroll: PayrollClient
     public let agreements: AgreementsClient
     public let inventory: InventoryClient
     public let production: ProductionClient
     public let ecommerce: EcommerceClient
     public let cash: CashClient
+    public let projects: ProjectsClient
     public let transport: TransportClient
     public let pos: PosClient
     public let audit: AuditClient
@@ -26,6 +29,7 @@ public final class ApiClient: Sendable {
     public let reports: ReportsClient
     public let consolidation: ConsolidationClient
     public let `public`: PublicClient
+    public let billing: BillingClient
     public let account: AccountClient
     private let httpClient: HTTPClient
 
@@ -110,16 +114,19 @@ public final class ApiClient: Sendable {
         self.catalog = CatalogClient(config: config)
         self.sales = SalesClient(config: config)
         self.purchases = PurchasesClient(config: config)
+        self.capture = CaptureClient(config: config)
         self.declarations = DeclarationsClient(config: config)
         self.ledger = LedgerClient(config: config)
         self.assets = AssetsClient(config: config)
         self.hr = HrClient(config: config)
+        self.fleet = FleetClient(config: config)
         self.payroll = PayrollClient(config: config)
         self.agreements = AgreementsClient(config: config)
         self.inventory = InventoryClient(config: config)
         self.production = ProductionClient(config: config)
         self.ecommerce = EcommerceClient(config: config)
         self.cash = CashClient(config: config)
+        self.projects = ProjectsClient(config: config)
         self.transport = TransportClient(config: config)
         self.pos = PosClient(config: config)
         self.audit = AuditClient(config: config)
@@ -129,6 +136,7 @@ public final class ApiClient: Sendable {
         self.reports = ReportsClient(config: config)
         self.consolidation = ConsolidationClient(config: config)
         self.public = PublicClient(config: config)
+        self.billing = BillingClient(config: config)
         self.account = AccountClient(config: config)
         self.httpClient = HTTPClient(config: config)
     }

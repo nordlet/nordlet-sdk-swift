@@ -7,6 +7,7 @@ extension Requests {
         public let itemId: String
         public let date: String
         public let quantity: String
+        public let lotNumber: String?
         public let notes: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -17,6 +18,7 @@ extension Requests {
             itemId: String,
             date: String,
             quantity: String,
+            lotNumber: String? = nil,
             notes: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -25,6 +27,7 @@ extension Requests {
             self.itemId = itemId
             self.date = date
             self.quantity = quantity
+            self.lotNumber = lotNumber
             self.notes = notes
             self.additionalProperties = additionalProperties
         }
@@ -36,6 +39,7 @@ extension Requests {
             self.itemId = try container.decode(String.self, forKey: .itemId)
             self.date = try container.decode(String.self, forKey: .date)
             self.quantity = try container.decode(String.self, forKey: .quantity)
+            self.lotNumber = try container.decodeIfPresent(String.self, forKey: .lotNumber)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -48,6 +52,7 @@ extension Requests {
             try container.encode(self.itemId, forKey: .itemId)
             try container.encode(self.date, forKey: .date)
             try container.encode(self.quantity, forKey: .quantity)
+            try container.encodeIfPresent(self.lotNumber, forKey: .lotNumber)
             try container.encodeIfPresent(self.notes, forKey: .notes)
         }
 
@@ -58,6 +63,7 @@ extension Requests {
             case itemId
             case date
             case quantity
+            case lotNumber
             case notes
         }
     }

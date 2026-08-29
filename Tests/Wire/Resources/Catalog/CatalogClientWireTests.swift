@@ -11,6 +11,7 @@ import Api
                 {
                   "id": "id",
                   "type": "product",
+                  "tracking": "none",
                   "name": "name",
                   "code": "code",
                   "barcode": "barcode",
@@ -56,6 +57,7 @@ import Api
         let expectedResponse = PostV1CatalogItemsCreateResponse(
             id: "id",
             type: .product,
+            tracking: .none,
             name: "name",
             code: Nullable<String>.value("code"),
             barcode: Nullable<String>.value("barcode"),
@@ -105,6 +107,7 @@ import Api
                 {
                   "id": "x",
                   "type": "product",
+                  "tracking": "none",
                   "name": "name",
                   "code": "code",
                   "barcode": "barcode",
@@ -155,6 +158,7 @@ import Api
         let expectedResponse = PostV1CatalogItemsCreateResponse(
             id: "x",
             type: .product,
+            tracking: .none,
             name: "name",
             code: Nullable<String>.value("code"),
             barcode: Nullable<String>.value("barcode"),
@@ -209,6 +213,7 @@ import Api
                 {
                   "id": "id",
                   "type": "product",
+                  "tracking": "none",
                   "name": "name",
                   "code": "code",
                   "barcode": "barcode",
@@ -254,6 +259,7 @@ import Api
         let expectedResponse = PostV1CatalogItemsGetResponse(
             id: "id",
             type: .product,
+            tracking: .none,
             name: "name",
             code: Nullable<String>.value("code"),
             barcode: Nullable<String>.value("barcode"),
@@ -303,6 +309,7 @@ import Api
                 {
                   "id": "x",
                   "type": "product",
+                  "tracking": "none",
                   "name": "name",
                   "code": "code",
                   "barcode": "barcode",
@@ -353,6 +360,7 @@ import Api
         let expectedResponse = PostV1CatalogItemsGetResponse(
             id: "x",
             type: .product,
+            tracking: .none,
             name: "name",
             code: Nullable<String>.value("code"),
             barcode: Nullable<String>.value("barcode"),
@@ -407,6 +415,7 @@ import Api
                 {
                   "id": "id",
                   "type": "product",
+                  "tracking": "none",
                   "name": "name",
                   "code": "code",
                   "barcode": "barcode",
@@ -452,6 +461,7 @@ import Api
         let expectedResponse = PostV1CatalogItemsUpdateResponse(
             id: "id",
             type: .product,
+            tracking: .none,
             name: "name",
             code: Nullable<String>.value("code"),
             barcode: Nullable<String>.value("barcode"),
@@ -501,6 +511,7 @@ import Api
                 {
                   "id": "x",
                   "type": "product",
+                  "tracking": "none",
                   "name": "name",
                   "code": "code",
                   "barcode": "barcode",
@@ -551,6 +562,7 @@ import Api
         let expectedResponse = PostV1CatalogItemsUpdateResponse(
             id: "x",
             type: .product,
+            tracking: .none,
             name: "name",
             code: Nullable<String>.value("code"),
             barcode: Nullable<String>.value("barcode"),
@@ -659,6 +671,7 @@ import Api
                     {
                       "id": "id",
                       "type": "product",
+                      "tracking": "none",
                       "name": "name",
                       "code": "code",
                       "barcode": "barcode",
@@ -704,6 +717,7 @@ import Api
                 PostV1CatalogItemsListResponseRowsItem(
                     id: "id",
                     type: .product,
+                    tracking: .none,
                     name: "name",
                     code: Nullable<String>.value("code"),
                     barcode: Nullable<String>.value("barcode"),
@@ -753,6 +767,7 @@ import Api
                     {
                       "id": "x",
                       "type": "product",
+                      "tracking": "none",
                       "name": "name",
                       "code": "code",
                       "barcode": "barcode",
@@ -795,6 +810,7 @@ import Api
                     {
                       "id": "x",
                       "type": "product",
+                      "tracking": "none",
                       "name": "name",
                       "code": "code",
                       "barcode": "barcode",
@@ -852,6 +868,7 @@ import Api
                 PostV1CatalogItemsListResponseRowsItem(
                     id: "x",
                     type: .product,
+                    tracking: .none,
                     name: "name",
                     code: Nullable<String>.value("code"),
                     barcode: Nullable<String>.value("barcode"),
@@ -894,6 +911,7 @@ import Api
                 PostV1CatalogItemsListResponseRowsItem(
                     id: "x",
                     type: .product,
+                    tracking: .none,
                     name: "name",
                     code: Nullable<String>.value("code"),
                     barcode: Nullable<String>.value("barcode"),

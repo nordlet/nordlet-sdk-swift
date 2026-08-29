@@ -137,6 +137,26 @@ public final class PartnersClient: Sendable {
         )
     }
 
+    public func postV1PartnersVatReviewsList(request: Requests.PostV1PartnersVatReviewsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersVatReviewsListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/partners/vat-reviews/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1PartnersVatReviewsListResponse.self
+        )
+    }
+
+    public func postV1PartnersVatReviewsResolve(request: Requests.PostV1PartnersVatReviewsResolveRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersVatReviewsResolveResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/partners/vat-reviews/resolve",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1PartnersVatReviewsResolveResponse.self
+        )
+    }
+
     public func postV1PartnersCreate(request: Requests.PostV1PartnersCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersCreateResponse {
         return try await httpClient.performRequest(
             method: .post,

@@ -10,6 +10,7 @@ public struct PostV1SalesInvoicesUpdateRequestLinesItem: Codable, Hashable, Send
     public let vatRatePercent: String?
     public let vatClassifierCode: String?
     public let costCenterId: String?
+    public let projectId: String?
     public let recognition: PostV1SalesInvoicesUpdateRequestLinesItemRecognition?
     public let standaloneSellingPrice: String?
     public let refundEstimatePercent: String?
@@ -26,6 +27,7 @@ public struct PostV1SalesInvoicesUpdateRequestLinesItem: Codable, Hashable, Send
         vatRatePercent: String? = nil,
         vatClassifierCode: String? = nil,
         costCenterId: String? = nil,
+        projectId: String? = nil,
         recognition: PostV1SalesInvoicesUpdateRequestLinesItemRecognition? = nil,
         standaloneSellingPrice: String? = nil,
         refundEstimatePercent: String? = nil,
@@ -40,6 +42,7 @@ public struct PostV1SalesInvoicesUpdateRequestLinesItem: Codable, Hashable, Send
         self.vatRatePercent = vatRatePercent
         self.vatClassifierCode = vatClassifierCode
         self.costCenterId = costCenterId
+        self.projectId = projectId
         self.recognition = recognition
         self.standaloneSellingPrice = standaloneSellingPrice
         self.refundEstimatePercent = refundEstimatePercent
@@ -57,6 +60,7 @@ public struct PostV1SalesInvoicesUpdateRequestLinesItem: Codable, Hashable, Send
         self.vatRatePercent = try container.decodeIfPresent(String.self, forKey: .vatRatePercent)
         self.vatClassifierCode = try container.decodeIfPresent(String.self, forKey: .vatClassifierCode)
         self.costCenterId = try container.decodeIfPresent(String.self, forKey: .costCenterId)
+        self.projectId = try container.decodeIfPresent(String.self, forKey: .projectId)
         self.recognition = try container.decodeIfPresent(PostV1SalesInvoicesUpdateRequestLinesItemRecognition.self, forKey: .recognition)
         self.standaloneSellingPrice = try container.decodeIfPresent(String.self, forKey: .standaloneSellingPrice)
         self.refundEstimatePercent = try container.decodeIfPresent(String.self, forKey: .refundEstimatePercent)
@@ -75,6 +79,7 @@ public struct PostV1SalesInvoicesUpdateRequestLinesItem: Codable, Hashable, Send
         try container.encodeIfPresent(self.vatRatePercent, forKey: .vatRatePercent)
         try container.encodeIfPresent(self.vatClassifierCode, forKey: .vatClassifierCode)
         try container.encodeIfPresent(self.costCenterId, forKey: .costCenterId)
+        try container.encodeIfPresent(self.projectId, forKey: .projectId)
         try container.encodeIfPresent(self.recognition, forKey: .recognition)
         try container.encodeIfPresent(self.standaloneSellingPrice, forKey: .standaloneSellingPrice)
         try container.encodeIfPresent(self.refundEstimatePercent, forKey: .refundEstimatePercent)
@@ -91,6 +96,7 @@ public struct PostV1SalesInvoicesUpdateRequestLinesItem: Codable, Hashable, Send
         case vatRatePercent
         case vatClassifierCode
         case costCenterId
+        case projectId
         case recognition
         case standaloneSellingPrice
         case refundEstimatePercent

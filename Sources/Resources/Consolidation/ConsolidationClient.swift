@@ -77,6 +77,65 @@ public final class ConsolidationClient: Sendable {
         )
     }
 
+    /// Partners in member companies that look like other members of the same group (matched on company code or VAT code), with any existing intercompany link. Confirming a candidate via intercompany/links/set enables invoice mirroring.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1ConsolidationIntercompanyCandidates(request: Requests.PostV1ConsolidationIntercompanyCandidatesRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationIntercompanyCandidatesResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/consolidation/intercompany/candidates",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ConsolidationIntercompanyCandidatesResponse.self
+        )
+    }
+
+    /// Confirm that a partner record in one member company represents another member company of the group. Once links exist in both directions, issuing an intercompany sale invoice automatically creates the matching draft purchase invoice in the counterparty.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1ConsolidationIntercompanyLinksSet(request: Requests.PostV1ConsolidationIntercompanyLinksSetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationIntercompanyLinksSetResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/consolidation/intercompany/links/set",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ConsolidationIntercompanyLinksSetResponse.self
+        )
+    }
+
+    public func postV1ConsolidationIntercompanyLinksList(request: Requests.PostV1ConsolidationIntercompanyLinksListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationIntercompanyLinksListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/consolidation/intercompany/links/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ConsolidationIntercompanyLinksListResponse.self
+        )
+    }
+
+    public func postV1ConsolidationIntercompanyLinksRemove(request: Requests.PostV1ConsolidationIntercompanyLinksRemoveRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationIntercompanyLinksRemoveResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/consolidation/intercompany/links/remove",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ConsolidationIntercompanyLinksRemoveResponse.self
+        )
+    }
+
+    /// Intercompany reconciliation for a period: every issued intercompany sale invoice with its mirrored or manually recorded counterpart, unmatched documents on both sides, and per-currency totals with differences. Confirmed pairs are the basis for consolidation eliminations.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1ConsolidationIntercompanyReport(request: Requests.PostV1ConsolidationIntercompanyReportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationIntercompanyReportResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/consolidation/intercompany/report",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ConsolidationIntercompanyReportResponse.self
+        )
+    }
+
     public func postV1ConsolidationReport(request: Requests.PostV1ConsolidationReportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationReportResponse {
         return try await httpClient.performRequest(
             method: .post,

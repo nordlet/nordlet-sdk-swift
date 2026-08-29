@@ -140,6 +140,32 @@ public final class ReferenceClient: Sendable {
         )
     }
 
+    /// History of EU VAT rate imports from the EC TEDB VatRetrievalService: when rates were pulled, what changed, and whether the run succeeded. The initial seed run carries the built-in snapshot.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1ReferenceEuVatRatesImportsList(request: Requests.PostV1ReferenceEuVatRatesImportsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceEuVatRatesImportsListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/reference/eu-vat-rates/imports/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ReferenceEuVatRatesImportsListResponse.self
+        )
+    }
+
+    /// Trigger an immediate pull of EU VAT rates from the EC TEDB VatRetrievalService. Rates are shared reference data: new rates open with today as their effective date, rates that disappeared are closed with a validity end date. Returns the finished import run.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1ReferenceEuVatRatesSync(request: Requests.PostV1ReferenceEuVatRatesSyncRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceEuVatRatesSyncResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/reference/eu-vat-rates/sync",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ReferenceEuVatRatesSyncResponse.self
+        )
+    }
+
     /// Replace the VAT rate mapping this company uses for one EU country. Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.

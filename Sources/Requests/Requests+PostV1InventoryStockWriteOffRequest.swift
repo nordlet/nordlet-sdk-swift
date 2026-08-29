@@ -6,6 +6,7 @@ extension Requests {
         public let itemId: String
         public let date: String
         public let quantity: String
+        public let lotNumber: String?
         public let expenseAccountCode: String?
         public let inventoryAccountCode: String?
         public let notes: String?
@@ -17,6 +18,7 @@ extension Requests {
             itemId: String,
             date: String,
             quantity: String,
+            lotNumber: String? = nil,
             expenseAccountCode: String? = nil,
             inventoryAccountCode: String? = nil,
             notes: String? = nil,
@@ -26,6 +28,7 @@ extension Requests {
             self.itemId = itemId
             self.date = date
             self.quantity = quantity
+            self.lotNumber = lotNumber
             self.expenseAccountCode = expenseAccountCode
             self.inventoryAccountCode = inventoryAccountCode
             self.notes = notes
@@ -38,6 +41,7 @@ extension Requests {
             self.itemId = try container.decode(String.self, forKey: .itemId)
             self.date = try container.decode(String.self, forKey: .date)
             self.quantity = try container.decode(String.self, forKey: .quantity)
+            self.lotNumber = try container.decodeIfPresent(String.self, forKey: .lotNumber)
             self.expenseAccountCode = try container.decodeIfPresent(String.self, forKey: .expenseAccountCode)
             self.inventoryAccountCode = try container.decodeIfPresent(String.self, forKey: .inventoryAccountCode)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
@@ -51,6 +55,7 @@ extension Requests {
             try container.encode(self.itemId, forKey: .itemId)
             try container.encode(self.date, forKey: .date)
             try container.encode(self.quantity, forKey: .quantity)
+            try container.encodeIfPresent(self.lotNumber, forKey: .lotNumber)
             try container.encodeIfPresent(self.expenseAccountCode, forKey: .expenseAccountCode)
             try container.encodeIfPresent(self.inventoryAccountCode, forKey: .inventoryAccountCode)
             try container.encodeIfPresent(self.notes, forKey: .notes)
@@ -62,6 +67,7 @@ extension Requests {
             case itemId
             case date
             case quantity
+            case lotNumber
             case expenseAccountCode
             case inventoryAccountCode
             case notes

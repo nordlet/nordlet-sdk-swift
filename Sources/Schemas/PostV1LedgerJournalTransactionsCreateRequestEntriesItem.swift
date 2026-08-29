@@ -3,6 +3,7 @@ import Foundation
 public struct PostV1LedgerJournalTransactionsCreateRequestEntriesItem: Codable, Hashable, Sendable {
     public let accountCode: String
     public let costCenterId: String?
+    public let projectId: String?
     public let debit: String?
     public let credit: String?
     public let description: String?
@@ -12,6 +13,7 @@ public struct PostV1LedgerJournalTransactionsCreateRequestEntriesItem: Codable, 
     public init(
         accountCode: String,
         costCenterId: String? = nil,
+        projectId: String? = nil,
         debit: String? = nil,
         credit: String? = nil,
         description: String? = nil,
@@ -19,6 +21,7 @@ public struct PostV1LedgerJournalTransactionsCreateRequestEntriesItem: Codable, 
     ) {
         self.accountCode = accountCode
         self.costCenterId = costCenterId
+        self.projectId = projectId
         self.debit = debit
         self.credit = credit
         self.description = description
@@ -29,6 +32,7 @@ public struct PostV1LedgerJournalTransactionsCreateRequestEntriesItem: Codable, 
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.accountCode = try container.decode(String.self, forKey: .accountCode)
         self.costCenterId = try container.decodeIfPresent(String.self, forKey: .costCenterId)
+        self.projectId = try container.decodeIfPresent(String.self, forKey: .projectId)
         self.debit = try container.decodeIfPresent(String.self, forKey: .debit)
         self.credit = try container.decodeIfPresent(String.self, forKey: .credit)
         self.description = try container.decodeIfPresent(String.self, forKey: .description)
@@ -40,6 +44,7 @@ public struct PostV1LedgerJournalTransactionsCreateRequestEntriesItem: Codable, 
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.accountCode, forKey: .accountCode)
         try container.encodeIfPresent(self.costCenterId, forKey: .costCenterId)
+        try container.encodeIfPresent(self.projectId, forKey: .projectId)
         try container.encodeIfPresent(self.debit, forKey: .debit)
         try container.encodeIfPresent(self.credit, forKey: .credit)
         try container.encodeIfPresent(self.description, forKey: .description)
@@ -49,6 +54,7 @@ public struct PostV1LedgerJournalTransactionsCreateRequestEntriesItem: Codable, 
     enum CodingKeys: String, CodingKey, CaseIterable {
         case accountCode
         case costCenterId
+        case projectId
         case debit
         case credit
         case description

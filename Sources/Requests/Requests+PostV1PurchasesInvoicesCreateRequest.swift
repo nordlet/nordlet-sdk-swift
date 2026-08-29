@@ -9,6 +9,7 @@ extension Requests {
         public let dueDate: String?
         public let currency: String?
         public let creditedInvoiceId: String?
+        public let purchaseOrderId: String?
         public let notes: String?
         public let lines: [PostV1PurchasesInvoicesCreateRequestLinesItem]
         /// Additional properties that are not explicitly defined in the schema
@@ -22,6 +23,7 @@ extension Requests {
             dueDate: String? = nil,
             currency: String? = nil,
             creditedInvoiceId: String? = nil,
+            purchaseOrderId: String? = nil,
             notes: String? = nil,
             lines: [PostV1PurchasesInvoicesCreateRequestLinesItem],
             additionalProperties: [String: JSONValue] = .init()
@@ -33,6 +35,7 @@ extension Requests {
             self.dueDate = dueDate
             self.currency = currency
             self.creditedInvoiceId = creditedInvoiceId
+            self.purchaseOrderId = purchaseOrderId
             self.notes = notes
             self.lines = lines
             self.additionalProperties = additionalProperties
@@ -47,6 +50,7 @@ extension Requests {
             self.dueDate = try container.decodeIfPresent(String.self, forKey: .dueDate)
             self.currency = try container.decodeIfPresent(String.self, forKey: .currency)
             self.creditedInvoiceId = try container.decodeIfPresent(String.self, forKey: .creditedInvoiceId)
+            self.purchaseOrderId = try container.decodeIfPresent(String.self, forKey: .purchaseOrderId)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.lines = try container.decode([PostV1PurchasesInvoicesCreateRequestLinesItem].self, forKey: .lines)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -62,6 +66,7 @@ extension Requests {
             try container.encodeIfPresent(self.dueDate, forKey: .dueDate)
             try container.encodeIfPresent(self.currency, forKey: .currency)
             try container.encodeIfPresent(self.creditedInvoiceId, forKey: .creditedInvoiceId)
+            try container.encodeIfPresent(self.purchaseOrderId, forKey: .purchaseOrderId)
             try container.encodeIfPresent(self.notes, forKey: .notes)
             try container.encode(self.lines, forKey: .lines)
         }
@@ -75,6 +80,7 @@ extension Requests {
             case dueDate
             case currency
             case creditedInvoiceId
+            case purchaseOrderId
             case notes
             case lines
         }

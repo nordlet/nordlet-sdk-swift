@@ -187,6 +187,19 @@ public final class DeclarationsClient: Sendable {
         )
     }
 
+    /// Generate the Polish JPK_V7M(3) file (VAT declaration with evidence) for a month, per the MF schema in force since February 2026. Amounts must already be in PLN; rows are marked BFK until a KSeF integration supplies invoice numbers. Review the warnings before submitting via e-dokumenty.mf.gov.pl.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1DeclarationsPlJpkV7MGenerate(request: Requests.PostV1DeclarationsPlJpkV7MGenerateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DeclarationsPlJpkV7MGenerateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/pl/jpk-v7m/generate",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1DeclarationsPlJpkV7MGenerateResponse.self
+        )
+    }
+
     public func postV1DeclarationsConfigsList(request: Requests.PostV1DeclarationsConfigsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DeclarationsConfigsListResponse {
         return try await httpClient.performRequest(
             method: .post,

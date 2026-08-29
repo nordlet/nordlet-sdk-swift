@@ -27,6 +27,7 @@ public struct PostV1SalesInvoicesApplyAdvanceResponse: Codable, Hashable, Sendab
     public let createdAt: String
     public let updatedAt: String
     public let lines: [PostV1SalesInvoicesApplyAdvanceResponseLinesItem]
+    public let vatEvidence: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidence>
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -57,6 +58,7 @@ public struct PostV1SalesInvoicesApplyAdvanceResponse: Codable, Hashable, Sendab
         createdAt: String,
         updatedAt: String,
         lines: [PostV1SalesInvoicesApplyAdvanceResponseLinesItem],
+        vatEvidence: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidence>,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -85,6 +87,7 @@ public struct PostV1SalesInvoicesApplyAdvanceResponse: Codable, Hashable, Sendab
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.lines = lines
+        self.vatEvidence = vatEvidence
         self.additionalProperties = additionalProperties
     }
 
@@ -116,6 +119,7 @@ public struct PostV1SalesInvoicesApplyAdvanceResponse: Codable, Hashable, Sendab
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
         self.lines = try container.decode([PostV1SalesInvoicesApplyAdvanceResponseLinesItem].self, forKey: .lines)
+        self.vatEvidence = try container.decode(Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidence>.self, forKey: .vatEvidence)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -148,6 +152,7 @@ public struct PostV1SalesInvoicesApplyAdvanceResponse: Codable, Hashable, Sendab
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
         try container.encode(self.lines, forKey: .lines)
+        try container.encode(self.vatEvidence, forKey: .vatEvidence)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -178,5 +183,6 @@ public struct PostV1SalesInvoicesApplyAdvanceResponse: Codable, Hashable, Sendab
         case createdAt
         case updatedAt
         case lines
+        case vatEvidence
     }
 }

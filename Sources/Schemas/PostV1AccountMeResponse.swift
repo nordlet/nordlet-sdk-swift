@@ -5,6 +5,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
     public let locale: String
     public let activeCompanyId: Nullable<String>
     public let role: Nullable<String>
+    public let billing: PostV1AccountMeResponseBilling
     public let companies: [PostV1AccountMeResponseCompaniesItem]
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -14,6 +15,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         locale: String,
         activeCompanyId: Nullable<String>,
         role: Nullable<String>,
+        billing: PostV1AccountMeResponseBilling,
         companies: [PostV1AccountMeResponseCompaniesItem],
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -21,6 +23,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         self.locale = locale
         self.activeCompanyId = activeCompanyId
         self.role = role
+        self.billing = billing
         self.companies = companies
         self.additionalProperties = additionalProperties
     }
@@ -31,6 +34,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         self.locale = try container.decode(String.self, forKey: .locale)
         self.activeCompanyId = try container.decode(Nullable<String>.self, forKey: .activeCompanyId)
         self.role = try container.decode(Nullable<String>.self, forKey: .role)
+        self.billing = try container.decode(PostV1AccountMeResponseBilling.self, forKey: .billing)
         self.companies = try container.decode([PostV1AccountMeResponseCompaniesItem].self, forKey: .companies)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -42,6 +46,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         try container.encode(self.locale, forKey: .locale)
         try container.encode(self.activeCompanyId, forKey: .activeCompanyId)
         try container.encode(self.role, forKey: .role)
+        try container.encode(self.billing, forKey: .billing)
         try container.encode(self.companies, forKey: .companies)
     }
 
@@ -51,6 +56,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         case locale
         case activeCompanyId
         case role
+        case billing
         case companies
     }
 }

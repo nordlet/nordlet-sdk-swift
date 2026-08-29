@@ -4,6 +4,7 @@ extension Requests {
     public struct PostV1PayrollRunsCreateRequest: Codable, Hashable, Sendable {
         public let year: Int64
         public let month: Int64
+        public let includeNatura: Bool?
         public let lines: [PostV1PayrollRunsCreateRequestLinesItem]?
         public let notes: String?
         /// Additional properties that are not explicitly defined in the schema
@@ -12,12 +13,14 @@ extension Requests {
         public init(
             year: Int64,
             month: Int64,
+            includeNatura: Bool? = nil,
             lines: [PostV1PayrollRunsCreateRequestLinesItem]? = nil,
             notes: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.year = year
             self.month = month
+            self.includeNatura = includeNatura
             self.lines = lines
             self.notes = notes
             self.additionalProperties = additionalProperties
@@ -27,6 +30,7 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.year = try container.decode(Int64.self, forKey: .year)
             self.month = try container.decode(Int64.self, forKey: .month)
+            self.includeNatura = try container.decodeIfPresent(Bool.self, forKey: .includeNatura)
             self.lines = try container.decodeIfPresent([PostV1PayrollRunsCreateRequestLinesItem].self, forKey: .lines)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -37,6 +41,7 @@ extension Requests {
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.year, forKey: .year)
             try container.encode(self.month, forKey: .month)
+            try container.encodeIfPresent(self.includeNatura, forKey: .includeNatura)
             try container.encodeIfPresent(self.lines, forKey: .lines)
             try container.encodeIfPresent(self.notes, forKey: .notes)
         }
@@ -45,6 +50,7 @@ extension Requests {
         enum CodingKeys: String, CodingKey, CaseIterable {
             case year
             case month
+            case includeNatura
             case lines
             case notes
         }

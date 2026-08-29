@@ -5,9 +5,14 @@ public struct PostV1ProductionOrdersCompleteResponse: Codable, Hashable, Sendabl
     public let type: PostV1ProductionOrdersCompleteResponseType
     public let bomId: String
     public let warehouseId: String
+    public let routingId: Nullable<String>
     public let quantity: String
     public let date: String
     public let status: PostV1ProductionOrdersCompleteResponseStatus
+    public let scrappedQuantity: Nullable<String>
+    public let materialCost: Nullable<String>
+    public let laborCost: Nullable<String>
+    public let scrapCost: Nullable<String>
     public let totalCost: Nullable<String>
     public let journalTransactionId: Nullable<String>
     public let notes: Nullable<String>
@@ -20,9 +25,14 @@ public struct PostV1ProductionOrdersCompleteResponse: Codable, Hashable, Sendabl
         type: PostV1ProductionOrdersCompleteResponseType,
         bomId: String,
         warehouseId: String,
+        routingId: Nullable<String>,
         quantity: String,
         date: String,
         status: PostV1ProductionOrdersCompleteResponseStatus,
+        scrappedQuantity: Nullable<String>,
+        materialCost: Nullable<String>,
+        laborCost: Nullable<String>,
+        scrapCost: Nullable<String>,
         totalCost: Nullable<String>,
         journalTransactionId: Nullable<String>,
         notes: Nullable<String>,
@@ -33,9 +43,14 @@ public struct PostV1ProductionOrdersCompleteResponse: Codable, Hashable, Sendabl
         self.type = type
         self.bomId = bomId
         self.warehouseId = warehouseId
+        self.routingId = routingId
         self.quantity = quantity
         self.date = date
         self.status = status
+        self.scrappedQuantity = scrappedQuantity
+        self.materialCost = materialCost
+        self.laborCost = laborCost
+        self.scrapCost = scrapCost
         self.totalCost = totalCost
         self.journalTransactionId = journalTransactionId
         self.notes = notes
@@ -49,9 +64,14 @@ public struct PostV1ProductionOrdersCompleteResponse: Codable, Hashable, Sendabl
         self.type = try container.decode(PostV1ProductionOrdersCompleteResponseType.self, forKey: .type)
         self.bomId = try container.decode(String.self, forKey: .bomId)
         self.warehouseId = try container.decode(String.self, forKey: .warehouseId)
+        self.routingId = try container.decode(Nullable<String>.self, forKey: .routingId)
         self.quantity = try container.decode(String.self, forKey: .quantity)
         self.date = try container.decode(String.self, forKey: .date)
         self.status = try container.decode(PostV1ProductionOrdersCompleteResponseStatus.self, forKey: .status)
+        self.scrappedQuantity = try container.decode(Nullable<String>.self, forKey: .scrappedQuantity)
+        self.materialCost = try container.decode(Nullable<String>.self, forKey: .materialCost)
+        self.laborCost = try container.decode(Nullable<String>.self, forKey: .laborCost)
+        self.scrapCost = try container.decode(Nullable<String>.self, forKey: .scrapCost)
         self.totalCost = try container.decode(Nullable<String>.self, forKey: .totalCost)
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
@@ -66,9 +86,14 @@ public struct PostV1ProductionOrdersCompleteResponse: Codable, Hashable, Sendabl
         try container.encode(self.type, forKey: .type)
         try container.encode(self.bomId, forKey: .bomId)
         try container.encode(self.warehouseId, forKey: .warehouseId)
+        try container.encode(self.routingId, forKey: .routingId)
         try container.encode(self.quantity, forKey: .quantity)
         try container.encode(self.date, forKey: .date)
         try container.encode(self.status, forKey: .status)
+        try container.encode(self.scrappedQuantity, forKey: .scrappedQuantity)
+        try container.encode(self.materialCost, forKey: .materialCost)
+        try container.encode(self.laborCost, forKey: .laborCost)
+        try container.encode(self.scrapCost, forKey: .scrapCost)
         try container.encode(self.totalCost, forKey: .totalCost)
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
         try container.encode(self.notes, forKey: .notes)
@@ -81,9 +106,14 @@ public struct PostV1ProductionOrdersCompleteResponse: Codable, Hashable, Sendabl
         case type
         case bomId
         case warehouseId
+        case routingId
         case quantity
         case date
         case status
+        case scrappedQuantity
+        case materialCost
+        case laborCost
+        case scrapCost
         case totalCost
         case journalTransactionId
         case notes

@@ -1944,6 +1944,7 @@ import Api
                       "accountCode": "accountCode",
                       "accountName": "accountName",
                       "costCenterId": "costCenterId",
+                      "projectId": "projectId",
                       "debit": "debit",
                       "credit": "credit",
                       "description": "description"
@@ -1974,6 +1975,7 @@ import Api
                     accountCode: "accountCode",
                     accountName: "accountName",
                     costCenterId: Nullable<String>.value("costCenterId"),
+                    projectId: Nullable<String>.value("projectId"),
                     debit: "debit",
                     credit: "credit",
                     description: Nullable<String>.value("description")
@@ -2008,6 +2010,7 @@ import Api
                       "accountCode": "accountCode",
                       "accountName": "accountName",
                       "costCenterId": "x",
+                      "projectId": "x",
                       "debit": "debit",
                       "credit": "credit",
                       "description": "description"
@@ -2018,6 +2021,7 @@ import Api
                       "accountCode": "accountCode",
                       "accountName": "accountName",
                       "costCenterId": "x",
+                      "projectId": "x",
                       "debit": "debit",
                       "credit": "credit",
                       "description": "description"
@@ -2048,6 +2052,7 @@ import Api
                     accountCode: "accountCode",
                     accountName: "accountName",
                     costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
                     debit: "debit",
                     credit: "credit",
                     description: Nullable<String>.value("description")
@@ -2058,6 +2063,7 @@ import Api
                     accountCode: "accountCode",
                     accountName: "accountName",
                     costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
                     debit: "debit",
                     credit: "credit",
                     description: Nullable<String>.value("description")

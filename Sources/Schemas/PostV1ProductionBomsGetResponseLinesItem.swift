@@ -4,6 +4,7 @@ public struct PostV1ProductionBomsGetResponseLinesItem: Codable, Hashable, Senda
     public let id: String
     public let componentItemId: String
     public let quantity: String
+    public let scrapPercent: String
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -11,11 +12,13 @@ public struct PostV1ProductionBomsGetResponseLinesItem: Codable, Hashable, Senda
         id: String,
         componentItemId: String,
         quantity: String,
+        scrapPercent: String,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
         self.componentItemId = componentItemId
         self.quantity = quantity
+        self.scrapPercent = scrapPercent
         self.additionalProperties = additionalProperties
     }
 
@@ -24,6 +27,7 @@ public struct PostV1ProductionBomsGetResponseLinesItem: Codable, Hashable, Senda
         self.id = try container.decode(String.self, forKey: .id)
         self.componentItemId = try container.decode(String.self, forKey: .componentItemId)
         self.quantity = try container.decode(String.self, forKey: .quantity)
+        self.scrapPercent = try container.decode(String.self, forKey: .scrapPercent)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -33,6 +37,7 @@ public struct PostV1ProductionBomsGetResponseLinesItem: Codable, Hashable, Senda
         try container.encode(self.id, forKey: .id)
         try container.encode(self.componentItemId, forKey: .componentItemId)
         try container.encode(self.quantity, forKey: .quantity)
+        try container.encode(self.scrapPercent, forKey: .scrapPercent)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -40,5 +45,6 @@ public struct PostV1ProductionBomsGetResponseLinesItem: Codable, Hashable, Senda
         case id
         case componentItemId
         case quantity
+        case scrapPercent
     }
 }

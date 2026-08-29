@@ -10,6 +10,7 @@ public struct PostV1PurchasesInvoicesCreateRequestLinesItem: Codable, Hashable, 
     public let vatRatePercent: String?
     public let vatClassifierCode: String?
     public let costCenterId: String?
+    public let projectId: String?
     public let accountCode: String?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -24,6 +25,7 @@ public struct PostV1PurchasesInvoicesCreateRequestLinesItem: Codable, Hashable, 
         vatRatePercent: String? = nil,
         vatClassifierCode: String? = nil,
         costCenterId: String? = nil,
+        projectId: String? = nil,
         accountCode: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -36,6 +38,7 @@ public struct PostV1PurchasesInvoicesCreateRequestLinesItem: Codable, Hashable, 
         self.vatRatePercent = vatRatePercent
         self.vatClassifierCode = vatClassifierCode
         self.costCenterId = costCenterId
+        self.projectId = projectId
         self.accountCode = accountCode
         self.additionalProperties = additionalProperties
     }
@@ -51,6 +54,7 @@ public struct PostV1PurchasesInvoicesCreateRequestLinesItem: Codable, Hashable, 
         self.vatRatePercent = try container.decodeIfPresent(String.self, forKey: .vatRatePercent)
         self.vatClassifierCode = try container.decodeIfPresent(String.self, forKey: .vatClassifierCode)
         self.costCenterId = try container.decodeIfPresent(String.self, forKey: .costCenterId)
+        self.projectId = try container.decodeIfPresent(String.self, forKey: .projectId)
         self.accountCode = try container.decodeIfPresent(String.self, forKey: .accountCode)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -67,6 +71,7 @@ public struct PostV1PurchasesInvoicesCreateRequestLinesItem: Codable, Hashable, 
         try container.encodeIfPresent(self.vatRatePercent, forKey: .vatRatePercent)
         try container.encodeIfPresent(self.vatClassifierCode, forKey: .vatClassifierCode)
         try container.encodeIfPresent(self.costCenterId, forKey: .costCenterId)
+        try container.encodeIfPresent(self.projectId, forKey: .projectId)
         try container.encodeIfPresent(self.accountCode, forKey: .accountCode)
     }
 
@@ -81,6 +86,7 @@ public struct PostV1PurchasesInvoicesCreateRequestLinesItem: Codable, Hashable, 
         case vatRatePercent
         case vatClassifierCode
         case costCenterId
+        case projectId
         case accountCode
     }
 }
