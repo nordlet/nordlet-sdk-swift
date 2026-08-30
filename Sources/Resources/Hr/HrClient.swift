@@ -77,6 +77,29 @@ public final class HrClient: Sendable {
         )
     }
 
+    public func postV1HrEmployeesDelete(request: Requests.PostV1HrEmployeesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesDeleteResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/hr/employees/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1HrEmployeesDeleteResponse.self
+        )
+    }
+
+    /// Replaces the name with a placeholder and removes personal code, birth date, contact details, address, bank account, social-insurance number, notes and sick-leave reasons. Payroll and contract rows stay linked to the record for the statutory retention period.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func blankAnEmployeesPersonalDataAndHideTheRecord(request: Requests.PostV1HrEmployeesAnonymizeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesAnonymizeResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/hr/employees/anonymize",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1HrEmployeesAnonymizeResponse.self
+        )
+    }
+
     public func postV1HrContractsCreate(request: Requests.PostV1HrContractsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrContractsCreateResponse {
         return try await httpClient.performRequest(
             method: .post,

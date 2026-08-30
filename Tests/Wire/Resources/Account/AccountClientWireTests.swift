@@ -214,6 +214,15 @@ import Api
                     "balanceCents": 1000000,
                     "trialEndsAt": "trialEndsAt"
                   },
+                  "consent": {
+                    "termsVersion": "termsVersion",
+                    "termsAcceptedAt": "termsAcceptedAt",
+                    "dpaVersion": "dpaVersion",
+                    "dpaAcceptedAt": "dpaAcceptedAt",
+                    "currentTermsVersion": "currentTermsVersion",
+                    "currentDpaVersion": "currentDpaVersion",
+                    "required": true
+                  },
                   "companies": [
                     {
                       "id": "id",
@@ -252,6 +261,15 @@ import Api
                 plan: "plan",
                 balanceCents: 1000000,
                 trialEndsAt: Nullable<String>.value("trialEndsAt")
+            ),
+            consent: PostV1AccountMeResponseConsent(
+                termsVersion: Nullable<String>.value("termsVersion"),
+                termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
+                dpaVersion: Nullable<String>.value("dpaVersion"),
+                dpaAcceptedAt: Nullable<String>.value("dpaAcceptedAt"),
+                currentTermsVersion: "currentTermsVersion",
+                currentDpaVersion: "currentDpaVersion",
+                required: true
             ),
             companies: [
                 PostV1AccountMeResponseCompaniesItem(
@@ -295,6 +313,15 @@ import Api
                     "plan": "plan",
                     "balanceCents": 1000000,
                     "trialEndsAt": "trialEndsAt"
+                  },
+                  "consent": {
+                    "termsVersion": "termsVersion",
+                    "termsAcceptedAt": "termsAcceptedAt",
+                    "dpaVersion": "dpaVersion",
+                    "dpaAcceptedAt": "dpaAcceptedAt",
+                    "currentTermsVersion": "currentTermsVersion",
+                    "currentDpaVersion": "currentDpaVersion",
+                    "required": true
                   },
                   "companies": [
                     {
@@ -344,6 +371,15 @@ import Api
                 plan: "plan",
                 balanceCents: 1000000,
                 trialEndsAt: Nullable<String>.value("trialEndsAt")
+            ),
+            consent: PostV1AccountMeResponseConsent(
+                termsVersion: Nullable<String>.value("termsVersion"),
+                termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
+                dpaVersion: Nullable<String>.value("dpaVersion"),
+                dpaAcceptedAt: Nullable<String>.value("dpaAcceptedAt"),
+                currentTermsVersion: "currentTermsVersion",
+                currentDpaVersion: "currentDpaVersion",
+                required: true
             ),
             companies: [
                 PostV1AccountMeResponseCompaniesItem(
@@ -1850,6 +1886,808 @@ import Api
         )
         let response = try await client.account.postV1AccountApiKeysRevoke(
             request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountConsentAccept1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "termsVersion": "termsVersion",
+                  "termsAcceptedAt": "termsAcceptedAt",
+                  "dpaVersion": "dpaVersion",
+                  "dpaAcceptedAt": "dpaAcceptedAt",
+                  "currentTermsVersion": "currentTermsVersion",
+                  "currentDpaVersion": "currentDpaVersion",
+                  "required": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountConsentAcceptResponse(
+            termsVersion: Nullable<String>.value("termsVersion"),
+            termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
+            dpaVersion: Nullable<String>.value("dpaVersion"),
+            dpaAcceptedAt: Nullable<String>.value("dpaAcceptedAt"),
+            currentTermsVersion: "currentTermsVersion",
+            currentDpaVersion: "currentDpaVersion",
+            required: true
+        )
+        let response = try await client.account.postV1AccountConsentAccept(
+            request: .init(
+                acceptTerms: true,
+                acceptDpa: true
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountConsentAccept2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "termsVersion": "termsVersion",
+                  "termsAcceptedAt": "termsAcceptedAt",
+                  "dpaVersion": "dpaVersion",
+                  "dpaAcceptedAt": "dpaAcceptedAt",
+                  "currentTermsVersion": "currentTermsVersion",
+                  "currentDpaVersion": "currentDpaVersion",
+                  "required": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountConsentAcceptResponse(
+            termsVersion: Nullable<String>.value("termsVersion"),
+            termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
+            dpaVersion: Nullable<String>.value("dpaVersion"),
+            dpaAcceptedAt: Nullable<String>.value("dpaAcceptedAt"),
+            currentTermsVersion: "currentTermsVersion",
+            currentDpaVersion: "currentDpaVersion",
+            required: true
+        )
+        let response = try await client.account.postV1AccountConsentAccept(
+            request: .init(
+                acceptTerms: true,
+                acceptDpa: true
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountProfileUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "email": "email",
+                  "name": "name"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountProfileUpdateResponse(
+            id: "id",
+            email: "email",
+            name: Nullable<String>.value("name")
+        )
+        let response = try await client.account.postV1AccountProfileUpdate(
+            request: .init(name: .null),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountProfileUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "email": "email",
+                  "name": "name"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountProfileUpdateResponse(
+            id: "x",
+            email: "email",
+            name: Nullable<String>.value("name")
+        )
+        let response = try await client.account.postV1AccountProfileUpdate(
+            request: .init(name: .null),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountEmailChangeRequest1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "sent": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountEmailChangeRequestResponse(
+            sent: true
+        )
+        let response = try await client.account.postV1AccountEmailChangeRequest(
+            request: .init(newEmail: "newEmail"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountEmailChangeRequest2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "sent": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountEmailChangeRequestResponse(
+            sent: true
+        )
+        let response = try await client.account.postV1AccountEmailChangeRequest(
+            request: .init(newEmail: "newEmail"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountSessionsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "companyId": "companyId",
+                      "createdAt": "createdAt",
+                      "expiresAt": "expiresAt",
+                      "current": true
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountSessionsListResponse(
+            rows: [
+                PostV1AccountSessionsListResponseRowsItem(
+                    id: "id",
+                    companyId: Nullable<String>.value("companyId"),
+                    createdAt: "createdAt",
+                    expiresAt: "expiresAt",
+                    current: true
+                )
+            ]
+        )
+        let response = try await client.account.postV1AccountSessionsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountSessionsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "companyId": "x",
+                      "createdAt": "createdAt",
+                      "expiresAt": "expiresAt",
+                      "current": true
+                    },
+                    {
+                      "id": "x",
+                      "companyId": "x",
+                      "createdAt": "createdAt",
+                      "expiresAt": "expiresAt",
+                      "current": true
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountSessionsListResponse(
+            rows: [
+                PostV1AccountSessionsListResponseRowsItem(
+                    id: "x",
+                    companyId: Nullable<String>.value("x"),
+                    createdAt: "createdAt",
+                    expiresAt: "expiresAt",
+                    current: true
+                ),
+                PostV1AccountSessionsListResponseRowsItem(
+                    id: "x",
+                    companyId: Nullable<String>.value("x"),
+                    createdAt: "createdAt",
+                    expiresAt: "expiresAt",
+                    current: true
+                )
+            ]
+        )
+        let response = try await client.account.postV1AccountSessionsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountSessionsRevoke1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "revoked": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountSessionsRevokeResponse(
+            revoked: true
+        )
+        let response = try await client.account.postV1AccountSessionsRevoke(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountSessionsRevoke2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "revoked": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountSessionsRevokeResponse(
+            revoked: true
+        )
+        let response = try await client.account.postV1AccountSessionsRevoke(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountSessionsRevokeOthers1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "revoked": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountSessionsRevokeOthersResponse(
+            revoked: 1000000
+        )
+        let response = try await client.account.postV1AccountSessionsRevokeOthers(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountSessionsRevokeOthers2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "revoked": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountSessionsRevokeOthersResponse(
+            revoked: 1000000
+        )
+        let response = try await client.account.postV1AccountSessionsRevokeOthers(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func downloadEverythingNordletStoresAboutTheSignedInUser1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "generatedAt": "generatedAt",
+                  "user": {
+                    "id": "id",
+                    "email": "email",
+                    "name": "name",
+                    "locale": "locale",
+                    "plan": "plan",
+                    "createdAt": "createdAt"
+                  },
+                  "consent": {
+                    "termsVersion": "termsVersion",
+                    "termsAcceptedAt": "termsAcceptedAt",
+                    "dpaVersion": "dpaVersion",
+                    "dpaAcceptedAt": "dpaAcceptedAt",
+                    "currentTermsVersion": "currentTermsVersion",
+                    "currentDpaVersion": "currentDpaVersion",
+                    "required": true
+                  },
+                  "memberships": [
+                    {
+                      "companyId": "companyId",
+                      "companyName": "companyName",
+                      "role": "role",
+                      "since": "since"
+                    }
+                  ],
+                  "sessions": [
+                    {
+                      "id": "id",
+                      "companyId": "companyId",
+                      "createdAt": "createdAt",
+                      "expiresAt": "expiresAt",
+                      "current": true
+                    }
+                  ],
+                  "billing": {
+                    "status": "status",
+                    "plan": "plan",
+                    "balanceCents": 1000000,
+                    "trialEndsAt": "trialEndsAt",
+                    "firstTopUpAt": "firstTopUpAt"
+                  },
+                  "creditTransactions": [
+                    {
+                      "id": "id",
+                      "type": "type",
+                      "amountCents": 1000000,
+                      "balanceAfterCents": 1000000,
+                      "description": "description",
+                      "createdAt": "createdAt"
+                    }
+                  ],
+                  "auditEntries": [
+                    {
+                      "id": 1000000,
+                      "companyId": "companyId",
+                      "action": "action",
+                      "entity": "entity",
+                      "entityId": "entityId",
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountExportResponse(
+            generatedAt: "generatedAt",
+            user: PostV1AccountExportResponseUser(
+                id: "id",
+                email: "email",
+                name: Nullable<String>.value("name"),
+                locale: "locale",
+                plan: "plan",
+                createdAt: "createdAt"
+            ),
+            consent: PostV1AccountExportResponseConsent(
+                termsVersion: Nullable<String>.value("termsVersion"),
+                termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
+                dpaVersion: Nullable<String>.value("dpaVersion"),
+                dpaAcceptedAt: Nullable<String>.value("dpaAcceptedAt"),
+                currentTermsVersion: "currentTermsVersion",
+                currentDpaVersion: "currentDpaVersion",
+                required: true
+            ),
+            memberships: [
+                PostV1AccountExportResponseMembershipsItem(
+                    companyId: "companyId",
+                    companyName: "companyName",
+                    role: "role",
+                    since: "since"
+                )
+            ],
+            sessions: [
+                PostV1AccountExportResponseSessionsItem(
+                    id: "id",
+                    companyId: Nullable<String>.value("companyId"),
+                    createdAt: "createdAt",
+                    expiresAt: "expiresAt",
+                    current: true
+                )
+            ],
+            billing: Nullable<PostV1AccountExportResponseBilling>.value(PostV1AccountExportResponseBilling(
+                status: "status",
+                plan: "plan",
+                balanceCents: 1000000,
+                trialEndsAt: Nullable<String>.value("trialEndsAt"),
+                firstTopUpAt: Nullable<String>.value("firstTopUpAt")
+            )),
+            creditTransactions: [
+                PostV1AccountExportResponseCreditTransactionsItem(
+                    id: "id",
+                    type: "type",
+                    amountCents: 1000000,
+                    balanceAfterCents: 1000000,
+                    description: "description",
+                    createdAt: "createdAt"
+                )
+            ],
+            auditEntries: [
+                PostV1AccountExportResponseAuditEntriesItem(
+                    id: 1000000,
+                    companyId: "companyId",
+                    action: "action",
+                    entity: "entity",
+                    entityId: Nullable<String>.value("entityId"),
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.account.downloadEverythingNordletStoresAboutTheSignedInUser(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func downloadEverythingNordletStoresAboutTheSignedInUser2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "generatedAt": "generatedAt",
+                  "user": {
+                    "id": "x",
+                    "email": "email",
+                    "name": "name",
+                    "locale": "locale",
+                    "plan": "plan",
+                    "createdAt": "createdAt"
+                  },
+                  "consent": {
+                    "termsVersion": "termsVersion",
+                    "termsAcceptedAt": "termsAcceptedAt",
+                    "dpaVersion": "dpaVersion",
+                    "dpaAcceptedAt": "dpaAcceptedAt",
+                    "currentTermsVersion": "currentTermsVersion",
+                    "currentDpaVersion": "currentDpaVersion",
+                    "required": true
+                  },
+                  "memberships": [
+                    {
+                      "companyId": "x",
+                      "companyName": "companyName",
+                      "role": "role",
+                      "since": "since"
+                    },
+                    {
+                      "companyId": "x",
+                      "companyName": "companyName",
+                      "role": "role",
+                      "since": "since"
+                    }
+                  ],
+                  "sessions": [
+                    {
+                      "id": "x",
+                      "companyId": "x",
+                      "createdAt": "createdAt",
+                      "expiresAt": "expiresAt",
+                      "current": true
+                    },
+                    {
+                      "id": "x",
+                      "companyId": "x",
+                      "createdAt": "createdAt",
+                      "expiresAt": "expiresAt",
+                      "current": true
+                    }
+                  ],
+                  "billing": {
+                    "status": "status",
+                    "plan": "plan",
+                    "balanceCents": 1000000,
+                    "trialEndsAt": "trialEndsAt",
+                    "firstTopUpAt": "firstTopUpAt"
+                  },
+                  "creditTransactions": [
+                    {
+                      "id": "x",
+                      "type": "type",
+                      "amountCents": 1000000,
+                      "balanceAfterCents": 1000000,
+                      "description": "description",
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "id": "x",
+                      "type": "type",
+                      "amountCents": 1000000,
+                      "balanceAfterCents": 1000000,
+                      "description": "description",
+                      "createdAt": "createdAt"
+                    }
+                  ],
+                  "auditEntries": [
+                    {
+                      "id": 1000000,
+                      "companyId": "x",
+                      "action": "action",
+                      "entity": "entity",
+                      "entityId": "entityId",
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "id": 1000000,
+                      "companyId": "x",
+                      "action": "action",
+                      "entity": "entity",
+                      "entityId": "entityId",
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountExportResponse(
+            generatedAt: "generatedAt",
+            user: PostV1AccountExportResponseUser(
+                id: "x",
+                email: "email",
+                name: Nullable<String>.value("name"),
+                locale: "locale",
+                plan: "plan",
+                createdAt: "createdAt"
+            ),
+            consent: PostV1AccountExportResponseConsent(
+                termsVersion: Nullable<String>.value("termsVersion"),
+                termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
+                dpaVersion: Nullable<String>.value("dpaVersion"),
+                dpaAcceptedAt: Nullable<String>.value("dpaAcceptedAt"),
+                currentTermsVersion: "currentTermsVersion",
+                currentDpaVersion: "currentDpaVersion",
+                required: true
+            ),
+            memberships: [
+                PostV1AccountExportResponseMembershipsItem(
+                    companyId: "x",
+                    companyName: "companyName",
+                    role: "role",
+                    since: "since"
+                ),
+                PostV1AccountExportResponseMembershipsItem(
+                    companyId: "x",
+                    companyName: "companyName",
+                    role: "role",
+                    since: "since"
+                )
+            ],
+            sessions: [
+                PostV1AccountExportResponseSessionsItem(
+                    id: "x",
+                    companyId: Nullable<String>.value("x"),
+                    createdAt: "createdAt",
+                    expiresAt: "expiresAt",
+                    current: true
+                ),
+                PostV1AccountExportResponseSessionsItem(
+                    id: "x",
+                    companyId: Nullable<String>.value("x"),
+                    createdAt: "createdAt",
+                    expiresAt: "expiresAt",
+                    current: true
+                )
+            ],
+            billing: Nullable<PostV1AccountExportResponseBilling>.value(PostV1AccountExportResponseBilling(
+                status: "status",
+                plan: "plan",
+                balanceCents: 1000000,
+                trialEndsAt: Nullable<String>.value("trialEndsAt"),
+                firstTopUpAt: Nullable<String>.value("firstTopUpAt")
+            )),
+            creditTransactions: [
+                PostV1AccountExportResponseCreditTransactionsItem(
+                    id: "x",
+                    type: "type",
+                    amountCents: 1000000,
+                    balanceAfterCents: 1000000,
+                    description: "description",
+                    createdAt: "createdAt"
+                ),
+                PostV1AccountExportResponseCreditTransactionsItem(
+                    id: "x",
+                    type: "type",
+                    amountCents: 1000000,
+                    balanceAfterCents: 1000000,
+                    description: "description",
+                    createdAt: "createdAt"
+                )
+            ],
+            auditEntries: [
+                PostV1AccountExportResponseAuditEntriesItem(
+                    id: 1000000,
+                    companyId: "x",
+                    action: "action",
+                    entity: "entity",
+                    entityId: Nullable<String>.value("entityId"),
+                    createdAt: "createdAt"
+                ),
+                PostV1AccountExportResponseAuditEntriesItem(
+                    id: 1000000,
+                    companyId: "x",
+                    action: "action",
+                    entity: "entity",
+                    entityId: Nullable<String>.value("entityId"),
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.account.downloadEverythingNordletStoresAboutTheSignedInUser(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func deleteTheSignedInUserAccount1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountDeleteResponse(
+            deleted: true
+        )
+        let response = try await client.account.deleteTheSignedInUserAccount(
+            request: .init(confirmEmail: "confirmEmail"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func deleteTheSignedInUserAccount2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountDeleteResponse(
+            deleted: true
+        )
+        let response = try await client.account.deleteTheSignedInUserAccount(
+            request: .init(confirmEmail: "confirmEmail"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

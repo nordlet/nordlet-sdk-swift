@@ -955,6 +955,206 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func postV1HrEmployeesDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1HrEmployeesDeleteResponse(
+            id: "id"
+        )
+        let response = try await client.hr.postV1HrEmployeesDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1HrEmployeesDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1HrEmployeesDeleteResponse(
+            id: "x"
+        )
+        let response = try await client.hr.postV1HrEmployeesDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func blankAnEmployeesPersonalDataAndHideTheRecord1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "code": "code",
+                  "firstName": "firstName",
+                  "lastName": "lastName",
+                  "personalCode": "personalCode",
+                  "birthDate": "birthDate",
+                  "email": "email",
+                  "phone": "phone",
+                  "address": {
+                    "street": "street",
+                    "city": "city",
+                    "postalCode": "postalCode",
+                    "countryCode": "countryCode"
+                  },
+                  "iban": "iban",
+                  "socialInsuranceNo": "socialInsuranceNo",
+                  "socialInsuranceStart": "socialInsuranceStart",
+                  "hireDate": "hireDate",
+                  "terminationDate": "terminationDate",
+                  "applyNpd": true,
+                  "npdOverride": "npdOverride",
+                  "pensionAccumulation": true,
+                  "status": "active",
+                  "notes": "notes",
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1HrEmployeesAnonymizeResponse(
+            id: "id",
+            code: Nullable<String>.value("code"),
+            firstName: "firstName",
+            lastName: "lastName",
+            personalCode: Nullable<String>.value("personalCode"),
+            birthDate: Nullable<String>.value("birthDate"),
+            email: Nullable<String>.value("email"),
+            phone: Nullable<String>.value("phone"),
+            address: Nullable<PostV1HrEmployeesAnonymizeResponseAddress>.value(PostV1HrEmployeesAnonymizeResponseAddress(
+                street: Optional("street"),
+                city: Optional("city"),
+                postalCode: Optional("postalCode"),
+                countryCode: Optional("countryCode")
+            )),
+            iban: Nullable<String>.value("iban"),
+            socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
+            socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
+            hireDate: Nullable<String>.value("hireDate"),
+            terminationDate: Nullable<String>.value("terminationDate"),
+            applyNpd: true,
+            npdOverride: Nullable<String>.value("npdOverride"),
+            pensionAccumulation: true,
+            status: .active,
+            notes: Nullable<String>.value("notes"),
+            createdAt: "createdAt"
+        )
+        let response = try await client.hr.blankAnEmployeesPersonalDataAndHideTheRecord(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func blankAnEmployeesPersonalDataAndHideTheRecord2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "code": "code",
+                  "firstName": "firstName",
+                  "lastName": "lastName",
+                  "personalCode": "personalCode",
+                  "birthDate": "birthDate",
+                  "email": "email",
+                  "phone": "phone",
+                  "address": {
+                    "street": "street",
+                    "city": "city",
+                    "postalCode": "postalCode",
+                    "countryCode": "xy"
+                  },
+                  "iban": "iban",
+                  "socialInsuranceNo": "socialInsuranceNo",
+                  "socialInsuranceStart": "socialInsuranceStart",
+                  "hireDate": "hireDate",
+                  "terminationDate": "terminationDate",
+                  "applyNpd": true,
+                  "npdOverride": "npdOverride",
+                  "pensionAccumulation": true,
+                  "status": "active",
+                  "notes": "notes",
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1HrEmployeesAnonymizeResponse(
+            id: "x",
+            code: Nullable<String>.value("code"),
+            firstName: "firstName",
+            lastName: "lastName",
+            personalCode: Nullable<String>.value("personalCode"),
+            birthDate: Nullable<String>.value("birthDate"),
+            email: Nullable<String>.value("email"),
+            phone: Nullable<String>.value("phone"),
+            address: Nullable<PostV1HrEmployeesAnonymizeResponseAddress>.value(PostV1HrEmployeesAnonymizeResponseAddress(
+                street: Optional("street"),
+                city: Optional("city"),
+                postalCode: Optional("postalCode"),
+                countryCode: Optional("xy")
+            )),
+            iban: Nullable<String>.value("iban"),
+            socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
+            socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
+            hireDate: Nullable<String>.value("hireDate"),
+            terminationDate: Nullable<String>.value("terminationDate"),
+            applyNpd: true,
+            npdOverride: Nullable<String>.value("npdOverride"),
+            pensionAccumulation: true,
+            status: .active,
+            notes: Nullable<String>.value("notes"),
+            createdAt: "createdAt"
+        )
+        let response = try await client.hr.blankAnEmployeesPersonalDataAndHideTheRecord(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1HrContractsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

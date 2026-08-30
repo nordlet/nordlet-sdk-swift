@@ -2123,6 +2123,62 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func blankAPartnersPersonalDataAndHideTheRecord1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "anonymized": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PartnersAnonymizeResponse(
+            id: "id",
+            anonymized: true
+        )
+        let response = try await client.partners.blankAPartnersPersonalDataAndHideTheRecord(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func blankAPartnersPersonalDataAndHideTheRecord2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "anonymized": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PartnersAnonymizeResponse(
+            id: "x",
+            anonymized: true
+        )
+        let response = try await client.partners.blankAPartnersPersonalDataAndHideTheRecord(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1PartnersList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

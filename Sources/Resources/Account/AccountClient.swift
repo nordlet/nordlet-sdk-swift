@@ -236,4 +236,87 @@ public final class AccountClient: Sendable {
             responseType: PostV1AccountApiKeysRevokeResponse.self
         )
     }
+
+    public func postV1AccountConsentAccept(request: Requests.PostV1AccountConsentAcceptRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountConsentAcceptResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/consent/accept",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountConsentAcceptResponse.self
+        )
+    }
+
+    public func postV1AccountProfileUpdate(request: Requests.PostV1AccountProfileUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountProfileUpdateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/profile/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountProfileUpdateResponse.self
+        )
+    }
+
+    public func postV1AccountEmailChangeRequest(request: Requests.PostV1AccountEmailChangeRequestRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountEmailChangeRequestResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/email/change-request",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountEmailChangeRequestResponse.self
+        )
+    }
+
+    public func postV1AccountSessionsList(request: Requests.PostV1AccountSessionsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountSessionsListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/sessions/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountSessionsListResponse.self
+        )
+    }
+
+    public func postV1AccountSessionsRevoke(request: Requests.PostV1AccountSessionsRevokeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountSessionsRevokeResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/sessions/revoke",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountSessionsRevokeResponse.self
+        )
+    }
+
+    public func postV1AccountSessionsRevokeOthers(request: Requests.PostV1AccountSessionsRevokeOthersRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountSessionsRevokeOthersResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/sessions/revoke-others",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountSessionsRevokeOthersResponse.self
+        )
+    }
+
+    public func downloadEverythingNordletStoresAboutTheSignedInUser(request: Requests.PostV1AccountExportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountExportResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/export",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountExportResponse.self
+        )
+    }
+
+    /// Removes the user: sessions, sign-in links, memberships and pending invitations are deleted at once; the email and name are replaced by an anonymous placeholder immediately and the remaining row is removed after 30 days. Refused while the user still owns or pays for a company that is not deleted.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func deleteTheSignedInUserAccount(request: Requests.PostV1AccountDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountDeleteResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountDeleteResponse.self
+        )
+    }
 }

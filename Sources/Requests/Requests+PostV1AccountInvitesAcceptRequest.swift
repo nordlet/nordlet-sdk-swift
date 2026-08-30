@@ -5,6 +5,8 @@ extension Requests {
         public let token: String
         public let name: String?
         public let locale: PostV1AccountInvitesAcceptRequestLocale?
+        public let acceptTerms: Bool?
+        public let acceptDpa: Bool?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -12,11 +14,15 @@ extension Requests {
             token: String,
             name: String? = nil,
             locale: PostV1AccountInvitesAcceptRequestLocale? = nil,
+            acceptTerms: Bool? = nil,
+            acceptDpa: Bool? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.token = token
             self.name = name
             self.locale = locale
+            self.acceptTerms = acceptTerms
+            self.acceptDpa = acceptDpa
             self.additionalProperties = additionalProperties
         }
 
@@ -25,6 +31,8 @@ extension Requests {
             self.token = try container.decode(String.self, forKey: .token)
             self.name = try container.decodeIfPresent(String.self, forKey: .name)
             self.locale = try container.decodeIfPresent(PostV1AccountInvitesAcceptRequestLocale.self, forKey: .locale)
+            self.acceptTerms = try container.decodeIfPresent(Bool.self, forKey: .acceptTerms)
+            self.acceptDpa = try container.decodeIfPresent(Bool.self, forKey: .acceptDpa)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -34,6 +42,8 @@ extension Requests {
             try container.encode(self.token, forKey: .token)
             try container.encodeIfPresent(self.name, forKey: .name)
             try container.encodeIfPresent(self.locale, forKey: .locale)
+            try container.encodeIfPresent(self.acceptTerms, forKey: .acceptTerms)
+            try container.encodeIfPresent(self.acceptDpa, forKey: .acceptDpa)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -41,6 +51,8 @@ extension Requests {
             case token
             case name
             case locale
+            case acceptTerms
+            case acceptDpa
         }
     }
 }
