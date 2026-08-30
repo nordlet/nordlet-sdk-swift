@@ -10,6 +10,7 @@ public final class ApiClient: Sendable {
     public let capture: CaptureClient
     public let declarations: DeclarationsClient
     public let ledger: LedgerClient
+    public let migration: MigrationClient
     public let assets: AssetsClient
     public let hr: HrClient
     public let fleet: FleetClient
@@ -117,6 +118,7 @@ public final class ApiClient: Sendable {
         self.capture = CaptureClient(config: config)
         self.declarations = DeclarationsClient(config: config)
         self.ledger = LedgerClient(config: config)
+        self.migration = MigrationClient(config: config)
         self.assets = AssetsClient(config: config)
         self.hr = HrClient(config: config)
         self.fleet = FleetClient(config: config)

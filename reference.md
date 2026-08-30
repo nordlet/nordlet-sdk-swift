@@ -10473,6 +10473,149 @@ try await main()
 </dl>
 </details>
 
+## Migration
+<details><summary><code>client.migration.<a href="/Sources/Resources/Migration/MigrationClient.swift">checkAHistoricalBooksPackageWithoutWritingAnything</a>(request: Requests.PostV1MigrationBooksValidateRequest, requestOptions: RequestOptions?) -> PostV1MigrationBooksValidateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Runs every check the import runs (accounts, partners, balances, open invoices, assets, stock) and returns the same summary and warnings, then rolls everything back. Nothing is stored.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.migration.checkAHistoricalBooksPackageWithoutWritingAnything(request: .init(cutoverDate: "cutoverDate"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1MigrationBooksValidateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.migration.<a href="/Sources/Resources/Migration/MigrationClient.swift">importHistoricalBooksFromAPreviousAccountingSystem</a>(request: Requests.PostV1MigrationBooksImportRequest, requestOptions: RequestOptions?) -> PostV1MigrationBooksImportResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Brings a company over from another system in one call: chart of accounts, partners, items, opening balances (or the full journal history), open customer and supplier invoices, fixed assets with their accumulated depreciation, and stock on hand. The whole package is written in one database transaction — if any row fails, nothing is stored.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.migration.importHistoricalBooksFromAPreviousAccountingSystem(request: .init(cutoverDate: "cutoverDate"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1MigrationBooksImportRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Assets
 <details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">postV1AssetsGroupsCreate</a>(request: Requests.PostV1AssetsGroupsCreateRequest, requestOptions: RequestOptions?) -> PostV1AssetsGroupsCreateResponse</code></summary>
 <dl>
