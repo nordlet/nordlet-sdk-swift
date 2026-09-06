@@ -24,6 +24,7 @@ public struct PostV1SalesInvoicesListResponseRowsItem: Codable, Hashable, Sendab
     public let vatCountryCode: Nullable<String>
     public let deemedSupplier: Bool
     public let notes: Nullable<String>
+    public let documentRef: Nullable<String>
     public let createdAt: String
     public let updatedAt: String
     /// Additional properties that are not explicitly defined in the schema
@@ -53,6 +54,7 @@ public struct PostV1SalesInvoicesListResponseRowsItem: Codable, Hashable, Sendab
         vatCountryCode: Nullable<String>,
         deemedSupplier: Bool,
         notes: Nullable<String>,
+        documentRef: Nullable<String>,
         createdAt: String,
         updatedAt: String,
         additionalProperties: [String: JSONValue] = .init()
@@ -80,6 +82,7 @@ public struct PostV1SalesInvoicesListResponseRowsItem: Codable, Hashable, Sendab
         self.vatCountryCode = vatCountryCode
         self.deemedSupplier = deemedSupplier
         self.notes = notes
+        self.documentRef = documentRef
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.additionalProperties = additionalProperties
@@ -110,6 +113,7 @@ public struct PostV1SalesInvoicesListResponseRowsItem: Codable, Hashable, Sendab
         self.vatCountryCode = try container.decode(Nullable<String>.self, forKey: .vatCountryCode)
         self.deemedSupplier = try container.decode(Bool.self, forKey: .deemedSupplier)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
+        self.documentRef = try container.decode(Nullable<String>.self, forKey: .documentRef)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -141,6 +145,7 @@ public struct PostV1SalesInvoicesListResponseRowsItem: Codable, Hashable, Sendab
         try container.encode(self.vatCountryCode, forKey: .vatCountryCode)
         try container.encode(self.deemedSupplier, forKey: .deemedSupplier)
         try container.encode(self.notes, forKey: .notes)
+        try container.encode(self.documentRef, forKey: .documentRef)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
     }
@@ -170,6 +175,7 @@ public struct PostV1SalesInvoicesListResponseRowsItem: Codable, Hashable, Sendab
         case vatCountryCode
         case deemedSupplier
         case notes
+        case documentRef
         case createdAt
         case updatedAt
     }

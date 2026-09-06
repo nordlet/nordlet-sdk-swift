@@ -32,6 +32,7 @@ import Api
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -140,6 +141,7 @@ import Api
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -259,6 +261,7 @@ import Api
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -412,6 +415,7 @@ import Api
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -579,6 +583,7 @@ import Api
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -687,6 +692,7 @@ import Api
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -799,6 +805,7 @@ import Api
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -952,6 +959,7 @@ import Api
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -1521,6 +1529,7 @@ import Api
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -1629,6 +1638,7 @@ import Api
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -1741,6 +1751,7 @@ import Api
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -1894,6 +1905,7 @@ import Api
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -2103,6 +2115,7 @@ import Api
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -2211,6 +2224,7 @@ import Api
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -2323,6 +2337,7 @@ import Api
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -2476,6 +2491,7 @@ import Api
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -2785,6 +2801,7 @@ import Api
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -2893,6 +2910,7 @@ import Api
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -3008,6 +3026,7 @@ import Api
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -3161,6 +3180,7 @@ import Api
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -3323,6 +3343,7 @@ import Api
                       "vatCountryCode": "vatCountryCode",
                       "deemedSupplier": true,
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
@@ -3365,6 +3386,7 @@ import Api
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true,
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
@@ -3411,6 +3433,7 @@ import Api
                       "vatCountryCode": "vatCountryCode",
                       "deemedSupplier": true,
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     },
@@ -3438,6 +3461,7 @@ import Api
                       "vatCountryCode": "vatCountryCode",
                       "deemedSupplier": true,
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
@@ -3480,6 +3504,7 @@ import Api
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true,
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 ),
@@ -3507,6 +3532,7 @@ import Api
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true,
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )

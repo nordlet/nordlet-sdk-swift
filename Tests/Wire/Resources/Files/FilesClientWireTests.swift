@@ -16,6 +16,7 @@ import Api
                   "mimeType": "mimeType",
                   "sizeBytes": 1000000,
                   "sha256": "sha256",
+                  "storageKey": "storageKey",
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -29,17 +30,17 @@ import Api
         let expectedResponse = PostV1FilesUploadResponse(
             id: "id",
             entity: "entity",
-            entityId: "entityId",
+            entityId: Nullable<String>.value("entityId"),
             fileName: "fileName",
             mimeType: "mimeType",
             sizeBytes: 1000000,
             sha256: "sha256",
+            storageKey: "storageKey",
             createdAt: "createdAt"
         )
         let response = try await client.files.postV1FilesUpload(
             request: .init(
                 entity: "entity",
-                entityId: "entityId",
                 fileName: "fileName",
                 mimeType: "mimeType",
                 content: "content"
@@ -62,6 +63,7 @@ import Api
                   "mimeType": "mimeType",
                   "sizeBytes": 1000000,
                   "sha256": "sha256",
+                  "storageKey": "storageKey",
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -75,17 +77,17 @@ import Api
         let expectedResponse = PostV1FilesUploadResponse(
             id: "x",
             entity: "entity",
-            entityId: "entityId",
+            entityId: Nullable<String>.value("entityId"),
             fileName: "fileName",
             mimeType: "mimeType",
             sizeBytes: 1000000,
             sha256: "sha256",
+            storageKey: "storageKey",
             createdAt: "createdAt"
         )
         let response = try await client.files.postV1FilesUpload(
             request: .init(
                 entity: "x",
-                entityId: "x",
                 fileName: "x",
                 mimeType: "x",
                 content: "x"
@@ -108,6 +110,7 @@ import Api
                   "mimeType": "mimeType",
                   "sizeBytes": 1000000,
                   "sha256": "sha256",
+                  "storageKey": "storageKey",
                   "createdAt": "createdAt",
                   "content": "content"
                 }
@@ -122,11 +125,12 @@ import Api
         let expectedResponse = PostV1FilesGetResponse(
             id: "id",
             entity: "entity",
-            entityId: "entityId",
+            entityId: Nullable<String>.value("entityId"),
             fileName: "fileName",
             mimeType: "mimeType",
             sizeBytes: 1000000,
             sha256: "sha256",
+            storageKey: "storageKey",
             createdAt: "createdAt",
             content: "content"
         )
@@ -150,6 +154,7 @@ import Api
                   "mimeType": "mimeType",
                   "sizeBytes": 1000000,
                   "sha256": "sha256",
+                  "storageKey": "storageKey",
                   "createdAt": "createdAt",
                   "content": "content"
                 }
@@ -164,11 +169,12 @@ import Api
         let expectedResponse = PostV1FilesGetResponse(
             id: "x",
             entity: "entity",
-            entityId: "entityId",
+            entityId: Nullable<String>.value("entityId"),
             fileName: "fileName",
             mimeType: "mimeType",
             sizeBytes: 1000000,
             sha256: "sha256",
+            storageKey: "storageKey",
             createdAt: "createdAt",
             content: "content"
         )
@@ -194,6 +200,7 @@ import Api
                       "mimeType": "mimeType",
                       "sizeBytes": 1000000,
                       "sha256": "sha256",
+                      "storageKey": "storageKey",
                       "createdAt": "createdAt"
                     }
                   ],
@@ -214,11 +221,12 @@ import Api
                 PostV1FilesListResponseRowsItem(
                     id: "id",
                     entity: "entity",
-                    entityId: "entityId",
+                    entityId: Nullable<String>.value("entityId"),
                     fileName: "fileName",
                     mimeType: "mimeType",
                     sizeBytes: 1000000,
                     sha256: "sha256",
+                    storageKey: "storageKey",
                     createdAt: "createdAt"
                 )
             ],
@@ -248,6 +256,7 @@ import Api
                       "mimeType": "mimeType",
                       "sizeBytes": 1000000,
                       "sha256": "sha256",
+                      "storageKey": "storageKey",
                       "createdAt": "createdAt"
                     },
                     {
@@ -258,6 +267,7 @@ import Api
                       "mimeType": "mimeType",
                       "sizeBytes": 1000000,
                       "sha256": "sha256",
+                      "storageKey": "storageKey",
                       "createdAt": "createdAt"
                     }
                   ],
@@ -278,21 +288,23 @@ import Api
                 PostV1FilesListResponseRowsItem(
                     id: "x",
                     entity: "entity",
-                    entityId: "entityId",
+                    entityId: Nullable<String>.value("entityId"),
                     fileName: "fileName",
                     mimeType: "mimeType",
                     sizeBytes: 1000000,
                     sha256: "sha256",
+                    storageKey: "storageKey",
                     createdAt: "createdAt"
                 ),
                 PostV1FilesListResponseRowsItem(
                     id: "x",
                     entity: "entity",
-                    entityId: "entityId",
+                    entityId: Nullable<String>.value("entityId"),
                     fileName: "fileName",
                     mimeType: "mimeType",
                     sizeBytes: 1000000,
                     sha256: "sha256",
+                    storageKey: "storageKey",
                     createdAt: "createdAt"
                 )
             ],

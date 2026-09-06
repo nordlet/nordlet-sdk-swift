@@ -3230,6 +3230,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "companyCountry": "companyCountry",
                   "rows": [
                     {
                       "system": "system",
@@ -3261,6 +3262,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = PostV1DeclarationsConfigsListResponse(
+            companyCountry: "companyCountry",
             rows: [
                 PostV1DeclarationsConfigsListResponseRowsItem(
                     system: "system",
@@ -3296,6 +3298,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "companyCountry": "companyCountry",
                   "rows": [
                     {
                       "system": "system",
@@ -3388,6 +3391,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = PostV1DeclarationsConfigsListResponse(
+            companyCountry: "companyCountry",
             rows: [
                 PostV1DeclarationsConfigsListResponseRowsItem(
                     system: "system",

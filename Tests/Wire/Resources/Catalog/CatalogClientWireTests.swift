@@ -30,6 +30,7 @@ import Api
                   "attributes": {
                     "key": "value"
                   },
+                  "documentRef": "documentRef",
                   "translations": {
                     "key": {
                       "name": "name",
@@ -76,6 +77,7 @@ import Api
             attributes: Nullable<[String: Nullable<String>]>.value([
                 "key": Nullable<String>.value("value")
             ]),
+            documentRef: Nullable<String>.value("documentRef"),
             translations: Nullable<[String: Nullable<PostV1CatalogItemsCreateResponseTranslationsValue>]>.value([
                 "key": Nullable<PostV1CatalogItemsCreateResponseTranslationsValue>.value(PostV1CatalogItemsCreateResponseTranslationsValue(
                     name: "name",
@@ -126,6 +128,7 @@ import Api
                   "attributes": {
                     "attributes": "attributes"
                   },
+                  "documentRef": "documentRef",
                   "translations": {
                     "translations": {
                       "name": "name",
@@ -177,6 +180,7 @@ import Api
             attributes: Nullable<[String: Nullable<String>]>.value([
                 "attributes": Nullable<String>.value("attributes")
             ]),
+            documentRef: Nullable<String>.value("documentRef"),
             translations: Nullable<[String: Nullable<PostV1CatalogItemsCreateResponseTranslationsValue>]>.value([
                 "translations": Nullable<PostV1CatalogItemsCreateResponseTranslationsValue>.value(PostV1CatalogItemsCreateResponseTranslationsValue(
                     name: "name",
@@ -232,6 +236,7 @@ import Api
                   "attributes": {
                     "key": "value"
                   },
+                  "documentRef": "documentRef",
                   "translations": {
                     "key": {
                       "name": "name",
@@ -278,6 +283,7 @@ import Api
             attributes: Nullable<[String: Nullable<String>]>.value([
                 "key": Nullable<String>.value("value")
             ]),
+            documentRef: Nullable<String>.value("documentRef"),
             translations: Nullable<[String: Nullable<PostV1CatalogItemsGetResponseTranslationsValue>]>.value([
                 "key": Nullable<PostV1CatalogItemsGetResponseTranslationsValue>.value(PostV1CatalogItemsGetResponseTranslationsValue(
                     name: "name",
@@ -328,6 +334,7 @@ import Api
                   "attributes": {
                     "attributes": "attributes"
                   },
+                  "documentRef": "documentRef",
                   "translations": {
                     "translations": {
                       "name": "name",
@@ -379,6 +386,7 @@ import Api
             attributes: Nullable<[String: Nullable<String>]>.value([
                 "attributes": Nullable<String>.value("attributes")
             ]),
+            documentRef: Nullable<String>.value("documentRef"),
             translations: Nullable<[String: Nullable<PostV1CatalogItemsGetResponseTranslationsValue>]>.value([
                 "translations": Nullable<PostV1CatalogItemsGetResponseTranslationsValue>.value(PostV1CatalogItemsGetResponseTranslationsValue(
                     name: "name",
@@ -434,6 +442,7 @@ import Api
                   "attributes": {
                     "key": "value"
                   },
+                  "documentRef": "documentRef",
                   "translations": {
                     "key": {
                       "name": "name",
@@ -480,6 +489,7 @@ import Api
             attributes: Nullable<[String: Nullable<String>]>.value([
                 "key": Nullable<String>.value("value")
             ]),
+            documentRef: Nullable<String>.value("documentRef"),
             translations: Nullable<[String: Nullable<PostV1CatalogItemsUpdateResponseTranslationsValue>]>.value([
                 "key": Nullable<PostV1CatalogItemsUpdateResponseTranslationsValue>.value(PostV1CatalogItemsUpdateResponseTranslationsValue(
                     name: "name",
@@ -530,6 +540,7 @@ import Api
                   "attributes": {
                     "attributes": "attributes"
                   },
+                  "documentRef": "documentRef",
                   "translations": {
                     "translations": {
                       "name": "name",
@@ -581,6 +592,7 @@ import Api
             attributes: Nullable<[String: Nullable<String>]>.value([
                 "attributes": Nullable<String>.value("attributes")
             ]),
+            documentRef: Nullable<String>.value("documentRef"),
             translations: Nullable<[String: Nullable<PostV1CatalogItemsUpdateResponseTranslationsValue>]>.value([
                 "translations": Nullable<PostV1CatalogItemsUpdateResponseTranslationsValue>.value(PostV1CatalogItemsUpdateResponseTranslationsValue(
                     name: "name",
@@ -688,6 +700,7 @@ import Api
                       "description": "description",
                       "groupId": "groupId",
                       "attributes": {},
+                      "documentRef": "documentRef",
                       "translations": {},
                       "components": [
                         {
@@ -734,6 +747,7 @@ import Api
                     description: Nullable<String>.value("description"),
                     groupId: Nullable<String>.value("groupId"),
                     attributes: Nullable<[String: Nullable<String>]>.value([:]),
+                    documentRef: Nullable<String>.value("documentRef"),
                     translations: Nullable<[String: Nullable<PostV1CatalogItemsListResponseRowsItemTranslationsValue>]>.value([:]),
                     components: [
                         PostV1CatalogItemsListResponseRowsItemComponentsItem(
@@ -786,6 +800,7 @@ import Api
                       "attributes": {
                         "attributes": "attributes"
                       },
+                      "documentRef": "documentRef",
                       "translations": {
                         "translations": {
                           "name": "name",
@@ -829,6 +844,7 @@ import Api
                       "attributes": {
                         "attributes": "attributes"
                       },
+                      "documentRef": "documentRef",
                       "translations": {
                         "translations": {
                           "name": "name",
@@ -887,6 +903,7 @@ import Api
                     attributes: Nullable<[String: Nullable<String>]>.value([
                         "attributes": Nullable<String>.value("attributes")
                     ]),
+                    documentRef: Nullable<String>.value("documentRef"),
                     translations: Nullable<[String: Nullable<PostV1CatalogItemsListResponseRowsItemTranslationsValue>]>.value([
                         "translations": Nullable<PostV1CatalogItemsListResponseRowsItemTranslationsValue>.value(PostV1CatalogItemsListResponseRowsItemTranslationsValue(
                             name: "name",
@@ -930,6 +947,7 @@ import Api
                     attributes: Nullable<[String: Nullable<String>]>.value([
                         "attributes": Nullable<String>.value("attributes")
                     ]),
+                    documentRef: Nullable<String>.value("documentRef"),
                     translations: Nullable<[String: Nullable<PostV1CatalogItemsListResponseRowsItemTranslationsValue>]>.value([
                         "translations": Nullable<PostV1CatalogItemsListResponseRowsItemTranslationsValue>.value(PostV1CatalogItemsListResponseRowsItemTranslationsValue(
                             name: "name",

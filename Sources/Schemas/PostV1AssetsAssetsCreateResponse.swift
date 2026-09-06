@@ -17,6 +17,7 @@ public struct PostV1AssetsAssetsCreateResponse: Codable, Hashable, Sendable {
     public let totalLifeMonths: Int64
     public let status: PostV1AssetsAssetsCreateResponseStatus
     public let notes: Nullable<String>
+    public let documents: Nullable<[PostV1AssetsAssetsCreateResponseDocumentsItem]>
     public let createdAt: String
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -38,6 +39,7 @@ public struct PostV1AssetsAssetsCreateResponse: Codable, Hashable, Sendable {
         totalLifeMonths: Int64,
         status: PostV1AssetsAssetsCreateResponseStatus,
         notes: Nullable<String>,
+        documents: Nullable<[PostV1AssetsAssetsCreateResponseDocumentsItem]>,
         createdAt: String,
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -57,6 +59,7 @@ public struct PostV1AssetsAssetsCreateResponse: Codable, Hashable, Sendable {
         self.totalLifeMonths = totalLifeMonths
         self.status = status
         self.notes = notes
+        self.documents = documents
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
     }
@@ -79,6 +82,7 @@ public struct PostV1AssetsAssetsCreateResponse: Codable, Hashable, Sendable {
         self.totalLifeMonths = try container.decode(Int64.self, forKey: .totalLifeMonths)
         self.status = try container.decode(PostV1AssetsAssetsCreateResponseStatus.self, forKey: .status)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
+        self.documents = try container.decode(Nullable<[PostV1AssetsAssetsCreateResponseDocumentsItem]>.self, forKey: .documents)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -102,6 +106,7 @@ public struct PostV1AssetsAssetsCreateResponse: Codable, Hashable, Sendable {
         try container.encode(self.totalLifeMonths, forKey: .totalLifeMonths)
         try container.encode(self.status, forKey: .status)
         try container.encode(self.notes, forKey: .notes)
+        try container.encode(self.documents, forKey: .documents)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
 
@@ -123,6 +128,7 @@ public struct PostV1AssetsAssetsCreateResponse: Codable, Hashable, Sendable {
         case totalLifeMonths
         case status
         case notes
+        case documents
         case createdAt
     }
 }

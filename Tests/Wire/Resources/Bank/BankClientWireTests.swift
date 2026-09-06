@@ -361,6 +361,15 @@ import Api
                 {
                   "imported": 1000000,
                   "skipped": 1000000,
+                  "posted": 1000000,
+                  "customersCreated": 1000000,
+                  "invoicesCreated": 1000000,
+                  "invoicesLinked": 1000000,
+                  "creditNotesCreated": 1000000,
+                  "paymentsMatched": 1000000,
+                  "warnings": [
+                    "warnings"
+                  ],
                   "statements": [
                     {
                       "statementId": "statementId",
@@ -384,6 +393,15 @@ import Api
         let expectedResponse = PostV1BankStatementsImportResponse(
             imported: 1000000,
             skipped: 1000000,
+            posted: 1000000,
+            customersCreated: 1000000,
+            invoicesCreated: 1000000,
+            invoicesLinked: 1000000,
+            creditNotesCreated: 1000000,
+            paymentsMatched: 1000000,
+            warnings: [
+                "warnings"
+            ],
             statements: [
                 PostV1BankStatementsImportResponseStatementsItem(
                     statementId: Nullable<String>.value("statementId"),
@@ -414,6 +432,16 @@ import Api
                 {
                   "imported": 1000000,
                   "skipped": 1000000,
+                  "posted": 1000000,
+                  "customersCreated": 1000000,
+                  "invoicesCreated": 1000000,
+                  "invoicesLinked": 1000000,
+                  "creditNotesCreated": 1000000,
+                  "paymentsMatched": 1000000,
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
                   "statements": [
                     {
                       "statementId": "statementId",
@@ -446,6 +474,16 @@ import Api
         let expectedResponse = PostV1BankStatementsImportResponse(
             imported: 1000000,
             skipped: 1000000,
+            posted: 1000000,
+            customersCreated: 1000000,
+            invoicesCreated: 1000000,
+            invoicesLinked: 1000000,
+            creditNotesCreated: 1000000,
+            paymentsMatched: 1000000,
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
             statements: [
                 PostV1BankStatementsImportResponseStatementsItem(
                     statementId: Nullable<String>.value("statementId"),
@@ -753,6 +791,122 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func postV1BankTransactionsRecord1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "bankAccountId": "bankAccountId",
+                  "date": "date",
+                  "amount": "amount",
+                  "currency": "currency",
+                  "counterpartyName": "counterpartyName",
+                  "counterpartyIban": "counterpartyIban",
+                  "description": "description",
+                  "externalId": "externalId",
+                  "status": "new",
+                  "matchedDocumentType": "matchedDocumentType",
+                  "matchedDocumentId": "matchedDocumentId",
+                  "journalTransactionId": "journalTransactionId",
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankTransactionsRecordResponse(
+            id: "id",
+            bankAccountId: "bankAccountId",
+            date: "date",
+            amount: "amount",
+            currency: "currency",
+            counterpartyName: Nullable<String>.value("counterpartyName"),
+            counterpartyIban: Nullable<String>.value("counterpartyIban"),
+            description: Nullable<String>.value("description"),
+            externalId: Nullable<String>.value("externalId"),
+            status: .new,
+            matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+            matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            createdAt: "createdAt"
+        )
+        let response = try await client.bank.postV1BankTransactionsRecord(
+            request: .init(
+                bankAccountId: "bankAccountId",
+                date: "date",
+                amount: "amount",
+                documentType: .saleInvoice,
+                documentId: "documentId"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankTransactionsRecord2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "bankAccountId": "x",
+                  "date": "date",
+                  "amount": "amount",
+                  "currency": "currency",
+                  "counterpartyName": "counterpartyName",
+                  "counterpartyIban": "counterpartyIban",
+                  "description": "description",
+                  "externalId": "externalId",
+                  "status": "new",
+                  "matchedDocumentType": "matchedDocumentType",
+                  "matchedDocumentId": "x",
+                  "journalTransactionId": "x",
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankTransactionsRecordResponse(
+            id: "x",
+            bankAccountId: "x",
+            date: "date",
+            amount: "amount",
+            currency: "currency",
+            counterpartyName: Nullable<String>.value("counterpartyName"),
+            counterpartyIban: Nullable<String>.value("counterpartyIban"),
+            description: Nullable<String>.value("description"),
+            externalId: Nullable<String>.value("externalId"),
+            status: .new,
+            matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+            matchedDocumentId: Nullable<String>.value("x"),
+            journalTransactionId: Nullable<String>.value("x"),
+            createdAt: "createdAt"
+        )
+        let response = try await client.bank.postV1BankTransactionsRecord(
+            request: .init(
+                bankAccountId: "x",
+                date: "date",
+                amount: "amount",
+                documentType: .saleInvoice,
+                documentId: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1BankPaymentsExport1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -827,6 +981,712 @@ import Api
                     "purchaseInvoiceIds"
                 ]
             ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "type": "stripe",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "accountCode": "accountCode",
+                      "createPartner": true
+                    }
+                  ],
+                  "metaFields": [
+                    "metaFields"
+                  ],
+                  "invoiceMetaField": "invoiceMetaField",
+                  "invoiceVatRatePercent": "invoiceVatRatePercent",
+                  "companyMetaField": "companyMetaField",
+                  "invoiceItemId": "invoiceItemId",
+                  "advanceInvoices": true,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankImportTemplatesCreateResponse(
+            id: "id",
+            name: "name",
+            type: .stripe,
+            fields: [
+                PostV1BankImportTemplatesCreateResponseFieldsItem(
+                    name: "name",
+                    accountCode: Nullable<String>.value("accountCode"),
+                    createPartner: true
+                )
+            ],
+            metaFields: [
+                "metaFields"
+            ],
+            invoiceMetaField: Nullable<String>.value("invoiceMetaField"),
+            invoiceVatRatePercent: Nullable<String>.value("invoiceVatRatePercent"),
+            companyMetaField: Nullable<String>.value("companyMetaField"),
+            invoiceItemId: Nullable<String>.value("invoiceItemId"),
+            advanceInvoices: true,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.bank.createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList(
+            request: .init(
+                name: "name",
+                type: .stripe
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "type": "stripe",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "accountCode": "accountCode",
+                      "createPartner": true
+                    },
+                    {
+                      "name": "name",
+                      "accountCode": "accountCode",
+                      "createPartner": true
+                    }
+                  ],
+                  "metaFields": [
+                    "metaFields",
+                    "metaFields"
+                  ],
+                  "invoiceMetaField": "invoiceMetaField",
+                  "invoiceVatRatePercent": "invoiceVatRatePercent",
+                  "companyMetaField": "companyMetaField",
+                  "invoiceItemId": "x",
+                  "advanceInvoices": true,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankImportTemplatesCreateResponse(
+            id: "x",
+            name: "name",
+            type: .stripe,
+            fields: [
+                PostV1BankImportTemplatesCreateResponseFieldsItem(
+                    name: "name",
+                    accountCode: Nullable<String>.value("accountCode"),
+                    createPartner: true
+                ),
+                PostV1BankImportTemplatesCreateResponseFieldsItem(
+                    name: "name",
+                    accountCode: Nullable<String>.value("accountCode"),
+                    createPartner: true
+                )
+            ],
+            metaFields: [
+                "metaFields",
+                "metaFields"
+            ],
+            invoiceMetaField: Nullable<String>.value("invoiceMetaField"),
+            invoiceVatRatePercent: Nullable<String>.value("invoiceVatRatePercent"),
+            companyMetaField: Nullable<String>.value("companyMetaField"),
+            invoiceItemId: Nullable<String>.value("x"),
+            advanceInvoices: true,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.bank.createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList(
+            request: .init(
+                name: "x",
+                type: .stripe
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankImportTemplatesUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "type": "stripe",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "accountCode": "accountCode",
+                      "createPartner": true
+                    }
+                  ],
+                  "metaFields": [
+                    "metaFields"
+                  ],
+                  "invoiceMetaField": "invoiceMetaField",
+                  "invoiceVatRatePercent": "invoiceVatRatePercent",
+                  "companyMetaField": "companyMetaField",
+                  "invoiceItemId": "invoiceItemId",
+                  "advanceInvoices": true,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankImportTemplatesUpdateResponse(
+            id: "id",
+            name: "name",
+            type: .stripe,
+            fields: [
+                PostV1BankImportTemplatesUpdateResponseFieldsItem(
+                    name: "name",
+                    accountCode: Nullable<String>.value("accountCode"),
+                    createPartner: true
+                )
+            ],
+            metaFields: [
+                "metaFields"
+            ],
+            invoiceMetaField: Nullable<String>.value("invoiceMetaField"),
+            invoiceVatRatePercent: Nullable<String>.value("invoiceVatRatePercent"),
+            companyMetaField: Nullable<String>.value("companyMetaField"),
+            invoiceItemId: Nullable<String>.value("invoiceItemId"),
+            advanceInvoices: true,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.bank.postV1BankImportTemplatesUpdate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankImportTemplatesUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "type": "stripe",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "accountCode": "accountCode",
+                      "createPartner": true
+                    },
+                    {
+                      "name": "name",
+                      "accountCode": "accountCode",
+                      "createPartner": true
+                    }
+                  ],
+                  "metaFields": [
+                    "metaFields",
+                    "metaFields"
+                  ],
+                  "invoiceMetaField": "invoiceMetaField",
+                  "invoiceVatRatePercent": "invoiceVatRatePercent",
+                  "companyMetaField": "companyMetaField",
+                  "invoiceItemId": "x",
+                  "advanceInvoices": true,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankImportTemplatesUpdateResponse(
+            id: "x",
+            name: "name",
+            type: .stripe,
+            fields: [
+                PostV1BankImportTemplatesUpdateResponseFieldsItem(
+                    name: "name",
+                    accountCode: Nullable<String>.value("accountCode"),
+                    createPartner: true
+                ),
+                PostV1BankImportTemplatesUpdateResponseFieldsItem(
+                    name: "name",
+                    accountCode: Nullable<String>.value("accountCode"),
+                    createPartner: true
+                )
+            ],
+            metaFields: [
+                "metaFields",
+                "metaFields"
+            ],
+            invoiceMetaField: Nullable<String>.value("invoiceMetaField"),
+            invoiceVatRatePercent: Nullable<String>.value("invoiceVatRatePercent"),
+            companyMetaField: Nullable<String>.value("companyMetaField"),
+            invoiceItemId: Nullable<String>.value("x"),
+            advanceInvoices: true,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.bank.postV1BankImportTemplatesUpdate(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankImportTemplatesDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankImportTemplatesDeleteResponse(
+            id: "id",
+            deleted: true
+        )
+        let response = try await client.bank.postV1BankImportTemplatesDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankImportTemplatesDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankImportTemplatesDeleteResponse(
+            id: "x",
+            deleted: true
+        )
+        let response = try await client.bank.postV1BankImportTemplatesDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankImportTemplatesGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "type": "stripe",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "accountCode": "accountCode",
+                      "createPartner": true
+                    }
+                  ],
+                  "metaFields": [
+                    "metaFields"
+                  ],
+                  "invoiceMetaField": "invoiceMetaField",
+                  "invoiceVatRatePercent": "invoiceVatRatePercent",
+                  "companyMetaField": "companyMetaField",
+                  "invoiceItemId": "invoiceItemId",
+                  "advanceInvoices": true,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankImportTemplatesGetResponse(
+            id: "id",
+            name: "name",
+            type: .stripe,
+            fields: [
+                PostV1BankImportTemplatesGetResponseFieldsItem(
+                    name: "name",
+                    accountCode: Nullable<String>.value("accountCode"),
+                    createPartner: true
+                )
+            ],
+            metaFields: [
+                "metaFields"
+            ],
+            invoiceMetaField: Nullable<String>.value("invoiceMetaField"),
+            invoiceVatRatePercent: Nullable<String>.value("invoiceVatRatePercent"),
+            companyMetaField: Nullable<String>.value("companyMetaField"),
+            invoiceItemId: Nullable<String>.value("invoiceItemId"),
+            advanceInvoices: true,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.bank.postV1BankImportTemplatesGet(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankImportTemplatesGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "type": "stripe",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "accountCode": "accountCode",
+                      "createPartner": true
+                    },
+                    {
+                      "name": "name",
+                      "accountCode": "accountCode",
+                      "createPartner": true
+                    }
+                  ],
+                  "metaFields": [
+                    "metaFields",
+                    "metaFields"
+                  ],
+                  "invoiceMetaField": "invoiceMetaField",
+                  "invoiceVatRatePercent": "invoiceVatRatePercent",
+                  "companyMetaField": "companyMetaField",
+                  "invoiceItemId": "x",
+                  "advanceInvoices": true,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankImportTemplatesGetResponse(
+            id: "x",
+            name: "name",
+            type: .stripe,
+            fields: [
+                PostV1BankImportTemplatesGetResponseFieldsItem(
+                    name: "name",
+                    accountCode: Nullable<String>.value("accountCode"),
+                    createPartner: true
+                ),
+                PostV1BankImportTemplatesGetResponseFieldsItem(
+                    name: "name",
+                    accountCode: Nullable<String>.value("accountCode"),
+                    createPartner: true
+                )
+            ],
+            metaFields: [
+                "metaFields",
+                "metaFields"
+            ],
+            invoiceMetaField: Nullable<String>.value("invoiceMetaField"),
+            invoiceVatRatePercent: Nullable<String>.value("invoiceVatRatePercent"),
+            companyMetaField: Nullable<String>.value("companyMetaField"),
+            invoiceItemId: Nullable<String>.value("x"),
+            advanceInvoices: true,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.bank.postV1BankImportTemplatesGet(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankImportTemplatesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "name": "name",
+                      "type": "stripe",
+                      "fields": [
+                        {
+                          "name": "name",
+                          "accountCode": null,
+                          "createPartner": true
+                        }
+                      ],
+                      "metaFields": [
+                        "metaFields"
+                      ],
+                      "invoiceMetaField": "invoiceMetaField",
+                      "invoiceVatRatePercent": "invoiceVatRatePercent",
+                      "companyMetaField": "companyMetaField",
+                      "invoiceItemId": "invoiceItemId",
+                      "advanceInvoices": true,
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankImportTemplatesListResponse(
+            rows: [
+                PostV1BankImportTemplatesListResponseRowsItem(
+                    id: "id",
+                    name: "name",
+                    type: .stripe,
+                    fields: [
+                        PostV1BankImportTemplatesListResponseRowsItemFieldsItem(
+                            name: "name",
+                            accountCode: .null,
+                            createPartner: true
+                        )
+                    ],
+                    metaFields: [
+                        "metaFields"
+                    ],
+                    invoiceMetaField: Nullable<String>.value("invoiceMetaField"),
+                    invoiceVatRatePercent: Nullable<String>.value("invoiceVatRatePercent"),
+                    companyMetaField: Nullable<String>.value("companyMetaField"),
+                    invoiceItemId: Nullable<String>.value("invoiceItemId"),
+                    advanceInvoices: true,
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000
+        )
+        let response = try await client.bank.postV1BankImportTemplatesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankImportTemplatesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "type": "stripe",
+                      "fields": [
+                        {
+                          "name": "name",
+                          "accountCode": "accountCode",
+                          "createPartner": true
+                        },
+                        {
+                          "name": "name",
+                          "accountCode": "accountCode",
+                          "createPartner": true
+                        }
+                      ],
+                      "metaFields": [
+                        "metaFields",
+                        "metaFields"
+                      ],
+                      "invoiceMetaField": "invoiceMetaField",
+                      "invoiceVatRatePercent": "invoiceVatRatePercent",
+                      "companyMetaField": "companyMetaField",
+                      "invoiceItemId": "x",
+                      "advanceInvoices": true,
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    },
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "type": "stripe",
+                      "fields": [
+                        {
+                          "name": "name",
+                          "accountCode": "accountCode",
+                          "createPartner": true
+                        },
+                        {
+                          "name": "name",
+                          "accountCode": "accountCode",
+                          "createPartner": true
+                        }
+                      ],
+                      "metaFields": [
+                        "metaFields",
+                        "metaFields"
+                      ],
+                      "invoiceMetaField": "invoiceMetaField",
+                      "invoiceVatRatePercent": "invoiceVatRatePercent",
+                      "companyMetaField": "companyMetaField",
+                      "invoiceItemId": "x",
+                      "advanceInvoices": true,
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankImportTemplatesListResponse(
+            rows: [
+                PostV1BankImportTemplatesListResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    type: .stripe,
+                    fields: [
+                        PostV1BankImportTemplatesListResponseRowsItemFieldsItem(
+                            name: "name",
+                            accountCode: Nullable<String>.value("accountCode"),
+                            createPartner: true
+                        ),
+                        PostV1BankImportTemplatesListResponseRowsItemFieldsItem(
+                            name: "name",
+                            accountCode: Nullable<String>.value("accountCode"),
+                            createPartner: true
+                        )
+                    ],
+                    metaFields: [
+                        "metaFields",
+                        "metaFields"
+                    ],
+                    invoiceMetaField: Nullable<String>.value("invoiceMetaField"),
+                    invoiceVatRatePercent: Nullable<String>.value("invoiceVatRatePercent"),
+                    companyMetaField: Nullable<String>.value("companyMetaField"),
+                    invoiceItemId: Nullable<String>.value("x"),
+                    advanceInvoices: true,
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                ),
+                PostV1BankImportTemplatesListResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    type: .stripe,
+                    fields: [
+                        PostV1BankImportTemplatesListResponseRowsItemFieldsItem(
+                            name: "name",
+                            accountCode: Nullable<String>.value("accountCode"),
+                            createPartner: true
+                        ),
+                        PostV1BankImportTemplatesListResponseRowsItemFieldsItem(
+                            name: "name",
+                            accountCode: Nullable<String>.value("accountCode"),
+                            createPartner: true
+                        )
+                    ],
+                    metaFields: [
+                        "metaFields",
+                        "metaFields"
+                    ],
+                    invoiceMetaField: Nullable<String>.value("invoiceMetaField"),
+                    invoiceVatRatePercent: Nullable<String>.value("invoiceVatRatePercent"),
+                    companyMetaField: Nullable<String>.value("companyMetaField"),
+                    invoiceItemId: Nullable<String>.value("x"),
+                    advanceInvoices: true,
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000
+        )
+        let response = try await client.bank.postV1BankImportTemplatesList(
+            request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -2730,6 +3590,8 @@ import Api
                       "id": "id",
                       "connectionId": "connectionId",
                       "bankAccountId": "bankAccountId",
+                      "importTemplateId": "importTemplateId",
+                      "syncSchedule": "manual",
                       "externalId": "externalId",
                       "iban": "iban",
                       "currency": "currency",
@@ -2766,6 +3628,8 @@ import Api
                     id: "id",
                     connectionId: "connectionId",
                     bankAccountId: Nullable<String>.value("bankAccountId"),
+                    importTemplateId: Nullable<String>.value("importTemplateId"),
+                    syncSchedule: .manual,
                     externalId: "externalId",
                     iban: Nullable<String>.value("iban"),
                     currency: "currency",
@@ -2809,6 +3673,8 @@ import Api
                       "id": "x",
                       "connectionId": "x",
                       "bankAccountId": "x",
+                      "importTemplateId": "x",
+                      "syncSchedule": "manual",
                       "externalId": "externalId",
                       "iban": "iban",
                       "currency": "currency",
@@ -2821,6 +3687,8 @@ import Api
                       "id": "x",
                       "connectionId": "x",
                       "bankAccountId": "x",
+                      "importTemplateId": "x",
+                      "syncSchedule": "manual",
                       "externalId": "externalId",
                       "iban": "iban",
                       "currency": "currency",
@@ -2857,6 +3725,8 @@ import Api
                     id: "x",
                     connectionId: "x",
                     bankAccountId: Nullable<String>.value("x"),
+                    importTemplateId: Nullable<String>.value("x"),
+                    syncSchedule: .manual,
                     externalId: "externalId",
                     iban: Nullable<String>.value("iban"),
                     currency: "currency",
@@ -2869,6 +3739,8 @@ import Api
                     id: "x",
                     connectionId: "x",
                     bankAccountId: Nullable<String>.value("x"),
+                    importTemplateId: Nullable<String>.value("x"),
+                    syncSchedule: .manual,
                     externalId: "externalId",
                     iban: Nullable<String>.value("iban"),
                     currency: "currency",
@@ -2912,6 +3784,8 @@ import Api
                       "id": "id",
                       "connectionId": "connectionId",
                       "bankAccountId": "bankAccountId",
+                      "importTemplateId": "importTemplateId",
+                      "syncSchedule": "manual",
                       "externalId": "externalId",
                       "iban": "iban",
                       "currency": "currency",
@@ -2948,6 +3822,8 @@ import Api
                     id: "id",
                     connectionId: "connectionId",
                     bankAccountId: Nullable<String>.value("bankAccountId"),
+                    importTemplateId: Nullable<String>.value("importTemplateId"),
+                    syncSchedule: .manual,
                     externalId: "externalId",
                     iban: Nullable<String>.value("iban"),
                     currency: "currency",
@@ -2988,6 +3864,8 @@ import Api
                       "id": "x",
                       "connectionId": "x",
                       "bankAccountId": "x",
+                      "importTemplateId": "x",
+                      "syncSchedule": "manual",
                       "externalId": "externalId",
                       "iban": "iban",
                       "currency": "currency",
@@ -3000,6 +3878,8 @@ import Api
                       "id": "x",
                       "connectionId": "x",
                       "bankAccountId": "x",
+                      "importTemplateId": "x",
+                      "syncSchedule": "manual",
                       "externalId": "externalId",
                       "iban": "iban",
                       "currency": "currency",
@@ -3036,6 +3916,8 @@ import Api
                     id: "x",
                     connectionId: "x",
                     bankAccountId: Nullable<String>.value("x"),
+                    importTemplateId: Nullable<String>.value("x"),
+                    syncSchedule: .manual,
                     externalId: "externalId",
                     iban: Nullable<String>.value("iban"),
                     currency: "currency",
@@ -3048,6 +3930,8 @@ import Api
                     id: "x",
                     connectionId: "x",
                     bankAccountId: Nullable<String>.value("x"),
+                    importTemplateId: Nullable<String>.value("x"),
+                    syncSchedule: .manual,
                     externalId: "externalId",
                     iban: Nullable<String>.value("iban"),
                     currency: "currency",
@@ -3278,6 +4162,8 @@ import Api
                   "id": "id",
                   "connectionId": "connectionId",
                   "bankAccountId": "bankAccountId",
+                  "importTemplateId": "importTemplateId",
+                  "syncSchedule": "manual",
                   "externalId": "externalId",
                   "iban": "iban",
                   "currency": "currency",
@@ -3298,6 +4184,8 @@ import Api
             id: "id",
             connectionId: "connectionId",
             bankAccountId: Nullable<String>.value("bankAccountId"),
+            importTemplateId: Nullable<String>.value("importTemplateId"),
+            syncSchedule: .manual,
             externalId: "externalId",
             iban: Nullable<String>.value("iban"),
             currency: "currency",
@@ -3322,6 +4210,8 @@ import Api
                   "id": "x",
                   "connectionId": "x",
                   "bankAccountId": "x",
+                  "importTemplateId": "x",
+                  "syncSchedule": "manual",
                   "externalId": "externalId",
                   "iban": "iban",
                   "currency": "currency",
@@ -3342,6 +4232,8 @@ import Api
             id: "x",
             connectionId: "x",
             bankAccountId: Nullable<String>.value("x"),
+            importTemplateId: Nullable<String>.value("x"),
+            syncSchedule: .manual,
             externalId: "externalId",
             iban: Nullable<String>.value("iban"),
             currency: "currency",
@@ -3357,6 +4249,102 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "connectionId": "connectionId",
+                  "bankAccountId": "bankAccountId",
+                  "importTemplateId": "importTemplateId",
+                  "syncSchedule": "manual",
+                  "externalId": "externalId",
+                  "iban": "iban",
+                  "currency": "currency",
+                  "name": "name",
+                  "product": "product",
+                  "syncFrom": "syncFrom",
+                  "lastSyncedAt": "lastSyncedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankFeedsAccountsConfigureResponse(
+            id: "id",
+            connectionId: "connectionId",
+            bankAccountId: Nullable<String>.value("bankAccountId"),
+            importTemplateId: Nullable<String>.value("importTemplateId"),
+            syncSchedule: .manual,
+            externalId: "externalId",
+            iban: Nullable<String>.value("iban"),
+            currency: "currency",
+            name: Nullable<String>.value("name"),
+            product: Nullable<String>.value("product"),
+            syncFrom: Nullable<String>.value("syncFrom"),
+            lastSyncedAt: Nullable<String>.value("lastSyncedAt")
+        )
+        let response = try await client.bank.chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "connectionId": "x",
+                  "bankAccountId": "x",
+                  "importTemplateId": "x",
+                  "syncSchedule": "manual",
+                  "externalId": "externalId",
+                  "iban": "iban",
+                  "currency": "currency",
+                  "name": "name",
+                  "product": "product",
+                  "syncFrom": "syncFrom",
+                  "lastSyncedAt": "lastSyncedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankFeedsAccountsConfigureResponse(
+            id: "x",
+            connectionId: "x",
+            bankAccountId: Nullable<String>.value("x"),
+            importTemplateId: Nullable<String>.value("x"),
+            syncSchedule: .manual,
+            externalId: "externalId",
+            iban: Nullable<String>.value("iban"),
+            currency: "currency",
+            name: Nullable<String>.value("name"),
+            product: Nullable<String>.value("product"),
+            syncFrom: Nullable<String>.value("syncFrom"),
+            lastSyncedAt: Nullable<String>.value("lastSyncedAt")
+        )
+        let response = try await client.bank.chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func pullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSynced1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -3366,6 +4354,14 @@ import Api
                   "connectionId": "connectionId",
                   "imported": 1000000,
                   "skipped": 1000000,
+                  "posted": 1000000,
+                  "partnersCreated": 1000000,
+                  "invoicesCreated": 1000000,
+                  "invoicesLinked": 1000000,
+                  "paymentsMatched": 1000000,
+                  "warnings": [
+                    "warnings"
+                  ],
                   "accounts": [
                     {
                       "feedAccountId": "feedAccountId",
@@ -3386,6 +4382,14 @@ import Api
             connectionId: "connectionId",
             imported: 1000000,
             skipped: 1000000,
+            posted: 1000000,
+            partnersCreated: 1000000,
+            invoicesCreated: 1000000,
+            invoicesLinked: 1000000,
+            paymentsMatched: 1000000,
+            warnings: [
+                "warnings"
+            ],
             accounts: [
                 PostV1BankFeedsSyncResponseAccountsItem(
                     feedAccountId: "feedAccountId",
@@ -3410,6 +4414,15 @@ import Api
                   "connectionId": "x",
                   "imported": 1000000,
                   "skipped": 1000000,
+                  "posted": 1000000,
+                  "partnersCreated": 1000000,
+                  "invoicesCreated": 1000000,
+                  "invoicesLinked": 1000000,
+                  "paymentsMatched": 1000000,
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
                   "accounts": [
                     {
                       "feedAccountId": "x",
@@ -3435,6 +4448,15 @@ import Api
             connectionId: "x",
             imported: 1000000,
             skipped: 1000000,
+            posted: 1000000,
+            partnersCreated: 1000000,
+            invoicesCreated: 1000000,
+            invoicesLinked: 1000000,
+            paymentsMatched: 1000000,
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
             accounts: [
                 PostV1BankFeedsSyncResponseAccountsItem(
                     feedAccountId: "x",

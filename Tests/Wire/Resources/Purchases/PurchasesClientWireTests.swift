@@ -27,6 +27,7 @@ import Api
                   "creditedInvoiceId": "creditedInvoiceId",
                   "purchaseOrderId": "purchaseOrderId",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -77,6 +78,7 @@ import Api
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -140,6 +142,7 @@ import Api
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -208,6 +211,7 @@ import Api
             creditedInvoiceId: Nullable<String>.value("x"),
             purchaseOrderId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -292,6 +296,7 @@ import Api
                   "creditedInvoiceId": "creditedInvoiceId",
                   "purchaseOrderId": "purchaseOrderId",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -342,6 +347,7 @@ import Api
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -396,6 +402,7 @@ import Api
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -464,6 +471,7 @@ import Api
             creditedInvoiceId: Nullable<String>.value("x"),
             purchaseOrderId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -536,6 +544,7 @@ import Api
                   "creditedInvoiceId": "creditedInvoiceId",
                   "purchaseOrderId": "purchaseOrderId",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -586,6 +595,7 @@ import Api
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -640,6 +650,7 @@ import Api
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -708,6 +719,7 @@ import Api
             creditedInvoiceId: Nullable<String>.value("x"),
             purchaseOrderId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -832,6 +844,7 @@ import Api
                   "creditedInvoiceId": "creditedInvoiceId",
                   "purchaseOrderId": "purchaseOrderId",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -882,6 +895,7 @@ import Api
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -936,6 +950,7 @@ import Api
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -1004,6 +1019,7 @@ import Api
             creditedInvoiceId: Nullable<String>.value("x"),
             purchaseOrderId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -1078,6 +1094,7 @@ import Api
                       "creditedInvoiceId": "creditedInvoiceId",
                       "purchaseOrderId": "purchaseOrderId",
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
@@ -1115,6 +1132,7 @@ import Api
                     creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
                     purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
@@ -1156,6 +1174,7 @@ import Api
                       "creditedInvoiceId": "x",
                       "purchaseOrderId": "x",
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     },
@@ -1178,6 +1197,7 @@ import Api
                       "creditedInvoiceId": "x",
                       "purchaseOrderId": "x",
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
@@ -1215,6 +1235,7 @@ import Api
                     creditedInvoiceId: Nullable<String>.value("x"),
                     purchaseOrderId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 ),
@@ -1237,6 +1258,7 @@ import Api
                     creditedInvoiceId: Nullable<String>.value("x"),
                     purchaseOrderId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
@@ -1272,6 +1294,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -1320,6 +1343,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -1380,6 +1404,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -1448,6 +1473,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -1531,6 +1557,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -1579,6 +1606,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -1631,6 +1659,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -1699,6 +1728,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -1771,6 +1801,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -1819,6 +1850,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -1871,6 +1903,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -1939,6 +1972,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -2013,6 +2047,7 @@ import Api
                       "approvedBy": "approvedBy",
                       "approvedAt": "approvedAt",
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
@@ -2046,6 +2081,7 @@ import Api
                     approvedBy: Nullable<String>.value("approvedBy"),
                     approvedAt: Nullable<String>.value("approvedAt"),
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
@@ -2083,6 +2119,7 @@ import Api
                       "approvedBy": "approvedBy",
                       "approvedAt": "approvedAt",
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     },
@@ -2101,6 +2138,7 @@ import Api
                       "approvedBy": "approvedBy",
                       "approvedAt": "approvedAt",
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
@@ -2134,6 +2172,7 @@ import Api
                     approvedBy: Nullable<String>.value("approvedBy"),
                     approvedAt: Nullable<String>.value("approvedAt"),
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 ),
@@ -2152,6 +2191,7 @@ import Api
                     approvedBy: Nullable<String>.value("approvedBy"),
                     approvedAt: Nullable<String>.value("approvedAt"),
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
@@ -2187,6 +2227,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -2235,6 +2276,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -2287,6 +2329,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -2355,6 +2398,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -2427,6 +2471,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -2475,6 +2520,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -2527,6 +2573,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -2595,6 +2642,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -2667,6 +2715,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -2715,6 +2764,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -2767,6 +2817,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -2835,6 +2886,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -2907,6 +2959,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -2955,6 +3008,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -3007,6 +3061,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -3075,6 +3130,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -3147,6 +3203,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -3195,6 +3252,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -3247,6 +3305,7 @@ import Api
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -3315,6 +3374,7 @@ import Api
             approvedBy: Nullable<String>.value("approvedBy"),
             approvedAt: Nullable<String>.value("approvedAt"),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [

@@ -6,6 +6,7 @@ extension Requests {
         public let iban: String?
         public let currency: String?
         public let accountCode: String?
+        public let documentRef: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -14,12 +15,14 @@ extension Requests {
             iban: String? = nil,
             currency: String? = nil,
             accountCode: String? = nil,
+            documentRef: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.name = name
             self.iban = iban
             self.currency = currency
             self.accountCode = accountCode
+            self.documentRef = documentRef
             self.additionalProperties = additionalProperties
         }
 
@@ -29,6 +32,7 @@ extension Requests {
             self.iban = try container.decodeIfPresent(String.self, forKey: .iban)
             self.currency = try container.decodeIfPresent(String.self, forKey: .currency)
             self.accountCode = try container.decodeIfPresent(String.self, forKey: .accountCode)
+            self.documentRef = try container.decodeIfPresent(String.self, forKey: .documentRef)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -39,6 +43,7 @@ extension Requests {
             try container.encodeIfPresent(self.iban, forKey: .iban)
             try container.encodeIfPresent(self.currency, forKey: .currency)
             try container.encodeIfPresent(self.accountCode, forKey: .accountCode)
+            try container.encodeIfPresent(self.documentRef, forKey: .documentRef)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -47,6 +52,7 @@ extension Requests {
             case iban
             case currency
             case accountCode
+            case documentRef
         }
     }
 }

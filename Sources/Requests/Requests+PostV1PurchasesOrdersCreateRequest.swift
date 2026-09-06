@@ -9,6 +9,7 @@ extension Requests {
         public let warehouseId: String?
         public let currency: String?
         public let notes: String?
+        public let documentRef: String?
         public let lines: [PostV1PurchasesOrdersCreateRequestLinesItem]
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -21,6 +22,7 @@ extension Requests {
             warehouseId: String? = nil,
             currency: String? = nil,
             notes: String? = nil,
+            documentRef: String? = nil,
             lines: [PostV1PurchasesOrdersCreateRequestLinesItem],
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -31,6 +33,7 @@ extension Requests {
             self.warehouseId = warehouseId
             self.currency = currency
             self.notes = notes
+            self.documentRef = documentRef
             self.lines = lines
             self.additionalProperties = additionalProperties
         }
@@ -44,6 +47,7 @@ extension Requests {
             self.warehouseId = try container.decodeIfPresent(String.self, forKey: .warehouseId)
             self.currency = try container.decodeIfPresent(String.self, forKey: .currency)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
+            self.documentRef = try container.decodeIfPresent(String.self, forKey: .documentRef)
             self.lines = try container.decode([PostV1PurchasesOrdersCreateRequestLinesItem].self, forKey: .lines)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -58,6 +62,7 @@ extension Requests {
             try container.encodeIfPresent(self.warehouseId, forKey: .warehouseId)
             try container.encodeIfPresent(self.currency, forKey: .currency)
             try container.encodeIfPresent(self.notes, forKey: .notes)
+            try container.encodeIfPresent(self.documentRef, forKey: .documentRef)
             try container.encode(self.lines, forKey: .lines)
         }
 
@@ -70,6 +75,7 @@ extension Requests {
             case warehouseId
             case currency
             case notes
+            case documentRef
             case lines
         }
     }

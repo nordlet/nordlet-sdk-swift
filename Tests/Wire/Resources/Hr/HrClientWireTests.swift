@@ -313,6 +313,12 @@ import Api
                   "pensionAccumulation": true,
                   "status": "active",
                   "notes": "notes",
+                  "attributes": [
+                    {
+                      "name": "name",
+                      "value": "value"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -348,6 +354,12 @@ import Api
             pensionAccumulation: true,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            attributes: Nullable<[PostV1HrEmployeesCreateResponseAttributesItem]>.value([
+                PostV1HrEmployeesCreateResponseAttributesItem(
+                    name: "name",
+                    value: "value"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.hr.postV1HrEmployeesCreate(
@@ -390,6 +402,16 @@ import Api
                   "pensionAccumulation": true,
                   "status": "active",
                   "notes": "notes",
+                  "attributes": [
+                    {
+                      "name": "x",
+                      "value": "value"
+                    },
+                    {
+                      "name": "x",
+                      "value": "value"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -425,6 +447,16 @@ import Api
             pensionAccumulation: true,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            attributes: Nullable<[PostV1HrEmployeesCreateResponseAttributesItem]>.value([
+                PostV1HrEmployeesCreateResponseAttributesItem(
+                    name: "x",
+                    value: "value"
+                ),
+                PostV1HrEmployeesCreateResponseAttributesItem(
+                    name: "x",
+                    value: "value"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.hr.postV1HrEmployeesCreate(
@@ -467,6 +499,12 @@ import Api
                   "pensionAccumulation": true,
                   "status": "active",
                   "notes": "notes",
+                  "attributes": [
+                    {
+                      "name": "name",
+                      "value": "value"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -502,6 +540,12 @@ import Api
             pensionAccumulation: true,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            attributes: Nullable<[PostV1HrEmployeesUpdateResponseAttributesItem]>.value([
+                PostV1HrEmployeesUpdateResponseAttributesItem(
+                    name: "name",
+                    value: "value"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.hr.postV1HrEmployeesUpdate(
@@ -541,6 +585,16 @@ import Api
                   "pensionAccumulation": true,
                   "status": "active",
                   "notes": "notes",
+                  "attributes": [
+                    {
+                      "name": "x",
+                      "value": "value"
+                    },
+                    {
+                      "name": "x",
+                      "value": "value"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -576,6 +630,16 @@ import Api
             pensionAccumulation: true,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            attributes: Nullable<[PostV1HrEmployeesUpdateResponseAttributesItem]>.value([
+                PostV1HrEmployeesUpdateResponseAttributesItem(
+                    name: "x",
+                    value: "value"
+                ),
+                PostV1HrEmployeesUpdateResponseAttributesItem(
+                    name: "x",
+                    value: "value"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.hr.postV1HrEmployeesUpdate(
@@ -615,6 +679,12 @@ import Api
                   "pensionAccumulation": true,
                   "status": "active",
                   "notes": "notes",
+                  "attributes": [
+                    {
+                      "name": "name",
+                      "value": "value"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -650,6 +720,12 @@ import Api
             pensionAccumulation: true,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            attributes: Nullable<[PostV1HrEmployeesGetResponseAttributesItem]>.value([
+                PostV1HrEmployeesGetResponseAttributesItem(
+                    name: "name",
+                    value: "value"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.hr.postV1HrEmployeesGet(
@@ -689,6 +765,16 @@ import Api
                   "pensionAccumulation": true,
                   "status": "active",
                   "notes": "notes",
+                  "attributes": [
+                    {
+                      "name": "x",
+                      "value": "value"
+                    },
+                    {
+                      "name": "x",
+                      "value": "value"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -724,6 +810,16 @@ import Api
             pensionAccumulation: true,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            attributes: Nullable<[PostV1HrEmployeesGetResponseAttributesItem]>.value([
+                PostV1HrEmployeesGetResponseAttributesItem(
+                    name: "x",
+                    value: "value"
+                ),
+                PostV1HrEmployeesGetResponseAttributesItem(
+                    name: "x",
+                    value: "value"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.hr.postV1HrEmployeesGet(
@@ -760,6 +856,12 @@ import Api
                       "pensionAccumulation": true,
                       "status": "active",
                       "notes": "notes",
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "value"
+                        }
+                      ],
                       "createdAt": "createdAt"
                     }
                   ],
@@ -799,6 +901,12 @@ import Api
                     pensionAccumulation: true,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
+                    attributes: Nullable<[PostV1HrEmployeesListResponseRowsItemAttributesItem]>.value([
+                        PostV1HrEmployeesListResponseRowsItemAttributesItem(
+                            name: "name",
+                            value: "value"
+                        )
+                    ]),
                     createdAt: "createdAt"
                 )
             ],
@@ -845,6 +953,16 @@ import Api
                       "pensionAccumulation": true,
                       "status": "active",
                       "notes": "notes",
+                      "attributes": [
+                        {
+                          "name": "x",
+                          "value": "value"
+                        },
+                        {
+                          "name": "x",
+                          "value": "value"
+                        }
+                      ],
                       "createdAt": "createdAt"
                     },
                     {
@@ -872,6 +990,16 @@ import Api
                       "pensionAccumulation": true,
                       "status": "active",
                       "notes": "notes",
+                      "attributes": [
+                        {
+                          "name": "x",
+                          "value": "value"
+                        },
+                        {
+                          "name": "x",
+                          "value": "value"
+                        }
+                      ],
                       "createdAt": "createdAt"
                     }
                   ],
@@ -914,6 +1042,16 @@ import Api
                     pensionAccumulation: true,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
+                    attributes: Nullable<[PostV1HrEmployeesListResponseRowsItemAttributesItem]>.value([
+                        PostV1HrEmployeesListResponseRowsItemAttributesItem(
+                            name: "x",
+                            value: "value"
+                        ),
+                        PostV1HrEmployeesListResponseRowsItemAttributesItem(
+                            name: "x",
+                            value: "value"
+                        )
+                    ]),
                     createdAt: "createdAt"
                 ),
                 PostV1HrEmployeesListResponseRowsItem(
@@ -941,6 +1079,16 @@ import Api
                     pensionAccumulation: true,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
+                    attributes: Nullable<[PostV1HrEmployeesListResponseRowsItemAttributesItem]>.value([
+                        PostV1HrEmployeesListResponseRowsItemAttributesItem(
+                            name: "x",
+                            value: "value"
+                        ),
+                        PostV1HrEmployeesListResponseRowsItemAttributesItem(
+                            name: "x",
+                            value: "value"
+                        )
+                    ]),
                     createdAt: "createdAt"
                 )
             ],
@@ -1037,6 +1185,12 @@ import Api
                   "pensionAccumulation": true,
                   "status": "active",
                   "notes": "notes",
+                  "attributes": [
+                    {
+                      "name": "name",
+                      "value": "value"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -1072,6 +1226,12 @@ import Api
             pensionAccumulation: true,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            attributes: Nullable<[PostV1HrEmployeesAnonymizeResponseAttributesItem]>.value([
+                PostV1HrEmployeesAnonymizeResponseAttributesItem(
+                    name: "name",
+                    value: "value"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.hr.blankAnEmployeesPersonalDataAndHideTheRecord(
@@ -1111,6 +1271,16 @@ import Api
                   "pensionAccumulation": true,
                   "status": "active",
                   "notes": "notes",
+                  "attributes": [
+                    {
+                      "name": "x",
+                      "value": "value"
+                    },
+                    {
+                      "name": "x",
+                      "value": "value"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -1146,6 +1316,16 @@ import Api
             pensionAccumulation: true,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            attributes: Nullable<[PostV1HrEmployeesAnonymizeResponseAttributesItem]>.value([
+                PostV1HrEmployeesAnonymizeResponseAttributesItem(
+                    name: "x",
+                    value: "value"
+                ),
+                PostV1HrEmployeesAnonymizeResponseAttributesItem(
+                    name: "x",
+                    value: "value"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.hr.blankAnEmployeesPersonalDataAndHideTheRecord(
@@ -1166,6 +1346,7 @@ import Api
                   "positionId": "positionId",
                   "departmentId": "departmentId",
                   "scheduleId": "scheduleId",
+                  "agreementId": "agreementId",
                   "contractNo": "contractNo",
                   "type": "permanent",
                   "startDate": "startDate",
@@ -1173,7 +1354,8 @@ import Api
                   "endReason": "endReason",
                   "baseSalary": "baseSalary",
                   "salaryType": "monthly",
-                  "workHoursPerWeek": "workHoursPerWeek",
+                  "workHours": "workHours",
+                  "workHoursUnit": "day",
                   "status": "active",
                   "notes": "notes",
                   "createdAt": "createdAt"
@@ -1192,6 +1374,7 @@ import Api
             positionId: Nullable<String>.value("positionId"),
             departmentId: Nullable<String>.value("departmentId"),
             scheduleId: Nullable<String>.value("scheduleId"),
+            agreementId: Nullable<String>.value("agreementId"),
             contractNo: "contractNo",
             type: .permanent,
             startDate: "startDate",
@@ -1199,7 +1382,8 @@ import Api
             endReason: Nullable<String>.value("endReason"),
             baseSalary: "baseSalary",
             salaryType: .monthly,
-            workHoursPerWeek: "workHoursPerWeek",
+            workHours: "workHours",
+            workHoursUnit: .day,
             status: .active,
             notes: Nullable<String>.value("notes"),
             createdAt: "createdAt"
@@ -1207,7 +1391,6 @@ import Api
         let response = try await client.hr.postV1HrContractsCreate(
             request: .init(
                 employeeId: "employeeId",
-                contractNo: "contractNo",
                 startDate: "startDate",
                 baseSalary: "baseSalary"
             ),
@@ -1227,6 +1410,7 @@ import Api
                   "positionId": "x",
                   "departmentId": "x",
                   "scheduleId": "x",
+                  "agreementId": "x",
                   "contractNo": "contractNo",
                   "type": "permanent",
                   "startDate": "startDate",
@@ -1234,7 +1418,8 @@ import Api
                   "endReason": "endReason",
                   "baseSalary": "baseSalary",
                   "salaryType": "monthly",
-                  "workHoursPerWeek": "workHoursPerWeek",
+                  "workHours": "workHours",
+                  "workHoursUnit": "day",
                   "status": "active",
                   "notes": "notes",
                   "createdAt": "createdAt"
@@ -1253,6 +1438,7 @@ import Api
             positionId: Nullable<String>.value("x"),
             departmentId: Nullable<String>.value("x"),
             scheduleId: Nullable<String>.value("x"),
+            agreementId: Nullable<String>.value("x"),
             contractNo: "contractNo",
             type: .permanent,
             startDate: "startDate",
@@ -1260,7 +1446,8 @@ import Api
             endReason: Nullable<String>.value("endReason"),
             baseSalary: "baseSalary",
             salaryType: .monthly,
-            workHoursPerWeek: "workHoursPerWeek",
+            workHours: "workHours",
+            workHoursUnit: .day,
             status: .active,
             notes: Nullable<String>.value("notes"),
             createdAt: "createdAt"
@@ -1268,7 +1455,6 @@ import Api
         let response = try await client.hr.postV1HrContractsCreate(
             request: .init(
                 employeeId: "x",
-                contractNo: "x",
                 startDate: "startDate",
                 baseSalary: "baseSalary"
             ),
@@ -1288,6 +1474,7 @@ import Api
                   "positionId": "positionId",
                   "departmentId": "departmentId",
                   "scheduleId": "scheduleId",
+                  "agreementId": "agreementId",
                   "contractNo": "contractNo",
                   "type": "permanent",
                   "startDate": "startDate",
@@ -1295,7 +1482,8 @@ import Api
                   "endReason": "endReason",
                   "baseSalary": "baseSalary",
                   "salaryType": "monthly",
-                  "workHoursPerWeek": "workHoursPerWeek",
+                  "workHours": "workHours",
+                  "workHoursUnit": "day",
                   "status": "active",
                   "notes": "notes",
                   "createdAt": "createdAt"
@@ -1314,6 +1502,7 @@ import Api
             positionId: Nullable<String>.value("positionId"),
             departmentId: Nullable<String>.value("departmentId"),
             scheduleId: Nullable<String>.value("scheduleId"),
+            agreementId: Nullable<String>.value("agreementId"),
             contractNo: "contractNo",
             type: .permanent,
             startDate: "startDate",
@@ -1321,7 +1510,8 @@ import Api
             endReason: Nullable<String>.value("endReason"),
             baseSalary: "baseSalary",
             salaryType: .monthly,
-            workHoursPerWeek: "workHoursPerWeek",
+            workHours: "workHours",
+            workHoursUnit: .day,
             status: .active,
             notes: Nullable<String>.value("notes"),
             createdAt: "createdAt"
@@ -1347,6 +1537,7 @@ import Api
                   "positionId": "x",
                   "departmentId": "x",
                   "scheduleId": "x",
+                  "agreementId": "x",
                   "contractNo": "contractNo",
                   "type": "permanent",
                   "startDate": "startDate",
@@ -1354,7 +1545,8 @@ import Api
                   "endReason": "endReason",
                   "baseSalary": "baseSalary",
                   "salaryType": "monthly",
-                  "workHoursPerWeek": "workHoursPerWeek",
+                  "workHours": "workHours",
+                  "workHoursUnit": "day",
                   "status": "active",
                   "notes": "notes",
                   "createdAt": "createdAt"
@@ -1373,6 +1565,7 @@ import Api
             positionId: Nullable<String>.value("x"),
             departmentId: Nullable<String>.value("x"),
             scheduleId: Nullable<String>.value("x"),
+            agreementId: Nullable<String>.value("x"),
             contractNo: "contractNo",
             type: .permanent,
             startDate: "startDate",
@@ -1380,7 +1573,8 @@ import Api
             endReason: Nullable<String>.value("endReason"),
             baseSalary: "baseSalary",
             salaryType: .monthly,
-            workHoursPerWeek: "workHoursPerWeek",
+            workHours: "workHours",
+            workHoursUnit: .day,
             status: .active,
             notes: Nullable<String>.value("notes"),
             createdAt: "createdAt"
@@ -1408,6 +1602,7 @@ import Api
                       "positionId": "positionId",
                       "departmentId": "departmentId",
                       "scheduleId": "scheduleId",
+                      "agreementId": "agreementId",
                       "contractNo": "contractNo",
                       "type": "permanent",
                       "startDate": "startDate",
@@ -1415,7 +1610,8 @@ import Api
                       "endReason": "endReason",
                       "baseSalary": "baseSalary",
                       "salaryType": "monthly",
-                      "workHoursPerWeek": "workHoursPerWeek",
+                      "workHours": "workHours",
+                      "workHoursUnit": "day",
                       "status": "active",
                       "notes": "notes",
                       "createdAt": "createdAt"
@@ -1441,6 +1637,7 @@ import Api
                     positionId: Nullable<String>.value("positionId"),
                     departmentId: Nullable<String>.value("departmentId"),
                     scheduleId: Nullable<String>.value("scheduleId"),
+                    agreementId: Nullable<String>.value("agreementId"),
                     contractNo: "contractNo",
                     type: .permanent,
                     startDate: "startDate",
@@ -1448,7 +1645,8 @@ import Api
                     endReason: Nullable<String>.value("endReason"),
                     baseSalary: "baseSalary",
                     salaryType: .monthly,
-                    workHoursPerWeek: "workHoursPerWeek",
+                    workHours: "workHours",
+                    workHoursUnit: .day,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
                     createdAt: "createdAt"
@@ -1478,6 +1676,7 @@ import Api
                       "positionId": "x",
                       "departmentId": "x",
                       "scheduleId": "x",
+                      "agreementId": "x",
                       "contractNo": "contractNo",
                       "type": "permanent",
                       "startDate": "startDate",
@@ -1485,7 +1684,8 @@ import Api
                       "endReason": "endReason",
                       "baseSalary": "baseSalary",
                       "salaryType": "monthly",
-                      "workHoursPerWeek": "workHoursPerWeek",
+                      "workHours": "workHours",
+                      "workHoursUnit": "day",
                       "status": "active",
                       "notes": "notes",
                       "createdAt": "createdAt"
@@ -1496,6 +1696,7 @@ import Api
                       "positionId": "x",
                       "departmentId": "x",
                       "scheduleId": "x",
+                      "agreementId": "x",
                       "contractNo": "contractNo",
                       "type": "permanent",
                       "startDate": "startDate",
@@ -1503,7 +1704,8 @@ import Api
                       "endReason": "endReason",
                       "baseSalary": "baseSalary",
                       "salaryType": "monthly",
-                      "workHoursPerWeek": "workHoursPerWeek",
+                      "workHours": "workHours",
+                      "workHoursUnit": "day",
                       "status": "active",
                       "notes": "notes",
                       "createdAt": "createdAt"
@@ -1529,6 +1731,7 @@ import Api
                     positionId: Nullable<String>.value("x"),
                     departmentId: Nullable<String>.value("x"),
                     scheduleId: Nullable<String>.value("x"),
+                    agreementId: Nullable<String>.value("x"),
                     contractNo: "contractNo",
                     type: .permanent,
                     startDate: "startDate",
@@ -1536,7 +1739,8 @@ import Api
                     endReason: Nullable<String>.value("endReason"),
                     baseSalary: "baseSalary",
                     salaryType: .monthly,
-                    workHoursPerWeek: "workHoursPerWeek",
+                    workHours: "workHours",
+                    workHoursUnit: .day,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
                     createdAt: "createdAt"
@@ -1547,6 +1751,7 @@ import Api
                     positionId: Nullable<String>.value("x"),
                     departmentId: Nullable<String>.value("x"),
                     scheduleId: Nullable<String>.value("x"),
+                    agreementId: Nullable<String>.value("x"),
                     contractNo: "contractNo",
                     type: .permanent,
                     startDate: "startDate",
@@ -1554,7 +1759,8 @@ import Api
                     endReason: Nullable<String>.value("endReason"),
                     baseSalary: "baseSalary",
                     salaryType: .monthly,
-                    workHoursPerWeek: "workHoursPerWeek",
+                    workHours: "workHours",
+                    workHoursUnit: .day,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
                     createdAt: "createdAt"

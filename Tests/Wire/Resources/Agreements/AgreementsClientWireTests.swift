@@ -175,7 +175,10 @@ import Api
                 {
                   "id": "id",
                   "typeId": "typeId",
+                  "kind": "customer",
                   "partnerId": "partnerId",
+                  "employeeId": "employeeId",
+                  "bankAccountId": "bankAccountId",
                   "number": "number",
                   "name": "name",
                   "startDate": "startDate",
@@ -186,6 +189,7 @@ import Api
                   "currency": "currency",
                   "status": "draft",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "items": [
                     {
@@ -209,7 +213,10 @@ import Api
         let expectedResponse = PostV1AgreementsAgreementsCreateResponse(
             id: "id",
             typeId: Nullable<String>.value("typeId"),
-            partnerId: "partnerId",
+            kind: .customer,
+            partnerId: Nullable<String>.value("partnerId"),
+            employeeId: Nullable<String>.value("employeeId"),
+            bankAccountId: Nullable<String>.value("bankAccountId"),
             number: "number",
             name: Nullable<String>.value("name"),
             startDate: "startDate",
@@ -220,6 +227,7 @@ import Api
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             items: [
                 PostV1AgreementsAgreementsCreateResponseItemsItem(
@@ -234,7 +242,6 @@ import Api
         )
         let response = try await client.agreements.postV1AgreementsAgreementsCreate(
             request: .init(
-                partnerId: "partnerId",
                 number: "number",
                 startDate: "startDate"
             ),
@@ -251,7 +258,10 @@ import Api
                 {
                   "id": "x",
                   "typeId": "x",
+                  "kind": "customer",
                   "partnerId": "x",
+                  "employeeId": "x",
+                  "bankAccountId": "x",
                   "number": "number",
                   "name": "name",
                   "startDate": "startDate",
@@ -262,6 +272,7 @@ import Api
                   "currency": "currency",
                   "status": "draft",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "items": [
                     {
@@ -293,7 +304,10 @@ import Api
         let expectedResponse = PostV1AgreementsAgreementsCreateResponse(
             id: "x",
             typeId: Nullable<String>.value("x"),
-            partnerId: "x",
+            kind: .customer,
+            partnerId: Nullable<String>.value("x"),
+            employeeId: Nullable<String>.value("x"),
+            bankAccountId: Nullable<String>.value("x"),
             number: "number",
             name: Nullable<String>.value("name"),
             startDate: "startDate",
@@ -304,6 +318,7 @@ import Api
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             items: [
                 PostV1AgreementsAgreementsCreateResponseItemsItem(
@@ -326,7 +341,6 @@ import Api
         )
         let response = try await client.agreements.postV1AgreementsAgreementsCreate(
             request: .init(
-                partnerId: "x",
                 number: "x",
                 startDate: "startDate"
             ),
@@ -343,7 +357,10 @@ import Api
                 {
                   "id": "id",
                   "typeId": "typeId",
+                  "kind": "customer",
                   "partnerId": "partnerId",
+                  "employeeId": "employeeId",
+                  "bankAccountId": "bankAccountId",
                   "number": "number",
                   "name": "name",
                   "startDate": "startDate",
@@ -354,6 +371,7 @@ import Api
                   "currency": "currency",
                   "status": "draft",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "items": [
                     {
@@ -377,7 +395,10 @@ import Api
         let expectedResponse = PostV1AgreementsAgreementsGetResponse(
             id: "id",
             typeId: Nullable<String>.value("typeId"),
-            partnerId: "partnerId",
+            kind: .customer,
+            partnerId: Nullable<String>.value("partnerId"),
+            employeeId: Nullable<String>.value("employeeId"),
+            bankAccountId: Nullable<String>.value("bankAccountId"),
             number: "number",
             name: Nullable<String>.value("name"),
             startDate: "startDate",
@@ -388,6 +409,7 @@ import Api
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             items: [
                 PostV1AgreementsAgreementsGetResponseItemsItem(
@@ -415,7 +437,10 @@ import Api
                 {
                   "id": "x",
                   "typeId": "x",
+                  "kind": "customer",
                   "partnerId": "x",
+                  "employeeId": "x",
+                  "bankAccountId": "x",
                   "number": "number",
                   "name": "name",
                   "startDate": "startDate",
@@ -426,6 +451,7 @@ import Api
                   "currency": "currency",
                   "status": "draft",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "items": [
                     {
@@ -457,7 +483,10 @@ import Api
         let expectedResponse = PostV1AgreementsAgreementsGetResponse(
             id: "x",
             typeId: Nullable<String>.value("x"),
-            partnerId: "x",
+            kind: .customer,
+            partnerId: Nullable<String>.value("x"),
+            employeeId: Nullable<String>.value("x"),
+            bankAccountId: Nullable<String>.value("x"),
             number: "number",
             name: Nullable<String>.value("name"),
             startDate: "startDate",
@@ -468,6 +497,7 @@ import Api
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             items: [
                 PostV1AgreementsAgreementsGetResponseItemsItem(
@@ -503,7 +533,10 @@ import Api
                 {
                   "id": "id",
                   "typeId": "typeId",
+                  "kind": "customer",
                   "partnerId": "partnerId",
+                  "employeeId": "employeeId",
+                  "bankAccountId": "bankAccountId",
                   "number": "number",
                   "name": "name",
                   "startDate": "startDate",
@@ -514,6 +547,7 @@ import Api
                   "currency": "currency",
                   "status": "draft",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "items": [
                     {
@@ -537,7 +571,10 @@ import Api
         let expectedResponse = PostV1AgreementsAgreementsUpdateResponse(
             id: "id",
             typeId: Nullable<String>.value("typeId"),
-            partnerId: "partnerId",
+            kind: .customer,
+            partnerId: Nullable<String>.value("partnerId"),
+            employeeId: Nullable<String>.value("employeeId"),
+            bankAccountId: Nullable<String>.value("bankAccountId"),
             number: "number",
             name: Nullable<String>.value("name"),
             startDate: "startDate",
@@ -548,6 +585,7 @@ import Api
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             items: [
                 PostV1AgreementsAgreementsUpdateResponseItemsItem(
@@ -575,7 +613,10 @@ import Api
                 {
                   "id": "x",
                   "typeId": "x",
+                  "kind": "customer",
                   "partnerId": "x",
+                  "employeeId": "x",
+                  "bankAccountId": "x",
                   "number": "number",
                   "name": "name",
                   "startDate": "startDate",
@@ -586,6 +627,7 @@ import Api
                   "currency": "currency",
                   "status": "draft",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "items": [
                     {
@@ -617,7 +659,10 @@ import Api
         let expectedResponse = PostV1AgreementsAgreementsUpdateResponse(
             id: "x",
             typeId: Nullable<String>.value("x"),
-            partnerId: "x",
+            kind: .customer,
+            partnerId: Nullable<String>.value("x"),
+            employeeId: Nullable<String>.value("x"),
+            bankAccountId: Nullable<String>.value("x"),
             number: "number",
             name: Nullable<String>.value("name"),
             startDate: "startDate",
@@ -628,6 +673,7 @@ import Api
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             items: [
                 PostV1AgreementsAgreementsUpdateResponseItemsItem(
@@ -717,7 +763,10 @@ import Api
                     {
                       "id": "id",
                       "typeId": "typeId",
+                      "kind": "customer",
                       "partnerId": "partnerId",
+                      "employeeId": "employeeId",
+                      "bankAccountId": "bankAccountId",
                       "number": "number",
                       "name": "name",
                       "startDate": "startDate",
@@ -728,6 +777,7 @@ import Api
                       "currency": "currency",
                       "status": "draft",
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt"
                     }
                   ],
@@ -748,7 +798,10 @@ import Api
                 PostV1AgreementsAgreementsListResponseRowsItem(
                     id: "id",
                     typeId: Nullable<String>.value("typeId"),
-                    partnerId: "partnerId",
+                    kind: .customer,
+                    partnerId: Nullable<String>.value("partnerId"),
+                    employeeId: Nullable<String>.value("employeeId"),
+                    bankAccountId: Nullable<String>.value("bankAccountId"),
                     number: "number",
                     name: Nullable<String>.value("name"),
                     startDate: "startDate",
@@ -759,6 +812,7 @@ import Api
                     currency: "currency",
                     status: .draft,
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt"
                 )
             ],
@@ -783,7 +837,10 @@ import Api
                     {
                       "id": "x",
                       "typeId": "x",
+                      "kind": "customer",
                       "partnerId": "x",
+                      "employeeId": "x",
+                      "bankAccountId": "x",
                       "number": "number",
                       "name": "name",
                       "startDate": "startDate",
@@ -794,12 +851,16 @@ import Api
                       "currency": "currency",
                       "status": "draft",
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt"
                     },
                     {
                       "id": "x",
                       "typeId": "x",
+                      "kind": "customer",
                       "partnerId": "x",
+                      "employeeId": "x",
+                      "bankAccountId": "x",
                       "number": "number",
                       "name": "name",
                       "startDate": "startDate",
@@ -810,6 +871,7 @@ import Api
                       "currency": "currency",
                       "status": "draft",
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt"
                     }
                   ],
@@ -830,7 +892,10 @@ import Api
                 PostV1AgreementsAgreementsListResponseRowsItem(
                     id: "x",
                     typeId: Nullable<String>.value("x"),
-                    partnerId: "x",
+                    kind: .customer,
+                    partnerId: Nullable<String>.value("x"),
+                    employeeId: Nullable<String>.value("x"),
+                    bankAccountId: Nullable<String>.value("x"),
                     number: "number",
                     name: Nullable<String>.value("name"),
                     startDate: "startDate",
@@ -841,12 +906,16 @@ import Api
                     currency: "currency",
                     status: .draft,
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt"
                 ),
                 PostV1AgreementsAgreementsListResponseRowsItem(
                     id: "x",
                     typeId: Nullable<String>.value("x"),
-                    partnerId: "x",
+                    kind: .customer,
+                    partnerId: Nullable<String>.value("x"),
+                    employeeId: Nullable<String>.value("x"),
+                    bankAccountId: Nullable<String>.value("x"),
                     number: "number",
                     name: Nullable<String>.value("name"),
                     startDate: "startDate",
@@ -857,6 +926,7 @@ import Api
                     currency: "currency",
                     status: .draft,
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt"
                 )
             ],

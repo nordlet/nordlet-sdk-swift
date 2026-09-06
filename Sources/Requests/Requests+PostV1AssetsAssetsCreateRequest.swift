@@ -11,6 +11,7 @@ extension Requests {
         public let salvageValue: String?
         public let usefulLifeMonths: Int64?
         public let notes: String?
+        public let documents: [PostV1AssetsAssetsCreateRequestDocumentsItem]?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -24,6 +25,7 @@ extension Requests {
             salvageValue: String? = nil,
             usefulLifeMonths: Int64? = nil,
             notes: String? = nil,
+            documents: [PostV1AssetsAssetsCreateRequestDocumentsItem]? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.groupId = groupId
@@ -35,6 +37,7 @@ extension Requests {
             self.salvageValue = salvageValue
             self.usefulLifeMonths = usefulLifeMonths
             self.notes = notes
+            self.documents = documents
             self.additionalProperties = additionalProperties
         }
 
@@ -49,6 +52,7 @@ extension Requests {
             self.salvageValue = try container.decodeIfPresent(String.self, forKey: .salvageValue)
             self.usefulLifeMonths = try container.decodeIfPresent(Int64.self, forKey: .usefulLifeMonths)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
+            self.documents = try container.decodeIfPresent([PostV1AssetsAssetsCreateRequestDocumentsItem].self, forKey: .documents)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -64,6 +68,7 @@ extension Requests {
             try container.encodeIfPresent(self.salvageValue, forKey: .salvageValue)
             try container.encodeIfPresent(self.usefulLifeMonths, forKey: .usefulLifeMonths)
             try container.encodeIfPresent(self.notes, forKey: .notes)
+            try container.encodeIfPresent(self.documents, forKey: .documents)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -77,6 +82,7 @@ extension Requests {
             case salvageValue
             case usefulLifeMonths
             case notes
+            case documents
         }
     }
 }

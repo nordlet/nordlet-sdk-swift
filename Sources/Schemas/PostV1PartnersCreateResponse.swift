@@ -22,6 +22,7 @@ public struct PostV1PartnersCreateResponse: Codable, Hashable, Sendable {
     public let vatValidatedAt: Nullable<String>
     public let address: Nullable<PostV1PartnersCreateResponseAddress>
     public let notes: Nullable<String>
+    public let documentRef: Nullable<String>
     public let createdAt: String
     public let updatedAt: String
     /// Additional properties that are not explicitly defined in the schema
@@ -49,6 +50,7 @@ public struct PostV1PartnersCreateResponse: Codable, Hashable, Sendable {
         vatValidatedAt: Nullable<String>,
         address: Nullable<PostV1PartnersCreateResponseAddress>,
         notes: Nullable<String>,
+        documentRef: Nullable<String>,
         createdAt: String,
         updatedAt: String,
         additionalProperties: [String: JSONValue] = .init()
@@ -74,6 +76,7 @@ public struct PostV1PartnersCreateResponse: Codable, Hashable, Sendable {
         self.vatValidatedAt = vatValidatedAt
         self.address = address
         self.notes = notes
+        self.documentRef = documentRef
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.additionalProperties = additionalProperties
@@ -102,6 +105,7 @@ public struct PostV1PartnersCreateResponse: Codable, Hashable, Sendable {
         self.vatValidatedAt = try container.decode(Nullable<String>.self, forKey: .vatValidatedAt)
         self.address = try container.decode(Nullable<PostV1PartnersCreateResponseAddress>.self, forKey: .address)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
+        self.documentRef = try container.decode(Nullable<String>.self, forKey: .documentRef)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -131,6 +135,7 @@ public struct PostV1PartnersCreateResponse: Codable, Hashable, Sendable {
         try container.encode(self.vatValidatedAt, forKey: .vatValidatedAt)
         try container.encode(self.address, forKey: .address)
         try container.encode(self.notes, forKey: .notes)
+        try container.encode(self.documentRef, forKey: .documentRef)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
     }
@@ -158,6 +163,7 @@ public struct PostV1PartnersCreateResponse: Codable, Hashable, Sendable {
         case vatValidatedAt
         case address
         case notes
+        case documentRef
         case createdAt
         case updatedAt
     }

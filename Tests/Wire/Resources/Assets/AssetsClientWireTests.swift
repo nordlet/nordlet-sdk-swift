@@ -243,6 +243,12 @@ import Api
                   "totalLifeMonths": 1000000,
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "name",
+                      "ref": "ref"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -270,6 +276,12 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1AssetsAssetsCreateResponseDocumentsItem]>.value([
+                PostV1AssetsAssetsCreateResponseDocumentsItem(
+                    name: "name",
+                    ref: "ref"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.assets.postV1AssetsAssetsCreate(
@@ -307,6 +319,16 @@ import Api
                   "totalLifeMonths": 1000000,
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -334,6 +356,16 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1AssetsAssetsCreateResponseDocumentsItem]>.value([
+                PostV1AssetsAssetsCreateResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                ),
+                PostV1AssetsAssetsCreateResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.assets.postV1AssetsAssetsCreate(
@@ -371,6 +403,12 @@ import Api
                   "totalLifeMonths": 1000000,
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "name",
+                      "ref": "ref"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -398,6 +436,12 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1AssetsAssetsGetResponseDocumentsItem]>.value([
+                PostV1AssetsAssetsGetResponseDocumentsItem(
+                    name: "name",
+                    ref: "ref"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.assets.postV1AssetsAssetsGet(
@@ -429,6 +473,16 @@ import Api
                   "totalLifeMonths": 1000000,
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -456,6 +510,16 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1AssetsAssetsGetResponseDocumentsItem]>.value([
+                PostV1AssetsAssetsGetResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                ),
+                PostV1AssetsAssetsGetResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.assets.postV1AssetsAssetsGet(
@@ -489,6 +553,12 @@ import Api
                       "totalLifeMonths": 1000000,
                       "status": "active",
                       "notes": "notes",
+                      "documents": [
+                        {
+                          "name": "name",
+                          "ref": "ref"
+                        }
+                      ],
                       "createdAt": "createdAt"
                     }
                   ],
@@ -523,6 +593,12 @@ import Api
                     totalLifeMonths: 1000000,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
+                    documents: Nullable<[PostV1AssetsAssetsListResponseRowsItemDocumentsItem]>.value([
+                        PostV1AssetsAssetsListResponseRowsItemDocumentsItem(
+                            name: "name",
+                            ref: "ref"
+                        )
+                    ]),
                     createdAt: "createdAt"
                 )
             ],
@@ -561,6 +637,16 @@ import Api
                       "totalLifeMonths": 1000000,
                       "status": "active",
                       "notes": "notes",
+                      "documents": [
+                        {
+                          "name": "x",
+                          "ref": "x"
+                        },
+                        {
+                          "name": "x",
+                          "ref": "x"
+                        }
+                      ],
                       "createdAt": "createdAt"
                     },
                     {
@@ -580,6 +666,16 @@ import Api
                       "totalLifeMonths": 1000000,
                       "status": "active",
                       "notes": "notes",
+                      "documents": [
+                        {
+                          "name": "x",
+                          "ref": "x"
+                        },
+                        {
+                          "name": "x",
+                          "ref": "x"
+                        }
+                      ],
                       "createdAt": "createdAt"
                     }
                   ],
@@ -614,6 +710,16 @@ import Api
                     totalLifeMonths: 1000000,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
+                    documents: Nullable<[PostV1AssetsAssetsListResponseRowsItemDocumentsItem]>.value([
+                        PostV1AssetsAssetsListResponseRowsItemDocumentsItem(
+                            name: "x",
+                            ref: "x"
+                        ),
+                        PostV1AssetsAssetsListResponseRowsItemDocumentsItem(
+                            name: "x",
+                            ref: "x"
+                        )
+                    ]),
                     createdAt: "createdAt"
                 ),
                 PostV1AssetsAssetsListResponseRowsItem(
@@ -633,6 +739,16 @@ import Api
                     totalLifeMonths: 1000000,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
+                    documents: Nullable<[PostV1AssetsAssetsListResponseRowsItemDocumentsItem]>.value([
+                        PostV1AssetsAssetsListResponseRowsItemDocumentsItem(
+                            name: "x",
+                            ref: "x"
+                        ),
+                        PostV1AssetsAssetsListResponseRowsItemDocumentsItem(
+                            name: "x",
+                            ref: "x"
+                        )
+                    ]),
                     createdAt: "createdAt"
                 )
             ],
@@ -669,6 +785,12 @@ import Api
                   "totalLifeMonths": 1000000,
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "name",
+                      "ref": "ref"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -696,6 +818,12 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1AssetsAssetsModernizeResponseDocumentsItem]>.value([
+                PostV1AssetsAssetsModernizeResponseDocumentsItem(
+                    name: "name",
+                    ref: "ref"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.assets.postV1AssetsAssetsModernize(
@@ -731,6 +859,16 @@ import Api
                   "totalLifeMonths": 1000000,
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -758,6 +896,16 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1AssetsAssetsModernizeResponseDocumentsItem]>.value([
+                PostV1AssetsAssetsModernizeResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                ),
+                PostV1AssetsAssetsModernizeResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                )
+            ]),
             createdAt: "createdAt"
         )
         let response = try await client.assets.postV1AssetsAssetsModernize(

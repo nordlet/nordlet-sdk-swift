@@ -19,6 +19,7 @@ public struct PostV1PurchasesInvoicesListResponseRowsItem: Codable, Hashable, Se
     public let creditedInvoiceId: Nullable<String>
     public let purchaseOrderId: Nullable<String>
     public let notes: Nullable<String>
+    public let documentRef: Nullable<String>
     public let createdAt: String
     public let updatedAt: String
     /// Additional properties that are not explicitly defined in the schema
@@ -43,6 +44,7 @@ public struct PostV1PurchasesInvoicesListResponseRowsItem: Codable, Hashable, Se
         creditedInvoiceId: Nullable<String>,
         purchaseOrderId: Nullable<String>,
         notes: Nullable<String>,
+        documentRef: Nullable<String>,
         createdAt: String,
         updatedAt: String,
         additionalProperties: [String: JSONValue] = .init()
@@ -65,6 +67,7 @@ public struct PostV1PurchasesInvoicesListResponseRowsItem: Codable, Hashable, Se
         self.creditedInvoiceId = creditedInvoiceId
         self.purchaseOrderId = purchaseOrderId
         self.notes = notes
+        self.documentRef = documentRef
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.additionalProperties = additionalProperties
@@ -90,6 +93,7 @@ public struct PostV1PurchasesInvoicesListResponseRowsItem: Codable, Hashable, Se
         self.creditedInvoiceId = try container.decode(Nullable<String>.self, forKey: .creditedInvoiceId)
         self.purchaseOrderId = try container.decode(Nullable<String>.self, forKey: .purchaseOrderId)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
+        self.documentRef = try container.decode(Nullable<String>.self, forKey: .documentRef)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -116,6 +120,7 @@ public struct PostV1PurchasesInvoicesListResponseRowsItem: Codable, Hashable, Se
         try container.encode(self.creditedInvoiceId, forKey: .creditedInvoiceId)
         try container.encode(self.purchaseOrderId, forKey: .purchaseOrderId)
         try container.encode(self.notes, forKey: .notes)
+        try container.encode(self.documentRef, forKey: .documentRef)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
     }
@@ -140,6 +145,7 @@ public struct PostV1PurchasesInvoicesListResponseRowsItem: Codable, Hashable, Se
         case creditedInvoiceId
         case purchaseOrderId
         case notes
+        case documentRef
         case createdAt
         case updatedAt
     }

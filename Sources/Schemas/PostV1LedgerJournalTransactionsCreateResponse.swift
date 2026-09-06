@@ -6,6 +6,7 @@ public struct PostV1LedgerJournalTransactionsCreateResponse: Codable, Hashable, 
     public let description: Nullable<String>
     public let documentType: Nullable<String>
     public let documentId: Nullable<String>
+    public let partnerId: Nullable<String>
     public let status: PostV1LedgerJournalTransactionsCreateResponseStatus
     public let createdAt: String
     public let postedAt: Nullable<String>
@@ -18,6 +19,7 @@ public struct PostV1LedgerJournalTransactionsCreateResponse: Codable, Hashable, 
         description: Nullable<String>,
         documentType: Nullable<String>,
         documentId: Nullable<String>,
+        partnerId: Nullable<String>,
         status: PostV1LedgerJournalTransactionsCreateResponseStatus,
         createdAt: String,
         postedAt: Nullable<String>,
@@ -28,6 +30,7 @@ public struct PostV1LedgerJournalTransactionsCreateResponse: Codable, Hashable, 
         self.description = description
         self.documentType = documentType
         self.documentId = documentId
+        self.partnerId = partnerId
         self.status = status
         self.createdAt = createdAt
         self.postedAt = postedAt
@@ -41,6 +44,7 @@ public struct PostV1LedgerJournalTransactionsCreateResponse: Codable, Hashable, 
         self.description = try container.decode(Nullable<String>.self, forKey: .description)
         self.documentType = try container.decode(Nullable<String>.self, forKey: .documentType)
         self.documentId = try container.decode(Nullable<String>.self, forKey: .documentId)
+        self.partnerId = try container.decode(Nullable<String>.self, forKey: .partnerId)
         self.status = try container.decode(PostV1LedgerJournalTransactionsCreateResponseStatus.self, forKey: .status)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.postedAt = try container.decode(Nullable<String>.self, forKey: .postedAt)
@@ -55,6 +59,7 @@ public struct PostV1LedgerJournalTransactionsCreateResponse: Codable, Hashable, 
         try container.encode(self.description, forKey: .description)
         try container.encode(self.documentType, forKey: .documentType)
         try container.encode(self.documentId, forKey: .documentId)
+        try container.encode(self.partnerId, forKey: .partnerId)
         try container.encode(self.status, forKey: .status)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.postedAt, forKey: .postedAt)
@@ -67,6 +72,7 @@ public struct PostV1LedgerJournalTransactionsCreateResponse: Codable, Hashable, 
         case description
         case documentType
         case documentId
+        case partnerId
         case status
         case createdAt
         case postedAt

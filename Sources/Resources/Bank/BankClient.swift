@@ -77,6 +77,16 @@ public final class BankClient: Sendable {
         )
     }
 
+    public func postV1BankTransactionsRecord(request: Requests.PostV1BankTransactionsRecordRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankTransactionsRecordResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/transactions/record",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankTransactionsRecordResponse.self
+        )
+    }
+
     public func postV1BankPaymentsExport(request: Requests.PostV1BankPaymentsExportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankPaymentsExportResponse {
         return try await httpClient.performRequest(
             method: .post,
@@ -84,6 +94,56 @@ public final class BankClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: PostV1BankPaymentsExportResponse.self
+        )
+    }
+
+    public func createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList(request: Requests.PostV1BankImportTemplatesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankImportTemplatesCreateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/import-templates/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankImportTemplatesCreateResponse.self
+        )
+    }
+
+    public func postV1BankImportTemplatesUpdate(request: Requests.PostV1BankImportTemplatesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankImportTemplatesUpdateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/import-templates/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankImportTemplatesUpdateResponse.self
+        )
+    }
+
+    public func postV1BankImportTemplatesDelete(request: Requests.PostV1BankImportTemplatesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankImportTemplatesDeleteResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/import-templates/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankImportTemplatesDeleteResponse.self
+        )
+    }
+
+    public func postV1BankImportTemplatesGet(request: Requests.PostV1BankImportTemplatesGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankImportTemplatesGetResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/import-templates/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankImportTemplatesGetResponse.self
+        )
+    }
+
+    public func postV1BankImportTemplatesList(request: Requests.PostV1BankImportTemplatesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankImportTemplatesListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/import-templates/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankImportTemplatesListResponse.self
         )
     }
 
@@ -274,6 +334,16 @@ public final class BankClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: PostV1BankFeedsAccountsLinkResponse.self
+        )
+    }
+
+    public func chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically(request: Requests.PostV1BankFeedsAccountsConfigureRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsAccountsConfigureResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/feeds/accounts/configure",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankFeedsAccountsConfigureResponse.self
         )
     }
 

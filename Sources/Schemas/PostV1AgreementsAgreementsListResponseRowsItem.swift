@@ -3,7 +3,10 @@ import Foundation
 public struct PostV1AgreementsAgreementsListResponseRowsItem: Codable, Hashable, Sendable {
     public let id: String
     public let typeId: Nullable<String>
-    public let partnerId: String
+    public let kind: PostV1AgreementsAgreementsListResponseRowsItemKind
+    public let partnerId: Nullable<String>
+    public let employeeId: Nullable<String>
+    public let bankAccountId: Nullable<String>
     public let number: String
     public let name: Nullable<String>
     public let startDate: String
@@ -14,6 +17,7 @@ public struct PostV1AgreementsAgreementsListResponseRowsItem: Codable, Hashable,
     public let currency: String
     public let status: PostV1AgreementsAgreementsListResponseRowsItemStatus
     public let notes: Nullable<String>
+    public let documentRef: Nullable<String>
     public let createdAt: String
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -21,7 +25,10 @@ public struct PostV1AgreementsAgreementsListResponseRowsItem: Codable, Hashable,
     public init(
         id: String,
         typeId: Nullable<String>,
-        partnerId: String,
+        kind: PostV1AgreementsAgreementsListResponseRowsItemKind,
+        partnerId: Nullable<String>,
+        employeeId: Nullable<String>,
+        bankAccountId: Nullable<String>,
         number: String,
         name: Nullable<String>,
         startDate: String,
@@ -32,12 +39,16 @@ public struct PostV1AgreementsAgreementsListResponseRowsItem: Codable, Hashable,
         currency: String,
         status: PostV1AgreementsAgreementsListResponseRowsItemStatus,
         notes: Nullable<String>,
+        documentRef: Nullable<String>,
         createdAt: String,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
         self.typeId = typeId
+        self.kind = kind
         self.partnerId = partnerId
+        self.employeeId = employeeId
+        self.bankAccountId = bankAccountId
         self.number = number
         self.name = name
         self.startDate = startDate
@@ -48,6 +59,7 @@ public struct PostV1AgreementsAgreementsListResponseRowsItem: Codable, Hashable,
         self.currency = currency
         self.status = status
         self.notes = notes
+        self.documentRef = documentRef
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
     }
@@ -56,7 +68,10 @@ public struct PostV1AgreementsAgreementsListResponseRowsItem: Codable, Hashable,
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
         self.typeId = try container.decode(Nullable<String>.self, forKey: .typeId)
-        self.partnerId = try container.decode(String.self, forKey: .partnerId)
+        self.kind = try container.decode(PostV1AgreementsAgreementsListResponseRowsItemKind.self, forKey: .kind)
+        self.partnerId = try container.decode(Nullable<String>.self, forKey: .partnerId)
+        self.employeeId = try container.decode(Nullable<String>.self, forKey: .employeeId)
+        self.bankAccountId = try container.decode(Nullable<String>.self, forKey: .bankAccountId)
         self.number = try container.decode(String.self, forKey: .number)
         self.name = try container.decode(Nullable<String>.self, forKey: .name)
         self.startDate = try container.decode(String.self, forKey: .startDate)
@@ -67,6 +82,7 @@ public struct PostV1AgreementsAgreementsListResponseRowsItem: Codable, Hashable,
         self.currency = try container.decode(String.self, forKey: .currency)
         self.status = try container.decode(PostV1AgreementsAgreementsListResponseRowsItemStatus.self, forKey: .status)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
+        self.documentRef = try container.decode(Nullable<String>.self, forKey: .documentRef)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -76,7 +92,10 @@ public struct PostV1AgreementsAgreementsListResponseRowsItem: Codable, Hashable,
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.id, forKey: .id)
         try container.encode(self.typeId, forKey: .typeId)
+        try container.encode(self.kind, forKey: .kind)
         try container.encode(self.partnerId, forKey: .partnerId)
+        try container.encode(self.employeeId, forKey: .employeeId)
+        try container.encode(self.bankAccountId, forKey: .bankAccountId)
         try container.encode(self.number, forKey: .number)
         try container.encode(self.name, forKey: .name)
         try container.encode(self.startDate, forKey: .startDate)
@@ -87,6 +106,7 @@ public struct PostV1AgreementsAgreementsListResponseRowsItem: Codable, Hashable,
         try container.encode(self.currency, forKey: .currency)
         try container.encode(self.status, forKey: .status)
         try container.encode(self.notes, forKey: .notes)
+        try container.encode(self.documentRef, forKey: .documentRef)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
 
@@ -94,7 +114,10 @@ public struct PostV1AgreementsAgreementsListResponseRowsItem: Codable, Hashable,
     enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case typeId
+        case kind
         case partnerId
+        case employeeId
+        case bankAccountId
         case number
         case name
         case startDate
@@ -105,6 +128,7 @@ public struct PostV1AgreementsAgreementsListResponseRowsItem: Codable, Hashable,
         case currency
         case status
         case notes
+        case documentRef
         case createdAt
     }
 }

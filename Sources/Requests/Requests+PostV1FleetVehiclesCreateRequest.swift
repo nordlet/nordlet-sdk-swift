@@ -14,6 +14,7 @@ extension Requests {
         public let technicalInspectionDue: String?
         public let insuranceDue: String?
         public let notes: String?
+        public let documents: [PostV1FleetVehiclesCreateRequestDocumentsItem]?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -30,6 +31,7 @@ extension Requests {
             technicalInspectionDue: String? = nil,
             insuranceDue: String? = nil,
             notes: String? = nil,
+            documents: [PostV1FleetVehiclesCreateRequestDocumentsItem]? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.plateNumber = plateNumber
@@ -44,6 +46,7 @@ extension Requests {
             self.technicalInspectionDue = technicalInspectionDue
             self.insuranceDue = insuranceDue
             self.notes = notes
+            self.documents = documents
             self.additionalProperties = additionalProperties
         }
 
@@ -61,6 +64,7 @@ extension Requests {
             self.technicalInspectionDue = try container.decodeIfPresent(String.self, forKey: .technicalInspectionDue)
             self.insuranceDue = try container.decodeIfPresent(String.self, forKey: .insuranceDue)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
+            self.documents = try container.decodeIfPresent([PostV1FleetVehiclesCreateRequestDocumentsItem].self, forKey: .documents)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -79,6 +83,7 @@ extension Requests {
             try container.encodeIfPresent(self.technicalInspectionDue, forKey: .technicalInspectionDue)
             try container.encodeIfPresent(self.insuranceDue, forKey: .insuranceDue)
             try container.encodeIfPresent(self.notes, forKey: .notes)
+            try container.encodeIfPresent(self.documents, forKey: .documents)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -95,6 +100,7 @@ extension Requests {
             case technicalInspectionDue
             case insuranceDue
             case notes
+            case documents
         }
     }
 }

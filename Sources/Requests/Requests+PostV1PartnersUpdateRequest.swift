@@ -21,6 +21,7 @@ extension Requests {
         public let statusId: String?
         public let address: PostV1PartnersUpdateRequestAddress?
         public let notes: String?
+        public let documentRef: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -44,6 +45,7 @@ extension Requests {
             statusId: String? = nil,
             address: PostV1PartnersUpdateRequestAddress? = nil,
             notes: String? = nil,
+            documentRef: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.id = id
@@ -65,6 +67,7 @@ extension Requests {
             self.statusId = statusId
             self.address = address
             self.notes = notes
+            self.documentRef = documentRef
             self.additionalProperties = additionalProperties
         }
 
@@ -89,6 +92,7 @@ extension Requests {
             self.statusId = try container.decodeIfPresent(String.self, forKey: .statusId)
             self.address = try container.decodeIfPresent(PostV1PartnersUpdateRequestAddress.self, forKey: .address)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
+            self.documentRef = try container.decodeIfPresent(String.self, forKey: .documentRef)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -114,6 +118,7 @@ extension Requests {
             try container.encodeIfPresent(self.statusId, forKey: .statusId)
             try container.encodeIfPresent(self.address, forKey: .address)
             try container.encodeIfPresent(self.notes, forKey: .notes)
+            try container.encodeIfPresent(self.documentRef, forKey: .documentRef)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -137,6 +142,7 @@ extension Requests {
             case statusId
             case address
             case notes
+            case documentRef
         }
     }
 }

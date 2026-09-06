@@ -3,7 +3,7 @@ import Foundation
 extension Requests {
     public struct PostV1FilesUploadRequest: Codable, Hashable, Sendable {
         public let entity: String
-        public let entityId: String
+        public let entityId: String?
         public let fileName: String
         public let mimeType: String
         /// Base64-encoded file content
@@ -13,7 +13,7 @@ extension Requests {
 
         public init(
             entity: String,
-            entityId: String,
+            entityId: String? = nil,
             fileName: String,
             mimeType: String,
             content: String,
@@ -30,7 +30,7 @@ extension Requests {
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.entity = try container.decode(String.self, forKey: .entity)
-            self.entityId = try container.decode(String.self, forKey: .entityId)
+            self.entityId = try container.decodeIfPresent(String.self, forKey: .entityId)
             self.fileName = try container.decode(String.self, forKey: .fileName)
             self.mimeType = try container.decode(String.self, forKey: .mimeType)
             self.content = try container.decode(String.self, forKey: .content)
@@ -41,7 +41,7 @@ extension Requests {
             var container = encoder.container(keyedBy: CodingKeys.self)
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.entity, forKey: .entity)
-            try container.encode(self.entityId, forKey: .entityId)
+            try container.encodeIfPresent(self.entityId, forKey: .entityId)
             try container.encode(self.fileName, forKey: .fileName)
             try container.encode(self.mimeType, forKey: .mimeType)
             try container.encode(self.content, forKey: .content)

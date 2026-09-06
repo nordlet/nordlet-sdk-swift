@@ -19,6 +19,7 @@ public struct PostV1PurchasesInvoicesGetResponse: Codable, Hashable, Sendable {
     public let creditedInvoiceId: Nullable<String>
     public let purchaseOrderId: Nullable<String>
     public let notes: Nullable<String>
+    public let documentRef: Nullable<String>
     public let createdAt: String
     public let updatedAt: String
     public let lines: [PostV1PurchasesInvoicesGetResponseLinesItem]
@@ -44,6 +45,7 @@ public struct PostV1PurchasesInvoicesGetResponse: Codable, Hashable, Sendable {
         creditedInvoiceId: Nullable<String>,
         purchaseOrderId: Nullable<String>,
         notes: Nullable<String>,
+        documentRef: Nullable<String>,
         createdAt: String,
         updatedAt: String,
         lines: [PostV1PurchasesInvoicesGetResponseLinesItem],
@@ -67,6 +69,7 @@ public struct PostV1PurchasesInvoicesGetResponse: Codable, Hashable, Sendable {
         self.creditedInvoiceId = creditedInvoiceId
         self.purchaseOrderId = purchaseOrderId
         self.notes = notes
+        self.documentRef = documentRef
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.lines = lines
@@ -93,6 +96,7 @@ public struct PostV1PurchasesInvoicesGetResponse: Codable, Hashable, Sendable {
         self.creditedInvoiceId = try container.decode(Nullable<String>.self, forKey: .creditedInvoiceId)
         self.purchaseOrderId = try container.decode(Nullable<String>.self, forKey: .purchaseOrderId)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
+        self.documentRef = try container.decode(Nullable<String>.self, forKey: .documentRef)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
         self.lines = try container.decode([PostV1PurchasesInvoicesGetResponseLinesItem].self, forKey: .lines)
@@ -120,6 +124,7 @@ public struct PostV1PurchasesInvoicesGetResponse: Codable, Hashable, Sendable {
         try container.encode(self.creditedInvoiceId, forKey: .creditedInvoiceId)
         try container.encode(self.purchaseOrderId, forKey: .purchaseOrderId)
         try container.encode(self.notes, forKey: .notes)
+        try container.encode(self.documentRef, forKey: .documentRef)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
         try container.encode(self.lines, forKey: .lines)
@@ -145,6 +150,7 @@ public struct PostV1PurchasesInvoicesGetResponse: Codable, Hashable, Sendable {
         case creditedInvoiceId
         case purchaseOrderId
         case notes
+        case documentRef
         case createdAt
         case updatedAt
         case lines

@@ -15,6 +15,7 @@ public struct PostV1PurchasesOrdersCancelResponse: Codable, Hashable, Sendable {
     public let approvedBy: Nullable<String>
     public let approvedAt: Nullable<String>
     public let notes: Nullable<String>
+    public let documentRef: Nullable<String>
     public let createdAt: String
     public let updatedAt: String
     public let lines: [PostV1PurchasesOrdersCancelResponseLinesItem]
@@ -36,6 +37,7 @@ public struct PostV1PurchasesOrdersCancelResponse: Codable, Hashable, Sendable {
         approvedBy: Nullable<String>,
         approvedAt: Nullable<String>,
         notes: Nullable<String>,
+        documentRef: Nullable<String>,
         createdAt: String,
         updatedAt: String,
         lines: [PostV1PurchasesOrdersCancelResponseLinesItem],
@@ -55,6 +57,7 @@ public struct PostV1PurchasesOrdersCancelResponse: Codable, Hashable, Sendable {
         self.approvedBy = approvedBy
         self.approvedAt = approvedAt
         self.notes = notes
+        self.documentRef = documentRef
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.lines = lines
@@ -77,6 +80,7 @@ public struct PostV1PurchasesOrdersCancelResponse: Codable, Hashable, Sendable {
         self.approvedBy = try container.decode(Nullable<String>.self, forKey: .approvedBy)
         self.approvedAt = try container.decode(Nullable<String>.self, forKey: .approvedAt)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
+        self.documentRef = try container.decode(Nullable<String>.self, forKey: .documentRef)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
         self.lines = try container.decode([PostV1PurchasesOrdersCancelResponseLinesItem].self, forKey: .lines)
@@ -100,6 +104,7 @@ public struct PostV1PurchasesOrdersCancelResponse: Codable, Hashable, Sendable {
         try container.encode(self.approvedBy, forKey: .approvedBy)
         try container.encode(self.approvedAt, forKey: .approvedAt)
         try container.encode(self.notes, forKey: .notes)
+        try container.encode(self.documentRef, forKey: .documentRef)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
         try container.encode(self.lines, forKey: .lines)
@@ -121,6 +126,7 @@ public struct PostV1PurchasesOrdersCancelResponse: Codable, Hashable, Sendable {
         case approvedBy
         case approvedAt
         case notes
+        case documentRef
         case createdAt
         case updatedAt
         case lines

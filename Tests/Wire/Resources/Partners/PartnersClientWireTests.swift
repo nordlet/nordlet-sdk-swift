@@ -1451,6 +1451,7 @@ import Api
                     "countryCode": "countryCode"
                   },
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1489,6 +1490,7 @@ import Api
                 countryCode: Optional("countryCode")
             )),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1531,6 +1533,7 @@ import Api
                     "countryCode": "xy"
                   },
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1569,6 +1572,7 @@ import Api
                 countryCode: Optional("xy")
             )),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1613,6 +1617,7 @@ import Api
                       "countryCode": "countryCode"
                     },
                     "notes": "notes",
+                    "documentRef": "documentRef",
                     "createdAt": "createdAt",
                     "updatedAt": "updatedAt"
                   }
@@ -1654,6 +1659,7 @@ import Api
                     countryCode: Optional("countryCode")
                 )),
                 notes: Nullable<String>.value("notes"),
+                documentRef: Nullable<String>.value("documentRef"),
                 createdAt: "createdAt",
                 updatedAt: "updatedAt"
             )
@@ -1699,6 +1705,7 @@ import Api
                       "countryCode": "xy"
                     },
                     "notes": "notes",
+                    "documentRef": "documentRef",
                     "createdAt": "createdAt",
                     "updatedAt": "updatedAt"
                   }
@@ -1740,6 +1747,7 @@ import Api
                     countryCode: Optional("xy")
                 )),
                 notes: Nullable<String>.value("notes"),
+                documentRef: Nullable<String>.value("documentRef"),
                 createdAt: "createdAt",
                 updatedAt: "updatedAt"
             )
@@ -1783,6 +1791,7 @@ import Api
                     "countryCode": "countryCode"
                   },
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1821,6 +1830,7 @@ import Api
                 countryCode: Optional("countryCode")
             )),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1863,6 +1873,7 @@ import Api
                     "countryCode": "xy"
                   },
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1901,6 +1912,7 @@ import Api
                 countryCode: Optional("xy")
             )),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1943,6 +1955,7 @@ import Api
                     "countryCode": "countryCode"
                   },
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1981,6 +1994,7 @@ import Api
                 countryCode: Optional("countryCode")
             )),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -2023,6 +2037,7 @@ import Api
                     "countryCode": "xy"
                   },
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -2061,6 +2076,7 @@ import Api
                 countryCode: Optional("xy")
             )),
             notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -2208,6 +2224,7 @@ import Api
                       "vatValidatedAt": "vatValidatedAt",
                       "address": {},
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
@@ -2250,6 +2267,7 @@ import Api
 
                     )),
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
@@ -2299,6 +2317,7 @@ import Api
                         "countryCode": "xy"
                       },
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     },
@@ -2329,6 +2348,7 @@ import Api
                         "countryCode": "xy"
                       },
                       "notes": "notes",
+                      "documentRef": "documentRef",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
@@ -2374,6 +2394,7 @@ import Api
                         countryCode: Optional("xy")
                     )),
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 ),
@@ -2404,6 +2425,7 @@ import Api
                         countryCode: Optional("xy")
                     )),
                     notes: Nullable<String>.value("notes"),
+                    documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )

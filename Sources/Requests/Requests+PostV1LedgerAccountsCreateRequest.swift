@@ -4,6 +4,7 @@ extension Requests {
     public struct PostV1LedgerAccountsCreateRequest: Codable, Hashable, Sendable {
         public let code: String
         public let name: String
+        public let translations: PostV1LedgerAccountsCreateRequestTranslations?
         public let type: PostV1LedgerAccountsCreateRequestType
         public let parentId: String?
         public let isPostable: Bool?
@@ -13,6 +14,7 @@ extension Requests {
         public init(
             code: String,
             name: String,
+            translations: PostV1LedgerAccountsCreateRequestTranslations? = nil,
             type: PostV1LedgerAccountsCreateRequestType,
             parentId: String? = nil,
             isPostable: Bool? = nil,
@@ -20,6 +22,7 @@ extension Requests {
         ) {
             self.code = code
             self.name = name
+            self.translations = translations
             self.type = type
             self.parentId = parentId
             self.isPostable = isPostable
@@ -30,6 +33,7 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.code = try container.decode(String.self, forKey: .code)
             self.name = try container.decode(String.self, forKey: .name)
+            self.translations = try container.decodeIfPresent(PostV1LedgerAccountsCreateRequestTranslations.self, forKey: .translations)
             self.type = try container.decode(PostV1LedgerAccountsCreateRequestType.self, forKey: .type)
             self.parentId = try container.decodeIfPresent(String.self, forKey: .parentId)
             self.isPostable = try container.decodeIfPresent(Bool.self, forKey: .isPostable)
@@ -41,6 +45,7 @@ extension Requests {
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.code, forKey: .code)
             try container.encode(self.name, forKey: .name)
+            try container.encodeIfPresent(self.translations, forKey: .translations)
             try container.encode(self.type, forKey: .type)
             try container.encodeIfPresent(self.parentId, forKey: .parentId)
             try container.encodeIfPresent(self.isPostable, forKey: .isPostable)
@@ -50,6 +55,7 @@ extension Requests {
         enum CodingKeys: String, CodingKey, CaseIterable {
             case code
             case name
+            case translations
             case type
             case parentId
             case isPostable

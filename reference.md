@@ -771,148 +771,6 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceEuVatRatesImportsList</a>(request: Requests.PostV1ReferenceEuVatRatesImportsListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceEuVatRatesImportsListResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-History of EU VAT rate imports from the EC TEDB VatRetrievalService: when rates were pulled, what changed, and whether the run succeeded. The initial seed run carries the built-in snapshot.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```swift
-import Foundation
-import Api
-
-private func main() async throws {
-    let client = ApiClient(token: "<token>")
-
-    _ = try await client.reference.postV1ReferenceEuVatRatesImportsList(request: .init())
-}
-
-try await main()
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Requests.PostV1ReferenceEuVatRatesImportsListRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceEuVatRatesSync</a>(request: Requests.PostV1ReferenceEuVatRatesSyncRequest, requestOptions: RequestOptions?) -> PostV1ReferenceEuVatRatesSyncResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Trigger an immediate pull of EU VAT rates from the EC TEDB VatRetrievalService. Rates are shared reference data: new rates open with today as their effective date, rates that disappeared are closed with a validity end date. Returns the finished import run.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```swift
-import Foundation
-import Api
-
-private func main() async throws {
-    let client = ApiClient(token: "<token>")
-
-    _ = try await client.reference.postV1ReferenceEuVatRatesSync(request: .init())
-}
-
-try await main()
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Requests.PostV1ReferenceEuVatRatesSyncRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
 <details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceEuVatRatesSetOverrides</a>(request: Requests.PostV1ReferenceEuVatRatesSetOverridesRequest, requestOptions: RequestOptions?) -> PostV1ReferenceEuVatRatesSetOverridesResponse</code></summary>
 <dl>
 <dd>
@@ -11717,7 +11575,6 @@ private func main() async throws {
 
     _ = try await client.hr.postV1HrContractsCreate(request: .init(
         employeeId: "employeeId",
-        contractNo: "contractNo",
         startDate: "startDate",
         baseSalary: "baseSalary"
     ))
@@ -13959,7 +13816,6 @@ private func main() async throws {
     let client = ApiClient(token: "<token>")
 
     _ = try await client.agreements.postV1AgreementsAgreementsCreate(request: .init(
-        partnerId: "partnerId",
         number: "number",
         startDate: "startDate"
     ))
@@ -19850,6 +19706,69 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankTransactionsRecord</a>(request: Requests.PostV1BankTransactionsRecordRequest, requestOptions: RequestOptions?) -> PostV1BankTransactionsRecordResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postV1BankTransactionsRecord(request: .init(
+        bankAccountId: "bankAccountId",
+        date: "date",
+        amount: "amount",
+        documentType: .saleInvoice,
+        documentId: "documentId"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankTransactionsRecordRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankPaymentsExport</a>(request: Requests.PostV1BankPaymentsExportRequest, requestOptions: RequestOptions?) -> PostV1BankPaymentsExportResponse</code></summary>
 <dl>
 <dd>
@@ -19893,6 +19812,294 @@ try await main()
 <dd>
 
 **request:** `Requests.PostV1BankPaymentsExportRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList</a>(request: Requests.PostV1BankImportTemplatesCreateRequest, requestOptions: RequestOptions?) -> PostV1BankImportTemplatesCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList(request: .init(
+        name: "name",
+        type: .stripe
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankImportTemplatesCreateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankImportTemplatesUpdate</a>(request: Requests.PostV1BankImportTemplatesUpdateRequest, requestOptions: RequestOptions?) -> PostV1BankImportTemplatesUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postV1BankImportTemplatesUpdate(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankImportTemplatesUpdateRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankImportTemplatesDelete</a>(request: Requests.PostV1BankImportTemplatesDeleteRequest, requestOptions: RequestOptions?) -> PostV1BankImportTemplatesDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postV1BankImportTemplatesDelete(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankImportTemplatesDeleteRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankImportTemplatesGet</a>(request: Requests.PostV1BankImportTemplatesGetRequest, requestOptions: RequestOptions?) -> PostV1BankImportTemplatesGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postV1BankImportTemplatesGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankImportTemplatesGetRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankImportTemplatesList</a>(request: Requests.PostV1BankImportTemplatesListRequest, requestOptions: RequestOptions?) -> PostV1BankImportTemplatesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postV1BankImportTemplatesList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankImportTemplatesListRequest` 
     
 </dd>
 </dl>
@@ -21016,6 +21223,63 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically</a>(request: Requests.PostV1BankFeedsAccountsConfigureRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsAccountsConfigureResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostV1BankFeedsAccountsConfigureRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">pullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSynced</a>(request: Requests.PostV1BankFeedsSyncRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsSyncResponse</code></summary>
 <dl>
 <dd>
@@ -21095,7 +21359,6 @@ private func main() async throws {
 
     _ = try await client.files.postV1FilesUpload(request: .init(
         entity: "entity",
-        entityId: "entityId",
         fileName: "fileName",
         mimeType: "mimeType",
         content: "content"

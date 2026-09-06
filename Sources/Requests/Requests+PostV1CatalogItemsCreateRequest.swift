@@ -20,6 +20,7 @@ extension Requests {
         public let description: String?
         public let groupId: String?
         public let attributes: [String: String]?
+        public let documentRef: String?
         public let translations: [String: PostV1CatalogItemsCreateRequestTranslationsValue]?
         public let components: [PostV1CatalogItemsCreateRequestComponentsItem]?
         /// Additional properties that are not explicitly defined in the schema
@@ -44,6 +45,7 @@ extension Requests {
             description: String? = nil,
             groupId: String? = nil,
             attributes: [String: String]? = nil,
+            documentRef: String? = nil,
             translations: [String: PostV1CatalogItemsCreateRequestTranslationsValue]? = nil,
             components: [PostV1CatalogItemsCreateRequestComponentsItem]? = nil,
             additionalProperties: [String: JSONValue] = .init()
@@ -66,6 +68,7 @@ extension Requests {
             self.description = description
             self.groupId = groupId
             self.attributes = attributes
+            self.documentRef = documentRef
             self.translations = translations
             self.components = components
             self.additionalProperties = additionalProperties
@@ -91,6 +94,7 @@ extension Requests {
             self.description = try container.decodeIfPresent(String.self, forKey: .description)
             self.groupId = try container.decodeIfPresent(String.self, forKey: .groupId)
             self.attributes = try container.decodeIfPresent([String: String].self, forKey: .attributes)
+            self.documentRef = try container.decodeIfPresent(String.self, forKey: .documentRef)
             self.translations = try container.decodeIfPresent([String: PostV1CatalogItemsCreateRequestTranslationsValue].self, forKey: .translations)
             self.components = try container.decodeIfPresent([PostV1CatalogItemsCreateRequestComponentsItem].self, forKey: .components)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -117,6 +121,7 @@ extension Requests {
             try container.encodeIfPresent(self.description, forKey: .description)
             try container.encodeIfPresent(self.groupId, forKey: .groupId)
             try container.encodeIfPresent(self.attributes, forKey: .attributes)
+            try container.encodeIfPresent(self.documentRef, forKey: .documentRef)
             try container.encodeIfPresent(self.translations, forKey: .translations)
             try container.encodeIfPresent(self.components, forKey: .components)
         }
@@ -141,6 +146,7 @@ extension Requests {
             case description
             case groupId
             case attributes
+            case documentRef
             case translations
             case components
         }

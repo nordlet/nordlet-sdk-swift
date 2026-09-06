@@ -18,6 +18,7 @@ extension Requests {
         public let npdOverride: Nullable<String>?
         public let pensionAccumulation: Bool?
         public let notes: String?
+        public let attributes: [PostV1HrEmployeesUpdateRequestAttributesItem]?
         public let id: String
         public let terminationDate: String?
         public let status: PostV1HrEmployeesUpdateRequestStatus?
@@ -41,6 +42,7 @@ extension Requests {
             npdOverride: Nullable<String>? = nil,
             pensionAccumulation: Bool? = nil,
             notes: String? = nil,
+            attributes: [PostV1HrEmployeesUpdateRequestAttributesItem]? = nil,
             id: String,
             terminationDate: String? = nil,
             status: PostV1HrEmployeesUpdateRequestStatus? = nil,
@@ -62,6 +64,7 @@ extension Requests {
             self.npdOverride = npdOverride
             self.pensionAccumulation = pensionAccumulation
             self.notes = notes
+            self.attributes = attributes
             self.id = id
             self.terminationDate = terminationDate
             self.status = status
@@ -86,6 +89,7 @@ extension Requests {
             self.npdOverride = try container.decodeNullableIfPresent(String.self, forKey: .npdOverride)
             self.pensionAccumulation = try container.decodeIfPresent(Bool.self, forKey: .pensionAccumulation)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
+            self.attributes = try container.decodeIfPresent([PostV1HrEmployeesUpdateRequestAttributesItem].self, forKey: .attributes)
             self.id = try container.decode(String.self, forKey: .id)
             self.terminationDate = try container.decodeIfPresent(String.self, forKey: .terminationDate)
             self.status = try container.decodeIfPresent(PostV1HrEmployeesUpdateRequestStatus.self, forKey: .status)
@@ -111,6 +115,7 @@ extension Requests {
             try container.encodeNullableIfPresent(self.npdOverride, forKey: .npdOverride)
             try container.encodeIfPresent(self.pensionAccumulation, forKey: .pensionAccumulation)
             try container.encodeIfPresent(self.notes, forKey: .notes)
+            try container.encodeIfPresent(self.attributes, forKey: .attributes)
             try container.encode(self.id, forKey: .id)
             try container.encodeIfPresent(self.terminationDate, forKey: .terminationDate)
             try container.encodeIfPresent(self.status, forKey: .status)
@@ -134,6 +139,7 @@ extension Requests {
             case npdOverride
             case pensionAccumulation
             case notes
+            case attributes
             case id
             case terminationDate
             case status

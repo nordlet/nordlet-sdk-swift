@@ -6,6 +6,7 @@ public struct PostV1HrContractsCreateResponse: Codable, Hashable, Sendable {
     public let positionId: Nullable<String>
     public let departmentId: Nullable<String>
     public let scheduleId: Nullable<String>
+    public let agreementId: Nullable<String>
     public let contractNo: String
     public let type: PostV1HrContractsCreateResponseType
     public let startDate: String
@@ -13,7 +14,8 @@ public struct PostV1HrContractsCreateResponse: Codable, Hashable, Sendable {
     public let endReason: Nullable<String>
     public let baseSalary: String
     public let salaryType: PostV1HrContractsCreateResponseSalaryType
-    public let workHoursPerWeek: String
+    public let workHours: String
+    public let workHoursUnit: PostV1HrContractsCreateResponseWorkHoursUnit
     public let status: PostV1HrContractsCreateResponseStatus
     public let notes: Nullable<String>
     public let createdAt: String
@@ -26,6 +28,7 @@ public struct PostV1HrContractsCreateResponse: Codable, Hashable, Sendable {
         positionId: Nullable<String>,
         departmentId: Nullable<String>,
         scheduleId: Nullable<String>,
+        agreementId: Nullable<String>,
         contractNo: String,
         type: PostV1HrContractsCreateResponseType,
         startDate: String,
@@ -33,7 +36,8 @@ public struct PostV1HrContractsCreateResponse: Codable, Hashable, Sendable {
         endReason: Nullable<String>,
         baseSalary: String,
         salaryType: PostV1HrContractsCreateResponseSalaryType,
-        workHoursPerWeek: String,
+        workHours: String,
+        workHoursUnit: PostV1HrContractsCreateResponseWorkHoursUnit,
         status: PostV1HrContractsCreateResponseStatus,
         notes: Nullable<String>,
         createdAt: String,
@@ -44,6 +48,7 @@ public struct PostV1HrContractsCreateResponse: Codable, Hashable, Sendable {
         self.positionId = positionId
         self.departmentId = departmentId
         self.scheduleId = scheduleId
+        self.agreementId = agreementId
         self.contractNo = contractNo
         self.type = type
         self.startDate = startDate
@@ -51,7 +56,8 @@ public struct PostV1HrContractsCreateResponse: Codable, Hashable, Sendable {
         self.endReason = endReason
         self.baseSalary = baseSalary
         self.salaryType = salaryType
-        self.workHoursPerWeek = workHoursPerWeek
+        self.workHours = workHours
+        self.workHoursUnit = workHoursUnit
         self.status = status
         self.notes = notes
         self.createdAt = createdAt
@@ -65,6 +71,7 @@ public struct PostV1HrContractsCreateResponse: Codable, Hashable, Sendable {
         self.positionId = try container.decode(Nullable<String>.self, forKey: .positionId)
         self.departmentId = try container.decode(Nullable<String>.self, forKey: .departmentId)
         self.scheduleId = try container.decode(Nullable<String>.self, forKey: .scheduleId)
+        self.agreementId = try container.decode(Nullable<String>.self, forKey: .agreementId)
         self.contractNo = try container.decode(String.self, forKey: .contractNo)
         self.type = try container.decode(PostV1HrContractsCreateResponseType.self, forKey: .type)
         self.startDate = try container.decode(String.self, forKey: .startDate)
@@ -72,7 +79,8 @@ public struct PostV1HrContractsCreateResponse: Codable, Hashable, Sendable {
         self.endReason = try container.decode(Nullable<String>.self, forKey: .endReason)
         self.baseSalary = try container.decode(String.self, forKey: .baseSalary)
         self.salaryType = try container.decode(PostV1HrContractsCreateResponseSalaryType.self, forKey: .salaryType)
-        self.workHoursPerWeek = try container.decode(String.self, forKey: .workHoursPerWeek)
+        self.workHours = try container.decode(String.self, forKey: .workHours)
+        self.workHoursUnit = try container.decode(PostV1HrContractsCreateResponseWorkHoursUnit.self, forKey: .workHoursUnit)
         self.status = try container.decode(PostV1HrContractsCreateResponseStatus.self, forKey: .status)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
@@ -87,6 +95,7 @@ public struct PostV1HrContractsCreateResponse: Codable, Hashable, Sendable {
         try container.encode(self.positionId, forKey: .positionId)
         try container.encode(self.departmentId, forKey: .departmentId)
         try container.encode(self.scheduleId, forKey: .scheduleId)
+        try container.encode(self.agreementId, forKey: .agreementId)
         try container.encode(self.contractNo, forKey: .contractNo)
         try container.encode(self.type, forKey: .type)
         try container.encode(self.startDate, forKey: .startDate)
@@ -94,7 +103,8 @@ public struct PostV1HrContractsCreateResponse: Codable, Hashable, Sendable {
         try container.encode(self.endReason, forKey: .endReason)
         try container.encode(self.baseSalary, forKey: .baseSalary)
         try container.encode(self.salaryType, forKey: .salaryType)
-        try container.encode(self.workHoursPerWeek, forKey: .workHoursPerWeek)
+        try container.encode(self.workHours, forKey: .workHours)
+        try container.encode(self.workHoursUnit, forKey: .workHoursUnit)
         try container.encode(self.status, forKey: .status)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.createdAt, forKey: .createdAt)
@@ -107,6 +117,7 @@ public struct PostV1HrContractsCreateResponse: Codable, Hashable, Sendable {
         case positionId
         case departmentId
         case scheduleId
+        case agreementId
         case contractNo
         case type
         case startDate
@@ -114,7 +125,8 @@ public struct PostV1HrContractsCreateResponse: Codable, Hashable, Sendable {
         case endReason
         case baseSalary
         case salaryType
-        case workHoursPerWeek
+        case workHours
+        case workHoursUnit
         case status
         case notes
         case createdAt

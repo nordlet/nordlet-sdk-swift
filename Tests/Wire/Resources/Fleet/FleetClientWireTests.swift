@@ -23,6 +23,12 @@ import Api
                   "insuranceDue": "insuranceDue",
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "name",
+                      "ref": "ref"
+                    }
+                  ],
                   "currentAssignment": {
                     "id": "id",
                     "employeeId": "employeeId",
@@ -56,6 +62,12 @@ import Api
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
             notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1FleetVehiclesCreateResponseDocumentsItem]>.value([
+                PostV1FleetVehiclesCreateResponseDocumentsItem(
+                    name: "name",
+                    ref: "ref"
+                )
+            ]),
             currentAssignment: Nullable<PostV1FleetVehiclesCreateResponseCurrentAssignment>.value(PostV1FleetVehiclesCreateResponseCurrentAssignment(
                 id: "id",
                 employeeId: "employeeId",
@@ -97,6 +109,16 @@ import Api
                   "insuranceDue": "insuranceDue",
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
                   "currentAssignment": {
                     "id": "x",
                     "employeeId": "x",
@@ -130,6 +152,16 @@ import Api
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
             notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1FleetVehiclesCreateResponseDocumentsItem]>.value([
+                PostV1FleetVehiclesCreateResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                ),
+                PostV1FleetVehiclesCreateResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                )
+            ]),
             currentAssignment: Nullable<PostV1FleetVehiclesCreateResponseCurrentAssignment>.value(PostV1FleetVehiclesCreateResponseCurrentAssignment(
                 id: "x",
                 employeeId: "x",
@@ -171,6 +203,12 @@ import Api
                   "insuranceDue": "insuranceDue",
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "name",
+                      "ref": "ref"
+                    }
+                  ],
                   "currentAssignment": {
                     "id": "id",
                     "employeeId": "employeeId",
@@ -204,6 +242,12 @@ import Api
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
             notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1FleetVehiclesUpdateResponseDocumentsItem]>.value([
+                PostV1FleetVehiclesUpdateResponseDocumentsItem(
+                    name: "name",
+                    ref: "ref"
+                )
+            ]),
             currentAssignment: Nullable<PostV1FleetVehiclesUpdateResponseCurrentAssignment>.value(PostV1FleetVehiclesUpdateResponseCurrentAssignment(
                 id: "id",
                 employeeId: "employeeId",
@@ -241,6 +285,16 @@ import Api
                   "insuranceDue": "insuranceDue",
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
                   "currentAssignment": {
                     "id": "x",
                     "employeeId": "x",
@@ -274,6 +328,16 @@ import Api
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
             notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1FleetVehiclesUpdateResponseDocumentsItem]>.value([
+                PostV1FleetVehiclesUpdateResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                ),
+                PostV1FleetVehiclesUpdateResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                )
+            ]),
             currentAssignment: Nullable<PostV1FleetVehiclesUpdateResponseCurrentAssignment>.value(PostV1FleetVehiclesUpdateResponseCurrentAssignment(
                 id: "x",
                 employeeId: "x",
@@ -311,6 +375,12 @@ import Api
                   "insuranceDue": "insuranceDue",
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "name",
+                      "ref": "ref"
+                    }
+                  ],
                   "currentAssignment": {
                     "id": "id",
                     "employeeId": "employeeId",
@@ -344,6 +414,12 @@ import Api
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
             notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1FleetVehiclesGetResponseDocumentsItem]>.value([
+                PostV1FleetVehiclesGetResponseDocumentsItem(
+                    name: "name",
+                    ref: "ref"
+                )
+            ]),
             currentAssignment: Nullable<PostV1FleetVehiclesGetResponseCurrentAssignment>.value(PostV1FleetVehiclesGetResponseCurrentAssignment(
                 id: "id",
                 employeeId: "employeeId",
@@ -381,6 +457,16 @@ import Api
                   "insuranceDue": "insuranceDue",
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
                   "currentAssignment": {
                     "id": "x",
                     "employeeId": "x",
@@ -414,6 +500,16 @@ import Api
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
             notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1FleetVehiclesGetResponseDocumentsItem]>.value([
+                PostV1FleetVehiclesGetResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                ),
+                PostV1FleetVehiclesGetResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                )
+            ]),
             currentAssignment: Nullable<PostV1FleetVehiclesGetResponseCurrentAssignment>.value(PostV1FleetVehiclesGetResponseCurrentAssignment(
                 id: "x",
                 employeeId: "x",
@@ -453,6 +549,12 @@ import Api
                       "insuranceDue": "insuranceDue",
                       "status": "active",
                       "notes": "notes",
+                      "documents": [
+                        {
+                          "name": "name",
+                          "ref": "ref"
+                        }
+                      ],
                       "currentAssignment": {
                         "id": "id",
                         "employeeId": "employeeId",
@@ -493,6 +595,12 @@ import Api
                     insuranceDue: Nullable<String>.value("insuranceDue"),
                     status: .active,
                     notes: Nullable<String>.value("notes"),
+                    documents: Nullable<[PostV1FleetVehiclesListResponseRowsItemDocumentsItem]>.value([
+                        PostV1FleetVehiclesListResponseRowsItemDocumentsItem(
+                            name: "name",
+                            ref: "ref"
+                        )
+                    ]),
                     currentAssignment: Nullable<PostV1FleetVehiclesListResponseRowsItemCurrentAssignment>.value(PostV1FleetVehiclesListResponseRowsItemCurrentAssignment(
                         id: "id",
                         employeeId: "employeeId",
@@ -537,6 +645,16 @@ import Api
                       "insuranceDue": "insuranceDue",
                       "status": "active",
                       "notes": "notes",
+                      "documents": [
+                        {
+                          "name": "x",
+                          "ref": "x"
+                        },
+                        {
+                          "name": "x",
+                          "ref": "x"
+                        }
+                      ],
                       "currentAssignment": {
                         "id": "x",
                         "employeeId": "x",
@@ -562,6 +680,16 @@ import Api
                       "insuranceDue": "insuranceDue",
                       "status": "active",
                       "notes": "notes",
+                      "documents": [
+                        {
+                          "name": "x",
+                          "ref": "x"
+                        },
+                        {
+                          "name": "x",
+                          "ref": "x"
+                        }
+                      ],
                       "currentAssignment": {
                         "id": "x",
                         "employeeId": "x",
@@ -602,6 +730,16 @@ import Api
                     insuranceDue: Nullable<String>.value("insuranceDue"),
                     status: .active,
                     notes: Nullable<String>.value("notes"),
+                    documents: Nullable<[PostV1FleetVehiclesListResponseRowsItemDocumentsItem]>.value([
+                        PostV1FleetVehiclesListResponseRowsItemDocumentsItem(
+                            name: "x",
+                            ref: "x"
+                        ),
+                        PostV1FleetVehiclesListResponseRowsItemDocumentsItem(
+                            name: "x",
+                            ref: "x"
+                        )
+                    ]),
                     currentAssignment: Nullable<PostV1FleetVehiclesListResponseRowsItemCurrentAssignment>.value(PostV1FleetVehiclesListResponseRowsItemCurrentAssignment(
                         id: "x",
                         employeeId: "x",
@@ -627,6 +765,16 @@ import Api
                     insuranceDue: Nullable<String>.value("insuranceDue"),
                     status: .active,
                     notes: Nullable<String>.value("notes"),
+                    documents: Nullable<[PostV1FleetVehiclesListResponseRowsItemDocumentsItem]>.value([
+                        PostV1FleetVehiclesListResponseRowsItemDocumentsItem(
+                            name: "x",
+                            ref: "x"
+                        ),
+                        PostV1FleetVehiclesListResponseRowsItemDocumentsItem(
+                            name: "x",
+                            ref: "x"
+                        )
+                    ]),
                     currentAssignment: Nullable<PostV1FleetVehiclesListResponseRowsItemCurrentAssignment>.value(PostV1FleetVehiclesListResponseRowsItemCurrentAssignment(
                         id: "x",
                         employeeId: "x",

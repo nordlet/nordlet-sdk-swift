@@ -14,6 +14,7 @@ import Api
                       "id": "id",
                       "code": "code",
                       "name": "name",
+                      "translations": {},
                       "type": "asset",
                       "parentId": "parentId",
                       "isPostable": true,
@@ -38,6 +39,9 @@ import Api
                     id: "id",
                     code: "code",
                     name: "name",
+                    translations: Nullable<PostV1LedgerAccountsListResponseRowsItemTranslations>.value(PostV1LedgerAccountsListResponseRowsItemTranslations(
+
+                    )),
                     type: .asset,
                     parentId: Nullable<String>.value("parentId"),
                     isPostable: true,
@@ -66,6 +70,17 @@ import Api
                       "id": "x",
                       "code": "code",
                       "name": "name",
+                      "translations": {
+                        "lt": {
+                          "name": "x"
+                        },
+                        "en": {
+                          "name": "x"
+                        },
+                        "ru": {
+                          "name": "x"
+                        }
+                      },
                       "type": "asset",
                       "parentId": "x",
                       "isPostable": true,
@@ -75,6 +90,17 @@ import Api
                       "id": "x",
                       "code": "code",
                       "name": "name",
+                      "translations": {
+                        "lt": {
+                          "name": "x"
+                        },
+                        "en": {
+                          "name": "x"
+                        },
+                        "ru": {
+                          "name": "x"
+                        }
+                      },
                       "type": "asset",
                       "parentId": "x",
                       "isPostable": true,
@@ -99,6 +125,17 @@ import Api
                     id: "x",
                     code: "code",
                     name: "name",
+                    translations: Nullable<PostV1LedgerAccountsListResponseRowsItemTranslations>.value(PostV1LedgerAccountsListResponseRowsItemTranslations(
+                        lt: Optional(PostV1LedgerAccountsListResponseRowsItemTranslationsLt(
+                            name: "x"
+                        )),
+                        en: Optional(PostV1LedgerAccountsListResponseRowsItemTranslationsEn(
+                            name: "x"
+                        )),
+                        ru: Optional(PostV1LedgerAccountsListResponseRowsItemTranslationsRu(
+                            name: "x"
+                        ))
+                    )),
                     type: .asset,
                     parentId: Nullable<String>.value("x"),
                     isPostable: true,
@@ -108,6 +145,17 @@ import Api
                     id: "x",
                     code: "code",
                     name: "name",
+                    translations: Nullable<PostV1LedgerAccountsListResponseRowsItemTranslations>.value(PostV1LedgerAccountsListResponseRowsItemTranslations(
+                        lt: Optional(PostV1LedgerAccountsListResponseRowsItemTranslationsLt(
+                            name: "x"
+                        )),
+                        en: Optional(PostV1LedgerAccountsListResponseRowsItemTranslationsEn(
+                            name: "x"
+                        )),
+                        ru: Optional(PostV1LedgerAccountsListResponseRowsItemTranslationsRu(
+                            name: "x"
+                        ))
+                    )),
                     type: .asset,
                     parentId: Nullable<String>.value("x"),
                     isPostable: true,
@@ -134,6 +182,17 @@ import Api
                   "id": "id",
                   "code": "code",
                   "name": "name",
+                  "translations": {
+                    "lt": {
+                      "name": "name"
+                    },
+                    "en": {
+                      "name": "name"
+                    },
+                    "ru": {
+                      "name": "name"
+                    }
+                  },
                   "type": "asset",
                   "parentId": "parentId",
                   "isPostable": true,
@@ -151,6 +210,17 @@ import Api
             id: "id",
             code: "code",
             name: "name",
+            translations: Nullable<PostV1LedgerAccountsCreateResponseTranslations>.value(PostV1LedgerAccountsCreateResponseTranslations(
+                lt: Optional(PostV1LedgerAccountsCreateResponseTranslationsLt(
+                    name: "name"
+                )),
+                en: Optional(PostV1LedgerAccountsCreateResponseTranslationsEn(
+                    name: "name"
+                )),
+                ru: Optional(PostV1LedgerAccountsCreateResponseTranslationsRu(
+                    name: "name"
+                ))
+            )),
             type: .asset,
             parentId: Nullable<String>.value("parentId"),
             isPostable: true,
@@ -176,6 +246,17 @@ import Api
                   "id": "x",
                   "code": "code",
                   "name": "name",
+                  "translations": {
+                    "lt": {
+                      "name": "x"
+                    },
+                    "en": {
+                      "name": "x"
+                    },
+                    "ru": {
+                      "name": "x"
+                    }
+                  },
                   "type": "asset",
                   "parentId": "x",
                   "isPostable": true,
@@ -193,6 +274,17 @@ import Api
             id: "x",
             code: "code",
             name: "name",
+            translations: Nullable<PostV1LedgerAccountsCreateResponseTranslations>.value(PostV1LedgerAccountsCreateResponseTranslations(
+                lt: Optional(PostV1LedgerAccountsCreateResponseTranslationsLt(
+                    name: "x"
+                )),
+                en: Optional(PostV1LedgerAccountsCreateResponseTranslationsEn(
+                    name: "x"
+                )),
+                ru: Optional(PostV1LedgerAccountsCreateResponseTranslationsRu(
+                    name: "x"
+                ))
+            )),
             type: .asset,
             parentId: Nullable<String>.value("x"),
             isPostable: true,
@@ -218,6 +310,17 @@ import Api
                   "id": "id",
                   "code": "code",
                   "name": "name",
+                  "translations": {
+                    "lt": {
+                      "name": "name"
+                    },
+                    "en": {
+                      "name": "name"
+                    },
+                    "ru": {
+                      "name": "name"
+                    }
+                  },
                   "type": "asset",
                   "parentId": "parentId",
                   "isPostable": true,
@@ -235,6 +338,17 @@ import Api
             id: "id",
             code: "code",
             name: "name",
+            translations: Nullable<PostV1LedgerAccountsUpdateResponseTranslations>.value(PostV1LedgerAccountsUpdateResponseTranslations(
+                lt: Optional(PostV1LedgerAccountsUpdateResponseTranslationsLt(
+                    name: "name"
+                )),
+                en: Optional(PostV1LedgerAccountsUpdateResponseTranslationsEn(
+                    name: "name"
+                )),
+                ru: Optional(PostV1LedgerAccountsUpdateResponseTranslationsRu(
+                    name: "name"
+                ))
+            )),
             type: .asset,
             parentId: Nullable<String>.value("parentId"),
             isPostable: true,
@@ -256,6 +370,17 @@ import Api
                   "id": "x",
                   "code": "code",
                   "name": "name",
+                  "translations": {
+                    "lt": {
+                      "name": "x"
+                    },
+                    "en": {
+                      "name": "x"
+                    },
+                    "ru": {
+                      "name": "x"
+                    }
+                  },
                   "type": "asset",
                   "parentId": "x",
                   "isPostable": true,
@@ -273,6 +398,17 @@ import Api
             id: "x",
             code: "code",
             name: "name",
+            translations: Nullable<PostV1LedgerAccountsUpdateResponseTranslations>.value(PostV1LedgerAccountsUpdateResponseTranslations(
+                lt: Optional(PostV1LedgerAccountsUpdateResponseTranslationsLt(
+                    name: "x"
+                )),
+                en: Optional(PostV1LedgerAccountsUpdateResponseTranslationsEn(
+                    name: "x"
+                )),
+                ru: Optional(PostV1LedgerAccountsUpdateResponseTranslationsRu(
+                    name: "x"
+                ))
+            )),
             type: .asset,
             parentId: Nullable<String>.value("x"),
             isPostable: true,
@@ -594,6 +730,7 @@ import Api
                       "description": "description",
                       "documentType": "documentType",
                       "documentId": "documentId",
+                      "partnerId": "partnerId",
                       "status": "draft",
                       "createdAt": "createdAt",
                       "postedAt": "postedAt"
@@ -619,6 +756,7 @@ import Api
                     description: Nullable<String>.value("description"),
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("documentId"),
+                    partnerId: Nullable<String>.value("partnerId"),
                     status: .draft,
                     createdAt: "createdAt",
                     postedAt: Nullable<String>.value("postedAt")
@@ -648,6 +786,7 @@ import Api
                       "description": "description",
                       "documentType": "documentType",
                       "documentId": "x",
+                      "partnerId": "x",
                       "status": "draft",
                       "createdAt": "createdAt",
                       "postedAt": "postedAt"
@@ -658,6 +797,7 @@ import Api
                       "description": "description",
                       "documentType": "documentType",
                       "documentId": "x",
+                      "partnerId": "x",
                       "status": "draft",
                       "createdAt": "createdAt",
                       "postedAt": "postedAt"
@@ -683,6 +823,7 @@ import Api
                     description: Nullable<String>.value("description"),
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("x"),
+                    partnerId: Nullable<String>.value("x"),
                     status: .draft,
                     createdAt: "createdAt",
                     postedAt: Nullable<String>.value("postedAt")
@@ -693,6 +834,7 @@ import Api
                     description: Nullable<String>.value("description"),
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("x"),
+                    partnerId: Nullable<String>.value("x"),
                     status: .draft,
                     createdAt: "createdAt",
                     postedAt: Nullable<String>.value("postedAt")
@@ -1934,6 +2076,7 @@ import Api
                   "description": "description",
                   "documentType": "documentType",
                   "documentId": "documentId",
+                  "partnerId": "partnerId",
                   "status": "draft",
                   "createdAt": "createdAt",
                   "postedAt": "postedAt",
@@ -1965,6 +2108,7 @@ import Api
             description: Nullable<String>.value("description"),
             documentType: Nullable<String>.value("documentType"),
             documentId: Nullable<String>.value("documentId"),
+            partnerId: Nullable<String>.value("partnerId"),
             status: .draft,
             createdAt: "createdAt",
             postedAt: Nullable<String>.value("postedAt"),
@@ -2000,6 +2144,7 @@ import Api
                   "description": "description",
                   "documentType": "documentType",
                   "documentId": "x",
+                  "partnerId": "x",
                   "status": "draft",
                   "createdAt": "createdAt",
                   "postedAt": "postedAt",
@@ -2042,6 +2187,7 @@ import Api
             description: Nullable<String>.value("description"),
             documentType: Nullable<String>.value("documentType"),
             documentId: Nullable<String>.value("x"),
+            partnerId: Nullable<String>.value("x"),
             status: .draft,
             createdAt: "createdAt",
             postedAt: Nullable<String>.value("postedAt"),
@@ -2088,6 +2234,7 @@ import Api
                   "description": "description",
                   "documentType": "documentType",
                   "documentId": "documentId",
+                  "partnerId": "partnerId",
                   "status": "draft",
                   "createdAt": "createdAt",
                   "postedAt": "postedAt"
@@ -2106,6 +2253,7 @@ import Api
             description: Nullable<String>.value("description"),
             documentType: Nullable<String>.value("documentType"),
             documentId: Nullable<String>.value("documentId"),
+            partnerId: Nullable<String>.value("partnerId"),
             status: .draft,
             createdAt: "createdAt",
             postedAt: Nullable<String>.value("postedAt")
@@ -2135,6 +2283,7 @@ import Api
                   "description": "description",
                   "documentType": "documentType",
                   "documentId": "x",
+                  "partnerId": "x",
                   "status": "draft",
                   "createdAt": "createdAt",
                   "postedAt": "postedAt"
@@ -2153,6 +2302,7 @@ import Api
             description: Nullable<String>.value("description"),
             documentType: Nullable<String>.value("documentType"),
             documentId: Nullable<String>.value("x"),
+            partnerId: Nullable<String>.value("x"),
             status: .draft,
             createdAt: "createdAt",
             postedAt: Nullable<String>.value("postedAt")

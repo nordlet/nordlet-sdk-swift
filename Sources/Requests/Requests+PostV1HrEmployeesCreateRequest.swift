@@ -18,6 +18,7 @@ extension Requests {
         public let npdOverride: Nullable<String>?
         public let pensionAccumulation: Bool?
         public let notes: String?
+        public let attributes: [PostV1HrEmployeesCreateRequestAttributesItem]?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -38,6 +39,7 @@ extension Requests {
             npdOverride: Nullable<String>? = nil,
             pensionAccumulation: Bool? = nil,
             notes: String? = nil,
+            attributes: [PostV1HrEmployeesCreateRequestAttributesItem]? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.code = code
@@ -56,6 +58,7 @@ extension Requests {
             self.npdOverride = npdOverride
             self.pensionAccumulation = pensionAccumulation
             self.notes = notes
+            self.attributes = attributes
             self.additionalProperties = additionalProperties
         }
 
@@ -77,6 +80,7 @@ extension Requests {
             self.npdOverride = try container.decodeNullableIfPresent(String.self, forKey: .npdOverride)
             self.pensionAccumulation = try container.decodeIfPresent(Bool.self, forKey: .pensionAccumulation)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
+            self.attributes = try container.decodeIfPresent([PostV1HrEmployeesCreateRequestAttributesItem].self, forKey: .attributes)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -99,6 +103,7 @@ extension Requests {
             try container.encodeNullableIfPresent(self.npdOverride, forKey: .npdOverride)
             try container.encodeIfPresent(self.pensionAccumulation, forKey: .pensionAccumulation)
             try container.encodeIfPresent(self.notes, forKey: .notes)
+            try container.encodeIfPresent(self.attributes, forKey: .attributes)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -119,6 +124,7 @@ extension Requests {
             case npdOverride
             case pensionAccumulation
             case notes
+            case attributes
         }
     }
 }

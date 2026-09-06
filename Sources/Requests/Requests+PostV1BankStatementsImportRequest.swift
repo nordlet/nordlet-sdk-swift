@@ -3,6 +3,7 @@ import Foundation
 extension Requests {
     public struct PostV1BankStatementsImportRequest: Codable, Hashable, Sendable {
         public let bankAccountId: String
+        public let templateId: String?
         public let format: PostV1BankStatementsImportRequestFormat?
         public let content: String
         /// Additional properties that are not explicitly defined in the schema
@@ -10,11 +11,13 @@ extension Requests {
 
         public init(
             bankAccountId: String,
+            templateId: String? = nil,
             format: PostV1BankStatementsImportRequestFormat? = nil,
             content: String,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.bankAccountId = bankAccountId
+            self.templateId = templateId
             self.format = format
             self.content = content
             self.additionalProperties = additionalProperties
@@ -23,6 +26,7 @@ extension Requests {
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.bankAccountId = try container.decode(String.self, forKey: .bankAccountId)
+            self.templateId = try container.decodeIfPresent(String.self, forKey: .templateId)
             self.format = try container.decodeIfPresent(PostV1BankStatementsImportRequestFormat.self, forKey: .format)
             self.content = try container.decode(String.self, forKey: .content)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -32,6 +36,7 @@ extension Requests {
             var container = encoder.container(keyedBy: CodingKeys.self)
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.bankAccountId, forKey: .bankAccountId)
+            try container.encodeIfPresent(self.templateId, forKey: .templateId)
             try container.encodeIfPresent(self.format, forKey: .format)
             try container.encode(self.content, forKey: .content)
         }
@@ -39,6 +44,7 @@ extension Requests {
         /// Keys for encoding/decoding struct properties.
         enum CodingKeys: String, CodingKey, CaseIterable {
             case bankAccountId
+            case templateId
             case format
             case content
         }

@@ -4,6 +4,8 @@ public struct PostV1BankFeedsConnectionsGetResponseAccountsItem: Codable, Hashab
     public let id: String
     public let connectionId: String
     public let bankAccountId: Nullable<String>
+    public let importTemplateId: Nullable<String>
+    public let syncSchedule: PostV1BankFeedsConnectionsGetResponseAccountsItemSyncSchedule
     public let externalId: String
     public let iban: Nullable<String>
     public let currency: String
@@ -18,6 +20,8 @@ public struct PostV1BankFeedsConnectionsGetResponseAccountsItem: Codable, Hashab
         id: String,
         connectionId: String,
         bankAccountId: Nullable<String>,
+        importTemplateId: Nullable<String>,
+        syncSchedule: PostV1BankFeedsConnectionsGetResponseAccountsItemSyncSchedule,
         externalId: String,
         iban: Nullable<String>,
         currency: String,
@@ -30,6 +34,8 @@ public struct PostV1BankFeedsConnectionsGetResponseAccountsItem: Codable, Hashab
         self.id = id
         self.connectionId = connectionId
         self.bankAccountId = bankAccountId
+        self.importTemplateId = importTemplateId
+        self.syncSchedule = syncSchedule
         self.externalId = externalId
         self.iban = iban
         self.currency = currency
@@ -45,6 +51,8 @@ public struct PostV1BankFeedsConnectionsGetResponseAccountsItem: Codable, Hashab
         self.id = try container.decode(String.self, forKey: .id)
         self.connectionId = try container.decode(String.self, forKey: .connectionId)
         self.bankAccountId = try container.decode(Nullable<String>.self, forKey: .bankAccountId)
+        self.importTemplateId = try container.decode(Nullable<String>.self, forKey: .importTemplateId)
+        self.syncSchedule = try container.decode(PostV1BankFeedsConnectionsGetResponseAccountsItemSyncSchedule.self, forKey: .syncSchedule)
         self.externalId = try container.decode(String.self, forKey: .externalId)
         self.iban = try container.decode(Nullable<String>.self, forKey: .iban)
         self.currency = try container.decode(String.self, forKey: .currency)
@@ -61,6 +69,8 @@ public struct PostV1BankFeedsConnectionsGetResponseAccountsItem: Codable, Hashab
         try container.encode(self.id, forKey: .id)
         try container.encode(self.connectionId, forKey: .connectionId)
         try container.encode(self.bankAccountId, forKey: .bankAccountId)
+        try container.encode(self.importTemplateId, forKey: .importTemplateId)
+        try container.encode(self.syncSchedule, forKey: .syncSchedule)
         try container.encode(self.externalId, forKey: .externalId)
         try container.encode(self.iban, forKey: .iban)
         try container.encode(self.currency, forKey: .currency)
@@ -75,6 +85,8 @@ public struct PostV1BankFeedsConnectionsGetResponseAccountsItem: Codable, Hashab
         case id
         case connectionId
         case bankAccountId
+        case importTemplateId
+        case syncSchedule
         case externalId
         case iban
         case currency

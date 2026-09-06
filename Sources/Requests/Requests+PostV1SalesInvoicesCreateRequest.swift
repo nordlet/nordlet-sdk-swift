@@ -12,6 +12,7 @@ extension Requests {
         public let vatCountryCode: String?
         public let deemedSupplier: Bool?
         public let notes: String?
+        public let documentRef: String?
         public let lines: [PostV1SalesInvoicesCreateRequestLinesItem]
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -27,6 +28,7 @@ extension Requests {
             vatCountryCode: String? = nil,
             deemedSupplier: Bool? = nil,
             notes: String? = nil,
+            documentRef: String? = nil,
             lines: [PostV1SalesInvoicesCreateRequestLinesItem],
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -40,6 +42,7 @@ extension Requests {
             self.vatCountryCode = vatCountryCode
             self.deemedSupplier = deemedSupplier
             self.notes = notes
+            self.documentRef = documentRef
             self.lines = lines
             self.additionalProperties = additionalProperties
         }
@@ -56,6 +59,7 @@ extension Requests {
             self.vatCountryCode = try container.decodeIfPresent(String.self, forKey: .vatCountryCode)
             self.deemedSupplier = try container.decodeIfPresent(Bool.self, forKey: .deemedSupplier)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
+            self.documentRef = try container.decodeIfPresent(String.self, forKey: .documentRef)
             self.lines = try container.decode([PostV1SalesInvoicesCreateRequestLinesItem].self, forKey: .lines)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -73,6 +77,7 @@ extension Requests {
             try container.encodeIfPresent(self.vatCountryCode, forKey: .vatCountryCode)
             try container.encodeIfPresent(self.deemedSupplier, forKey: .deemedSupplier)
             try container.encodeIfPresent(self.notes, forKey: .notes)
+            try container.encodeIfPresent(self.documentRef, forKey: .documentRef)
             try container.encode(self.lines, forKey: .lines)
         }
 
@@ -88,6 +93,7 @@ extension Requests {
             case vatCountryCode
             case deemedSupplier
             case notes
+            case documentRef
             case lines
         }
     }

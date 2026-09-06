@@ -6,13 +6,14 @@ extension Requests {
         public let positionId: String?
         public let departmentId: String?
         public let scheduleId: String?
-        public let contractNo: String
+        public let agreementId: String?
+        public let contractNo: String?
         public let type: PostV1HrContractsCreateRequestType?
         public let startDate: String
         public let endDate: String?
         public let baseSalary: String
         public let salaryType: PostV1HrContractsCreateRequestSalaryType?
-        public let workHoursPerWeek: String?
+        public let workHours: String?
         public let notes: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -22,13 +23,14 @@ extension Requests {
             positionId: String? = nil,
             departmentId: String? = nil,
             scheduleId: String? = nil,
-            contractNo: String,
+            agreementId: String? = nil,
+            contractNo: String? = nil,
             type: PostV1HrContractsCreateRequestType? = nil,
             startDate: String,
             endDate: String? = nil,
             baseSalary: String,
             salaryType: PostV1HrContractsCreateRequestSalaryType? = nil,
-            workHoursPerWeek: String? = nil,
+            workHours: String? = nil,
             notes: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -36,13 +38,14 @@ extension Requests {
             self.positionId = positionId
             self.departmentId = departmentId
             self.scheduleId = scheduleId
+            self.agreementId = agreementId
             self.contractNo = contractNo
             self.type = type
             self.startDate = startDate
             self.endDate = endDate
             self.baseSalary = baseSalary
             self.salaryType = salaryType
-            self.workHoursPerWeek = workHoursPerWeek
+            self.workHours = workHours
             self.notes = notes
             self.additionalProperties = additionalProperties
         }
@@ -53,13 +56,14 @@ extension Requests {
             self.positionId = try container.decodeIfPresent(String.self, forKey: .positionId)
             self.departmentId = try container.decodeIfPresent(String.self, forKey: .departmentId)
             self.scheduleId = try container.decodeIfPresent(String.self, forKey: .scheduleId)
-            self.contractNo = try container.decode(String.self, forKey: .contractNo)
+            self.agreementId = try container.decodeIfPresent(String.self, forKey: .agreementId)
+            self.contractNo = try container.decodeIfPresent(String.self, forKey: .contractNo)
             self.type = try container.decodeIfPresent(PostV1HrContractsCreateRequestType.self, forKey: .type)
             self.startDate = try container.decode(String.self, forKey: .startDate)
             self.endDate = try container.decodeIfPresent(String.self, forKey: .endDate)
             self.baseSalary = try container.decode(String.self, forKey: .baseSalary)
             self.salaryType = try container.decodeIfPresent(PostV1HrContractsCreateRequestSalaryType.self, forKey: .salaryType)
-            self.workHoursPerWeek = try container.decodeIfPresent(String.self, forKey: .workHoursPerWeek)
+            self.workHours = try container.decodeIfPresent(String.self, forKey: .workHours)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -71,13 +75,14 @@ extension Requests {
             try container.encodeIfPresent(self.positionId, forKey: .positionId)
             try container.encodeIfPresent(self.departmentId, forKey: .departmentId)
             try container.encodeIfPresent(self.scheduleId, forKey: .scheduleId)
-            try container.encode(self.contractNo, forKey: .contractNo)
+            try container.encodeIfPresent(self.agreementId, forKey: .agreementId)
+            try container.encodeIfPresent(self.contractNo, forKey: .contractNo)
             try container.encodeIfPresent(self.type, forKey: .type)
             try container.encode(self.startDate, forKey: .startDate)
             try container.encodeIfPresent(self.endDate, forKey: .endDate)
             try container.encode(self.baseSalary, forKey: .baseSalary)
             try container.encodeIfPresent(self.salaryType, forKey: .salaryType)
-            try container.encodeIfPresent(self.workHoursPerWeek, forKey: .workHoursPerWeek)
+            try container.encodeIfPresent(self.workHours, forKey: .workHours)
             try container.encodeIfPresent(self.notes, forKey: .notes)
         }
 
@@ -87,13 +92,14 @@ extension Requests {
             case positionId
             case departmentId
             case scheduleId
+            case agreementId
             case contractNo
             case type
             case startDate
             case endDate
             case baseSalary
             case salaryType
-            case workHoursPerWeek
+            case workHours
             case notes
         }
     }

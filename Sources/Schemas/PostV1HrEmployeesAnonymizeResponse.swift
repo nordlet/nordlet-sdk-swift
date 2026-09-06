@@ -20,6 +20,7 @@ public struct PostV1HrEmployeesAnonymizeResponse: Codable, Hashable, Sendable {
     public let pensionAccumulation: Bool
     public let status: PostV1HrEmployeesAnonymizeResponseStatus
     public let notes: Nullable<String>
+    public let attributes: Nullable<[PostV1HrEmployeesAnonymizeResponseAttributesItem]>
     public let createdAt: String
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -44,6 +45,7 @@ public struct PostV1HrEmployeesAnonymizeResponse: Codable, Hashable, Sendable {
         pensionAccumulation: Bool,
         status: PostV1HrEmployeesAnonymizeResponseStatus,
         notes: Nullable<String>,
+        attributes: Nullable<[PostV1HrEmployeesAnonymizeResponseAttributesItem]>,
         createdAt: String,
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -66,6 +68,7 @@ public struct PostV1HrEmployeesAnonymizeResponse: Codable, Hashable, Sendable {
         self.pensionAccumulation = pensionAccumulation
         self.status = status
         self.notes = notes
+        self.attributes = attributes
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
     }
@@ -91,6 +94,7 @@ public struct PostV1HrEmployeesAnonymizeResponse: Codable, Hashable, Sendable {
         self.pensionAccumulation = try container.decode(Bool.self, forKey: .pensionAccumulation)
         self.status = try container.decode(PostV1HrEmployeesAnonymizeResponseStatus.self, forKey: .status)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
+        self.attributes = try container.decode(Nullable<[PostV1HrEmployeesAnonymizeResponseAttributesItem]>.self, forKey: .attributes)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -117,6 +121,7 @@ public struct PostV1HrEmployeesAnonymizeResponse: Codable, Hashable, Sendable {
         try container.encode(self.pensionAccumulation, forKey: .pensionAccumulation)
         try container.encode(self.status, forKey: .status)
         try container.encode(self.notes, forKey: .notes)
+        try container.encode(self.attributes, forKey: .attributes)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
 
@@ -141,6 +146,7 @@ public struct PostV1HrEmployeesAnonymizeResponse: Codable, Hashable, Sendable {
         case pensionAccumulation
         case status
         case notes
+        case attributes
         case createdAt
     }
 }

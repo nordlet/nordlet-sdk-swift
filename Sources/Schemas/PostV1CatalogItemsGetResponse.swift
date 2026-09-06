@@ -20,6 +20,7 @@ public struct PostV1CatalogItemsGetResponse: Codable, Hashable, Sendable {
     public let description: Nullable<String>
     public let groupId: Nullable<String>
     public let attributes: Nullable<[String: Nullable<String>]>
+    public let documentRef: Nullable<String>
     public let translations: Nullable<[String: Nullable<PostV1CatalogItemsGetResponseTranslationsValue>]>
     public let components: [PostV1CatalogItemsGetResponseComponentsItem]
     public let createdAt: String
@@ -47,6 +48,7 @@ public struct PostV1CatalogItemsGetResponse: Codable, Hashable, Sendable {
         description: Nullable<String>,
         groupId: Nullable<String>,
         attributes: Nullable<[String: Nullable<String>]>,
+        documentRef: Nullable<String>,
         translations: Nullable<[String: Nullable<PostV1CatalogItemsGetResponseTranslationsValue>]>,
         components: [PostV1CatalogItemsGetResponseComponentsItem],
         createdAt: String,
@@ -72,6 +74,7 @@ public struct PostV1CatalogItemsGetResponse: Codable, Hashable, Sendable {
         self.description = description
         self.groupId = groupId
         self.attributes = attributes
+        self.documentRef = documentRef
         self.translations = translations
         self.components = components
         self.createdAt = createdAt
@@ -100,6 +103,7 @@ public struct PostV1CatalogItemsGetResponse: Codable, Hashable, Sendable {
         self.description = try container.decode(Nullable<String>.self, forKey: .description)
         self.groupId = try container.decode(Nullable<String>.self, forKey: .groupId)
         self.attributes = try container.decode(Nullable<[String: Nullable<String>]>.self, forKey: .attributes)
+        self.documentRef = try container.decode(Nullable<String>.self, forKey: .documentRef)
         self.translations = try container.decode(Nullable<[String: Nullable<PostV1CatalogItemsGetResponseTranslationsValue>]>.self, forKey: .translations)
         self.components = try container.decode([PostV1CatalogItemsGetResponseComponentsItem].self, forKey: .components)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
@@ -129,6 +133,7 @@ public struct PostV1CatalogItemsGetResponse: Codable, Hashable, Sendable {
         try container.encode(self.description, forKey: .description)
         try container.encode(self.groupId, forKey: .groupId)
         try container.encode(self.attributes, forKey: .attributes)
+        try container.encode(self.documentRef, forKey: .documentRef)
         try container.encode(self.translations, forKey: .translations)
         try container.encode(self.components, forKey: .components)
         try container.encode(self.createdAt, forKey: .createdAt)
@@ -156,6 +161,7 @@ public struct PostV1CatalogItemsGetResponse: Codable, Hashable, Sendable {
         case description
         case groupId
         case attributes
+        case documentRef
         case translations
         case components
         case createdAt
