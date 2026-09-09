@@ -244,7 +244,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -270,7 +273,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.partners.postV1PartnersAddressesList(
             request: .init(),
@@ -311,7 +317,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -348,7 +357,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.partners.postV1PartnersAddressesList(
             request: .init(),
@@ -595,7 +607,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -620,7 +635,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.partners.postV1PartnersContactsList(
             request: .init(),
@@ -659,7 +677,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -694,7 +715,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.partners.postV1PartnersContactsList(
             request: .init(),
@@ -941,7 +965,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -966,7 +993,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.partners.postV1PartnersBankAccountsList(
             request: .init(),
@@ -1005,7 +1035,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -1040,9 +1073,508 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.partners.postV1PartnersBankAccountsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1PartnersFilesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "entity": "entity",
+                      "entityId": "entityId",
+                      "fileName": "fileName",
+                      "mimeType": "mimeType",
+                      "sizeBytes": 1000000,
+                      "sha256": "sha256",
+                      "storageKey": "storageKey",
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PartnersFilesListResponse(
+            rows: [
+                PostV1PartnersFilesListResponseRowsItem(
+                    id: "id",
+                    entity: "entity",
+                    entityId: Nullable<String>.value("entityId"),
+                    fileName: "fileName",
+                    mimeType: "mimeType",
+                    sizeBytes: 1000000,
+                    sha256: "sha256",
+                    storageKey: "storageKey",
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.partners.postV1PartnersFilesList(
+            request: .init(partnerId: "partnerId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1PartnersFilesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "entity": "entity",
+                      "entityId": "entityId",
+                      "fileName": "fileName",
+                      "mimeType": "mimeType",
+                      "sizeBytes": 1000000,
+                      "sha256": "sha256",
+                      "storageKey": "storageKey",
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "id": "x",
+                      "entity": "entity",
+                      "entityId": "entityId",
+                      "fileName": "fileName",
+                      "mimeType": "mimeType",
+                      "sizeBytes": 1000000,
+                      "sha256": "sha256",
+                      "storageKey": "storageKey",
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PartnersFilesListResponse(
+            rows: [
+                PostV1PartnersFilesListResponseRowsItem(
+                    id: "x",
+                    entity: "entity",
+                    entityId: Nullable<String>.value("entityId"),
+                    fileName: "fileName",
+                    mimeType: "mimeType",
+                    sizeBytes: 1000000,
+                    sha256: "sha256",
+                    storageKey: "storageKey",
+                    createdAt: "createdAt"
+                ),
+                PostV1PartnersFilesListResponseRowsItem(
+                    id: "x",
+                    entity: "entity",
+                    entityId: Nullable<String>.value("entityId"),
+                    fileName: "fileName",
+                    mimeType: "mimeType",
+                    sizeBytes: 1000000,
+                    sha256: "sha256",
+                    storageKey: "storageKey",
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.partners.postV1PartnersFilesList(
+            request: .init(partnerId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func remindersTheOvernightDebtReminderJobWouldSendTodayForThisCompany1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "partnerId": "partnerId",
+                      "partnerName": "partnerName",
+                      "email": "email",
+                      "locale": "lt",
+                      "currency": "currency",
+                      "invoices": [
+                        {
+                          "id": "id",
+                          "fullNumber": "fullNumber",
+                          "issueDate": "issueDate",
+                          "dueDate": "dueDate",
+                          "remaining": "remaining",
+                          "daysLate": 1000000,
+                          "interest": "interest"
+                        }
+                      ],
+                      "totalDue": "totalDue",
+                      "interestDue": "interestDue"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PartnersDebtRemindersPreviewResponse(
+            rows: [
+                PostV1PartnersDebtRemindersPreviewResponseRowsItem(
+                    partnerId: "partnerId",
+                    partnerName: "partnerName",
+                    email: "email",
+                    locale: .lt,
+                    currency: "currency",
+                    invoices: [
+                        PostV1PartnersDebtRemindersPreviewResponseRowsItemInvoicesItem(
+                            id: "id",
+                            fullNumber: "fullNumber",
+                            issueDate: "issueDate",
+                            dueDate: "dueDate",
+                            remaining: "remaining",
+                            daysLate: 1000000,
+                            interest: "interest"
+                        )
+                    ],
+                    totalDue: "totalDue",
+                    interestDue: "interestDue"
+                )
+            ]
+        )
+        let response = try await client.partners.remindersTheOvernightDebtReminderJobWouldSendTodayForThisCompany(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func remindersTheOvernightDebtReminderJobWouldSendTodayForThisCompany2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "email": "email",
+                      "locale": "lt",
+                      "currency": "currency",
+                      "invoices": [
+                        {
+                          "id": "x",
+                          "fullNumber": "fullNumber",
+                          "issueDate": "issueDate",
+                          "dueDate": "dueDate",
+                          "remaining": "remaining",
+                          "daysLate": 1000000,
+                          "interest": "interest"
+                        },
+                        {
+                          "id": "x",
+                          "fullNumber": "fullNumber",
+                          "issueDate": "issueDate",
+                          "dueDate": "dueDate",
+                          "remaining": "remaining",
+                          "daysLate": 1000000,
+                          "interest": "interest"
+                        }
+                      ],
+                      "totalDue": "totalDue",
+                      "interestDue": "interestDue"
+                    },
+                    {
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "email": "email",
+                      "locale": "lt",
+                      "currency": "currency",
+                      "invoices": [
+                        {
+                          "id": "x",
+                          "fullNumber": "fullNumber",
+                          "issueDate": "issueDate",
+                          "dueDate": "dueDate",
+                          "remaining": "remaining",
+                          "daysLate": 1000000,
+                          "interest": "interest"
+                        },
+                        {
+                          "id": "x",
+                          "fullNumber": "fullNumber",
+                          "issueDate": "issueDate",
+                          "dueDate": "dueDate",
+                          "remaining": "remaining",
+                          "daysLate": 1000000,
+                          "interest": "interest"
+                        }
+                      ],
+                      "totalDue": "totalDue",
+                      "interestDue": "interestDue"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PartnersDebtRemindersPreviewResponse(
+            rows: [
+                PostV1PartnersDebtRemindersPreviewResponseRowsItem(
+                    partnerId: "x",
+                    partnerName: "partnerName",
+                    email: "email",
+                    locale: .lt,
+                    currency: "currency",
+                    invoices: [
+                        PostV1PartnersDebtRemindersPreviewResponseRowsItemInvoicesItem(
+                            id: "x",
+                            fullNumber: "fullNumber",
+                            issueDate: "issueDate",
+                            dueDate: "dueDate",
+                            remaining: "remaining",
+                            daysLate: 1000000,
+                            interest: "interest"
+                        ),
+                        PostV1PartnersDebtRemindersPreviewResponseRowsItemInvoicesItem(
+                            id: "x",
+                            fullNumber: "fullNumber",
+                            issueDate: "issueDate",
+                            dueDate: "dueDate",
+                            remaining: "remaining",
+                            daysLate: 1000000,
+                            interest: "interest"
+                        )
+                    ],
+                    totalDue: "totalDue",
+                    interestDue: "interestDue"
+                ),
+                PostV1PartnersDebtRemindersPreviewResponseRowsItem(
+                    partnerId: "x",
+                    partnerName: "partnerName",
+                    email: "email",
+                    locale: .lt,
+                    currency: "currency",
+                    invoices: [
+                        PostV1PartnersDebtRemindersPreviewResponseRowsItemInvoicesItem(
+                            id: "x",
+                            fullNumber: "fullNumber",
+                            issueDate: "issueDate",
+                            dueDate: "dueDate",
+                            remaining: "remaining",
+                            daysLate: 1000000,
+                            interest: "interest"
+                        ),
+                        PostV1PartnersDebtRemindersPreviewResponseRowsItemInvoicesItem(
+                            id: "x",
+                            fullNumber: "fullNumber",
+                            issueDate: "issueDate",
+                            dueDate: "dueDate",
+                            remaining: "remaining",
+                            daysLate: 1000000,
+                            interest: "interest"
+                        )
+                    ],
+                    totalDue: "totalDue",
+                    interestDue: "interestDue"
+                )
+            ]
+        )
+        let response = try await client.partners.remindersTheOvernightDebtReminderJobWouldSendTodayForThisCompany(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1PartnersDebtRemindersList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "partnerId": "partnerId",
+                      "sentTo": "sentTo",
+                      "invoiceCount": 1000000,
+                      "totalDue": "totalDue",
+                      "interestDue": "interestDue",
+                      "currency": "currency",
+                      "invoiceIds": [
+                        "invoiceIds"
+                      ],
+                      "sentAt": "sentAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PartnersDebtRemindersListResponse(
+            rows: [
+                PostV1PartnersDebtRemindersListResponseRowsItem(
+                    id: "id",
+                    partnerId: "partnerId",
+                    sentTo: "sentTo",
+                    invoiceCount: 1000000,
+                    totalDue: "totalDue",
+                    interestDue: "interestDue",
+                    currency: "currency",
+                    invoiceIds: [
+                        "invoiceIds"
+                    ],
+                    sentAt: "sentAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
+        )
+        let response = try await client.partners.postV1PartnersDebtRemindersList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1PartnersDebtRemindersList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "partnerId": "x",
+                      "sentTo": "sentTo",
+                      "invoiceCount": 1000000,
+                      "totalDue": "totalDue",
+                      "interestDue": "interestDue",
+                      "currency": "currency",
+                      "invoiceIds": [
+                        "invoiceIds",
+                        "invoiceIds"
+                      ],
+                      "sentAt": "sentAt"
+                    },
+                    {
+                      "id": "x",
+                      "partnerId": "x",
+                      "sentTo": "sentTo",
+                      "invoiceCount": 1000000,
+                      "totalDue": "totalDue",
+                      "interestDue": "interestDue",
+                      "currency": "currency",
+                      "invoiceIds": [
+                        "invoiceIds",
+                        "invoiceIds"
+                      ],
+                      "sentAt": "sentAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PartnersDebtRemindersListResponse(
+            rows: [
+                PostV1PartnersDebtRemindersListResponseRowsItem(
+                    id: "x",
+                    partnerId: "x",
+                    sentTo: "sentTo",
+                    invoiceCount: 1000000,
+                    totalDue: "totalDue",
+                    interestDue: "interestDue",
+                    currency: "currency",
+                    invoiceIds: [
+                        "invoiceIds",
+                        "invoiceIds"
+                    ],
+                    sentAt: "sentAt"
+                ),
+                PostV1PartnersDebtRemindersListResponseRowsItem(
+                    id: "x",
+                    partnerId: "x",
+                    sentTo: "sentTo",
+                    invoiceCount: 1000000,
+                    totalDue: "totalDue",
+                    interestDue: "interestDue",
+                    currency: "currency",
+                    invoiceIds: [
+                        "invoiceIds",
+                        "invoiceIds"
+                    ],
+                    sentAt: "sentAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
+        )
+        let response = try await client.partners.postV1PartnersDebtRemindersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
@@ -1148,7 +1680,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -1178,7 +1713,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.partners.postV1PartnersVatReviewsList(
             request: .init(),
@@ -1235,7 +1773,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -1288,7 +1829,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.partners.postV1PartnersVatReviewsList(
             request: .init(),
@@ -1447,11 +1991,37 @@ import Api
                   "address": {
                     "street": "street",
                     "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
+                    "postalCode": "postalCode",
+                    "countryCode": "countryCode"
+                  },
+                  "correspondenceAddress": {
+                    "street": "street",
+                    "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
                     "postalCode": "postalCode",
                     "countryCode": "countryCode"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "shortName": "shortName",
+                  "website": "website",
+                  "fax": "fax",
+                  "eoriCode": "eoriCode",
+                  "otherCode": "otherCode",
+                  "foreignTaxNumber": "foreignTaxNumber",
+                  "autoDebtReminder": true,
+                  "lateInterestPercent": "lateInterestPercent",
+                  "firstCallDate": "firstCallDate",
+                  "lastCallDate": "lastCallDate",
+                  "nextCallDate": "nextCallDate",
+                  "rating": 1000000,
+                  "isEmployee": true,
+                  "isGroupMember": true,
+                  "isActive": true,
+                  "legalCountryClass": "lt",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1486,11 +2056,37 @@ import Api
             address: Nullable<PostV1PartnersCreateResponseAddress>.value(PostV1PartnersCreateResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
+                municipality: Optional("municipality"),
+                county: Optional("county"),
+                postalCode: Optional("postalCode"),
+                countryCode: Optional("countryCode")
+            )),
+            correspondenceAddress: Nullable<PostV1PartnersCreateResponseCorrespondenceAddress>.value(PostV1PartnersCreateResponseCorrespondenceAddress(
+                street: Optional("street"),
+                city: Optional("city"),
+                municipality: Optional("municipality"),
+                county: Optional("county"),
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("countryCode")
             )),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            shortName: Nullable<String>.value("shortName"),
+            website: Nullable<String>.value("website"),
+            fax: Nullable<String>.value("fax"),
+            eoriCode: Nullable<String>.value("eoriCode"),
+            otherCode: Nullable<String>.value("otherCode"),
+            foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
+            autoDebtReminder: true,
+            lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
+            firstCallDate: Nullable<String>.value("firstCallDate"),
+            lastCallDate: Nullable<String>.value("lastCallDate"),
+            nextCallDate: Nullable<String>.value("nextCallDate"),
+            rating: Nullable<Int64>.value(1000000),
+            isEmployee: true,
+            isGroupMember: true,
+            isActive: true,
+            legalCountryClass: Nullable<PostV1PartnersCreateResponseLegalCountryClass>.value(.lt),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1529,11 +2125,37 @@ import Api
                   "address": {
                     "street": "street",
                     "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
+                    "postalCode": "postalCode",
+                    "countryCode": "xy"
+                  },
+                  "correspondenceAddress": {
+                    "street": "street",
+                    "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
                     "postalCode": "postalCode",
                     "countryCode": "xy"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "shortName": "shortName",
+                  "website": "website",
+                  "fax": "fax",
+                  "eoriCode": "eoriCode",
+                  "otherCode": "otherCode",
+                  "foreignTaxNumber": "foreignTaxNumber",
+                  "autoDebtReminder": true,
+                  "lateInterestPercent": "lateInterestPercent",
+                  "firstCallDate": "firstCallDate",
+                  "lastCallDate": "lastCallDate",
+                  "nextCallDate": "nextCallDate",
+                  "rating": 1000000,
+                  "isEmployee": true,
+                  "isGroupMember": true,
+                  "isActive": true,
+                  "legalCountryClass": "lt",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1568,11 +2190,37 @@ import Api
             address: Nullable<PostV1PartnersCreateResponseAddress>.value(PostV1PartnersCreateResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
+                municipality: Optional("municipality"),
+                county: Optional("county"),
+                postalCode: Optional("postalCode"),
+                countryCode: Optional("xy")
+            )),
+            correspondenceAddress: Nullable<PostV1PartnersCreateResponseCorrespondenceAddress>.value(PostV1PartnersCreateResponseCorrespondenceAddress(
+                street: Optional("street"),
+                city: Optional("city"),
+                municipality: Optional("municipality"),
+                county: Optional("county"),
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("xy")
             )),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            shortName: Nullable<String>.value("shortName"),
+            website: Nullable<String>.value("website"),
+            fax: Nullable<String>.value("fax"),
+            eoriCode: Nullable<String>.value("eoriCode"),
+            otherCode: Nullable<String>.value("otherCode"),
+            foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
+            autoDebtReminder: true,
+            lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
+            firstCallDate: Nullable<String>.value("firstCallDate"),
+            lastCallDate: Nullable<String>.value("lastCallDate"),
+            nextCallDate: Nullable<String>.value("nextCallDate"),
+            rating: Nullable<Int64>.value(1000000),
+            isEmployee: true,
+            isGroupMember: true,
+            isActive: true,
+            legalCountryClass: Nullable<PostV1PartnersCreateResponseLegalCountryClass>.value(.lt),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1613,11 +2261,37 @@ import Api
                     "address": {
                       "street": "street",
                       "city": "city",
+                      "municipality": "municipality",
+                      "county": "county",
+                      "postalCode": "postalCode",
+                      "countryCode": "countryCode"
+                    },
+                    "correspondenceAddress": {
+                      "street": "street",
+                      "city": "city",
+                      "municipality": "municipality",
+                      "county": "county",
                       "postalCode": "postalCode",
                       "countryCode": "countryCode"
                     },
                     "notes": "notes",
                     "documentRef": "documentRef",
+                    "shortName": "shortName",
+                    "website": "website",
+                    "fax": "fax",
+                    "eoriCode": "eoriCode",
+                    "otherCode": "otherCode",
+                    "foreignTaxNumber": "foreignTaxNumber",
+                    "autoDebtReminder": true,
+                    "lateInterestPercent": "lateInterestPercent",
+                    "firstCallDate": "firstCallDate",
+                    "lastCallDate": "lastCallDate",
+                    "nextCallDate": "nextCallDate",
+                    "rating": 1000000,
+                    "isEmployee": true,
+                    "isGroupMember": true,
+                    "isActive": true,
+                    "legalCountryClass": "lt",
                     "createdAt": "createdAt",
                     "updatedAt": "updatedAt"
                   }
@@ -1655,11 +2329,37 @@ import Api
                 address: Nullable<PostV1PartnersFindOrCreateResponsePartnerAddress>.value(PostV1PartnersFindOrCreateResponsePartnerAddress(
                     street: Optional("street"),
                     city: Optional("city"),
+                    municipality: Optional("municipality"),
+                    county: Optional("county"),
+                    postalCode: Optional("postalCode"),
+                    countryCode: Optional("countryCode")
+                )),
+                correspondenceAddress: Nullable<PostV1PartnersFindOrCreateResponsePartnerCorrespondenceAddress>.value(PostV1PartnersFindOrCreateResponsePartnerCorrespondenceAddress(
+                    street: Optional("street"),
+                    city: Optional("city"),
+                    municipality: Optional("municipality"),
+                    county: Optional("county"),
                     postalCode: Optional("postalCode"),
                     countryCode: Optional("countryCode")
                 )),
                 notes: Nullable<String>.value("notes"),
                 documentRef: Nullable<String>.value("documentRef"),
+                shortName: Nullable<String>.value("shortName"),
+                website: Nullable<String>.value("website"),
+                fax: Nullable<String>.value("fax"),
+                eoriCode: Nullable<String>.value("eoriCode"),
+                otherCode: Nullable<String>.value("otherCode"),
+                foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
+                autoDebtReminder: true,
+                lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
+                firstCallDate: Nullable<String>.value("firstCallDate"),
+                lastCallDate: Nullable<String>.value("lastCallDate"),
+                nextCallDate: Nullable<String>.value("nextCallDate"),
+                rating: Nullable<Int64>.value(1000000),
+                isEmployee: true,
+                isGroupMember: true,
+                isActive: true,
+                legalCountryClass: Nullable<PostV1PartnersFindOrCreateResponsePartnerLegalCountryClass>.value(.lt),
                 createdAt: "createdAt",
                 updatedAt: "updatedAt"
             )
@@ -1701,11 +2401,37 @@ import Api
                     "address": {
                       "street": "street",
                       "city": "city",
+                      "municipality": "municipality",
+                      "county": "county",
+                      "postalCode": "postalCode",
+                      "countryCode": "xy"
+                    },
+                    "correspondenceAddress": {
+                      "street": "street",
+                      "city": "city",
+                      "municipality": "municipality",
+                      "county": "county",
                       "postalCode": "postalCode",
                       "countryCode": "xy"
                     },
                     "notes": "notes",
                     "documentRef": "documentRef",
+                    "shortName": "shortName",
+                    "website": "website",
+                    "fax": "fax",
+                    "eoriCode": "eoriCode",
+                    "otherCode": "otherCode",
+                    "foreignTaxNumber": "foreignTaxNumber",
+                    "autoDebtReminder": true,
+                    "lateInterestPercent": "lateInterestPercent",
+                    "firstCallDate": "firstCallDate",
+                    "lastCallDate": "lastCallDate",
+                    "nextCallDate": "nextCallDate",
+                    "rating": 1000000,
+                    "isEmployee": true,
+                    "isGroupMember": true,
+                    "isActive": true,
+                    "legalCountryClass": "lt",
                     "createdAt": "createdAt",
                     "updatedAt": "updatedAt"
                   }
@@ -1743,11 +2469,37 @@ import Api
                 address: Nullable<PostV1PartnersFindOrCreateResponsePartnerAddress>.value(PostV1PartnersFindOrCreateResponsePartnerAddress(
                     street: Optional("street"),
                     city: Optional("city"),
+                    municipality: Optional("municipality"),
+                    county: Optional("county"),
+                    postalCode: Optional("postalCode"),
+                    countryCode: Optional("xy")
+                )),
+                correspondenceAddress: Nullable<PostV1PartnersFindOrCreateResponsePartnerCorrespondenceAddress>.value(PostV1PartnersFindOrCreateResponsePartnerCorrespondenceAddress(
+                    street: Optional("street"),
+                    city: Optional("city"),
+                    municipality: Optional("municipality"),
+                    county: Optional("county"),
                     postalCode: Optional("postalCode"),
                     countryCode: Optional("xy")
                 )),
                 notes: Nullable<String>.value("notes"),
                 documentRef: Nullable<String>.value("documentRef"),
+                shortName: Nullable<String>.value("shortName"),
+                website: Nullable<String>.value("website"),
+                fax: Nullable<String>.value("fax"),
+                eoriCode: Nullable<String>.value("eoriCode"),
+                otherCode: Nullable<String>.value("otherCode"),
+                foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
+                autoDebtReminder: true,
+                lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
+                firstCallDate: Nullable<String>.value("firstCallDate"),
+                lastCallDate: Nullable<String>.value("lastCallDate"),
+                nextCallDate: Nullable<String>.value("nextCallDate"),
+                rating: Nullable<Int64>.value(1000000),
+                isEmployee: true,
+                isGroupMember: true,
+                isActive: true,
+                legalCountryClass: Nullable<PostV1PartnersFindOrCreateResponsePartnerLegalCountryClass>.value(.lt),
                 createdAt: "createdAt",
                 updatedAt: "updatedAt"
             )
@@ -1787,11 +2539,37 @@ import Api
                   "address": {
                     "street": "street",
                     "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
+                    "postalCode": "postalCode",
+                    "countryCode": "countryCode"
+                  },
+                  "correspondenceAddress": {
+                    "street": "street",
+                    "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
                     "postalCode": "postalCode",
                     "countryCode": "countryCode"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "shortName": "shortName",
+                  "website": "website",
+                  "fax": "fax",
+                  "eoriCode": "eoriCode",
+                  "otherCode": "otherCode",
+                  "foreignTaxNumber": "foreignTaxNumber",
+                  "autoDebtReminder": true,
+                  "lateInterestPercent": "lateInterestPercent",
+                  "firstCallDate": "firstCallDate",
+                  "lastCallDate": "lastCallDate",
+                  "nextCallDate": "nextCallDate",
+                  "rating": 1000000,
+                  "isEmployee": true,
+                  "isGroupMember": true,
+                  "isActive": true,
+                  "legalCountryClass": "lt",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1826,11 +2604,37 @@ import Api
             address: Nullable<PostV1PartnersGetResponseAddress>.value(PostV1PartnersGetResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
+                municipality: Optional("municipality"),
+                county: Optional("county"),
+                postalCode: Optional("postalCode"),
+                countryCode: Optional("countryCode")
+            )),
+            correspondenceAddress: Nullable<PostV1PartnersGetResponseCorrespondenceAddress>.value(PostV1PartnersGetResponseCorrespondenceAddress(
+                street: Optional("street"),
+                city: Optional("city"),
+                municipality: Optional("municipality"),
+                county: Optional("county"),
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("countryCode")
             )),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            shortName: Nullable<String>.value("shortName"),
+            website: Nullable<String>.value("website"),
+            fax: Nullable<String>.value("fax"),
+            eoriCode: Nullable<String>.value("eoriCode"),
+            otherCode: Nullable<String>.value("otherCode"),
+            foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
+            autoDebtReminder: true,
+            lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
+            firstCallDate: Nullable<String>.value("firstCallDate"),
+            lastCallDate: Nullable<String>.value("lastCallDate"),
+            nextCallDate: Nullable<String>.value("nextCallDate"),
+            rating: Nullable<Int64>.value(1000000),
+            isEmployee: true,
+            isGroupMember: true,
+            isActive: true,
+            legalCountryClass: Nullable<PostV1PartnersGetResponseLegalCountryClass>.value(.lt),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1869,11 +2673,37 @@ import Api
                   "address": {
                     "street": "street",
                     "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
+                    "postalCode": "postalCode",
+                    "countryCode": "xy"
+                  },
+                  "correspondenceAddress": {
+                    "street": "street",
+                    "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
                     "postalCode": "postalCode",
                     "countryCode": "xy"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "shortName": "shortName",
+                  "website": "website",
+                  "fax": "fax",
+                  "eoriCode": "eoriCode",
+                  "otherCode": "otherCode",
+                  "foreignTaxNumber": "foreignTaxNumber",
+                  "autoDebtReminder": true,
+                  "lateInterestPercent": "lateInterestPercent",
+                  "firstCallDate": "firstCallDate",
+                  "lastCallDate": "lastCallDate",
+                  "nextCallDate": "nextCallDate",
+                  "rating": 1000000,
+                  "isEmployee": true,
+                  "isGroupMember": true,
+                  "isActive": true,
+                  "legalCountryClass": "lt",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1908,11 +2738,37 @@ import Api
             address: Nullable<PostV1PartnersGetResponseAddress>.value(PostV1PartnersGetResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
+                municipality: Optional("municipality"),
+                county: Optional("county"),
+                postalCode: Optional("postalCode"),
+                countryCode: Optional("xy")
+            )),
+            correspondenceAddress: Nullable<PostV1PartnersGetResponseCorrespondenceAddress>.value(PostV1PartnersGetResponseCorrespondenceAddress(
+                street: Optional("street"),
+                city: Optional("city"),
+                municipality: Optional("municipality"),
+                county: Optional("county"),
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("xy")
             )),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            shortName: Nullable<String>.value("shortName"),
+            website: Nullable<String>.value("website"),
+            fax: Nullable<String>.value("fax"),
+            eoriCode: Nullable<String>.value("eoriCode"),
+            otherCode: Nullable<String>.value("otherCode"),
+            foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
+            autoDebtReminder: true,
+            lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
+            firstCallDate: Nullable<String>.value("firstCallDate"),
+            lastCallDate: Nullable<String>.value("lastCallDate"),
+            nextCallDate: Nullable<String>.value("nextCallDate"),
+            rating: Nullable<Int64>.value(1000000),
+            isEmployee: true,
+            isGroupMember: true,
+            isActive: true,
+            legalCountryClass: Nullable<PostV1PartnersGetResponseLegalCountryClass>.value(.lt),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1951,11 +2807,37 @@ import Api
                   "address": {
                     "street": "street",
                     "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
+                    "postalCode": "postalCode",
+                    "countryCode": "countryCode"
+                  },
+                  "correspondenceAddress": {
+                    "street": "street",
+                    "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
                     "postalCode": "postalCode",
                     "countryCode": "countryCode"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "shortName": "shortName",
+                  "website": "website",
+                  "fax": "fax",
+                  "eoriCode": "eoriCode",
+                  "otherCode": "otherCode",
+                  "foreignTaxNumber": "foreignTaxNumber",
+                  "autoDebtReminder": true,
+                  "lateInterestPercent": "lateInterestPercent",
+                  "firstCallDate": "firstCallDate",
+                  "lastCallDate": "lastCallDate",
+                  "nextCallDate": "nextCallDate",
+                  "rating": 1000000,
+                  "isEmployee": true,
+                  "isGroupMember": true,
+                  "isActive": true,
+                  "legalCountryClass": "lt",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1990,11 +2872,37 @@ import Api
             address: Nullable<PostV1PartnersUpdateResponseAddress>.value(PostV1PartnersUpdateResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
+                municipality: Optional("municipality"),
+                county: Optional("county"),
+                postalCode: Optional("postalCode"),
+                countryCode: Optional("countryCode")
+            )),
+            correspondenceAddress: Nullable<PostV1PartnersUpdateResponseCorrespondenceAddress>.value(PostV1PartnersUpdateResponseCorrespondenceAddress(
+                street: Optional("street"),
+                city: Optional("city"),
+                municipality: Optional("municipality"),
+                county: Optional("county"),
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("countryCode")
             )),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            shortName: Nullable<String>.value("shortName"),
+            website: Nullable<String>.value("website"),
+            fax: Nullable<String>.value("fax"),
+            eoriCode: Nullable<String>.value("eoriCode"),
+            otherCode: Nullable<String>.value("otherCode"),
+            foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
+            autoDebtReminder: true,
+            lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
+            firstCallDate: Nullable<String>.value("firstCallDate"),
+            lastCallDate: Nullable<String>.value("lastCallDate"),
+            nextCallDate: Nullable<String>.value("nextCallDate"),
+            rating: Nullable<Int64>.value(1000000),
+            isEmployee: true,
+            isGroupMember: true,
+            isActive: true,
+            legalCountryClass: Nullable<PostV1PartnersUpdateResponseLegalCountryClass>.value(.lt),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -2033,11 +2941,37 @@ import Api
                   "address": {
                     "street": "street",
                     "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
+                    "postalCode": "postalCode",
+                    "countryCode": "xy"
+                  },
+                  "correspondenceAddress": {
+                    "street": "street",
+                    "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
                     "postalCode": "postalCode",
                     "countryCode": "xy"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "shortName": "shortName",
+                  "website": "website",
+                  "fax": "fax",
+                  "eoriCode": "eoriCode",
+                  "otherCode": "otherCode",
+                  "foreignTaxNumber": "foreignTaxNumber",
+                  "autoDebtReminder": true,
+                  "lateInterestPercent": "lateInterestPercent",
+                  "firstCallDate": "firstCallDate",
+                  "lastCallDate": "lastCallDate",
+                  "nextCallDate": "nextCallDate",
+                  "rating": 1000000,
+                  "isEmployee": true,
+                  "isGroupMember": true,
+                  "isActive": true,
+                  "legalCountryClass": "lt",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -2072,11 +3006,37 @@ import Api
             address: Nullable<PostV1PartnersUpdateResponseAddress>.value(PostV1PartnersUpdateResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
+                municipality: Optional("municipality"),
+                county: Optional("county"),
+                postalCode: Optional("postalCode"),
+                countryCode: Optional("xy")
+            )),
+            correspondenceAddress: Nullable<PostV1PartnersUpdateResponseCorrespondenceAddress>.value(PostV1PartnersUpdateResponseCorrespondenceAddress(
+                street: Optional("street"),
+                city: Optional("city"),
+                municipality: Optional("municipality"),
+                county: Optional("county"),
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("xy")
             )),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            shortName: Nullable<String>.value("shortName"),
+            website: Nullable<String>.value("website"),
+            fax: Nullable<String>.value("fax"),
+            eoriCode: Nullable<String>.value("eoriCode"),
+            otherCode: Nullable<String>.value("otherCode"),
+            foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
+            autoDebtReminder: true,
+            lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
+            firstCallDate: Nullable<String>.value("firstCallDate"),
+            lastCallDate: Nullable<String>.value("lastCallDate"),
+            nextCallDate: Nullable<String>.value("nextCallDate"),
+            rating: Nullable<Int64>.value(1000000),
+            isEmployee: true,
+            isGroupMember: true,
+            isActive: true,
+            legalCountryClass: Nullable<PostV1PartnersUpdateResponseLegalCountryClass>.value(.lt),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -2223,15 +3183,35 @@ import Api
                       "vatValid": true,
                       "vatValidatedAt": "vatValidatedAt",
                       "address": {},
+                      "correspondenceAddress": {},
                       "notes": "notes",
                       "documentRef": "documentRef",
+                      "shortName": "shortName",
+                      "website": "website",
+                      "fax": "fax",
+                      "eoriCode": "eoriCode",
+                      "otherCode": "otherCode",
+                      "foreignTaxNumber": "foreignTaxNumber",
+                      "autoDebtReminder": true,
+                      "lateInterestPercent": "lateInterestPercent",
+                      "firstCallDate": "firstCallDate",
+                      "lastCallDate": "lastCallDate",
+                      "nextCallDate": "nextCallDate",
+                      "rating": 1000000,
+                      "isEmployee": true,
+                      "isGroupMember": true,
+                      "isActive": true,
+                      "legalCountryClass": "lt",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -2266,15 +3246,37 @@ import Api
                     address: Nullable<PostV1PartnersListResponseRowsItemAddress>.value(PostV1PartnersListResponseRowsItemAddress(
 
                     )),
+                    correspondenceAddress: Nullable<PostV1PartnersListResponseRowsItemCorrespondenceAddress>.value(PostV1PartnersListResponseRowsItemCorrespondenceAddress(
+
+                    )),
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
+                    shortName: Nullable<String>.value("shortName"),
+                    website: Nullable<String>.value("website"),
+                    fax: Nullable<String>.value("fax"),
+                    eoriCode: Nullable<String>.value("eoriCode"),
+                    otherCode: Nullable<String>.value("otherCode"),
+                    foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
+                    autoDebtReminder: true,
+                    lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
+                    firstCallDate: Nullable<String>.value("firstCallDate"),
+                    lastCallDate: Nullable<String>.value("lastCallDate"),
+                    nextCallDate: Nullable<String>.value("nextCallDate"),
+                    rating: Nullable<Int64>.value(1000000),
+                    isEmployee: true,
+                    isGroupMember: true,
+                    isActive: true,
+                    legalCountryClass: Nullable<PostV1PartnersListResponseRowsItemLegalCountryClass>.value(.lt),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.partners.postV1PartnersList(
             request: .init(),
@@ -2313,11 +3315,37 @@ import Api
                       "address": {
                         "street": "street",
                         "city": "city",
+                        "municipality": "municipality",
+                        "county": "county",
+                        "postalCode": "postalCode",
+                        "countryCode": "xy"
+                      },
+                      "correspondenceAddress": {
+                        "street": "street",
+                        "city": "city",
+                        "municipality": "municipality",
+                        "county": "county",
                         "postalCode": "postalCode",
                         "countryCode": "xy"
                       },
                       "notes": "notes",
                       "documentRef": "documentRef",
+                      "shortName": "shortName",
+                      "website": "website",
+                      "fax": "fax",
+                      "eoriCode": "eoriCode",
+                      "otherCode": "otherCode",
+                      "foreignTaxNumber": "foreignTaxNumber",
+                      "autoDebtReminder": true,
+                      "lateInterestPercent": "lateInterestPercent",
+                      "firstCallDate": "firstCallDate",
+                      "lastCallDate": "lastCallDate",
+                      "nextCallDate": "nextCallDate",
+                      "rating": 1000000,
+                      "isEmployee": true,
+                      "isGroupMember": true,
+                      "isActive": true,
+                      "legalCountryClass": "lt",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     },
@@ -2344,18 +3372,47 @@ import Api
                       "address": {
                         "street": "street",
                         "city": "city",
+                        "municipality": "municipality",
+                        "county": "county",
+                        "postalCode": "postalCode",
+                        "countryCode": "xy"
+                      },
+                      "correspondenceAddress": {
+                        "street": "street",
+                        "city": "city",
+                        "municipality": "municipality",
+                        "county": "county",
                         "postalCode": "postalCode",
                         "countryCode": "xy"
                       },
                       "notes": "notes",
                       "documentRef": "documentRef",
+                      "shortName": "shortName",
+                      "website": "website",
+                      "fax": "fax",
+                      "eoriCode": "eoriCode",
+                      "otherCode": "otherCode",
+                      "foreignTaxNumber": "foreignTaxNumber",
+                      "autoDebtReminder": true,
+                      "lateInterestPercent": "lateInterestPercent",
+                      "firstCallDate": "firstCallDate",
+                      "lastCallDate": "lastCallDate",
+                      "nextCallDate": "nextCallDate",
+                      "rating": 1000000,
+                      "isEmployee": true,
+                      "isGroupMember": true,
+                      "isActive": true,
+                      "legalCountryClass": "lt",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -2390,11 +3447,37 @@ import Api
                     address: Nullable<PostV1PartnersListResponseRowsItemAddress>.value(PostV1PartnersListResponseRowsItemAddress(
                         street: Optional("street"),
                         city: Optional("city"),
+                        municipality: Optional("municipality"),
+                        county: Optional("county"),
+                        postalCode: Optional("postalCode"),
+                        countryCode: Optional("xy")
+                    )),
+                    correspondenceAddress: Nullable<PostV1PartnersListResponseRowsItemCorrespondenceAddress>.value(PostV1PartnersListResponseRowsItemCorrespondenceAddress(
+                        street: Optional("street"),
+                        city: Optional("city"),
+                        municipality: Optional("municipality"),
+                        county: Optional("county"),
                         postalCode: Optional("postalCode"),
                         countryCode: Optional("xy")
                     )),
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
+                    shortName: Nullable<String>.value("shortName"),
+                    website: Nullable<String>.value("website"),
+                    fax: Nullable<String>.value("fax"),
+                    eoriCode: Nullable<String>.value("eoriCode"),
+                    otherCode: Nullable<String>.value("otherCode"),
+                    foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
+                    autoDebtReminder: true,
+                    lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
+                    firstCallDate: Nullable<String>.value("firstCallDate"),
+                    lastCallDate: Nullable<String>.value("lastCallDate"),
+                    nextCallDate: Nullable<String>.value("nextCallDate"),
+                    rating: Nullable<Int64>.value(1000000),
+                    isEmployee: true,
+                    isGroupMember: true,
+                    isActive: true,
+                    legalCountryClass: Nullable<PostV1PartnersListResponseRowsItemLegalCountryClass>.value(.lt),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 ),
@@ -2421,18 +3504,47 @@ import Api
                     address: Nullable<PostV1PartnersListResponseRowsItemAddress>.value(PostV1PartnersListResponseRowsItemAddress(
                         street: Optional("street"),
                         city: Optional("city"),
+                        municipality: Optional("municipality"),
+                        county: Optional("county"),
+                        postalCode: Optional("postalCode"),
+                        countryCode: Optional("xy")
+                    )),
+                    correspondenceAddress: Nullable<PostV1PartnersListResponseRowsItemCorrespondenceAddress>.value(PostV1PartnersListResponseRowsItemCorrespondenceAddress(
+                        street: Optional("street"),
+                        city: Optional("city"),
+                        municipality: Optional("municipality"),
+                        county: Optional("county"),
                         postalCode: Optional("postalCode"),
                         countryCode: Optional("xy")
                     )),
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
+                    shortName: Nullable<String>.value("shortName"),
+                    website: Nullable<String>.value("website"),
+                    fax: Nullable<String>.value("fax"),
+                    eoriCode: Nullable<String>.value("eoriCode"),
+                    otherCode: Nullable<String>.value("otherCode"),
+                    foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
+                    autoDebtReminder: true,
+                    lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
+                    firstCallDate: Nullable<String>.value("firstCallDate"),
+                    lastCallDate: Nullable<String>.value("lastCallDate"),
+                    nextCallDate: Nullable<String>.value("nextCallDate"),
+                    rating: Nullable<Int64>.value(1000000),
+                    isEmployee: true,
+                    isGroupMember: true,
+                    isActive: true,
+                    legalCountryClass: Nullable<PostV1PartnersListResponseRowsItemLegalCountryClass>.value(.lt),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.partners.postV1PartnersList(
             request: .init(),
@@ -3362,7 +4474,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -3394,7 +4509,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.partners.postV1PartnersInquiriesList(
             request: .init(),
@@ -3447,7 +4565,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -3496,7 +4617,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.partners.postV1PartnersInquiriesList(
             request: .init(),
@@ -3580,6 +4704,1424 @@ import Api
         )
         let response = try await client.partners.postV1PartnersCreditCheck(
             request: .init(partnerId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "contactName": "contactName",
+                  "email": "email",
+                  "phone": "phone",
+                  "website": "website",
+                  "countryCode": "countryCode",
+                  "sourceId": "sourceId",
+                  "sourceName": "sourceName",
+                  "status": "new",
+                  "estimatedValue": "estimatedValue",
+                  "currency": "currency",
+                  "description": "description",
+                  "assignedUserId": "assignedUserId",
+                  "partnerId": "partnerId",
+                  "convertedAt": "convertedAt",
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsCreateResponse(
+            id: "id",
+            name: "name",
+            contactName: Nullable<String>.value("contactName"),
+            email: Nullable<String>.value("email"),
+            phone: Nullable<String>.value("phone"),
+            website: Nullable<String>.value("website"),
+            countryCode: Nullable<String>.value("countryCode"),
+            sourceId: Nullable<String>.value("sourceId"),
+            sourceName: Nullable<String>.value("sourceName"),
+            status: .new,
+            estimatedValue: Nullable<String>.value("estimatedValue"),
+            currency: "currency",
+            description: Nullable<String>.value("description"),
+            assignedUserId: Nullable<String>.value("assignedUserId"),
+            partnerId: Nullable<String>.value("partnerId"),
+            convertedAt: Nullable<String>.value("convertedAt"),
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.partners.postV1LeadsCreate(
+            request: .init(name: "name"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "contactName": "contactName",
+                  "email": "email",
+                  "phone": "phone",
+                  "website": "website",
+                  "countryCode": "countryCode",
+                  "sourceId": "x",
+                  "sourceName": "sourceName",
+                  "status": "new",
+                  "estimatedValue": "estimatedValue",
+                  "currency": "currency",
+                  "description": "description",
+                  "assignedUserId": "x",
+                  "partnerId": "x",
+                  "convertedAt": "convertedAt",
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsCreateResponse(
+            id: "x",
+            name: "name",
+            contactName: Nullable<String>.value("contactName"),
+            email: Nullable<String>.value("email"),
+            phone: Nullable<String>.value("phone"),
+            website: Nullable<String>.value("website"),
+            countryCode: Nullable<String>.value("countryCode"),
+            sourceId: Nullable<String>.value("x"),
+            sourceName: Nullable<String>.value("sourceName"),
+            status: .new,
+            estimatedValue: Nullable<String>.value("estimatedValue"),
+            currency: "currency",
+            description: Nullable<String>.value("description"),
+            assignedUserId: Nullable<String>.value("x"),
+            partnerId: Nullable<String>.value("x"),
+            convertedAt: Nullable<String>.value("convertedAt"),
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.partners.postV1LeadsCreate(
+            request: .init(name: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "contactName": "contactName",
+                  "email": "email",
+                  "phone": "phone",
+                  "website": "website",
+                  "countryCode": "countryCode",
+                  "sourceId": "sourceId",
+                  "sourceName": "sourceName",
+                  "status": "new",
+                  "estimatedValue": "estimatedValue",
+                  "currency": "currency",
+                  "description": "description",
+                  "assignedUserId": "assignedUserId",
+                  "partnerId": "partnerId",
+                  "convertedAt": "convertedAt",
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsGetResponse(
+            id: "id",
+            name: "name",
+            contactName: Nullable<String>.value("contactName"),
+            email: Nullable<String>.value("email"),
+            phone: Nullable<String>.value("phone"),
+            website: Nullable<String>.value("website"),
+            countryCode: Nullable<String>.value("countryCode"),
+            sourceId: Nullable<String>.value("sourceId"),
+            sourceName: Nullable<String>.value("sourceName"),
+            status: .new,
+            estimatedValue: Nullable<String>.value("estimatedValue"),
+            currency: "currency",
+            description: Nullable<String>.value("description"),
+            assignedUserId: Nullable<String>.value("assignedUserId"),
+            partnerId: Nullable<String>.value("partnerId"),
+            convertedAt: Nullable<String>.value("convertedAt"),
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.partners.postV1LeadsGet(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "contactName": "contactName",
+                  "email": "email",
+                  "phone": "phone",
+                  "website": "website",
+                  "countryCode": "countryCode",
+                  "sourceId": "x",
+                  "sourceName": "sourceName",
+                  "status": "new",
+                  "estimatedValue": "estimatedValue",
+                  "currency": "currency",
+                  "description": "description",
+                  "assignedUserId": "x",
+                  "partnerId": "x",
+                  "convertedAt": "convertedAt",
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsGetResponse(
+            id: "x",
+            name: "name",
+            contactName: Nullable<String>.value("contactName"),
+            email: Nullable<String>.value("email"),
+            phone: Nullable<String>.value("phone"),
+            website: Nullable<String>.value("website"),
+            countryCode: Nullable<String>.value("countryCode"),
+            sourceId: Nullable<String>.value("x"),
+            sourceName: Nullable<String>.value("sourceName"),
+            status: .new,
+            estimatedValue: Nullable<String>.value("estimatedValue"),
+            currency: "currency",
+            description: Nullable<String>.value("description"),
+            assignedUserId: Nullable<String>.value("x"),
+            partnerId: Nullable<String>.value("x"),
+            convertedAt: Nullable<String>.value("convertedAt"),
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.partners.postV1LeadsGet(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "contactName": "contactName",
+                  "email": "email",
+                  "phone": "phone",
+                  "website": "website",
+                  "countryCode": "countryCode",
+                  "sourceId": "sourceId",
+                  "sourceName": "sourceName",
+                  "status": "new",
+                  "estimatedValue": "estimatedValue",
+                  "currency": "currency",
+                  "description": "description",
+                  "assignedUserId": "assignedUserId",
+                  "partnerId": "partnerId",
+                  "convertedAt": "convertedAt",
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsUpdateResponse(
+            id: "id",
+            name: "name",
+            contactName: Nullable<String>.value("contactName"),
+            email: Nullable<String>.value("email"),
+            phone: Nullable<String>.value("phone"),
+            website: Nullable<String>.value("website"),
+            countryCode: Nullable<String>.value("countryCode"),
+            sourceId: Nullable<String>.value("sourceId"),
+            sourceName: Nullable<String>.value("sourceName"),
+            status: .new,
+            estimatedValue: Nullable<String>.value("estimatedValue"),
+            currency: "currency",
+            description: Nullable<String>.value("description"),
+            assignedUserId: Nullable<String>.value("assignedUserId"),
+            partnerId: Nullable<String>.value("partnerId"),
+            convertedAt: Nullable<String>.value("convertedAt"),
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.partners.postV1LeadsUpdate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "contactName": "contactName",
+                  "email": "email",
+                  "phone": "phone",
+                  "website": "website",
+                  "countryCode": "countryCode",
+                  "sourceId": "x",
+                  "sourceName": "sourceName",
+                  "status": "new",
+                  "estimatedValue": "estimatedValue",
+                  "currency": "currency",
+                  "description": "description",
+                  "assignedUserId": "x",
+                  "partnerId": "x",
+                  "convertedAt": "convertedAt",
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsUpdateResponse(
+            id: "x",
+            name: "name",
+            contactName: Nullable<String>.value("contactName"),
+            email: Nullable<String>.value("email"),
+            phone: Nullable<String>.value("phone"),
+            website: Nullable<String>.value("website"),
+            countryCode: Nullable<String>.value("countryCode"),
+            sourceId: Nullable<String>.value("x"),
+            sourceName: Nullable<String>.value("sourceName"),
+            status: .new,
+            estimatedValue: Nullable<String>.value("estimatedValue"),
+            currency: "currency",
+            description: Nullable<String>.value("description"),
+            assignedUserId: Nullable<String>.value("x"),
+            partnerId: Nullable<String>.value("x"),
+            convertedAt: Nullable<String>.value("convertedAt"),
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.partners.postV1LeadsUpdate(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsDeleteResponse(
+            id: "id"
+        )
+        let response = try await client.partners.postV1LeadsDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsDeleteResponse(
+            id: "x"
+        )
+        let response = try await client.partners.postV1LeadsDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "name": "name",
+                      "contactName": "contactName",
+                      "email": "email",
+                      "phone": "phone",
+                      "website": "website",
+                      "countryCode": "countryCode",
+                      "sourceId": "sourceId",
+                      "sourceName": "sourceName",
+                      "status": "new",
+                      "estimatedValue": "estimatedValue",
+                      "currency": "currency",
+                      "description": "description",
+                      "assignedUserId": "assignedUserId",
+                      "partnerId": "partnerId",
+                      "convertedAt": "convertedAt",
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsListResponse(
+            rows: [
+                PostV1LeadsListResponseRowsItem(
+                    id: "id",
+                    name: "name",
+                    contactName: Nullable<String>.value("contactName"),
+                    email: Nullable<String>.value("email"),
+                    phone: Nullable<String>.value("phone"),
+                    website: Nullable<String>.value("website"),
+                    countryCode: Nullable<String>.value("countryCode"),
+                    sourceId: Nullable<String>.value("sourceId"),
+                    sourceName: Nullable<String>.value("sourceName"),
+                    status: .new,
+                    estimatedValue: Nullable<String>.value("estimatedValue"),
+                    currency: "currency",
+                    description: Nullable<String>.value("description"),
+                    assignedUserId: Nullable<String>.value("assignedUserId"),
+                    partnerId: Nullable<String>.value("partnerId"),
+                    convertedAt: Nullable<String>.value("convertedAt"),
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
+        )
+        let response = try await client.partners.postV1LeadsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "contactName": "contactName",
+                      "email": "email",
+                      "phone": "phone",
+                      "website": "website",
+                      "countryCode": "countryCode",
+                      "sourceId": "x",
+                      "sourceName": "sourceName",
+                      "status": "new",
+                      "estimatedValue": "estimatedValue",
+                      "currency": "currency",
+                      "description": "description",
+                      "assignedUserId": "x",
+                      "partnerId": "x",
+                      "convertedAt": "convertedAt",
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    },
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "contactName": "contactName",
+                      "email": "email",
+                      "phone": "phone",
+                      "website": "website",
+                      "countryCode": "countryCode",
+                      "sourceId": "x",
+                      "sourceName": "sourceName",
+                      "status": "new",
+                      "estimatedValue": "estimatedValue",
+                      "currency": "currency",
+                      "description": "description",
+                      "assignedUserId": "x",
+                      "partnerId": "x",
+                      "convertedAt": "convertedAt",
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsListResponse(
+            rows: [
+                PostV1LeadsListResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    contactName: Nullable<String>.value("contactName"),
+                    email: Nullable<String>.value("email"),
+                    phone: Nullable<String>.value("phone"),
+                    website: Nullable<String>.value("website"),
+                    countryCode: Nullable<String>.value("countryCode"),
+                    sourceId: Nullable<String>.value("x"),
+                    sourceName: Nullable<String>.value("sourceName"),
+                    status: .new,
+                    estimatedValue: Nullable<String>.value("estimatedValue"),
+                    currency: "currency",
+                    description: Nullable<String>.value("description"),
+                    assignedUserId: Nullable<String>.value("x"),
+                    partnerId: Nullable<String>.value("x"),
+                    convertedAt: Nullable<String>.value("convertedAt"),
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                ),
+                PostV1LeadsListResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    contactName: Nullable<String>.value("contactName"),
+                    email: Nullable<String>.value("email"),
+                    phone: Nullable<String>.value("phone"),
+                    website: Nullable<String>.value("website"),
+                    countryCode: Nullable<String>.value("countryCode"),
+                    sourceId: Nullable<String>.value("x"),
+                    sourceName: Nullable<String>.value("sourceName"),
+                    status: .new,
+                    estimatedValue: Nullable<String>.value("estimatedValue"),
+                    currency: "currency",
+                    description: Nullable<String>.value("description"),
+                    assignedUserId: Nullable<String>.value("x"),
+                    partnerId: Nullable<String>.value("x"),
+                    convertedAt: Nullable<String>.value("convertedAt"),
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
+        )
+        let response = try await client.partners.postV1LeadsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsNotesCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "leadId": "leadId",
+                  "body": "body",
+                  "authorId": "authorId",
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsNotesCreateResponse(
+            id: "id",
+            leadId: "leadId",
+            body: "body",
+            authorId: Nullable<String>.value("authorId"),
+            createdAt: "createdAt"
+        )
+        let response = try await client.partners.postV1LeadsNotesCreate(
+            request: .init(
+                leadId: "leadId",
+                body: "body"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsNotesCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "leadId": "x",
+                  "body": "body",
+                  "authorId": "authorId",
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsNotesCreateResponse(
+            id: "x",
+            leadId: "x",
+            body: "body",
+            authorId: Nullable<String>.value("authorId"),
+            createdAt: "createdAt"
+        )
+        let response = try await client.partners.postV1LeadsNotesCreate(
+            request: .init(
+                leadId: "x",
+                body: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsNotesDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsNotesDeleteResponse(
+            id: "id"
+        )
+        let response = try await client.partners.postV1LeadsNotesDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsNotesDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsNotesDeleteResponse(
+            id: "x"
+        )
+        let response = try await client.partners.postV1LeadsNotesDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsNotesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "leadId": "leadId",
+                      "body": "body",
+                      "authorId": "authorId",
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsNotesListResponse(
+            rows: [
+                PostV1LeadsNotesListResponseRowsItem(
+                    id: "id",
+                    leadId: "leadId",
+                    body: "body",
+                    authorId: Nullable<String>.value("authorId"),
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.partners.postV1LeadsNotesList(
+            request: .init(leadId: "leadId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsNotesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "leadId": "x",
+                      "body": "body",
+                      "authorId": "authorId",
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "id": "x",
+                      "leadId": "x",
+                      "body": "body",
+                      "authorId": "authorId",
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsNotesListResponse(
+            rows: [
+                PostV1LeadsNotesListResponseRowsItem(
+                    id: "x",
+                    leadId: "x",
+                    body: "body",
+                    authorId: Nullable<String>.value("authorId"),
+                    createdAt: "createdAt"
+                ),
+                PostV1LeadsNotesListResponseRowsItem(
+                    id: "x",
+                    leadId: "x",
+                    body: "body",
+                    authorId: Nullable<String>.value("authorId"),
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.partners.postV1LeadsNotesList(
+            request: .init(leadId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsFilesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "fileName": "fileName",
+                      "mimeType": "mimeType",
+                      "sizeBytes": 1000000,
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsFilesListResponse(
+            rows: [
+                PostV1LeadsFilesListResponseRowsItem(
+                    id: "id",
+                    fileName: "fileName",
+                    mimeType: "mimeType",
+                    sizeBytes: 1000000,
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.partners.postV1LeadsFilesList(
+            request: .init(leadId: "leadId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsFilesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "fileName": "fileName",
+                      "mimeType": "mimeType",
+                      "sizeBytes": 1000000,
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "id": "x",
+                      "fileName": "fileName",
+                      "mimeType": "mimeType",
+                      "sizeBytes": 1000000,
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsFilesListResponse(
+            rows: [
+                PostV1LeadsFilesListResponseRowsItem(
+                    id: "x",
+                    fileName: "fileName",
+                    mimeType: "mimeType",
+                    sizeBytes: 1000000,
+                    createdAt: "createdAt"
+                ),
+                PostV1LeadsFilesListResponseRowsItem(
+                    id: "x",
+                    fileName: "fileName",
+                    mimeType: "mimeType",
+                    sizeBytes: 1000000,
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.partners.postV1LeadsFilesList(
+            request: .init(leadId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsSourcesCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "isActive": true,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsSourcesCreateResponse(
+            id: "id",
+            name: "name",
+            isActive: true,
+            createdAt: "createdAt"
+        )
+        let response = try await client.partners.postV1LeadsSourcesCreate(
+            request: .init(name: "name"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsSourcesCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "isActive": true,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsSourcesCreateResponse(
+            id: "x",
+            name: "name",
+            isActive: true,
+            createdAt: "createdAt"
+        )
+        let response = try await client.partners.postV1LeadsSourcesCreate(
+            request: .init(name: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsSourcesUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "isActive": true,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsSourcesUpdateResponse(
+            id: "id",
+            name: "name",
+            isActive: true,
+            createdAt: "createdAt"
+        )
+        let response = try await client.partners.postV1LeadsSourcesUpdate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsSourcesUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "isActive": true,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsSourcesUpdateResponse(
+            id: "x",
+            name: "name",
+            isActive: true,
+            createdAt: "createdAt"
+        )
+        let response = try await client.partners.postV1LeadsSourcesUpdate(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsSourcesDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsSourcesDeleteResponse(
+            id: "id"
+        )
+        let response = try await client.partners.postV1LeadsSourcesDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsSourcesDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsSourcesDeleteResponse(
+            id: "x"
+        )
+        let response = try await client.partners.postV1LeadsSourcesDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsSourcesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "name": "name",
+                      "isActive": true,
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsSourcesListResponse(
+            rows: [
+                PostV1LeadsSourcesListResponseRowsItem(
+                    id: "id",
+                    name: "name",
+                    isActive: true,
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.partners.postV1LeadsSourcesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsSourcesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "isActive": true,
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "isActive": true,
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsSourcesListResponse(
+            rows: [
+                PostV1LeadsSourcesListResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    isActive: true,
+                    createdAt: "createdAt"
+                ),
+                PostV1LeadsSourcesListResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    isActive: true,
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.partners.postV1LeadsSourcesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsSourcesOptions1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "name": "name"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsSourcesOptionsResponse(
+            rows: [
+                PostV1LeadsSourcesOptionsResponseRowsItem(
+                    id: "id",
+                    name: "name"
+                )
+            ]
+        )
+        let response = try await client.partners.postV1LeadsSourcesOptions(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsSourcesOptions2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "name": "name"
+                    },
+                    {
+                      "id": "x",
+                      "name": "name"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsSourcesOptionsResponse(
+            rows: [
+                PostV1LeadsSourcesOptionsResponseRowsItem(
+                    id: "x",
+                    name: "name"
+                ),
+                PostV1LeadsSourcesOptionsResponseRowsItem(
+                    id: "x",
+                    name: "name"
+                )
+            ]
+        )
+        let response = try await client.partners.postV1LeadsSourcesOptions(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsConvert1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "lead": {
+                    "id": "id",
+                    "name": "name",
+                    "contactName": "contactName",
+                    "email": "email",
+                    "phone": "phone",
+                    "website": "website",
+                    "countryCode": "countryCode",
+                    "sourceId": "sourceId",
+                    "sourceName": "sourceName",
+                    "status": "new",
+                    "estimatedValue": "estimatedValue",
+                    "currency": "currency",
+                    "description": "description",
+                    "assignedUserId": "assignedUserId",
+                    "partnerId": "partnerId",
+                    "convertedAt": "convertedAt",
+                    "createdAt": "createdAt",
+                    "updatedAt": "updatedAt"
+                  },
+                  "partnerId": "partnerId"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsConvertResponse(
+            lead: PostV1LeadsConvertResponseLead(
+                id: "id",
+                name: "name",
+                contactName: Nullable<String>.value("contactName"),
+                email: Nullable<String>.value("email"),
+                phone: Nullable<String>.value("phone"),
+                website: Nullable<String>.value("website"),
+                countryCode: Nullable<String>.value("countryCode"),
+                sourceId: Nullable<String>.value("sourceId"),
+                sourceName: Nullable<String>.value("sourceName"),
+                status: .new,
+                estimatedValue: Nullable<String>.value("estimatedValue"),
+                currency: "currency",
+                description: Nullable<String>.value("description"),
+                assignedUserId: Nullable<String>.value("assignedUserId"),
+                partnerId: Nullable<String>.value("partnerId"),
+                convertedAt: Nullable<String>.value("convertedAt"),
+                createdAt: "createdAt",
+                updatedAt: "updatedAt"
+            ),
+            partnerId: "partnerId"
+        )
+        let response = try await client.partners.postV1LeadsConvert(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1LeadsConvert2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "lead": {
+                    "id": "x",
+                    "name": "name",
+                    "contactName": "contactName",
+                    "email": "email",
+                    "phone": "phone",
+                    "website": "website",
+                    "countryCode": "countryCode",
+                    "sourceId": "x",
+                    "sourceName": "sourceName",
+                    "status": "new",
+                    "estimatedValue": "estimatedValue",
+                    "currency": "currency",
+                    "description": "description",
+                    "assignedUserId": "x",
+                    "partnerId": "x",
+                    "convertedAt": "convertedAt",
+                    "createdAt": "createdAt",
+                    "updatedAt": "updatedAt"
+                  },
+                  "partnerId": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LeadsConvertResponse(
+            lead: PostV1LeadsConvertResponseLead(
+                id: "x",
+                name: "name",
+                contactName: Nullable<String>.value("contactName"),
+                email: Nullable<String>.value("email"),
+                phone: Nullable<String>.value("phone"),
+                website: Nullable<String>.value("website"),
+                countryCode: Nullable<String>.value("countryCode"),
+                sourceId: Nullable<String>.value("x"),
+                sourceName: Nullable<String>.value("sourceName"),
+                status: .new,
+                estimatedValue: Nullable<String>.value("estimatedValue"),
+                currency: "currency",
+                description: Nullable<String>.value("description"),
+                assignedUserId: Nullable<String>.value("x"),
+                partnerId: Nullable<String>.value("x"),
+                convertedAt: Nullable<String>.value("convertedAt"),
+                createdAt: "createdAt",
+                updatedAt: "updatedAt"
+            ),
+            partnerId: "x"
+        )
+        let response = try await client.partners.postV1LeadsConvert(
+            request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

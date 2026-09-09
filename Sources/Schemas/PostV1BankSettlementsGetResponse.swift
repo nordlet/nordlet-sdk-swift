@@ -12,6 +12,7 @@ public struct PostV1BankSettlementsGetResponse: Codable, Hashable, Sendable {
     public let netTotal: String
     public let status: PostV1BankSettlementsGetResponseStatus
     public let journalTransactionId: Nullable<String>
+    public let bankTransactionId: Nullable<String>
     public let lineCount: Int64
     public let matchedCount: Int64
     public let unmatchedCount: Int64
@@ -33,6 +34,7 @@ public struct PostV1BankSettlementsGetResponse: Codable, Hashable, Sendable {
         netTotal: String,
         status: PostV1BankSettlementsGetResponseStatus,
         journalTransactionId: Nullable<String>,
+        bankTransactionId: Nullable<String>,
         lineCount: Int64,
         matchedCount: Int64,
         unmatchedCount: Int64,
@@ -52,6 +54,7 @@ public struct PostV1BankSettlementsGetResponse: Codable, Hashable, Sendable {
         self.netTotal = netTotal
         self.status = status
         self.journalTransactionId = journalTransactionId
+        self.bankTransactionId = bankTransactionId
         self.lineCount = lineCount
         self.matchedCount = matchedCount
         self.unmatchedCount = unmatchedCount
@@ -74,6 +77,7 @@ public struct PostV1BankSettlementsGetResponse: Codable, Hashable, Sendable {
         self.netTotal = try container.decode(String.self, forKey: .netTotal)
         self.status = try container.decode(PostV1BankSettlementsGetResponseStatus.self, forKey: .status)
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
+        self.bankTransactionId = try container.decode(Nullable<String>.self, forKey: .bankTransactionId)
         self.lineCount = try container.decode(Int64.self, forKey: .lineCount)
         self.matchedCount = try container.decode(Int64.self, forKey: .matchedCount)
         self.unmatchedCount = try container.decode(Int64.self, forKey: .unmatchedCount)
@@ -97,6 +101,7 @@ public struct PostV1BankSettlementsGetResponse: Codable, Hashable, Sendable {
         try container.encode(self.netTotal, forKey: .netTotal)
         try container.encode(self.status, forKey: .status)
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
+        try container.encode(self.bankTransactionId, forKey: .bankTransactionId)
         try container.encode(self.lineCount, forKey: .lineCount)
         try container.encode(self.matchedCount, forKey: .matchedCount)
         try container.encode(self.unmatchedCount, forKey: .unmatchedCount)
@@ -118,6 +123,7 @@ public struct PostV1BankSettlementsGetResponse: Codable, Hashable, Sendable {
         case netTotal
         case status
         case journalTransactionId
+        case bankTransactionId
         case lineCount
         case matchedCount
         case unmatchedCount

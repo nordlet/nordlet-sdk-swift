@@ -57,6 +57,106 @@ public final class CatalogClient: Sendable {
         )
     }
 
+    public func postV1CatalogItemsFilesList(request: Requests.PostV1CatalogItemsFilesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CatalogItemsFilesListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/items/files/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CatalogItemsFilesListResponse.self
+        )
+    }
+
+    public func postV1CatalogItemsKindsCreate(request: Requests.PostV1CatalogItemsKindsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CatalogItemsKindsCreateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/items/kinds/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CatalogItemsKindsCreateResponse.self
+        )
+    }
+
+    public func postV1CatalogItemsKindsUpdate(request: Requests.PostV1CatalogItemsKindsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CatalogItemsKindsUpdateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/items/kinds/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CatalogItemsKindsUpdateResponse.self
+        )
+    }
+
+    public func postV1CatalogItemsKindsDelete(request: Requests.PostV1CatalogItemsKindsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CatalogItemsKindsDeleteResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/items/kinds/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CatalogItemsKindsDeleteResponse.self
+        )
+    }
+
+    public func postV1CatalogItemsKindsList(request: Requests.PostV1CatalogItemsKindsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CatalogItemsKindsListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/items/kinds/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CatalogItemsKindsListResponse.self
+        )
+    }
+
+    public func postV1CatalogUnitsCreate(request: Requests.PostV1CatalogUnitsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CatalogUnitsCreateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/units/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CatalogUnitsCreateResponse.self
+        )
+    }
+
+    public func postV1CatalogUnitsUpdate(request: Requests.PostV1CatalogUnitsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CatalogUnitsUpdateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/units/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CatalogUnitsUpdateResponse.self
+        )
+    }
+
+    public func postV1CatalogUnitsDelete(request: Requests.PostV1CatalogUnitsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CatalogUnitsDeleteResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/units/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CatalogUnitsDeleteResponse.self
+        )
+    }
+
+    public func postV1CatalogUnitsList(request: Requests.PostV1CatalogUnitsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CatalogUnitsListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/units/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CatalogUnitsListResponse.self
+        )
+    }
+
+    public func postV1CatalogUnitsOptions(request: Requests.PostV1CatalogUnitsOptionsRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CatalogUnitsOptionsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/units/options",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CatalogUnitsOptionsResponse.self
+        )
+    }
+
     public func postV1CatalogItemGroupsCreate(request: Requests.PostV1CatalogItemGroupsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CatalogItemGroupsCreateResponse {
         return try await httpClient.performRequest(
             method: .post,

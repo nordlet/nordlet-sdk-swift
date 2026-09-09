@@ -16,6 +16,8 @@ import Api
                   "firstTopUpAt": "firstTopUpAt",
                   "lastChargedDate": "lastChargedDate",
                   "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
                   "monthToDate": {
                     "from": "from",
                     "to": "to",
@@ -57,6 +59,8 @@ import Api
             firstTopUpAt: Nullable<String>.value("firstTopUpAt"),
             lastChargedDate: Nullable<String>.value("lastChargedDate"),
             paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
             monthToDate: PostV1BillingAccountGetResponseMonthToDate(
                 from: "from",
                 to: "to",
@@ -102,6 +106,8 @@ import Api
                   "firstTopUpAt": "firstTopUpAt",
                   "lastChargedDate": "lastChargedDate",
                   "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
                   "monthToDate": {
                     "from": "from",
                     "to": "to",
@@ -143,6 +149,8 @@ import Api
             firstTopUpAt: Nullable<String>.value("firstTopUpAt"),
             lastChargedDate: Nullable<String>.value("lastChargedDate"),
             paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
             monthToDate: PostV1BillingAccountGetResponseMonthToDate(
                 from: "from",
                 to: "to",
@@ -188,6 +196,8 @@ import Api
                   "firstTopUpAt": "firstTopUpAt",
                   "lastChargedDate": "lastChargedDate",
                   "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
                   "monthToDate": {
                     "from": "from",
                     "to": "to",
@@ -229,6 +239,8 @@ import Api
             firstTopUpAt: Nullable<String>.value("firstTopUpAt"),
             lastChargedDate: Nullable<String>.value("lastChargedDate"),
             paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
             monthToDate: PostV1BillingAccountSetPlanResponseMonthToDate(
                 from: "from",
                 to: "to",
@@ -274,6 +286,8 @@ import Api
                   "firstTopUpAt": "firstTopUpAt",
                   "lastChargedDate": "lastChargedDate",
                   "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
                   "monthToDate": {
                     "from": "from",
                     "to": "to",
@@ -315,6 +329,8 @@ import Api
             firstTopUpAt: Nullable<String>.value("firstTopUpAt"),
             lastChargedDate: Nullable<String>.value("lastChargedDate"),
             paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
             monthToDate: PostV1BillingAccountSetPlanResponseMonthToDate(
                 from: "from",
                 to: "to",
@@ -398,6 +414,58 @@ import Api
         )
         let response = try await client.billing.postV1BillingTopupCreate(
             request: .init(amountCents: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BillingPortalCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "url": "url"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BillingPortalCreateResponse(
+            url: "url"
+        )
+        let response = try await client.billing.postV1BillingPortalCreate(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BillingPortalCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "url": "url"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BillingPortalCreateResponse(
+            url: "url"
+        )
+        let response = try await client.billing.postV1BillingPortalCreate(
+            request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

@@ -6,6 +6,8 @@ extension Requests {
         public let templateId: String?
         public let format: PostV1BankStatementsImportRequestFormat?
         public let content: String
+        /// Stripe transfers export (plain CSV or base64) used to post lender payouts and commissions
+        public let transfersCsv: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -14,12 +16,14 @@ extension Requests {
             templateId: String? = nil,
             format: PostV1BankStatementsImportRequestFormat? = nil,
             content: String,
+            transfersCsv: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.bankAccountId = bankAccountId
             self.templateId = templateId
             self.format = format
             self.content = content
+            self.transfersCsv = transfersCsv
             self.additionalProperties = additionalProperties
         }
 
@@ -29,6 +33,7 @@ extension Requests {
             self.templateId = try container.decodeIfPresent(String.self, forKey: .templateId)
             self.format = try container.decodeIfPresent(PostV1BankStatementsImportRequestFormat.self, forKey: .format)
             self.content = try container.decode(String.self, forKey: .content)
+            self.transfersCsv = try container.decodeIfPresent(String.self, forKey: .transfersCsv)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -39,6 +44,7 @@ extension Requests {
             try container.encodeIfPresent(self.templateId, forKey: .templateId)
             try container.encodeIfPresent(self.format, forKey: .format)
             try container.encode(self.content, forKey: .content)
+            try container.encodeIfPresent(self.transfersCsv, forKey: .transfersCsv)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -47,6 +53,7 @@ extension Requests {
             case templateId
             case format
             case content
+            case transfersCsv
         }
     }
 }

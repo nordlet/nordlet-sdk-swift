@@ -16,4 +16,12 @@ public final class PublicClient: Sendable {
             responseType: PostV1PublicIntegrationRequestsResponse.self
         )
     }
+
+    public func getV1PublicPayToken(token: String, requestOptions: RequestOptions? = nil) async throws -> Void {
+        return try await httpClient.performRequest(
+            method: .get,
+            path: "/v1/public/pay/\(token)",
+            requestOptions: requestOptions
+        )
+    }
 }

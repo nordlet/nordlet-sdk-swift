@@ -6,6 +6,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
     public let activeCompanyId: Nullable<String>
     public let role: Nullable<String>
     public let billing: PostV1AccountMeResponseBilling
+    public let referralPoints: Int64
     public let consent: PostV1AccountMeResponseConsent
     public let companies: [PostV1AccountMeResponseCompaniesItem]
     /// Additional properties that are not explicitly defined in the schema
@@ -17,6 +18,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         activeCompanyId: Nullable<String>,
         role: Nullable<String>,
         billing: PostV1AccountMeResponseBilling,
+        referralPoints: Int64,
         consent: PostV1AccountMeResponseConsent,
         companies: [PostV1AccountMeResponseCompaniesItem],
         additionalProperties: [String: JSONValue] = .init()
@@ -26,6 +28,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         self.activeCompanyId = activeCompanyId
         self.role = role
         self.billing = billing
+        self.referralPoints = referralPoints
         self.consent = consent
         self.companies = companies
         self.additionalProperties = additionalProperties
@@ -38,6 +41,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         self.activeCompanyId = try container.decode(Nullable<String>.self, forKey: .activeCompanyId)
         self.role = try container.decode(Nullable<String>.self, forKey: .role)
         self.billing = try container.decode(PostV1AccountMeResponseBilling.self, forKey: .billing)
+        self.referralPoints = try container.decode(Int64.self, forKey: .referralPoints)
         self.consent = try container.decode(PostV1AccountMeResponseConsent.self, forKey: .consent)
         self.companies = try container.decode([PostV1AccountMeResponseCompaniesItem].self, forKey: .companies)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -51,6 +55,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         try container.encode(self.activeCompanyId, forKey: .activeCompanyId)
         try container.encode(self.role, forKey: .role)
         try container.encode(self.billing, forKey: .billing)
+        try container.encode(self.referralPoints, forKey: .referralPoints)
         try container.encode(self.consent, forKey: .consent)
         try container.encode(self.companies, forKey: .companies)
     }
@@ -62,6 +67,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         case activeCompanyId
         case role
         case billing
+        case referralPoints
         case consent
         case companies
     }

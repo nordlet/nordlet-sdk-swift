@@ -23,6 +23,7 @@ public final class ApiClient: Sendable {
     public let projects: ProjectsClient
     public let transport: TransportClient
     public let pos: PosClient
+    public let calendar: CalendarClient
     public let audit: AuditClient
     public let webhooks: WebhooksClient
     public let bank: BankClient
@@ -131,6 +132,7 @@ public final class ApiClient: Sendable {
         self.projects = ProjectsClient(config: config)
         self.transport = TransportClient(config: config)
         self.pos = PosClient(config: config)
+        self.calendar = CalendarClient(config: config)
         self.audit = AuditClient(config: config)
         self.webhooks = WebhooksClient(config: config)
         self.bank = BankClient(config: config)

@@ -37,6 +37,16 @@ public final class BillingClient: Sendable {
         )
     }
 
+    public func postV1BillingPortalCreate(request: Requests.PostV1BillingPortalCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BillingPortalCreateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/billing/portal/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BillingPortalCreateResponse.self
+        )
+    }
+
     public func postV1BillingTransactionsList(request: Requests.PostV1BillingTransactionsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BillingTransactionsListResponse {
         return try await httpClient.performRequest(
             method: .post,

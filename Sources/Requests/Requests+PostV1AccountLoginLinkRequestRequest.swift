@@ -6,6 +6,7 @@ extension Requests {
         public let locale: PostV1AccountLoginLinkRequestRequestLocale?
         public let acceptTerms: Bool?
         public let acceptDpa: Bool?
+        public let referralCode: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -14,12 +15,14 @@ extension Requests {
             locale: PostV1AccountLoginLinkRequestRequestLocale? = nil,
             acceptTerms: Bool? = nil,
             acceptDpa: Bool? = nil,
+            referralCode: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.email = email
             self.locale = locale
             self.acceptTerms = acceptTerms
             self.acceptDpa = acceptDpa
+            self.referralCode = referralCode
             self.additionalProperties = additionalProperties
         }
 
@@ -29,6 +32,7 @@ extension Requests {
             self.locale = try container.decodeIfPresent(PostV1AccountLoginLinkRequestRequestLocale.self, forKey: .locale)
             self.acceptTerms = try container.decodeIfPresent(Bool.self, forKey: .acceptTerms)
             self.acceptDpa = try container.decodeIfPresent(Bool.self, forKey: .acceptDpa)
+            self.referralCode = try container.decodeIfPresent(String.self, forKey: .referralCode)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -39,6 +43,7 @@ extension Requests {
             try container.encodeIfPresent(self.locale, forKey: .locale)
             try container.encodeIfPresent(self.acceptTerms, forKey: .acceptTerms)
             try container.encodeIfPresent(self.acceptDpa, forKey: .acceptDpa)
+            try container.encodeIfPresent(self.referralCode, forKey: .referralCode)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -47,6 +52,7 @@ extension Requests {
             case locale
             case acceptTerms
             case acceptDpa
+            case referralCode
         }
     }
 }

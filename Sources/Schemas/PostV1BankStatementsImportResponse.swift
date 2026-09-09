@@ -8,6 +8,9 @@ public struct PostV1BankStatementsImportResponse: Codable, Hashable, Sendable {
     public let invoicesCreated: Int64
     public let invoicesLinked: Int64
     public let creditNotesCreated: Int64
+    public let authorizationsRecorded: Int64
+    public let payoutsPosted: Int64
+    public let commissionsPosted: Int64
     public let paymentsMatched: Int64
     public let warnings: [String]
     public let statements: [PostV1BankStatementsImportResponseStatementsItem]
@@ -22,6 +25,9 @@ public struct PostV1BankStatementsImportResponse: Codable, Hashable, Sendable {
         invoicesCreated: Int64,
         invoicesLinked: Int64,
         creditNotesCreated: Int64,
+        authorizationsRecorded: Int64,
+        payoutsPosted: Int64,
+        commissionsPosted: Int64,
         paymentsMatched: Int64,
         warnings: [String],
         statements: [PostV1BankStatementsImportResponseStatementsItem],
@@ -34,6 +40,9 @@ public struct PostV1BankStatementsImportResponse: Codable, Hashable, Sendable {
         self.invoicesCreated = invoicesCreated
         self.invoicesLinked = invoicesLinked
         self.creditNotesCreated = creditNotesCreated
+        self.authorizationsRecorded = authorizationsRecorded
+        self.payoutsPosted = payoutsPosted
+        self.commissionsPosted = commissionsPosted
         self.paymentsMatched = paymentsMatched
         self.warnings = warnings
         self.statements = statements
@@ -49,6 +58,9 @@ public struct PostV1BankStatementsImportResponse: Codable, Hashable, Sendable {
         self.invoicesCreated = try container.decode(Int64.self, forKey: .invoicesCreated)
         self.invoicesLinked = try container.decode(Int64.self, forKey: .invoicesLinked)
         self.creditNotesCreated = try container.decode(Int64.self, forKey: .creditNotesCreated)
+        self.authorizationsRecorded = try container.decode(Int64.self, forKey: .authorizationsRecorded)
+        self.payoutsPosted = try container.decode(Int64.self, forKey: .payoutsPosted)
+        self.commissionsPosted = try container.decode(Int64.self, forKey: .commissionsPosted)
         self.paymentsMatched = try container.decode(Int64.self, forKey: .paymentsMatched)
         self.warnings = try container.decode([String].self, forKey: .warnings)
         self.statements = try container.decode([PostV1BankStatementsImportResponseStatementsItem].self, forKey: .statements)
@@ -65,6 +77,9 @@ public struct PostV1BankStatementsImportResponse: Codable, Hashable, Sendable {
         try container.encode(self.invoicesCreated, forKey: .invoicesCreated)
         try container.encode(self.invoicesLinked, forKey: .invoicesLinked)
         try container.encode(self.creditNotesCreated, forKey: .creditNotesCreated)
+        try container.encode(self.authorizationsRecorded, forKey: .authorizationsRecorded)
+        try container.encode(self.payoutsPosted, forKey: .payoutsPosted)
+        try container.encode(self.commissionsPosted, forKey: .commissionsPosted)
         try container.encode(self.paymentsMatched, forKey: .paymentsMatched)
         try container.encode(self.warnings, forKey: .warnings)
         try container.encode(self.statements, forKey: .statements)
@@ -79,6 +94,9 @@ public struct PostV1BankStatementsImportResponse: Codable, Hashable, Sendable {
         case invoicesCreated
         case invoicesLinked
         case creditNotesCreated
+        case authorizationsRecorded
+        case payoutsPosted
+        case commissionsPosted
         case paymentsMatched
         case warnings
         case statements

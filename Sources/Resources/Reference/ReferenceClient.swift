@@ -67,6 +67,36 @@ public final class ReferenceClient: Sendable {
         )
     }
 
+    public func postV1ReferenceLtCountiesList(request: Requests.PostV1ReferenceLtCountiesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceLtCountiesListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/reference/lt/counties/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ReferenceLtCountiesListResponse.self
+        )
+    }
+
+    public func postV1ReferenceLtMunicipalitiesList(request: Requests.PostV1ReferenceLtMunicipalitiesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceLtMunicipalitiesListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/reference/lt/municipalities/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ReferenceLtMunicipalitiesListResponse.self
+        )
+    }
+
+    public func postV1ReferenceLtCitiesList(request: Requests.PostV1ReferenceLtCitiesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceLtCitiesListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/reference/lt/cities/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ReferenceLtCitiesListResponse.self
+        )
+    }
+
     public func postV1ReferenceBanksList(request: Requests.PostV1ReferenceBanksListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceBanksListResponse {
         return try await httpClient.performRequest(
             method: .post,

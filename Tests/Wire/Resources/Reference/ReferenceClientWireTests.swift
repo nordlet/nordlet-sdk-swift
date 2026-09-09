@@ -74,7 +74,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -94,7 +97,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.reference.postV1ReferenceExchangeRatesList(
             request: .init(),
@@ -123,7 +129,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -148,7 +157,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.reference.postV1ReferenceExchangeRatesList(
             request: .init(),
@@ -240,7 +252,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -260,7 +275,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.reference.postV1ReferenceExchangeRatesOverridesList(
             request: .init(),
@@ -289,7 +307,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -314,7 +335,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.reference.postV1ReferenceExchangeRatesOverridesList(
             request: .init(),
@@ -497,6 +521,258 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func postV1ReferenceLtCountiesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "code": "code",
+                      "isoCode": "isoCode",
+                      "name": "name"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReferenceLtCountiesListResponse(
+            rows: [
+                PostV1ReferenceLtCountiesListResponseRowsItem(
+                    code: "code",
+                    isoCode: "isoCode",
+                    name: "name"
+                )
+            ]
+        )
+        let response = try await client.reference.postV1ReferenceLtCountiesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReferenceLtCountiesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "code": "code",
+                      "isoCode": "isoCode",
+                      "name": "name"
+                    },
+                    {
+                      "code": "code",
+                      "isoCode": "isoCode",
+                      "name": "name"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReferenceLtCountiesListResponse(
+            rows: [
+                PostV1ReferenceLtCountiesListResponseRowsItem(
+                    code: "code",
+                    isoCode: "isoCode",
+                    name: "name"
+                ),
+                PostV1ReferenceLtCountiesListResponseRowsItem(
+                    code: "code",
+                    isoCode: "isoCode",
+                    name: "name"
+                )
+            ]
+        )
+        let response = try await client.reference.postV1ReferenceLtCountiesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReferenceLtMunicipalitiesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "countyCode": "countyCode"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReferenceLtMunicipalitiesListResponse(
+            rows: [
+                PostV1ReferenceLtMunicipalitiesListResponseRowsItem(
+                    code: "code",
+                    name: "name",
+                    countyCode: "countyCode"
+                )
+            ]
+        )
+        let response = try await client.reference.postV1ReferenceLtMunicipalitiesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReferenceLtMunicipalitiesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "countyCode": "countyCode"
+                    },
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "countyCode": "countyCode"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReferenceLtMunicipalitiesListResponse(
+            rows: [
+                PostV1ReferenceLtMunicipalitiesListResponseRowsItem(
+                    code: "code",
+                    name: "name",
+                    countyCode: "countyCode"
+                ),
+                PostV1ReferenceLtMunicipalitiesListResponseRowsItem(
+                    code: "code",
+                    name: "name",
+                    countyCode: "countyCode"
+                )
+            ]
+        )
+        let response = try await client.reference.postV1ReferenceLtMunicipalitiesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReferenceLtCitiesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "name": "name",
+                      "municipalityCode": "municipalityCode"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReferenceLtCitiesListResponse(
+            rows: [
+                PostV1ReferenceLtCitiesListResponseRowsItem(
+                    name: "name",
+                    municipalityCode: "municipalityCode"
+                )
+            ]
+        )
+        let response = try await client.reference.postV1ReferenceLtCitiesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReferenceLtCitiesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "name": "name",
+                      "municipalityCode": "municipalityCode"
+                    },
+                    {
+                      "name": "name",
+                      "municipalityCode": "municipalityCode"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReferenceLtCitiesListResponse(
+            rows: [
+                PostV1ReferenceLtCitiesListResponseRowsItem(
+                    name: "name",
+                    municipalityCode: "municipalityCode"
+                ),
+                PostV1ReferenceLtCitiesListResponseRowsItem(
+                    name: "name",
+                    municipalityCode: "municipalityCode"
+                )
+            ]
+        )
+        let response = try await client.reference.postV1ReferenceLtCitiesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1ReferenceBanksList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -515,7 +791,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -538,7 +817,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.reference.postV1ReferenceBanksList(
             request: .init(),
@@ -573,7 +855,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -604,7 +889,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.reference.postV1ReferenceBanksList(
             request: .init(),
@@ -794,7 +1082,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -814,7 +1105,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.reference.postV1ReferenceCurrenciesList(
             request: .init(),
@@ -843,7 +1137,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -868,7 +1165,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.reference.postV1ReferenceCurrenciesList(
             request: .init(),
@@ -893,7 +1193,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -914,7 +1217,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.reference.postV1ReferenceVatClassifiersList(
             request: .init(),
@@ -945,7 +1251,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -972,7 +1281,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.reference.postV1ReferenceVatClassifiersList(
             request: .init(),
@@ -1401,7 +1713,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -1422,7 +1737,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.reference.postV1ReferenceCnCodesList(
             request: .init(),
@@ -1453,7 +1771,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -1480,7 +1801,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.reference.postV1ReferenceCnCodesList(
             request: .init(),
@@ -1784,7 +2108,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -1804,7 +2131,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.reference.postV1ReferenceUnitsList(
             request: .init(),
@@ -1833,7 +2163,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -1858,7 +2191,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.reference.postV1ReferenceUnitsList(
             request: .init(),
@@ -1963,7 +2299,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -1986,7 +2325,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.reference.postV1ReferenceSeriesList(
             request: .init(),
@@ -2021,7 +2363,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -2052,7 +2397,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.reference.postV1ReferenceSeriesList(
             request: .init(),

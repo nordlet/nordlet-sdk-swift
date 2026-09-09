@@ -8,6 +8,8 @@ public struct PostV1BillingAccountSetPlanResponse: Codable, Hashable, Sendable {
     public let firstTopUpAt: Nullable<String>
     public let lastChargedDate: Nullable<String>
     public let paymentsConfigured: Bool
+    public let hasPaymentAccount: Bool
+    public let hasSubscription: Bool
     public let monthToDate: PostV1BillingAccountSetPlanResponseMonthToDate
     public let plans: [String: PostV1BillingAccountSetPlanResponsePlansValue]
     public let topUp: PostV1BillingAccountSetPlanResponseTopUp
@@ -23,6 +25,8 @@ public struct PostV1BillingAccountSetPlanResponse: Codable, Hashable, Sendable {
         firstTopUpAt: Nullable<String>,
         lastChargedDate: Nullable<String>,
         paymentsConfigured: Bool,
+        hasPaymentAccount: Bool,
+        hasSubscription: Bool,
         monthToDate: PostV1BillingAccountSetPlanResponseMonthToDate,
         plans: [String: PostV1BillingAccountSetPlanResponsePlansValue],
         topUp: PostV1BillingAccountSetPlanResponseTopUp,
@@ -36,6 +40,8 @@ public struct PostV1BillingAccountSetPlanResponse: Codable, Hashable, Sendable {
         self.firstTopUpAt = firstTopUpAt
         self.lastChargedDate = lastChargedDate
         self.paymentsConfigured = paymentsConfigured
+        self.hasPaymentAccount = hasPaymentAccount
+        self.hasSubscription = hasSubscription
         self.monthToDate = monthToDate
         self.plans = plans
         self.topUp = topUp
@@ -52,6 +58,8 @@ public struct PostV1BillingAccountSetPlanResponse: Codable, Hashable, Sendable {
         self.firstTopUpAt = try container.decode(Nullable<String>.self, forKey: .firstTopUpAt)
         self.lastChargedDate = try container.decode(Nullable<String>.self, forKey: .lastChargedDate)
         self.paymentsConfigured = try container.decode(Bool.self, forKey: .paymentsConfigured)
+        self.hasPaymentAccount = try container.decode(Bool.self, forKey: .hasPaymentAccount)
+        self.hasSubscription = try container.decode(Bool.self, forKey: .hasSubscription)
         self.monthToDate = try container.decode(PostV1BillingAccountSetPlanResponseMonthToDate.self, forKey: .monthToDate)
         self.plans = try container.decode([String: PostV1BillingAccountSetPlanResponsePlansValue].self, forKey: .plans)
         self.topUp = try container.decode(PostV1BillingAccountSetPlanResponseTopUp.self, forKey: .topUp)
@@ -69,6 +77,8 @@ public struct PostV1BillingAccountSetPlanResponse: Codable, Hashable, Sendable {
         try container.encode(self.firstTopUpAt, forKey: .firstTopUpAt)
         try container.encode(self.lastChargedDate, forKey: .lastChargedDate)
         try container.encode(self.paymentsConfigured, forKey: .paymentsConfigured)
+        try container.encode(self.hasPaymentAccount, forKey: .hasPaymentAccount)
+        try container.encode(self.hasSubscription, forKey: .hasSubscription)
         try container.encode(self.monthToDate, forKey: .monthToDate)
         try container.encode(self.plans, forKey: .plans)
         try container.encode(self.topUp, forKey: .topUp)
@@ -84,6 +94,8 @@ public struct PostV1BillingAccountSetPlanResponse: Codable, Hashable, Sendable {
         case firstTopUpAt
         case lastChargedDate
         case paymentsConfigured
+        case hasPaymentAccount
+        case hasSubscription
         case monthToDate
         case plans
         case topUp

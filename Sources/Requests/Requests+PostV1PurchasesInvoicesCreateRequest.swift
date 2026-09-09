@@ -10,6 +10,7 @@ extension Requests {
         public let currency: String?
         public let creditedInvoiceId: String?
         public let purchaseOrderId: String?
+        public let operationTypeId: String?
         public let notes: String?
         public let documentRef: String?
         public let lines: [PostV1PurchasesInvoicesCreateRequestLinesItem]
@@ -25,6 +26,7 @@ extension Requests {
             currency: String? = nil,
             creditedInvoiceId: String? = nil,
             purchaseOrderId: String? = nil,
+            operationTypeId: String? = nil,
             notes: String? = nil,
             documentRef: String? = nil,
             lines: [PostV1PurchasesInvoicesCreateRequestLinesItem],
@@ -38,6 +40,7 @@ extension Requests {
             self.currency = currency
             self.creditedInvoiceId = creditedInvoiceId
             self.purchaseOrderId = purchaseOrderId
+            self.operationTypeId = operationTypeId
             self.notes = notes
             self.documentRef = documentRef
             self.lines = lines
@@ -54,6 +57,7 @@ extension Requests {
             self.currency = try container.decodeIfPresent(String.self, forKey: .currency)
             self.creditedInvoiceId = try container.decodeIfPresent(String.self, forKey: .creditedInvoiceId)
             self.purchaseOrderId = try container.decodeIfPresent(String.self, forKey: .purchaseOrderId)
+            self.operationTypeId = try container.decodeIfPresent(String.self, forKey: .operationTypeId)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.documentRef = try container.decodeIfPresent(String.self, forKey: .documentRef)
             self.lines = try container.decode([PostV1PurchasesInvoicesCreateRequestLinesItem].self, forKey: .lines)
@@ -71,6 +75,7 @@ extension Requests {
             try container.encodeIfPresent(self.currency, forKey: .currency)
             try container.encodeIfPresent(self.creditedInvoiceId, forKey: .creditedInvoiceId)
             try container.encodeIfPresent(self.purchaseOrderId, forKey: .purchaseOrderId)
+            try container.encodeIfPresent(self.operationTypeId, forKey: .operationTypeId)
             try container.encodeIfPresent(self.notes, forKey: .notes)
             try container.encodeIfPresent(self.documentRef, forKey: .documentRef)
             try container.encode(self.lines, forKey: .lines)
@@ -86,6 +91,7 @@ extension Requests {
             case currency
             case creditedInvoiceId
             case purchaseOrderId
+            case operationTypeId
             case notes
             case documentRef
             case lines

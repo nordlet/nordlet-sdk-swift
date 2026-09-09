@@ -98,7 +98,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -122,7 +125,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.bank.postV1BankAccountsList(
             request: .init(),
@@ -159,7 +165,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -192,7 +201,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.bank.postV1BankAccountsList(
             request: .init(),
@@ -366,6 +378,9 @@ import Api
                   "invoicesCreated": 1000000,
                   "invoicesLinked": 1000000,
                   "creditNotesCreated": 1000000,
+                  "authorizationsRecorded": 1000000,
+                  "payoutsPosted": 1000000,
+                  "commissionsPosted": 1000000,
                   "paymentsMatched": 1000000,
                   "warnings": [
                     "warnings"
@@ -398,6 +413,9 @@ import Api
             invoicesCreated: 1000000,
             invoicesLinked: 1000000,
             creditNotesCreated: 1000000,
+            authorizationsRecorded: 1000000,
+            payoutsPosted: 1000000,
+            commissionsPosted: 1000000,
             paymentsMatched: 1000000,
             warnings: [
                 "warnings"
@@ -437,6 +455,9 @@ import Api
                   "invoicesCreated": 1000000,
                   "invoicesLinked": 1000000,
                   "creditNotesCreated": 1000000,
+                  "authorizationsRecorded": 1000000,
+                  "payoutsPosted": 1000000,
+                  "commissionsPosted": 1000000,
                   "paymentsMatched": 1000000,
                   "warnings": [
                     "warnings",
@@ -479,6 +500,9 @@ import Api
             invoicesCreated: 1000000,
             invoicesLinked: 1000000,
             creditNotesCreated: 1000000,
+            authorizationsRecorded: 1000000,
+            payoutsPosted: 1000000,
+            commissionsPosted: 1000000,
             paymentsMatched: 1000000,
             warnings: [
                 "warnings",
@@ -541,7 +565,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -572,7 +599,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.bank.postV1BankTransactionsList(
             request: .init(),
@@ -623,7 +653,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -670,7 +703,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.bank.postV1BankTransactionsList(
             request: .init(),
@@ -1010,6 +1046,12 @@ import Api
                   "companyMetaField": "companyMetaField",
                   "invoiceItemId": "invoiceItemId",
                   "advanceInvoices": true,
+                  "authorizationOperationTypeId": "authorizationOperationTypeId",
+                  "payoutOperationTypeId": "payoutOperationTypeId",
+                  "commissionOperationTypeId": "commissionOperationTypeId",
+                  "lenderMetaField": "lenderMetaField",
+                  "partialRefundLabel": "partialRefundLabel",
+                  "fullRefundLabel": "fullRefundLabel",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1040,6 +1082,12 @@ import Api
             companyMetaField: Nullable<String>.value("companyMetaField"),
             invoiceItemId: Nullable<String>.value("invoiceItemId"),
             advanceInvoices: true,
+            authorizationOperationTypeId: Nullable<String>.value("authorizationOperationTypeId"),
+            payoutOperationTypeId: Nullable<String>.value("payoutOperationTypeId"),
+            commissionOperationTypeId: Nullable<String>.value("commissionOperationTypeId"),
+            lenderMetaField: Nullable<String>.value("lenderMetaField"),
+            partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
+            fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1083,6 +1131,12 @@ import Api
                   "companyMetaField": "companyMetaField",
                   "invoiceItemId": "x",
                   "advanceInvoices": true,
+                  "authorizationOperationTypeId": "x",
+                  "payoutOperationTypeId": "x",
+                  "commissionOperationTypeId": "x",
+                  "lenderMetaField": "lenderMetaField",
+                  "partialRefundLabel": "partialRefundLabel",
+                  "fullRefundLabel": "fullRefundLabel",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1119,6 +1173,12 @@ import Api
             companyMetaField: Nullable<String>.value("companyMetaField"),
             invoiceItemId: Nullable<String>.value("x"),
             advanceInvoices: true,
+            authorizationOperationTypeId: Nullable<String>.value("x"),
+            payoutOperationTypeId: Nullable<String>.value("x"),
+            commissionOperationTypeId: Nullable<String>.value("x"),
+            lenderMetaField: Nullable<String>.value("lenderMetaField"),
+            partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
+            fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1156,6 +1216,12 @@ import Api
                   "companyMetaField": "companyMetaField",
                   "invoiceItemId": "invoiceItemId",
                   "advanceInvoices": true,
+                  "authorizationOperationTypeId": "authorizationOperationTypeId",
+                  "payoutOperationTypeId": "payoutOperationTypeId",
+                  "commissionOperationTypeId": "commissionOperationTypeId",
+                  "lenderMetaField": "lenderMetaField",
+                  "partialRefundLabel": "partialRefundLabel",
+                  "fullRefundLabel": "fullRefundLabel",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1186,6 +1252,12 @@ import Api
             companyMetaField: Nullable<String>.value("companyMetaField"),
             invoiceItemId: Nullable<String>.value("invoiceItemId"),
             advanceInvoices: true,
+            authorizationOperationTypeId: Nullable<String>.value("authorizationOperationTypeId"),
+            payoutOperationTypeId: Nullable<String>.value("payoutOperationTypeId"),
+            commissionOperationTypeId: Nullable<String>.value("commissionOperationTypeId"),
+            lenderMetaField: Nullable<String>.value("lenderMetaField"),
+            partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
+            fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1226,6 +1298,12 @@ import Api
                   "companyMetaField": "companyMetaField",
                   "invoiceItemId": "x",
                   "advanceInvoices": true,
+                  "authorizationOperationTypeId": "x",
+                  "payoutOperationTypeId": "x",
+                  "commissionOperationTypeId": "x",
+                  "lenderMetaField": "lenderMetaField",
+                  "partialRefundLabel": "partialRefundLabel",
+                  "fullRefundLabel": "fullRefundLabel",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1262,6 +1340,12 @@ import Api
             companyMetaField: Nullable<String>.value("companyMetaField"),
             invoiceItemId: Nullable<String>.value("x"),
             advanceInvoices: true,
+            authorizationOperationTypeId: Nullable<String>.value("x"),
+            payoutOperationTypeId: Nullable<String>.value("x"),
+            commissionOperationTypeId: Nullable<String>.value("x"),
+            lenderMetaField: Nullable<String>.value("lenderMetaField"),
+            partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
+            fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1352,6 +1436,12 @@ import Api
                   "companyMetaField": "companyMetaField",
                   "invoiceItemId": "invoiceItemId",
                   "advanceInvoices": true,
+                  "authorizationOperationTypeId": "authorizationOperationTypeId",
+                  "payoutOperationTypeId": "payoutOperationTypeId",
+                  "commissionOperationTypeId": "commissionOperationTypeId",
+                  "lenderMetaField": "lenderMetaField",
+                  "partialRefundLabel": "partialRefundLabel",
+                  "fullRefundLabel": "fullRefundLabel",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1382,6 +1472,12 @@ import Api
             companyMetaField: Nullable<String>.value("companyMetaField"),
             invoiceItemId: Nullable<String>.value("invoiceItemId"),
             advanceInvoices: true,
+            authorizationOperationTypeId: Nullable<String>.value("authorizationOperationTypeId"),
+            payoutOperationTypeId: Nullable<String>.value("payoutOperationTypeId"),
+            commissionOperationTypeId: Nullable<String>.value("commissionOperationTypeId"),
+            lenderMetaField: Nullable<String>.value("lenderMetaField"),
+            partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
+            fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1422,6 +1518,12 @@ import Api
                   "companyMetaField": "companyMetaField",
                   "invoiceItemId": "x",
                   "advanceInvoices": true,
+                  "authorizationOperationTypeId": "x",
+                  "payoutOperationTypeId": "x",
+                  "commissionOperationTypeId": "x",
+                  "lenderMetaField": "lenderMetaField",
+                  "partialRefundLabel": "partialRefundLabel",
+                  "fullRefundLabel": "fullRefundLabel",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -1458,6 +1560,12 @@ import Api
             companyMetaField: Nullable<String>.value("companyMetaField"),
             invoiceItemId: Nullable<String>.value("x"),
             advanceInvoices: true,
+            authorizationOperationTypeId: Nullable<String>.value("x"),
+            payoutOperationTypeId: Nullable<String>.value("x"),
+            commissionOperationTypeId: Nullable<String>.value("x"),
+            lenderMetaField: Nullable<String>.value("lenderMetaField"),
+            partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
+            fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -1494,13 +1602,22 @@ import Api
                       "companyMetaField": "companyMetaField",
                       "invoiceItemId": "invoiceItemId",
                       "advanceInvoices": true,
+                      "authorizationOperationTypeId": "authorizationOperationTypeId",
+                      "payoutOperationTypeId": "payoutOperationTypeId",
+                      "commissionOperationTypeId": "commissionOperationTypeId",
+                      "lenderMetaField": "lenderMetaField",
+                      "partialRefundLabel": "partialRefundLabel",
+                      "fullRefundLabel": "fullRefundLabel",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -1531,13 +1648,22 @@ import Api
                     companyMetaField: Nullable<String>.value("companyMetaField"),
                     invoiceItemId: Nullable<String>.value("invoiceItemId"),
                     advanceInvoices: true,
+                    authorizationOperationTypeId: Nullable<String>.value("authorizationOperationTypeId"),
+                    payoutOperationTypeId: Nullable<String>.value("payoutOperationTypeId"),
+                    commissionOperationTypeId: Nullable<String>.value("commissionOperationTypeId"),
+                    lenderMetaField: Nullable<String>.value("lenderMetaField"),
+                    partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
+                    fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.bank.postV1BankImportTemplatesList(
             request: .init(),
@@ -1578,6 +1704,12 @@ import Api
                       "companyMetaField": "companyMetaField",
                       "invoiceItemId": "x",
                       "advanceInvoices": true,
+                      "authorizationOperationTypeId": "x",
+                      "payoutOperationTypeId": "x",
+                      "commissionOperationTypeId": "x",
+                      "lenderMetaField": "lenderMetaField",
+                      "partialRefundLabel": "partialRefundLabel",
+                      "fullRefundLabel": "fullRefundLabel",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     },
@@ -1606,13 +1738,22 @@ import Api
                       "companyMetaField": "companyMetaField",
                       "invoiceItemId": "x",
                       "advanceInvoices": true,
+                      "authorizationOperationTypeId": "x",
+                      "payoutOperationTypeId": "x",
+                      "commissionOperationTypeId": "x",
+                      "lenderMetaField": "lenderMetaField",
+                      "partialRefundLabel": "partialRefundLabel",
+                      "fullRefundLabel": "fullRefundLabel",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -1649,6 +1790,12 @@ import Api
                     companyMetaField: Nullable<String>.value("companyMetaField"),
                     invoiceItemId: Nullable<String>.value("x"),
                     advanceInvoices: true,
+                    authorizationOperationTypeId: Nullable<String>.value("x"),
+                    payoutOperationTypeId: Nullable<String>.value("x"),
+                    commissionOperationTypeId: Nullable<String>.value("x"),
+                    lenderMetaField: Nullable<String>.value("lenderMetaField"),
+                    partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
+                    fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 ),
@@ -1677,15 +1824,372 @@ import Api
                     companyMetaField: Nullable<String>.value("companyMetaField"),
                     invoiceItemId: Nullable<String>.value("x"),
                     advanceInvoices: true,
+                    authorizationOperationTypeId: Nullable<String>.value("x"),
+                    payoutOperationTypeId: Nullable<String>.value("x"),
+                    commissionOperationTypeId: Nullable<String>.value("x"),
+                    lenderMetaField: Nullable<String>.value("lenderMetaField"),
+                    partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
+                    fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.bank.postV1BankImportTemplatesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankMatchRulesCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "provider": "provider",
+                  "pattern": "pattern",
+                  "payoutIdPrefix": "payoutIdPrefix",
+                  "bankAccountId": "bankAccountId",
+                  "dateWindowDays": 1000000,
+                  "isActive": true,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankMatchRulesCreateResponse(
+            id: "id",
+            name: "name",
+            provider: "provider",
+            pattern: "pattern",
+            payoutIdPrefix: Nullable<String>.value("payoutIdPrefix"),
+            bankAccountId: Nullable<String>.value("bankAccountId"),
+            dateWindowDays: 1000000,
+            isActive: true,
+            createdAt: "createdAt"
+        )
+        let response = try await client.bank.postV1BankMatchRulesCreate(
+            request: .init(
+                name: "name",
+                pattern: "pattern"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankMatchRulesCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "provider": "provider",
+                  "pattern": "pattern",
+                  "payoutIdPrefix": "payoutIdPrefix",
+                  "bankAccountId": "x",
+                  "dateWindowDays": 1000000,
+                  "isActive": true,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankMatchRulesCreateResponse(
+            id: "x",
+            name: "name",
+            provider: "provider",
+            pattern: "pattern",
+            payoutIdPrefix: Nullable<String>.value("payoutIdPrefix"),
+            bankAccountId: Nullable<String>.value("x"),
+            dateWindowDays: 1000000,
+            isActive: true,
+            createdAt: "createdAt"
+        )
+        let response = try await client.bank.postV1BankMatchRulesCreate(
+            request: .init(
+                name: "x",
+                pattern: "xy"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankMatchRulesUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "provider": "provider",
+                  "pattern": "pattern",
+                  "payoutIdPrefix": "payoutIdPrefix",
+                  "bankAccountId": "bankAccountId",
+                  "dateWindowDays": 1000000,
+                  "isActive": true,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankMatchRulesUpdateResponse(
+            id: "id",
+            name: "name",
+            provider: "provider",
+            pattern: "pattern",
+            payoutIdPrefix: Nullable<String>.value("payoutIdPrefix"),
+            bankAccountId: Nullable<String>.value("bankAccountId"),
+            dateWindowDays: 1000000,
+            isActive: true,
+            createdAt: "createdAt"
+        )
+        let response = try await client.bank.postV1BankMatchRulesUpdate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankMatchRulesUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "provider": "provider",
+                  "pattern": "pattern",
+                  "payoutIdPrefix": "payoutIdPrefix",
+                  "bankAccountId": "x",
+                  "dateWindowDays": 1000000,
+                  "isActive": true,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankMatchRulesUpdateResponse(
+            id: "x",
+            name: "name",
+            provider: "provider",
+            pattern: "pattern",
+            payoutIdPrefix: Nullable<String>.value("payoutIdPrefix"),
+            bankAccountId: Nullable<String>.value("x"),
+            dateWindowDays: 1000000,
+            isActive: true,
+            createdAt: "createdAt"
+        )
+        let response = try await client.bank.postV1BankMatchRulesUpdate(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankMatchRulesDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankMatchRulesDeleteResponse(
+            id: "id"
+        )
+        let response = try await client.bank.postV1BankMatchRulesDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankMatchRulesDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankMatchRulesDeleteResponse(
+            id: "x"
+        )
+        let response = try await client.bank.postV1BankMatchRulesDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankMatchRulesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "name": "name",
+                      "provider": "provider",
+                      "pattern": "pattern",
+                      "payoutIdPrefix": "payoutIdPrefix",
+                      "bankAccountId": "bankAccountId",
+                      "dateWindowDays": 1000000,
+                      "isActive": true,
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankMatchRulesListResponse(
+            rows: [
+                PostV1BankMatchRulesListResponseRowsItem(
+                    id: "id",
+                    name: "name",
+                    provider: "provider",
+                    pattern: "pattern",
+                    payoutIdPrefix: Nullable<String>.value("payoutIdPrefix"),
+                    bankAccountId: Nullable<String>.value("bankAccountId"),
+                    dateWindowDays: 1000000,
+                    isActive: true,
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.bank.postV1BankMatchRulesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankMatchRulesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "provider": "provider",
+                      "pattern": "pattern",
+                      "payoutIdPrefix": "payoutIdPrefix",
+                      "bankAccountId": "x",
+                      "dateWindowDays": 1000000,
+                      "isActive": true,
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "provider": "provider",
+                      "pattern": "pattern",
+                      "payoutIdPrefix": "payoutIdPrefix",
+                      "bankAccountId": "x",
+                      "dateWindowDays": 1000000,
+                      "isActive": true,
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankMatchRulesListResponse(
+            rows: [
+                PostV1BankMatchRulesListResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    provider: "provider",
+                    pattern: "pattern",
+                    payoutIdPrefix: Nullable<String>.value("payoutIdPrefix"),
+                    bankAccountId: Nullable<String>.value("x"),
+                    dateWindowDays: 1000000,
+                    isActive: true,
+                    createdAt: "createdAt"
+                ),
+                PostV1BankMatchRulesListResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    provider: "provider",
+                    pattern: "pattern",
+                    payoutIdPrefix: Nullable<String>.value("payoutIdPrefix"),
+                    bankAccountId: Nullable<String>.value("x"),
+                    dateWindowDays: 1000000,
+                    isActive: true,
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.bank.postV1BankMatchRulesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
@@ -2176,7 +2680,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -2209,7 +2716,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.bank.postV1BankMandatesList(
             request: .init(),
@@ -2264,7 +2774,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -2315,7 +2828,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.bank.postV1BankMandatesList(
             request: .init(),
@@ -2561,6 +3077,7 @@ import Api
                       "netTotal": "netTotal",
                       "status": "imported",
                       "journalTransactionId": "journalTransactionId",
+                      "bankTransactionId": "bankTransactionId",
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
@@ -2598,6 +3115,7 @@ import Api
                     netTotal: "netTotal",
                     status: .imported,
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
+                    bankTransactionId: Nullable<String>.value("bankTransactionId"),
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
@@ -2642,6 +3160,7 @@ import Api
                       "netTotal": "netTotal",
                       "status": "imported",
                       "journalTransactionId": "x",
+                      "bankTransactionId": "x",
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
@@ -2660,6 +3179,7 @@ import Api
                       "netTotal": "netTotal",
                       "status": "imported",
                       "journalTransactionId": "x",
+                      "bankTransactionId": "x",
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
@@ -2697,6 +3217,7 @@ import Api
                     netTotal: "netTotal",
                     status: .imported,
                     journalTransactionId: Nullable<String>.value("x"),
+                    bankTransactionId: Nullable<String>.value("x"),
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
@@ -2715,6 +3236,7 @@ import Api
                     netTotal: "netTotal",
                     status: .imported,
                     journalTransactionId: Nullable<String>.value("x"),
+                    bankTransactionId: Nullable<String>.value("x"),
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
@@ -2752,6 +3274,7 @@ import Api
                       "netTotal": "netTotal",
                       "status": "imported",
                       "journalTransactionId": "journalTransactionId",
+                      "bankTransactionId": "bankTransactionId",
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
@@ -2761,7 +3284,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -2785,6 +3311,7 @@ import Api
                     netTotal: "netTotal",
                     status: .imported,
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
+                    bankTransactionId: Nullable<String>.value("bankTransactionId"),
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
@@ -2794,7 +3321,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.bank.postV1BankSettlementsList(
             request: .init(),
@@ -2822,6 +3352,7 @@ import Api
                       "netTotal": "netTotal",
                       "status": "imported",
                       "journalTransactionId": "x",
+                      "bankTransactionId": "x",
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
@@ -2840,6 +3371,7 @@ import Api
                       "netTotal": "netTotal",
                       "status": "imported",
                       "journalTransactionId": "x",
+                      "bankTransactionId": "x",
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
@@ -2849,7 +3381,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -2873,6 +3408,7 @@ import Api
                     netTotal: "netTotal",
                     status: .imported,
                     journalTransactionId: Nullable<String>.value("x"),
+                    bankTransactionId: Nullable<String>.value("x"),
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
@@ -2891,6 +3427,7 @@ import Api
                     netTotal: "netTotal",
                     status: .imported,
                     journalTransactionId: Nullable<String>.value("x"),
+                    bankTransactionId: Nullable<String>.value("x"),
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
@@ -2900,7 +3437,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.bank.postV1BankSettlementsList(
             request: .init(),
@@ -2926,6 +3466,7 @@ import Api
                   "netTotal": "netTotal",
                   "status": "imported",
                   "journalTransactionId": "journalTransactionId",
+                  "bankTransactionId": "bankTransactionId",
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
@@ -2969,6 +3510,7 @@ import Api
             netTotal: "netTotal",
             status: .imported,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            bankTransactionId: Nullable<String>.value("bankTransactionId"),
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
@@ -3016,6 +3558,7 @@ import Api
                   "netTotal": "netTotal",
                   "status": "imported",
                   "journalTransactionId": "x",
+                  "bankTransactionId": "x",
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
@@ -3074,6 +3617,7 @@ import Api
             netTotal: "netTotal",
             status: .imported,
             journalTransactionId: Nullable<String>.value("x"),
+            bankTransactionId: Nullable<String>.value("x"),
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
@@ -3225,6 +3769,244 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func postV1BankSettlementsLink1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "bankAccountId": "bankAccountId",
+                  "provider": "provider",
+                  "payoutId": "payoutId",
+                  "payoutDate": "payoutDate",
+                  "currency": "currency",
+                  "grossTotal": "grossTotal",
+                  "feeTotal": "feeTotal",
+                  "netTotal": "netTotal",
+                  "status": "imported",
+                  "journalTransactionId": "journalTransactionId",
+                  "bankTransactionId": "bankTransactionId",
+                  "lineCount": 1000000,
+                  "matchedCount": 1000000,
+                  "unmatchedCount": 1000000,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankSettlementsLinkResponse(
+            id: "id",
+            bankAccountId: "bankAccountId",
+            provider: "provider",
+            payoutId: "payoutId",
+            payoutDate: Nullable<String>.value("payoutDate"),
+            currency: "currency",
+            grossTotal: "grossTotal",
+            feeTotal: "feeTotal",
+            netTotal: "netTotal",
+            status: .imported,
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            bankTransactionId: Nullable<String>.value("bankTransactionId"),
+            lineCount: 1000000,
+            matchedCount: 1000000,
+            unmatchedCount: 1000000,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.bank.postV1BankSettlementsLink(
+            request: .init(
+                id: "id",
+                bankTransactionId: "bankTransactionId"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankSettlementsLink2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "bankAccountId": "x",
+                  "provider": "provider",
+                  "payoutId": "payoutId",
+                  "payoutDate": "payoutDate",
+                  "currency": "currency",
+                  "grossTotal": "grossTotal",
+                  "feeTotal": "feeTotal",
+                  "netTotal": "netTotal",
+                  "status": "imported",
+                  "journalTransactionId": "x",
+                  "bankTransactionId": "x",
+                  "lineCount": 1000000,
+                  "matchedCount": 1000000,
+                  "unmatchedCount": 1000000,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankSettlementsLinkResponse(
+            id: "x",
+            bankAccountId: "x",
+            provider: "provider",
+            payoutId: "payoutId",
+            payoutDate: Nullable<String>.value("payoutDate"),
+            currency: "currency",
+            grossTotal: "grossTotal",
+            feeTotal: "feeTotal",
+            netTotal: "netTotal",
+            status: .imported,
+            journalTransactionId: Nullable<String>.value("x"),
+            bankTransactionId: Nullable<String>.value("x"),
+            lineCount: 1000000,
+            matchedCount: 1000000,
+            unmatchedCount: 1000000,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.bank.postV1BankSettlementsLink(
+            request: .init(
+                id: "x",
+                bankTransactionId: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankSettlementsUnlink1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "bankAccountId": "bankAccountId",
+                  "provider": "provider",
+                  "payoutId": "payoutId",
+                  "payoutDate": "payoutDate",
+                  "currency": "currency",
+                  "grossTotal": "grossTotal",
+                  "feeTotal": "feeTotal",
+                  "netTotal": "netTotal",
+                  "status": "imported",
+                  "journalTransactionId": "journalTransactionId",
+                  "bankTransactionId": "bankTransactionId",
+                  "lineCount": 1000000,
+                  "matchedCount": 1000000,
+                  "unmatchedCount": 1000000,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankSettlementsUnlinkResponse(
+            id: "id",
+            bankAccountId: "bankAccountId",
+            provider: "provider",
+            payoutId: "payoutId",
+            payoutDate: Nullable<String>.value("payoutDate"),
+            currency: "currency",
+            grossTotal: "grossTotal",
+            feeTotal: "feeTotal",
+            netTotal: "netTotal",
+            status: .imported,
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            bankTransactionId: Nullable<String>.value("bankTransactionId"),
+            lineCount: 1000000,
+            matchedCount: 1000000,
+            unmatchedCount: 1000000,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.bank.postV1BankSettlementsUnlink(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1BankSettlementsUnlink2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "bankAccountId": "x",
+                  "provider": "provider",
+                  "payoutId": "payoutId",
+                  "payoutDate": "payoutDate",
+                  "currency": "currency",
+                  "grossTotal": "grossTotal",
+                  "feeTotal": "feeTotal",
+                  "netTotal": "netTotal",
+                  "status": "imported",
+                  "journalTransactionId": "x",
+                  "bankTransactionId": "x",
+                  "lineCount": 1000000,
+                  "matchedCount": 1000000,
+                  "unmatchedCount": 1000000,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankSettlementsUnlinkResponse(
+            id: "x",
+            bankAccountId: "x",
+            provider: "provider",
+            payoutId: "payoutId",
+            payoutDate: Nullable<String>.value("payoutDate"),
+            currency: "currency",
+            grossTotal: "grossTotal",
+            feeTotal: "feeTotal",
+            netTotal: "netTotal",
+            status: .imported,
+            journalTransactionId: Nullable<String>.value("x"),
+            bankTransactionId: Nullable<String>.value("x"),
+            lineCount: 1000000,
+            matchedCount: 1000000,
+            unmatchedCount: 1000000,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.bank.postV1BankSettlementsUnlink(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1BankSettlementsPost1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -3242,6 +4024,7 @@ import Api
                   "netTotal": "netTotal",
                   "status": "imported",
                   "journalTransactionId": "journalTransactionId",
+                  "bankTransactionId": "bankTransactionId",
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
@@ -3278,6 +4061,7 @@ import Api
             netTotal: "netTotal",
             status: .imported,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            bankTransactionId: Nullable<String>.value("bankTransactionId"),
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
@@ -3318,6 +4102,7 @@ import Api
                   "netTotal": "netTotal",
                   "status": "imported",
                   "journalTransactionId": "x",
+                  "bankTransactionId": "x",
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
@@ -3355,6 +4140,7 @@ import Api
             netTotal: "netTotal",
             status: .imported,
             journalTransactionId: Nullable<String>.value("x"),
+            bankTransactionId: Nullable<String>.value("x"),
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
@@ -3973,7 +4759,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -4002,7 +4791,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.bank.postV1BankFeedsConnectionsList(
             request: .init(),
@@ -4049,7 +4841,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -4092,7 +4887,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.bank.postV1BankFeedsConnectionsList(
             request: .init(),

@@ -6,6 +6,8 @@ extension Requests {
         public let pageSize: Int64?
         public let sort: [PostV1LedgerJournalTransactionsListRequestSortItem]?
         public let filter: [PostV1LedgerJournalTransactionsListRequestFilterItem]?
+        /// Numeric fields to sum over every row matching the filter (not only the current page)
+        public let totals: [String]?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -14,12 +16,14 @@ extension Requests {
             pageSize: Int64? = nil,
             sort: [PostV1LedgerJournalTransactionsListRequestSortItem]? = nil,
             filter: [PostV1LedgerJournalTransactionsListRequestFilterItem]? = nil,
+            totals: [String]? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.page = page
             self.pageSize = pageSize
             self.sort = sort
             self.filter = filter
+            self.totals = totals
             self.additionalProperties = additionalProperties
         }
 
@@ -29,6 +33,7 @@ extension Requests {
             self.pageSize = try container.decodeIfPresent(Int64.self, forKey: .pageSize)
             self.sort = try container.decodeIfPresent([PostV1LedgerJournalTransactionsListRequestSortItem].self, forKey: .sort)
             self.filter = try container.decodeIfPresent([PostV1LedgerJournalTransactionsListRequestFilterItem].self, forKey: .filter)
+            self.totals = try container.decodeIfPresent([String].self, forKey: .totals)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -39,6 +44,7 @@ extension Requests {
             try container.encodeIfPresent(self.pageSize, forKey: .pageSize)
             try container.encodeIfPresent(self.sort, forKey: .sort)
             try container.encodeIfPresent(self.filter, forKey: .filter)
+            try container.encodeIfPresent(self.totals, forKey: .totals)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -47,6 +53,7 @@ extension Requests {
             case pageSize
             case sort
             case filter
+            case totals
         }
     }
 }

@@ -25,6 +25,18 @@ public struct PostV1SalesInvoicesIssueResponse: Codable, Hashable, Sendable {
     public let deemedSupplier: Bool
     public let notes: Nullable<String>
     public let documentRef: Nullable<String>
+    public let operationTypeId: Nullable<String>
+    public let documentSeriesId: Nullable<String>
+    public let seriesLabel: Nullable<String>
+    public let discountPercent: String
+    public let orderNumber: Nullable<String>
+    public let issuedByName: Nullable<String>
+    public let issuedByTitle: Nullable<String>
+    public let receivedByName: Nullable<String>
+    public let receivedByTitle: Nullable<String>
+    public let lockedAt: Nullable<String>
+    public let lockedBy: Nullable<String>
+    public let payToken: Nullable<String>
     public let createdAt: String
     public let updatedAt: String
     public let lines: [PostV1SalesInvoicesIssueResponseLinesItem]
@@ -57,6 +69,18 @@ public struct PostV1SalesInvoicesIssueResponse: Codable, Hashable, Sendable {
         deemedSupplier: Bool,
         notes: Nullable<String>,
         documentRef: Nullable<String>,
+        operationTypeId: Nullable<String>,
+        documentSeriesId: Nullable<String>,
+        seriesLabel: Nullable<String>,
+        discountPercent: String,
+        orderNumber: Nullable<String>,
+        issuedByName: Nullable<String>,
+        issuedByTitle: Nullable<String>,
+        receivedByName: Nullable<String>,
+        receivedByTitle: Nullable<String>,
+        lockedAt: Nullable<String>,
+        lockedBy: Nullable<String>,
+        payToken: Nullable<String>,
         createdAt: String,
         updatedAt: String,
         lines: [PostV1SalesInvoicesIssueResponseLinesItem],
@@ -87,6 +111,18 @@ public struct PostV1SalesInvoicesIssueResponse: Codable, Hashable, Sendable {
         self.deemedSupplier = deemedSupplier
         self.notes = notes
         self.documentRef = documentRef
+        self.operationTypeId = operationTypeId
+        self.documentSeriesId = documentSeriesId
+        self.seriesLabel = seriesLabel
+        self.discountPercent = discountPercent
+        self.orderNumber = orderNumber
+        self.issuedByName = issuedByName
+        self.issuedByTitle = issuedByTitle
+        self.receivedByName = receivedByName
+        self.receivedByTitle = receivedByTitle
+        self.lockedAt = lockedAt
+        self.lockedBy = lockedBy
+        self.payToken = payToken
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.lines = lines
@@ -120,6 +156,18 @@ public struct PostV1SalesInvoicesIssueResponse: Codable, Hashable, Sendable {
         self.deemedSupplier = try container.decode(Bool.self, forKey: .deemedSupplier)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.documentRef = try container.decode(Nullable<String>.self, forKey: .documentRef)
+        self.operationTypeId = try container.decode(Nullable<String>.self, forKey: .operationTypeId)
+        self.documentSeriesId = try container.decode(Nullable<String>.self, forKey: .documentSeriesId)
+        self.seriesLabel = try container.decode(Nullable<String>.self, forKey: .seriesLabel)
+        self.discountPercent = try container.decode(String.self, forKey: .discountPercent)
+        self.orderNumber = try container.decode(Nullable<String>.self, forKey: .orderNumber)
+        self.issuedByName = try container.decode(Nullable<String>.self, forKey: .issuedByName)
+        self.issuedByTitle = try container.decode(Nullable<String>.self, forKey: .issuedByTitle)
+        self.receivedByName = try container.decode(Nullable<String>.self, forKey: .receivedByName)
+        self.receivedByTitle = try container.decode(Nullable<String>.self, forKey: .receivedByTitle)
+        self.lockedAt = try container.decode(Nullable<String>.self, forKey: .lockedAt)
+        self.lockedBy = try container.decode(Nullable<String>.self, forKey: .lockedBy)
+        self.payToken = try container.decode(Nullable<String>.self, forKey: .payToken)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
         self.lines = try container.decode([PostV1SalesInvoicesIssueResponseLinesItem].self, forKey: .lines)
@@ -154,6 +202,18 @@ public struct PostV1SalesInvoicesIssueResponse: Codable, Hashable, Sendable {
         try container.encode(self.deemedSupplier, forKey: .deemedSupplier)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.documentRef, forKey: .documentRef)
+        try container.encode(self.operationTypeId, forKey: .operationTypeId)
+        try container.encode(self.documentSeriesId, forKey: .documentSeriesId)
+        try container.encode(self.seriesLabel, forKey: .seriesLabel)
+        try container.encode(self.discountPercent, forKey: .discountPercent)
+        try container.encode(self.orderNumber, forKey: .orderNumber)
+        try container.encode(self.issuedByName, forKey: .issuedByName)
+        try container.encode(self.issuedByTitle, forKey: .issuedByTitle)
+        try container.encode(self.receivedByName, forKey: .receivedByName)
+        try container.encode(self.receivedByTitle, forKey: .receivedByTitle)
+        try container.encode(self.lockedAt, forKey: .lockedAt)
+        try container.encode(self.lockedBy, forKey: .lockedBy)
+        try container.encode(self.payToken, forKey: .payToken)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
         try container.encode(self.lines, forKey: .lines)
@@ -186,6 +246,18 @@ public struct PostV1SalesInvoicesIssueResponse: Codable, Hashable, Sendable {
         case deemedSupplier
         case notes
         case documentRef
+        case operationTypeId
+        case documentSeriesId
+        case seriesLabel
+        case discountPercent
+        case orderNumber
+        case issuedByName
+        case issuedByTitle
+        case receivedByName
+        case receivedByTitle
+        case lockedAt
+        case lockedBy
+        case payToken
         case createdAt
         case updatedAt
         case lines

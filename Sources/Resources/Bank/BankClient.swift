@@ -147,6 +147,46 @@ public final class BankClient: Sendable {
         )
     }
 
+    public func postV1BankMatchRulesCreate(request: Requests.PostV1BankMatchRulesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMatchRulesCreateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/match-rules/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankMatchRulesCreateResponse.self
+        )
+    }
+
+    public func postV1BankMatchRulesUpdate(request: Requests.PostV1BankMatchRulesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMatchRulesUpdateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/match-rules/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankMatchRulesUpdateResponse.self
+        )
+    }
+
+    public func postV1BankMatchRulesDelete(request: Requests.PostV1BankMatchRulesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMatchRulesDeleteResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/match-rules/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankMatchRulesDeleteResponse.self
+        )
+    }
+
+    public func postV1BankMatchRulesList(request: Requests.PostV1BankMatchRulesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMatchRulesListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/match-rules/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankMatchRulesListResponse.self
+        )
+    }
+
     public func postV1BankMandatesCreate(request: Requests.PostV1BankMandatesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMandatesCreateResponse {
         return try await httpClient.performRequest(
             method: .post,
@@ -254,6 +294,32 @@ public final class BankClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: PostV1BankSettlementsMatchResponse.self
+        )
+    }
+
+    /// Attach the incoming bank-statement line that carries this payout to the settlement batch.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1BankSettlementsLink(request: Requests.PostV1BankSettlementsLinkRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankSettlementsLinkResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/settlements/link",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankSettlementsLinkResponse.self
+        )
+    }
+
+    /// Detach the bank-statement line from the settlement batch and return the line to unmatched.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1BankSettlementsUnlink(request: Requests.PostV1BankSettlementsUnlinkRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankSettlementsUnlinkResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/settlements/unlink",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankSettlementsUnlinkResponse.self
         )
     }
 

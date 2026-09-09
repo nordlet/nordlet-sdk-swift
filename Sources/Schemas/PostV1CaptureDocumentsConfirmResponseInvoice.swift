@@ -18,6 +18,7 @@ public struct PostV1CaptureDocumentsConfirmResponseInvoice: Codable, Hashable, S
     public let journalTransactionId: Nullable<String>
     public let creditedInvoiceId: Nullable<String>
     public let purchaseOrderId: Nullable<String>
+    public let operationTypeId: Nullable<String>
     public let notes: Nullable<String>
     public let documentRef: Nullable<String>
     public let createdAt: String
@@ -44,6 +45,7 @@ public struct PostV1CaptureDocumentsConfirmResponseInvoice: Codable, Hashable, S
         journalTransactionId: Nullable<String>,
         creditedInvoiceId: Nullable<String>,
         purchaseOrderId: Nullable<String>,
+        operationTypeId: Nullable<String>,
         notes: Nullable<String>,
         documentRef: Nullable<String>,
         createdAt: String,
@@ -68,6 +70,7 @@ public struct PostV1CaptureDocumentsConfirmResponseInvoice: Codable, Hashable, S
         self.journalTransactionId = journalTransactionId
         self.creditedInvoiceId = creditedInvoiceId
         self.purchaseOrderId = purchaseOrderId
+        self.operationTypeId = operationTypeId
         self.notes = notes
         self.documentRef = documentRef
         self.createdAt = createdAt
@@ -95,6 +98,7 @@ public struct PostV1CaptureDocumentsConfirmResponseInvoice: Codable, Hashable, S
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
         self.creditedInvoiceId = try container.decode(Nullable<String>.self, forKey: .creditedInvoiceId)
         self.purchaseOrderId = try container.decode(Nullable<String>.self, forKey: .purchaseOrderId)
+        self.operationTypeId = try container.decode(Nullable<String>.self, forKey: .operationTypeId)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.documentRef = try container.decode(Nullable<String>.self, forKey: .documentRef)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
@@ -123,6 +127,7 @@ public struct PostV1CaptureDocumentsConfirmResponseInvoice: Codable, Hashable, S
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
         try container.encode(self.creditedInvoiceId, forKey: .creditedInvoiceId)
         try container.encode(self.purchaseOrderId, forKey: .purchaseOrderId)
+        try container.encode(self.operationTypeId, forKey: .operationTypeId)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.documentRef, forKey: .documentRef)
         try container.encode(self.createdAt, forKey: .createdAt)
@@ -149,6 +154,7 @@ public struct PostV1CaptureDocumentsConfirmResponseInvoice: Codable, Hashable, S
         case journalTransactionId
         case creditedInvoiceId
         case purchaseOrderId
+        case operationTypeId
         case notes
         case documentRef
         case createdAt

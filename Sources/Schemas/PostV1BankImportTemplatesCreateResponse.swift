@@ -11,6 +11,12 @@ public struct PostV1BankImportTemplatesCreateResponse: Codable, Hashable, Sendab
     public let companyMetaField: Nullable<String>
     public let invoiceItemId: Nullable<String>
     public let advanceInvoices: Bool
+    public let authorizationOperationTypeId: Nullable<String>
+    public let payoutOperationTypeId: Nullable<String>
+    public let commissionOperationTypeId: Nullable<String>
+    public let lenderMetaField: Nullable<String>
+    public let partialRefundLabel: Nullable<String>
+    public let fullRefundLabel: Nullable<String>
     public let createdAt: String
     public let updatedAt: String
     /// Additional properties that are not explicitly defined in the schema
@@ -27,6 +33,12 @@ public struct PostV1BankImportTemplatesCreateResponse: Codable, Hashable, Sendab
         companyMetaField: Nullable<String>,
         invoiceItemId: Nullable<String>,
         advanceInvoices: Bool,
+        authorizationOperationTypeId: Nullable<String>,
+        payoutOperationTypeId: Nullable<String>,
+        commissionOperationTypeId: Nullable<String>,
+        lenderMetaField: Nullable<String>,
+        partialRefundLabel: Nullable<String>,
+        fullRefundLabel: Nullable<String>,
         createdAt: String,
         updatedAt: String,
         additionalProperties: [String: JSONValue] = .init()
@@ -41,6 +53,12 @@ public struct PostV1BankImportTemplatesCreateResponse: Codable, Hashable, Sendab
         self.companyMetaField = companyMetaField
         self.invoiceItemId = invoiceItemId
         self.advanceInvoices = advanceInvoices
+        self.authorizationOperationTypeId = authorizationOperationTypeId
+        self.payoutOperationTypeId = payoutOperationTypeId
+        self.commissionOperationTypeId = commissionOperationTypeId
+        self.lenderMetaField = lenderMetaField
+        self.partialRefundLabel = partialRefundLabel
+        self.fullRefundLabel = fullRefundLabel
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.additionalProperties = additionalProperties
@@ -58,6 +76,12 @@ public struct PostV1BankImportTemplatesCreateResponse: Codable, Hashable, Sendab
         self.companyMetaField = try container.decode(Nullable<String>.self, forKey: .companyMetaField)
         self.invoiceItemId = try container.decode(Nullable<String>.self, forKey: .invoiceItemId)
         self.advanceInvoices = try container.decode(Bool.self, forKey: .advanceInvoices)
+        self.authorizationOperationTypeId = try container.decode(Nullable<String>.self, forKey: .authorizationOperationTypeId)
+        self.payoutOperationTypeId = try container.decode(Nullable<String>.self, forKey: .payoutOperationTypeId)
+        self.commissionOperationTypeId = try container.decode(Nullable<String>.self, forKey: .commissionOperationTypeId)
+        self.lenderMetaField = try container.decode(Nullable<String>.self, forKey: .lenderMetaField)
+        self.partialRefundLabel = try container.decode(Nullable<String>.self, forKey: .partialRefundLabel)
+        self.fullRefundLabel = try container.decode(Nullable<String>.self, forKey: .fullRefundLabel)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -76,6 +100,12 @@ public struct PostV1BankImportTemplatesCreateResponse: Codable, Hashable, Sendab
         try container.encode(self.companyMetaField, forKey: .companyMetaField)
         try container.encode(self.invoiceItemId, forKey: .invoiceItemId)
         try container.encode(self.advanceInvoices, forKey: .advanceInvoices)
+        try container.encode(self.authorizationOperationTypeId, forKey: .authorizationOperationTypeId)
+        try container.encode(self.payoutOperationTypeId, forKey: .payoutOperationTypeId)
+        try container.encode(self.commissionOperationTypeId, forKey: .commissionOperationTypeId)
+        try container.encode(self.lenderMetaField, forKey: .lenderMetaField)
+        try container.encode(self.partialRefundLabel, forKey: .partialRefundLabel)
+        try container.encode(self.fullRefundLabel, forKey: .fullRefundLabel)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
     }
@@ -92,6 +122,12 @@ public struct PostV1BankImportTemplatesCreateResponse: Codable, Hashable, Sendab
         case companyMetaField
         case invoiceItemId
         case advanceInvoices
+        case authorizationOperationTypeId
+        case payoutOperationTypeId
+        case commissionOperationTypeId
+        case lenderMetaField
+        case partialRefundLabel
+        case fullRefundLabel
         case createdAt
         case updatedAt
     }

@@ -5,6 +5,7 @@ public struct PostV1AuditListResponse: Codable, Hashable, Sendable {
     public let page: Int64
     public let pageSize: Int64
     public let total: Int64
+    public let totals: [String: String]?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -13,12 +14,14 @@ public struct PostV1AuditListResponse: Codable, Hashable, Sendable {
         page: Int64,
         pageSize: Int64,
         total: Int64,
+        totals: [String: String]? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.rows = rows
         self.page = page
         self.pageSize = pageSize
         self.total = total
+        self.totals = totals
         self.additionalProperties = additionalProperties
     }
 
@@ -28,6 +31,7 @@ public struct PostV1AuditListResponse: Codable, Hashable, Sendable {
         self.page = try container.decode(Int64.self, forKey: .page)
         self.pageSize = try container.decode(Int64.self, forKey: .pageSize)
         self.total = try container.decode(Int64.self, forKey: .total)
+        self.totals = try container.decodeIfPresent([String: String].self, forKey: .totals)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -38,6 +42,7 @@ public struct PostV1AuditListResponse: Codable, Hashable, Sendable {
         try container.encode(self.page, forKey: .page)
         try container.encode(self.pageSize, forKey: .pageSize)
         try container.encode(self.total, forKey: .total)
+        try container.encodeIfPresent(self.totals, forKey: .totals)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -46,5 +51,6 @@ public struct PostV1AuditListResponse: Codable, Hashable, Sendable {
         case page
         case pageSize
         case total
+        case totals
     }
 }

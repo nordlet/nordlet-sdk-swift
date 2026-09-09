@@ -11,6 +11,15 @@ extension Requests {
         public let vatCountryCode: Nullable<String>?
         public let deemedSupplier: Bool?
         public let notes: String?
+        public let operationTypeId: Nullable<String>?
+        public let documentSeriesId: Nullable<String>?
+        public let seriesLabel: Nullable<String>?
+        public let discountPercent: String?
+        public let orderNumber: Nullable<String>?
+        public let issuedByName: Nullable<String>?
+        public let issuedByTitle: Nullable<String>?
+        public let receivedByName: Nullable<String>?
+        public let receivedByTitle: Nullable<String>?
         public let lines: [PostV1SalesInvoicesUpdateRequestLinesItem]?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -25,6 +34,15 @@ extension Requests {
             vatCountryCode: Nullable<String>? = nil,
             deemedSupplier: Bool? = nil,
             notes: String? = nil,
+            operationTypeId: Nullable<String>? = nil,
+            documentSeriesId: Nullable<String>? = nil,
+            seriesLabel: Nullable<String>? = nil,
+            discountPercent: String? = nil,
+            orderNumber: Nullable<String>? = nil,
+            issuedByName: Nullable<String>? = nil,
+            issuedByTitle: Nullable<String>? = nil,
+            receivedByName: Nullable<String>? = nil,
+            receivedByTitle: Nullable<String>? = nil,
             lines: [PostV1SalesInvoicesUpdateRequestLinesItem]? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -37,6 +55,15 @@ extension Requests {
             self.vatCountryCode = vatCountryCode
             self.deemedSupplier = deemedSupplier
             self.notes = notes
+            self.operationTypeId = operationTypeId
+            self.documentSeriesId = documentSeriesId
+            self.seriesLabel = seriesLabel
+            self.discountPercent = discountPercent
+            self.orderNumber = orderNumber
+            self.issuedByName = issuedByName
+            self.issuedByTitle = issuedByTitle
+            self.receivedByName = receivedByName
+            self.receivedByTitle = receivedByTitle
             self.lines = lines
             self.additionalProperties = additionalProperties
         }
@@ -52,6 +79,15 @@ extension Requests {
             self.vatCountryCode = try container.decodeNullableIfPresent(String.self, forKey: .vatCountryCode)
             self.deemedSupplier = try container.decodeIfPresent(Bool.self, forKey: .deemedSupplier)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
+            self.operationTypeId = try container.decodeNullableIfPresent(String.self, forKey: .operationTypeId)
+            self.documentSeriesId = try container.decodeNullableIfPresent(String.self, forKey: .documentSeriesId)
+            self.seriesLabel = try container.decodeNullableIfPresent(String.self, forKey: .seriesLabel)
+            self.discountPercent = try container.decodeIfPresent(String.self, forKey: .discountPercent)
+            self.orderNumber = try container.decodeNullableIfPresent(String.self, forKey: .orderNumber)
+            self.issuedByName = try container.decodeNullableIfPresent(String.self, forKey: .issuedByName)
+            self.issuedByTitle = try container.decodeNullableIfPresent(String.self, forKey: .issuedByTitle)
+            self.receivedByName = try container.decodeNullableIfPresent(String.self, forKey: .receivedByName)
+            self.receivedByTitle = try container.decodeNullableIfPresent(String.self, forKey: .receivedByTitle)
             self.lines = try container.decodeIfPresent([PostV1SalesInvoicesUpdateRequestLinesItem].self, forKey: .lines)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -68,6 +104,15 @@ extension Requests {
             try container.encodeNullableIfPresent(self.vatCountryCode, forKey: .vatCountryCode)
             try container.encodeIfPresent(self.deemedSupplier, forKey: .deemedSupplier)
             try container.encodeIfPresent(self.notes, forKey: .notes)
+            try container.encodeNullableIfPresent(self.operationTypeId, forKey: .operationTypeId)
+            try container.encodeNullableIfPresent(self.documentSeriesId, forKey: .documentSeriesId)
+            try container.encodeNullableIfPresent(self.seriesLabel, forKey: .seriesLabel)
+            try container.encodeIfPresent(self.discountPercent, forKey: .discountPercent)
+            try container.encodeNullableIfPresent(self.orderNumber, forKey: .orderNumber)
+            try container.encodeNullableIfPresent(self.issuedByName, forKey: .issuedByName)
+            try container.encodeNullableIfPresent(self.issuedByTitle, forKey: .issuedByTitle)
+            try container.encodeNullableIfPresent(self.receivedByName, forKey: .receivedByName)
+            try container.encodeNullableIfPresent(self.receivedByTitle, forKey: .receivedByTitle)
             try container.encodeIfPresent(self.lines, forKey: .lines)
         }
 
@@ -82,6 +127,15 @@ extension Requests {
             case vatCountryCode
             case deemedSupplier
             case notes
+            case operationTypeId
+            case documentSeriesId
+            case seriesLabel
+            case discountPercent
+            case orderNumber
+            case issuedByName
+            case issuedByTitle
+            case receivedByName
+            case receivedByTitle
             case lines
         }
     }

@@ -11,6 +11,12 @@ extension Requests {
         public let companyMetaField: Nullable<String>?
         public let invoiceItemId: Nullable<String>?
         public let advanceInvoices: Bool?
+        public let authorizationOperationTypeId: Nullable<String>?
+        public let payoutOperationTypeId: Nullable<String>?
+        public let commissionOperationTypeId: Nullable<String>?
+        public let lenderMetaField: Nullable<String>?
+        public let partialRefundLabel: Nullable<String>?
+        public let fullRefundLabel: Nullable<String>?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -24,6 +30,12 @@ extension Requests {
             companyMetaField: Nullable<String>? = nil,
             invoiceItemId: Nullable<String>? = nil,
             advanceInvoices: Bool? = nil,
+            authorizationOperationTypeId: Nullable<String>? = nil,
+            payoutOperationTypeId: Nullable<String>? = nil,
+            commissionOperationTypeId: Nullable<String>? = nil,
+            lenderMetaField: Nullable<String>? = nil,
+            partialRefundLabel: Nullable<String>? = nil,
+            fullRefundLabel: Nullable<String>? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.name = name
@@ -35,6 +47,12 @@ extension Requests {
             self.companyMetaField = companyMetaField
             self.invoiceItemId = invoiceItemId
             self.advanceInvoices = advanceInvoices
+            self.authorizationOperationTypeId = authorizationOperationTypeId
+            self.payoutOperationTypeId = payoutOperationTypeId
+            self.commissionOperationTypeId = commissionOperationTypeId
+            self.lenderMetaField = lenderMetaField
+            self.partialRefundLabel = partialRefundLabel
+            self.fullRefundLabel = fullRefundLabel
             self.additionalProperties = additionalProperties
         }
 
@@ -49,6 +67,12 @@ extension Requests {
             self.companyMetaField = try container.decodeNullableIfPresent(String.self, forKey: .companyMetaField)
             self.invoiceItemId = try container.decodeNullableIfPresent(String.self, forKey: .invoiceItemId)
             self.advanceInvoices = try container.decodeIfPresent(Bool.self, forKey: .advanceInvoices)
+            self.authorizationOperationTypeId = try container.decodeNullableIfPresent(String.self, forKey: .authorizationOperationTypeId)
+            self.payoutOperationTypeId = try container.decodeNullableIfPresent(String.self, forKey: .payoutOperationTypeId)
+            self.commissionOperationTypeId = try container.decodeNullableIfPresent(String.self, forKey: .commissionOperationTypeId)
+            self.lenderMetaField = try container.decodeNullableIfPresent(String.self, forKey: .lenderMetaField)
+            self.partialRefundLabel = try container.decodeNullableIfPresent(String.self, forKey: .partialRefundLabel)
+            self.fullRefundLabel = try container.decodeNullableIfPresent(String.self, forKey: .fullRefundLabel)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -64,6 +88,12 @@ extension Requests {
             try container.encodeNullableIfPresent(self.companyMetaField, forKey: .companyMetaField)
             try container.encodeNullableIfPresent(self.invoiceItemId, forKey: .invoiceItemId)
             try container.encodeIfPresent(self.advanceInvoices, forKey: .advanceInvoices)
+            try container.encodeNullableIfPresent(self.authorizationOperationTypeId, forKey: .authorizationOperationTypeId)
+            try container.encodeNullableIfPresent(self.payoutOperationTypeId, forKey: .payoutOperationTypeId)
+            try container.encodeNullableIfPresent(self.commissionOperationTypeId, forKey: .commissionOperationTypeId)
+            try container.encodeNullableIfPresent(self.lenderMetaField, forKey: .lenderMetaField)
+            try container.encodeNullableIfPresent(self.partialRefundLabel, forKey: .partialRefundLabel)
+            try container.encodeNullableIfPresent(self.fullRefundLabel, forKey: .fullRefundLabel)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -77,6 +107,12 @@ extension Requests {
             case companyMetaField
             case invoiceItemId
             case advanceInvoices
+            case authorizationOperationTypeId
+            case payoutOperationTypeId
+            case commissionOperationTypeId
+            case lenderMetaField
+            case partialRefundLabel
+            case fullRefundLabel
         }
     }
 }

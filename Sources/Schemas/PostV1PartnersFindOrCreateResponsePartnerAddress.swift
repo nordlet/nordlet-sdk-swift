@@ -3,6 +3,8 @@ import Foundation
 public struct PostV1PartnersFindOrCreateResponsePartnerAddress: Codable, Hashable, Sendable {
     public let street: String?
     public let city: String?
+    public let municipality: String?
+    public let county: String?
     public let postalCode: String?
     public let countryCode: String?
     /// Additional properties that are not explicitly defined in the schema
@@ -11,12 +13,16 @@ public struct PostV1PartnersFindOrCreateResponsePartnerAddress: Codable, Hashabl
     public init(
         street: String? = nil,
         city: String? = nil,
+        municipality: String? = nil,
+        county: String? = nil,
         postalCode: String? = nil,
         countryCode: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.street = street
         self.city = city
+        self.municipality = municipality
+        self.county = county
         self.postalCode = postalCode
         self.countryCode = countryCode
         self.additionalProperties = additionalProperties
@@ -26,6 +32,8 @@ public struct PostV1PartnersFindOrCreateResponsePartnerAddress: Codable, Hashabl
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.street = try container.decodeIfPresent(String.self, forKey: .street)
         self.city = try container.decodeIfPresent(String.self, forKey: .city)
+        self.municipality = try container.decodeIfPresent(String.self, forKey: .municipality)
+        self.county = try container.decodeIfPresent(String.self, forKey: .county)
         self.postalCode = try container.decodeIfPresent(String.self, forKey: .postalCode)
         self.countryCode = try container.decodeIfPresent(String.self, forKey: .countryCode)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -36,6 +44,8 @@ public struct PostV1PartnersFindOrCreateResponsePartnerAddress: Codable, Hashabl
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encodeIfPresent(self.street, forKey: .street)
         try container.encodeIfPresent(self.city, forKey: .city)
+        try container.encodeIfPresent(self.municipality, forKey: .municipality)
+        try container.encodeIfPresent(self.county, forKey: .county)
         try container.encodeIfPresent(self.postalCode, forKey: .postalCode)
         try container.encodeIfPresent(self.countryCode, forKey: .countryCode)
     }
@@ -44,6 +54,8 @@ public struct PostV1PartnersFindOrCreateResponsePartnerAddress: Codable, Hashabl
     enum CodingKeys: String, CodingKey, CaseIterable {
         case street
         case city
+        case municipality
+        case county
         case postalCode
         case countryCode
     }

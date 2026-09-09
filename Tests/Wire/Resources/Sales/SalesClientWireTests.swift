@@ -33,6 +33,18 @@ import Api
                   "deemedSupplier": true,
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "operationTypeId": "operationTypeId",
+                  "documentSeriesId": "documentSeriesId",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -142,6 +154,18 @@ import Api
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            documentSeriesId: Nullable<String>.value("documentSeriesId"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -262,6 +286,18 @@ import Api
                   "deemedSupplier": true,
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "operationTypeId": "x",
+                  "documentSeriesId": "x",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -416,6 +452,18 @@ import Api
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("x"),
+            documentSeriesId: Nullable<String>.value("x"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -584,6 +632,18 @@ import Api
                   "deemedSupplier": true,
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "operationTypeId": "operationTypeId",
+                  "documentSeriesId": "documentSeriesId",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -693,6 +753,18 @@ import Api
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            documentSeriesId: Nullable<String>.value("documentSeriesId"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -806,6 +878,18 @@ import Api
                   "deemedSupplier": true,
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "operationTypeId": "x",
+                  "documentSeriesId": "x",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -960,6 +1044,18 @@ import Api
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("x"),
+            documentSeriesId: Nullable<String>.value("x"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -1530,6 +1626,18 @@ import Api
                   "deemedSupplier": true,
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "operationTypeId": "operationTypeId",
+                  "documentSeriesId": "documentSeriesId",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -1639,6 +1747,18 @@ import Api
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            documentSeriesId: Nullable<String>.value("documentSeriesId"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -1752,6 +1872,18 @@ import Api
                   "deemedSupplier": true,
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "operationTypeId": "x",
+                  "documentSeriesId": "x",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -1906,6 +2038,18 @@ import Api
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("x"),
+            documentSeriesId: Nullable<String>.value("x"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -2116,6 +2260,18 @@ import Api
                   "deemedSupplier": true,
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "operationTypeId": "operationTypeId",
+                  "documentSeriesId": "documentSeriesId",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -2225,6 +2381,18 @@ import Api
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            documentSeriesId: Nullable<String>.value("documentSeriesId"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -2338,6 +2506,18 @@ import Api
                   "deemedSupplier": true,
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "operationTypeId": "x",
+                  "documentSeriesId": "x",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -2492,6 +2672,18 @@ import Api
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("x"),
+            documentSeriesId: Nullable<String>.value("x"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -2620,6 +2812,1330 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func postV1SalesInvoicesLock1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "partnerId": "partnerId",
+                  "type": "invoice",
+                  "status": "draft",
+                  "paymentStatus": "unpaid",
+                  "series": "series",
+                  "number": 1000000,
+                  "fullNumber": "fullNumber",
+                  "issueDate": "issueDate",
+                  "dueDate": "dueDate",
+                  "currency": "currency",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "paidAmount": "paidAmount",
+                  "journalTransactionId": "journalTransactionId",
+                  "appliedToInvoiceId": "appliedToInvoiceId",
+                  "creditedInvoiceId": "creditedInvoiceId",
+                  "agreementId": "agreementId",
+                  "vatScheme": "domestic",
+                  "vatCountryCode": "vatCountryCode",
+                  "deemedSupplier": true,
+                  "notes": "notes",
+                  "documentRef": "documentRef",
+                  "operationTypeId": "operationTypeId",
+                  "documentSeriesId": "documentSeriesId",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt",
+                  "lines": [
+                    {
+                      "id": "id",
+                      "itemId": "itemId",
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "costCenterId": "costCenterId",
+                      "projectId": "projectId",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross",
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": null,
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
+                    }
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "id",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "importId",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": null
+                      }
+                    ]
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesLockResponse(
+            id: "id",
+            partnerId: "partnerId",
+            type: .invoice,
+            status: .draft,
+            paymentStatus: .unpaid,
+            series: Nullable<String>.value("series"),
+            number: Nullable<Int64>.value(1000000),
+            fullNumber: Nullable<String>.value("fullNumber"),
+            issueDate: Nullable<String>.value("issueDate"),
+            dueDate: Nullable<String>.value("dueDate"),
+            currency: "currency",
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            paidAmount: "paidAmount",
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
+            creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            agreementId: Nullable<String>.value("agreementId"),
+            vatScheme: Nullable<PostV1SalesInvoicesLockResponseVatScheme>.value(.domestic),
+            vatCountryCode: Nullable<String>.value("vatCountryCode"),
+            deemedSupplier: true,
+            notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            documentSeriesId: Nullable<String>.value("documentSeriesId"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
+            createdAt: "createdAt",
+            updatedAt: "updatedAt",
+            lines: [
+                PostV1SalesInvoicesLockResponseLinesItem(
+                    id: "id",
+                    itemId: Nullable<String>.value("itemId"),
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                    unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    costCenterId: Nullable<String>.value("costCenterId"),
+                    projectId: Nullable<String>.value("projectId"),
+                    lineNet: "lineNet",
+                    lineVat: "lineVat",
+                    lineGross: "lineGross",
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: .null,
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
+                )
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesLockResponseVatEvidence>.value(PostV1SalesInvoicesLockResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesLockResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesLockResponseVatEvidencePartner(
+                    id: "id",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesLockResponseVatEvidenceVies>.value(PostV1SalesInvoicesLockResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesLockResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesLockResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesLockResponseVatEvidenceRateTable(
+                    importId: "importId",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesLockResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: .null
+                    )
+                ]
+            ))
+        )
+        let response = try await client.sales.postV1SalesInvoicesLock(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesInvoicesLock2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "partnerId": "x",
+                  "type": "invoice",
+                  "status": "draft",
+                  "paymentStatus": "unpaid",
+                  "series": "series",
+                  "number": 1000000,
+                  "fullNumber": "fullNumber",
+                  "issueDate": "issueDate",
+                  "dueDate": "dueDate",
+                  "currency": "currency",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "paidAmount": "paidAmount",
+                  "journalTransactionId": "x",
+                  "appliedToInvoiceId": "x",
+                  "creditedInvoiceId": "x",
+                  "agreementId": "x",
+                  "vatScheme": "domestic",
+                  "vatCountryCode": "vatCountryCode",
+                  "deemedSupplier": true,
+                  "notes": "notes",
+                  "documentRef": "documentRef",
+                  "operationTypeId": "x",
+                  "documentSeriesId": "x",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt",
+                  "lines": [
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "costCenterId": "x",
+                      "projectId": "x",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross",
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
+                    },
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "costCenterId": "x",
+                      "projectId": "x",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross",
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
+                    }
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "x",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "x",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      },
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      }
+                    ]
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesLockResponse(
+            id: "x",
+            partnerId: "x",
+            type: .invoice,
+            status: .draft,
+            paymentStatus: .unpaid,
+            series: Nullable<String>.value("series"),
+            number: Nullable<Int64>.value(1000000),
+            fullNumber: Nullable<String>.value("fullNumber"),
+            issueDate: Nullable<String>.value("issueDate"),
+            dueDate: Nullable<String>.value("dueDate"),
+            currency: "currency",
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            paidAmount: "paidAmount",
+            journalTransactionId: Nullable<String>.value("x"),
+            appliedToInvoiceId: Nullable<String>.value("x"),
+            creditedInvoiceId: Nullable<String>.value("x"),
+            agreementId: Nullable<String>.value("x"),
+            vatScheme: Nullable<PostV1SalesInvoicesLockResponseVatScheme>.value(.domestic),
+            vatCountryCode: Nullable<String>.value("vatCountryCode"),
+            deemedSupplier: true,
+            notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("x"),
+            documentSeriesId: Nullable<String>.value("x"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
+            createdAt: "createdAt",
+            updatedAt: "updatedAt",
+            lines: [
+                PostV1SalesInvoicesLockResponseLinesItem(
+                    id: "x",
+                    itemId: Nullable<String>.value("x"),
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                    unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
+                    lineNet: "lineNet",
+                    lineVat: "lineVat",
+                    lineGross: "lineGross",
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
+                ),
+                PostV1SalesInvoicesLockResponseLinesItem(
+                    id: "x",
+                    itemId: Nullable<String>.value("x"),
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                    unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
+                    lineNet: "lineNet",
+                    lineVat: "lineVat",
+                    lineGross: "lineGross",
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
+                )
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesLockResponseVatEvidence>.value(PostV1SalesInvoicesLockResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesLockResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesLockResponseVatEvidencePartner(
+                    id: "x",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesLockResponseVatEvidenceVies>.value(PostV1SalesInvoicesLockResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesLockResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesLockResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesLockResponseVatEvidenceRateTable(
+                    importId: "x",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesLockResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    ),
+                    PostV1SalesInvoicesLockResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    )
+                ]
+            ))
+        )
+        let response = try await client.sales.postV1SalesInvoicesLock(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesInvoicesUnlock1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "partnerId": "partnerId",
+                  "type": "invoice",
+                  "status": "draft",
+                  "paymentStatus": "unpaid",
+                  "series": "series",
+                  "number": 1000000,
+                  "fullNumber": "fullNumber",
+                  "issueDate": "issueDate",
+                  "dueDate": "dueDate",
+                  "currency": "currency",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "paidAmount": "paidAmount",
+                  "journalTransactionId": "journalTransactionId",
+                  "appliedToInvoiceId": "appliedToInvoiceId",
+                  "creditedInvoiceId": "creditedInvoiceId",
+                  "agreementId": "agreementId",
+                  "vatScheme": "domestic",
+                  "vatCountryCode": "vatCountryCode",
+                  "deemedSupplier": true,
+                  "notes": "notes",
+                  "documentRef": "documentRef",
+                  "operationTypeId": "operationTypeId",
+                  "documentSeriesId": "documentSeriesId",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt",
+                  "lines": [
+                    {
+                      "id": "id",
+                      "itemId": "itemId",
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "costCenterId": "costCenterId",
+                      "projectId": "projectId",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross",
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": null,
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
+                    }
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "id",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "importId",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": null
+                      }
+                    ]
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesUnlockResponse(
+            id: "id",
+            partnerId: "partnerId",
+            type: .invoice,
+            status: .draft,
+            paymentStatus: .unpaid,
+            series: Nullable<String>.value("series"),
+            number: Nullable<Int64>.value(1000000),
+            fullNumber: Nullable<String>.value("fullNumber"),
+            issueDate: Nullable<String>.value("issueDate"),
+            dueDate: Nullable<String>.value("dueDate"),
+            currency: "currency",
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            paidAmount: "paidAmount",
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
+            creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            agreementId: Nullable<String>.value("agreementId"),
+            vatScheme: Nullable<PostV1SalesInvoicesUnlockResponseVatScheme>.value(.domestic),
+            vatCountryCode: Nullable<String>.value("vatCountryCode"),
+            deemedSupplier: true,
+            notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            documentSeriesId: Nullable<String>.value("documentSeriesId"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
+            createdAt: "createdAt",
+            updatedAt: "updatedAt",
+            lines: [
+                PostV1SalesInvoicesUnlockResponseLinesItem(
+                    id: "id",
+                    itemId: Nullable<String>.value("itemId"),
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                    unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    costCenterId: Nullable<String>.value("costCenterId"),
+                    projectId: Nullable<String>.value("projectId"),
+                    lineNet: "lineNet",
+                    lineVat: "lineVat",
+                    lineGross: "lineGross",
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: .null,
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
+                )
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesUnlockResponseVatEvidence>.value(PostV1SalesInvoicesUnlockResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesUnlockResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesUnlockResponseVatEvidencePartner(
+                    id: "id",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesUnlockResponseVatEvidenceVies>.value(PostV1SalesInvoicesUnlockResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesUnlockResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesUnlockResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesUnlockResponseVatEvidenceRateTable(
+                    importId: "importId",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesUnlockResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: .null
+                    )
+                ]
+            ))
+        )
+        let response = try await client.sales.postV1SalesInvoicesUnlock(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesInvoicesUnlock2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "partnerId": "x",
+                  "type": "invoice",
+                  "status": "draft",
+                  "paymentStatus": "unpaid",
+                  "series": "series",
+                  "number": 1000000,
+                  "fullNumber": "fullNumber",
+                  "issueDate": "issueDate",
+                  "dueDate": "dueDate",
+                  "currency": "currency",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "paidAmount": "paidAmount",
+                  "journalTransactionId": "x",
+                  "appliedToInvoiceId": "x",
+                  "creditedInvoiceId": "x",
+                  "agreementId": "x",
+                  "vatScheme": "domestic",
+                  "vatCountryCode": "vatCountryCode",
+                  "deemedSupplier": true,
+                  "notes": "notes",
+                  "documentRef": "documentRef",
+                  "operationTypeId": "x",
+                  "documentSeriesId": "x",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt",
+                  "lines": [
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "costCenterId": "x",
+                      "projectId": "x",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross",
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
+                    },
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "costCenterId": "x",
+                      "projectId": "x",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross",
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "recognitionStartDate",
+                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "expectedDate",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
+                    }
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "capturedAt",
+                    "issueDate": "issueDate",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "x",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "vatValidatedAt"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "checkedAt"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "x",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "startedAt"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      },
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      }
+                    ]
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesUnlockResponse(
+            id: "x",
+            partnerId: "x",
+            type: .invoice,
+            status: .draft,
+            paymentStatus: .unpaid,
+            series: Nullable<String>.value("series"),
+            number: Nullable<Int64>.value(1000000),
+            fullNumber: Nullable<String>.value("fullNumber"),
+            issueDate: Nullable<String>.value("issueDate"),
+            dueDate: Nullable<String>.value("dueDate"),
+            currency: "currency",
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            paidAmount: "paidAmount",
+            journalTransactionId: Nullable<String>.value("x"),
+            appliedToInvoiceId: Nullable<String>.value("x"),
+            creditedInvoiceId: Nullable<String>.value("x"),
+            agreementId: Nullable<String>.value("x"),
+            vatScheme: Nullable<PostV1SalesInvoicesUnlockResponseVatScheme>.value(.domestic),
+            vatCountryCode: Nullable<String>.value("vatCountryCode"),
+            deemedSupplier: true,
+            notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("x"),
+            documentSeriesId: Nullable<String>.value("x"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
+            createdAt: "createdAt",
+            updatedAt: "updatedAt",
+            lines: [
+                PostV1SalesInvoicesUnlockResponseLinesItem(
+                    id: "x",
+                    itemId: Nullable<String>.value("x"),
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                    unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
+                    lineNet: "lineNet",
+                    lineVat: "lineVat",
+                    lineGross: "lineGross",
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
+                ),
+                PostV1SalesInvoicesUnlockResponseLinesItem(
+                    id: "x",
+                    itemId: Nullable<String>.value("x"),
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                    unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
+                    lineNet: "lineNet",
+                    lineVat: "lineVat",
+                    lineGross: "lineGross",
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
+                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
+                    recognitionMilestones: Nullable<[PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem]>.value([
+                        PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        ),
+                        PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<String>.value("expectedDate"),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
+                )
+            ],
+            vatEvidence: Nullable<PostV1SalesInvoicesUnlockResponseVatEvidence>.value(PostV1SalesInvoicesUnlockResponseVatEvidence(
+                capturedAt: "capturedAt",
+                issueDate: "issueDate",
+                scheme: PostV1SalesInvoicesUnlockResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: PostV1SalesInvoicesUnlockResponseVatEvidencePartner(
+                    id: "x",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                ),
+                vies: Nullable<PostV1SalesInvoicesUnlockResponseVatEvidenceVies>.value(PostV1SalesInvoicesUnlockResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: "checkedAt"
+                )),
+                location: PostV1SalesInvoicesUnlockResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<PostV1SalesInvoicesUnlockResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesUnlockResponseVatEvidenceRateTable(
+                    importId: "x",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: "startedAt"
+                )),
+                rates: [
+                    PostV1SalesInvoicesUnlockResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    ),
+                    PostV1SalesInvoicesUnlockResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    )
+                ]
+            ))
+        )
+        let response = try await client.sales.postV1SalesInvoicesUnlock(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesInvoicesPaymentLink1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "url": "url",
+                  "source": "template"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesPaymentLinkResponse(
+            url: Nullable<String>.value("url"),
+            source: Nullable<PostV1SalesInvoicesPaymentLinkResponseSource>.value(.template)
+        )
+        let response = try await client.sales.postV1SalesInvoicesPaymentLink(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesInvoicesPaymentLink2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "url": "url",
+                  "source": "template"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesPaymentLinkResponse(
+            url: Nullable<String>.value("url"),
+            source: Nullable<PostV1SalesInvoicesPaymentLinkResponseSource>.value(.template)
+        )
+        let response = try await client.sales.postV1SalesInvoicesPaymentLink(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesInvoicesPaymentSettingsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "paymentLinkTemplate": "paymentLinkTemplate"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesPaymentSettingsGetResponse(
+            paymentLinkTemplate: Nullable<String>.value("paymentLinkTemplate")
+        )
+        let response = try await client.sales.postV1SalesInvoicesPaymentSettingsGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesInvoicesPaymentSettingsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "paymentLinkTemplate": "paymentLinkTemplate"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesPaymentSettingsGetResponse(
+            paymentLinkTemplate: Nullable<String>.value("paymentLinkTemplate")
+        )
+        let response = try await client.sales.postV1SalesInvoicesPaymentSettingsGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesInvoicesPaymentSettingsUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "paymentLinkTemplate": "paymentLinkTemplate"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesPaymentSettingsUpdateResponse(
+            paymentLinkTemplate: Nullable<String>.value("paymentLinkTemplate")
+        )
+        let response = try await client.sales.postV1SalesInvoicesPaymentSettingsUpdate(
+            request: .init(paymentLinkTemplate: .null),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1SalesInvoicesPaymentSettingsUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "paymentLinkTemplate": "paymentLinkTemplate"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1SalesInvoicesPaymentSettingsUpdateResponse(
+            paymentLinkTemplate: Nullable<String>.value("paymentLinkTemplate")
+        )
+        let response = try await client.sales.postV1SalesInvoicesPaymentSettingsUpdate(
+            request: .init(paymentLinkTemplate: .null),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1SalesRecognitionSchedulesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -2644,7 +4160,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -2673,7 +4192,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.sales.postV1SalesRecognitionSchedulesList(
             request: .init(),
@@ -2720,7 +4242,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -2763,7 +4288,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.sales.postV1SalesRecognitionSchedulesList(
             request: .init(),
@@ -2802,6 +4330,18 @@ import Api
                   "deemedSupplier": true,
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "operationTypeId": "operationTypeId",
+                  "documentSeriesId": "documentSeriesId",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -2911,6 +4451,18 @@ import Api
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            documentSeriesId: Nullable<String>.value("documentSeriesId"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -3027,6 +4579,18 @@ import Api
                   "deemedSupplier": true,
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "operationTypeId": "x",
+                  "documentSeriesId": "x",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt",
                   "lines": [
@@ -3181,6 +4745,18 @@ import Api
             deemedSupplier: true,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("x"),
+            documentSeriesId: Nullable<String>.value("x"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             lines: [
@@ -3344,13 +4920,28 @@ import Api
                       "deemedSupplier": true,
                       "notes": "notes",
                       "documentRef": "documentRef",
+                      "operationTypeId": "operationTypeId",
+                      "documentSeriesId": "documentSeriesId",
+                      "seriesLabel": "seriesLabel",
+                      "discountPercent": "discountPercent",
+                      "orderNumber": "orderNumber",
+                      "issuedByName": "issuedByName",
+                      "issuedByTitle": "issuedByTitle",
+                      "receivedByName": "receivedByName",
+                      "receivedByTitle": "receivedByTitle",
+                      "lockedAt": "lockedAt",
+                      "lockedBy": "lockedBy",
+                      "payToken": "payToken",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -3387,13 +4978,28 @@ import Api
                     deemedSupplier: true,
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
+                    operationTypeId: Nullable<String>.value("operationTypeId"),
+                    documentSeriesId: Nullable<String>.value("documentSeriesId"),
+                    seriesLabel: Nullable<String>.value("seriesLabel"),
+                    discountPercent: "discountPercent",
+                    orderNumber: Nullable<String>.value("orderNumber"),
+                    issuedByName: Nullable<String>.value("issuedByName"),
+                    issuedByTitle: Nullable<String>.value("issuedByTitle"),
+                    receivedByName: Nullable<String>.value("receivedByName"),
+                    receivedByTitle: Nullable<String>.value("receivedByTitle"),
+                    lockedAt: Nullable<String>.value("lockedAt"),
+                    lockedBy: Nullable<String>.value("lockedBy"),
+                    payToken: Nullable<String>.value("payToken"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.sales.postV1SalesInvoicesList(
             request: .init(),
@@ -3434,6 +5040,18 @@ import Api
                       "deemedSupplier": true,
                       "notes": "notes",
                       "documentRef": "documentRef",
+                      "operationTypeId": "x",
+                      "documentSeriesId": "x",
+                      "seriesLabel": "seriesLabel",
+                      "discountPercent": "discountPercent",
+                      "orderNumber": "orderNumber",
+                      "issuedByName": "issuedByName",
+                      "issuedByTitle": "issuedByTitle",
+                      "receivedByName": "receivedByName",
+                      "receivedByTitle": "receivedByTitle",
+                      "lockedAt": "lockedAt",
+                      "lockedBy": "lockedBy",
+                      "payToken": "payToken",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     },
@@ -3462,13 +5080,28 @@ import Api
                       "deemedSupplier": true,
                       "notes": "notes",
                       "documentRef": "documentRef",
+                      "operationTypeId": "x",
+                      "documentSeriesId": "x",
+                      "seriesLabel": "seriesLabel",
+                      "discountPercent": "discountPercent",
+                      "orderNumber": "orderNumber",
+                      "issuedByName": "issuedByName",
+                      "issuedByTitle": "issuedByTitle",
+                      "receivedByName": "receivedByName",
+                      "receivedByTitle": "receivedByTitle",
+                      "lockedAt": "lockedAt",
+                      "lockedBy": "lockedBy",
+                      "payToken": "payToken",
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -3505,6 +5138,18 @@ import Api
                     deemedSupplier: true,
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
+                    operationTypeId: Nullable<String>.value("x"),
+                    documentSeriesId: Nullable<String>.value("x"),
+                    seriesLabel: Nullable<String>.value("seriesLabel"),
+                    discountPercent: "discountPercent",
+                    orderNumber: Nullable<String>.value("orderNumber"),
+                    issuedByName: Nullable<String>.value("issuedByName"),
+                    issuedByTitle: Nullable<String>.value("issuedByTitle"),
+                    receivedByName: Nullable<String>.value("receivedByName"),
+                    receivedByTitle: Nullable<String>.value("receivedByTitle"),
+                    lockedAt: Nullable<String>.value("lockedAt"),
+                    lockedBy: Nullable<String>.value("lockedBy"),
+                    payToken: Nullable<String>.value("payToken"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 ),
@@ -3533,13 +5178,28 @@ import Api
                     deemedSupplier: true,
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
+                    operationTypeId: Nullable<String>.value("x"),
+                    documentSeriesId: Nullable<String>.value("x"),
+                    seriesLabel: Nullable<String>.value("seriesLabel"),
+                    discountPercent: "discountPercent",
+                    orderNumber: Nullable<String>.value("orderNumber"),
+                    issuedByName: Nullable<String>.value("issuedByName"),
+                    issuedByTitle: Nullable<String>.value("issuedByTitle"),
+                    receivedByName: Nullable<String>.value("receivedByName"),
+                    receivedByTitle: Nullable<String>.value("receivedByTitle"),
+                    lockedAt: Nullable<String>.value("lockedAt"),
+                    lockedBy: Nullable<String>.value("lockedBy"),
+                    payToken: Nullable<String>.value("payToken"),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.sales.postV1SalesInvoicesList(
             request: .init(),
@@ -4387,7 +6047,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -4419,7 +6082,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.sales.postV1SalesActsList(
             request: .init(),
@@ -4472,7 +6138,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -4521,7 +6190,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.sales.postV1SalesActsList(
             request: .init(),
@@ -4585,6 +6257,1344 @@ import Api
         )
         let response = try await client.sales.postV1SalesActsPdf(
             request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1OperationTypesCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "code": "code",
+                  "name": "name",
+                  "invoiceType": "invoice",
+                  "payerPartnerId": "payerPartnerId",
+                  "debitAccountCode": "debitAccountCode",
+                  "creditAccountCode": "creditAccountCode",
+                  "vatAccountCode": "vatAccountCode",
+                  "expenseAccountCode": "expenseAccountCode",
+                  "advanceAccountCode": "advanceAccountCode",
+                  "incomeAccountCode": "incomeAccountCode",
+                  "isPurchase": true,
+                  "isSale": true,
+                  "isWriteOff": true,
+                  "isInternalMovement": true,
+                  "isPurchaseReturn": true,
+                  "isSalesReturn": true,
+                  "isConsignment": true,
+                  "isProduction": true,
+                  "isAssetIn": true,
+                  "isAssetOut": true,
+                  "isCashRegisterSale": true,
+                  "includeInVatRegister": true,
+                  "includeInSaft": true,
+                  "isActive": true,
+                  "sortOrder": 1000000,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OperationTypesCreateResponse(
+            id: "id",
+            code: "code",
+            name: "name",
+            invoiceType: Nullable<PostV1OperationTypesCreateResponseInvoiceType>.value(.invoice),
+            payerPartnerId: Nullable<String>.value("payerPartnerId"),
+            debitAccountCode: Nullable<String>.value("debitAccountCode"),
+            creditAccountCode: Nullable<String>.value("creditAccountCode"),
+            vatAccountCode: Nullable<String>.value("vatAccountCode"),
+            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+            advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
+            incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
+            isPurchase: true,
+            isSale: true,
+            isWriteOff: true,
+            isInternalMovement: true,
+            isPurchaseReturn: true,
+            isSalesReturn: true,
+            isConsignment: true,
+            isProduction: true,
+            isAssetIn: true,
+            isAssetOut: true,
+            isCashRegisterSale: true,
+            includeInVatRegister: true,
+            includeInSaft: true,
+            isActive: true,
+            sortOrder: 1000000,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.sales.postV1OperationTypesCreate(
+            request: .init(
+                code: "code",
+                name: "name"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1OperationTypesCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "code": "code",
+                  "name": "name",
+                  "invoiceType": "invoice",
+                  "payerPartnerId": "x",
+                  "debitAccountCode": "debitAccountCode",
+                  "creditAccountCode": "creditAccountCode",
+                  "vatAccountCode": "vatAccountCode",
+                  "expenseAccountCode": "expenseAccountCode",
+                  "advanceAccountCode": "advanceAccountCode",
+                  "incomeAccountCode": "incomeAccountCode",
+                  "isPurchase": true,
+                  "isSale": true,
+                  "isWriteOff": true,
+                  "isInternalMovement": true,
+                  "isPurchaseReturn": true,
+                  "isSalesReturn": true,
+                  "isConsignment": true,
+                  "isProduction": true,
+                  "isAssetIn": true,
+                  "isAssetOut": true,
+                  "isCashRegisterSale": true,
+                  "includeInVatRegister": true,
+                  "includeInSaft": true,
+                  "isActive": true,
+                  "sortOrder": 1000000,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OperationTypesCreateResponse(
+            id: "x",
+            code: "code",
+            name: "name",
+            invoiceType: Nullable<PostV1OperationTypesCreateResponseInvoiceType>.value(.invoice),
+            payerPartnerId: Nullable<String>.value("x"),
+            debitAccountCode: Nullable<String>.value("debitAccountCode"),
+            creditAccountCode: Nullable<String>.value("creditAccountCode"),
+            vatAccountCode: Nullable<String>.value("vatAccountCode"),
+            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+            advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
+            incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
+            isPurchase: true,
+            isSale: true,
+            isWriteOff: true,
+            isInternalMovement: true,
+            isPurchaseReturn: true,
+            isSalesReturn: true,
+            isConsignment: true,
+            isProduction: true,
+            isAssetIn: true,
+            isAssetOut: true,
+            isCashRegisterSale: true,
+            includeInVatRegister: true,
+            includeInSaft: true,
+            isActive: true,
+            sortOrder: 1000000,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.sales.postV1OperationTypesCreate(
+            request: .init(
+                code: "x",
+                name: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1OperationTypesUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "code": "code",
+                  "name": "name",
+                  "invoiceType": "invoice",
+                  "payerPartnerId": "payerPartnerId",
+                  "debitAccountCode": "debitAccountCode",
+                  "creditAccountCode": "creditAccountCode",
+                  "vatAccountCode": "vatAccountCode",
+                  "expenseAccountCode": "expenseAccountCode",
+                  "advanceAccountCode": "advanceAccountCode",
+                  "incomeAccountCode": "incomeAccountCode",
+                  "isPurchase": true,
+                  "isSale": true,
+                  "isWriteOff": true,
+                  "isInternalMovement": true,
+                  "isPurchaseReturn": true,
+                  "isSalesReturn": true,
+                  "isConsignment": true,
+                  "isProduction": true,
+                  "isAssetIn": true,
+                  "isAssetOut": true,
+                  "isCashRegisterSale": true,
+                  "includeInVatRegister": true,
+                  "includeInSaft": true,
+                  "isActive": true,
+                  "sortOrder": 1000000,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OperationTypesUpdateResponse(
+            id: "id",
+            code: "code",
+            name: "name",
+            invoiceType: Nullable<PostV1OperationTypesUpdateResponseInvoiceType>.value(.invoice),
+            payerPartnerId: Nullable<String>.value("payerPartnerId"),
+            debitAccountCode: Nullable<String>.value("debitAccountCode"),
+            creditAccountCode: Nullable<String>.value("creditAccountCode"),
+            vatAccountCode: Nullable<String>.value("vatAccountCode"),
+            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+            advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
+            incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
+            isPurchase: true,
+            isSale: true,
+            isWriteOff: true,
+            isInternalMovement: true,
+            isPurchaseReturn: true,
+            isSalesReturn: true,
+            isConsignment: true,
+            isProduction: true,
+            isAssetIn: true,
+            isAssetOut: true,
+            isCashRegisterSale: true,
+            includeInVatRegister: true,
+            includeInSaft: true,
+            isActive: true,
+            sortOrder: 1000000,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.sales.postV1OperationTypesUpdate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1OperationTypesUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "code": "code",
+                  "name": "name",
+                  "invoiceType": "invoice",
+                  "payerPartnerId": "x",
+                  "debitAccountCode": "debitAccountCode",
+                  "creditAccountCode": "creditAccountCode",
+                  "vatAccountCode": "vatAccountCode",
+                  "expenseAccountCode": "expenseAccountCode",
+                  "advanceAccountCode": "advanceAccountCode",
+                  "incomeAccountCode": "incomeAccountCode",
+                  "isPurchase": true,
+                  "isSale": true,
+                  "isWriteOff": true,
+                  "isInternalMovement": true,
+                  "isPurchaseReturn": true,
+                  "isSalesReturn": true,
+                  "isConsignment": true,
+                  "isProduction": true,
+                  "isAssetIn": true,
+                  "isAssetOut": true,
+                  "isCashRegisterSale": true,
+                  "includeInVatRegister": true,
+                  "includeInSaft": true,
+                  "isActive": true,
+                  "sortOrder": 1000000,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OperationTypesUpdateResponse(
+            id: "x",
+            code: "code",
+            name: "name",
+            invoiceType: Nullable<PostV1OperationTypesUpdateResponseInvoiceType>.value(.invoice),
+            payerPartnerId: Nullable<String>.value("x"),
+            debitAccountCode: Nullable<String>.value("debitAccountCode"),
+            creditAccountCode: Nullable<String>.value("creditAccountCode"),
+            vatAccountCode: Nullable<String>.value("vatAccountCode"),
+            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+            advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
+            incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
+            isPurchase: true,
+            isSale: true,
+            isWriteOff: true,
+            isInternalMovement: true,
+            isPurchaseReturn: true,
+            isSalesReturn: true,
+            isConsignment: true,
+            isProduction: true,
+            isAssetIn: true,
+            isAssetOut: true,
+            isCashRegisterSale: true,
+            includeInVatRegister: true,
+            includeInSaft: true,
+            isActive: true,
+            sortOrder: 1000000,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.sales.postV1OperationTypesUpdate(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1OperationTypesGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "code": "code",
+                  "name": "name",
+                  "invoiceType": "invoice",
+                  "payerPartnerId": "payerPartnerId",
+                  "debitAccountCode": "debitAccountCode",
+                  "creditAccountCode": "creditAccountCode",
+                  "vatAccountCode": "vatAccountCode",
+                  "expenseAccountCode": "expenseAccountCode",
+                  "advanceAccountCode": "advanceAccountCode",
+                  "incomeAccountCode": "incomeAccountCode",
+                  "isPurchase": true,
+                  "isSale": true,
+                  "isWriteOff": true,
+                  "isInternalMovement": true,
+                  "isPurchaseReturn": true,
+                  "isSalesReturn": true,
+                  "isConsignment": true,
+                  "isProduction": true,
+                  "isAssetIn": true,
+                  "isAssetOut": true,
+                  "isCashRegisterSale": true,
+                  "includeInVatRegister": true,
+                  "includeInSaft": true,
+                  "isActive": true,
+                  "sortOrder": 1000000,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OperationTypesGetResponse(
+            id: "id",
+            code: "code",
+            name: "name",
+            invoiceType: Nullable<PostV1OperationTypesGetResponseInvoiceType>.value(.invoice),
+            payerPartnerId: Nullable<String>.value("payerPartnerId"),
+            debitAccountCode: Nullable<String>.value("debitAccountCode"),
+            creditAccountCode: Nullable<String>.value("creditAccountCode"),
+            vatAccountCode: Nullable<String>.value("vatAccountCode"),
+            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+            advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
+            incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
+            isPurchase: true,
+            isSale: true,
+            isWriteOff: true,
+            isInternalMovement: true,
+            isPurchaseReturn: true,
+            isSalesReturn: true,
+            isConsignment: true,
+            isProduction: true,
+            isAssetIn: true,
+            isAssetOut: true,
+            isCashRegisterSale: true,
+            includeInVatRegister: true,
+            includeInSaft: true,
+            isActive: true,
+            sortOrder: 1000000,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.sales.postV1OperationTypesGet(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1OperationTypesGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "code": "code",
+                  "name": "name",
+                  "invoiceType": "invoice",
+                  "payerPartnerId": "x",
+                  "debitAccountCode": "debitAccountCode",
+                  "creditAccountCode": "creditAccountCode",
+                  "vatAccountCode": "vatAccountCode",
+                  "expenseAccountCode": "expenseAccountCode",
+                  "advanceAccountCode": "advanceAccountCode",
+                  "incomeAccountCode": "incomeAccountCode",
+                  "isPurchase": true,
+                  "isSale": true,
+                  "isWriteOff": true,
+                  "isInternalMovement": true,
+                  "isPurchaseReturn": true,
+                  "isSalesReturn": true,
+                  "isConsignment": true,
+                  "isProduction": true,
+                  "isAssetIn": true,
+                  "isAssetOut": true,
+                  "isCashRegisterSale": true,
+                  "includeInVatRegister": true,
+                  "includeInSaft": true,
+                  "isActive": true,
+                  "sortOrder": 1000000,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OperationTypesGetResponse(
+            id: "x",
+            code: "code",
+            name: "name",
+            invoiceType: Nullable<PostV1OperationTypesGetResponseInvoiceType>.value(.invoice),
+            payerPartnerId: Nullable<String>.value("x"),
+            debitAccountCode: Nullable<String>.value("debitAccountCode"),
+            creditAccountCode: Nullable<String>.value("creditAccountCode"),
+            vatAccountCode: Nullable<String>.value("vatAccountCode"),
+            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+            advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
+            incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
+            isPurchase: true,
+            isSale: true,
+            isWriteOff: true,
+            isInternalMovement: true,
+            isPurchaseReturn: true,
+            isSalesReturn: true,
+            isConsignment: true,
+            isProduction: true,
+            isAssetIn: true,
+            isAssetOut: true,
+            isCashRegisterSale: true,
+            includeInVatRegister: true,
+            includeInSaft: true,
+            isActive: true,
+            sortOrder: 1000000,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.sales.postV1OperationTypesGet(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1OperationTypesDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OperationTypesDeleteResponse(
+            deleted: true
+        )
+        let response = try await client.sales.postV1OperationTypesDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1OperationTypesDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OperationTypesDeleteResponse(
+            deleted: true
+        )
+        let response = try await client.sales.postV1OperationTypesDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1OperationTypesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "code": "code",
+                      "name": "name",
+                      "invoiceType": "invoice",
+                      "payerPartnerId": "payerPartnerId",
+                      "debitAccountCode": "debitAccountCode",
+                      "creditAccountCode": "creditAccountCode",
+                      "vatAccountCode": "vatAccountCode",
+                      "expenseAccountCode": "expenseAccountCode",
+                      "advanceAccountCode": "advanceAccountCode",
+                      "incomeAccountCode": "incomeAccountCode",
+                      "isPurchase": true,
+                      "isSale": true,
+                      "isWriteOff": true,
+                      "isInternalMovement": true,
+                      "isPurchaseReturn": true,
+                      "isSalesReturn": true,
+                      "isConsignment": true,
+                      "isProduction": true,
+                      "isAssetIn": true,
+                      "isAssetOut": true,
+                      "isCashRegisterSale": true,
+                      "includeInVatRegister": true,
+                      "includeInSaft": true,
+                      "isActive": true,
+                      "sortOrder": 1000000,
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OperationTypesListResponse(
+            rows: [
+                PostV1OperationTypesListResponseRowsItem(
+                    id: "id",
+                    code: "code",
+                    name: "name",
+                    invoiceType: Nullable<PostV1OperationTypesListResponseRowsItemInvoiceType>.value(.invoice),
+                    payerPartnerId: Nullable<String>.value("payerPartnerId"),
+                    debitAccountCode: Nullable<String>.value("debitAccountCode"),
+                    creditAccountCode: Nullable<String>.value("creditAccountCode"),
+                    vatAccountCode: Nullable<String>.value("vatAccountCode"),
+                    expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+                    advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
+                    incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
+                    isPurchase: true,
+                    isSale: true,
+                    isWriteOff: true,
+                    isInternalMovement: true,
+                    isPurchaseReturn: true,
+                    isSalesReturn: true,
+                    isConsignment: true,
+                    isProduction: true,
+                    isAssetIn: true,
+                    isAssetOut: true,
+                    isCashRegisterSale: true,
+                    includeInVatRegister: true,
+                    includeInSaft: true,
+                    isActive: true,
+                    sortOrder: 1000000,
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
+        )
+        let response = try await client.sales.postV1OperationTypesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1OperationTypesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "code": "code",
+                      "name": "name",
+                      "invoiceType": "invoice",
+                      "payerPartnerId": "x",
+                      "debitAccountCode": "debitAccountCode",
+                      "creditAccountCode": "creditAccountCode",
+                      "vatAccountCode": "vatAccountCode",
+                      "expenseAccountCode": "expenseAccountCode",
+                      "advanceAccountCode": "advanceAccountCode",
+                      "incomeAccountCode": "incomeAccountCode",
+                      "isPurchase": true,
+                      "isSale": true,
+                      "isWriteOff": true,
+                      "isInternalMovement": true,
+                      "isPurchaseReturn": true,
+                      "isSalesReturn": true,
+                      "isConsignment": true,
+                      "isProduction": true,
+                      "isAssetIn": true,
+                      "isAssetOut": true,
+                      "isCashRegisterSale": true,
+                      "includeInVatRegister": true,
+                      "includeInSaft": true,
+                      "isActive": true,
+                      "sortOrder": 1000000,
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    },
+                    {
+                      "id": "x",
+                      "code": "code",
+                      "name": "name",
+                      "invoiceType": "invoice",
+                      "payerPartnerId": "x",
+                      "debitAccountCode": "debitAccountCode",
+                      "creditAccountCode": "creditAccountCode",
+                      "vatAccountCode": "vatAccountCode",
+                      "expenseAccountCode": "expenseAccountCode",
+                      "advanceAccountCode": "advanceAccountCode",
+                      "incomeAccountCode": "incomeAccountCode",
+                      "isPurchase": true,
+                      "isSale": true,
+                      "isWriteOff": true,
+                      "isInternalMovement": true,
+                      "isPurchaseReturn": true,
+                      "isSalesReturn": true,
+                      "isConsignment": true,
+                      "isProduction": true,
+                      "isAssetIn": true,
+                      "isAssetOut": true,
+                      "isCashRegisterSale": true,
+                      "includeInVatRegister": true,
+                      "includeInSaft": true,
+                      "isActive": true,
+                      "sortOrder": 1000000,
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OperationTypesListResponse(
+            rows: [
+                PostV1OperationTypesListResponseRowsItem(
+                    id: "x",
+                    code: "code",
+                    name: "name",
+                    invoiceType: Nullable<PostV1OperationTypesListResponseRowsItemInvoiceType>.value(.invoice),
+                    payerPartnerId: Nullable<String>.value("x"),
+                    debitAccountCode: Nullable<String>.value("debitAccountCode"),
+                    creditAccountCode: Nullable<String>.value("creditAccountCode"),
+                    vatAccountCode: Nullable<String>.value("vatAccountCode"),
+                    expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+                    advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
+                    incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
+                    isPurchase: true,
+                    isSale: true,
+                    isWriteOff: true,
+                    isInternalMovement: true,
+                    isPurchaseReturn: true,
+                    isSalesReturn: true,
+                    isConsignment: true,
+                    isProduction: true,
+                    isAssetIn: true,
+                    isAssetOut: true,
+                    isCashRegisterSale: true,
+                    includeInVatRegister: true,
+                    includeInSaft: true,
+                    isActive: true,
+                    sortOrder: 1000000,
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                ),
+                PostV1OperationTypesListResponseRowsItem(
+                    id: "x",
+                    code: "code",
+                    name: "name",
+                    invoiceType: Nullable<PostV1OperationTypesListResponseRowsItemInvoiceType>.value(.invoice),
+                    payerPartnerId: Nullable<String>.value("x"),
+                    debitAccountCode: Nullable<String>.value("debitAccountCode"),
+                    creditAccountCode: Nullable<String>.value("creditAccountCode"),
+                    vatAccountCode: Nullable<String>.value("vatAccountCode"),
+                    expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+                    advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
+                    incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
+                    isPurchase: true,
+                    isSale: true,
+                    isWriteOff: true,
+                    isInternalMovement: true,
+                    isPurchaseReturn: true,
+                    isSalesReturn: true,
+                    isConsignment: true,
+                    isProduction: true,
+                    isAssetIn: true,
+                    isAssetOut: true,
+                    isCashRegisterSale: true,
+                    includeInVatRegister: true,
+                    includeInSaft: true,
+                    isActive: true,
+                    sortOrder: 1000000,
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
+        )
+        let response = try await client.sales.postV1OperationTypesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DocumentSeriesCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "documentType": "documentType",
+                  "prefix": "prefix",
+                  "name": "name",
+                  "label": "label",
+                  "operationTypeId": "operationTypeId",
+                  "numberLength": 1000000,
+                  "nextNumber": 1000000,
+                  "warehouseId": "warehouseId",
+                  "printSeries": true,
+                  "isDefault": true,
+                  "isActive": true,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DocumentSeriesCreateResponse(
+            id: "id",
+            documentType: "documentType",
+            prefix: "prefix",
+            name: Nullable<String>.value("name"),
+            label: Nullable<String>.value("label"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            numberLength: 1000000,
+            nextNumber: 1000000,
+            warehouseId: Nullable<String>.value("warehouseId"),
+            printSeries: true,
+            isDefault: true,
+            isActive: true,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.sales.postV1DocumentSeriesCreate(
+            request: .init(prefix: "prefix"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DocumentSeriesCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "documentType": "documentType",
+                  "prefix": "prefix",
+                  "name": "name",
+                  "label": "label",
+                  "operationTypeId": "x",
+                  "numberLength": 1000000,
+                  "nextNumber": 1000000,
+                  "warehouseId": "x",
+                  "printSeries": true,
+                  "isDefault": true,
+                  "isActive": true,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DocumentSeriesCreateResponse(
+            id: "x",
+            documentType: "documentType",
+            prefix: "prefix",
+            name: Nullable<String>.value("name"),
+            label: Nullable<String>.value("label"),
+            operationTypeId: Nullable<String>.value("x"),
+            numberLength: 1000000,
+            nextNumber: 1000000,
+            warehouseId: Nullable<String>.value("x"),
+            printSeries: true,
+            isDefault: true,
+            isActive: true,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.sales.postV1DocumentSeriesCreate(
+            request: .init(prefix: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DocumentSeriesUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "documentType": "documentType",
+                  "prefix": "prefix",
+                  "name": "name",
+                  "label": "label",
+                  "operationTypeId": "operationTypeId",
+                  "numberLength": 1000000,
+                  "nextNumber": 1000000,
+                  "warehouseId": "warehouseId",
+                  "printSeries": true,
+                  "isDefault": true,
+                  "isActive": true,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DocumentSeriesUpdateResponse(
+            id: "id",
+            documentType: "documentType",
+            prefix: "prefix",
+            name: Nullable<String>.value("name"),
+            label: Nullable<String>.value("label"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            numberLength: 1000000,
+            nextNumber: 1000000,
+            warehouseId: Nullable<String>.value("warehouseId"),
+            printSeries: true,
+            isDefault: true,
+            isActive: true,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.sales.postV1DocumentSeriesUpdate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DocumentSeriesUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "documentType": "documentType",
+                  "prefix": "prefix",
+                  "name": "name",
+                  "label": "label",
+                  "operationTypeId": "x",
+                  "numberLength": 1000000,
+                  "nextNumber": 1000000,
+                  "warehouseId": "x",
+                  "printSeries": true,
+                  "isDefault": true,
+                  "isActive": true,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DocumentSeriesUpdateResponse(
+            id: "x",
+            documentType: "documentType",
+            prefix: "prefix",
+            name: Nullable<String>.value("name"),
+            label: Nullable<String>.value("label"),
+            operationTypeId: Nullable<String>.value("x"),
+            numberLength: 1000000,
+            nextNumber: 1000000,
+            warehouseId: Nullable<String>.value("x"),
+            printSeries: true,
+            isDefault: true,
+            isActive: true,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.sales.postV1DocumentSeriesUpdate(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DocumentSeriesGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "documentType": "documentType",
+                  "prefix": "prefix",
+                  "name": "name",
+                  "label": "label",
+                  "operationTypeId": "operationTypeId",
+                  "numberLength": 1000000,
+                  "nextNumber": 1000000,
+                  "warehouseId": "warehouseId",
+                  "printSeries": true,
+                  "isDefault": true,
+                  "isActive": true,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DocumentSeriesGetResponse(
+            id: "id",
+            documentType: "documentType",
+            prefix: "prefix",
+            name: Nullable<String>.value("name"),
+            label: Nullable<String>.value("label"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            numberLength: 1000000,
+            nextNumber: 1000000,
+            warehouseId: Nullable<String>.value("warehouseId"),
+            printSeries: true,
+            isDefault: true,
+            isActive: true,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.sales.postV1DocumentSeriesGet(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DocumentSeriesGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "documentType": "documentType",
+                  "prefix": "prefix",
+                  "name": "name",
+                  "label": "label",
+                  "operationTypeId": "x",
+                  "numberLength": 1000000,
+                  "nextNumber": 1000000,
+                  "warehouseId": "x",
+                  "printSeries": true,
+                  "isDefault": true,
+                  "isActive": true,
+                  "createdAt": "createdAt",
+                  "updatedAt": "updatedAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DocumentSeriesGetResponse(
+            id: "x",
+            documentType: "documentType",
+            prefix: "prefix",
+            name: Nullable<String>.value("name"),
+            label: Nullable<String>.value("label"),
+            operationTypeId: Nullable<String>.value("x"),
+            numberLength: 1000000,
+            nextNumber: 1000000,
+            warehouseId: Nullable<String>.value("x"),
+            printSeries: true,
+            isDefault: true,
+            isActive: true,
+            createdAt: "createdAt",
+            updatedAt: "updatedAt"
+        )
+        let response = try await client.sales.postV1DocumentSeriesGet(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DocumentSeriesDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DocumentSeriesDeleteResponse(
+            deleted: true
+        )
+        let response = try await client.sales.postV1DocumentSeriesDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DocumentSeriesDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DocumentSeriesDeleteResponse(
+            deleted: true
+        )
+        let response = try await client.sales.postV1DocumentSeriesDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DocumentSeriesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "documentType": "documentType",
+                      "prefix": "prefix",
+                      "name": "name",
+                      "label": "label",
+                      "operationTypeId": "operationTypeId",
+                      "numberLength": 1000000,
+                      "nextNumber": 1000000,
+                      "warehouseId": "warehouseId",
+                      "printSeries": true,
+                      "isDefault": true,
+                      "isActive": true,
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DocumentSeriesListResponse(
+            rows: [
+                PostV1DocumentSeriesListResponseRowsItem(
+                    id: "id",
+                    documentType: "documentType",
+                    prefix: "prefix",
+                    name: Nullable<String>.value("name"),
+                    label: Nullable<String>.value("label"),
+                    operationTypeId: Nullable<String>.value("operationTypeId"),
+                    numberLength: 1000000,
+                    nextNumber: 1000000,
+                    warehouseId: Nullable<String>.value("warehouseId"),
+                    printSeries: true,
+                    isDefault: true,
+                    isActive: true,
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
+        )
+        let response = try await client.sales.postV1DocumentSeriesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1DocumentSeriesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "documentType": "documentType",
+                      "prefix": "prefix",
+                      "name": "name",
+                      "label": "label",
+                      "operationTypeId": "x",
+                      "numberLength": 1000000,
+                      "nextNumber": 1000000,
+                      "warehouseId": "x",
+                      "printSeries": true,
+                      "isDefault": true,
+                      "isActive": true,
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    },
+                    {
+                      "id": "x",
+                      "documentType": "documentType",
+                      "prefix": "prefix",
+                      "name": "name",
+                      "label": "label",
+                      "operationTypeId": "x",
+                      "numberLength": 1000000,
+                      "nextNumber": 1000000,
+                      "warehouseId": "x",
+                      "printSeries": true,
+                      "isDefault": true,
+                      "isActive": true,
+                      "createdAt": "createdAt",
+                      "updatedAt": "updatedAt"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1DocumentSeriesListResponse(
+            rows: [
+                PostV1DocumentSeriesListResponseRowsItem(
+                    id: "x",
+                    documentType: "documentType",
+                    prefix: "prefix",
+                    name: Nullable<String>.value("name"),
+                    label: Nullable<String>.value("label"),
+                    operationTypeId: Nullable<String>.value("x"),
+                    numberLength: 1000000,
+                    nextNumber: 1000000,
+                    warehouseId: Nullable<String>.value("x"),
+                    printSeries: true,
+                    isDefault: true,
+                    isActive: true,
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                ),
+                PostV1DocumentSeriesListResponseRowsItem(
+                    id: "x",
+                    documentType: "documentType",
+                    prefix: "prefix",
+                    name: Nullable<String>.value("name"),
+                    label: Nullable<String>.value("label"),
+                    operationTypeId: Nullable<String>.value("x"),
+                    numberLength: 1000000,
+                    nextNumber: 1000000,
+                    warehouseId: Nullable<String>.value("x"),
+                    printSeries: true,
+                    isDefault: true,
+                    isActive: true,
+                    createdAt: "createdAt",
+                    updatedAt: "updatedAt"
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
+        )
+        let response = try await client.sales.postV1DocumentSeriesList(
+            request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -4961,7 +7971,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -4985,7 +7998,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.sales.postV1SalesRecognitionRunsList(
             request: .init(),
@@ -5022,7 +8038,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -5055,7 +8074,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.sales.postV1SalesRecognitionRunsList(
             request: .init(),
@@ -5233,7 +8255,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -5259,7 +8284,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.sales.postV1SalesRefundLiabilityList(
             request: .init(),
@@ -5300,7 +8328,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -5337,7 +8368,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.sales.postV1SalesRefundLiabilityList(
             request: .init(),

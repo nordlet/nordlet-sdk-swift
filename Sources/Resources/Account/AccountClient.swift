@@ -319,4 +319,44 @@ public final class AccountClient: Sendable {
             responseType: PostV1AccountDeleteResponse.self
         )
     }
+
+    public func postV1AccountReferralGet(request: Requests.PostV1AccountReferralGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountReferralGetResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/referral/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountReferralGetResponse.self
+        )
+    }
+
+    public func postV1AccountTableSettingsGet(request: Requests.PostV1AccountTableSettingsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountTableSettingsGetResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/table-settings/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountTableSettingsGetResponse.self
+        )
+    }
+
+    public func postV1AccountTableSettingsSet(request: Requests.PostV1AccountTableSettingsSetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountTableSettingsSetResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/table-settings/set",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountTableSettingsSetResponse.self
+        )
+    }
+
+    public func postV1AccountTableSettingsList(request: Requests.PostV1AccountTableSettingsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountTableSettingsListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/table-settings/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountTableSettingsListResponse.self
+        )
+    }
 }

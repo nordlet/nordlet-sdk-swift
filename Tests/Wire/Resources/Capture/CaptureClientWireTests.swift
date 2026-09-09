@@ -3,6 +3,268 @@ import Testing
 import Api
 
 @Suite("CaptureClient Wire Tests") struct CaptureClientWireTests {
+    @Test func postV1CaptureSettingsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "intakeEnabled": true,
+                  "captureAutoExtract": true,
+                  "intakeAddress": "intakeAddress",
+                  "ocrConfigured": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CaptureSettingsGetResponse(
+            intakeEnabled: true,
+            captureAutoExtract: true,
+            intakeAddress: Nullable<String>.value("intakeAddress"),
+            ocrConfigured: true
+        )
+        let response = try await client.capture.postV1CaptureSettingsGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CaptureSettingsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "intakeEnabled": true,
+                  "captureAutoExtract": true,
+                  "intakeAddress": "intakeAddress",
+                  "ocrConfigured": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CaptureSettingsGetResponse(
+            intakeEnabled: true,
+            captureAutoExtract: true,
+            intakeAddress: Nullable<String>.value("intakeAddress"),
+            ocrConfigured: true
+        )
+        let response = try await client.capture.postV1CaptureSettingsGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CaptureSettingsUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "intakeEnabled": true,
+                  "captureAutoExtract": true,
+                  "intakeAddress": "intakeAddress",
+                  "ocrConfigured": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CaptureSettingsUpdateResponse(
+            intakeEnabled: true,
+            captureAutoExtract: true,
+            intakeAddress: Nullable<String>.value("intakeAddress"),
+            ocrConfigured: true
+        )
+        let response = try await client.capture.postV1CaptureSettingsUpdate(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CaptureSettingsUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "intakeEnabled": true,
+                  "captureAutoExtract": true,
+                  "intakeAddress": "intakeAddress",
+                  "ocrConfigured": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CaptureSettingsUpdateResponse(
+            intakeEnabled: true,
+            captureAutoExtract: true,
+            intakeAddress: Nullable<String>.value("intakeAddress"),
+            ocrConfigured: true
+        )
+        let response = try await client.capture.postV1CaptureSettingsUpdate(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CaptureSettingsRegenerateIntake1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "intakeEnabled": true,
+                  "captureAutoExtract": true,
+                  "intakeAddress": "intakeAddress",
+                  "ocrConfigured": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CaptureSettingsRegenerateIntakeResponse(
+            intakeEnabled: true,
+            captureAutoExtract: true,
+            intakeAddress: Nullable<String>.value("intakeAddress"),
+            ocrConfigured: true
+        )
+        let response = try await client.capture.postV1CaptureSettingsRegenerateIntake(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CaptureSettingsRegenerateIntake2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "intakeEnabled": true,
+                  "captureAutoExtract": true,
+                  "intakeAddress": "intakeAddress",
+                  "ocrConfigured": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CaptureSettingsRegenerateIntakeResponse(
+            intakeEnabled: true,
+            captureAutoExtract: true,
+            intakeAddress: Nullable<String>.value("intakeAddress"),
+            ocrConfigured: true
+        )
+        let response = try await client.capture.postV1CaptureSettingsRegenerateIntake(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func receiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJson1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "accepted": 1000000,
+                  "skipped": 1000000,
+                  "captureIds": [
+                    "captureIds"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CaptureInboundEmailResponse(
+            accepted: 1000000,
+            skipped: 1000000,
+            captureIds: [
+                "captureIds"
+            ]
+        )
+        let response = try await client.capture.receiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJson(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func receiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJson2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "accepted": 1000000,
+                  "skipped": 1000000,
+                  "captureIds": [
+                    "captureIds",
+                    "captureIds"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CaptureInboundEmailResponse(
+            accepted: 1000000,
+            skipped: 1000000,
+            captureIds: [
+                "captureIds",
+                "captureIds"
+            ]
+        )
+        let response = try await client.capture.receiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJson(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func readAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraft1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -798,7 +1060,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -858,7 +1123,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.capture.postV1CaptureDocumentsList(
             request: .init(),
@@ -987,7 +1255,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -1112,7 +1383,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.capture.postV1CaptureDocumentsList(
             request: .init(),
@@ -1242,6 +1516,7 @@ import Api
                     "journalTransactionId": "journalTransactionId",
                     "creditedInvoiceId": "creditedInvoiceId",
                     "purchaseOrderId": "purchaseOrderId",
+                    "operationTypeId": "operationTypeId",
                     "notes": "notes",
                     "documentRef": "documentRef",
                     "createdAt": "createdAt",
@@ -1340,6 +1615,7 @@ import Api
                 journalTransactionId: Nullable<String>.value("journalTransactionId"),
                 creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
                 purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
+                operationTypeId: Nullable<String>.value("operationTypeId"),
                 notes: Nullable<String>.value("notes"),
                 documentRef: Nullable<String>.value("documentRef"),
                 createdAt: "createdAt",
@@ -1461,6 +1737,7 @@ import Api
                     "journalTransactionId": "x",
                     "creditedInvoiceId": "x",
                     "purchaseOrderId": "x",
+                    "operationTypeId": "x",
                     "notes": "notes",
                     "documentRef": "documentRef",
                     "createdAt": "createdAt",
@@ -1587,6 +1864,7 @@ import Api
                 journalTransactionId: Nullable<String>.value("x"),
                 creditedInvoiceId: Nullable<String>.value("x"),
                 purchaseOrderId: Nullable<String>.value("x"),
+                operationTypeId: Nullable<String>.value("x"),
                 notes: Nullable<String>.value("notes"),
                 documentRef: Nullable<String>.value("documentRef"),
                 createdAt: "createdAt",

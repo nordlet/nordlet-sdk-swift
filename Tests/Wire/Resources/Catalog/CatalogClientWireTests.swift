@@ -44,6 +44,35 @@ import Api
                       "quantity": "quantity"
                     }
                   ],
+                  "kindId": "kindId",
+                  "saleAccountCode": "saleAccountCode",
+                  "purchaseAccountCode": "purchaseAccountCode",
+                  "expenseAccountCode": "expenseAccountCode",
+                  "manufacturer": "manufacturer",
+                  "grossMassKg": "grossMassKg",
+                  "minQuantity": "minQuantity",
+                  "costPrice": "costPrice",
+                  "isFreePrice": true,
+                  "externalId": "externalId",
+                  "isReturnable": true,
+                  "commentRequired": true,
+                  "priceFrom": "priceFrom",
+                  "priceTo": "priceTo",
+                  "minPrice": "minPrice",
+                  "discountPercent": "discountPercent",
+                  "maxDiscountPercent": "maxDiscountPercent",
+                  "loyaltyPoints": 1000000,
+                  "department": "department",
+                  "ageRestriction": 1000000,
+                  "packageQuantity": "packageQuantity",
+                  "taraCode": "taraCode",
+                  "certificateNumber": "certificateNumber",
+                  "certificateDate": "certificateDate",
+                  "validFrom": "validFrom",
+                  "validTo": "validTo",
+                  "posFlags": {
+                    "key": true
+                  },
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -91,6 +120,35 @@ import Api
                     quantity: "quantity"
                 )
             ],
+            kindId: Nullable<String>.value("kindId"),
+            saleAccountCode: Nullable<String>.value("saleAccountCode"),
+            purchaseAccountCode: Nullable<String>.value("purchaseAccountCode"),
+            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+            manufacturer: Nullable<String>.value("manufacturer"),
+            grossMassKg: Nullable<String>.value("grossMassKg"),
+            minQuantity: Nullable<String>.value("minQuantity"),
+            costPrice: Nullable<String>.value("costPrice"),
+            isFreePrice: true,
+            externalId: Nullable<String>.value("externalId"),
+            isReturnable: true,
+            commentRequired: true,
+            priceFrom: Nullable<String>.value("priceFrom"),
+            priceTo: Nullable<String>.value("priceTo"),
+            minPrice: Nullable<String>.value("minPrice"),
+            discountPercent: Nullable<String>.value("discountPercent"),
+            maxDiscountPercent: Nullable<String>.value("maxDiscountPercent"),
+            loyaltyPoints: Nullable<Int64>.value(1000000),
+            department: Nullable<String>.value("department"),
+            ageRestriction: Nullable<Int64>.value(1000000),
+            packageQuantity: Nullable<String>.value("packageQuantity"),
+            taraCode: Nullable<String>.value("taraCode"),
+            certificateNumber: Nullable<String>.value("certificateNumber"),
+            certificateDate: Nullable<String>.value("certificateDate"),
+            validFrom: Nullable<String>.value("validFrom"),
+            validTo: Nullable<String>.value("validTo"),
+            posFlags: Nullable<[String: Nullable<Bool>]>.value([
+                "key": Nullable<Bool>.value(true)
+            ]),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -147,6 +205,35 @@ import Api
                       "quantity": "quantity"
                     }
                   ],
+                  "kindId": "x",
+                  "saleAccountCode": "saleAccountCode",
+                  "purchaseAccountCode": "purchaseAccountCode",
+                  "expenseAccountCode": "expenseAccountCode",
+                  "manufacturer": "manufacturer",
+                  "grossMassKg": "grossMassKg",
+                  "minQuantity": "minQuantity",
+                  "costPrice": "costPrice",
+                  "isFreePrice": true,
+                  "externalId": "externalId",
+                  "isReturnable": true,
+                  "commentRequired": true,
+                  "priceFrom": "priceFrom",
+                  "priceTo": "priceTo",
+                  "minPrice": "minPrice",
+                  "discountPercent": "discountPercent",
+                  "maxDiscountPercent": "maxDiscountPercent",
+                  "loyaltyPoints": 1000000,
+                  "department": "department",
+                  "ageRestriction": 1000000,
+                  "packageQuantity": "packageQuantity",
+                  "taraCode": "taraCode",
+                  "certificateNumber": "certificateNumber",
+                  "certificateDate": "certificateDate",
+                  "validFrom": "validFrom",
+                  "validTo": "validTo",
+                  "posFlags": {
+                    "posFlags": true
+                  },
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -199,6 +286,35 @@ import Api
                     quantity: "quantity"
                 )
             ],
+            kindId: Nullable<String>.value("x"),
+            saleAccountCode: Nullable<String>.value("saleAccountCode"),
+            purchaseAccountCode: Nullable<String>.value("purchaseAccountCode"),
+            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+            manufacturer: Nullable<String>.value("manufacturer"),
+            grossMassKg: Nullable<String>.value("grossMassKg"),
+            minQuantity: Nullable<String>.value("minQuantity"),
+            costPrice: Nullable<String>.value("costPrice"),
+            isFreePrice: true,
+            externalId: Nullable<String>.value("externalId"),
+            isReturnable: true,
+            commentRequired: true,
+            priceFrom: Nullable<String>.value("priceFrom"),
+            priceTo: Nullable<String>.value("priceTo"),
+            minPrice: Nullable<String>.value("minPrice"),
+            discountPercent: Nullable<String>.value("discountPercent"),
+            maxDiscountPercent: Nullable<String>.value("maxDiscountPercent"),
+            loyaltyPoints: Nullable<Int64>.value(1000000),
+            department: Nullable<String>.value("department"),
+            ageRestriction: Nullable<Int64>.value(1000000),
+            packageQuantity: Nullable<String>.value("packageQuantity"),
+            taraCode: Nullable<String>.value("taraCode"),
+            certificateNumber: Nullable<String>.value("certificateNumber"),
+            certificateDate: Nullable<String>.value("certificateDate"),
+            validFrom: Nullable<String>.value("validFrom"),
+            validTo: Nullable<String>.value("validTo"),
+            posFlags: Nullable<[String: Nullable<Bool>]>.value([
+                "posFlags": Nullable<Bool>.value(true)
+            ]),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -250,6 +366,35 @@ import Api
                       "quantity": "quantity"
                     }
                   ],
+                  "kindId": "kindId",
+                  "saleAccountCode": "saleAccountCode",
+                  "purchaseAccountCode": "purchaseAccountCode",
+                  "expenseAccountCode": "expenseAccountCode",
+                  "manufacturer": "manufacturer",
+                  "grossMassKg": "grossMassKg",
+                  "minQuantity": "minQuantity",
+                  "costPrice": "costPrice",
+                  "isFreePrice": true,
+                  "externalId": "externalId",
+                  "isReturnable": true,
+                  "commentRequired": true,
+                  "priceFrom": "priceFrom",
+                  "priceTo": "priceTo",
+                  "minPrice": "minPrice",
+                  "discountPercent": "discountPercent",
+                  "maxDiscountPercent": "maxDiscountPercent",
+                  "loyaltyPoints": 1000000,
+                  "department": "department",
+                  "ageRestriction": 1000000,
+                  "packageQuantity": "packageQuantity",
+                  "taraCode": "taraCode",
+                  "certificateNumber": "certificateNumber",
+                  "certificateDate": "certificateDate",
+                  "validFrom": "validFrom",
+                  "validTo": "validTo",
+                  "posFlags": {
+                    "key": true
+                  },
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -297,6 +442,35 @@ import Api
                     quantity: "quantity"
                 )
             ],
+            kindId: Nullable<String>.value("kindId"),
+            saleAccountCode: Nullable<String>.value("saleAccountCode"),
+            purchaseAccountCode: Nullable<String>.value("purchaseAccountCode"),
+            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+            manufacturer: Nullable<String>.value("manufacturer"),
+            grossMassKg: Nullable<String>.value("grossMassKg"),
+            minQuantity: Nullable<String>.value("minQuantity"),
+            costPrice: Nullable<String>.value("costPrice"),
+            isFreePrice: true,
+            externalId: Nullable<String>.value("externalId"),
+            isReturnable: true,
+            commentRequired: true,
+            priceFrom: Nullable<String>.value("priceFrom"),
+            priceTo: Nullable<String>.value("priceTo"),
+            minPrice: Nullable<String>.value("minPrice"),
+            discountPercent: Nullable<String>.value("discountPercent"),
+            maxDiscountPercent: Nullable<String>.value("maxDiscountPercent"),
+            loyaltyPoints: Nullable<Int64>.value(1000000),
+            department: Nullable<String>.value("department"),
+            ageRestriction: Nullable<Int64>.value(1000000),
+            packageQuantity: Nullable<String>.value("packageQuantity"),
+            taraCode: Nullable<String>.value("taraCode"),
+            certificateNumber: Nullable<String>.value("certificateNumber"),
+            certificateDate: Nullable<String>.value("certificateDate"),
+            validFrom: Nullable<String>.value("validFrom"),
+            validTo: Nullable<String>.value("validTo"),
+            posFlags: Nullable<[String: Nullable<Bool>]>.value([
+                "key": Nullable<Bool>.value(true)
+            ]),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -353,6 +527,35 @@ import Api
                       "quantity": "quantity"
                     }
                   ],
+                  "kindId": "x",
+                  "saleAccountCode": "saleAccountCode",
+                  "purchaseAccountCode": "purchaseAccountCode",
+                  "expenseAccountCode": "expenseAccountCode",
+                  "manufacturer": "manufacturer",
+                  "grossMassKg": "grossMassKg",
+                  "minQuantity": "minQuantity",
+                  "costPrice": "costPrice",
+                  "isFreePrice": true,
+                  "externalId": "externalId",
+                  "isReturnable": true,
+                  "commentRequired": true,
+                  "priceFrom": "priceFrom",
+                  "priceTo": "priceTo",
+                  "minPrice": "minPrice",
+                  "discountPercent": "discountPercent",
+                  "maxDiscountPercent": "maxDiscountPercent",
+                  "loyaltyPoints": 1000000,
+                  "department": "department",
+                  "ageRestriction": 1000000,
+                  "packageQuantity": "packageQuantity",
+                  "taraCode": "taraCode",
+                  "certificateNumber": "certificateNumber",
+                  "certificateDate": "certificateDate",
+                  "validFrom": "validFrom",
+                  "validTo": "validTo",
+                  "posFlags": {
+                    "posFlags": true
+                  },
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -405,6 +608,35 @@ import Api
                     quantity: "quantity"
                 )
             ],
+            kindId: Nullable<String>.value("x"),
+            saleAccountCode: Nullable<String>.value("saleAccountCode"),
+            purchaseAccountCode: Nullable<String>.value("purchaseAccountCode"),
+            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+            manufacturer: Nullable<String>.value("manufacturer"),
+            grossMassKg: Nullable<String>.value("grossMassKg"),
+            minQuantity: Nullable<String>.value("minQuantity"),
+            costPrice: Nullable<String>.value("costPrice"),
+            isFreePrice: true,
+            externalId: Nullable<String>.value("externalId"),
+            isReturnable: true,
+            commentRequired: true,
+            priceFrom: Nullable<String>.value("priceFrom"),
+            priceTo: Nullable<String>.value("priceTo"),
+            minPrice: Nullable<String>.value("minPrice"),
+            discountPercent: Nullable<String>.value("discountPercent"),
+            maxDiscountPercent: Nullable<String>.value("maxDiscountPercent"),
+            loyaltyPoints: Nullable<Int64>.value(1000000),
+            department: Nullable<String>.value("department"),
+            ageRestriction: Nullable<Int64>.value(1000000),
+            packageQuantity: Nullable<String>.value("packageQuantity"),
+            taraCode: Nullable<String>.value("taraCode"),
+            certificateNumber: Nullable<String>.value("certificateNumber"),
+            certificateDate: Nullable<String>.value("certificateDate"),
+            validFrom: Nullable<String>.value("validFrom"),
+            validTo: Nullable<String>.value("validTo"),
+            posFlags: Nullable<[String: Nullable<Bool>]>.value([
+                "posFlags": Nullable<Bool>.value(true)
+            ]),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -456,6 +688,35 @@ import Api
                       "quantity": "quantity"
                     }
                   ],
+                  "kindId": "kindId",
+                  "saleAccountCode": "saleAccountCode",
+                  "purchaseAccountCode": "purchaseAccountCode",
+                  "expenseAccountCode": "expenseAccountCode",
+                  "manufacturer": "manufacturer",
+                  "grossMassKg": "grossMassKg",
+                  "minQuantity": "minQuantity",
+                  "costPrice": "costPrice",
+                  "isFreePrice": true,
+                  "externalId": "externalId",
+                  "isReturnable": true,
+                  "commentRequired": true,
+                  "priceFrom": "priceFrom",
+                  "priceTo": "priceTo",
+                  "minPrice": "minPrice",
+                  "discountPercent": "discountPercent",
+                  "maxDiscountPercent": "maxDiscountPercent",
+                  "loyaltyPoints": 1000000,
+                  "department": "department",
+                  "ageRestriction": 1000000,
+                  "packageQuantity": "packageQuantity",
+                  "taraCode": "taraCode",
+                  "certificateNumber": "certificateNumber",
+                  "certificateDate": "certificateDate",
+                  "validFrom": "validFrom",
+                  "validTo": "validTo",
+                  "posFlags": {
+                    "key": true
+                  },
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -503,6 +764,35 @@ import Api
                     quantity: "quantity"
                 )
             ],
+            kindId: Nullable<String>.value("kindId"),
+            saleAccountCode: Nullable<String>.value("saleAccountCode"),
+            purchaseAccountCode: Nullable<String>.value("purchaseAccountCode"),
+            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+            manufacturer: Nullable<String>.value("manufacturer"),
+            grossMassKg: Nullable<String>.value("grossMassKg"),
+            minQuantity: Nullable<String>.value("minQuantity"),
+            costPrice: Nullable<String>.value("costPrice"),
+            isFreePrice: true,
+            externalId: Nullable<String>.value("externalId"),
+            isReturnable: true,
+            commentRequired: true,
+            priceFrom: Nullable<String>.value("priceFrom"),
+            priceTo: Nullable<String>.value("priceTo"),
+            minPrice: Nullable<String>.value("minPrice"),
+            discountPercent: Nullable<String>.value("discountPercent"),
+            maxDiscountPercent: Nullable<String>.value("maxDiscountPercent"),
+            loyaltyPoints: Nullable<Int64>.value(1000000),
+            department: Nullable<String>.value("department"),
+            ageRestriction: Nullable<Int64>.value(1000000),
+            packageQuantity: Nullable<String>.value("packageQuantity"),
+            taraCode: Nullable<String>.value("taraCode"),
+            certificateNumber: Nullable<String>.value("certificateNumber"),
+            certificateDate: Nullable<String>.value("certificateDate"),
+            validFrom: Nullable<String>.value("validFrom"),
+            validTo: Nullable<String>.value("validTo"),
+            posFlags: Nullable<[String: Nullable<Bool>]>.value([
+                "key": Nullable<Bool>.value(true)
+            ]),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -559,6 +849,35 @@ import Api
                       "quantity": "quantity"
                     }
                   ],
+                  "kindId": "x",
+                  "saleAccountCode": "saleAccountCode",
+                  "purchaseAccountCode": "purchaseAccountCode",
+                  "expenseAccountCode": "expenseAccountCode",
+                  "manufacturer": "manufacturer",
+                  "grossMassKg": "grossMassKg",
+                  "minQuantity": "minQuantity",
+                  "costPrice": "costPrice",
+                  "isFreePrice": true,
+                  "externalId": "externalId",
+                  "isReturnable": true,
+                  "commentRequired": true,
+                  "priceFrom": "priceFrom",
+                  "priceTo": "priceTo",
+                  "minPrice": "minPrice",
+                  "discountPercent": "discountPercent",
+                  "maxDiscountPercent": "maxDiscountPercent",
+                  "loyaltyPoints": 1000000,
+                  "department": "department",
+                  "ageRestriction": 1000000,
+                  "packageQuantity": "packageQuantity",
+                  "taraCode": "taraCode",
+                  "certificateNumber": "certificateNumber",
+                  "certificateDate": "certificateDate",
+                  "validFrom": "validFrom",
+                  "validTo": "validTo",
+                  "posFlags": {
+                    "posFlags": true
+                  },
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -611,6 +930,35 @@ import Api
                     quantity: "quantity"
                 )
             ],
+            kindId: Nullable<String>.value("x"),
+            saleAccountCode: Nullable<String>.value("saleAccountCode"),
+            purchaseAccountCode: Nullable<String>.value("purchaseAccountCode"),
+            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+            manufacturer: Nullable<String>.value("manufacturer"),
+            grossMassKg: Nullable<String>.value("grossMassKg"),
+            minQuantity: Nullable<String>.value("minQuantity"),
+            costPrice: Nullable<String>.value("costPrice"),
+            isFreePrice: true,
+            externalId: Nullable<String>.value("externalId"),
+            isReturnable: true,
+            commentRequired: true,
+            priceFrom: Nullable<String>.value("priceFrom"),
+            priceTo: Nullable<String>.value("priceTo"),
+            minPrice: Nullable<String>.value("minPrice"),
+            discountPercent: Nullable<String>.value("discountPercent"),
+            maxDiscountPercent: Nullable<String>.value("maxDiscountPercent"),
+            loyaltyPoints: Nullable<Int64>.value(1000000),
+            department: Nullable<String>.value("department"),
+            ageRestriction: Nullable<Int64>.value(1000000),
+            packageQuantity: Nullable<String>.value("packageQuantity"),
+            taraCode: Nullable<String>.value("taraCode"),
+            certificateNumber: Nullable<String>.value("certificateNumber"),
+            certificateDate: Nullable<String>.value("certificateDate"),
+            validFrom: Nullable<String>.value("validFrom"),
+            validTo: Nullable<String>.value("validTo"),
+            posFlags: Nullable<[String: Nullable<Bool>]>.value([
+                "posFlags": Nullable<Bool>.value(true)
+            ]),
             createdAt: "createdAt",
             updatedAt: "updatedAt"
         )
@@ -709,13 +1057,43 @@ import Api
                           "quantity": "quantity"
                         }
                       ],
+                      "kindId": "kindId",
+                      "saleAccountCode": "saleAccountCode",
+                      "purchaseAccountCode": "purchaseAccountCode",
+                      "expenseAccountCode": "expenseAccountCode",
+                      "manufacturer": "manufacturer",
+                      "grossMassKg": "grossMassKg",
+                      "minQuantity": "minQuantity",
+                      "costPrice": "costPrice",
+                      "isFreePrice": true,
+                      "externalId": "externalId",
+                      "isReturnable": true,
+                      "commentRequired": true,
+                      "priceFrom": "priceFrom",
+                      "priceTo": "priceTo",
+                      "minPrice": "minPrice",
+                      "discountPercent": "discountPercent",
+                      "maxDiscountPercent": "maxDiscountPercent",
+                      "loyaltyPoints": 1000000,
+                      "department": "department",
+                      "ageRestriction": 1000000,
+                      "packageQuantity": "packageQuantity",
+                      "taraCode": "taraCode",
+                      "certificateNumber": "certificateNumber",
+                      "certificateDate": "certificateDate",
+                      "validFrom": "validFrom",
+                      "validTo": "validTo",
+                      "posFlags": {},
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -756,13 +1134,43 @@ import Api
                             quantity: "quantity"
                         )
                     ],
+                    kindId: Nullable<String>.value("kindId"),
+                    saleAccountCode: Nullable<String>.value("saleAccountCode"),
+                    purchaseAccountCode: Nullable<String>.value("purchaseAccountCode"),
+                    expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+                    manufacturer: Nullable<String>.value("manufacturer"),
+                    grossMassKg: Nullable<String>.value("grossMassKg"),
+                    minQuantity: Nullable<String>.value("minQuantity"),
+                    costPrice: Nullable<String>.value("costPrice"),
+                    isFreePrice: true,
+                    externalId: Nullable<String>.value("externalId"),
+                    isReturnable: true,
+                    commentRequired: true,
+                    priceFrom: Nullable<String>.value("priceFrom"),
+                    priceTo: Nullable<String>.value("priceTo"),
+                    minPrice: Nullable<String>.value("minPrice"),
+                    discountPercent: Nullable<String>.value("discountPercent"),
+                    maxDiscountPercent: Nullable<String>.value("maxDiscountPercent"),
+                    loyaltyPoints: Nullable<Int64>.value(1000000),
+                    department: Nullable<String>.value("department"),
+                    ageRestriction: Nullable<Int64>.value(1000000),
+                    packageQuantity: Nullable<String>.value("packageQuantity"),
+                    taraCode: Nullable<String>.value("taraCode"),
+                    certificateNumber: Nullable<String>.value("certificateNumber"),
+                    certificateDate: Nullable<String>.value("certificateDate"),
+                    validFrom: Nullable<String>.value("validFrom"),
+                    validTo: Nullable<String>.value("validTo"),
+                    posFlags: Nullable<[String: Nullable<Bool>]>.value([:]),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.catalog.postV1CatalogItemsList(
             request: .init(),
@@ -819,6 +1227,35 @@ import Api
                           "quantity": "quantity"
                         }
                       ],
+                      "kindId": "x",
+                      "saleAccountCode": "saleAccountCode",
+                      "purchaseAccountCode": "purchaseAccountCode",
+                      "expenseAccountCode": "expenseAccountCode",
+                      "manufacturer": "manufacturer",
+                      "grossMassKg": "grossMassKg",
+                      "minQuantity": "minQuantity",
+                      "costPrice": "costPrice",
+                      "isFreePrice": true,
+                      "externalId": "externalId",
+                      "isReturnable": true,
+                      "commentRequired": true,
+                      "priceFrom": "priceFrom",
+                      "priceTo": "priceTo",
+                      "minPrice": "minPrice",
+                      "discountPercent": "discountPercent",
+                      "maxDiscountPercent": "maxDiscountPercent",
+                      "loyaltyPoints": 1000000,
+                      "department": "department",
+                      "ageRestriction": 1000000,
+                      "packageQuantity": "packageQuantity",
+                      "taraCode": "taraCode",
+                      "certificateNumber": "certificateNumber",
+                      "certificateDate": "certificateDate",
+                      "validFrom": "validFrom",
+                      "validTo": "validTo",
+                      "posFlags": {
+                        "posFlags": true
+                      },
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     },
@@ -863,13 +1300,45 @@ import Api
                           "quantity": "quantity"
                         }
                       ],
+                      "kindId": "x",
+                      "saleAccountCode": "saleAccountCode",
+                      "purchaseAccountCode": "purchaseAccountCode",
+                      "expenseAccountCode": "expenseAccountCode",
+                      "manufacturer": "manufacturer",
+                      "grossMassKg": "grossMassKg",
+                      "minQuantity": "minQuantity",
+                      "costPrice": "costPrice",
+                      "isFreePrice": true,
+                      "externalId": "externalId",
+                      "isReturnable": true,
+                      "commentRequired": true,
+                      "priceFrom": "priceFrom",
+                      "priceTo": "priceTo",
+                      "minPrice": "minPrice",
+                      "discountPercent": "discountPercent",
+                      "maxDiscountPercent": "maxDiscountPercent",
+                      "loyaltyPoints": 1000000,
+                      "department": "department",
+                      "ageRestriction": 1000000,
+                      "packageQuantity": "packageQuantity",
+                      "taraCode": "taraCode",
+                      "certificateNumber": "certificateNumber",
+                      "certificateDate": "certificateDate",
+                      "validFrom": "validFrom",
+                      "validTo": "validTo",
+                      "posFlags": {
+                        "posFlags": true
+                      },
                       "createdAt": "createdAt",
                       "updatedAt": "updatedAt"
                     }
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -922,6 +1391,35 @@ import Api
                             quantity: "quantity"
                         )
                     ],
+                    kindId: Nullable<String>.value("x"),
+                    saleAccountCode: Nullable<String>.value("saleAccountCode"),
+                    purchaseAccountCode: Nullable<String>.value("purchaseAccountCode"),
+                    expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+                    manufacturer: Nullable<String>.value("manufacturer"),
+                    grossMassKg: Nullable<String>.value("grossMassKg"),
+                    minQuantity: Nullable<String>.value("minQuantity"),
+                    costPrice: Nullable<String>.value("costPrice"),
+                    isFreePrice: true,
+                    externalId: Nullable<String>.value("externalId"),
+                    isReturnable: true,
+                    commentRequired: true,
+                    priceFrom: Nullable<String>.value("priceFrom"),
+                    priceTo: Nullable<String>.value("priceTo"),
+                    minPrice: Nullable<String>.value("minPrice"),
+                    discountPercent: Nullable<String>.value("discountPercent"),
+                    maxDiscountPercent: Nullable<String>.value("maxDiscountPercent"),
+                    loyaltyPoints: Nullable<Int64>.value(1000000),
+                    department: Nullable<String>.value("department"),
+                    ageRestriction: Nullable<Int64>.value(1000000),
+                    packageQuantity: Nullable<String>.value("packageQuantity"),
+                    taraCode: Nullable<String>.value("taraCode"),
+                    certificateNumber: Nullable<String>.value("certificateNumber"),
+                    certificateDate: Nullable<String>.value("certificateDate"),
+                    validFrom: Nullable<String>.value("validFrom"),
+                    validTo: Nullable<String>.value("validTo"),
+                    posFlags: Nullable<[String: Nullable<Bool>]>.value([
+                        "posFlags": Nullable<Bool>.value(true)
+                    ]),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 ),
@@ -966,15 +1464,867 @@ import Api
                             quantity: "quantity"
                         )
                     ],
+                    kindId: Nullable<String>.value("x"),
+                    saleAccountCode: Nullable<String>.value("saleAccountCode"),
+                    purchaseAccountCode: Nullable<String>.value("purchaseAccountCode"),
+                    expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
+                    manufacturer: Nullable<String>.value("manufacturer"),
+                    grossMassKg: Nullable<String>.value("grossMassKg"),
+                    minQuantity: Nullable<String>.value("minQuantity"),
+                    costPrice: Nullable<String>.value("costPrice"),
+                    isFreePrice: true,
+                    externalId: Nullable<String>.value("externalId"),
+                    isReturnable: true,
+                    commentRequired: true,
+                    priceFrom: Nullable<String>.value("priceFrom"),
+                    priceTo: Nullable<String>.value("priceTo"),
+                    minPrice: Nullable<String>.value("minPrice"),
+                    discountPercent: Nullable<String>.value("discountPercent"),
+                    maxDiscountPercent: Nullable<String>.value("maxDiscountPercent"),
+                    loyaltyPoints: Nullable<Int64>.value(1000000),
+                    department: Nullable<String>.value("department"),
+                    ageRestriction: Nullable<Int64>.value(1000000),
+                    packageQuantity: Nullable<String>.value("packageQuantity"),
+                    taraCode: Nullable<String>.value("taraCode"),
+                    certificateNumber: Nullable<String>.value("certificateNumber"),
+                    certificateDate: Nullable<String>.value("certificateDate"),
+                    validFrom: Nullable<String>.value("validFrom"),
+                    validTo: Nullable<String>.value("validTo"),
+                    posFlags: Nullable<[String: Nullable<Bool>]>.value([
+                        "posFlags": Nullable<Bool>.value(true)
+                    ]),
                     createdAt: "createdAt",
                     updatedAt: "updatedAt"
                 )
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.catalog.postV1CatalogItemsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogItemsFilesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "entity": "entity",
+                      "entityId": "entityId",
+                      "fileName": "fileName",
+                      "mimeType": "mimeType",
+                      "sizeBytes": 1000000,
+                      "sha256": "sha256",
+                      "storageKey": "storageKey",
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogItemsFilesListResponse(
+            rows: [
+                PostV1CatalogItemsFilesListResponseRowsItem(
+                    id: "id",
+                    entity: "entity",
+                    entityId: Nullable<String>.value("entityId"),
+                    fileName: "fileName",
+                    mimeType: "mimeType",
+                    sizeBytes: 1000000,
+                    sha256: "sha256",
+                    storageKey: "storageKey",
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.catalog.postV1CatalogItemsFilesList(
+            request: .init(itemId: "itemId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogItemsFilesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "entity": "entity",
+                      "entityId": "entityId",
+                      "fileName": "fileName",
+                      "mimeType": "mimeType",
+                      "sizeBytes": 1000000,
+                      "sha256": "sha256",
+                      "storageKey": "storageKey",
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "id": "x",
+                      "entity": "entity",
+                      "entityId": "entityId",
+                      "fileName": "fileName",
+                      "mimeType": "mimeType",
+                      "sizeBytes": 1000000,
+                      "sha256": "sha256",
+                      "storageKey": "storageKey",
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogItemsFilesListResponse(
+            rows: [
+                PostV1CatalogItemsFilesListResponseRowsItem(
+                    id: "x",
+                    entity: "entity",
+                    entityId: Nullable<String>.value("entityId"),
+                    fileName: "fileName",
+                    mimeType: "mimeType",
+                    sizeBytes: 1000000,
+                    sha256: "sha256",
+                    storageKey: "storageKey",
+                    createdAt: "createdAt"
+                ),
+                PostV1CatalogItemsFilesListResponseRowsItem(
+                    id: "x",
+                    entity: "entity",
+                    entityId: Nullable<String>.value("entityId"),
+                    fileName: "fileName",
+                    mimeType: "mimeType",
+                    sizeBytes: 1000000,
+                    sha256: "sha256",
+                    storageKey: "storageKey",
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.catalog.postV1CatalogItemsFilesList(
+            request: .init(itemId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogItemsKindsCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "code": "code",
+                  "name": "name",
+                  "saftType": "goods",
+                  "quantityAccounting": true,
+                  "sortOrder": 1000000,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogItemsKindsCreateResponse(
+            id: "id",
+            code: "code",
+            name: "name",
+            saftType: .goods,
+            quantityAccounting: true,
+            sortOrder: 1000000,
+            createdAt: "createdAt"
+        )
+        let response = try await client.catalog.postV1CatalogItemsKindsCreate(
+            request: .init(
+                code: "code",
+                name: "name"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogItemsKindsCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "code": "code",
+                  "name": "name",
+                  "saftType": "goods",
+                  "quantityAccounting": true,
+                  "sortOrder": 1000000,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogItemsKindsCreateResponse(
+            id: "x",
+            code: "code",
+            name: "name",
+            saftType: .goods,
+            quantityAccounting: true,
+            sortOrder: 1000000,
+            createdAt: "createdAt"
+        )
+        let response = try await client.catalog.postV1CatalogItemsKindsCreate(
+            request: .init(
+                code: "x",
+                name: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogItemsKindsUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "code": "code",
+                  "name": "name",
+                  "saftType": "goods",
+                  "quantityAccounting": true,
+                  "sortOrder": 1000000,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogItemsKindsUpdateResponse(
+            id: "id",
+            code: "code",
+            name: "name",
+            saftType: .goods,
+            quantityAccounting: true,
+            sortOrder: 1000000,
+            createdAt: "createdAt"
+        )
+        let response = try await client.catalog.postV1CatalogItemsKindsUpdate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogItemsKindsUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "code": "code",
+                  "name": "name",
+                  "saftType": "goods",
+                  "quantityAccounting": true,
+                  "sortOrder": 1000000,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogItemsKindsUpdateResponse(
+            id: "x",
+            code: "code",
+            name: "name",
+            saftType: .goods,
+            quantityAccounting: true,
+            sortOrder: 1000000,
+            createdAt: "createdAt"
+        )
+        let response = try await client.catalog.postV1CatalogItemsKindsUpdate(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogItemsKindsDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogItemsKindsDeleteResponse(
+            id: "id"
+        )
+        let response = try await client.catalog.postV1CatalogItemsKindsDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogItemsKindsDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogItemsKindsDeleteResponse(
+            id: "x"
+        )
+        let response = try await client.catalog.postV1CatalogItemsKindsDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogItemsKindsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "code": "code",
+                      "name": "name",
+                      "saftType": "goods",
+                      "quantityAccounting": true,
+                      "sortOrder": 1000000,
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogItemsKindsListResponse(
+            rows: [
+                PostV1CatalogItemsKindsListResponseRowsItem(
+                    id: "id",
+                    code: "code",
+                    name: "name",
+                    saftType: .goods,
+                    quantityAccounting: true,
+                    sortOrder: 1000000,
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.catalog.postV1CatalogItemsKindsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogItemsKindsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "code": "code",
+                      "name": "name",
+                      "saftType": "goods",
+                      "quantityAccounting": true,
+                      "sortOrder": 1000000,
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "id": "x",
+                      "code": "code",
+                      "name": "name",
+                      "saftType": "goods",
+                      "quantityAccounting": true,
+                      "sortOrder": 1000000,
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogItemsKindsListResponse(
+            rows: [
+                PostV1CatalogItemsKindsListResponseRowsItem(
+                    id: "x",
+                    code: "code",
+                    name: "name",
+                    saftType: .goods,
+                    quantityAccounting: true,
+                    sortOrder: 1000000,
+                    createdAt: "createdAt"
+                ),
+                PostV1CatalogItemsKindsListResponseRowsItem(
+                    id: "x",
+                    code: "code",
+                    name: "name",
+                    saftType: .goods,
+                    quantityAccounting: true,
+                    sortOrder: 1000000,
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.catalog.postV1CatalogItemsKindsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogUnitsCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "code": "code",
+                  "name": "name",
+                  "isActive": true,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogUnitsCreateResponse(
+            id: "id",
+            code: "code",
+            name: "name",
+            isActive: true,
+            createdAt: "createdAt"
+        )
+        let response = try await client.catalog.postV1CatalogUnitsCreate(
+            request: .init(
+                code: "code",
+                name: "name"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogUnitsCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "code": "code",
+                  "name": "name",
+                  "isActive": true,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogUnitsCreateResponse(
+            id: "x",
+            code: "code",
+            name: "name",
+            isActive: true,
+            createdAt: "createdAt"
+        )
+        let response = try await client.catalog.postV1CatalogUnitsCreate(
+            request: .init(
+                code: "x",
+                name: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogUnitsUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "code": "code",
+                  "name": "name",
+                  "isActive": true,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogUnitsUpdateResponse(
+            id: "id",
+            code: "code",
+            name: "name",
+            isActive: true,
+            createdAt: "createdAt"
+        )
+        let response = try await client.catalog.postV1CatalogUnitsUpdate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogUnitsUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "code": "code",
+                  "name": "name",
+                  "isActive": true,
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogUnitsUpdateResponse(
+            id: "x",
+            code: "code",
+            name: "name",
+            isActive: true,
+            createdAt: "createdAt"
+        )
+        let response = try await client.catalog.postV1CatalogUnitsUpdate(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogUnitsDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogUnitsDeleteResponse(
+            id: "id"
+        )
+        let response = try await client.catalog.postV1CatalogUnitsDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogUnitsDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogUnitsDeleteResponse(
+            id: "x"
+        )
+        let response = try await client.catalog.postV1CatalogUnitsDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogUnitsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "code": "code",
+                      "name": "name",
+                      "isActive": true,
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogUnitsListResponse(
+            rows: [
+                PostV1CatalogUnitsListResponseRowsItem(
+                    id: "id",
+                    code: "code",
+                    name: "name",
+                    isActive: true,
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.catalog.postV1CatalogUnitsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogUnitsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "code": "code",
+                      "name": "name",
+                      "isActive": true,
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "id": "x",
+                      "code": "code",
+                      "name": "name",
+                      "isActive": true,
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogUnitsListResponse(
+            rows: [
+                PostV1CatalogUnitsListResponseRowsItem(
+                    id: "x",
+                    code: "code",
+                    name: "name",
+                    isActive: true,
+                    createdAt: "createdAt"
+                ),
+                PostV1CatalogUnitsListResponseRowsItem(
+                    id: "x",
+                    code: "code",
+                    name: "name",
+                    isActive: true,
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.catalog.postV1CatalogUnitsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogUnitsOptions1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "source": "company"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogUnitsOptionsResponse(
+            rows: [
+                PostV1CatalogUnitsOptionsResponseRowsItem(
+                    code: "code",
+                    name: "name",
+                    source: .company
+                )
+            ]
+        )
+        let response = try await client.catalog.postV1CatalogUnitsOptions(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1CatalogUnitsOptions2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "source": "company"
+                    },
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "source": "company"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1CatalogUnitsOptionsResponse(
+            rows: [
+                PostV1CatalogUnitsOptionsResponseRowsItem(
+                    code: "code",
+                    name: "name",
+                    source: .company
+                ),
+                PostV1CatalogUnitsOptionsResponseRowsItem(
+                    code: "code",
+                    name: "name",
+                    source: .company
+                )
+            ]
+        )
+        let response = try await client.catalog.postV1CatalogUnitsOptions(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

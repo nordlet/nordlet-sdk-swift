@@ -214,6 +214,7 @@ import Api
                     "balanceCents": 1000000,
                     "trialEndsAt": "trialEndsAt"
                   },
+                  "referralPoints": 1000000,
                   "consent": {
                     "termsVersion": "termsVersion",
                     "termsAcceptedAt": "termsAcceptedAt",
@@ -262,6 +263,7 @@ import Api
                 balanceCents: 1000000,
                 trialEndsAt: Nullable<String>.value("trialEndsAt")
             ),
+            referralPoints: 1000000,
             consent: PostV1AccountMeResponseConsent(
                 termsVersion: Nullable<String>.value("termsVersion"),
                 termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
@@ -314,6 +316,7 @@ import Api
                     "balanceCents": 1000000,
                     "trialEndsAt": "trialEndsAt"
                   },
+                  "referralPoints": 1000000,
                   "consent": {
                     "termsVersion": "termsVersion",
                     "termsAcceptedAt": "termsAcceptedAt",
@@ -372,6 +375,7 @@ import Api
                 balanceCents: 1000000,
                 trialEndsAt: Nullable<String>.value("trialEndsAt")
             ),
+            referralPoints: 1000000,
             consent: PostV1AccountMeResponseConsent(
                 termsVersion: Nullable<String>.value("termsVersion"),
                 termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
@@ -2688,6 +2692,350 @@ import Api
         )
         let response = try await client.account.deleteTheSignedInUserAccount(
             request: .init(confirmEmail: "confirmEmail"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountReferralGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "code": "code",
+                  "link": "link",
+                  "points": 1000000,
+                  "referredCount": 1000000,
+                  "history": [
+                    {
+                      "points": 1000000,
+                      "reason": "reason",
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountReferralGetResponse(
+            code: "code",
+            link: "link",
+            points: 1000000,
+            referredCount: 1000000,
+            history: [
+                PostV1AccountReferralGetResponseHistoryItem(
+                    points: 1000000,
+                    reason: "reason",
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.account.postV1AccountReferralGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountReferralGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "code": "code",
+                  "link": "link",
+                  "points": 1000000,
+                  "referredCount": 1000000,
+                  "history": [
+                    {
+                      "points": 1000000,
+                      "reason": "reason",
+                      "createdAt": "createdAt"
+                    },
+                    {
+                      "points": 1000000,
+                      "reason": "reason",
+                      "createdAt": "createdAt"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountReferralGetResponse(
+            code: "code",
+            link: "link",
+            points: 1000000,
+            referredCount: 1000000,
+            history: [
+                PostV1AccountReferralGetResponseHistoryItem(
+                    points: 1000000,
+                    reason: "reason",
+                    createdAt: "createdAt"
+                ),
+                PostV1AccountReferralGetResponseHistoryItem(
+                    points: 1000000,
+                    reason: "reason",
+                    createdAt: "createdAt"
+                )
+            ]
+        )
+        let response = try await client.account.postV1AccountReferralGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountTableSettingsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "tableKey": "tableKey",
+                  "columns": [
+                    "columns"
+                  ],
+                  "pageSize": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountTableSettingsGetResponse(
+            tableKey: "tableKey",
+            columns: Nullable<[String]>.value([
+                "columns"
+            ]),
+            pageSize: Nullable<Int64>.value(1000000)
+        )
+        let response = try await client.account.postV1AccountTableSettingsGet(
+            request: .init(tableKey: "tableKey"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountTableSettingsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "tableKey": "tableKey",
+                  "columns": [
+                    "columns",
+                    "columns"
+                  ],
+                  "pageSize": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountTableSettingsGetResponse(
+            tableKey: "tableKey",
+            columns: Nullable<[String]>.value([
+                "columns",
+                "columns"
+            ]),
+            pageSize: Nullable<Int64>.value(1000000)
+        )
+        let response = try await client.account.postV1AccountTableSettingsGet(
+            request: .init(tableKey: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountTableSettingsSet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "tableKey": "tableKey",
+                  "columns": [
+                    "columns"
+                  ],
+                  "pageSize": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountTableSettingsSetResponse(
+            tableKey: "tableKey",
+            columns: Nullable<[String]>.value([
+                "columns"
+            ]),
+            pageSize: Nullable<Int64>.value(1000000)
+        )
+        let response = try await client.account.postV1AccountTableSettingsSet(
+            request: .init(tableKey: "tableKey"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountTableSettingsSet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "tableKey": "tableKey",
+                  "columns": [
+                    "columns",
+                    "columns"
+                  ],
+                  "pageSize": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountTableSettingsSetResponse(
+            tableKey: "tableKey",
+            columns: Nullable<[String]>.value([
+                "columns",
+                "columns"
+            ]),
+            pageSize: Nullable<Int64>.value(1000000)
+        )
+        let response = try await client.account.postV1AccountTableSettingsSet(
+            request: .init(tableKey: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountTableSettingsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "tableKey": "tableKey",
+                      "columns": [
+                        "columns"
+                      ],
+                      "pageSize": 1000000
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountTableSettingsListResponse(
+            rows: [
+                PostV1AccountTableSettingsListResponseRowsItem(
+                    tableKey: "tableKey",
+                    columns: Nullable<[String]>.value([
+                        "columns"
+                    ]),
+                    pageSize: Nullable<Int64>.value(1000000)
+                )
+            ]
+        )
+        let response = try await client.account.postV1AccountTableSettingsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountTableSettingsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "tableKey": "tableKey",
+                      "columns": [
+                        "columns",
+                        "columns"
+                      ],
+                      "pageSize": 1000000
+                    },
+                    {
+                      "tableKey": "tableKey",
+                      "columns": [
+                        "columns",
+                        "columns"
+                      ],
+                      "pageSize": 1000000
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountTableSettingsListResponse(
+            rows: [
+                PostV1AccountTableSettingsListResponseRowsItem(
+                    tableKey: "tableKey",
+                    columns: Nullable<[String]>.value([
+                        "columns",
+                        "columns"
+                    ]),
+                    pageSize: Nullable<Int64>.value(1000000)
+                ),
+                PostV1AccountTableSettingsListResponseRowsItem(
+                    tableKey: "tableKey",
+                    columns: Nullable<[String]>.value([
+                        "columns",
+                        "columns"
+                    ]),
+                    pageSize: Nullable<Int64>.value(1000000)
+                )
+            ]
+        )
+        let response = try await client.account.postV1AccountTableSettingsList(
+            request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

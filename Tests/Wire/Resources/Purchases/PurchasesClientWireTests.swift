@@ -26,6 +26,7 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "purchaseOrderId": "purchaseOrderId",
+                  "operationTypeId": "operationTypeId",
                   "notes": "notes",
                   "documentRef": "documentRef",
                   "createdAt": "createdAt",
@@ -77,6 +78,7 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
@@ -141,6 +143,7 @@ import Api
                   "journalTransactionId": "x",
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
+                  "operationTypeId": "x",
                   "notes": "notes",
                   "documentRef": "documentRef",
                   "createdAt": "createdAt",
@@ -210,6 +213,7 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
             purchaseOrderId: Nullable<String>.value("x"),
+            operationTypeId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
@@ -295,6 +299,7 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "purchaseOrderId": "purchaseOrderId",
+                  "operationTypeId": "operationTypeId",
                   "notes": "notes",
                   "documentRef": "documentRef",
                   "createdAt": "createdAt",
@@ -346,6 +351,7 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
@@ -401,6 +407,7 @@ import Api
                   "journalTransactionId": "x",
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
+                  "operationTypeId": "x",
                   "notes": "notes",
                   "documentRef": "documentRef",
                   "createdAt": "createdAt",
@@ -470,6 +477,7 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
             purchaseOrderId: Nullable<String>.value("x"),
+            operationTypeId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
@@ -543,6 +551,7 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "purchaseOrderId": "purchaseOrderId",
+                  "operationTypeId": "operationTypeId",
                   "notes": "notes",
                   "documentRef": "documentRef",
                   "createdAt": "createdAt",
@@ -594,6 +603,7 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
@@ -649,6 +659,7 @@ import Api
                   "journalTransactionId": "x",
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
+                  "operationTypeId": "x",
                   "notes": "notes",
                   "documentRef": "documentRef",
                   "createdAt": "createdAt",
@@ -718,6 +729,7 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
             purchaseOrderId: Nullable<String>.value("x"),
+            operationTypeId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
@@ -843,6 +855,7 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "purchaseOrderId": "purchaseOrderId",
+                  "operationTypeId": "operationTypeId",
                   "notes": "notes",
                   "documentRef": "documentRef",
                   "createdAt": "createdAt",
@@ -894,6 +907,7 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
@@ -949,6 +963,7 @@ import Api
                   "journalTransactionId": "x",
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
+                  "operationTypeId": "x",
                   "notes": "notes",
                   "documentRef": "documentRef",
                   "createdAt": "createdAt",
@@ -1018,6 +1033,7 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
             purchaseOrderId: Nullable<String>.value("x"),
+            operationTypeId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
             createdAt: "createdAt",
@@ -1093,6 +1109,7 @@ import Api
                       "journalTransactionId": "journalTransactionId",
                       "creditedInvoiceId": "creditedInvoiceId",
                       "purchaseOrderId": "purchaseOrderId",
+                      "operationTypeId": "operationTypeId",
                       "notes": "notes",
                       "documentRef": "documentRef",
                       "createdAt": "createdAt",
@@ -1101,7 +1118,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -1131,6 +1151,7 @@ import Api
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
                     creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
                     purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
+                    operationTypeId: Nullable<String>.value("operationTypeId"),
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
@@ -1139,7 +1160,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.purchases.postV1PurchasesInvoicesList(
             request: .init(),
@@ -1173,6 +1197,7 @@ import Api
                       "journalTransactionId": "x",
                       "creditedInvoiceId": "x",
                       "purchaseOrderId": "x",
+                      "operationTypeId": "x",
                       "notes": "notes",
                       "documentRef": "documentRef",
                       "createdAt": "createdAt",
@@ -1196,6 +1221,7 @@ import Api
                       "journalTransactionId": "x",
                       "creditedInvoiceId": "x",
                       "purchaseOrderId": "x",
+                      "operationTypeId": "x",
                       "notes": "notes",
                       "documentRef": "documentRef",
                       "createdAt": "createdAt",
@@ -1204,7 +1230,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -1234,6 +1263,7 @@ import Api
                     journalTransactionId: Nullable<String>.value("x"),
                     creditedInvoiceId: Nullable<String>.value("x"),
                     purchaseOrderId: Nullable<String>.value("x"),
+                    operationTypeId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
@@ -1257,6 +1287,7 @@ import Api
                     journalTransactionId: Nullable<String>.value("x"),
                     creditedInvoiceId: Nullable<String>.value("x"),
                     purchaseOrderId: Nullable<String>.value("x"),
+                    operationTypeId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
                     createdAt: "createdAt",
@@ -1265,7 +1296,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.purchases.postV1PurchasesInvoicesList(
             request: .init(),
@@ -2054,7 +2088,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -2088,7 +2125,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.purchases.postV1PurchasesOrdersList(
             request: .init(),
@@ -2145,7 +2185,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -2198,7 +2241,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.purchases.postV1PurchasesOrdersList(
             request: .init(),
@@ -3784,7 +3830,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  }
                 }
                 """#.utf8
             )
@@ -3808,7 +3857,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ])
         )
         let response = try await client.purchases.postV1PurchasesReceiptsList(
             request: .init(),
@@ -3845,7 +3897,10 @@ import Api
                   ],
                   "page": 1000000,
                   "pageSize": 1000000,
-                  "total": 1000000
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  }
                 }
                 """#.utf8
             )
@@ -3878,7 +3933,10 @@ import Api
             ],
             page: 1000000,
             pageSize: 1000000,
-            total: 1000000
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ])
         )
         let response = try await client.purchases.postV1PurchasesReceiptsList(
             request: .init(),

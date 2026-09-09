@@ -7,6 +7,46 @@ public final class CaptureClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
+    public func postV1CaptureSettingsGet(request: Requests.PostV1CaptureSettingsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureSettingsGetResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/capture/settings/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CaptureSettingsGetResponse.self
+        )
+    }
+
+    public func postV1CaptureSettingsUpdate(request: Requests.PostV1CaptureSettingsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureSettingsUpdateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/capture/settings/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CaptureSettingsUpdateResponse.self
+        )
+    }
+
+    public func postV1CaptureSettingsRegenerateIntake(request: Requests.PostV1CaptureSettingsRegenerateIntakeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureSettingsRegenerateIntakeResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/capture/settings/regenerate-intake",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CaptureSettingsRegenerateIntakeResponse.self
+        )
+    }
+
+    public func receiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJson(request: Requests.PostV1CaptureInboundEmailRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureInboundEmailResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/capture/inbound-email",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CaptureInboundEmailResponse.self
+        )
+    }
+
     public func readAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraft(request: Requests.PostV1CaptureDocumentsUploadRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureDocumentsUploadResponse {
         return try await httpClient.performRequest(
             method: .post,
