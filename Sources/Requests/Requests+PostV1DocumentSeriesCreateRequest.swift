@@ -9,6 +9,8 @@ extension Requests {
         public let operationTypeId: Nullable<String>?
         public let numberLength: Int64?
         public let nextNumber: Int64?
+        public let allocatedFrom: Nullable<Int64>?
+        public let allocatedTo: Nullable<Int64>?
         public let warehouseId: Nullable<String>?
         public let printSeries: Bool?
         public let isDefault: Bool?
@@ -24,6 +26,8 @@ extension Requests {
             operationTypeId: Nullable<String>? = nil,
             numberLength: Int64? = nil,
             nextNumber: Int64? = nil,
+            allocatedFrom: Nullable<Int64>? = nil,
+            allocatedTo: Nullable<Int64>? = nil,
             warehouseId: Nullable<String>? = nil,
             printSeries: Bool? = nil,
             isDefault: Bool? = nil,
@@ -37,6 +41,8 @@ extension Requests {
             self.operationTypeId = operationTypeId
             self.numberLength = numberLength
             self.nextNumber = nextNumber
+            self.allocatedFrom = allocatedFrom
+            self.allocatedTo = allocatedTo
             self.warehouseId = warehouseId
             self.printSeries = printSeries
             self.isDefault = isDefault
@@ -53,6 +59,8 @@ extension Requests {
             self.operationTypeId = try container.decodeNullableIfPresent(String.self, forKey: .operationTypeId)
             self.numberLength = try container.decodeIfPresent(Int64.self, forKey: .numberLength)
             self.nextNumber = try container.decodeIfPresent(Int64.self, forKey: .nextNumber)
+            self.allocatedFrom = try container.decodeNullableIfPresent(Int64.self, forKey: .allocatedFrom)
+            self.allocatedTo = try container.decodeNullableIfPresent(Int64.self, forKey: .allocatedTo)
             self.warehouseId = try container.decodeNullableIfPresent(String.self, forKey: .warehouseId)
             self.printSeries = try container.decodeIfPresent(Bool.self, forKey: .printSeries)
             self.isDefault = try container.decodeIfPresent(Bool.self, forKey: .isDefault)
@@ -70,6 +78,8 @@ extension Requests {
             try container.encodeNullableIfPresent(self.operationTypeId, forKey: .operationTypeId)
             try container.encodeIfPresent(self.numberLength, forKey: .numberLength)
             try container.encodeIfPresent(self.nextNumber, forKey: .nextNumber)
+            try container.encodeNullableIfPresent(self.allocatedFrom, forKey: .allocatedFrom)
+            try container.encodeNullableIfPresent(self.allocatedTo, forKey: .allocatedTo)
             try container.encodeNullableIfPresent(self.warehouseId, forKey: .warehouseId)
             try container.encodeIfPresent(self.printSeries, forKey: .printSeries)
             try container.encodeIfPresent(self.isDefault, forKey: .isDefault)
@@ -85,6 +95,8 @@ extension Requests {
             case operationTypeId
             case numberLength
             case nextNumber
+            case allocatedFrom
+            case allocatedTo
             case warehouseId
             case printSeries
             case isDefault

@@ -5,6 +5,7 @@ extension Requests {
         public let year: Int64
         public let month: Int64
         public let includeNatura: Bool?
+        public let grossOverrides: [PostV1PayrollRunsCreateRequestGrossOverridesItem]?
         public let lines: [PostV1PayrollRunsCreateRequestLinesItem]?
         public let notes: String?
         /// Additional properties that are not explicitly defined in the schema
@@ -14,6 +15,7 @@ extension Requests {
             year: Int64,
             month: Int64,
             includeNatura: Bool? = nil,
+            grossOverrides: [PostV1PayrollRunsCreateRequestGrossOverridesItem]? = nil,
             lines: [PostV1PayrollRunsCreateRequestLinesItem]? = nil,
             notes: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
@@ -21,6 +23,7 @@ extension Requests {
             self.year = year
             self.month = month
             self.includeNatura = includeNatura
+            self.grossOverrides = grossOverrides
             self.lines = lines
             self.notes = notes
             self.additionalProperties = additionalProperties
@@ -31,6 +34,7 @@ extension Requests {
             self.year = try container.decode(Int64.self, forKey: .year)
             self.month = try container.decode(Int64.self, forKey: .month)
             self.includeNatura = try container.decodeIfPresent(Bool.self, forKey: .includeNatura)
+            self.grossOverrides = try container.decodeIfPresent([PostV1PayrollRunsCreateRequestGrossOverridesItem].self, forKey: .grossOverrides)
             self.lines = try container.decodeIfPresent([PostV1PayrollRunsCreateRequestLinesItem].self, forKey: .lines)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -42,6 +46,7 @@ extension Requests {
             try container.encode(self.year, forKey: .year)
             try container.encode(self.month, forKey: .month)
             try container.encodeIfPresent(self.includeNatura, forKey: .includeNatura)
+            try container.encodeIfPresent(self.grossOverrides, forKey: .grossOverrides)
             try container.encodeIfPresent(self.lines, forKey: .lines)
             try container.encodeIfPresent(self.notes, forKey: .notes)
         }
@@ -51,6 +56,7 @@ extension Requests {
             case year
             case month
             case includeNatura
+            case grossOverrides
             case lines
             case notes
         }

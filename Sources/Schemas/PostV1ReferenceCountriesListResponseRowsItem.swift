@@ -4,7 +4,7 @@ public struct PostV1ReferenceCountriesListResponseRowsItem: Codable, Hashable, S
     public let code: String
     public let isEu: Bool
     public let isEea: Bool
-    public let names: PostV1ReferenceCountriesListResponseRowsItemNames
+    public let names: [String: String]
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -12,7 +12,7 @@ public struct PostV1ReferenceCountriesListResponseRowsItem: Codable, Hashable, S
         code: String,
         isEu: Bool,
         isEea: Bool,
-        names: PostV1ReferenceCountriesListResponseRowsItemNames,
+        names: [String: String],
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.code = code
@@ -27,7 +27,7 @@ public struct PostV1ReferenceCountriesListResponseRowsItem: Codable, Hashable, S
         self.code = try container.decode(String.self, forKey: .code)
         self.isEu = try container.decode(Bool.self, forKey: .isEu)
         self.isEea = try container.decode(Bool.self, forKey: .isEea)
-        self.names = try container.decode(PostV1ReferenceCountriesListResponseRowsItemNames.self, forKey: .names)
+        self.names = try container.decode([String: String].self, forKey: .names)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 

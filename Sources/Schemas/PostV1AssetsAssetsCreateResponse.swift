@@ -18,6 +18,11 @@ public struct PostV1AssetsAssetsCreateResponse: Codable, Hashable, Sendable {
     public let status: PostV1AssetsAssetsCreateResponseStatus
     public let notes: Nullable<String>
     public let documents: Nullable<[PostV1AssetsAssetsCreateResponseDocumentsItem]>
+    public let inputVatAmount: Nullable<String>
+    public let inputVatFirstUseDate: Nullable<String>
+    public let inputVatDeductiblePercent: Nullable<String>
+    public let inputVatRealEstate: Bool
+    public let inputVatUseChanges: [PostV1AssetsAssetsCreateResponseInputVatUseChangesItem]
     public let createdAt: String
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -40,6 +45,11 @@ public struct PostV1AssetsAssetsCreateResponse: Codable, Hashable, Sendable {
         status: PostV1AssetsAssetsCreateResponseStatus,
         notes: Nullable<String>,
         documents: Nullable<[PostV1AssetsAssetsCreateResponseDocumentsItem]>,
+        inputVatAmount: Nullable<String>,
+        inputVatFirstUseDate: Nullable<String>,
+        inputVatDeductiblePercent: Nullable<String>,
+        inputVatRealEstate: Bool,
+        inputVatUseChanges: [PostV1AssetsAssetsCreateResponseInputVatUseChangesItem],
         createdAt: String,
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -60,6 +70,11 @@ public struct PostV1AssetsAssetsCreateResponse: Codable, Hashable, Sendable {
         self.status = status
         self.notes = notes
         self.documents = documents
+        self.inputVatAmount = inputVatAmount
+        self.inputVatFirstUseDate = inputVatFirstUseDate
+        self.inputVatDeductiblePercent = inputVatDeductiblePercent
+        self.inputVatRealEstate = inputVatRealEstate
+        self.inputVatUseChanges = inputVatUseChanges
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
     }
@@ -83,6 +98,11 @@ public struct PostV1AssetsAssetsCreateResponse: Codable, Hashable, Sendable {
         self.status = try container.decode(PostV1AssetsAssetsCreateResponseStatus.self, forKey: .status)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.documents = try container.decode(Nullable<[PostV1AssetsAssetsCreateResponseDocumentsItem]>.self, forKey: .documents)
+        self.inputVatAmount = try container.decode(Nullable<String>.self, forKey: .inputVatAmount)
+        self.inputVatFirstUseDate = try container.decode(Nullable<String>.self, forKey: .inputVatFirstUseDate)
+        self.inputVatDeductiblePercent = try container.decode(Nullable<String>.self, forKey: .inputVatDeductiblePercent)
+        self.inputVatRealEstate = try container.decode(Bool.self, forKey: .inputVatRealEstate)
+        self.inputVatUseChanges = try container.decode([PostV1AssetsAssetsCreateResponseInputVatUseChangesItem].self, forKey: .inputVatUseChanges)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -107,6 +127,11 @@ public struct PostV1AssetsAssetsCreateResponse: Codable, Hashable, Sendable {
         try container.encode(self.status, forKey: .status)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.documents, forKey: .documents)
+        try container.encode(self.inputVatAmount, forKey: .inputVatAmount)
+        try container.encode(self.inputVatFirstUseDate, forKey: .inputVatFirstUseDate)
+        try container.encode(self.inputVatDeductiblePercent, forKey: .inputVatDeductiblePercent)
+        try container.encode(self.inputVatRealEstate, forKey: .inputVatRealEstate)
+        try container.encode(self.inputVatUseChanges, forKey: .inputVatUseChanges)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
 
@@ -129,6 +154,11 @@ public struct PostV1AssetsAssetsCreateResponse: Codable, Hashable, Sendable {
         case status
         case notes
         case documents
+        case inputVatAmount
+        case inputVatFirstUseDate
+        case inputVatDeductiblePercent
+        case inputVatRealEstate
+        case inputVatUseChanges
         case createdAt
     }
 }

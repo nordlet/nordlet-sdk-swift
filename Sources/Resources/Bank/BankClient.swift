@@ -297,6 +297,19 @@ public final class BankClient: Sendable {
         )
     }
 
+    /// A line with its own rate or amount is split with that value when the batch is posted. A line without one falls back to the commissionPercent given to the posting call, and without that the amount goes to the suspense account. Send both fields as null to clear the line back to the fallback.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func setWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmount(request: Requests.PostV1BankSettlementsCommissionRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankSettlementsCommissionResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/settlements/commission",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1BankSettlementsCommissionResponse.self
+        )
+    }
+
     /// Attach the incoming bank-statement line that carries this payout to the settlement batch.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.

@@ -207,12 +207,16 @@ import Api
                   },
                   "locale": "locale",
                   "activeCompanyId": "activeCompanyId",
+                  "timeZone": "timeZone",
                   "role": "role",
                   "billing": {
                     "status": "trial",
                     "plan": "plan",
                     "balanceCents": 1000000,
-                    "trialEndsAt": "trialEndsAt"
+                    "trialEndsAt": "trialEndsAt",
+                    "payerUserId": "payerUserId",
+                    "payerEmail": "payerEmail",
+                    "isPayer": true
                   },
                   "referralPoints": 1000000,
                   "consent": {
@@ -256,12 +260,16 @@ import Api
             ),
             locale: "locale",
             activeCompanyId: Nullable<String>.value("activeCompanyId"),
+            timeZone: "timeZone",
             role: Nullable<String>.value("role"),
             billing: PostV1AccountMeResponseBilling(
                 status: .trial,
                 plan: "plan",
                 balanceCents: 1000000,
-                trialEndsAt: Nullable<String>.value("trialEndsAt")
+                trialEndsAt: Nullable<String>.value("trialEndsAt"),
+                payerUserId: "payerUserId",
+                payerEmail: "payerEmail",
+                isPayer: true
             ),
             referralPoints: 1000000,
             consent: PostV1AccountMeResponseConsent(
@@ -309,12 +317,16 @@ import Api
                   },
                   "locale": "locale",
                   "activeCompanyId": "x",
+                  "timeZone": "timeZone",
                   "role": "role",
                   "billing": {
                     "status": "trial",
                     "plan": "plan",
                     "balanceCents": 1000000,
-                    "trialEndsAt": "trialEndsAt"
+                    "trialEndsAt": "trialEndsAt",
+                    "payerUserId": "x",
+                    "payerEmail": "payerEmail",
+                    "isPayer": true
                   },
                   "referralPoints": 1000000,
                   "consent": {
@@ -368,12 +380,16 @@ import Api
             ),
             locale: "locale",
             activeCompanyId: Nullable<String>.value("x"),
+            timeZone: "timeZone",
             role: Nullable<String>.value("role"),
             billing: PostV1AccountMeResponseBilling(
                 status: .trial,
                 plan: "plan",
                 balanceCents: 1000000,
-                trialEndsAt: Nullable<String>.value("trialEndsAt")
+                trialEndsAt: Nullable<String>.value("trialEndsAt"),
+                payerUserId: "x",
+                payerEmail: "payerEmail",
+                isPayer: true
             ),
             referralPoints: 1000000,
             consent: PostV1AccountMeResponseConsent(
@@ -575,6 +591,66 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func postV1AccountMembersTransferOwnership1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "ownerUserId": "ownerUserId",
+                  "previousOwnerRole": "previousOwnerRole",
+                  "payerUserId": "payerUserId"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountMembersTransferOwnershipResponse(
+            ownerUserId: "ownerUserId",
+            previousOwnerRole: "previousOwnerRole",
+            payerUserId: Nullable<String>.value("payerUserId")
+        )
+        let response = try await client.account.postV1AccountMembersTransferOwnership(
+            request: .init(userId: "userId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountMembersTransferOwnership2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "ownerUserId": "x",
+                  "previousOwnerRole": "previousOwnerRole",
+                  "payerUserId": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountMembersTransferOwnershipResponse(
+            ownerUserId: "x",
+            previousOwnerRole: "previousOwnerRole",
+            payerUserId: Nullable<String>.value("x")
+        )
+        let response = try await client.account.postV1AccountMembersTransferOwnership(
+            request: .init(userId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1AccountMembersRemove1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -637,7 +713,6 @@ import Api
                   "email": "email",
                   "role": "role",
                   "expiresAt": "expiresAt",
-                  "inviteUrl": "inviteUrl",
                   "emailSent": true
                 }
                 """#.utf8
@@ -653,7 +728,6 @@ import Api
             email: "email",
             role: "role",
             expiresAt: "expiresAt",
-            inviteUrl: "inviteUrl",
             emailSent: true
         )
         let response = try await client.account.postV1AccountInvitesCreate(
@@ -676,7 +750,6 @@ import Api
                   "email": "email",
                   "role": "role",
                   "expiresAt": "expiresAt",
-                  "inviteUrl": "inviteUrl",
                   "emailSent": true
                 }
                 """#.utf8
@@ -692,7 +765,6 @@ import Api
             email: "email",
             role: "role",
             expiresAt: "expiresAt",
-            inviteUrl: "inviteUrl",
             emailSent: true
         )
         let response = try await client.account.postV1AccountInvitesCreate(
@@ -1031,7 +1103,7 @@ import Api
             scope: .membership
         )
         let response = try await client.account.postV1AccountLocaleSet(
-            request: .init(locale: .lt),
+            request: .init(locale: .en),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -1059,7 +1131,7 @@ import Api
             scope: .membership
         )
         let response = try await client.account.postV1AccountLocaleSet(
-            request: .init(locale: .lt),
+            request: .init(locale: .en),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -1203,6 +1275,8 @@ import Api
                   "isVatPayer": true,
                   "isSandbox": true,
                   "countryCode": "countryCode",
+                  "chartTemplate": "chartTemplate",
+                  "countryChartTemplate": "countryChartTemplate",
                   "baseCurrency": "baseCurrency",
                   "defaultInvoiceCurrency": "defaultInvoiceCurrency",
                   "status": "active",
@@ -1218,7 +1292,22 @@ import Api
                   "bankName": "bankName",
                   "peppolId": "peppolId",
                   "sepaCreditorId": "sepaCreditorId",
-                  "logoFileId": "logoFileId"
+                  "logoFileId": "logoFileId",
+                  "legalForm": "legalForm",
+                  "registryName": "registryName",
+                  "incorporatedOn": "incorporatedOn",
+                  "shareCapital": "shareCapital",
+                  "accountsKeptBy": "company",
+                  "vatPeriod": "monthly",
+                  "fiscalYearEndMonth": 1000000,
+                  "timeZone": "timeZone",
+                  "filingOptions": {
+                    "key": "value"
+                  },
+                  "bookkeeperName": "bookkeeperName",
+                  "auditorName": "auditorName",
+                  "auditorRegistrationNumber": "auditorRegistrationNumber",
+                  "auditRequired": true
                 }
                 """#.utf8
             )
@@ -1237,6 +1326,8 @@ import Api
             isVatPayer: true,
             isSandbox: true,
             countryCode: "countryCode",
+            chartTemplate: "chartTemplate",
+            countryChartTemplate: "countryChartTemplate",
             baseCurrency: "baseCurrency",
             defaultInvoiceCurrency: "defaultInvoiceCurrency",
             status: .active,
@@ -1252,7 +1343,22 @@ import Api
             bankName: Nullable<String>.value("bankName"),
             peppolId: Nullable<String>.value("peppolId"),
             sepaCreditorId: Nullable<String>.value("sepaCreditorId"),
-            logoFileId: Nullable<String>.value("logoFileId")
+            logoFileId: Nullable<String>.value("logoFileId"),
+            legalForm: Nullable<String>.value("legalForm"),
+            registryName: Nullable<String>.value("registryName"),
+            incorporatedOn: Nullable<String>.value("incorporatedOn"),
+            shareCapital: Nullable<String>.value("shareCapital"),
+            accountsKeptBy: Nullable<PostV1AccountCompaniesProfileResponseAccountsKeptBy>.value(.company),
+            vatPeriod: Nullable<PostV1AccountCompaniesProfileResponseVatPeriod>.value(.monthly),
+            fiscalYearEndMonth: Nullable<Int64>.value(1000000),
+            timeZone: "timeZone",
+            filingOptions: Nullable<[String: Nullable<String>]>.value([
+                "key": Nullable<String>.value("value")
+            ]),
+            bookkeeperName: Nullable<String>.value("bookkeeperName"),
+            auditorName: Nullable<String>.value("auditorName"),
+            auditorRegistrationNumber: Nullable<String>.value("auditorRegistrationNumber"),
+            auditRequired: true
         )
         let response = try await client.account.postV1AccountCompaniesProfile(
             request: .init(),
@@ -1275,6 +1381,8 @@ import Api
                   "isVatPayer": true,
                   "isSandbox": true,
                   "countryCode": "countryCode",
+                  "chartTemplate": "chartTemplate",
+                  "countryChartTemplate": "countryChartTemplate",
                   "baseCurrency": "baseCurrency",
                   "defaultInvoiceCurrency": "defaultInvoiceCurrency",
                   "status": "active",
@@ -1290,7 +1398,22 @@ import Api
                   "bankName": "bankName",
                   "peppolId": "peppolId",
                   "sepaCreditorId": "sepaCreditorId",
-                  "logoFileId": "logoFileId"
+                  "logoFileId": "logoFileId",
+                  "legalForm": "legalForm",
+                  "registryName": "registryName",
+                  "incorporatedOn": "incorporatedOn",
+                  "shareCapital": "shareCapital",
+                  "accountsKeptBy": "company",
+                  "vatPeriod": "monthly",
+                  "fiscalYearEndMonth": 1000000,
+                  "timeZone": "timeZone",
+                  "filingOptions": {
+                    "filingOptions": "filingOptions"
+                  },
+                  "bookkeeperName": "bookkeeperName",
+                  "auditorName": "auditorName",
+                  "auditorRegistrationNumber": "auditorRegistrationNumber",
+                  "auditRequired": true
                 }
                 """#.utf8
             )
@@ -1309,6 +1432,8 @@ import Api
             isVatPayer: true,
             isSandbox: true,
             countryCode: "countryCode",
+            chartTemplate: "chartTemplate",
+            countryChartTemplate: "countryChartTemplate",
             baseCurrency: "baseCurrency",
             defaultInvoiceCurrency: "defaultInvoiceCurrency",
             status: .active,
@@ -1324,7 +1449,22 @@ import Api
             bankName: Nullable<String>.value("bankName"),
             peppolId: Nullable<String>.value("peppolId"),
             sepaCreditorId: Nullable<String>.value("sepaCreditorId"),
-            logoFileId: Nullable<String>.value("logoFileId")
+            logoFileId: Nullable<String>.value("logoFileId"),
+            legalForm: Nullable<String>.value("legalForm"),
+            registryName: Nullable<String>.value("registryName"),
+            incorporatedOn: Nullable<String>.value("incorporatedOn"),
+            shareCapital: Nullable<String>.value("shareCapital"),
+            accountsKeptBy: Nullable<PostV1AccountCompaniesProfileResponseAccountsKeptBy>.value(.company),
+            vatPeriod: Nullable<PostV1AccountCompaniesProfileResponseVatPeriod>.value(.monthly),
+            fiscalYearEndMonth: Nullable<Int64>.value(1000000),
+            timeZone: "timeZone",
+            filingOptions: Nullable<[String: Nullable<String>]>.value([
+                "filingOptions": Nullable<String>.value("filingOptions")
+            ]),
+            bookkeeperName: Nullable<String>.value("bookkeeperName"),
+            auditorName: Nullable<String>.value("auditorName"),
+            auditorRegistrationNumber: Nullable<String>.value("auditorRegistrationNumber"),
+            auditRequired: true
         )
         let response = try await client.account.postV1AccountCompaniesProfile(
             request: .init(),
@@ -1347,6 +1487,8 @@ import Api
                   "isVatPayer": true,
                   "isSandbox": true,
                   "countryCode": "countryCode",
+                  "chartTemplate": "chartTemplate",
+                  "countryChartTemplate": "countryChartTemplate",
                   "baseCurrency": "baseCurrency",
                   "defaultInvoiceCurrency": "defaultInvoiceCurrency",
                   "status": "active",
@@ -1362,7 +1504,22 @@ import Api
                   "bankName": "bankName",
                   "peppolId": "peppolId",
                   "sepaCreditorId": "sepaCreditorId",
-                  "logoFileId": "logoFileId"
+                  "logoFileId": "logoFileId",
+                  "legalForm": "legalForm",
+                  "registryName": "registryName",
+                  "incorporatedOn": "incorporatedOn",
+                  "shareCapital": "shareCapital",
+                  "accountsKeptBy": "company",
+                  "vatPeriod": "monthly",
+                  "fiscalYearEndMonth": 1000000,
+                  "timeZone": "timeZone",
+                  "filingOptions": {
+                    "key": "value"
+                  },
+                  "bookkeeperName": "bookkeeperName",
+                  "auditorName": "auditorName",
+                  "auditorRegistrationNumber": "auditorRegistrationNumber",
+                  "auditRequired": true
                 }
                 """#.utf8
             )
@@ -1381,6 +1538,8 @@ import Api
             isVatPayer: true,
             isSandbox: true,
             countryCode: "countryCode",
+            chartTemplate: "chartTemplate",
+            countryChartTemplate: "countryChartTemplate",
             baseCurrency: "baseCurrency",
             defaultInvoiceCurrency: "defaultInvoiceCurrency",
             status: .active,
@@ -1396,7 +1555,22 @@ import Api
             bankName: Nullable<String>.value("bankName"),
             peppolId: Nullable<String>.value("peppolId"),
             sepaCreditorId: Nullable<String>.value("sepaCreditorId"),
-            logoFileId: Nullable<String>.value("logoFileId")
+            logoFileId: Nullable<String>.value("logoFileId"),
+            legalForm: Nullable<String>.value("legalForm"),
+            registryName: Nullable<String>.value("registryName"),
+            incorporatedOn: Nullable<String>.value("incorporatedOn"),
+            shareCapital: Nullable<String>.value("shareCapital"),
+            accountsKeptBy: Nullable<PostV1AccountCompaniesUpdateResponseAccountsKeptBy>.value(.company),
+            vatPeriod: Nullable<PostV1AccountCompaniesUpdateResponseVatPeriod>.value(.monthly),
+            fiscalYearEndMonth: Nullable<Int64>.value(1000000),
+            timeZone: "timeZone",
+            filingOptions: Nullable<[String: Nullable<String>]>.value([
+                "key": Nullable<String>.value("value")
+            ]),
+            bookkeeperName: Nullable<String>.value("bookkeeperName"),
+            auditorName: Nullable<String>.value("auditorName"),
+            auditorRegistrationNumber: Nullable<String>.value("auditorRegistrationNumber"),
+            auditRequired: true
         )
         let response = try await client.account.postV1AccountCompaniesUpdate(
             request: .init(),
@@ -1419,6 +1593,8 @@ import Api
                   "isVatPayer": true,
                   "isSandbox": true,
                   "countryCode": "countryCode",
+                  "chartTemplate": "chartTemplate",
+                  "countryChartTemplate": "countryChartTemplate",
                   "baseCurrency": "baseCurrency",
                   "defaultInvoiceCurrency": "defaultInvoiceCurrency",
                   "status": "active",
@@ -1434,7 +1610,22 @@ import Api
                   "bankName": "bankName",
                   "peppolId": "peppolId",
                   "sepaCreditorId": "sepaCreditorId",
-                  "logoFileId": "logoFileId"
+                  "logoFileId": "logoFileId",
+                  "legalForm": "legalForm",
+                  "registryName": "registryName",
+                  "incorporatedOn": "incorporatedOn",
+                  "shareCapital": "shareCapital",
+                  "accountsKeptBy": "company",
+                  "vatPeriod": "monthly",
+                  "fiscalYearEndMonth": 1000000,
+                  "timeZone": "timeZone",
+                  "filingOptions": {
+                    "filingOptions": "filingOptions"
+                  },
+                  "bookkeeperName": "bookkeeperName",
+                  "auditorName": "auditorName",
+                  "auditorRegistrationNumber": "auditorRegistrationNumber",
+                  "auditRequired": true
                 }
                 """#.utf8
             )
@@ -1453,6 +1644,8 @@ import Api
             isVatPayer: true,
             isSandbox: true,
             countryCode: "countryCode",
+            chartTemplate: "chartTemplate",
+            countryChartTemplate: "countryChartTemplate",
             baseCurrency: "baseCurrency",
             defaultInvoiceCurrency: "defaultInvoiceCurrency",
             status: .active,
@@ -1468,7 +1661,22 @@ import Api
             bankName: Nullable<String>.value("bankName"),
             peppolId: Nullable<String>.value("peppolId"),
             sepaCreditorId: Nullable<String>.value("sepaCreditorId"),
-            logoFileId: Nullable<String>.value("logoFileId")
+            logoFileId: Nullable<String>.value("logoFileId"),
+            legalForm: Nullable<String>.value("legalForm"),
+            registryName: Nullable<String>.value("registryName"),
+            incorporatedOn: Nullable<String>.value("incorporatedOn"),
+            shareCapital: Nullable<String>.value("shareCapital"),
+            accountsKeptBy: Nullable<PostV1AccountCompaniesUpdateResponseAccountsKeptBy>.value(.company),
+            vatPeriod: Nullable<PostV1AccountCompaniesUpdateResponseVatPeriod>.value(.monthly),
+            fiscalYearEndMonth: Nullable<Int64>.value(1000000),
+            timeZone: "timeZone",
+            filingOptions: Nullable<[String: Nullable<String>]>.value([
+                "filingOptions": Nullable<String>.value("filingOptions")
+            ]),
+            bookkeeperName: Nullable<String>.value("bookkeeperName"),
+            auditorName: Nullable<String>.value("auditorName"),
+            auditorRegistrationNumber: Nullable<String>.value("auditorRegistrationNumber"),
+            auditRequired: true
         )
         let response = try await client.account.postV1AccountCompaniesUpdate(
             request: .init(),
@@ -1660,7 +1868,8 @@ import Api
                   "scopes": [
                     "scopes"
                   ],
-                  "key": "key"
+                  "key": "key",
+                  "expiresAt": "expiresAt"
                 }
                 """#.utf8
             )
@@ -1676,7 +1885,8 @@ import Api
             scopes: [
                 "scopes"
             ],
-            key: "key"
+            key: "key",
+            expiresAt: Nullable<String>.value("expiresAt")
         )
         let response = try await client.account.postV1AccountApiKeysCreate(
             request: .init(name: "name"),
@@ -1697,7 +1907,8 @@ import Api
                     "scopes",
                     "scopes"
                   ],
-                  "key": "key"
+                  "key": "key",
+                  "expiresAt": "expiresAt"
                 }
                 """#.utf8
             )
@@ -1714,7 +1925,8 @@ import Api
                 "scopes",
                 "scopes"
             ],
-            key: "key"
+            key: "key",
+            expiresAt: Nullable<String>.value("expiresAt")
         )
         let response = try await client.account.postV1AccountApiKeysCreate(
             request: .init(name: "x"),
@@ -1737,6 +1949,8 @@ import Api
                         "scopes"
                       ],
                       "lastUsedAt": "lastUsedAt",
+                      "expiresAt": "expiresAt",
+                      "replacedByKeyId": "replacedByKeyId",
                       "revokedAt": "revokedAt",
                       "createdAt": "createdAt"
                     }
@@ -1759,6 +1973,8 @@ import Api
                         "scopes"
                     ],
                     lastUsedAt: Nullable<String>.value("lastUsedAt"),
+                    expiresAt: Nullable<String>.value("expiresAt"),
+                    replacedByKeyId: Nullable<String>.value("replacedByKeyId"),
                     revokedAt: Nullable<String>.value("revokedAt"),
                     createdAt: "createdAt"
                 )
@@ -1786,6 +2002,8 @@ import Api
                         "scopes"
                       ],
                       "lastUsedAt": "lastUsedAt",
+                      "expiresAt": "expiresAt",
+                      "replacedByKeyId": "x",
                       "revokedAt": "revokedAt",
                       "createdAt": "createdAt"
                     },
@@ -1797,6 +2015,8 @@ import Api
                         "scopes"
                       ],
                       "lastUsedAt": "lastUsedAt",
+                      "expiresAt": "expiresAt",
+                      "replacedByKeyId": "x",
                       "revokedAt": "revokedAt",
                       "createdAt": "createdAt"
                     }
@@ -1820,6 +2040,8 @@ import Api
                         "scopes"
                     ],
                     lastUsedAt: Nullable<String>.value("lastUsedAt"),
+                    expiresAt: Nullable<String>.value("expiresAt"),
+                    replacedByKeyId: Nullable<String>.value("x"),
                     revokedAt: Nullable<String>.value("revokedAt"),
                     createdAt: "createdAt"
                 ),
@@ -1831,6 +2053,8 @@ import Api
                         "scopes"
                     ],
                     lastUsedAt: Nullable<String>.value("lastUsedAt"),
+                    expiresAt: Nullable<String>.value("expiresAt"),
+                    replacedByKeyId: Nullable<String>.value("x"),
                     revokedAt: Nullable<String>.value("revokedAt"),
                     createdAt: "createdAt"
                 )
@@ -1838,6 +2062,92 @@ import Api
         )
         let response = try await client.account.postV1AccountApiKeysList(
             request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func issueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlap1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "scopes": [
+                    "scopes"
+                  ],
+                  "key": "key",
+                  "expiresAt": "expiresAt",
+                  "replacedKeyId": "replacedKeyId",
+                  "replacedKeyExpiresAt": "replacedKeyExpiresAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountApiKeysRotateResponse(
+            id: "id",
+            name: "name",
+            scopes: [
+                "scopes"
+            ],
+            key: "key",
+            expiresAt: Nullable<String>.value("expiresAt"),
+            replacedKeyId: "replacedKeyId",
+            replacedKeyExpiresAt: "replacedKeyExpiresAt"
+        )
+        let response = try await client.account.issueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlap(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func issueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlap2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "scopes": [
+                    "scopes",
+                    "scopes"
+                  ],
+                  "key": "key",
+                  "expiresAt": "expiresAt",
+                  "replacedKeyId": "x",
+                  "replacedKeyExpiresAt": "replacedKeyExpiresAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountApiKeysRotateResponse(
+            id: "x",
+            name: "name",
+            scopes: [
+                "scopes",
+                "scopes"
+            ],
+            key: "key",
+            expiresAt: Nullable<String>.value("expiresAt"),
+            replacedKeyId: "x",
+            replacedKeyExpiresAt: "replacedKeyExpiresAt"
+        )
+        let response = try await client.account.issueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlap(
+            request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -2099,6 +2409,9 @@ import Api
                     {
                       "id": "id",
                       "companyId": "companyId",
+                      "ipAddress": "ipAddress",
+                      "userAgent": "userAgent",
+                      "lastSeenAt": "lastSeenAt",
                       "createdAt": "createdAt",
                       "expiresAt": "expiresAt",
                       "current": true
@@ -2118,6 +2431,9 @@ import Api
                 PostV1AccountSessionsListResponseRowsItem(
                     id: "id",
                     companyId: Nullable<String>.value("companyId"),
+                    ipAddress: Nullable<String>.value("ipAddress"),
+                    userAgent: Nullable<String>.value("userAgent"),
+                    lastSeenAt: Nullable<String>.value("lastSeenAt"),
                     createdAt: "createdAt",
                     expiresAt: "expiresAt",
                     current: true
@@ -2141,6 +2457,9 @@ import Api
                     {
                       "id": "x",
                       "companyId": "x",
+                      "ipAddress": "ipAddress",
+                      "userAgent": "userAgent",
+                      "lastSeenAt": "lastSeenAt",
                       "createdAt": "createdAt",
                       "expiresAt": "expiresAt",
                       "current": true
@@ -2148,6 +2467,9 @@ import Api
                     {
                       "id": "x",
                       "companyId": "x",
+                      "ipAddress": "ipAddress",
+                      "userAgent": "userAgent",
+                      "lastSeenAt": "lastSeenAt",
                       "createdAt": "createdAt",
                       "expiresAt": "expiresAt",
                       "current": true
@@ -2167,6 +2489,9 @@ import Api
                 PostV1AccountSessionsListResponseRowsItem(
                     id: "x",
                     companyId: Nullable<String>.value("x"),
+                    ipAddress: Nullable<String>.value("ipAddress"),
+                    userAgent: Nullable<String>.value("userAgent"),
+                    lastSeenAt: Nullable<String>.value("lastSeenAt"),
                     createdAt: "createdAt",
                     expiresAt: "expiresAt",
                     current: true
@@ -2174,6 +2499,9 @@ import Api
                 PostV1AccountSessionsListResponseRowsItem(
                     id: "x",
                     companyId: Nullable<String>.value("x"),
+                    ipAddress: Nullable<String>.value("ipAddress"),
+                    userAgent: Nullable<String>.value("userAgent"),
+                    lastSeenAt: Nullable<String>.value("lastSeenAt"),
                     createdAt: "createdAt",
                     expiresAt: "expiresAt",
                     current: true
@@ -2327,6 +2655,9 @@ import Api
                     {
                       "id": "id",
                       "companyId": "companyId",
+                      "ipAddress": "ipAddress",
+                      "userAgent": "userAgent",
+                      "lastSeenAt": "lastSeenAt",
                       "createdAt": "createdAt",
                       "expiresAt": "expiresAt",
                       "current": true
@@ -2399,6 +2730,9 @@ import Api
                 PostV1AccountExportResponseSessionsItem(
                     id: "id",
                     companyId: Nullable<String>.value("companyId"),
+                    ipAddress: Nullable<String>.value("ipAddress"),
+                    userAgent: Nullable<String>.value("userAgent"),
+                    lastSeenAt: Nullable<String>.value("lastSeenAt"),
                     createdAt: "createdAt",
                     expiresAt: "expiresAt",
                     current: true
@@ -2481,6 +2815,9 @@ import Api
                     {
                       "id": "x",
                       "companyId": "x",
+                      "ipAddress": "ipAddress",
+                      "userAgent": "userAgent",
+                      "lastSeenAt": "lastSeenAt",
                       "createdAt": "createdAt",
                       "expiresAt": "expiresAt",
                       "current": true
@@ -2488,6 +2825,9 @@ import Api
                     {
                       "id": "x",
                       "companyId": "x",
+                      "ipAddress": "ipAddress",
+                      "userAgent": "userAgent",
+                      "lastSeenAt": "lastSeenAt",
                       "createdAt": "createdAt",
                       "expiresAt": "expiresAt",
                       "current": true
@@ -2582,6 +2922,9 @@ import Api
                 PostV1AccountExportResponseSessionsItem(
                     id: "x",
                     companyId: Nullable<String>.value("x"),
+                    ipAddress: Nullable<String>.value("ipAddress"),
+                    userAgent: Nullable<String>.value("userAgent"),
+                    lastSeenAt: Nullable<String>.value("lastSeenAt"),
                     createdAt: "createdAt",
                     expiresAt: "expiresAt",
                     current: true
@@ -2589,6 +2932,9 @@ import Api
                 PostV1AccountExportResponseSessionsItem(
                     id: "x",
                     companyId: Nullable<String>.value("x"),
+                    ipAddress: Nullable<String>.value("ipAddress"),
+                    userAgent: Nullable<String>.value("userAgent"),
+                    lastSeenAt: Nullable<String>.value("lastSeenAt"),
                     createdAt: "createdAt",
                     expiresAt: "expiresAt",
                     current: true
@@ -2707,6 +3053,10 @@ import Api
                   "link": "link",
                   "points": 1000000,
                   "referredCount": 1000000,
+                  "rates": {
+                    "perEur": 1000000,
+                    "pointCents": 1000000
+                  },
                   "history": [
                     {
                       "points": 1000000,
@@ -2728,6 +3078,10 @@ import Api
             link: "link",
             points: 1000000,
             referredCount: 1000000,
+            rates: PostV1AccountReferralGetResponseRates(
+                perEur: 1000000,
+                pointCents: 1000000
+            ),
             history: [
                 PostV1AccountReferralGetResponseHistoryItem(
                     points: 1000000,
@@ -2753,6 +3107,10 @@ import Api
                   "link": "link",
                   "points": 1000000,
                   "referredCount": 1000000,
+                  "rates": {
+                    "perEur": 1000000,
+                    "pointCents": 1000000
+                  },
                   "history": [
                     {
                       "points": 1000000,
@@ -2779,6 +3137,10 @@ import Api
             link: "link",
             points: 1000000,
             referredCount: 1000000,
+            rates: PostV1AccountReferralGetResponseRates(
+                perEur: 1000000,
+                pointCents: 1000000
+            ),
             history: [
                 PostV1AccountReferralGetResponseHistoryItem(
                     points: 1000000,
@@ -2794,6 +3156,70 @@ import Api
         )
         let response = try await client.account.postV1AccountReferralGet(
             request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountReferralConvert1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "points": 1000000,
+                  "amountCents": 1000000,
+                  "pointsLeft": 1000000,
+                  "balanceCents": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountReferralConvertResponse(
+            points: 1000000,
+            amountCents: 1000000,
+            pointsLeft: 1000000,
+            balanceCents: 1000000
+        )
+        let response = try await client.account.postV1AccountReferralConvert(
+            request: .init(points: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AccountReferralConvert2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "points": 1000000,
+                  "amountCents": 1000000,
+                  "pointsLeft": 1000000,
+                  "balanceCents": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AccountReferralConvertResponse(
+            points: 1000000,
+            amountCents: 1000000,
+            pointsLeft: 1000000,
+            balanceCents: 1000000
+        )
+        let response = try await client.account.postV1AccountReferralConvert(
+            request: .init(points: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

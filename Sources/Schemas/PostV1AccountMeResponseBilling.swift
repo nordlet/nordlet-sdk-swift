@@ -5,6 +5,9 @@ public struct PostV1AccountMeResponseBilling: Codable, Hashable, Sendable {
     public let plan: String
     public let balanceCents: Int64
     public let trialEndsAt: Nullable<String>
+    public let payerUserId: String
+    public let payerEmail: String
+    public let isPayer: Bool
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -13,12 +16,18 @@ public struct PostV1AccountMeResponseBilling: Codable, Hashable, Sendable {
         plan: String,
         balanceCents: Int64,
         trialEndsAt: Nullable<String>,
+        payerUserId: String,
+        payerEmail: String,
+        isPayer: Bool,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.status = status
         self.plan = plan
         self.balanceCents = balanceCents
         self.trialEndsAt = trialEndsAt
+        self.payerUserId = payerUserId
+        self.payerEmail = payerEmail
+        self.isPayer = isPayer
         self.additionalProperties = additionalProperties
     }
 
@@ -28,6 +37,9 @@ public struct PostV1AccountMeResponseBilling: Codable, Hashable, Sendable {
         self.plan = try container.decode(String.self, forKey: .plan)
         self.balanceCents = try container.decode(Int64.self, forKey: .balanceCents)
         self.trialEndsAt = try container.decode(Nullable<String>.self, forKey: .trialEndsAt)
+        self.payerUserId = try container.decode(String.self, forKey: .payerUserId)
+        self.payerEmail = try container.decode(String.self, forKey: .payerEmail)
+        self.isPayer = try container.decode(Bool.self, forKey: .isPayer)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -38,6 +50,9 @@ public struct PostV1AccountMeResponseBilling: Codable, Hashable, Sendable {
         try container.encode(self.plan, forKey: .plan)
         try container.encode(self.balanceCents, forKey: .balanceCents)
         try container.encode(self.trialEndsAt, forKey: .trialEndsAt)
+        try container.encode(self.payerUserId, forKey: .payerUserId)
+        try container.encode(self.payerEmail, forKey: .payerEmail)
+        try container.encode(self.isPayer, forKey: .isPayer)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -46,5 +61,8 @@ public struct PostV1AccountMeResponseBilling: Codable, Hashable, Sendable {
         case plan
         case balanceCents
         case trialEndsAt
+        case payerUserId
+        case payerEmail
+        case isPayer
     }
 }

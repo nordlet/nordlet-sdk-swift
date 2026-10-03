@@ -12,6 +12,7 @@ public struct PostV1SalesInvoicesUpdateRequestLinesItem: Codable, Hashable, Send
     public let costCenterId: String?
     public let projectId: String?
     public let recognition: PostV1SalesInvoicesUpdateRequestLinesItemRecognition?
+    public let vatExemptionBasis: String?
     public let standaloneSellingPrice: String?
     public let refundEstimatePercent: String?
     /// Additional properties that are not explicitly defined in the schema
@@ -29,6 +30,7 @@ public struct PostV1SalesInvoicesUpdateRequestLinesItem: Codable, Hashable, Send
         costCenterId: String? = nil,
         projectId: String? = nil,
         recognition: PostV1SalesInvoicesUpdateRequestLinesItemRecognition? = nil,
+        vatExemptionBasis: String? = nil,
         standaloneSellingPrice: String? = nil,
         refundEstimatePercent: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
@@ -44,6 +46,7 @@ public struct PostV1SalesInvoicesUpdateRequestLinesItem: Codable, Hashable, Send
         self.costCenterId = costCenterId
         self.projectId = projectId
         self.recognition = recognition
+        self.vatExemptionBasis = vatExemptionBasis
         self.standaloneSellingPrice = standaloneSellingPrice
         self.refundEstimatePercent = refundEstimatePercent
         self.additionalProperties = additionalProperties
@@ -62,6 +65,7 @@ public struct PostV1SalesInvoicesUpdateRequestLinesItem: Codable, Hashable, Send
         self.costCenterId = try container.decodeIfPresent(String.self, forKey: .costCenterId)
         self.projectId = try container.decodeIfPresent(String.self, forKey: .projectId)
         self.recognition = try container.decodeIfPresent(PostV1SalesInvoicesUpdateRequestLinesItemRecognition.self, forKey: .recognition)
+        self.vatExemptionBasis = try container.decodeIfPresent(String.self, forKey: .vatExemptionBasis)
         self.standaloneSellingPrice = try container.decodeIfPresent(String.self, forKey: .standaloneSellingPrice)
         self.refundEstimatePercent = try container.decodeIfPresent(String.self, forKey: .refundEstimatePercent)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -81,6 +85,7 @@ public struct PostV1SalesInvoicesUpdateRequestLinesItem: Codable, Hashable, Send
         try container.encodeIfPresent(self.costCenterId, forKey: .costCenterId)
         try container.encodeIfPresent(self.projectId, forKey: .projectId)
         try container.encodeIfPresent(self.recognition, forKey: .recognition)
+        try container.encodeIfPresent(self.vatExemptionBasis, forKey: .vatExemptionBasis)
         try container.encodeIfPresent(self.standaloneSellingPrice, forKey: .standaloneSellingPrice)
         try container.encodeIfPresent(self.refundEstimatePercent, forKey: .refundEstimatePercent)
     }
@@ -98,6 +103,7 @@ public struct PostV1SalesInvoicesUpdateRequestLinesItem: Codable, Hashable, Send
         case costCenterId
         case projectId
         case recognition
+        case vatExemptionBasis
         case standaloneSellingPrice
         case refundEstimatePercent
     }

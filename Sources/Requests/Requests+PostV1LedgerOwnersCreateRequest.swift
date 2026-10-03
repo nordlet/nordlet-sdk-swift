@@ -9,6 +9,10 @@ extension Requests {
         public let sharesAmount: String?
         public let sharesType: PostV1LedgerOwnersCreateRequestSharesType?
         public let sharesAcquisitionDate: String?
+        public let withholdingTaxPercent: String?
+        public let partnerLiability: Nullable<PostV1LedgerOwnersCreateRequestPartnerLiability>?
+        public let specialBalanceRequired: Nullable<Bool>?
+        public let supplementaryBalanceRequired: Nullable<Bool>?
         public let address: PostV1LedgerOwnersCreateRequestAddress?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -21,6 +25,10 @@ extension Requests {
             sharesAmount: String? = nil,
             sharesType: PostV1LedgerOwnersCreateRequestSharesType? = nil,
             sharesAcquisitionDate: String? = nil,
+            withholdingTaxPercent: String? = nil,
+            partnerLiability: Nullable<PostV1LedgerOwnersCreateRequestPartnerLiability>? = nil,
+            specialBalanceRequired: Nullable<Bool>? = nil,
+            supplementaryBalanceRequired: Nullable<Bool>? = nil,
             address: PostV1LedgerOwnersCreateRequestAddress? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -31,6 +39,10 @@ extension Requests {
             self.sharesAmount = sharesAmount
             self.sharesType = sharesType
             self.sharesAcquisitionDate = sharesAcquisitionDate
+            self.withholdingTaxPercent = withholdingTaxPercent
+            self.partnerLiability = partnerLiability
+            self.specialBalanceRequired = specialBalanceRequired
+            self.supplementaryBalanceRequired = supplementaryBalanceRequired
             self.address = address
             self.additionalProperties = additionalProperties
         }
@@ -44,6 +56,10 @@ extension Requests {
             self.sharesAmount = try container.decodeIfPresent(String.self, forKey: .sharesAmount)
             self.sharesType = try container.decodeIfPresent(PostV1LedgerOwnersCreateRequestSharesType.self, forKey: .sharesType)
             self.sharesAcquisitionDate = try container.decodeIfPresent(String.self, forKey: .sharesAcquisitionDate)
+            self.withholdingTaxPercent = try container.decodeIfPresent(String.self, forKey: .withholdingTaxPercent)
+            self.partnerLiability = try container.decodeNullableIfPresent(PostV1LedgerOwnersCreateRequestPartnerLiability.self, forKey: .partnerLiability)
+            self.specialBalanceRequired = try container.decodeNullableIfPresent(Bool.self, forKey: .specialBalanceRequired)
+            self.supplementaryBalanceRequired = try container.decodeNullableIfPresent(Bool.self, forKey: .supplementaryBalanceRequired)
             self.address = try container.decodeIfPresent(PostV1LedgerOwnersCreateRequestAddress.self, forKey: .address)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -58,6 +74,10 @@ extension Requests {
             try container.encodeIfPresent(self.sharesAmount, forKey: .sharesAmount)
             try container.encodeIfPresent(self.sharesType, forKey: .sharesType)
             try container.encodeIfPresent(self.sharesAcquisitionDate, forKey: .sharesAcquisitionDate)
+            try container.encodeIfPresent(self.withholdingTaxPercent, forKey: .withholdingTaxPercent)
+            try container.encodeNullableIfPresent(self.partnerLiability, forKey: .partnerLiability)
+            try container.encodeNullableIfPresent(self.specialBalanceRequired, forKey: .specialBalanceRequired)
+            try container.encodeNullableIfPresent(self.supplementaryBalanceRequired, forKey: .supplementaryBalanceRequired)
             try container.encodeIfPresent(self.address, forKey: .address)
         }
 
@@ -70,6 +90,10 @@ extension Requests {
             case sharesAmount
             case sharesType
             case sharesAcquisitionDate
+            case withholdingTaxPercent
+            case partnerLiability
+            case specialBalanceRequired
+            case supplementaryBalanceRequired
             case address
         }
     }

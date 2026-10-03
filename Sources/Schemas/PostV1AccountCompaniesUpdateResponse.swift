@@ -9,6 +9,10 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
     public let isVatPayer: Bool
     public let isSandbox: Bool
     public let countryCode: String
+    /// Chart of accounts template the company was seeded with
+    public let chartTemplate: String
+    /// Chart of accounts template of the company country
+    public let countryChartTemplate: String
     public let baseCurrency: String
     public let defaultInvoiceCurrency: String
     public let status: PostV1AccountCompaniesUpdateResponseStatus
@@ -20,6 +24,19 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
     public let peppolId: Nullable<String>
     public let sepaCreditorId: Nullable<String>
     public let logoFileId: Nullable<String>
+    public let legalForm: Nullable<String>
+    public let registryName: Nullable<String>
+    public let incorporatedOn: Nullable<String>
+    public let shareCapital: Nullable<String>
+    public let accountsKeptBy: Nullable<PostV1AccountCompaniesUpdateResponseAccountsKeptBy>
+    public let vatPeriod: Nullable<PostV1AccountCompaniesUpdateResponseVatPeriod>
+    public let fiscalYearEndMonth: Nullable<Int64>
+    public let timeZone: String
+    public let filingOptions: Nullable<[String: Nullable<String>]>
+    public let bookkeeperName: Nullable<String>
+    public let auditorName: Nullable<String>
+    public let auditorRegistrationNumber: Nullable<String>
+    public let auditRequired: Bool
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -32,6 +49,8 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         isVatPayer: Bool,
         isSandbox: Bool,
         countryCode: String,
+        chartTemplate: String,
+        countryChartTemplate: String,
         baseCurrency: String,
         defaultInvoiceCurrency: String,
         status: PostV1AccountCompaniesUpdateResponseStatus,
@@ -43,6 +62,19 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         peppolId: Nullable<String>,
         sepaCreditorId: Nullable<String>,
         logoFileId: Nullable<String>,
+        legalForm: Nullable<String>,
+        registryName: Nullable<String>,
+        incorporatedOn: Nullable<String>,
+        shareCapital: Nullable<String>,
+        accountsKeptBy: Nullable<PostV1AccountCompaniesUpdateResponseAccountsKeptBy>,
+        vatPeriod: Nullable<PostV1AccountCompaniesUpdateResponseVatPeriod>,
+        fiscalYearEndMonth: Nullable<Int64>,
+        timeZone: String,
+        filingOptions: Nullable<[String: Nullable<String>]>,
+        bookkeeperName: Nullable<String>,
+        auditorName: Nullable<String>,
+        auditorRegistrationNumber: Nullable<String>,
+        auditRequired: Bool,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -53,6 +85,8 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         self.isVatPayer = isVatPayer
         self.isSandbox = isSandbox
         self.countryCode = countryCode
+        self.chartTemplate = chartTemplate
+        self.countryChartTemplate = countryChartTemplate
         self.baseCurrency = baseCurrency
         self.defaultInvoiceCurrency = defaultInvoiceCurrency
         self.status = status
@@ -64,6 +98,19 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         self.peppolId = peppolId
         self.sepaCreditorId = sepaCreditorId
         self.logoFileId = logoFileId
+        self.legalForm = legalForm
+        self.registryName = registryName
+        self.incorporatedOn = incorporatedOn
+        self.shareCapital = shareCapital
+        self.accountsKeptBy = accountsKeptBy
+        self.vatPeriod = vatPeriod
+        self.fiscalYearEndMonth = fiscalYearEndMonth
+        self.timeZone = timeZone
+        self.filingOptions = filingOptions
+        self.bookkeeperName = bookkeeperName
+        self.auditorName = auditorName
+        self.auditorRegistrationNumber = auditorRegistrationNumber
+        self.auditRequired = auditRequired
         self.additionalProperties = additionalProperties
     }
 
@@ -77,6 +124,8 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         self.isVatPayer = try container.decode(Bool.self, forKey: .isVatPayer)
         self.isSandbox = try container.decode(Bool.self, forKey: .isSandbox)
         self.countryCode = try container.decode(String.self, forKey: .countryCode)
+        self.chartTemplate = try container.decode(String.self, forKey: .chartTemplate)
+        self.countryChartTemplate = try container.decode(String.self, forKey: .countryChartTemplate)
         self.baseCurrency = try container.decode(String.self, forKey: .baseCurrency)
         self.defaultInvoiceCurrency = try container.decode(String.self, forKey: .defaultInvoiceCurrency)
         self.status = try container.decode(PostV1AccountCompaniesUpdateResponseStatus.self, forKey: .status)
@@ -88,6 +137,19 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         self.peppolId = try container.decode(Nullable<String>.self, forKey: .peppolId)
         self.sepaCreditorId = try container.decode(Nullable<String>.self, forKey: .sepaCreditorId)
         self.logoFileId = try container.decode(Nullable<String>.self, forKey: .logoFileId)
+        self.legalForm = try container.decode(Nullable<String>.self, forKey: .legalForm)
+        self.registryName = try container.decode(Nullable<String>.self, forKey: .registryName)
+        self.incorporatedOn = try container.decode(Nullable<String>.self, forKey: .incorporatedOn)
+        self.shareCapital = try container.decode(Nullable<String>.self, forKey: .shareCapital)
+        self.accountsKeptBy = try container.decode(Nullable<PostV1AccountCompaniesUpdateResponseAccountsKeptBy>.self, forKey: .accountsKeptBy)
+        self.vatPeriod = try container.decode(Nullable<PostV1AccountCompaniesUpdateResponseVatPeriod>.self, forKey: .vatPeriod)
+        self.fiscalYearEndMonth = try container.decode(Nullable<Int64>.self, forKey: .fiscalYearEndMonth)
+        self.timeZone = try container.decode(String.self, forKey: .timeZone)
+        self.filingOptions = try container.decode(Nullable<[String: Nullable<String>]>.self, forKey: .filingOptions)
+        self.bookkeeperName = try container.decode(Nullable<String>.self, forKey: .bookkeeperName)
+        self.auditorName = try container.decode(Nullable<String>.self, forKey: .auditorName)
+        self.auditorRegistrationNumber = try container.decode(Nullable<String>.self, forKey: .auditorRegistrationNumber)
+        self.auditRequired = try container.decode(Bool.self, forKey: .auditRequired)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -102,6 +164,8 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         try container.encode(self.isVatPayer, forKey: .isVatPayer)
         try container.encode(self.isSandbox, forKey: .isSandbox)
         try container.encode(self.countryCode, forKey: .countryCode)
+        try container.encode(self.chartTemplate, forKey: .chartTemplate)
+        try container.encode(self.countryChartTemplate, forKey: .countryChartTemplate)
         try container.encode(self.baseCurrency, forKey: .baseCurrency)
         try container.encode(self.defaultInvoiceCurrency, forKey: .defaultInvoiceCurrency)
         try container.encode(self.status, forKey: .status)
@@ -113,6 +177,19 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         try container.encode(self.peppolId, forKey: .peppolId)
         try container.encode(self.sepaCreditorId, forKey: .sepaCreditorId)
         try container.encode(self.logoFileId, forKey: .logoFileId)
+        try container.encode(self.legalForm, forKey: .legalForm)
+        try container.encode(self.registryName, forKey: .registryName)
+        try container.encode(self.incorporatedOn, forKey: .incorporatedOn)
+        try container.encode(self.shareCapital, forKey: .shareCapital)
+        try container.encode(self.accountsKeptBy, forKey: .accountsKeptBy)
+        try container.encode(self.vatPeriod, forKey: .vatPeriod)
+        try container.encode(self.fiscalYearEndMonth, forKey: .fiscalYearEndMonth)
+        try container.encode(self.timeZone, forKey: .timeZone)
+        try container.encode(self.filingOptions, forKey: .filingOptions)
+        try container.encode(self.bookkeeperName, forKey: .bookkeeperName)
+        try container.encode(self.auditorName, forKey: .auditorName)
+        try container.encode(self.auditorRegistrationNumber, forKey: .auditorRegistrationNumber)
+        try container.encode(self.auditRequired, forKey: .auditRequired)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -125,6 +202,8 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         case isVatPayer
         case isSandbox
         case countryCode
+        case chartTemplate
+        case countryChartTemplate
         case baseCurrency
         case defaultInvoiceCurrency
         case status
@@ -136,5 +215,18 @@ public struct PostV1AccountCompaniesUpdateResponse: Codable, Hashable, Sendable 
         case peppolId
         case sepaCreditorId
         case logoFileId
+        case legalForm
+        case registryName
+        case incorporatedOn
+        case shareCapital
+        case accountsKeptBy
+        case vatPeriod
+        case fiscalYearEndMonth
+        case timeZone
+        case filingOptions
+        case bookkeeperName
+        case auditorName
+        case auditorRegistrationNumber
+        case auditRequired
     }
 }

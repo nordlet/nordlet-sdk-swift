@@ -11,6 +11,22 @@ public struct PostV1DeclarationsSubmissionsMarkResponse: Codable, Hashable, Send
     public let fileId: Nullable<String>
     public let externalRef: Nullable<String>
     public let message: Nullable<String>
+    public let ruleKey: Nullable<String>
+    public let period: Nullable<String>
+    public let documentKey: Nullable<String>
+    public let origin: String
+    public let transportSystem: Nullable<String>
+    public let submittedAt: Nullable<String>
+    public let acceptedAt: Nullable<String>
+    public let rejectedAt: Nullable<String>
+    public let checkedAt: Nullable<String>
+    public let nextCheckAt: Nullable<String>
+    public let attempts: Int64
+    public let deliveryError: Nullable<String>
+    public let sentSha256: Nullable<String>
+    public let certificateFingerprint: Nullable<String>
+    public let submittedByActorType: Nullable<String>
+    public let submittedByActorId: Nullable<String>
     public let createdAt: String
     public let updatedAt: String
     /// Additional properties that are not explicitly defined in the schema
@@ -27,6 +43,22 @@ public struct PostV1DeclarationsSubmissionsMarkResponse: Codable, Hashable, Send
         fileId: Nullable<String>,
         externalRef: Nullable<String>,
         message: Nullable<String>,
+        ruleKey: Nullable<String>,
+        period: Nullable<String>,
+        documentKey: Nullable<String>,
+        origin: String,
+        transportSystem: Nullable<String>,
+        submittedAt: Nullable<String>,
+        acceptedAt: Nullable<String>,
+        rejectedAt: Nullable<String>,
+        checkedAt: Nullable<String>,
+        nextCheckAt: Nullable<String>,
+        attempts: Int64,
+        deliveryError: Nullable<String>,
+        sentSha256: Nullable<String>,
+        certificateFingerprint: Nullable<String>,
+        submittedByActorType: Nullable<String>,
+        submittedByActorId: Nullable<String>,
         createdAt: String,
         updatedAt: String,
         additionalProperties: [String: JSONValue] = .init()
@@ -41,6 +73,22 @@ public struct PostV1DeclarationsSubmissionsMarkResponse: Codable, Hashable, Send
         self.fileId = fileId
         self.externalRef = externalRef
         self.message = message
+        self.ruleKey = ruleKey
+        self.period = period
+        self.documentKey = documentKey
+        self.origin = origin
+        self.transportSystem = transportSystem
+        self.submittedAt = submittedAt
+        self.acceptedAt = acceptedAt
+        self.rejectedAt = rejectedAt
+        self.checkedAt = checkedAt
+        self.nextCheckAt = nextCheckAt
+        self.attempts = attempts
+        self.deliveryError = deliveryError
+        self.sentSha256 = sentSha256
+        self.certificateFingerprint = certificateFingerprint
+        self.submittedByActorType = submittedByActorType
+        self.submittedByActorId = submittedByActorId
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.additionalProperties = additionalProperties
@@ -58,6 +106,22 @@ public struct PostV1DeclarationsSubmissionsMarkResponse: Codable, Hashable, Send
         self.fileId = try container.decode(Nullable<String>.self, forKey: .fileId)
         self.externalRef = try container.decode(Nullable<String>.self, forKey: .externalRef)
         self.message = try container.decode(Nullable<String>.self, forKey: .message)
+        self.ruleKey = try container.decode(Nullable<String>.self, forKey: .ruleKey)
+        self.period = try container.decode(Nullable<String>.self, forKey: .period)
+        self.documentKey = try container.decode(Nullable<String>.self, forKey: .documentKey)
+        self.origin = try container.decode(String.self, forKey: .origin)
+        self.transportSystem = try container.decode(Nullable<String>.self, forKey: .transportSystem)
+        self.submittedAt = try container.decode(Nullable<String>.self, forKey: .submittedAt)
+        self.acceptedAt = try container.decode(Nullable<String>.self, forKey: .acceptedAt)
+        self.rejectedAt = try container.decode(Nullable<String>.self, forKey: .rejectedAt)
+        self.checkedAt = try container.decode(Nullable<String>.self, forKey: .checkedAt)
+        self.nextCheckAt = try container.decode(Nullable<String>.self, forKey: .nextCheckAt)
+        self.attempts = try container.decode(Int64.self, forKey: .attempts)
+        self.deliveryError = try container.decode(Nullable<String>.self, forKey: .deliveryError)
+        self.sentSha256 = try container.decode(Nullable<String>.self, forKey: .sentSha256)
+        self.certificateFingerprint = try container.decode(Nullable<String>.self, forKey: .certificateFingerprint)
+        self.submittedByActorType = try container.decode(Nullable<String>.self, forKey: .submittedByActorType)
+        self.submittedByActorId = try container.decode(Nullable<String>.self, forKey: .submittedByActorId)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -76,6 +140,22 @@ public struct PostV1DeclarationsSubmissionsMarkResponse: Codable, Hashable, Send
         try container.encode(self.fileId, forKey: .fileId)
         try container.encode(self.externalRef, forKey: .externalRef)
         try container.encode(self.message, forKey: .message)
+        try container.encode(self.ruleKey, forKey: .ruleKey)
+        try container.encode(self.period, forKey: .period)
+        try container.encode(self.documentKey, forKey: .documentKey)
+        try container.encode(self.origin, forKey: .origin)
+        try container.encode(self.transportSystem, forKey: .transportSystem)
+        try container.encode(self.submittedAt, forKey: .submittedAt)
+        try container.encode(self.acceptedAt, forKey: .acceptedAt)
+        try container.encode(self.rejectedAt, forKey: .rejectedAt)
+        try container.encode(self.checkedAt, forKey: .checkedAt)
+        try container.encode(self.nextCheckAt, forKey: .nextCheckAt)
+        try container.encode(self.attempts, forKey: .attempts)
+        try container.encode(self.deliveryError, forKey: .deliveryError)
+        try container.encode(self.sentSha256, forKey: .sentSha256)
+        try container.encode(self.certificateFingerprint, forKey: .certificateFingerprint)
+        try container.encode(self.submittedByActorType, forKey: .submittedByActorType)
+        try container.encode(self.submittedByActorId, forKey: .submittedByActorId)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
     }
@@ -92,6 +172,22 @@ public struct PostV1DeclarationsSubmissionsMarkResponse: Codable, Hashable, Send
         case fileId
         case externalRef
         case message
+        case ruleKey
+        case period
+        case documentKey
+        case origin
+        case transportSystem
+        case submittedAt
+        case acceptedAt
+        case rejectedAt
+        case checkedAt
+        case nextCheckAt
+        case attempts
+        case deliveryError
+        case sentSha256
+        case certificateFingerprint
+        case submittedByActorType
+        case submittedByActorId
         case createdAt
         case updatedAt
     }

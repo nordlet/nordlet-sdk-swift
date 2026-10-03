@@ -3075,6 +3075,7 @@ import Api
                       "grossTotal": "grossTotal",
                       "feeTotal": "feeTotal",
                       "netTotal": "netTotal",
+                      "fxRate": "fxRate",
                       "status": "imported",
                       "journalTransactionId": "journalTransactionId",
                       "bankTransactionId": "bankTransactionId",
@@ -3113,6 +3114,7 @@ import Api
                     grossTotal: "grossTotal",
                     feeTotal: "feeTotal",
                     netTotal: "netTotal",
+                    fxRate: Nullable<String>.value("fxRate"),
                     status: .imported,
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
                     bankTransactionId: Nullable<String>.value("bankTransactionId"),
@@ -3158,6 +3160,7 @@ import Api
                       "grossTotal": "grossTotal",
                       "feeTotal": "feeTotal",
                       "netTotal": "netTotal",
+                      "fxRate": "fxRate",
                       "status": "imported",
                       "journalTransactionId": "x",
                       "bankTransactionId": "x",
@@ -3177,6 +3180,7 @@ import Api
                       "grossTotal": "grossTotal",
                       "feeTotal": "feeTotal",
                       "netTotal": "netTotal",
+                      "fxRate": "fxRate",
                       "status": "imported",
                       "journalTransactionId": "x",
                       "bankTransactionId": "x",
@@ -3215,6 +3219,7 @@ import Api
                     grossTotal: "grossTotal",
                     feeTotal: "feeTotal",
                     netTotal: "netTotal",
+                    fxRate: Nullable<String>.value("fxRate"),
                     status: .imported,
                     journalTransactionId: Nullable<String>.value("x"),
                     bankTransactionId: Nullable<String>.value("x"),
@@ -3234,6 +3239,7 @@ import Api
                     grossTotal: "grossTotal",
                     feeTotal: "feeTotal",
                     netTotal: "netTotal",
+                    fxRate: Nullable<String>.value("fxRate"),
                     status: .imported,
                     journalTransactionId: Nullable<String>.value("x"),
                     bankTransactionId: Nullable<String>.value("x"),
@@ -3272,6 +3278,7 @@ import Api
                       "grossTotal": "grossTotal",
                       "feeTotal": "feeTotal",
                       "netTotal": "netTotal",
+                      "fxRate": "fxRate",
                       "status": "imported",
                       "journalTransactionId": "journalTransactionId",
                       "bankTransactionId": "bankTransactionId",
@@ -3309,6 +3316,7 @@ import Api
                     grossTotal: "grossTotal",
                     feeTotal: "feeTotal",
                     netTotal: "netTotal",
+                    fxRate: Nullable<String>.value("fxRate"),
                     status: .imported,
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
                     bankTransactionId: Nullable<String>.value("bankTransactionId"),
@@ -3350,6 +3358,7 @@ import Api
                       "grossTotal": "grossTotal",
                       "feeTotal": "feeTotal",
                       "netTotal": "netTotal",
+                      "fxRate": "fxRate",
                       "status": "imported",
                       "journalTransactionId": "x",
                       "bankTransactionId": "x",
@@ -3369,6 +3378,7 @@ import Api
                       "grossTotal": "grossTotal",
                       "feeTotal": "feeTotal",
                       "netTotal": "netTotal",
+                      "fxRate": "fxRate",
                       "status": "imported",
                       "journalTransactionId": "x",
                       "bankTransactionId": "x",
@@ -3406,6 +3416,7 @@ import Api
                     grossTotal: "grossTotal",
                     feeTotal: "feeTotal",
                     netTotal: "netTotal",
+                    fxRate: Nullable<String>.value("fxRate"),
                     status: .imported,
                     journalTransactionId: Nullable<String>.value("x"),
                     bankTransactionId: Nullable<String>.value("x"),
@@ -3425,6 +3436,7 @@ import Api
                     grossTotal: "grossTotal",
                     feeTotal: "feeTotal",
                     netTotal: "netTotal",
+                    fxRate: Nullable<String>.value("fxRate"),
                     status: .imported,
                     journalTransactionId: Nullable<String>.value("x"),
                     bankTransactionId: Nullable<String>.value("x"),
@@ -3464,6 +3476,7 @@ import Api
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
                   "netTotal": "netTotal",
+                  "fxRate": "fxRate",
                   "status": "imported",
                   "journalTransactionId": "journalTransactionId",
                   "bankTransactionId": "bankTransactionId",
@@ -3484,6 +3497,8 @@ import Api
                       "description": "description",
                       "sourceId": "sourceId",
                       "chargeId": "chargeId",
+                      "commissionPercent": "commissionPercent",
+                      "commissionAmount": "commissionAmount",
                       "reference": "reference",
                       "matchedInvoiceId": "matchedInvoiceId",
                       "matchStatus": "unmatched"
@@ -3508,6 +3523,7 @@ import Api
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
             netTotal: "netTotal",
+            fxRate: Nullable<String>.value("fxRate"),
             status: .imported,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             bankTransactionId: Nullable<String>.value("bankTransactionId"),
@@ -3528,6 +3544,8 @@ import Api
                     description: Nullable<String>.value("description"),
                     sourceId: Nullable<String>.value("sourceId"),
                     chargeId: Nullable<String>.value("chargeId"),
+                    commissionPercent: Nullable<String>.value("commissionPercent"),
+                    commissionAmount: Nullable<String>.value("commissionAmount"),
                     reference: Nullable<String>.value("reference"),
                     matchedInvoiceId: Nullable<String>.value("matchedInvoiceId"),
                     matchStatus: .unmatched
@@ -3556,6 +3574,7 @@ import Api
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
                   "netTotal": "netTotal",
+                  "fxRate": "fxRate",
                   "status": "imported",
                   "journalTransactionId": "x",
                   "bankTransactionId": "x",
@@ -3576,6 +3595,8 @@ import Api
                       "description": "description",
                       "sourceId": "sourceId",
                       "chargeId": "chargeId",
+                      "commissionPercent": "commissionPercent",
+                      "commissionAmount": "commissionAmount",
                       "reference": "reference",
                       "matchedInvoiceId": "x",
                       "matchStatus": "unmatched"
@@ -3591,6 +3612,8 @@ import Api
                       "description": "description",
                       "sourceId": "sourceId",
                       "chargeId": "chargeId",
+                      "commissionPercent": "commissionPercent",
+                      "commissionAmount": "commissionAmount",
                       "reference": "reference",
                       "matchedInvoiceId": "x",
                       "matchStatus": "unmatched"
@@ -3615,6 +3638,7 @@ import Api
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
             netTotal: "netTotal",
+            fxRate: Nullable<String>.value("fxRate"),
             status: .imported,
             journalTransactionId: Nullable<String>.value("x"),
             bankTransactionId: Nullable<String>.value("x"),
@@ -3635,6 +3659,8 @@ import Api
                     description: Nullable<String>.value("description"),
                     sourceId: Nullable<String>.value("sourceId"),
                     chargeId: Nullable<String>.value("chargeId"),
+                    commissionPercent: Nullable<String>.value("commissionPercent"),
+                    commissionAmount: Nullable<String>.value("commissionAmount"),
                     reference: Nullable<String>.value("reference"),
                     matchedInvoiceId: Nullable<String>.value("x"),
                     matchStatus: .unmatched
@@ -3650,6 +3676,8 @@ import Api
                     description: Nullable<String>.value("description"),
                     sourceId: Nullable<String>.value("sourceId"),
                     chargeId: Nullable<String>.value("chargeId"),
+                    commissionPercent: Nullable<String>.value("commissionPercent"),
+                    commissionAmount: Nullable<String>.value("commissionAmount"),
                     reference: Nullable<String>.value("reference"),
                     matchedInvoiceId: Nullable<String>.value("x"),
                     matchStatus: .unmatched
@@ -3679,6 +3707,8 @@ import Api
                   "description": "description",
                   "sourceId": "sourceId",
                   "chargeId": "chargeId",
+                  "commissionPercent": "commissionPercent",
+                  "commissionAmount": "commissionAmount",
                   "reference": "reference",
                   "matchedInvoiceId": "matchedInvoiceId",
                   "matchStatus": "unmatched"
@@ -3702,6 +3732,8 @@ import Api
             description: Nullable<String>.value("description"),
             sourceId: Nullable<String>.value("sourceId"),
             chargeId: Nullable<String>.value("chargeId"),
+            commissionPercent: Nullable<String>.value("commissionPercent"),
+            commissionAmount: Nullable<String>.value("commissionAmount"),
             reference: Nullable<String>.value("reference"),
             matchedInvoiceId: Nullable<String>.value("matchedInvoiceId"),
             matchStatus: .unmatched
@@ -3732,6 +3764,8 @@ import Api
                   "description": "description",
                   "sourceId": "sourceId",
                   "chargeId": "chargeId",
+                  "commissionPercent": "commissionPercent",
+                  "commissionAmount": "commissionAmount",
                   "reference": "reference",
                   "matchedInvoiceId": "x",
                   "matchStatus": "unmatched"
@@ -3755,6 +3789,8 @@ import Api
             description: Nullable<String>.value("description"),
             sourceId: Nullable<String>.value("sourceId"),
             chargeId: Nullable<String>.value("chargeId"),
+            commissionPercent: Nullable<String>.value("commissionPercent"),
+            commissionAmount: Nullable<String>.value("commissionAmount"),
             reference: Nullable<String>.value("reference"),
             matchedInvoiceId: Nullable<String>.value("x"),
             matchStatus: .unmatched
@@ -3764,6 +3800,114 @@ import Api
                 lineId: "x",
                 invoiceId: .null
             ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func setWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmount1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "externalId": "externalId",
+                  "category": "category",
+                  "date": "date",
+                  "gross": "gross",
+                  "fee": "fee",
+                  "net": "net",
+                  "description": "description",
+                  "sourceId": "sourceId",
+                  "chargeId": "chargeId",
+                  "commissionPercent": "commissionPercent",
+                  "commissionAmount": "commissionAmount",
+                  "reference": "reference",
+                  "matchedInvoiceId": "matchedInvoiceId",
+                  "matchStatus": "unmatched"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankSettlementsCommissionResponse(
+            id: "id",
+            externalId: "externalId",
+            category: "category",
+            date: "date",
+            gross: "gross",
+            fee: "fee",
+            net: "net",
+            description: Nullable<String>.value("description"),
+            sourceId: Nullable<String>.value("sourceId"),
+            chargeId: Nullable<String>.value("chargeId"),
+            commissionPercent: Nullable<String>.value("commissionPercent"),
+            commissionAmount: Nullable<String>.value("commissionAmount"),
+            reference: Nullable<String>.value("reference"),
+            matchedInvoiceId: Nullable<String>.value("matchedInvoiceId"),
+            matchStatus: .unmatched
+        )
+        let response = try await client.bank.setWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmount(
+            request: .init(lineId: "lineId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func setWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmount2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "externalId": "externalId",
+                  "category": "category",
+                  "date": "date",
+                  "gross": "gross",
+                  "fee": "fee",
+                  "net": "net",
+                  "description": "description",
+                  "sourceId": "sourceId",
+                  "chargeId": "chargeId",
+                  "commissionPercent": "commissionPercent",
+                  "commissionAmount": "commissionAmount",
+                  "reference": "reference",
+                  "matchedInvoiceId": "x",
+                  "matchStatus": "unmatched"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1BankSettlementsCommissionResponse(
+            id: "x",
+            externalId: "externalId",
+            category: "category",
+            date: "date",
+            gross: "gross",
+            fee: "fee",
+            net: "net",
+            description: Nullable<String>.value("description"),
+            sourceId: Nullable<String>.value("sourceId"),
+            chargeId: Nullable<String>.value("chargeId"),
+            commissionPercent: Nullable<String>.value("commissionPercent"),
+            commissionAmount: Nullable<String>.value("commissionAmount"),
+            reference: Nullable<String>.value("reference"),
+            matchedInvoiceId: Nullable<String>.value("x"),
+            matchStatus: .unmatched
+        )
+        let response = try await client.bank.setWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmount(
+            request: .init(lineId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -3784,6 +3928,7 @@ import Api
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
                   "netTotal": "netTotal",
+                  "fxRate": "fxRate",
                   "status": "imported",
                   "journalTransactionId": "journalTransactionId",
                   "bankTransactionId": "bankTransactionId",
@@ -3811,6 +3956,7 @@ import Api
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
             netTotal: "netTotal",
+            fxRate: Nullable<String>.value("fxRate"),
             status: .imported,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             bankTransactionId: Nullable<String>.value("bankTransactionId"),
@@ -3845,6 +3991,7 @@ import Api
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
                   "netTotal": "netTotal",
+                  "fxRate": "fxRate",
                   "status": "imported",
                   "journalTransactionId": "x",
                   "bankTransactionId": "x",
@@ -3872,6 +4019,7 @@ import Api
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
             netTotal: "netTotal",
+            fxRate: Nullable<String>.value("fxRate"),
             status: .imported,
             journalTransactionId: Nullable<String>.value("x"),
             bankTransactionId: Nullable<String>.value("x"),
@@ -3906,6 +4054,7 @@ import Api
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
                   "netTotal": "netTotal",
+                  "fxRate": "fxRate",
                   "status": "imported",
                   "journalTransactionId": "journalTransactionId",
                   "bankTransactionId": "bankTransactionId",
@@ -3933,6 +4082,7 @@ import Api
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
             netTotal: "netTotal",
+            fxRate: Nullable<String>.value("fxRate"),
             status: .imported,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             bankTransactionId: Nullable<String>.value("bankTransactionId"),
@@ -3964,6 +4114,7 @@ import Api
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
                   "netTotal": "netTotal",
+                  "fxRate": "fxRate",
                   "status": "imported",
                   "journalTransactionId": "x",
                   "bankTransactionId": "x",
@@ -3991,6 +4142,7 @@ import Api
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
             netTotal: "netTotal",
+            fxRate: Nullable<String>.value("fxRate"),
             status: .imported,
             journalTransactionId: Nullable<String>.value("x"),
             bankTransactionId: Nullable<String>.value("x"),
@@ -4022,6 +4174,7 @@ import Api
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
                   "netTotal": "netTotal",
+                  "fxRate": "fxRate",
                   "status": "imported",
                   "journalTransactionId": "journalTransactionId",
                   "bankTransactionId": "bankTransactionId",
@@ -4038,7 +4191,9 @@ import Api
                     "commissionAmount": "commissionAmount",
                     "sellerAmount": "sellerAmount",
                     "feeAmount": "feeAmount",
-                    "suspenseAmount": "suspenseAmount"
+                    "suspenseAmount": "suspenseAmount",
+                    "fxRate": "fxRate",
+                    "exchangeDifference": "exchangeDifference"
                   }
                 }
                 """#.utf8
@@ -4059,6 +4214,7 @@ import Api
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
             netTotal: "netTotal",
+            fxRate: Nullable<String>.value("fxRate"),
             status: .imported,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             bankTransactionId: Nullable<String>.value("bankTransactionId"),
@@ -4075,7 +4231,9 @@ import Api
                 commissionAmount: "commissionAmount",
                 sellerAmount: "sellerAmount",
                 feeAmount: "feeAmount",
-                suspenseAmount: "suspenseAmount"
+                suspenseAmount: "suspenseAmount",
+                fxRate: "fxRate",
+                exchangeDifference: "exchangeDifference"
             )
         )
         let response = try await client.bank.postV1BankSettlementsPost(
@@ -4100,6 +4258,7 @@ import Api
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
                   "netTotal": "netTotal",
+                  "fxRate": "fxRate",
                   "status": "imported",
                   "journalTransactionId": "x",
                   "bankTransactionId": "x",
@@ -4117,7 +4276,9 @@ import Api
                     "commissionAmount": "commissionAmount",
                     "sellerAmount": "sellerAmount",
                     "feeAmount": "feeAmount",
-                    "suspenseAmount": "suspenseAmount"
+                    "suspenseAmount": "suspenseAmount",
+                    "fxRate": "fxRate",
+                    "exchangeDifference": "exchangeDifference"
                   }
                 }
                 """#.utf8
@@ -4138,6 +4299,7 @@ import Api
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
             netTotal: "netTotal",
+            fxRate: Nullable<String>.value("fxRate"),
             status: .imported,
             journalTransactionId: Nullable<String>.value("x"),
             bankTransactionId: Nullable<String>.value("x"),
@@ -4155,7 +4317,9 @@ import Api
                 commissionAmount: "commissionAmount",
                 sellerAmount: "sellerAmount",
                 feeAmount: "feeAmount",
-                suspenseAmount: "suspenseAmount"
+                suspenseAmount: "suspenseAmount",
+                fxRate: "fxRate",
+                exchangeDifference: "exchangeDifference"
             )
         )
         let response = try await client.bank.postV1BankSettlementsPost(

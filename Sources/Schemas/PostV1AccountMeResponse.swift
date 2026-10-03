@@ -4,6 +4,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
     public let user: PostV1AccountMeResponseUser
     public let locale: String
     public let activeCompanyId: Nullable<String>
+    public let timeZone: String
     public let role: Nullable<String>
     public let billing: PostV1AccountMeResponseBilling
     public let referralPoints: Int64
@@ -16,6 +17,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         user: PostV1AccountMeResponseUser,
         locale: String,
         activeCompanyId: Nullable<String>,
+        timeZone: String,
         role: Nullable<String>,
         billing: PostV1AccountMeResponseBilling,
         referralPoints: Int64,
@@ -26,6 +28,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         self.user = user
         self.locale = locale
         self.activeCompanyId = activeCompanyId
+        self.timeZone = timeZone
         self.role = role
         self.billing = billing
         self.referralPoints = referralPoints
@@ -39,6 +42,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         self.user = try container.decode(PostV1AccountMeResponseUser.self, forKey: .user)
         self.locale = try container.decode(String.self, forKey: .locale)
         self.activeCompanyId = try container.decode(Nullable<String>.self, forKey: .activeCompanyId)
+        self.timeZone = try container.decode(String.self, forKey: .timeZone)
         self.role = try container.decode(Nullable<String>.self, forKey: .role)
         self.billing = try container.decode(PostV1AccountMeResponseBilling.self, forKey: .billing)
         self.referralPoints = try container.decode(Int64.self, forKey: .referralPoints)
@@ -53,6 +57,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         try container.encode(self.user, forKey: .user)
         try container.encode(self.locale, forKey: .locale)
         try container.encode(self.activeCompanyId, forKey: .activeCompanyId)
+        try container.encode(self.timeZone, forKey: .timeZone)
         try container.encode(self.role, forKey: .role)
         try container.encode(self.billing, forKey: .billing)
         try container.encode(self.referralPoints, forKey: .referralPoints)
@@ -65,6 +70,7 @@ public struct PostV1AccountMeResponse: Codable, Hashable, Sendable {
         case user
         case locale
         case activeCompanyId
+        case timeZone
         case role
         case billing
         case referralPoints

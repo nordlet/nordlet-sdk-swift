@@ -14,9 +14,10 @@ extension Requests {
         public let socialInsuranceNo: String?
         public let socialInsuranceStart: String?
         public let hireDate: String?
-        public let applyNpd: Bool?
-        public let npdOverride: Nullable<String>?
+        public let applyAllowance: Bool?
+        public let allowanceOverride: Nullable<String>?
         public let pensionAccumulation: Bool?
+        public let payrollOptions: [String: String]?
         public let notes: String?
         public let attributes: [PostV1HrEmployeesCreateRequestAttributesItem]?
         /// Additional properties that are not explicitly defined in the schema
@@ -35,9 +36,10 @@ extension Requests {
             socialInsuranceNo: String? = nil,
             socialInsuranceStart: String? = nil,
             hireDate: String? = nil,
-            applyNpd: Bool? = nil,
-            npdOverride: Nullable<String>? = nil,
+            applyAllowance: Bool? = nil,
+            allowanceOverride: Nullable<String>? = nil,
             pensionAccumulation: Bool? = nil,
+            payrollOptions: [String: String]? = nil,
             notes: String? = nil,
             attributes: [PostV1HrEmployeesCreateRequestAttributesItem]? = nil,
             additionalProperties: [String: JSONValue] = .init()
@@ -54,9 +56,10 @@ extension Requests {
             self.socialInsuranceNo = socialInsuranceNo
             self.socialInsuranceStart = socialInsuranceStart
             self.hireDate = hireDate
-            self.applyNpd = applyNpd
-            self.npdOverride = npdOverride
+            self.applyAllowance = applyAllowance
+            self.allowanceOverride = allowanceOverride
             self.pensionAccumulation = pensionAccumulation
+            self.payrollOptions = payrollOptions
             self.notes = notes
             self.attributes = attributes
             self.additionalProperties = additionalProperties
@@ -76,9 +79,10 @@ extension Requests {
             self.socialInsuranceNo = try container.decodeIfPresent(String.self, forKey: .socialInsuranceNo)
             self.socialInsuranceStart = try container.decodeIfPresent(String.self, forKey: .socialInsuranceStart)
             self.hireDate = try container.decodeIfPresent(String.self, forKey: .hireDate)
-            self.applyNpd = try container.decodeIfPresent(Bool.self, forKey: .applyNpd)
-            self.npdOverride = try container.decodeNullableIfPresent(String.self, forKey: .npdOverride)
+            self.applyAllowance = try container.decodeIfPresent(Bool.self, forKey: .applyAllowance)
+            self.allowanceOverride = try container.decodeNullableIfPresent(String.self, forKey: .allowanceOverride)
             self.pensionAccumulation = try container.decodeIfPresent(Bool.self, forKey: .pensionAccumulation)
+            self.payrollOptions = try container.decodeIfPresent([String: String].self, forKey: .payrollOptions)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.attributes = try container.decodeIfPresent([PostV1HrEmployeesCreateRequestAttributesItem].self, forKey: .attributes)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -99,9 +103,10 @@ extension Requests {
             try container.encodeIfPresent(self.socialInsuranceNo, forKey: .socialInsuranceNo)
             try container.encodeIfPresent(self.socialInsuranceStart, forKey: .socialInsuranceStart)
             try container.encodeIfPresent(self.hireDate, forKey: .hireDate)
-            try container.encodeIfPresent(self.applyNpd, forKey: .applyNpd)
-            try container.encodeNullableIfPresent(self.npdOverride, forKey: .npdOverride)
+            try container.encodeIfPresent(self.applyAllowance, forKey: .applyAllowance)
+            try container.encodeNullableIfPresent(self.allowanceOverride, forKey: .allowanceOverride)
             try container.encodeIfPresent(self.pensionAccumulation, forKey: .pensionAccumulation)
+            try container.encodeIfPresent(self.payrollOptions, forKey: .payrollOptions)
             try container.encodeIfPresent(self.notes, forKey: .notes)
             try container.encodeIfPresent(self.attributes, forKey: .attributes)
         }
@@ -120,9 +125,10 @@ extension Requests {
             case socialInsuranceNo
             case socialInsuranceStart
             case hireDate
-            case applyNpd
-            case npdOverride
+            case applyAllowance
+            case allowanceOverride
             case pensionAccumulation
+            case payrollOptions
             case notes
             case attributes
         }

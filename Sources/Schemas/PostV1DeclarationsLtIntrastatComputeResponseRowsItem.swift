@@ -7,6 +7,7 @@ public struct PostV1DeclarationsLtIntrastatComputeResponseRowsItem: Codable, Has
     public let transactionNature: String
     public let deliveryTerms: Nullable<String>
     public let transportMode: Nullable<String>
+    public let regionCode: Nullable<String>
     public let country: String
     public let originCountry: Nullable<String>
     public let partnerVat: Nullable<String>
@@ -25,6 +26,7 @@ public struct PostV1DeclarationsLtIntrastatComputeResponseRowsItem: Codable, Has
         transactionNature: String,
         deliveryTerms: Nullable<String>,
         transportMode: Nullable<String>,
+        regionCode: Nullable<String>,
         country: String,
         originCountry: Nullable<String>,
         partnerVat: Nullable<String>,
@@ -41,6 +43,7 @@ public struct PostV1DeclarationsLtIntrastatComputeResponseRowsItem: Codable, Has
         self.transactionNature = transactionNature
         self.deliveryTerms = deliveryTerms
         self.transportMode = transportMode
+        self.regionCode = regionCode
         self.country = country
         self.originCountry = originCountry
         self.partnerVat = partnerVat
@@ -60,6 +63,7 @@ public struct PostV1DeclarationsLtIntrastatComputeResponseRowsItem: Codable, Has
         self.transactionNature = try container.decode(String.self, forKey: .transactionNature)
         self.deliveryTerms = try container.decode(Nullable<String>.self, forKey: .deliveryTerms)
         self.transportMode = try container.decode(Nullable<String>.self, forKey: .transportMode)
+        self.regionCode = try container.decode(Nullable<String>.self, forKey: .regionCode)
         self.country = try container.decode(String.self, forKey: .country)
         self.originCountry = try container.decode(Nullable<String>.self, forKey: .originCountry)
         self.partnerVat = try container.decode(Nullable<String>.self, forKey: .partnerVat)
@@ -80,6 +84,7 @@ public struct PostV1DeclarationsLtIntrastatComputeResponseRowsItem: Codable, Has
         try container.encode(self.transactionNature, forKey: .transactionNature)
         try container.encode(self.deliveryTerms, forKey: .deliveryTerms)
         try container.encode(self.transportMode, forKey: .transportMode)
+        try container.encode(self.regionCode, forKey: .regionCode)
         try container.encode(self.country, forKey: .country)
         try container.encode(self.originCountry, forKey: .originCountry)
         try container.encode(self.partnerVat, forKey: .partnerVat)
@@ -98,6 +103,7 @@ public struct PostV1DeclarationsLtIntrastatComputeResponseRowsItem: Codable, Has
         case transactionNature
         case deliveryTerms
         case transportMode
+        case regionCode
         case country
         case originCountry
         case partnerVat

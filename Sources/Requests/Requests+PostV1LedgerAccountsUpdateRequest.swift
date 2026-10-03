@@ -4,7 +4,7 @@ extension Requests {
     public struct PostV1LedgerAccountsUpdateRequest: Codable, Hashable, Sendable {
         public let id: String
         public let name: String?
-        public let translations: Nullable<PostV1LedgerAccountsUpdateRequestTranslations>?
+        public let translations: Nullable<[String: Nullable<PostV1LedgerAccountsUpdateRequestTranslationsValue>]>?
         public let parentId: Nullable<String>?
         public let isPostable: Bool?
         /// Additional properties that are not explicitly defined in the schema
@@ -13,7 +13,7 @@ extension Requests {
         public init(
             id: String,
             name: String? = nil,
-            translations: Nullable<PostV1LedgerAccountsUpdateRequestTranslations>? = nil,
+            translations: Nullable<[String: Nullable<PostV1LedgerAccountsUpdateRequestTranslationsValue>]>? = nil,
             parentId: Nullable<String>? = nil,
             isPostable: Bool? = nil,
             additionalProperties: [String: JSONValue] = .init()
@@ -30,7 +30,7 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.id = try container.decode(String.self, forKey: .id)
             self.name = try container.decodeIfPresent(String.self, forKey: .name)
-            self.translations = try container.decodeNullableIfPresent(PostV1LedgerAccountsUpdateRequestTranslations.self, forKey: .translations)
+            self.translations = try container.decodeNullableIfPresent([String: Nullable<PostV1LedgerAccountsUpdateRequestTranslationsValue>].self, forKey: .translations)
             self.parentId = try container.decodeNullableIfPresent(String.self, forKey: .parentId)
             self.isPostable = try container.decodeIfPresent(Bool.self, forKey: .isPostable)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)

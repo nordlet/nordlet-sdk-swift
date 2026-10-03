@@ -47,6 +47,19 @@ public final class LedgerClient: Sendable {
         )
     }
 
+    /// Replaces the seeded chart with the chart template of the company country (the Romanian general chart for a company registered in Romania, the Lithuanian standard chart otherwise) and switches the posting defaults with it. Answers 409 when the company already uses that chart, has journal entries, holds accounts created by hand, or has settings that name an account the new chart does not have.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func moveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountry(request: Requests.PostV1LedgerAccountsSwitchChartRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LedgerAccountsSwitchChartResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/ledger/accounts/switch-chart",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1LedgerAccountsSwitchChartResponse.self
+        )
+    }
+
     public func postV1LedgerPeriodsList(request: Requests.PostV1LedgerPeriodsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LedgerPeriodsListResponse {
         return try await httpClient.performRequest(
             method: .post,
@@ -234,6 +247,85 @@ public final class LedgerClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: PostV1LedgerJournalTransactionsCreateResponse.self
+        )
+    }
+
+    /// The rows or codes of each return or registry deposit of the company country that are filled from account balances. Accounts fall into a row by the layout defaults for the standard chart of accounts unless mapped under Settings → Statement rows.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func nationalStatementLayoutsAvailableToTheCompany(request: Requests.PostV1LedgerStatementRowsSchemesRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LedgerStatementRowsSchemesResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/ledger/statement-rows/schemes",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1LedgerStatementRowsSchemesResponse.self
+        )
+    }
+
+    public func accountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriod(request: Requests.PostV1LedgerStatementRowsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LedgerStatementRowsListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/ledger/statement-rows/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1LedgerStatementRowsListResponse.self
+        )
+    }
+
+    /// A mapping on a code prefix covers every account whose code starts with it; the longest matching prefix wins. An empty rowCode removes the mapping so the layout default applies again.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func mapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayout(request: Requests.PostV1LedgerStatementRowsSetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LedgerStatementRowsSetResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/ledger/statement-rows/set",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1LedgerStatementRowsSetResponse.self
+        )
+    }
+
+    /// Directors, board members, the company secretary, representatives and liquidators, with their personal identifier, appointment and resignation dates and whether they sign the annual accounts. Annual returns and registry deposits are built from this register.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func officersOfTheCompany(request: Requests.PostV1OfficersListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1OfficersListResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/officers/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1OfficersListResponse.self
+        )
+    }
+
+    public func recordAnOfficerOfTheCompany(request: Requests.PostV1OfficersCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1OfficersCreateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/officers/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1OfficersCreateResponse.self
+        )
+    }
+
+    public func changeARecordedOfficer(request: Requests.PostV1OfficersUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1OfficersUpdateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/officers/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1OfficersUpdateResponse.self
+        )
+    }
+
+    public func removeARecordedOfficer(request: Requests.PostV1OfficersDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1OfficersDeleteResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/officers/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1OfficersDeleteResponse.self
         )
     }
 }

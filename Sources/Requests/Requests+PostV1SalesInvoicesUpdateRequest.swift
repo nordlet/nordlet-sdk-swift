@@ -4,10 +4,15 @@ extension Requests {
     public struct PostV1SalesInvoicesUpdateRequest: Codable, Hashable, Sendable {
         public let id: String
         public let partnerId: String?
+        public let agreementId: Nullable<String>?
         public let currency: String?
-        public let issueDate: String?
-        public let dueDate: String?
+        public let issueDate: Nullable<String>?
+        public let dueDate: Nullable<String>?
         public let vatScheme: Nullable<PostV1SalesInvoicesUpdateRequestVatScheme>?
+        public let intrastatTransportMode: Nullable<String>?
+        public let intrastatDeliveryTerms: Nullable<String>?
+        public let intrastatRegion: Nullable<String>?
+        public let intrastatNatureOfTransaction: Nullable<String>?
         public let vatCountryCode: Nullable<String>?
         public let deemedSupplier: Bool?
         public let notes: String?
@@ -27,10 +32,15 @@ extension Requests {
         public init(
             id: String,
             partnerId: String? = nil,
+            agreementId: Nullable<String>? = nil,
             currency: String? = nil,
-            issueDate: String? = nil,
-            dueDate: String? = nil,
+            issueDate: Nullable<String>? = nil,
+            dueDate: Nullable<String>? = nil,
             vatScheme: Nullable<PostV1SalesInvoicesUpdateRequestVatScheme>? = nil,
+            intrastatTransportMode: Nullable<String>? = nil,
+            intrastatDeliveryTerms: Nullable<String>? = nil,
+            intrastatRegion: Nullable<String>? = nil,
+            intrastatNatureOfTransaction: Nullable<String>? = nil,
             vatCountryCode: Nullable<String>? = nil,
             deemedSupplier: Bool? = nil,
             notes: String? = nil,
@@ -48,10 +58,15 @@ extension Requests {
         ) {
             self.id = id
             self.partnerId = partnerId
+            self.agreementId = agreementId
             self.currency = currency
             self.issueDate = issueDate
             self.dueDate = dueDate
             self.vatScheme = vatScheme
+            self.intrastatTransportMode = intrastatTransportMode
+            self.intrastatDeliveryTerms = intrastatDeliveryTerms
+            self.intrastatRegion = intrastatRegion
+            self.intrastatNatureOfTransaction = intrastatNatureOfTransaction
             self.vatCountryCode = vatCountryCode
             self.deemedSupplier = deemedSupplier
             self.notes = notes
@@ -72,10 +87,15 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.id = try container.decode(String.self, forKey: .id)
             self.partnerId = try container.decodeIfPresent(String.self, forKey: .partnerId)
+            self.agreementId = try container.decodeNullableIfPresent(String.self, forKey: .agreementId)
             self.currency = try container.decodeIfPresent(String.self, forKey: .currency)
-            self.issueDate = try container.decodeIfPresent(String.self, forKey: .issueDate)
-            self.dueDate = try container.decodeIfPresent(String.self, forKey: .dueDate)
+            self.issueDate = try container.decodeNullableIfPresent(String.self, forKey: .issueDate)
+            self.dueDate = try container.decodeNullableIfPresent(String.self, forKey: .dueDate)
             self.vatScheme = try container.decodeNullableIfPresent(PostV1SalesInvoicesUpdateRequestVatScheme.self, forKey: .vatScheme)
+            self.intrastatTransportMode = try container.decodeNullableIfPresent(String.self, forKey: .intrastatTransportMode)
+            self.intrastatDeliveryTerms = try container.decodeNullableIfPresent(String.self, forKey: .intrastatDeliveryTerms)
+            self.intrastatRegion = try container.decodeNullableIfPresent(String.self, forKey: .intrastatRegion)
+            self.intrastatNatureOfTransaction = try container.decodeNullableIfPresent(String.self, forKey: .intrastatNatureOfTransaction)
             self.vatCountryCode = try container.decodeNullableIfPresent(String.self, forKey: .vatCountryCode)
             self.deemedSupplier = try container.decodeIfPresent(Bool.self, forKey: .deemedSupplier)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
@@ -97,10 +117,15 @@ extension Requests {
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.id, forKey: .id)
             try container.encodeIfPresent(self.partnerId, forKey: .partnerId)
+            try container.encodeNullableIfPresent(self.agreementId, forKey: .agreementId)
             try container.encodeIfPresent(self.currency, forKey: .currency)
-            try container.encodeIfPresent(self.issueDate, forKey: .issueDate)
-            try container.encodeIfPresent(self.dueDate, forKey: .dueDate)
+            try container.encodeNullableIfPresent(self.issueDate, forKey: .issueDate)
+            try container.encodeNullableIfPresent(self.dueDate, forKey: .dueDate)
             try container.encodeNullableIfPresent(self.vatScheme, forKey: .vatScheme)
+            try container.encodeNullableIfPresent(self.intrastatTransportMode, forKey: .intrastatTransportMode)
+            try container.encodeNullableIfPresent(self.intrastatDeliveryTerms, forKey: .intrastatDeliveryTerms)
+            try container.encodeNullableIfPresent(self.intrastatRegion, forKey: .intrastatRegion)
+            try container.encodeNullableIfPresent(self.intrastatNatureOfTransaction, forKey: .intrastatNatureOfTransaction)
             try container.encodeNullableIfPresent(self.vatCountryCode, forKey: .vatCountryCode)
             try container.encodeIfPresent(self.deemedSupplier, forKey: .deemedSupplier)
             try container.encodeIfPresent(self.notes, forKey: .notes)
@@ -120,10 +145,15 @@ extension Requests {
         enum CodingKeys: String, CodingKey, CaseIterable {
             case id
             case partnerId
+            case agreementId
             case currency
             case issueDate
             case dueDate
             case vatScheme
+            case intrastatTransportMode
+            case intrastatDeliveryTerms
+            case intrastatRegion
+            case intrastatNatureOfTransaction
             case vatCountryCode
             case deemedSupplier
             case notes

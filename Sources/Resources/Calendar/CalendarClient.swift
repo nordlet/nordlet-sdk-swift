@@ -27,6 +27,29 @@ public final class CalendarClient: Sendable {
         )
     }
 
+    public func generateTheFilingForADeadlineAndSendItToTheAdministration(request: Requests.PostV1CalendarSubmitRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CalendarSubmitResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/calendar/submit",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CalendarSubmitResponse.self
+        )
+    }
+
+    /// Builds the file of a deadline whose format Nordlet produces but whose administration takes it only through the company's own account or program. Nothing is sent and no filing is recorded.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func generateTheFileOfADeadlineForTheCompanyToSendItself(request: Requests.PostV1CalendarDownloadRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CalendarDownloadResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/calendar/download",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1CalendarDownloadResponse.self
+        )
+    }
+
     public func postV1CalendarCreate(request: Requests.PostV1CalendarCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CalendarCreateResponse {
         return try await httpClient.performRequest(
             method: .post,

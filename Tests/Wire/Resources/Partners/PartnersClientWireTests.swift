@@ -1218,7 +1218,7 @@ import Api
                       "partnerId": "partnerId",
                       "partnerName": "partnerName",
                       "email": "email",
-                      "locale": "lt",
+                      "locale": "en",
                       "currency": "currency",
                       "invoices": [
                         {
@@ -1250,7 +1250,7 @@ import Api
                     partnerId: "partnerId",
                     partnerName: "partnerName",
                     email: "email",
-                    locale: .lt,
+                    locale: .en,
                     currency: "currency",
                     invoices: [
                         PostV1PartnersDebtRemindersPreviewResponseRowsItemInvoicesItem(
@@ -1286,7 +1286,7 @@ import Api
                       "partnerId": "x",
                       "partnerName": "partnerName",
                       "email": "email",
-                      "locale": "lt",
+                      "locale": "en",
                       "currency": "currency",
                       "invoices": [
                         {
@@ -1315,7 +1315,7 @@ import Api
                       "partnerId": "x",
                       "partnerName": "partnerName",
                       "email": "email",
-                      "locale": "lt",
+                      "locale": "en",
                       "currency": "currency",
                       "invoices": [
                         {
@@ -1356,7 +1356,7 @@ import Api
                     partnerId: "x",
                     partnerName: "partnerName",
                     email: "email",
-                    locale: .lt,
+                    locale: .en,
                     currency: "currency",
                     invoices: [
                         PostV1PartnersDebtRemindersPreviewResponseRowsItemInvoicesItem(
@@ -1385,7 +1385,7 @@ import Api
                     partnerId: "x",
                     partnerName: "partnerName",
                     email: "email",
-                    locale: .lt,
+                    locale: .en,
                     currency: "currency",
                     invoices: [
                         PostV1PartnersDebtRemindersPreviewResponseRowsItemInvoicesItem(

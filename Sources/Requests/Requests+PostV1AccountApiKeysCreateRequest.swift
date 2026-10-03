@@ -4,16 +4,19 @@ extension Requests {
     public struct PostV1AccountApiKeysCreateRequest: Codable, Hashable, Sendable {
         public let name: String
         public let scopes: [String]?
+        public let expiresInDays: Int64?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
         public init(
             name: String,
             scopes: [String]? = nil,
+            expiresInDays: Int64? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.name = name
             self.scopes = scopes
+            self.expiresInDays = expiresInDays
             self.additionalProperties = additionalProperties
         }
 
@@ -21,6 +24,7 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.name = try container.decode(String.self, forKey: .name)
             self.scopes = try container.decodeIfPresent([String].self, forKey: .scopes)
+            self.expiresInDays = try container.decodeIfPresent(Int64.self, forKey: .expiresInDays)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -29,12 +33,14 @@ extension Requests {
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.name, forKey: .name)
             try container.encodeIfPresent(self.scopes, forKey: .scopes)
+            try container.encodeIfPresent(self.expiresInDays, forKey: .expiresInDays)
         }
 
         /// Keys for encoding/decoding struct properties.
         enum CodingKeys: String, CodingKey, CaseIterable {
             case name
             case scopes
+            case expiresInDays
         }
     }
 }

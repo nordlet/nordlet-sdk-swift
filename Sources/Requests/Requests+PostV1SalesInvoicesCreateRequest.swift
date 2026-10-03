@@ -8,7 +8,12 @@ extension Requests {
         public let issueDate: String?
         public let dueDate: String?
         public let creditedInvoiceId: String?
+        public let agreementId: String?
         public let vatScheme: PostV1SalesInvoicesCreateRequestVatScheme?
+        public let intrastatTransportMode: String?
+        public let intrastatDeliveryTerms: String?
+        public let intrastatRegion: String?
+        public let intrastatNatureOfTransaction: String?
         public let vatCountryCode: String?
         public let deemedSupplier: Bool?
         public let notes: String?
@@ -33,7 +38,12 @@ extension Requests {
             issueDate: String? = nil,
             dueDate: String? = nil,
             creditedInvoiceId: String? = nil,
+            agreementId: String? = nil,
             vatScheme: PostV1SalesInvoicesCreateRequestVatScheme? = nil,
+            intrastatTransportMode: String? = nil,
+            intrastatDeliveryTerms: String? = nil,
+            intrastatRegion: String? = nil,
+            intrastatNatureOfTransaction: String? = nil,
             vatCountryCode: String? = nil,
             deemedSupplier: Bool? = nil,
             notes: String? = nil,
@@ -56,7 +66,12 @@ extension Requests {
             self.issueDate = issueDate
             self.dueDate = dueDate
             self.creditedInvoiceId = creditedInvoiceId
+            self.agreementId = agreementId
             self.vatScheme = vatScheme
+            self.intrastatTransportMode = intrastatTransportMode
+            self.intrastatDeliveryTerms = intrastatDeliveryTerms
+            self.intrastatRegion = intrastatRegion
+            self.intrastatNatureOfTransaction = intrastatNatureOfTransaction
             self.vatCountryCode = vatCountryCode
             self.deemedSupplier = deemedSupplier
             self.notes = notes
@@ -82,7 +97,12 @@ extension Requests {
             self.issueDate = try container.decodeIfPresent(String.self, forKey: .issueDate)
             self.dueDate = try container.decodeIfPresent(String.self, forKey: .dueDate)
             self.creditedInvoiceId = try container.decodeIfPresent(String.self, forKey: .creditedInvoiceId)
+            self.agreementId = try container.decodeIfPresent(String.self, forKey: .agreementId)
             self.vatScheme = try container.decodeIfPresent(PostV1SalesInvoicesCreateRequestVatScheme.self, forKey: .vatScheme)
+            self.intrastatTransportMode = try container.decodeIfPresent(String.self, forKey: .intrastatTransportMode)
+            self.intrastatDeliveryTerms = try container.decodeIfPresent(String.self, forKey: .intrastatDeliveryTerms)
+            self.intrastatRegion = try container.decodeIfPresent(String.self, forKey: .intrastatRegion)
+            self.intrastatNatureOfTransaction = try container.decodeIfPresent(String.self, forKey: .intrastatNatureOfTransaction)
             self.vatCountryCode = try container.decodeIfPresent(String.self, forKey: .vatCountryCode)
             self.deemedSupplier = try container.decodeIfPresent(Bool.self, forKey: .deemedSupplier)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
@@ -109,7 +129,12 @@ extension Requests {
             try container.encodeIfPresent(self.issueDate, forKey: .issueDate)
             try container.encodeIfPresent(self.dueDate, forKey: .dueDate)
             try container.encodeIfPresent(self.creditedInvoiceId, forKey: .creditedInvoiceId)
+            try container.encodeIfPresent(self.agreementId, forKey: .agreementId)
             try container.encodeIfPresent(self.vatScheme, forKey: .vatScheme)
+            try container.encodeIfPresent(self.intrastatTransportMode, forKey: .intrastatTransportMode)
+            try container.encodeIfPresent(self.intrastatDeliveryTerms, forKey: .intrastatDeliveryTerms)
+            try container.encodeIfPresent(self.intrastatRegion, forKey: .intrastatRegion)
+            try container.encodeIfPresent(self.intrastatNatureOfTransaction, forKey: .intrastatNatureOfTransaction)
             try container.encodeIfPresent(self.vatCountryCode, forKey: .vatCountryCode)
             try container.encodeIfPresent(self.deemedSupplier, forKey: .deemedSupplier)
             try container.encodeIfPresent(self.notes, forKey: .notes)
@@ -134,7 +159,12 @@ extension Requests {
             case issueDate
             case dueDate
             case creditedInvoiceId
+            case agreementId
             case vatScheme
+            case intrastatTransportMode
+            case intrastatDeliveryTerms
+            case intrastatRegion
+            case intrastatNatureOfTransaction
             case vatCountryCode
             case deemedSupplier
             case notes

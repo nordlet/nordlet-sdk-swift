@@ -2245,6 +2245,316 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func postV1ReportsSie1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "accounts": 1000000,
+                  "vouchers": 1000000,
+                  "source": "source",
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "notes": [
+                    "notes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReportsSieResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            accounts: 1000000,
+            vouchers: 1000000,
+            source: "source",
+            warnings: [
+                "warnings"
+            ],
+            notes: [
+                "notes"
+            ]
+        )
+        let response = try await client.reports.postV1ReportsSie(
+            request: .init(
+                fromDate: "fromDate",
+                toDate: "toDate"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReportsSie2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "accounts": 1000000,
+                  "vouchers": 1000000,
+                  "source": "source",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "notes": [
+                    "notes",
+                    "notes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReportsSieResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            accounts: 1000000,
+            vouchers: 1000000,
+            source: "source",
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            notes: [
+                "notes",
+                "notes"
+            ]
+        )
+        let response = try await client.reports.postV1ReportsSie(
+            request: .init(
+                fromDate: "fromDate",
+                toDate: "toDate"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReportsDatev1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "bookings": 1000000,
+                  "source": "source",
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "notes": [
+                    "notes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReportsDatevResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            bookings: 1000000,
+            source: "source",
+            warnings: [
+                "warnings"
+            ],
+            notes: [
+                "notes"
+            ]
+        )
+        let response = try await client.reports.postV1ReportsDatev(
+            request: .init(
+                fromDate: "fromDate",
+                toDate: "toDate"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReportsDatev2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "bookings": 1000000,
+                  "source": "source",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "notes": [
+                    "notes",
+                    "notes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReportsDatevResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            bookings: 1000000,
+            source: "source",
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            notes: [
+                "notes",
+                "notes"
+            ]
+        )
+        let response = try await client.reports.postV1ReportsDatev(
+            request: .init(
+                fromDate: "fromDate",
+                toDate: "toDate"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReportsFec1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "rows": 1000000,
+                  "source": "source",
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "notes": [
+                    "notes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReportsFecResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            rows: 1000000,
+            source: "source",
+            warnings: [
+                "warnings"
+            ],
+            notes: [
+                "notes"
+            ]
+        )
+        let response = try await client.reports.postV1ReportsFec(
+            request: .init(
+                fromDate: "fromDate",
+                toDate: "toDate"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1ReportsFec2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "rows": 1000000,
+                  "source": "source",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "notes": [
+                    "notes",
+                    "notes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1ReportsFecResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            rows: 1000000,
+            source: "source",
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            notes: [
+                "notes",
+                "notes"
+            ]
+        )
+        let response = try await client.reports.postV1ReportsFec(
+            request: .init(
+                fromDate: "fromDate",
+                toDate: "toDate"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1ReportsEuPurchases1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

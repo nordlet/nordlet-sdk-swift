@@ -10,6 +10,7 @@ public struct PostV1BankSettlementsGetResponse: Codable, Hashable, Sendable {
     public let grossTotal: String
     public let feeTotal: String
     public let netTotal: String
+    public let fxRate: Nullable<String>
     public let status: PostV1BankSettlementsGetResponseStatus
     public let journalTransactionId: Nullable<String>
     public let bankTransactionId: Nullable<String>
@@ -32,6 +33,7 @@ public struct PostV1BankSettlementsGetResponse: Codable, Hashable, Sendable {
         grossTotal: String,
         feeTotal: String,
         netTotal: String,
+        fxRate: Nullable<String>,
         status: PostV1BankSettlementsGetResponseStatus,
         journalTransactionId: Nullable<String>,
         bankTransactionId: Nullable<String>,
@@ -52,6 +54,7 @@ public struct PostV1BankSettlementsGetResponse: Codable, Hashable, Sendable {
         self.grossTotal = grossTotal
         self.feeTotal = feeTotal
         self.netTotal = netTotal
+        self.fxRate = fxRate
         self.status = status
         self.journalTransactionId = journalTransactionId
         self.bankTransactionId = bankTransactionId
@@ -75,6 +78,7 @@ public struct PostV1BankSettlementsGetResponse: Codable, Hashable, Sendable {
         self.grossTotal = try container.decode(String.self, forKey: .grossTotal)
         self.feeTotal = try container.decode(String.self, forKey: .feeTotal)
         self.netTotal = try container.decode(String.self, forKey: .netTotal)
+        self.fxRate = try container.decode(Nullable<String>.self, forKey: .fxRate)
         self.status = try container.decode(PostV1BankSettlementsGetResponseStatus.self, forKey: .status)
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
         self.bankTransactionId = try container.decode(Nullable<String>.self, forKey: .bankTransactionId)
@@ -99,6 +103,7 @@ public struct PostV1BankSettlementsGetResponse: Codable, Hashable, Sendable {
         try container.encode(self.grossTotal, forKey: .grossTotal)
         try container.encode(self.feeTotal, forKey: .feeTotal)
         try container.encode(self.netTotal, forKey: .netTotal)
+        try container.encode(self.fxRate, forKey: .fxRate)
         try container.encode(self.status, forKey: .status)
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
         try container.encode(self.bankTransactionId, forKey: .bankTransactionId)
@@ -121,6 +126,7 @@ public struct PostV1BankSettlementsGetResponse: Codable, Hashable, Sendable {
         case grossTotal
         case feeTotal
         case netTotal
+        case fxRate
         case status
         case journalTransactionId
         case bankTransactionId

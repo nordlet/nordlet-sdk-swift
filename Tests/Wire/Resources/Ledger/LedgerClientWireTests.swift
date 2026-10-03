@@ -42,9 +42,7 @@ import Api
                     id: "id",
                     code: "code",
                     name: "name",
-                    translations: Nullable<PostV1LedgerAccountsListResponseRowsItemTranslations>.value(PostV1LedgerAccountsListResponseRowsItemTranslations(
-
-                    )),
+                    translations: Nullable<[String: Nullable<PostV1LedgerAccountsListResponseRowsItemTranslationsValue>]>.value([:]),
                     type: .asset,
                     parentId: Nullable<String>.value("parentId"),
                     isPostable: true,
@@ -77,13 +75,7 @@ import Api
                       "code": "code",
                       "name": "name",
                       "translations": {
-                        "lt": {
-                          "name": "x"
-                        },
-                        "en": {
-                          "name": "x"
-                        },
-                        "ru": {
+                        "translations": {
                           "name": "x"
                         }
                       },
@@ -97,13 +89,7 @@ import Api
                       "code": "code",
                       "name": "name",
                       "translations": {
-                        "lt": {
-                          "name": "x"
-                        },
-                        "en": {
-                          "name": "x"
-                        },
-                        "ru": {
+                        "translations": {
                           "name": "x"
                         }
                       },
@@ -134,17 +120,11 @@ import Api
                     id: "x",
                     code: "code",
                     name: "name",
-                    translations: Nullable<PostV1LedgerAccountsListResponseRowsItemTranslations>.value(PostV1LedgerAccountsListResponseRowsItemTranslations(
-                        lt: Optional(PostV1LedgerAccountsListResponseRowsItemTranslationsLt(
-                            name: "x"
-                        )),
-                        en: Optional(PostV1LedgerAccountsListResponseRowsItemTranslationsEn(
-                            name: "x"
-                        )),
-                        ru: Optional(PostV1LedgerAccountsListResponseRowsItemTranslationsRu(
+                    translations: Nullable<[String: Nullable<PostV1LedgerAccountsListResponseRowsItemTranslationsValue>]>.value([
+                        "translations": Nullable<PostV1LedgerAccountsListResponseRowsItemTranslationsValue>.value(PostV1LedgerAccountsListResponseRowsItemTranslationsValue(
                             name: "x"
                         ))
-                    )),
+                    ]),
                     type: .asset,
                     parentId: Nullable<String>.value("x"),
                     isPostable: true,
@@ -154,17 +134,11 @@ import Api
                     id: "x",
                     code: "code",
                     name: "name",
-                    translations: Nullable<PostV1LedgerAccountsListResponseRowsItemTranslations>.value(PostV1LedgerAccountsListResponseRowsItemTranslations(
-                        lt: Optional(PostV1LedgerAccountsListResponseRowsItemTranslationsLt(
-                            name: "x"
-                        )),
-                        en: Optional(PostV1LedgerAccountsListResponseRowsItemTranslationsEn(
-                            name: "x"
-                        )),
-                        ru: Optional(PostV1LedgerAccountsListResponseRowsItemTranslationsRu(
+                    translations: Nullable<[String: Nullable<PostV1LedgerAccountsListResponseRowsItemTranslationsValue>]>.value([
+                        "translations": Nullable<PostV1LedgerAccountsListResponseRowsItemTranslationsValue>.value(PostV1LedgerAccountsListResponseRowsItemTranslationsValue(
                             name: "x"
                         ))
-                    )),
+                    ]),
                     type: .asset,
                     parentId: Nullable<String>.value("x"),
                     isPostable: true,
@@ -195,13 +169,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "translations": {
-                    "lt": {
-                      "name": "name"
-                    },
-                    "en": {
-                      "name": "name"
-                    },
-                    "ru": {
+                    "key": {
                       "name": "name"
                     }
                   },
@@ -222,17 +190,11 @@ import Api
             id: "id",
             code: "code",
             name: "name",
-            translations: Nullable<PostV1LedgerAccountsCreateResponseTranslations>.value(PostV1LedgerAccountsCreateResponseTranslations(
-                lt: Optional(PostV1LedgerAccountsCreateResponseTranslationsLt(
-                    name: "name"
-                )),
-                en: Optional(PostV1LedgerAccountsCreateResponseTranslationsEn(
-                    name: "name"
-                )),
-                ru: Optional(PostV1LedgerAccountsCreateResponseTranslationsRu(
+            translations: Nullable<[String: Nullable<PostV1LedgerAccountsCreateResponseTranslationsValue>]>.value([
+                "key": Nullable<PostV1LedgerAccountsCreateResponseTranslationsValue>.value(PostV1LedgerAccountsCreateResponseTranslationsValue(
                     name: "name"
                 ))
-            )),
+            ]),
             type: .asset,
             parentId: Nullable<String>.value("parentId"),
             isPostable: true,
@@ -259,13 +221,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "translations": {
-                    "lt": {
-                      "name": "x"
-                    },
-                    "en": {
-                      "name": "x"
-                    },
-                    "ru": {
+                    "translations": {
                       "name": "x"
                     }
                   },
@@ -286,17 +242,11 @@ import Api
             id: "x",
             code: "code",
             name: "name",
-            translations: Nullable<PostV1LedgerAccountsCreateResponseTranslations>.value(PostV1LedgerAccountsCreateResponseTranslations(
-                lt: Optional(PostV1LedgerAccountsCreateResponseTranslationsLt(
-                    name: "x"
-                )),
-                en: Optional(PostV1LedgerAccountsCreateResponseTranslationsEn(
-                    name: "x"
-                )),
-                ru: Optional(PostV1LedgerAccountsCreateResponseTranslationsRu(
+            translations: Nullable<[String: Nullable<PostV1LedgerAccountsCreateResponseTranslationsValue>]>.value([
+                "translations": Nullable<PostV1LedgerAccountsCreateResponseTranslationsValue>.value(PostV1LedgerAccountsCreateResponseTranslationsValue(
                     name: "x"
                 ))
-            )),
+            ]),
             type: .asset,
             parentId: Nullable<String>.value("x"),
             isPostable: true,
@@ -323,13 +273,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "translations": {
-                    "lt": {
-                      "name": "name"
-                    },
-                    "en": {
-                      "name": "name"
-                    },
-                    "ru": {
+                    "key": {
                       "name": "name"
                     }
                   },
@@ -350,17 +294,11 @@ import Api
             id: "id",
             code: "code",
             name: "name",
-            translations: Nullable<PostV1LedgerAccountsUpdateResponseTranslations>.value(PostV1LedgerAccountsUpdateResponseTranslations(
-                lt: Optional(PostV1LedgerAccountsUpdateResponseTranslationsLt(
-                    name: "name"
-                )),
-                en: Optional(PostV1LedgerAccountsUpdateResponseTranslationsEn(
-                    name: "name"
-                )),
-                ru: Optional(PostV1LedgerAccountsUpdateResponseTranslationsRu(
+            translations: Nullable<[String: Nullable<PostV1LedgerAccountsUpdateResponseTranslationsValue>]>.value([
+                "key": Nullable<PostV1LedgerAccountsUpdateResponseTranslationsValue>.value(PostV1LedgerAccountsUpdateResponseTranslationsValue(
                     name: "name"
                 ))
-            )),
+            ]),
             type: .asset,
             parentId: Nullable<String>.value("parentId"),
             isPostable: true,
@@ -383,13 +321,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "translations": {
-                    "lt": {
-                      "name": "x"
-                    },
-                    "en": {
-                      "name": "x"
-                    },
-                    "ru": {
+                    "translations": {
                       "name": "x"
                     }
                   },
@@ -410,17 +342,11 @@ import Api
             id: "x",
             code: "code",
             name: "name",
-            translations: Nullable<PostV1LedgerAccountsUpdateResponseTranslations>.value(PostV1LedgerAccountsUpdateResponseTranslations(
-                lt: Optional(PostV1LedgerAccountsUpdateResponseTranslationsLt(
-                    name: "x"
-                )),
-                en: Optional(PostV1LedgerAccountsUpdateResponseTranslationsEn(
-                    name: "x"
-                )),
-                ru: Optional(PostV1LedgerAccountsUpdateResponseTranslationsRu(
+            translations: Nullable<[String: Nullable<PostV1LedgerAccountsUpdateResponseTranslationsValue>]>.value([
+                "translations": Nullable<PostV1LedgerAccountsUpdateResponseTranslationsValue>.value(PostV1LedgerAccountsUpdateResponseTranslationsValue(
                     name: "x"
                 ))
-            )),
+            ]),
             type: .asset,
             parentId: Nullable<String>.value("x"),
             isPostable: true,
@@ -479,6 +405,62 @@ import Api
             accounts: 1000000
         )
         let response = try await client.ledger.postV1LedgerAccountsApplyTemplate(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func moveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountry1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "chartTemplate": "chartTemplate",
+                  "accounts": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LedgerAccountsSwitchChartResponse(
+            chartTemplate: "chartTemplate",
+            accounts: 1000000
+        )
+        let response = try await client.ledger.moveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountry(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func moveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountry2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "chartTemplate": "chartTemplate",
+                  "accounts": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LedgerAccountsSwitchChartResponse(
+            chartTemplate: "chartTemplate",
+            accounts: 1000000
+        )
+        let response = try await client.ledger.moveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountry(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
@@ -1705,6 +1687,10 @@ import Api
                   "sharesAmount": "sharesAmount",
                   "sharesType": "sharesType",
                   "sharesAcquisitionDate": "sharesAcquisitionDate",
+                  "withholdingTaxPercent": "withholdingTaxPercent",
+                  "partnerLiability": "general",
+                  "specialBalanceRequired": true,
+                  "supplementaryBalanceRequired": true,
                   "address": {
                     "street": "street",
                     "city": "city",
@@ -1730,6 +1716,10 @@ import Api
             sharesAmount: Nullable<String>.value("sharesAmount"),
             sharesType: Nullable<String>.value("sharesType"),
             sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+            withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
+            partnerLiability: Nullable<PostV1LedgerOwnersCreateResponsePartnerLiability>.value(.general),
+            specialBalanceRequired: Nullable<Bool>.value(true),
+            supplementaryBalanceRequired: Nullable<Bool>.value(true),
             address: Nullable<PostV1LedgerOwnersCreateResponseAddress>.value(PostV1LedgerOwnersCreateResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
@@ -1759,6 +1749,10 @@ import Api
                   "sharesAmount": "sharesAmount",
                   "sharesType": "sharesType",
                   "sharesAcquisitionDate": "sharesAcquisitionDate",
+                  "withholdingTaxPercent": "withholdingTaxPercent",
+                  "partnerLiability": "general",
+                  "specialBalanceRequired": true,
+                  "supplementaryBalanceRequired": true,
                   "address": {
                     "street": "street",
                     "city": "city",
@@ -1784,6 +1778,10 @@ import Api
             sharesAmount: Nullable<String>.value("sharesAmount"),
             sharesType: Nullable<String>.value("sharesType"),
             sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+            withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
+            partnerLiability: Nullable<PostV1LedgerOwnersCreateResponsePartnerLiability>.value(.general),
+            specialBalanceRequired: Nullable<Bool>.value(true),
+            supplementaryBalanceRequired: Nullable<Bool>.value(true),
             address: Nullable<PostV1LedgerOwnersCreateResponseAddress>.value(PostV1LedgerOwnersCreateResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
@@ -1813,6 +1811,10 @@ import Api
                   "sharesAmount": "sharesAmount",
                   "sharesType": "sharesType",
                   "sharesAcquisitionDate": "sharesAcquisitionDate",
+                  "withholdingTaxPercent": "withholdingTaxPercent",
+                  "partnerLiability": "general",
+                  "specialBalanceRequired": true,
+                  "supplementaryBalanceRequired": true,
                   "address": {
                     "street": "street",
                     "city": "city",
@@ -1838,6 +1840,10 @@ import Api
             sharesAmount: Nullable<String>.value("sharesAmount"),
             sharesType: Nullable<String>.value("sharesType"),
             sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+            withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
+            partnerLiability: Nullable<PostV1LedgerOwnersUpdateResponsePartnerLiability>.value(.general),
+            specialBalanceRequired: Nullable<Bool>.value(true),
+            supplementaryBalanceRequired: Nullable<Bool>.value(true),
             address: Nullable<PostV1LedgerOwnersUpdateResponseAddress>.value(PostV1LedgerOwnersUpdateResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
@@ -1867,6 +1873,10 @@ import Api
                   "sharesAmount": "sharesAmount",
                   "sharesType": "sharesType",
                   "sharesAcquisitionDate": "sharesAcquisitionDate",
+                  "withholdingTaxPercent": "withholdingTaxPercent",
+                  "partnerLiability": "general",
+                  "specialBalanceRequired": true,
+                  "supplementaryBalanceRequired": true,
                   "address": {
                     "street": "street",
                     "city": "city",
@@ -1892,6 +1902,10 @@ import Api
             sharesAmount: Nullable<String>.value("sharesAmount"),
             sharesType: Nullable<String>.value("sharesType"),
             sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+            withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
+            partnerLiability: Nullable<PostV1LedgerOwnersUpdateResponsePartnerLiability>.value(.general),
+            specialBalanceRequired: Nullable<Bool>.value(true),
+            supplementaryBalanceRequired: Nullable<Bool>.value(true),
             address: Nullable<PostV1LedgerOwnersUpdateResponseAddress>.value(PostV1LedgerOwnersUpdateResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
@@ -1979,6 +1993,10 @@ import Api
                       "sharesAmount": "sharesAmount",
                       "sharesType": "sharesType",
                       "sharesAcquisitionDate": "sharesAcquisitionDate",
+                      "withholdingTaxPercent": "withholdingTaxPercent",
+                      "partnerLiability": "general",
+                      "specialBalanceRequired": true,
+                      "supplementaryBalanceRequired": true,
                       "address": {},
                       "createdAt": "createdAt"
                     }
@@ -2009,6 +2027,10 @@ import Api
                     sharesAmount: Nullable<String>.value("sharesAmount"),
                     sharesType: Nullable<String>.value("sharesType"),
                     sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+                    withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
+                    partnerLiability: Nullable<PostV1LedgerOwnersListResponseRowsItemPartnerLiability>.value(.general),
+                    specialBalanceRequired: Nullable<Bool>.value(true),
+                    supplementaryBalanceRequired: Nullable<Bool>.value(true),
                     address: Nullable<PostV1LedgerOwnersListResponseRowsItemAddress>.value(PostV1LedgerOwnersListResponseRowsItemAddress(
 
                     )),
@@ -2045,6 +2067,10 @@ import Api
                       "sharesAmount": "sharesAmount",
                       "sharesType": "sharesType",
                       "sharesAcquisitionDate": "sharesAcquisitionDate",
+                      "withholdingTaxPercent": "withholdingTaxPercent",
+                      "partnerLiability": "general",
+                      "specialBalanceRequired": true,
+                      "supplementaryBalanceRequired": true,
                       "address": {
                         "street": "street",
                         "city": "city",
@@ -2062,6 +2088,10 @@ import Api
                       "sharesAmount": "sharesAmount",
                       "sharesType": "sharesType",
                       "sharesAcquisitionDate": "sharesAcquisitionDate",
+                      "withholdingTaxPercent": "withholdingTaxPercent",
+                      "partnerLiability": "general",
+                      "specialBalanceRequired": true,
+                      "supplementaryBalanceRequired": true,
                       "address": {
                         "street": "street",
                         "city": "city",
@@ -2097,6 +2127,10 @@ import Api
                     sharesAmount: Nullable<String>.value("sharesAmount"),
                     sharesType: Nullable<String>.value("sharesType"),
                     sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+                    withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
+                    partnerLiability: Nullable<PostV1LedgerOwnersListResponseRowsItemPartnerLiability>.value(.general),
+                    specialBalanceRequired: Nullable<Bool>.value(true),
+                    supplementaryBalanceRequired: Nullable<Bool>.value(true),
                     address: Nullable<PostV1LedgerOwnersListResponseRowsItemAddress>.value(PostV1LedgerOwnersListResponseRowsItemAddress(
                         street: Optional("street"),
                         city: Optional("city"),
@@ -2114,6 +2148,10 @@ import Api
                     sharesAmount: Nullable<String>.value("sharesAmount"),
                     sharesType: Nullable<String>.value("sharesType"),
                     sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+                    withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
+                    partnerLiability: Nullable<PostV1LedgerOwnersListResponseRowsItemPartnerLiability>.value(.general),
+                    specialBalanceRequired: Nullable<Bool>.value(true),
+                    supplementaryBalanceRequired: Nullable<Bool>.value(true),
                     address: Nullable<PostV1LedgerOwnersListResponseRowsItemAddress>.value(PostV1LedgerOwnersListResponseRowsItemAddress(
                         street: Optional("street"),
                         city: Optional("city"),
@@ -2391,6 +2429,816 @@ import Api
                     )
                 ]
             ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func nationalStatementLayoutsAvailableToTheCompany1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "key": "key",
+                      "country": "country",
+                      "title": "title",
+                      "source": "source",
+                      "rows": [
+                        {
+                          "code": "code",
+                          "label": "label",
+                          "statement": "balance_sheet"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LedgerStatementRowsSchemesResponse(
+            rows: [
+                PostV1LedgerStatementRowsSchemesResponseRowsItem(
+                    key: "key",
+                    country: "country",
+                    title: "title",
+                    source: "source",
+                    rows: [
+                        PostV1LedgerStatementRowsSchemesResponseRowsItemRowsItem(
+                            code: "code",
+                            label: "label",
+                            statement: .balanceSheet
+                        )
+                    ]
+                )
+            ]
+        )
+        let response = try await client.ledger.nationalStatementLayoutsAvailableToTheCompany(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func nationalStatementLayoutsAvailableToTheCompany2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "key": "key",
+                      "country": "country",
+                      "title": "title",
+                      "source": "source",
+                      "rows": [
+                        {
+                          "code": "code",
+                          "label": "label",
+                          "statement": "balance_sheet"
+                        },
+                        {
+                          "code": "code",
+                          "label": "label",
+                          "statement": "balance_sheet"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "key",
+                      "country": "country",
+                      "title": "title",
+                      "source": "source",
+                      "rows": [
+                        {
+                          "code": "code",
+                          "label": "label",
+                          "statement": "balance_sheet"
+                        },
+                        {
+                          "code": "code",
+                          "label": "label",
+                          "statement": "balance_sheet"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LedgerStatementRowsSchemesResponse(
+            rows: [
+                PostV1LedgerStatementRowsSchemesResponseRowsItem(
+                    key: "key",
+                    country: "country",
+                    title: "title",
+                    source: "source",
+                    rows: [
+                        PostV1LedgerStatementRowsSchemesResponseRowsItemRowsItem(
+                            code: "code",
+                            label: "label",
+                            statement: .balanceSheet
+                        ),
+                        PostV1LedgerStatementRowsSchemesResponseRowsItemRowsItem(
+                            code: "code",
+                            label: "label",
+                            statement: .balanceSheet
+                        )
+                    ]
+                ),
+                PostV1LedgerStatementRowsSchemesResponseRowsItem(
+                    key: "key",
+                    country: "country",
+                    title: "title",
+                    source: "source",
+                    rows: [
+                        PostV1LedgerStatementRowsSchemesResponseRowsItemRowsItem(
+                            code: "code",
+                            label: "label",
+                            statement: .balanceSheet
+                        ),
+                        PostV1LedgerStatementRowsSchemesResponseRowsItemRowsItem(
+                            code: "code",
+                            label: "label",
+                            statement: .balanceSheet
+                        )
+                    ]
+                )
+            ]
+        )
+        let response = try await client.ledger.nationalStatementLayoutsAvailableToTheCompany(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func accountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriod1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "scheme": {
+                    "key": "key",
+                    "country": "country",
+                    "title": "title",
+                    "source": "source",
+                    "rows": [
+                      {
+                        "code": "code",
+                        "label": "label",
+                        "statement": "balance_sheet"
+                      }
+                    ]
+                  },
+                  "fromDate": "fromDate",
+                  "toDate": "toDate",
+                  "accounts": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "type": "type",
+                      "rowCode": "rowCode",
+                      "source": "mapping",
+                      "amount": "amount"
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "code": "code",
+                      "label": "label",
+                      "statement": "balance_sheet",
+                      "amount": "amount"
+                    }
+                  ],
+                  "unmapped": [
+                    "unmapped"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LedgerStatementRowsListResponse(
+            scheme: PostV1LedgerStatementRowsListResponseScheme(
+                key: "key",
+                country: "country",
+                title: "title",
+                source: "source",
+                rows: [
+                    PostV1LedgerStatementRowsListResponseSchemeRowsItem(
+                        code: "code",
+                        label: "label",
+                        statement: .balanceSheet
+                    )
+                ]
+            ),
+            fromDate: "fromDate",
+            toDate: "toDate",
+            accounts: [
+                PostV1LedgerStatementRowsListResponseAccountsItem(
+                    code: "code",
+                    name: "name",
+                    type: "type",
+                    rowCode: Nullable<String>.value("rowCode"),
+                    source: Nullable<PostV1LedgerStatementRowsListResponseAccountsItemSource>.value(.mapping),
+                    amount: "amount"
+                )
+            ],
+            rows: [
+                PostV1LedgerStatementRowsListResponseRowsItem(
+                    code: "code",
+                    label: "label",
+                    statement: .balanceSheet,
+                    amount: "amount"
+                )
+            ],
+            unmapped: [
+                "unmapped"
+            ]
+        )
+        let response = try await client.ledger.accountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriod(
+            request: .init(scheme: "scheme"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func accountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriod2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "scheme": {
+                    "key": "key",
+                    "country": "country",
+                    "title": "title",
+                    "source": "source",
+                    "rows": [
+                      {
+                        "code": "code",
+                        "label": "label",
+                        "statement": "balance_sheet"
+                      },
+                      {
+                        "code": "code",
+                        "label": "label",
+                        "statement": "balance_sheet"
+                      }
+                    ]
+                  },
+                  "fromDate": "fromDate",
+                  "toDate": "toDate",
+                  "accounts": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "type": "type",
+                      "rowCode": "rowCode",
+                      "source": "mapping",
+                      "amount": "amount"
+                    },
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "type": "type",
+                      "rowCode": "rowCode",
+                      "source": "mapping",
+                      "amount": "amount"
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "code": "code",
+                      "label": "label",
+                      "statement": "balance_sheet",
+                      "amount": "amount"
+                    },
+                    {
+                      "code": "code",
+                      "label": "label",
+                      "statement": "balance_sheet",
+                      "amount": "amount"
+                    }
+                  ],
+                  "unmapped": [
+                    "unmapped",
+                    "unmapped"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LedgerStatementRowsListResponse(
+            scheme: PostV1LedgerStatementRowsListResponseScheme(
+                key: "key",
+                country: "country",
+                title: "title",
+                source: "source",
+                rows: [
+                    PostV1LedgerStatementRowsListResponseSchemeRowsItem(
+                        code: "code",
+                        label: "label",
+                        statement: .balanceSheet
+                    ),
+                    PostV1LedgerStatementRowsListResponseSchemeRowsItem(
+                        code: "code",
+                        label: "label",
+                        statement: .balanceSheet
+                    )
+                ]
+            ),
+            fromDate: "fromDate",
+            toDate: "toDate",
+            accounts: [
+                PostV1LedgerStatementRowsListResponseAccountsItem(
+                    code: "code",
+                    name: "name",
+                    type: "type",
+                    rowCode: Nullable<String>.value("rowCode"),
+                    source: Nullable<PostV1LedgerStatementRowsListResponseAccountsItemSource>.value(.mapping),
+                    amount: "amount"
+                ),
+                PostV1LedgerStatementRowsListResponseAccountsItem(
+                    code: "code",
+                    name: "name",
+                    type: "type",
+                    rowCode: Nullable<String>.value("rowCode"),
+                    source: Nullable<PostV1LedgerStatementRowsListResponseAccountsItemSource>.value(.mapping),
+                    amount: "amount"
+                )
+            ],
+            rows: [
+                PostV1LedgerStatementRowsListResponseRowsItem(
+                    code: "code",
+                    label: "label",
+                    statement: .balanceSheet,
+                    amount: "amount"
+                ),
+                PostV1LedgerStatementRowsListResponseRowsItem(
+                    code: "code",
+                    label: "label",
+                    statement: .balanceSheet,
+                    amount: "amount"
+                )
+            ],
+            unmapped: [
+                "unmapped",
+                "unmapped"
+            ]
+        )
+        let response = try await client.ledger.accountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriod(
+            request: .init(scheme: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func mapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayout1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "scheme": "scheme",
+                  "accountCode": "accountCode",
+                  "rowCode": "rowCode"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LedgerStatementRowsSetResponse(
+            scheme: "scheme",
+            accountCode: "accountCode",
+            rowCode: Nullable<String>.value("rowCode")
+        )
+        let response = try await client.ledger.mapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayout(
+            request: .init(
+                scheme: "scheme",
+                accountCode: "accountCode",
+                rowCode: .null
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func mapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayout2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "scheme": "scheme",
+                  "accountCode": "accountCode",
+                  "rowCode": "rowCode"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1LedgerStatementRowsSetResponse(
+            scheme: "scheme",
+            accountCode: "accountCode",
+            rowCode: Nullable<String>.value("rowCode")
+        )
+        let response = try await client.ledger.mapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayout(
+            request: .init(
+                scheme: "x",
+                accountCode: "x",
+                rowCode: .null
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func officersOfTheCompany1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "name": "name",
+                      "role": "director",
+                      "personalCode": "personalCode",
+                      "birthDate": "birthDate",
+                      "appointedOn": "appointedOn",
+                      "powerNotary": "powerNotary",
+                      "resignedOn": "resignedOn",
+                      "signsAccounts": true
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OfficersListResponse(
+            rows: [
+                PostV1OfficersListResponseRowsItem(
+                    id: "id",
+                    name: "name",
+                    role: .director,
+                    personalCode: Nullable<String>.value("personalCode"),
+                    birthDate: Nullable<String>.value("birthDate"),
+                    appointedOn: Nullable<String>.value("appointedOn"),
+                    powerNotary: Nullable<String>.value("powerNotary"),
+                    resignedOn: Nullable<String>.value("resignedOn"),
+                    signsAccounts: true
+                )
+            ]
+        )
+        let response = try await client.ledger.officersOfTheCompany(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func officersOfTheCompany2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "role": "director",
+                      "personalCode": "personalCode",
+                      "birthDate": "birthDate",
+                      "appointedOn": "appointedOn",
+                      "powerNotary": "powerNotary",
+                      "resignedOn": "resignedOn",
+                      "signsAccounts": true
+                    },
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "role": "director",
+                      "personalCode": "personalCode",
+                      "birthDate": "birthDate",
+                      "appointedOn": "appointedOn",
+                      "powerNotary": "powerNotary",
+                      "resignedOn": "resignedOn",
+                      "signsAccounts": true
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OfficersListResponse(
+            rows: [
+                PostV1OfficersListResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    role: .director,
+                    personalCode: Nullable<String>.value("personalCode"),
+                    birthDate: Nullable<String>.value("birthDate"),
+                    appointedOn: Nullable<String>.value("appointedOn"),
+                    powerNotary: Nullable<String>.value("powerNotary"),
+                    resignedOn: Nullable<String>.value("resignedOn"),
+                    signsAccounts: true
+                ),
+                PostV1OfficersListResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    role: .director,
+                    personalCode: Nullable<String>.value("personalCode"),
+                    birthDate: Nullable<String>.value("birthDate"),
+                    appointedOn: Nullable<String>.value("appointedOn"),
+                    powerNotary: Nullable<String>.value("powerNotary"),
+                    resignedOn: Nullable<String>.value("resignedOn"),
+                    signsAccounts: true
+                )
+            ]
+        )
+        let response = try await client.ledger.officersOfTheCompany(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recordAnOfficerOfTheCompany1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "role": "director",
+                  "personalCode": "personalCode",
+                  "birthDate": "birthDate",
+                  "appointedOn": "appointedOn",
+                  "powerNotary": "powerNotary",
+                  "resignedOn": "resignedOn",
+                  "signsAccounts": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OfficersCreateResponse(
+            id: "id",
+            name: "name",
+            role: .director,
+            personalCode: Nullable<String>.value("personalCode"),
+            birthDate: Nullable<String>.value("birthDate"),
+            appointedOn: Nullable<String>.value("appointedOn"),
+            powerNotary: Nullable<String>.value("powerNotary"),
+            resignedOn: Nullable<String>.value("resignedOn"),
+            signsAccounts: true
+        )
+        let response = try await client.ledger.recordAnOfficerOfTheCompany(
+            request: .init(
+                name: "name",
+                role: .director
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recordAnOfficerOfTheCompany2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "role": "director",
+                  "personalCode": "personalCode",
+                  "birthDate": "birthDate",
+                  "appointedOn": "appointedOn",
+                  "powerNotary": "powerNotary",
+                  "resignedOn": "resignedOn",
+                  "signsAccounts": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OfficersCreateResponse(
+            id: "x",
+            name: "name",
+            role: .director,
+            personalCode: Nullable<String>.value("personalCode"),
+            birthDate: Nullable<String>.value("birthDate"),
+            appointedOn: Nullable<String>.value("appointedOn"),
+            powerNotary: Nullable<String>.value("powerNotary"),
+            resignedOn: Nullable<String>.value("resignedOn"),
+            signsAccounts: true
+        )
+        let response = try await client.ledger.recordAnOfficerOfTheCompany(
+            request: .init(
+                name: "x",
+                role: .director
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func changeARecordedOfficer1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "role": "director",
+                  "personalCode": "personalCode",
+                  "birthDate": "birthDate",
+                  "appointedOn": "appointedOn",
+                  "powerNotary": "powerNotary",
+                  "resignedOn": "resignedOn",
+                  "signsAccounts": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OfficersUpdateResponse(
+            id: "id",
+            name: "name",
+            role: .director,
+            personalCode: Nullable<String>.value("personalCode"),
+            birthDate: Nullable<String>.value("birthDate"),
+            appointedOn: Nullable<String>.value("appointedOn"),
+            powerNotary: Nullable<String>.value("powerNotary"),
+            resignedOn: Nullable<String>.value("resignedOn"),
+            signsAccounts: true
+        )
+        let response = try await client.ledger.changeARecordedOfficer(
+            request: .init(
+                id: "id",
+                name: "name",
+                role: .director
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func changeARecordedOfficer2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "role": "director",
+                  "personalCode": "personalCode",
+                  "birthDate": "birthDate",
+                  "appointedOn": "appointedOn",
+                  "powerNotary": "powerNotary",
+                  "resignedOn": "resignedOn",
+                  "signsAccounts": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OfficersUpdateResponse(
+            id: "x",
+            name: "name",
+            role: .director,
+            personalCode: Nullable<String>.value("personalCode"),
+            birthDate: Nullable<String>.value("birthDate"),
+            appointedOn: Nullable<String>.value("appointedOn"),
+            powerNotary: Nullable<String>.value("powerNotary"),
+            resignedOn: Nullable<String>.value("resignedOn"),
+            signsAccounts: true
+        )
+        let response = try await client.ledger.changeARecordedOfficer(
+            request: .init(
+                id: "x",
+                name: "x",
+                role: .director
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func removeARecordedOfficer1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OfficersDeleteResponse(
+            id: "id"
+        )
+        let response = try await client.ledger.removeARecordedOfficer(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func removeARecordedOfficer2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1OfficersDeleteResponse(
+            id: "x"
+        )
+        let response = try await client.ledger.removeARecordedOfficer(
+            request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

@@ -59,7 +59,7 @@ import Api
                   "defaultUsefulLifeMonths": 1000000,
                   "assetAccountCode": "x",
                   "depreciationAccountCode": "x",
-                  "expenseAccountCode": "6206",
+                  "expenseAccountCode": "expenseAccountCode",
                   "id": "x",
                   "createdAt": "createdAt"
                 }
@@ -77,7 +77,7 @@ import Api
             defaultUsefulLifeMonths: Nullable<Int64>.value(1000000),
             assetAccountCode: "x",
             depreciationAccountCode: "x",
-            expenseAccountCode: "6206",
+            expenseAccountCode: "expenseAccountCode",
             id: "x",
             createdAt: "createdAt"
         )
@@ -166,7 +166,7 @@ import Api
                       "defaultUsefulLifeMonths": 1000000,
                       "assetAccountCode": "x",
                       "depreciationAccountCode": "x",
-                      "expenseAccountCode": "6206",
+                      "expenseAccountCode": "expenseAccountCode",
                       "id": "x",
                       "createdAt": "createdAt"
                     },
@@ -176,7 +176,7 @@ import Api
                       "defaultUsefulLifeMonths": 1000000,
                       "assetAccountCode": "x",
                       "depreciationAccountCode": "x",
-                      "expenseAccountCode": "6206",
+                      "expenseAccountCode": "expenseAccountCode",
                       "id": "x",
                       "createdAt": "createdAt"
                     }
@@ -204,7 +204,7 @@ import Api
                     defaultUsefulLifeMonths: Nullable<Int64>.value(1000000),
                     assetAccountCode: "x",
                     depreciationAccountCode: "x",
-                    expenseAccountCode: "6206",
+                    expenseAccountCode: "expenseAccountCode",
                     id: "x",
                     createdAt: "createdAt"
                 ),
@@ -214,7 +214,7 @@ import Api
                     defaultUsefulLifeMonths: Nullable<Int64>.value(1000000),
                     assetAccountCode: "x",
                     depreciationAccountCode: "x",
-                    expenseAccountCode: "6206",
+                    expenseAccountCode: "expenseAccountCode",
                     id: "x",
                     createdAt: "createdAt"
                 )
@@ -261,6 +261,17 @@ import Api
                       "ref": "ref"
                     }
                   ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -294,6 +305,17 @@ import Api
                     ref: "ref"
                 )
             ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                PostV1AssetsAssetsCreateResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                )
+            ],
             createdAt: "createdAt"
         )
         let response = try await client.assets.postV1AssetsAssetsCreate(
@@ -341,6 +363,22 @@ import Api
                       "ref": "x"
                     }
                   ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    },
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -378,6 +416,22 @@ import Api
                     ref: "x"
                 )
             ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                PostV1AssetsAssetsCreateResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                ),
+                PostV1AssetsAssetsCreateResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                )
+            ],
             createdAt: "createdAt"
         )
         let response = try await client.assets.postV1AssetsAssetsCreate(
@@ -387,6 +441,441 @@ import Api
                 name: "x",
                 acquisitionDate: "acquisitionDate",
                 acquisitionCost: "acquisitionCost"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AssetsAssetsUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "groupId": "groupId",
+                  "code": "code",
+                  "name": "name",
+                  "acquisitionDate": "acquisitionDate",
+                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionCost": "acquisitionCost",
+                  "salvageValue": "salvageValue",
+                  "usefulLifeMonths": 1000000,
+                  "totalCost": "totalCost",
+                  "accumulatedDepreciation": "accumulatedDepreciation",
+                  "netBookValue": "netBookValue",
+                  "depreciatedMonths": 1000000,
+                  "totalLifeMonths": 1000000,
+                  "status": "active",
+                  "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "name",
+                      "ref": "ref"
+                    }
+                  ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    }
+                  ],
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AssetsAssetsUpdateResponse(
+            id: "id",
+            groupId: "groupId",
+            code: "code",
+            name: "name",
+            acquisitionDate: "acquisitionDate",
+            depreciationStartDate: "depreciationStartDate",
+            acquisitionCost: "acquisitionCost",
+            salvageValue: "salvageValue",
+            usefulLifeMonths: 1000000,
+            totalCost: "totalCost",
+            accumulatedDepreciation: "accumulatedDepreciation",
+            netBookValue: "netBookValue",
+            depreciatedMonths: 1000000,
+            totalLifeMonths: 1000000,
+            status: .active,
+            notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1AssetsAssetsUpdateResponseDocumentsItem]>.value([
+                PostV1AssetsAssetsUpdateResponseDocumentsItem(
+                    name: "name",
+                    ref: "ref"
+                )
+            ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                PostV1AssetsAssetsUpdateResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                )
+            ],
+            createdAt: "createdAt"
+        )
+        let response = try await client.assets.postV1AssetsAssetsUpdate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AssetsAssetsUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "groupId": "x",
+                  "code": "code",
+                  "name": "name",
+                  "acquisitionDate": "acquisitionDate",
+                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionCost": "acquisitionCost",
+                  "salvageValue": "salvageValue",
+                  "usefulLifeMonths": 1000000,
+                  "totalCost": "totalCost",
+                  "accumulatedDepreciation": "accumulatedDepreciation",
+                  "netBookValue": "netBookValue",
+                  "depreciatedMonths": 1000000,
+                  "totalLifeMonths": 1000000,
+                  "status": "active",
+                  "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    },
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    }
+                  ],
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AssetsAssetsUpdateResponse(
+            id: "x",
+            groupId: "x",
+            code: "code",
+            name: "name",
+            acquisitionDate: "acquisitionDate",
+            depreciationStartDate: "depreciationStartDate",
+            acquisitionCost: "acquisitionCost",
+            salvageValue: "salvageValue",
+            usefulLifeMonths: 1000000,
+            totalCost: "totalCost",
+            accumulatedDepreciation: "accumulatedDepreciation",
+            netBookValue: "netBookValue",
+            depreciatedMonths: 1000000,
+            totalLifeMonths: 1000000,
+            status: .active,
+            notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1AssetsAssetsUpdateResponseDocumentsItem]>.value([
+                PostV1AssetsAssetsUpdateResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                ),
+                PostV1AssetsAssetsUpdateResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                )
+            ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                PostV1AssetsAssetsUpdateResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                ),
+                PostV1AssetsAssetsUpdateResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                )
+            ],
+            createdAt: "createdAt"
+        )
+        let response = try await client.assets.postV1AssetsAssetsUpdate(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AssetsAssetsInputVat1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "groupId": "groupId",
+                  "code": "code",
+                  "name": "name",
+                  "acquisitionDate": "acquisitionDate",
+                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionCost": "acquisitionCost",
+                  "salvageValue": "salvageValue",
+                  "usefulLifeMonths": 1000000,
+                  "totalCost": "totalCost",
+                  "accumulatedDepreciation": "accumulatedDepreciation",
+                  "netBookValue": "netBookValue",
+                  "depreciatedMonths": 1000000,
+                  "totalLifeMonths": 1000000,
+                  "status": "active",
+                  "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "name",
+                      "ref": "ref"
+                    }
+                  ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    }
+                  ],
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AssetsAssetsInputVatResponse(
+            id: "id",
+            groupId: "groupId",
+            code: "code",
+            name: "name",
+            acquisitionDate: "acquisitionDate",
+            depreciationStartDate: "depreciationStartDate",
+            acquisitionCost: "acquisitionCost",
+            salvageValue: "salvageValue",
+            usefulLifeMonths: 1000000,
+            totalCost: "totalCost",
+            accumulatedDepreciation: "accumulatedDepreciation",
+            netBookValue: "netBookValue",
+            depreciatedMonths: 1000000,
+            totalLifeMonths: 1000000,
+            status: .active,
+            notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1AssetsAssetsInputVatResponseDocumentsItem]>.value([
+                PostV1AssetsAssetsInputVatResponseDocumentsItem(
+                    name: "name",
+                    ref: "ref"
+                )
+            ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                PostV1AssetsAssetsInputVatResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                )
+            ],
+            createdAt: "createdAt"
+        )
+        let response = try await client.assets.postV1AssetsAssetsInputVat(
+            request: .init(
+                id: "id",
+                inputVatAmount: .null,
+                inputVatFirstUseDate: .null,
+                inputVatDeductiblePercent: .null,
+                inputVatRealEstate: true,
+                inputVatUseChanges: [
+                    PostV1AssetsAssetsInputVatRequestInputVatUseChangesItem(
+                        year: 1000000,
+                        percent: "percent",
+                        reason: .useChange
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postV1AssetsAssetsInputVat2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "groupId": "x",
+                  "code": "code",
+                  "name": "name",
+                  "acquisitionDate": "acquisitionDate",
+                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionCost": "acquisitionCost",
+                  "salvageValue": "salvageValue",
+                  "usefulLifeMonths": 1000000,
+                  "totalCost": "totalCost",
+                  "accumulatedDepreciation": "accumulatedDepreciation",
+                  "netBookValue": "netBookValue",
+                  "depreciatedMonths": 1000000,
+                  "totalLifeMonths": 1000000,
+                  "status": "active",
+                  "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    },
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    }
+                  ],
+                  "createdAt": "createdAt"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1AssetsAssetsInputVatResponse(
+            id: "x",
+            groupId: "x",
+            code: "code",
+            name: "name",
+            acquisitionDate: "acquisitionDate",
+            depreciationStartDate: "depreciationStartDate",
+            acquisitionCost: "acquisitionCost",
+            salvageValue: "salvageValue",
+            usefulLifeMonths: 1000000,
+            totalCost: "totalCost",
+            accumulatedDepreciation: "accumulatedDepreciation",
+            netBookValue: "netBookValue",
+            depreciatedMonths: 1000000,
+            totalLifeMonths: 1000000,
+            status: .active,
+            notes: Nullable<String>.value("notes"),
+            documents: Nullable<[PostV1AssetsAssetsInputVatResponseDocumentsItem]>.value([
+                PostV1AssetsAssetsInputVatResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                ),
+                PostV1AssetsAssetsInputVatResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                )
+            ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                PostV1AssetsAssetsInputVatResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                ),
+                PostV1AssetsAssetsInputVatResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                )
+            ],
+            createdAt: "createdAt"
+        )
+        let response = try await client.assets.postV1AssetsAssetsInputVat(
+            request: .init(
+                id: "x",
+                inputVatAmount: .null,
+                inputVatFirstUseDate: .null,
+                inputVatDeductiblePercent: .null,
+                inputVatRealEstate: true,
+                inputVatUseChanges: [
+                    PostV1AssetsAssetsInputVatRequestInputVatUseChangesItem(
+                        year: 1000000,
+                        percent: "percent",
+                        reason: .useChange
+                    ),
+                    PostV1AssetsAssetsInputVatRequestInputVatUseChangesItem(
+                        year: 1000000,
+                        percent: "percent",
+                        reason: .useChange
+                    )
+                ]
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
@@ -419,6 +908,17 @@ import Api
                     {
                       "name": "name",
                       "ref": "ref"
+                    }
+                  ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
                     }
                   ],
                   "createdAt": "createdAt"
@@ -454,6 +954,17 @@ import Api
                     ref: "ref"
                 )
             ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                PostV1AssetsAssetsGetResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                )
+            ],
             createdAt: "createdAt"
         )
         let response = try await client.assets.postV1AssetsAssetsGet(
@@ -495,6 +1006,22 @@ import Api
                       "ref": "x"
                     }
                   ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    },
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -532,6 +1059,22 @@ import Api
                     ref: "x"
                 )
             ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                PostV1AssetsAssetsGetResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                ),
+                PostV1AssetsAssetsGetResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                )
+            ],
             createdAt: "createdAt"
         )
         let response = try await client.assets.postV1AssetsAssetsGet(
@@ -569,6 +1112,17 @@ import Api
                         {
                           "name": "name",
                           "ref": "ref"
+                        }
+                      ],
+                      "inputVatAmount": "inputVatAmount",
+                      "inputVatFirstUseDate": "inputVatFirstUseDate",
+                      "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                      "inputVatRealEstate": true,
+                      "inputVatUseChanges": [
+                        {
+                          "year": 1000000,
+                          "percent": "percent",
+                          "reason": "use_change"
                         }
                       ],
                       "createdAt": "createdAt"
@@ -614,6 +1168,17 @@ import Api
                             ref: "ref"
                         )
                     ]),
+                    inputVatAmount: Nullable<String>.value("inputVatAmount"),
+                    inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+                    inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+                    inputVatRealEstate: true,
+                    inputVatUseChanges: [
+                        PostV1AssetsAssetsListResponseRowsItemInputVatUseChangesItem(
+                            year: 1000000,
+                            percent: "percent",
+                            reason: .useChange
+                        )
+                    ],
                     createdAt: "createdAt"
                 )
             ],
@@ -665,6 +1230,22 @@ import Api
                           "ref": "x"
                         }
                       ],
+                      "inputVatAmount": "inputVatAmount",
+                      "inputVatFirstUseDate": "inputVatFirstUseDate",
+                      "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                      "inputVatRealEstate": true,
+                      "inputVatUseChanges": [
+                        {
+                          "year": 1000000,
+                          "percent": "percent",
+                          "reason": "use_change"
+                        },
+                        {
+                          "year": 1000000,
+                          "percent": "percent",
+                          "reason": "use_change"
+                        }
+                      ],
                       "createdAt": "createdAt"
                     },
                     {
@@ -692,6 +1273,22 @@ import Api
                         {
                           "name": "x",
                           "ref": "x"
+                        }
+                      ],
+                      "inputVatAmount": "inputVatAmount",
+                      "inputVatFirstUseDate": "inputVatFirstUseDate",
+                      "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                      "inputVatRealEstate": true,
+                      "inputVatUseChanges": [
+                        {
+                          "year": 1000000,
+                          "percent": "percent",
+                          "reason": "use_change"
+                        },
+                        {
+                          "year": 1000000,
+                          "percent": "percent",
+                          "reason": "use_change"
                         }
                       ],
                       "createdAt": "createdAt"
@@ -741,6 +1338,22 @@ import Api
                             ref: "x"
                         )
                     ]),
+                    inputVatAmount: Nullable<String>.value("inputVatAmount"),
+                    inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+                    inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+                    inputVatRealEstate: true,
+                    inputVatUseChanges: [
+                        PostV1AssetsAssetsListResponseRowsItemInputVatUseChangesItem(
+                            year: 1000000,
+                            percent: "percent",
+                            reason: .useChange
+                        ),
+                        PostV1AssetsAssetsListResponseRowsItemInputVatUseChangesItem(
+                            year: 1000000,
+                            percent: "percent",
+                            reason: .useChange
+                        )
+                    ],
                     createdAt: "createdAt"
                 ),
                 PostV1AssetsAssetsListResponseRowsItem(
@@ -770,6 +1383,22 @@ import Api
                             ref: "x"
                         )
                     ]),
+                    inputVatAmount: Nullable<String>.value("inputVatAmount"),
+                    inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+                    inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+                    inputVatRealEstate: true,
+                    inputVatUseChanges: [
+                        PostV1AssetsAssetsListResponseRowsItemInputVatUseChangesItem(
+                            year: 1000000,
+                            percent: "percent",
+                            reason: .useChange
+                        ),
+                        PostV1AssetsAssetsListResponseRowsItemInputVatUseChangesItem(
+                            year: 1000000,
+                            percent: "percent",
+                            reason: .useChange
+                        )
+                    ],
                     createdAt: "createdAt"
                 )
             ],
@@ -815,6 +1444,17 @@ import Api
                       "ref": "ref"
                     }
                   ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -848,6 +1488,17 @@ import Api
                     ref: "ref"
                 )
             ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                PostV1AssetsAssetsModernizeResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                )
+            ],
             createdAt: "createdAt"
         )
         let response = try await client.assets.postV1AssetsAssetsModernize(
@@ -893,6 +1544,22 @@ import Api
                       "ref": "x"
                     }
                   ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    },
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
                 """#.utf8
@@ -930,6 +1597,22 @@ import Api
                     ref: "x"
                 )
             ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                PostV1AssetsAssetsModernizeResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                ),
+                PostV1AssetsAssetsModernizeResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                )
+            ],
             createdAt: "createdAt"
         )
         let response = try await client.assets.postV1AssetsAssetsModernize(

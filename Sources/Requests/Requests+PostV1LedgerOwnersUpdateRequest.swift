@@ -10,6 +10,10 @@ extension Requests {
         public let sharesAmount: Nullable<String>?
         public let sharesType: Nullable<PostV1LedgerOwnersUpdateRequestSharesType>?
         public let sharesAcquisitionDate: Nullable<String>?
+        public let withholdingTaxPercent: Nullable<String>?
+        public let partnerLiability: Nullable<PostV1LedgerOwnersUpdateRequestPartnerLiability>?
+        public let specialBalanceRequired: Nullable<Bool>?
+        public let supplementaryBalanceRequired: Nullable<Bool>?
         public let address: Nullable<PostV1LedgerOwnersUpdateRequestAddress>?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -23,6 +27,10 @@ extension Requests {
             sharesAmount: Nullable<String>? = nil,
             sharesType: Nullable<PostV1LedgerOwnersUpdateRequestSharesType>? = nil,
             sharesAcquisitionDate: Nullable<String>? = nil,
+            withholdingTaxPercent: Nullable<String>? = nil,
+            partnerLiability: Nullable<PostV1LedgerOwnersUpdateRequestPartnerLiability>? = nil,
+            specialBalanceRequired: Nullable<Bool>? = nil,
+            supplementaryBalanceRequired: Nullable<Bool>? = nil,
             address: Nullable<PostV1LedgerOwnersUpdateRequestAddress>? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -34,6 +42,10 @@ extension Requests {
             self.sharesAmount = sharesAmount
             self.sharesType = sharesType
             self.sharesAcquisitionDate = sharesAcquisitionDate
+            self.withholdingTaxPercent = withholdingTaxPercent
+            self.partnerLiability = partnerLiability
+            self.specialBalanceRequired = specialBalanceRequired
+            self.supplementaryBalanceRequired = supplementaryBalanceRequired
             self.address = address
             self.additionalProperties = additionalProperties
         }
@@ -48,6 +60,10 @@ extension Requests {
             self.sharesAmount = try container.decodeNullableIfPresent(String.self, forKey: .sharesAmount)
             self.sharesType = try container.decodeNullableIfPresent(PostV1LedgerOwnersUpdateRequestSharesType.self, forKey: .sharesType)
             self.sharesAcquisitionDate = try container.decodeNullableIfPresent(String.self, forKey: .sharesAcquisitionDate)
+            self.withholdingTaxPercent = try container.decodeNullableIfPresent(String.self, forKey: .withholdingTaxPercent)
+            self.partnerLiability = try container.decodeNullableIfPresent(PostV1LedgerOwnersUpdateRequestPartnerLiability.self, forKey: .partnerLiability)
+            self.specialBalanceRequired = try container.decodeNullableIfPresent(Bool.self, forKey: .specialBalanceRequired)
+            self.supplementaryBalanceRequired = try container.decodeNullableIfPresent(Bool.self, forKey: .supplementaryBalanceRequired)
             self.address = try container.decodeNullableIfPresent(PostV1LedgerOwnersUpdateRequestAddress.self, forKey: .address)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -63,6 +79,10 @@ extension Requests {
             try container.encodeNullableIfPresent(self.sharesAmount, forKey: .sharesAmount)
             try container.encodeNullableIfPresent(self.sharesType, forKey: .sharesType)
             try container.encodeNullableIfPresent(self.sharesAcquisitionDate, forKey: .sharesAcquisitionDate)
+            try container.encodeNullableIfPresent(self.withholdingTaxPercent, forKey: .withholdingTaxPercent)
+            try container.encodeNullableIfPresent(self.partnerLiability, forKey: .partnerLiability)
+            try container.encodeNullableIfPresent(self.specialBalanceRequired, forKey: .specialBalanceRequired)
+            try container.encodeNullableIfPresent(self.supplementaryBalanceRequired, forKey: .supplementaryBalanceRequired)
             try container.encodeNullableIfPresent(self.address, forKey: .address)
         }
 
@@ -76,6 +96,10 @@ extension Requests {
             case sharesAmount
             case sharesType
             case sharesAcquisitionDate
+            case withholdingTaxPercent
+            case partnerLiability
+            case specialBalanceRequired
+            case supplementaryBalanceRequired
             case address
         }
     }

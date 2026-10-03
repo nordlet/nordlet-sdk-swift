@@ -37,6 +37,29 @@ public final class AssetsClient: Sendable {
         )
     }
 
+    public func postV1AssetsAssetsUpdate(request: Requests.PostV1AssetsAssetsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AssetsAssetsUpdateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/assets/assets/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AssetsAssetsUpdateResponse.self
+        )
+    }
+
+    /// Record the input VAT facts of a capital good that the annual VAT return needs for the adjustment of the deduction over the adjustment period (Article 187 of the VAT Directive, § 15a UStG): the input VAT on the acquisition, the date of first use, the share of use for deductible turnover at first use, whether it is land or a building (ten-year period instead of five), and every later year in which the share changed or the good was sold or withdrawn. Allowed also after depreciation has been posted.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1AssetsAssetsInputVat(request: Requests.PostV1AssetsAssetsInputVatRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AssetsAssetsInputVatResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/assets/assets/input-vat",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AssetsAssetsInputVatResponse.self
+        )
+    }
+
     public func postV1AssetsAssetsGet(request: Requests.PostV1AssetsAssetsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AssetsAssetsGetResponse {
         return try await httpClient.performRequest(
             method: .post,

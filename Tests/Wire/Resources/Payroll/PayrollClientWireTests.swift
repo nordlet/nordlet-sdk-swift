@@ -317,16 +317,26 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollCalc1() async throws -> Void {
+    @Test func calculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "npd": "npd",
-                  "gpm": "gpm",
-                  "sodraEmployee": "sodraEmployee",
-                  "sodraEmployer": "sodraEmployer",
+                  "countryCode": "countryCode",
+                  "taxAllowance": "taxAllowance",
+                  "incomeTax": "incomeTax",
+                  "employeeContributions": "employeeContributions",
+                  "employerContributions": "employerContributions",
+                  "components": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
                   "net": "net"
                 }
                 """#.utf8
@@ -338,13 +348,23 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = PostV1PayrollCalcResponse(
-            npd: "npd",
-            gpm: "gpm",
-            sodraEmployee: "sodraEmployee",
-            sodraEmployer: "sodraEmployer",
+            countryCode: "countryCode",
+            taxAllowance: "taxAllowance",
+            incomeTax: "incomeTax",
+            employeeContributions: "employeeContributions",
+            employerContributions: "employerContributions",
+            components: [
+                PostV1PayrollCalcResponseComponentsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                )
+            ],
             net: "net"
         )
-        let response = try await client.payroll.postV1PayrollCalc(
+        let response = try await client.payroll.calculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry(
             request: .init(
                 taxableBase: "taxableBase",
                 date: "date"
@@ -354,16 +374,33 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollCalc2() async throws -> Void {
+    @Test func calculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "npd": "npd",
-                  "gpm": "gpm",
-                  "sodraEmployee": "sodraEmployee",
-                  "sodraEmployer": "sodraEmployer",
+                  "countryCode": "countryCode",
+                  "taxAllowance": "taxAllowance",
+                  "incomeTax": "incomeTax",
+                  "employeeContributions": "employeeContributions",
+                  "employerContributions": "employerContributions",
+                  "components": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    },
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
                   "net": "net"
                 }
                 """#.utf8
@@ -375,13 +412,30 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = PostV1PayrollCalcResponse(
-            npd: "npd",
-            gpm: "gpm",
-            sodraEmployee: "sodraEmployee",
-            sodraEmployer: "sodraEmployer",
+            countryCode: "countryCode",
+            taxAllowance: "taxAllowance",
+            incomeTax: "incomeTax",
+            employeeContributions: "employeeContributions",
+            employerContributions: "employerContributions",
+            components: [
+                PostV1PayrollCalcResponseComponentsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                ),
+                PostV1PayrollCalcResponseComponentsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                )
+            ],
             net: "net"
         )
-        let response = try await client.payroll.postV1PayrollCalc(
+        let response = try await client.payroll.calculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry(
             request: .init(
                 taxableBase: "taxableBase",
                 date: "date"
@@ -400,12 +454,22 @@ import Api
                   "id": "id",
                   "year": 1000000,
                   "month": 1000000,
+                  "countryCode": "countryCode",
                   "status": "draft",
                   "grossTotal": "grossTotal",
-                  "npdTotal": "npdTotal",
-                  "gpmTotal": "gpmTotal",
-                  "sodraEmployeeTotal": "sodraEmployeeTotal",
-                  "sodraEmployerTotal": "sodraEmployerTotal",
+                  "taxAllowanceTotal": "taxAllowanceTotal",
+                  "incomeTaxTotal": "incomeTaxTotal",
+                  "employeeContributionsTotal": "employeeContributionsTotal",
+                  "employerContributionsTotal": "employerContributionsTotal",
+                  "componentTotals": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
                   "netTotal": "netTotal",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
@@ -433,11 +497,22 @@ import Api
                         }
                       ],
                       "taxableBase": "taxableBase",
-                      "npd": "npd",
-                      "gpm": "gpm",
-                      "sodraEmployee": "sodraEmployee",
-                      "sodraEmployer": "sodraEmployer",
-                      "net": "net"
+                      "taxAllowance": "taxAllowance",
+                      "incomeTax": "incomeTax",
+                      "employeeContributions": "employeeContributions",
+                      "employerContributions": "employerContributions",
+                      "components": [
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount"
+                        }
+                      ],
+                      "net": "net",
+                      "daysWorked": "daysWorked",
+                      "hoursWorked": "hoursWorked",
+                      "registeredDays": "registeredDays",
+                      "averageHourlyEarnings": "averageHourlyEarnings"
                     }
                   ]
                 }
@@ -453,12 +528,22 @@ import Api
             id: "id",
             year: 1000000,
             month: 1000000,
+            countryCode: "countryCode",
             status: .draft,
             grossTotal: "grossTotal",
-            npdTotal: "npdTotal",
-            gpmTotal: "gpmTotal",
-            sodraEmployeeTotal: "sodraEmployeeTotal",
-            sodraEmployerTotal: "sodraEmployerTotal",
+            taxAllowanceTotal: "taxAllowanceTotal",
+            incomeTaxTotal: "incomeTaxTotal",
+            employeeContributionsTotal: "employeeContributionsTotal",
+            employerContributionsTotal: "employerContributionsTotal",
+            componentTotals: [
+                PostV1PayrollRunsCreateResponseComponentTotalsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                )
+            ],
             netTotal: "netTotal",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
@@ -486,11 +571,22 @@ import Api
                         )
                     ],
                     taxableBase: "taxableBase",
-                    npd: "npd",
-                    gpm: "gpm",
-                    sodraEmployee: "sodraEmployee",
-                    sodraEmployer: "sodraEmployer",
-                    net: "net"
+                    taxAllowance: "taxAllowance",
+                    incomeTax: "incomeTax",
+                    employeeContributions: "employeeContributions",
+                    employerContributions: "employerContributions",
+                    components: [
+                        PostV1PayrollRunsCreateResponseLinesItemComponentsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount"
+                        )
+                    ],
+                    net: "net",
+                    daysWorked: Nullable<String>.value("daysWorked"),
+                    hoursWorked: Nullable<String>.value("hoursWorked"),
+                    registeredDays: Nullable<String>.value("registeredDays"),
+                    averageHourlyEarnings: Nullable<String>.value("averageHourlyEarnings")
                 )
             ]
         )
@@ -513,12 +609,29 @@ import Api
                   "id": "x",
                   "year": 1000000,
                   "month": 1000000,
+                  "countryCode": "countryCode",
                   "status": "draft",
                   "grossTotal": "grossTotal",
-                  "npdTotal": "npdTotal",
-                  "gpmTotal": "gpmTotal",
-                  "sodraEmployeeTotal": "sodraEmployeeTotal",
-                  "sodraEmployerTotal": "sodraEmployerTotal",
+                  "taxAllowanceTotal": "taxAllowanceTotal",
+                  "incomeTaxTotal": "incomeTaxTotal",
+                  "employeeContributionsTotal": "employeeContributionsTotal",
+                  "employerContributionsTotal": "employerContributionsTotal",
+                  "componentTotals": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    },
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
                   "netTotal": "netTotal",
                   "journalTransactionId": "x",
                   "notes": "notes",
@@ -555,11 +668,31 @@ import Api
                         }
                       ],
                       "taxableBase": "taxableBase",
-                      "npd": "npd",
-                      "gpm": "gpm",
-                      "sodraEmployee": "sodraEmployee",
-                      "sodraEmployer": "sodraEmployer",
-                      "net": "net"
+                      "taxAllowance": "taxAllowance",
+                      "incomeTax": "incomeTax",
+                      "employeeContributions": "employeeContributions",
+                      "employerContributions": "employerContributions",
+                      "components": [
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount",
+                          "rate": "rate",
+                          "base": "base"
+                        },
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount",
+                          "rate": "rate",
+                          "base": "base"
+                        }
+                      ],
+                      "net": "net",
+                      "daysWorked": "daysWorked",
+                      "hoursWorked": "hoursWorked",
+                      "registeredDays": "registeredDays",
+                      "averageHourlyEarnings": "averageHourlyEarnings"
                     },
                     {
                       "id": "x",
@@ -591,11 +724,31 @@ import Api
                         }
                       ],
                       "taxableBase": "taxableBase",
-                      "npd": "npd",
-                      "gpm": "gpm",
-                      "sodraEmployee": "sodraEmployee",
-                      "sodraEmployer": "sodraEmployer",
-                      "net": "net"
+                      "taxAllowance": "taxAllowance",
+                      "incomeTax": "incomeTax",
+                      "employeeContributions": "employeeContributions",
+                      "employerContributions": "employerContributions",
+                      "components": [
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount",
+                          "rate": "rate",
+                          "base": "base"
+                        },
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount",
+                          "rate": "rate",
+                          "base": "base"
+                        }
+                      ],
+                      "net": "net",
+                      "daysWorked": "daysWorked",
+                      "hoursWorked": "hoursWorked",
+                      "registeredDays": "registeredDays",
+                      "averageHourlyEarnings": "averageHourlyEarnings"
                     }
                   ]
                 }
@@ -611,12 +764,29 @@ import Api
             id: "x",
             year: 1000000,
             month: 1000000,
+            countryCode: "countryCode",
             status: .draft,
             grossTotal: "grossTotal",
-            npdTotal: "npdTotal",
-            gpmTotal: "gpmTotal",
-            sodraEmployeeTotal: "sodraEmployeeTotal",
-            sodraEmployerTotal: "sodraEmployerTotal",
+            taxAllowanceTotal: "taxAllowanceTotal",
+            incomeTaxTotal: "incomeTaxTotal",
+            employeeContributionsTotal: "employeeContributionsTotal",
+            employerContributionsTotal: "employerContributionsTotal",
+            componentTotals: [
+                PostV1PayrollRunsCreateResponseComponentTotalsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                ),
+                PostV1PayrollRunsCreateResponseComponentTotalsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                )
+            ],
             netTotal: "netTotal",
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
@@ -653,11 +823,31 @@ import Api
                         )
                     ],
                     taxableBase: "taxableBase",
-                    npd: "npd",
-                    gpm: "gpm",
-                    sodraEmployee: "sodraEmployee",
-                    sodraEmployer: "sodraEmployer",
-                    net: "net"
+                    taxAllowance: "taxAllowance",
+                    incomeTax: "incomeTax",
+                    employeeContributions: "employeeContributions",
+                    employerContributions: "employerContributions",
+                    components: [
+                        PostV1PayrollRunsCreateResponseLinesItemComponentsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount",
+                            rate: Optional("rate"),
+                            base: Optional("base")
+                        ),
+                        PostV1PayrollRunsCreateResponseLinesItemComponentsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount",
+                            rate: Optional("rate"),
+                            base: Optional("base")
+                        )
+                    ],
+                    net: "net",
+                    daysWorked: Nullable<String>.value("daysWorked"),
+                    hoursWorked: Nullable<String>.value("hoursWorked"),
+                    registeredDays: Nullable<String>.value("registeredDays"),
+                    averageHourlyEarnings: Nullable<String>.value("averageHourlyEarnings")
                 ),
                 PostV1PayrollRunsCreateResponseLinesItem(
                     id: "x",
@@ -689,11 +879,31 @@ import Api
                         )
                     ],
                     taxableBase: "taxableBase",
-                    npd: "npd",
-                    gpm: "gpm",
-                    sodraEmployee: "sodraEmployee",
-                    sodraEmployer: "sodraEmployer",
-                    net: "net"
+                    taxAllowance: "taxAllowance",
+                    incomeTax: "incomeTax",
+                    employeeContributions: "employeeContributions",
+                    employerContributions: "employerContributions",
+                    components: [
+                        PostV1PayrollRunsCreateResponseLinesItemComponentsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount",
+                            rate: Optional("rate"),
+                            base: Optional("base")
+                        ),
+                        PostV1PayrollRunsCreateResponseLinesItemComponentsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount",
+                            rate: Optional("rate"),
+                            base: Optional("base")
+                        )
+                    ],
+                    net: "net",
+                    daysWorked: Nullable<String>.value("daysWorked"),
+                    hoursWorked: Nullable<String>.value("hoursWorked"),
+                    registeredDays: Nullable<String>.value("registeredDays"),
+                    averageHourlyEarnings: Nullable<String>.value("averageHourlyEarnings")
                 )
             ]
         )
@@ -716,12 +926,22 @@ import Api
                   "id": "id",
                   "year": 1000000,
                   "month": 1000000,
+                  "countryCode": "countryCode",
                   "status": "draft",
                   "grossTotal": "grossTotal",
-                  "npdTotal": "npdTotal",
-                  "gpmTotal": "gpmTotal",
-                  "sodraEmployeeTotal": "sodraEmployeeTotal",
-                  "sodraEmployerTotal": "sodraEmployerTotal",
+                  "taxAllowanceTotal": "taxAllowanceTotal",
+                  "incomeTaxTotal": "incomeTaxTotal",
+                  "employeeContributionsTotal": "employeeContributionsTotal",
+                  "employerContributionsTotal": "employerContributionsTotal",
+                  "componentTotals": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
                   "netTotal": "netTotal",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
@@ -749,11 +969,22 @@ import Api
                         }
                       ],
                       "taxableBase": "taxableBase",
-                      "npd": "npd",
-                      "gpm": "gpm",
-                      "sodraEmployee": "sodraEmployee",
-                      "sodraEmployer": "sodraEmployer",
-                      "net": "net"
+                      "taxAllowance": "taxAllowance",
+                      "incomeTax": "incomeTax",
+                      "employeeContributions": "employeeContributions",
+                      "employerContributions": "employerContributions",
+                      "components": [
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount"
+                        }
+                      ],
+                      "net": "net",
+                      "daysWorked": "daysWorked",
+                      "hoursWorked": "hoursWorked",
+                      "registeredDays": "registeredDays",
+                      "averageHourlyEarnings": "averageHourlyEarnings"
                     }
                   ]
                 }
@@ -769,12 +1000,22 @@ import Api
             id: "id",
             year: 1000000,
             month: 1000000,
+            countryCode: "countryCode",
             status: .draft,
             grossTotal: "grossTotal",
-            npdTotal: "npdTotal",
-            gpmTotal: "gpmTotal",
-            sodraEmployeeTotal: "sodraEmployeeTotal",
-            sodraEmployerTotal: "sodraEmployerTotal",
+            taxAllowanceTotal: "taxAllowanceTotal",
+            incomeTaxTotal: "incomeTaxTotal",
+            employeeContributionsTotal: "employeeContributionsTotal",
+            employerContributionsTotal: "employerContributionsTotal",
+            componentTotals: [
+                PostV1PayrollRunsGetResponseComponentTotalsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                )
+            ],
             netTotal: "netTotal",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
@@ -802,11 +1043,22 @@ import Api
                         )
                     ],
                     taxableBase: "taxableBase",
-                    npd: "npd",
-                    gpm: "gpm",
-                    sodraEmployee: "sodraEmployee",
-                    sodraEmployer: "sodraEmployer",
-                    net: "net"
+                    taxAllowance: "taxAllowance",
+                    incomeTax: "incomeTax",
+                    employeeContributions: "employeeContributions",
+                    employerContributions: "employerContributions",
+                    components: [
+                        PostV1PayrollRunsGetResponseLinesItemComponentsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount"
+                        )
+                    ],
+                    net: "net",
+                    daysWorked: Nullable<String>.value("daysWorked"),
+                    hoursWorked: Nullable<String>.value("hoursWorked"),
+                    registeredDays: Nullable<String>.value("registeredDays"),
+                    averageHourlyEarnings: Nullable<String>.value("averageHourlyEarnings")
                 )
             ]
         )
@@ -826,12 +1078,29 @@ import Api
                   "id": "x",
                   "year": 1000000,
                   "month": 1000000,
+                  "countryCode": "countryCode",
                   "status": "draft",
                   "grossTotal": "grossTotal",
-                  "npdTotal": "npdTotal",
-                  "gpmTotal": "gpmTotal",
-                  "sodraEmployeeTotal": "sodraEmployeeTotal",
-                  "sodraEmployerTotal": "sodraEmployerTotal",
+                  "taxAllowanceTotal": "taxAllowanceTotal",
+                  "incomeTaxTotal": "incomeTaxTotal",
+                  "employeeContributionsTotal": "employeeContributionsTotal",
+                  "employerContributionsTotal": "employerContributionsTotal",
+                  "componentTotals": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    },
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
                   "netTotal": "netTotal",
                   "journalTransactionId": "x",
                   "notes": "notes",
@@ -868,11 +1137,31 @@ import Api
                         }
                       ],
                       "taxableBase": "taxableBase",
-                      "npd": "npd",
-                      "gpm": "gpm",
-                      "sodraEmployee": "sodraEmployee",
-                      "sodraEmployer": "sodraEmployer",
-                      "net": "net"
+                      "taxAllowance": "taxAllowance",
+                      "incomeTax": "incomeTax",
+                      "employeeContributions": "employeeContributions",
+                      "employerContributions": "employerContributions",
+                      "components": [
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount",
+                          "rate": "rate",
+                          "base": "base"
+                        },
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount",
+                          "rate": "rate",
+                          "base": "base"
+                        }
+                      ],
+                      "net": "net",
+                      "daysWorked": "daysWorked",
+                      "hoursWorked": "hoursWorked",
+                      "registeredDays": "registeredDays",
+                      "averageHourlyEarnings": "averageHourlyEarnings"
                     },
                     {
                       "id": "x",
@@ -904,11 +1193,31 @@ import Api
                         }
                       ],
                       "taxableBase": "taxableBase",
-                      "npd": "npd",
-                      "gpm": "gpm",
-                      "sodraEmployee": "sodraEmployee",
-                      "sodraEmployer": "sodraEmployer",
-                      "net": "net"
+                      "taxAllowance": "taxAllowance",
+                      "incomeTax": "incomeTax",
+                      "employeeContributions": "employeeContributions",
+                      "employerContributions": "employerContributions",
+                      "components": [
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount",
+                          "rate": "rate",
+                          "base": "base"
+                        },
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount",
+                          "rate": "rate",
+                          "base": "base"
+                        }
+                      ],
+                      "net": "net",
+                      "daysWorked": "daysWorked",
+                      "hoursWorked": "hoursWorked",
+                      "registeredDays": "registeredDays",
+                      "averageHourlyEarnings": "averageHourlyEarnings"
                     }
                   ]
                 }
@@ -924,12 +1233,29 @@ import Api
             id: "x",
             year: 1000000,
             month: 1000000,
+            countryCode: "countryCode",
             status: .draft,
             grossTotal: "grossTotal",
-            npdTotal: "npdTotal",
-            gpmTotal: "gpmTotal",
-            sodraEmployeeTotal: "sodraEmployeeTotal",
-            sodraEmployerTotal: "sodraEmployerTotal",
+            taxAllowanceTotal: "taxAllowanceTotal",
+            incomeTaxTotal: "incomeTaxTotal",
+            employeeContributionsTotal: "employeeContributionsTotal",
+            employerContributionsTotal: "employerContributionsTotal",
+            componentTotals: [
+                PostV1PayrollRunsGetResponseComponentTotalsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                ),
+                PostV1PayrollRunsGetResponseComponentTotalsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                )
+            ],
             netTotal: "netTotal",
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
@@ -966,11 +1292,31 @@ import Api
                         )
                     ],
                     taxableBase: "taxableBase",
-                    npd: "npd",
-                    gpm: "gpm",
-                    sodraEmployee: "sodraEmployee",
-                    sodraEmployer: "sodraEmployer",
-                    net: "net"
+                    taxAllowance: "taxAllowance",
+                    incomeTax: "incomeTax",
+                    employeeContributions: "employeeContributions",
+                    employerContributions: "employerContributions",
+                    components: [
+                        PostV1PayrollRunsGetResponseLinesItemComponentsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount",
+                            rate: Optional("rate"),
+                            base: Optional("base")
+                        ),
+                        PostV1PayrollRunsGetResponseLinesItemComponentsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount",
+                            rate: Optional("rate"),
+                            base: Optional("base")
+                        )
+                    ],
+                    net: "net",
+                    daysWorked: Nullable<String>.value("daysWorked"),
+                    hoursWorked: Nullable<String>.value("hoursWorked"),
+                    registeredDays: Nullable<String>.value("registeredDays"),
+                    averageHourlyEarnings: Nullable<String>.value("averageHourlyEarnings")
                 ),
                 PostV1PayrollRunsGetResponseLinesItem(
                     id: "x",
@@ -1002,11 +1348,31 @@ import Api
                         )
                     ],
                     taxableBase: "taxableBase",
-                    npd: "npd",
-                    gpm: "gpm",
-                    sodraEmployee: "sodraEmployee",
-                    sodraEmployer: "sodraEmployer",
-                    net: "net"
+                    taxAllowance: "taxAllowance",
+                    incomeTax: "incomeTax",
+                    employeeContributions: "employeeContributions",
+                    employerContributions: "employerContributions",
+                    components: [
+                        PostV1PayrollRunsGetResponseLinesItemComponentsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount",
+                            rate: Optional("rate"),
+                            base: Optional("base")
+                        ),
+                        PostV1PayrollRunsGetResponseLinesItemComponentsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount",
+                            rate: Optional("rate"),
+                            base: Optional("base")
+                        )
+                    ],
+                    net: "net",
+                    daysWorked: Nullable<String>.value("daysWorked"),
+                    hoursWorked: Nullable<String>.value("hoursWorked"),
+                    registeredDays: Nullable<String>.value("registeredDays"),
+                    averageHourlyEarnings: Nullable<String>.value("averageHourlyEarnings")
                 )
             ]
         )
@@ -1028,12 +1394,20 @@ import Api
                       "id": "id",
                       "year": 1000000,
                       "month": 1000000,
+                      "countryCode": "countryCode",
                       "status": "draft",
                       "grossTotal": "grossTotal",
-                      "npdTotal": "npdTotal",
-                      "gpmTotal": "gpmTotal",
-                      "sodraEmployeeTotal": "sodraEmployeeTotal",
-                      "sodraEmployerTotal": "sodraEmployerTotal",
+                      "taxAllowanceTotal": "taxAllowanceTotal",
+                      "incomeTaxTotal": "incomeTaxTotal",
+                      "employeeContributionsTotal": "employeeContributionsTotal",
+                      "employerContributionsTotal": "employerContributionsTotal",
+                      "componentTotals": [
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount"
+                        }
+                      ],
                       "netTotal": "netTotal",
                       "journalTransactionId": "journalTransactionId",
                       "notes": "notes",
@@ -1062,12 +1436,20 @@ import Api
                     id: "id",
                     year: 1000000,
                     month: 1000000,
+                    countryCode: "countryCode",
                     status: .draft,
                     grossTotal: "grossTotal",
-                    npdTotal: "npdTotal",
-                    gpmTotal: "gpmTotal",
-                    sodraEmployeeTotal: "sodraEmployeeTotal",
-                    sodraEmployerTotal: "sodraEmployerTotal",
+                    taxAllowanceTotal: "taxAllowanceTotal",
+                    incomeTaxTotal: "incomeTaxTotal",
+                    employeeContributionsTotal: "employeeContributionsTotal",
+                    employerContributionsTotal: "employerContributionsTotal",
+                    componentTotals: [
+                        PostV1PayrollRunsListResponseRowsItemComponentTotalsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount"
+                        )
+                    ],
                     netTotal: "netTotal",
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
                     notes: Nullable<String>.value("notes"),
@@ -1100,12 +1482,29 @@ import Api
                       "id": "x",
                       "year": 1000000,
                       "month": 1000000,
+                      "countryCode": "countryCode",
                       "status": "draft",
                       "grossTotal": "grossTotal",
-                      "npdTotal": "npdTotal",
-                      "gpmTotal": "gpmTotal",
-                      "sodraEmployeeTotal": "sodraEmployeeTotal",
-                      "sodraEmployerTotal": "sodraEmployerTotal",
+                      "taxAllowanceTotal": "taxAllowanceTotal",
+                      "incomeTaxTotal": "incomeTaxTotal",
+                      "employeeContributionsTotal": "employeeContributionsTotal",
+                      "employerContributionsTotal": "employerContributionsTotal",
+                      "componentTotals": [
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount",
+                          "rate": "rate",
+                          "base": "base"
+                        },
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount",
+                          "rate": "rate",
+                          "base": "base"
+                        }
+                      ],
                       "netTotal": "netTotal",
                       "journalTransactionId": "x",
                       "notes": "notes",
@@ -1116,12 +1515,29 @@ import Api
                       "id": "x",
                       "year": 1000000,
                       "month": 1000000,
+                      "countryCode": "countryCode",
                       "status": "draft",
                       "grossTotal": "grossTotal",
-                      "npdTotal": "npdTotal",
-                      "gpmTotal": "gpmTotal",
-                      "sodraEmployeeTotal": "sodraEmployeeTotal",
-                      "sodraEmployerTotal": "sodraEmployerTotal",
+                      "taxAllowanceTotal": "taxAllowanceTotal",
+                      "incomeTaxTotal": "incomeTaxTotal",
+                      "employeeContributionsTotal": "employeeContributionsTotal",
+                      "employerContributionsTotal": "employerContributionsTotal",
+                      "componentTotals": [
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount",
+                          "rate": "rate",
+                          "base": "base"
+                        },
+                        {
+                          "code": "code",
+                          "kind": "allowance",
+                          "amount": "amount",
+                          "rate": "rate",
+                          "base": "base"
+                        }
+                      ],
                       "netTotal": "netTotal",
                       "journalTransactionId": "x",
                       "notes": "notes",
@@ -1150,12 +1566,29 @@ import Api
                     id: "x",
                     year: 1000000,
                     month: 1000000,
+                    countryCode: "countryCode",
                     status: .draft,
                     grossTotal: "grossTotal",
-                    npdTotal: "npdTotal",
-                    gpmTotal: "gpmTotal",
-                    sodraEmployeeTotal: "sodraEmployeeTotal",
-                    sodraEmployerTotal: "sodraEmployerTotal",
+                    taxAllowanceTotal: "taxAllowanceTotal",
+                    incomeTaxTotal: "incomeTaxTotal",
+                    employeeContributionsTotal: "employeeContributionsTotal",
+                    employerContributionsTotal: "employerContributionsTotal",
+                    componentTotals: [
+                        PostV1PayrollRunsListResponseRowsItemComponentTotalsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount",
+                            rate: Optional("rate"),
+                            base: Optional("base")
+                        ),
+                        PostV1PayrollRunsListResponseRowsItemComponentTotalsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount",
+                            rate: Optional("rate"),
+                            base: Optional("base")
+                        )
+                    ],
                     netTotal: "netTotal",
                     journalTransactionId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
@@ -1166,12 +1599,29 @@ import Api
                     id: "x",
                     year: 1000000,
                     month: 1000000,
+                    countryCode: "countryCode",
                     status: .draft,
                     grossTotal: "grossTotal",
-                    npdTotal: "npdTotal",
-                    gpmTotal: "gpmTotal",
-                    sodraEmployeeTotal: "sodraEmployeeTotal",
-                    sodraEmployerTotal: "sodraEmployerTotal",
+                    taxAllowanceTotal: "taxAllowanceTotal",
+                    incomeTaxTotal: "incomeTaxTotal",
+                    employeeContributionsTotal: "employeeContributionsTotal",
+                    employerContributionsTotal: "employerContributionsTotal",
+                    componentTotals: [
+                        PostV1PayrollRunsListResponseRowsItemComponentTotalsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount",
+                            rate: Optional("rate"),
+                            base: Optional("base")
+                        ),
+                        PostV1PayrollRunsListResponseRowsItemComponentTotalsItem(
+                            code: "code",
+                            kind: .allowance,
+                            amount: "amount",
+                            rate: Optional("rate"),
+                            base: Optional("base")
+                        )
+                    ],
                     netTotal: "netTotal",
                     journalTransactionId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
@@ -1193,6 +1643,238 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func recordTheTimeAPersonWorkedInAPayrollLine1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "employeeId": "employeeId",
+                  "contractId": "contractId",
+                  "employeeName": "employeeName",
+                  "gross": "gross",
+                  "natura": "natura",
+                  "additions": [
+                    {
+                      "name": "name",
+                      "amount": "amount",
+                      "taxable": true
+                    }
+                  ],
+                  "deductions": [
+                    {
+                      "name": "name",
+                      "amount": "amount"
+                    }
+                  ],
+                  "taxableBase": "taxableBase",
+                  "taxAllowance": "taxAllowance",
+                  "incomeTax": "incomeTax",
+                  "employeeContributions": "employeeContributions",
+                  "employerContributions": "employerContributions",
+                  "components": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
+                  "net": "net",
+                  "daysWorked": "daysWorked",
+                  "hoursWorked": "hoursWorked",
+                  "registeredDays": "registeredDays",
+                  "averageHourlyEarnings": "averageHourlyEarnings"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PayrollLinesAttendanceResponse(
+            id: "id",
+            employeeId: "employeeId",
+            contractId: Nullable<String>.value("contractId"),
+            employeeName: "employeeName",
+            gross: "gross",
+            natura: "natura",
+            additions: [
+                PostV1PayrollLinesAttendanceResponseAdditionsItem(
+                    name: "name",
+                    amount: "amount",
+                    taxable: true
+                )
+            ],
+            deductions: [
+                PostV1PayrollLinesAttendanceResponseDeductionsItem(
+                    name: "name",
+                    amount: "amount"
+                )
+            ],
+            taxableBase: "taxableBase",
+            taxAllowance: "taxAllowance",
+            incomeTax: "incomeTax",
+            employeeContributions: "employeeContributions",
+            employerContributions: "employerContributions",
+            components: [
+                PostV1PayrollLinesAttendanceResponseComponentsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                )
+            ],
+            net: "net",
+            daysWorked: Nullable<String>.value("daysWorked"),
+            hoursWorked: Nullable<String>.value("hoursWorked"),
+            registeredDays: Nullable<String>.value("registeredDays"),
+            averageHourlyEarnings: Nullable<String>.value("averageHourlyEarnings")
+        )
+        let response = try await client.payroll.recordTheTimeAPersonWorkedInAPayrollLine(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recordTheTimeAPersonWorkedInAPayrollLine2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "employeeId": "x",
+                  "contractId": "x",
+                  "employeeName": "employeeName",
+                  "gross": "gross",
+                  "natura": "natura",
+                  "additions": [
+                    {
+                      "name": "name",
+                      "amount": "amount",
+                      "taxable": true
+                    },
+                    {
+                      "name": "name",
+                      "amount": "amount",
+                      "taxable": true
+                    }
+                  ],
+                  "deductions": [
+                    {
+                      "name": "name",
+                      "amount": "amount"
+                    },
+                    {
+                      "name": "name",
+                      "amount": "amount"
+                    }
+                  ],
+                  "taxableBase": "taxableBase",
+                  "taxAllowance": "taxAllowance",
+                  "incomeTax": "incomeTax",
+                  "employeeContributions": "employeeContributions",
+                  "employerContributions": "employerContributions",
+                  "components": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    },
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
+                  "net": "net",
+                  "daysWorked": "daysWorked",
+                  "hoursWorked": "hoursWorked",
+                  "registeredDays": "registeredDays",
+                  "averageHourlyEarnings": "averageHourlyEarnings"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1PayrollLinesAttendanceResponse(
+            id: "x",
+            employeeId: "x",
+            contractId: Nullable<String>.value("x"),
+            employeeName: "employeeName",
+            gross: "gross",
+            natura: "natura",
+            additions: [
+                PostV1PayrollLinesAttendanceResponseAdditionsItem(
+                    name: "name",
+                    amount: "amount",
+                    taxable: true
+                ),
+                PostV1PayrollLinesAttendanceResponseAdditionsItem(
+                    name: "name",
+                    amount: "amount",
+                    taxable: true
+                )
+            ],
+            deductions: [
+                PostV1PayrollLinesAttendanceResponseDeductionsItem(
+                    name: "name",
+                    amount: "amount"
+                ),
+                PostV1PayrollLinesAttendanceResponseDeductionsItem(
+                    name: "name",
+                    amount: "amount"
+                )
+            ],
+            taxableBase: "taxableBase",
+            taxAllowance: "taxAllowance",
+            incomeTax: "incomeTax",
+            employeeContributions: "employeeContributions",
+            employerContributions: "employerContributions",
+            components: [
+                PostV1PayrollLinesAttendanceResponseComponentsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                ),
+                PostV1PayrollLinesAttendanceResponseComponentsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                )
+            ],
+            net: "net",
+            daysWorked: Nullable<String>.value("daysWorked"),
+            hoursWorked: Nullable<String>.value("hoursWorked"),
+            registeredDays: Nullable<String>.value("registeredDays"),
+            averageHourlyEarnings: Nullable<String>.value("averageHourlyEarnings")
+        )
+        let response = try await client.payroll.recordTheTimeAPersonWorkedInAPayrollLine(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func postV1PayrollRunsApprove1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -1202,12 +1884,22 @@ import Api
                   "id": "id",
                   "year": 1000000,
                   "month": 1000000,
+                  "countryCode": "countryCode",
                   "status": "draft",
                   "grossTotal": "grossTotal",
-                  "npdTotal": "npdTotal",
-                  "gpmTotal": "gpmTotal",
-                  "sodraEmployeeTotal": "sodraEmployeeTotal",
-                  "sodraEmployerTotal": "sodraEmployerTotal",
+                  "taxAllowanceTotal": "taxAllowanceTotal",
+                  "incomeTaxTotal": "incomeTaxTotal",
+                  "employeeContributionsTotal": "employeeContributionsTotal",
+                  "employerContributionsTotal": "employerContributionsTotal",
+                  "componentTotals": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
                   "netTotal": "netTotal",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
@@ -1226,12 +1918,22 @@ import Api
             id: "id",
             year: 1000000,
             month: 1000000,
+            countryCode: "countryCode",
             status: .draft,
             grossTotal: "grossTotal",
-            npdTotal: "npdTotal",
-            gpmTotal: "gpmTotal",
-            sodraEmployeeTotal: "sodraEmployeeTotal",
-            sodraEmployerTotal: "sodraEmployerTotal",
+            taxAllowanceTotal: "taxAllowanceTotal",
+            incomeTaxTotal: "incomeTaxTotal",
+            employeeContributionsTotal: "employeeContributionsTotal",
+            employerContributionsTotal: "employerContributionsTotal",
+            componentTotals: [
+                PostV1PayrollRunsApproveResponseComponentTotalsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                )
+            ],
             netTotal: "netTotal",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
@@ -1254,12 +1956,29 @@ import Api
                   "id": "x",
                   "year": 1000000,
                   "month": 1000000,
+                  "countryCode": "countryCode",
                   "status": "draft",
                   "grossTotal": "grossTotal",
-                  "npdTotal": "npdTotal",
-                  "gpmTotal": "gpmTotal",
-                  "sodraEmployeeTotal": "sodraEmployeeTotal",
-                  "sodraEmployerTotal": "sodraEmployerTotal",
+                  "taxAllowanceTotal": "taxAllowanceTotal",
+                  "incomeTaxTotal": "incomeTaxTotal",
+                  "employeeContributionsTotal": "employeeContributionsTotal",
+                  "employerContributionsTotal": "employerContributionsTotal",
+                  "componentTotals": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    },
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
                   "netTotal": "netTotal",
                   "journalTransactionId": "x",
                   "notes": "notes",
@@ -1278,12 +1997,29 @@ import Api
             id: "x",
             year: 1000000,
             month: 1000000,
+            countryCode: "countryCode",
             status: .draft,
             grossTotal: "grossTotal",
-            npdTotal: "npdTotal",
-            gpmTotal: "gpmTotal",
-            sodraEmployeeTotal: "sodraEmployeeTotal",
-            sodraEmployerTotal: "sodraEmployerTotal",
+            taxAllowanceTotal: "taxAllowanceTotal",
+            incomeTaxTotal: "incomeTaxTotal",
+            employeeContributionsTotal: "employeeContributionsTotal",
+            employerContributionsTotal: "employerContributionsTotal",
+            componentTotals: [
+                PostV1PayrollRunsApproveResponseComponentTotalsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                ),
+                PostV1PayrollRunsApproveResponseComponentTotalsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                )
+            ],
             netTotal: "netTotal",
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),

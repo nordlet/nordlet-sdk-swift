@@ -10,11 +10,16 @@ public struct PostV1PayrollRunsCreateResponseLinesItem: Codable, Hashable, Senda
     public let additions: [PostV1PayrollRunsCreateResponseLinesItemAdditionsItem]
     public let deductions: [PostV1PayrollRunsCreateResponseLinesItemDeductionsItem]
     public let taxableBase: String
-    public let npd: String
-    public let gpm: String
-    public let sodraEmployee: String
-    public let sodraEmployer: String
+    public let taxAllowance: String
+    public let incomeTax: String
+    public let employeeContributions: String
+    public let employerContributions: String
+    public let components: [PostV1PayrollRunsCreateResponseLinesItemComponentsItem]
     public let net: String
+    public let daysWorked: Nullable<String>
+    public let hoursWorked: Nullable<String>
+    public let registeredDays: Nullable<String>
+    public let averageHourlyEarnings: Nullable<String>
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -28,11 +33,16 @@ public struct PostV1PayrollRunsCreateResponseLinesItem: Codable, Hashable, Senda
         additions: [PostV1PayrollRunsCreateResponseLinesItemAdditionsItem],
         deductions: [PostV1PayrollRunsCreateResponseLinesItemDeductionsItem],
         taxableBase: String,
-        npd: String,
-        gpm: String,
-        sodraEmployee: String,
-        sodraEmployer: String,
+        taxAllowance: String,
+        incomeTax: String,
+        employeeContributions: String,
+        employerContributions: String,
+        components: [PostV1PayrollRunsCreateResponseLinesItemComponentsItem],
         net: String,
+        daysWorked: Nullable<String>,
+        hoursWorked: Nullable<String>,
+        registeredDays: Nullable<String>,
+        averageHourlyEarnings: Nullable<String>,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -44,11 +54,16 @@ public struct PostV1PayrollRunsCreateResponseLinesItem: Codable, Hashable, Senda
         self.additions = additions
         self.deductions = deductions
         self.taxableBase = taxableBase
-        self.npd = npd
-        self.gpm = gpm
-        self.sodraEmployee = sodraEmployee
-        self.sodraEmployer = sodraEmployer
+        self.taxAllowance = taxAllowance
+        self.incomeTax = incomeTax
+        self.employeeContributions = employeeContributions
+        self.employerContributions = employerContributions
+        self.components = components
         self.net = net
+        self.daysWorked = daysWorked
+        self.hoursWorked = hoursWorked
+        self.registeredDays = registeredDays
+        self.averageHourlyEarnings = averageHourlyEarnings
         self.additionalProperties = additionalProperties
     }
 
@@ -63,11 +78,16 @@ public struct PostV1PayrollRunsCreateResponseLinesItem: Codable, Hashable, Senda
         self.additions = try container.decode([PostV1PayrollRunsCreateResponseLinesItemAdditionsItem].self, forKey: .additions)
         self.deductions = try container.decode([PostV1PayrollRunsCreateResponseLinesItemDeductionsItem].self, forKey: .deductions)
         self.taxableBase = try container.decode(String.self, forKey: .taxableBase)
-        self.npd = try container.decode(String.self, forKey: .npd)
-        self.gpm = try container.decode(String.self, forKey: .gpm)
-        self.sodraEmployee = try container.decode(String.self, forKey: .sodraEmployee)
-        self.sodraEmployer = try container.decode(String.self, forKey: .sodraEmployer)
+        self.taxAllowance = try container.decode(String.self, forKey: .taxAllowance)
+        self.incomeTax = try container.decode(String.self, forKey: .incomeTax)
+        self.employeeContributions = try container.decode(String.self, forKey: .employeeContributions)
+        self.employerContributions = try container.decode(String.self, forKey: .employerContributions)
+        self.components = try container.decode([PostV1PayrollRunsCreateResponseLinesItemComponentsItem].self, forKey: .components)
         self.net = try container.decode(String.self, forKey: .net)
+        self.daysWorked = try container.decode(Nullable<String>.self, forKey: .daysWorked)
+        self.hoursWorked = try container.decode(Nullable<String>.self, forKey: .hoursWorked)
+        self.registeredDays = try container.decode(Nullable<String>.self, forKey: .registeredDays)
+        self.averageHourlyEarnings = try container.decode(Nullable<String>.self, forKey: .averageHourlyEarnings)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -83,11 +103,16 @@ public struct PostV1PayrollRunsCreateResponseLinesItem: Codable, Hashable, Senda
         try container.encode(self.additions, forKey: .additions)
         try container.encode(self.deductions, forKey: .deductions)
         try container.encode(self.taxableBase, forKey: .taxableBase)
-        try container.encode(self.npd, forKey: .npd)
-        try container.encode(self.gpm, forKey: .gpm)
-        try container.encode(self.sodraEmployee, forKey: .sodraEmployee)
-        try container.encode(self.sodraEmployer, forKey: .sodraEmployer)
+        try container.encode(self.taxAllowance, forKey: .taxAllowance)
+        try container.encode(self.incomeTax, forKey: .incomeTax)
+        try container.encode(self.employeeContributions, forKey: .employeeContributions)
+        try container.encode(self.employerContributions, forKey: .employerContributions)
+        try container.encode(self.components, forKey: .components)
         try container.encode(self.net, forKey: .net)
+        try container.encode(self.daysWorked, forKey: .daysWorked)
+        try container.encode(self.hoursWorked, forKey: .hoursWorked)
+        try container.encode(self.registeredDays, forKey: .registeredDays)
+        try container.encode(self.averageHourlyEarnings, forKey: .averageHourlyEarnings)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -101,10 +126,15 @@ public struct PostV1PayrollRunsCreateResponseLinesItem: Codable, Hashable, Senda
         case additions
         case deductions
         case taxableBase
-        case npd
-        case gpm
-        case sodraEmployee
-        case sodraEmployer
+        case taxAllowance
+        case incomeTax
+        case employeeContributions
+        case employerContributions
+        case components
         case net
+        case daysWorked
+        case hoursWorked
+        case registeredDays
+        case averageHourlyEarnings
     }
 }

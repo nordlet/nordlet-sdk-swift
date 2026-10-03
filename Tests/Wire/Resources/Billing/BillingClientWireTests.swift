@@ -18,6 +18,8 @@ import Api
                   "paymentsConfigured": true,
                   "hasPaymentAccount": true,
                   "hasSubscription": true,
+                  "paymentFailedAt": "paymentFailedAt",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
                   "monthToDate": {
                     "from": "from",
                     "to": "to",
@@ -61,6 +63,8 @@ import Api
             paymentsConfigured: true,
             hasPaymentAccount: true,
             hasSubscription: true,
+            paymentFailedAt: Nullable<String>.value("paymentFailedAt"),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
             monthToDate: PostV1BillingAccountGetResponseMonthToDate(
                 from: "from",
                 to: "to",
@@ -108,6 +112,8 @@ import Api
                   "paymentsConfigured": true,
                   "hasPaymentAccount": true,
                   "hasSubscription": true,
+                  "paymentFailedAt": "paymentFailedAt",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
                   "monthToDate": {
                     "from": "from",
                     "to": "to",
@@ -151,6 +157,8 @@ import Api
             paymentsConfigured: true,
             hasPaymentAccount: true,
             hasSubscription: true,
+            paymentFailedAt: Nullable<String>.value("paymentFailedAt"),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
             monthToDate: PostV1BillingAccountGetResponseMonthToDate(
                 from: "from",
                 to: "to",
@@ -198,6 +206,8 @@ import Api
                   "paymentsConfigured": true,
                   "hasPaymentAccount": true,
                   "hasSubscription": true,
+                  "paymentFailedAt": "paymentFailedAt",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
                   "monthToDate": {
                     "from": "from",
                     "to": "to",
@@ -241,6 +251,8 @@ import Api
             paymentsConfigured: true,
             hasPaymentAccount: true,
             hasSubscription: true,
+            paymentFailedAt: Nullable<String>.value("paymentFailedAt"),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
             monthToDate: PostV1BillingAccountSetPlanResponseMonthToDate(
                 from: "from",
                 to: "to",
@@ -288,6 +300,8 @@ import Api
                   "paymentsConfigured": true,
                   "hasPaymentAccount": true,
                   "hasSubscription": true,
+                  "paymentFailedAt": "paymentFailedAt",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
                   "monthToDate": {
                     "from": "from",
                     "to": "to",
@@ -331,6 +345,8 @@ import Api
             paymentsConfigured: true,
             hasPaymentAccount: true,
             hasSubscription: true,
+            paymentFailedAt: Nullable<String>.value("paymentFailedAt"),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
             monthToDate: PostV1BillingAccountSetPlanResponseMonthToDate(
                 from: "from",
                 to: "to",

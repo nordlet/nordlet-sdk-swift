@@ -4,4 +4,6 @@ public enum PostV1DeclarationsConfigsListResponseRowsItemFieldsItemKind: String,
     case text
     case secret
     case select
+    case url
+    case certificate
 }

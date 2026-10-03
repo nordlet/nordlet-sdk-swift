@@ -9,6 +9,8 @@ public struct PostV1DocumentSeriesCreateResponse: Codable, Hashable, Sendable {
     public let operationTypeId: Nullable<String>
     public let numberLength: Int64
     public let nextNumber: Int64
+    public let allocatedFrom: Nullable<Int64>
+    public let allocatedTo: Nullable<Int64>
     public let warehouseId: Nullable<String>
     public let printSeries: Bool
     public let isDefault: Bool
@@ -27,6 +29,8 @@ public struct PostV1DocumentSeriesCreateResponse: Codable, Hashable, Sendable {
         operationTypeId: Nullable<String>,
         numberLength: Int64,
         nextNumber: Int64,
+        allocatedFrom: Nullable<Int64>,
+        allocatedTo: Nullable<Int64>,
         warehouseId: Nullable<String>,
         printSeries: Bool,
         isDefault: Bool,
@@ -43,6 +47,8 @@ public struct PostV1DocumentSeriesCreateResponse: Codable, Hashable, Sendable {
         self.operationTypeId = operationTypeId
         self.numberLength = numberLength
         self.nextNumber = nextNumber
+        self.allocatedFrom = allocatedFrom
+        self.allocatedTo = allocatedTo
         self.warehouseId = warehouseId
         self.printSeries = printSeries
         self.isDefault = isDefault
@@ -62,6 +68,8 @@ public struct PostV1DocumentSeriesCreateResponse: Codable, Hashable, Sendable {
         self.operationTypeId = try container.decode(Nullable<String>.self, forKey: .operationTypeId)
         self.numberLength = try container.decode(Int64.self, forKey: .numberLength)
         self.nextNumber = try container.decode(Int64.self, forKey: .nextNumber)
+        self.allocatedFrom = try container.decode(Nullable<Int64>.self, forKey: .allocatedFrom)
+        self.allocatedTo = try container.decode(Nullable<Int64>.self, forKey: .allocatedTo)
         self.warehouseId = try container.decode(Nullable<String>.self, forKey: .warehouseId)
         self.printSeries = try container.decode(Bool.self, forKey: .printSeries)
         self.isDefault = try container.decode(Bool.self, forKey: .isDefault)
@@ -82,6 +90,8 @@ public struct PostV1DocumentSeriesCreateResponse: Codable, Hashable, Sendable {
         try container.encode(self.operationTypeId, forKey: .operationTypeId)
         try container.encode(self.numberLength, forKey: .numberLength)
         try container.encode(self.nextNumber, forKey: .nextNumber)
+        try container.encode(self.allocatedFrom, forKey: .allocatedFrom)
+        try container.encode(self.allocatedTo, forKey: .allocatedTo)
         try container.encode(self.warehouseId, forKey: .warehouseId)
         try container.encode(self.printSeries, forKey: .printSeries)
         try container.encode(self.isDefault, forKey: .isDefault)
@@ -100,6 +110,8 @@ public struct PostV1DocumentSeriesCreateResponse: Codable, Hashable, Sendable {
         case operationTypeId
         case numberLength
         case nextNumber
+        case allocatedFrom
+        case allocatedTo
         case warehouseId
         case printSeries
         case isDefault

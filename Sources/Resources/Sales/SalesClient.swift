@@ -80,7 +80,7 @@ public final class SalesClient: Sendable {
         )
     }
 
-    /// Build the national e-invoicing payload and deliver it to the bridge endpoint configured for the country gateway in compliance settings. The bridge (an accredited intermediary or connector) handles the certified national channel - SdI accreditation, KSeF sessions or ANAF SPV OAuth.
+    /// Build the national e-invoicing payload and deliver it over the transport configured for the country gateway in compliance settings. With transport=direct the request talks to the tax authority itself - SdICoop over 2-way TLS for Italy, a KSeF session for Poland, ANAF SPV OAuth for Romania - and returns the national number as soon as the channel assigns one. With transport=bridge the payload goes to the configured bridge endpoint (an accredited intermediary or connector) instead.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func postV1SalesInvoicesEinvoiceSend(request: Requests.PostV1SalesInvoicesEinvoiceSendRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesEinvoiceSendResponse {
@@ -90,6 +90,19 @@ public final class SalesClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: PostV1SalesInvoicesEinvoiceSendResponse.self
+        )
+    }
+
+    /// Ask the national e-invoicing channel what happened to an invoice that was already sent, and store the answer. Italy, Poland and Romania return the outcome only on request - none of them calls back - so this is the way the national number and any rejection reason reach the invoice.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1SalesInvoicesEinvoiceStatus(request: Requests.PostV1SalesInvoicesEinvoiceStatusRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesEinvoiceStatusResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/invoices/einvoice-status",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1SalesInvoicesEinvoiceStatusResponse.self
         )
     }
 

@@ -15,9 +15,10 @@ public struct PostV1HrEmployeesUpdateResponse: Codable, Hashable, Sendable {
     public let socialInsuranceStart: Nullable<String>
     public let hireDate: Nullable<String>
     public let terminationDate: Nullable<String>
-    public let applyNpd: Bool
-    public let npdOverride: Nullable<String>
+    public let applyAllowance: Bool
+    public let allowanceOverride: Nullable<String>
     public let pensionAccumulation: Bool
+    public let payrollOptions: [String: String]
     public let status: PostV1HrEmployeesUpdateResponseStatus
     public let notes: Nullable<String>
     public let attributes: Nullable<[PostV1HrEmployeesUpdateResponseAttributesItem]>
@@ -40,9 +41,10 @@ public struct PostV1HrEmployeesUpdateResponse: Codable, Hashable, Sendable {
         socialInsuranceStart: Nullable<String>,
         hireDate: Nullable<String>,
         terminationDate: Nullable<String>,
-        applyNpd: Bool,
-        npdOverride: Nullable<String>,
+        applyAllowance: Bool,
+        allowanceOverride: Nullable<String>,
         pensionAccumulation: Bool,
+        payrollOptions: [String: String],
         status: PostV1HrEmployeesUpdateResponseStatus,
         notes: Nullable<String>,
         attributes: Nullable<[PostV1HrEmployeesUpdateResponseAttributesItem]>,
@@ -63,9 +65,10 @@ public struct PostV1HrEmployeesUpdateResponse: Codable, Hashable, Sendable {
         self.socialInsuranceStart = socialInsuranceStart
         self.hireDate = hireDate
         self.terminationDate = terminationDate
-        self.applyNpd = applyNpd
-        self.npdOverride = npdOverride
+        self.applyAllowance = applyAllowance
+        self.allowanceOverride = allowanceOverride
         self.pensionAccumulation = pensionAccumulation
+        self.payrollOptions = payrollOptions
         self.status = status
         self.notes = notes
         self.attributes = attributes
@@ -89,9 +92,10 @@ public struct PostV1HrEmployeesUpdateResponse: Codable, Hashable, Sendable {
         self.socialInsuranceStart = try container.decode(Nullable<String>.self, forKey: .socialInsuranceStart)
         self.hireDate = try container.decode(Nullable<String>.self, forKey: .hireDate)
         self.terminationDate = try container.decode(Nullable<String>.self, forKey: .terminationDate)
-        self.applyNpd = try container.decode(Bool.self, forKey: .applyNpd)
-        self.npdOverride = try container.decode(Nullable<String>.self, forKey: .npdOverride)
+        self.applyAllowance = try container.decode(Bool.self, forKey: .applyAllowance)
+        self.allowanceOverride = try container.decode(Nullable<String>.self, forKey: .allowanceOverride)
         self.pensionAccumulation = try container.decode(Bool.self, forKey: .pensionAccumulation)
+        self.payrollOptions = try container.decode([String: String].self, forKey: .payrollOptions)
         self.status = try container.decode(PostV1HrEmployeesUpdateResponseStatus.self, forKey: .status)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.attributes = try container.decode(Nullable<[PostV1HrEmployeesUpdateResponseAttributesItem]>.self, forKey: .attributes)
@@ -116,9 +120,10 @@ public struct PostV1HrEmployeesUpdateResponse: Codable, Hashable, Sendable {
         try container.encode(self.socialInsuranceStart, forKey: .socialInsuranceStart)
         try container.encode(self.hireDate, forKey: .hireDate)
         try container.encode(self.terminationDate, forKey: .terminationDate)
-        try container.encode(self.applyNpd, forKey: .applyNpd)
-        try container.encode(self.npdOverride, forKey: .npdOverride)
+        try container.encode(self.applyAllowance, forKey: .applyAllowance)
+        try container.encode(self.allowanceOverride, forKey: .allowanceOverride)
         try container.encode(self.pensionAccumulation, forKey: .pensionAccumulation)
+        try container.encode(self.payrollOptions, forKey: .payrollOptions)
         try container.encode(self.status, forKey: .status)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.attributes, forKey: .attributes)
@@ -141,9 +146,10 @@ public struct PostV1HrEmployeesUpdateResponse: Codable, Hashable, Sendable {
         case socialInsuranceStart
         case hireDate
         case terminationDate
-        case applyNpd
-        case npdOverride
+        case applyAllowance
+        case allowanceOverride
         case pensionAccumulation
+        case payrollOptions
         case status
         case notes
         case attributes

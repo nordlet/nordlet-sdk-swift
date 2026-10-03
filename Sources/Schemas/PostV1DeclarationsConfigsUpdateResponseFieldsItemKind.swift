@@ -4,4 +4,6 @@ public enum PostV1DeclarationsConfigsUpdateResponseFieldsItemKind: String, Codab
     case text
     case secret
     case select
+    case url
+    case certificate
 }

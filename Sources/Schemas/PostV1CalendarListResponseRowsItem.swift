@@ -11,6 +11,10 @@ public struct PostV1CalendarListResponseRowsItem: Codable, Hashable, Sendable {
     public let notes: Nullable<String>
     public let done: Bool
     public let href: Nullable<String>
+    public let submission: Nullable<PostV1CalendarListResponseRowsItemSubmission>
+    public let canSubmit: Bool
+    public let canDownload: Bool
+    public let automated: Bool
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -25,6 +29,10 @@ public struct PostV1CalendarListResponseRowsItem: Codable, Hashable, Sendable {
         notes: Nullable<String>,
         done: Bool,
         href: Nullable<String>,
+        submission: Nullable<PostV1CalendarListResponseRowsItemSubmission>,
+        canSubmit: Bool,
+        canDownload: Bool,
+        automated: Bool,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.key = key
@@ -37,6 +45,10 @@ public struct PostV1CalendarListResponseRowsItem: Codable, Hashable, Sendable {
         self.notes = notes
         self.done = done
         self.href = href
+        self.submission = submission
+        self.canSubmit = canSubmit
+        self.canDownload = canDownload
+        self.automated = automated
         self.additionalProperties = additionalProperties
     }
 
@@ -52,6 +64,10 @@ public struct PostV1CalendarListResponseRowsItem: Codable, Hashable, Sendable {
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.done = try container.decode(Bool.self, forKey: .done)
         self.href = try container.decode(Nullable<String>.self, forKey: .href)
+        self.submission = try container.decode(Nullable<PostV1CalendarListResponseRowsItemSubmission>.self, forKey: .submission)
+        self.canSubmit = try container.decode(Bool.self, forKey: .canSubmit)
+        self.canDownload = try container.decode(Bool.self, forKey: .canDownload)
+        self.automated = try container.decode(Bool.self, forKey: .automated)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -68,6 +84,10 @@ public struct PostV1CalendarListResponseRowsItem: Codable, Hashable, Sendable {
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.done, forKey: .done)
         try container.encode(self.href, forKey: .href)
+        try container.encode(self.submission, forKey: .submission)
+        try container.encode(self.canSubmit, forKey: .canSubmit)
+        try container.encode(self.canDownload, forKey: .canDownload)
+        try container.encode(self.automated, forKey: .automated)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -82,5 +102,9 @@ public struct PostV1CalendarListResponseRowsItem: Codable, Hashable, Sendable {
         case notes
         case done
         case href
+        case submission
+        case canSubmit
+        case canDownload
+        case automated
     }
 }

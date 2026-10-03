@@ -7,6 +7,7 @@ public struct PostV1DeclarationsConfigsListResponseRowsItem: Codable, Hashable, 
     public let fields: [PostV1DeclarationsConfigsListResponseRowsItemFieldsItem]
     public let endpoints: [PostV1DeclarationsConfigsListResponseRowsItemEndpointsItem]?
     public let values: [String: String]
+    public let acceptsCertificate: Bool
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -17,6 +18,7 @@ public struct PostV1DeclarationsConfigsListResponseRowsItem: Codable, Hashable, 
         fields: [PostV1DeclarationsConfigsListResponseRowsItemFieldsItem],
         endpoints: [PostV1DeclarationsConfigsListResponseRowsItemEndpointsItem]? = nil,
         values: [String: String],
+        acceptsCertificate: Bool,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.system = system
@@ -25,6 +27,7 @@ public struct PostV1DeclarationsConfigsListResponseRowsItem: Codable, Hashable, 
         self.fields = fields
         self.endpoints = endpoints
         self.values = values
+        self.acceptsCertificate = acceptsCertificate
         self.additionalProperties = additionalProperties
     }
 
@@ -36,6 +39,7 @@ public struct PostV1DeclarationsConfigsListResponseRowsItem: Codable, Hashable, 
         self.fields = try container.decode([PostV1DeclarationsConfigsListResponseRowsItemFieldsItem].self, forKey: .fields)
         self.endpoints = try container.decodeIfPresent([PostV1DeclarationsConfigsListResponseRowsItemEndpointsItem].self, forKey: .endpoints)
         self.values = try container.decode([String: String].self, forKey: .values)
+        self.acceptsCertificate = try container.decode(Bool.self, forKey: .acceptsCertificate)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -48,6 +52,7 @@ public struct PostV1DeclarationsConfigsListResponseRowsItem: Codable, Hashable, 
         try container.encode(self.fields, forKey: .fields)
         try container.encodeIfPresent(self.endpoints, forKey: .endpoints)
         try container.encode(self.values, forKey: .values)
+        try container.encode(self.acceptsCertificate, forKey: .acceptsCertificate)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -58,5 +63,6 @@ public struct PostV1DeclarationsConfigsListResponseRowsItem: Codable, Hashable, 
         case fields
         case endpoints
         case values
+        case acceptsCertificate
     }
 }

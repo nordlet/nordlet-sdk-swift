@@ -20,6 +20,11 @@ public struct PostV1PurchasesInvoicesListResponseRowsItem: Codable, Hashable, Se
     public let purchaseOrderId: Nullable<String>
     public let operationTypeId: Nullable<String>
     public let notes: Nullable<String>
+    public let intrastatTransportMode: Nullable<String>
+    public let intrastatDeliveryTerms: Nullable<String>
+    public let intrastatRegion: Nullable<String>
+    public let intrastatNatureOfTransaction: Nullable<String>
+    public let einvoiceNumber: Nullable<String>
     public let documentRef: Nullable<String>
     public let createdAt: String
     public let updatedAt: String
@@ -46,6 +51,11 @@ public struct PostV1PurchasesInvoicesListResponseRowsItem: Codable, Hashable, Se
         purchaseOrderId: Nullable<String>,
         operationTypeId: Nullable<String>,
         notes: Nullable<String>,
+        intrastatTransportMode: Nullable<String>,
+        intrastatDeliveryTerms: Nullable<String>,
+        intrastatRegion: Nullable<String>,
+        intrastatNatureOfTransaction: Nullable<String>,
+        einvoiceNumber: Nullable<String>,
         documentRef: Nullable<String>,
         createdAt: String,
         updatedAt: String,
@@ -70,6 +80,11 @@ public struct PostV1PurchasesInvoicesListResponseRowsItem: Codable, Hashable, Se
         self.purchaseOrderId = purchaseOrderId
         self.operationTypeId = operationTypeId
         self.notes = notes
+        self.intrastatTransportMode = intrastatTransportMode
+        self.intrastatDeliveryTerms = intrastatDeliveryTerms
+        self.intrastatRegion = intrastatRegion
+        self.intrastatNatureOfTransaction = intrastatNatureOfTransaction
+        self.einvoiceNumber = einvoiceNumber
         self.documentRef = documentRef
         self.createdAt = createdAt
         self.updatedAt = updatedAt
@@ -97,6 +112,11 @@ public struct PostV1PurchasesInvoicesListResponseRowsItem: Codable, Hashable, Se
         self.purchaseOrderId = try container.decode(Nullable<String>.self, forKey: .purchaseOrderId)
         self.operationTypeId = try container.decode(Nullable<String>.self, forKey: .operationTypeId)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
+        self.intrastatTransportMode = try container.decode(Nullable<String>.self, forKey: .intrastatTransportMode)
+        self.intrastatDeliveryTerms = try container.decode(Nullable<String>.self, forKey: .intrastatDeliveryTerms)
+        self.intrastatRegion = try container.decode(Nullable<String>.self, forKey: .intrastatRegion)
+        self.intrastatNatureOfTransaction = try container.decode(Nullable<String>.self, forKey: .intrastatNatureOfTransaction)
+        self.einvoiceNumber = try container.decode(Nullable<String>.self, forKey: .einvoiceNumber)
         self.documentRef = try container.decode(Nullable<String>.self, forKey: .documentRef)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
@@ -125,6 +145,11 @@ public struct PostV1PurchasesInvoicesListResponseRowsItem: Codable, Hashable, Se
         try container.encode(self.purchaseOrderId, forKey: .purchaseOrderId)
         try container.encode(self.operationTypeId, forKey: .operationTypeId)
         try container.encode(self.notes, forKey: .notes)
+        try container.encode(self.intrastatTransportMode, forKey: .intrastatTransportMode)
+        try container.encode(self.intrastatDeliveryTerms, forKey: .intrastatDeliveryTerms)
+        try container.encode(self.intrastatRegion, forKey: .intrastatRegion)
+        try container.encode(self.intrastatNatureOfTransaction, forKey: .intrastatNatureOfTransaction)
+        try container.encode(self.einvoiceNumber, forKey: .einvoiceNumber)
         try container.encode(self.documentRef, forKey: .documentRef)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
@@ -151,6 +176,11 @@ public struct PostV1PurchasesInvoicesListResponseRowsItem: Codable, Hashable, Se
         case purchaseOrderId
         case operationTypeId
         case notes
+        case intrastatTransportMode
+        case intrastatDeliveryTerms
+        case intrastatRegion
+        case intrastatNatureOfTransaction
+        case einvoiceNumber
         case documentRef
         case createdAt
         case updatedAt

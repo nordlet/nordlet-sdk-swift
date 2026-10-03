@@ -6,11 +6,16 @@ extension Requests {
         public let partnerId: String?
         public let documentNumber: String?
         public let documentDate: String?
-        public let dueDate: String?
+        public let dueDate: Nullable<String>?
         public let currency: String?
         public let purchaseOrderId: Nullable<String>?
         public let operationTypeId: Nullable<String>?
         public let notes: String?
+        public let intrastatTransportMode: Nullable<String>?
+        public let intrastatDeliveryTerms: Nullable<String>?
+        public let intrastatRegion: Nullable<String>?
+        public let intrastatNatureOfTransaction: Nullable<String>?
+        public let einvoiceNumber: Nullable<String>?
         public let lines: [PostV1PurchasesInvoicesUpdateRequestLinesItem]?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -20,11 +25,16 @@ extension Requests {
             partnerId: String? = nil,
             documentNumber: String? = nil,
             documentDate: String? = nil,
-            dueDate: String? = nil,
+            dueDate: Nullable<String>? = nil,
             currency: String? = nil,
             purchaseOrderId: Nullable<String>? = nil,
             operationTypeId: Nullable<String>? = nil,
             notes: String? = nil,
+            intrastatTransportMode: Nullable<String>? = nil,
+            intrastatDeliveryTerms: Nullable<String>? = nil,
+            intrastatRegion: Nullable<String>? = nil,
+            intrastatNatureOfTransaction: Nullable<String>? = nil,
+            einvoiceNumber: Nullable<String>? = nil,
             lines: [PostV1PurchasesInvoicesUpdateRequestLinesItem]? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -37,6 +47,11 @@ extension Requests {
             self.purchaseOrderId = purchaseOrderId
             self.operationTypeId = operationTypeId
             self.notes = notes
+            self.intrastatTransportMode = intrastatTransportMode
+            self.intrastatDeliveryTerms = intrastatDeliveryTerms
+            self.intrastatRegion = intrastatRegion
+            self.intrastatNatureOfTransaction = intrastatNatureOfTransaction
+            self.einvoiceNumber = einvoiceNumber
             self.lines = lines
             self.additionalProperties = additionalProperties
         }
@@ -47,11 +62,16 @@ extension Requests {
             self.partnerId = try container.decodeIfPresent(String.self, forKey: .partnerId)
             self.documentNumber = try container.decodeIfPresent(String.self, forKey: .documentNumber)
             self.documentDate = try container.decodeIfPresent(String.self, forKey: .documentDate)
-            self.dueDate = try container.decodeIfPresent(String.self, forKey: .dueDate)
+            self.dueDate = try container.decodeNullableIfPresent(String.self, forKey: .dueDate)
             self.currency = try container.decodeIfPresent(String.self, forKey: .currency)
             self.purchaseOrderId = try container.decodeNullableIfPresent(String.self, forKey: .purchaseOrderId)
             self.operationTypeId = try container.decodeNullableIfPresent(String.self, forKey: .operationTypeId)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
+            self.intrastatTransportMode = try container.decodeNullableIfPresent(String.self, forKey: .intrastatTransportMode)
+            self.intrastatDeliveryTerms = try container.decodeNullableIfPresent(String.self, forKey: .intrastatDeliveryTerms)
+            self.intrastatRegion = try container.decodeNullableIfPresent(String.self, forKey: .intrastatRegion)
+            self.intrastatNatureOfTransaction = try container.decodeNullableIfPresent(String.self, forKey: .intrastatNatureOfTransaction)
+            self.einvoiceNumber = try container.decodeNullableIfPresent(String.self, forKey: .einvoiceNumber)
             self.lines = try container.decodeIfPresent([PostV1PurchasesInvoicesUpdateRequestLinesItem].self, forKey: .lines)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -63,11 +83,16 @@ extension Requests {
             try container.encodeIfPresent(self.partnerId, forKey: .partnerId)
             try container.encodeIfPresent(self.documentNumber, forKey: .documentNumber)
             try container.encodeIfPresent(self.documentDate, forKey: .documentDate)
-            try container.encodeIfPresent(self.dueDate, forKey: .dueDate)
+            try container.encodeNullableIfPresent(self.dueDate, forKey: .dueDate)
             try container.encodeIfPresent(self.currency, forKey: .currency)
             try container.encodeNullableIfPresent(self.purchaseOrderId, forKey: .purchaseOrderId)
             try container.encodeNullableIfPresent(self.operationTypeId, forKey: .operationTypeId)
             try container.encodeIfPresent(self.notes, forKey: .notes)
+            try container.encodeNullableIfPresent(self.intrastatTransportMode, forKey: .intrastatTransportMode)
+            try container.encodeNullableIfPresent(self.intrastatDeliveryTerms, forKey: .intrastatDeliveryTerms)
+            try container.encodeNullableIfPresent(self.intrastatRegion, forKey: .intrastatRegion)
+            try container.encodeNullableIfPresent(self.intrastatNatureOfTransaction, forKey: .intrastatNatureOfTransaction)
+            try container.encodeNullableIfPresent(self.einvoiceNumber, forKey: .einvoiceNumber)
             try container.encodeIfPresent(self.lines, forKey: .lines)
         }
 
@@ -82,6 +107,11 @@ extension Requests {
             case purchaseOrderId
             case operationTypeId
             case notes
+            case intrastatTransportMode
+            case intrastatDeliveryTerms
+            case intrastatRegion
+            case intrastatNatureOfTransaction
+            case einvoiceNumber
             case lines
         }
     }

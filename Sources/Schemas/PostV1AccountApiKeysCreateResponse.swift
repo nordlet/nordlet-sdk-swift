@@ -5,6 +5,7 @@ public struct PostV1AccountApiKeysCreateResponse: Codable, Hashable, Sendable {
     public let name: String
     public let scopes: [String]
     public let key: String
+    public let expiresAt: Nullable<String>
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -13,12 +14,14 @@ public struct PostV1AccountApiKeysCreateResponse: Codable, Hashable, Sendable {
         name: String,
         scopes: [String],
         key: String,
+        expiresAt: Nullable<String>,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
         self.name = name
         self.scopes = scopes
         self.key = key
+        self.expiresAt = expiresAt
         self.additionalProperties = additionalProperties
     }
 
@@ -28,6 +31,7 @@ public struct PostV1AccountApiKeysCreateResponse: Codable, Hashable, Sendable {
         self.name = try container.decode(String.self, forKey: .name)
         self.scopes = try container.decode([String].self, forKey: .scopes)
         self.key = try container.decode(String.self, forKey: .key)
+        self.expiresAt = try container.decode(Nullable<String>.self, forKey: .expiresAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -38,6 +42,7 @@ public struct PostV1AccountApiKeysCreateResponse: Codable, Hashable, Sendable {
         try container.encode(self.name, forKey: .name)
         try container.encode(self.scopes, forKey: .scopes)
         try container.encode(self.key, forKey: .key)
+        try container.encode(self.expiresAt, forKey: .expiresAt)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -46,5 +51,6 @@ public struct PostV1AccountApiKeysCreateResponse: Codable, Hashable, Sendable {
         case name
         case scopes
         case key
+        case expiresAt
     }
 }

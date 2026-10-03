@@ -47,7 +47,7 @@ public final class PayrollClient: Sendable {
         )
     }
 
-    public func postV1PayrollCalc(request: Requests.PostV1PayrollCalcRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollCalcResponse {
+    public func calculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry(request: Requests.PostV1PayrollCalcRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollCalcResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/payroll/calc",
@@ -84,6 +84,19 @@ public final class PayrollClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: PostV1PayrollRunsListResponse.self
+        )
+    }
+
+    /// The days and hours worked, the days on the register and the average hourly earnings that some countries report per employment. The Czech monthly employer report asks for all four. They can be set while the run is a draft.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func recordTheTimeAPersonWorkedInAPayrollLine(request: Requests.PostV1PayrollLinesAttendanceRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollLinesAttendanceResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/payroll/lines/attendance",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1PayrollLinesAttendanceResponse.self
         )
     }
 

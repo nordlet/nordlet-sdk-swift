@@ -417,9 +417,7 @@ import Api
                       "isEu": true,
                       "isEea": true,
                       "names": {
-                        "lt": "lt",
-                        "en": "en",
-                        "ru": "ru"
+                        "key": "value"
                       }
                     }
                   ]
@@ -438,11 +436,9 @@ import Api
                     code: "code",
                     isEu: true,
                     isEea: true,
-                    names: PostV1ReferenceCountriesListResponseRowsItemNames(
-                        lt: "lt",
-                        en: "en",
-                        ru: "ru"
-                    )
+                    names: [
+                        "key": "value"
+                    ]
                 )
             ]
         )
@@ -465,9 +461,7 @@ import Api
                       "isEu": true,
                       "isEea": true,
                       "names": {
-                        "lt": "lt",
-                        "en": "en",
-                        "ru": "ru"
+                        "names": "names"
                       }
                     },
                     {
@@ -475,9 +469,7 @@ import Api
                       "isEu": true,
                       "isEea": true,
                       "names": {
-                        "lt": "lt",
-                        "en": "en",
-                        "ru": "ru"
+                        "names": "names"
                       }
                     }
                   ]
@@ -496,21 +488,17 @@ import Api
                     code: "code",
                     isEu: true,
                     isEea: true,
-                    names: PostV1ReferenceCountriesListResponseRowsItemNames(
-                        lt: "lt",
-                        en: "en",
-                        ru: "ru"
-                    )
+                    names: [
+                        "names": "names"
+                    ]
                 ),
                 PostV1ReferenceCountriesListResponseRowsItem(
                     code: "code",
                     isEu: true,
                     isEea: true,
-                    names: PostV1ReferenceCountriesListResponseRowsItemNames(
-                        lt: "lt",
-                        en: "en",
-                        ru: "ru"
-                    )
+                    names: [
+                        "names": "names"
+                    ]
                 )
             ]
         )

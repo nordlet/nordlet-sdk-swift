@@ -67,6 +67,16 @@ public final class AccountClient: Sendable {
         )
     }
 
+    public func postV1AccountMembersTransferOwnership(request: Requests.PostV1AccountMembersTransferOwnershipRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountMembersTransferOwnershipResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/members/transfer-ownership",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountMembersTransferOwnershipResponse.self
+        )
+    }
+
     public func postV1AccountMembersRemove(request: Requests.PostV1AccountMembersRemoveRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountMembersRemoveResponse {
         return try await httpClient.performRequest(
             method: .post,
@@ -227,6 +237,16 @@ public final class AccountClient: Sendable {
         )
     }
 
+    public func issueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlap(request: Requests.PostV1AccountApiKeysRotateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountApiKeysRotateResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/api-keys/rotate",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountApiKeysRotateResponse.self
+        )
+    }
+
     public func postV1AccountApiKeysRevoke(request: Requests.PostV1AccountApiKeysRevokeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountApiKeysRevokeResponse {
         return try await httpClient.performRequest(
             method: .post,
@@ -327,6 +347,16 @@ public final class AccountClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: PostV1AccountReferralGetResponse.self
+        )
+    }
+
+    public func postV1AccountReferralConvert(request: Requests.PostV1AccountReferralConvertRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountReferralConvertResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/referral/convert",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1AccountReferralConvertResponse.self
         )
     }
 

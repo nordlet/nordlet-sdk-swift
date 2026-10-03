@@ -4,7 +4,7 @@ extension Requests {
     public struct PostV1LedgerAccountsCreateRequest: Codable, Hashable, Sendable {
         public let code: String
         public let name: String
-        public let translations: PostV1LedgerAccountsCreateRequestTranslations?
+        public let translations: [String: PostV1LedgerAccountsCreateRequestTranslationsValue]?
         public let type: PostV1LedgerAccountsCreateRequestType
         public let parentId: String?
         public let isPostable: Bool?
@@ -14,7 +14,7 @@ extension Requests {
         public init(
             code: String,
             name: String,
-            translations: PostV1LedgerAccountsCreateRequestTranslations? = nil,
+            translations: [String: PostV1LedgerAccountsCreateRequestTranslationsValue]? = nil,
             type: PostV1LedgerAccountsCreateRequestType,
             parentId: String? = nil,
             isPostable: Bool? = nil,
@@ -33,7 +33,7 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.code = try container.decode(String.self, forKey: .code)
             self.name = try container.decode(String.self, forKey: .name)
-            self.translations = try container.decodeIfPresent(PostV1LedgerAccountsCreateRequestTranslations.self, forKey: .translations)
+            self.translations = try container.decodeIfPresent([String: PostV1LedgerAccountsCreateRequestTranslationsValue].self, forKey: .translations)
             self.type = try container.decode(PostV1LedgerAccountsCreateRequestType.self, forKey: .type)
             self.parentId = try container.decodeIfPresent(String.self, forKey: .parentId)
             self.isPostable = try container.decodeIfPresent(Bool.self, forKey: .isPostable)

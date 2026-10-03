@@ -5,6 +5,8 @@ public struct PostV1AccountApiKeysListResponseRowsItem: Codable, Hashable, Senda
     public let name: String
     public let scopes: [String]
     public let lastUsedAt: Nullable<String>
+    public let expiresAt: Nullable<String>
+    public let replacedByKeyId: Nullable<String>
     public let revokedAt: Nullable<String>
     public let createdAt: String
     /// Additional properties that are not explicitly defined in the schema
@@ -15,6 +17,8 @@ public struct PostV1AccountApiKeysListResponseRowsItem: Codable, Hashable, Senda
         name: String,
         scopes: [String],
         lastUsedAt: Nullable<String>,
+        expiresAt: Nullable<String>,
+        replacedByKeyId: Nullable<String>,
         revokedAt: Nullable<String>,
         createdAt: String,
         additionalProperties: [String: JSONValue] = .init()
@@ -23,6 +27,8 @@ public struct PostV1AccountApiKeysListResponseRowsItem: Codable, Hashable, Senda
         self.name = name
         self.scopes = scopes
         self.lastUsedAt = lastUsedAt
+        self.expiresAt = expiresAt
+        self.replacedByKeyId = replacedByKeyId
         self.revokedAt = revokedAt
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
@@ -34,6 +40,8 @@ public struct PostV1AccountApiKeysListResponseRowsItem: Codable, Hashable, Senda
         self.name = try container.decode(String.self, forKey: .name)
         self.scopes = try container.decode([String].self, forKey: .scopes)
         self.lastUsedAt = try container.decode(Nullable<String>.self, forKey: .lastUsedAt)
+        self.expiresAt = try container.decode(Nullable<String>.self, forKey: .expiresAt)
+        self.replacedByKeyId = try container.decode(Nullable<String>.self, forKey: .replacedByKeyId)
         self.revokedAt = try container.decode(Nullable<String>.self, forKey: .revokedAt)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -46,6 +54,8 @@ public struct PostV1AccountApiKeysListResponseRowsItem: Codable, Hashable, Senda
         try container.encode(self.name, forKey: .name)
         try container.encode(self.scopes, forKey: .scopes)
         try container.encode(self.lastUsedAt, forKey: .lastUsedAt)
+        try container.encode(self.expiresAt, forKey: .expiresAt)
+        try container.encode(self.replacedByKeyId, forKey: .replacedByKeyId)
         try container.encode(self.revokedAt, forKey: .revokedAt)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
@@ -56,6 +66,8 @@ public struct PostV1AccountApiKeysListResponseRowsItem: Codable, Hashable, Senda
         case name
         case scopes
         case lastUsedAt
+        case expiresAt
+        case replacedByKeyId
         case revokedAt
         case createdAt
     }

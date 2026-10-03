@@ -320,9 +320,12 @@ import Api
                   "socialInsuranceStart": "socialInsuranceStart",
                   "hireDate": "hireDate",
                   "terminationDate": "terminationDate",
-                  "applyNpd": true,
-                  "npdOverride": "npdOverride",
+                  "applyAllowance": true,
+                  "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
+                  "payrollOptions": {
+                    "key": "value"
+                  },
                   "status": "active",
                   "notes": "notes",
                   "attributes": [
@@ -361,9 +364,12 @@ import Api
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
             hireDate: Nullable<String>.value("hireDate"),
             terminationDate: Nullable<String>.value("terminationDate"),
-            applyNpd: true,
-            npdOverride: Nullable<String>.value("npdOverride"),
+            applyAllowance: true,
+            allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
+            payrollOptions: [
+                "key": "value"
+            ],
             status: .active,
             notes: Nullable<String>.value("notes"),
             attributes: Nullable<[PostV1HrEmployeesCreateResponseAttributesItem]>.value([
@@ -409,9 +415,12 @@ import Api
                   "socialInsuranceStart": "socialInsuranceStart",
                   "hireDate": "hireDate",
                   "terminationDate": "terminationDate",
-                  "applyNpd": true,
-                  "npdOverride": "npdOverride",
+                  "applyAllowance": true,
+                  "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
+                  "payrollOptions": {
+                    "payrollOptions": "payrollOptions"
+                  },
                   "status": "active",
                   "notes": "notes",
                   "attributes": [
@@ -454,9 +463,12 @@ import Api
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
             hireDate: Nullable<String>.value("hireDate"),
             terminationDate: Nullable<String>.value("terminationDate"),
-            applyNpd: true,
-            npdOverride: Nullable<String>.value("npdOverride"),
+            applyAllowance: true,
+            allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
+            payrollOptions: [
+                "payrollOptions": "payrollOptions"
+            ],
             status: .active,
             notes: Nullable<String>.value("notes"),
             attributes: Nullable<[PostV1HrEmployeesCreateResponseAttributesItem]>.value([
@@ -506,9 +518,12 @@ import Api
                   "socialInsuranceStart": "socialInsuranceStart",
                   "hireDate": "hireDate",
                   "terminationDate": "terminationDate",
-                  "applyNpd": true,
-                  "npdOverride": "npdOverride",
+                  "applyAllowance": true,
+                  "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
+                  "payrollOptions": {
+                    "key": "value"
+                  },
                   "status": "active",
                   "notes": "notes",
                   "attributes": [
@@ -547,9 +562,12 @@ import Api
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
             hireDate: Nullable<String>.value("hireDate"),
             terminationDate: Nullable<String>.value("terminationDate"),
-            applyNpd: true,
-            npdOverride: Nullable<String>.value("npdOverride"),
+            applyAllowance: true,
+            allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
+            payrollOptions: [
+                "key": "value"
+            ],
             status: .active,
             notes: Nullable<String>.value("notes"),
             attributes: Nullable<[PostV1HrEmployeesUpdateResponseAttributesItem]>.value([
@@ -592,9 +610,12 @@ import Api
                   "socialInsuranceStart": "socialInsuranceStart",
                   "hireDate": "hireDate",
                   "terminationDate": "terminationDate",
-                  "applyNpd": true,
-                  "npdOverride": "npdOverride",
+                  "applyAllowance": true,
+                  "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
+                  "payrollOptions": {
+                    "payrollOptions": "payrollOptions"
+                  },
                   "status": "active",
                   "notes": "notes",
                   "attributes": [
@@ -637,9 +658,12 @@ import Api
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
             hireDate: Nullable<String>.value("hireDate"),
             terminationDate: Nullable<String>.value("terminationDate"),
-            applyNpd: true,
-            npdOverride: Nullable<String>.value("npdOverride"),
+            applyAllowance: true,
+            allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
+            payrollOptions: [
+                "payrollOptions": "payrollOptions"
+            ],
             status: .active,
             notes: Nullable<String>.value("notes"),
             attributes: Nullable<[PostV1HrEmployeesUpdateResponseAttributesItem]>.value([
@@ -686,9 +710,12 @@ import Api
                   "socialInsuranceStart": "socialInsuranceStart",
                   "hireDate": "hireDate",
                   "terminationDate": "terminationDate",
-                  "applyNpd": true,
-                  "npdOverride": "npdOverride",
+                  "applyAllowance": true,
+                  "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
+                  "payrollOptions": {
+                    "key": "value"
+                  },
                   "status": "active",
                   "notes": "notes",
                   "attributes": [
@@ -727,9 +754,12 @@ import Api
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
             hireDate: Nullable<String>.value("hireDate"),
             terminationDate: Nullable<String>.value("terminationDate"),
-            applyNpd: true,
-            npdOverride: Nullable<String>.value("npdOverride"),
+            applyAllowance: true,
+            allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
+            payrollOptions: [
+                "key": "value"
+            ],
             status: .active,
             notes: Nullable<String>.value("notes"),
             attributes: Nullable<[PostV1HrEmployeesGetResponseAttributesItem]>.value([
@@ -772,9 +802,12 @@ import Api
                   "socialInsuranceStart": "socialInsuranceStart",
                   "hireDate": "hireDate",
                   "terminationDate": "terminationDate",
-                  "applyNpd": true,
-                  "npdOverride": "npdOverride",
+                  "applyAllowance": true,
+                  "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
+                  "payrollOptions": {
+                    "payrollOptions": "payrollOptions"
+                  },
                   "status": "active",
                   "notes": "notes",
                   "attributes": [
@@ -817,9 +850,12 @@ import Api
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
             hireDate: Nullable<String>.value("hireDate"),
             terminationDate: Nullable<String>.value("terminationDate"),
-            applyNpd: true,
-            npdOverride: Nullable<String>.value("npdOverride"),
+            applyAllowance: true,
+            allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
+            payrollOptions: [
+                "payrollOptions": "payrollOptions"
+            ],
             status: .active,
             notes: Nullable<String>.value("notes"),
             attributes: Nullable<[PostV1HrEmployeesGetResponseAttributesItem]>.value([
@@ -836,6 +872,118 @@ import Api
         )
         let response = try await client.hr.postV1HrEmployeesGet(
             request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func extraEmployeeDetailsTheCountryOfTheCompanyAsksFor1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "country": "country",
+                  "fields": [
+                    {
+                      "key": "key",
+                      "kind": "text",
+                      "options": [
+                        "options"
+                      ],
+                      "maxLength": 1000000
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1HrEmployeesFieldsResponse(
+            country: "country",
+            fields: [
+                PostV1HrEmployeesFieldsResponseFieldsItem(
+                    key: "key",
+                    kind: .text,
+                    options: Optional([
+                        "options"
+                    ]),
+                    maxLength: Optional(1000000)
+                )
+            ]
+        )
+        let response = try await client.hr.extraEmployeeDetailsTheCountryOfTheCompanyAsksFor(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func extraEmployeeDetailsTheCountryOfTheCompanyAsksFor2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "country": "country",
+                  "fields": [
+                    {
+                      "key": "key",
+                      "kind": "text",
+                      "options": [
+                        "options",
+                        "options"
+                      ],
+                      "maxLength": 1000000
+                    },
+                    {
+                      "key": "key",
+                      "kind": "text",
+                      "options": [
+                        "options",
+                        "options"
+                      ],
+                      "maxLength": 1000000
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostV1HrEmployeesFieldsResponse(
+            country: "country",
+            fields: [
+                PostV1HrEmployeesFieldsResponseFieldsItem(
+                    key: "key",
+                    kind: .text,
+                    options: Optional([
+                        "options",
+                        "options"
+                    ]),
+                    maxLength: Optional(1000000)
+                ),
+                PostV1HrEmployeesFieldsResponseFieldsItem(
+                    key: "key",
+                    kind: .text,
+                    options: Optional([
+                        "options",
+                        "options"
+                    ]),
+                    maxLength: Optional(1000000)
+                )
+            ]
+        )
+        let response = try await client.hr.extraEmployeeDetailsTheCountryOfTheCompanyAsksFor(
+            request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -863,9 +1011,12 @@ import Api
                       "socialInsuranceStart": "socialInsuranceStart",
                       "hireDate": "hireDate",
                       "terminationDate": "terminationDate",
-                      "applyNpd": true,
-                      "npdOverride": "npdOverride",
+                      "applyAllowance": true,
+                      "allowanceOverride": "allowanceOverride",
                       "pensionAccumulation": true,
+                      "payrollOptions": {
+                        "key": "value"
+                      },
                       "status": "active",
                       "notes": "notes",
                       "attributes": [
@@ -911,9 +1062,12 @@ import Api
                     socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
                     hireDate: Nullable<String>.value("hireDate"),
                     terminationDate: Nullable<String>.value("terminationDate"),
-                    applyNpd: true,
-                    npdOverride: Nullable<String>.value("npdOverride"),
+                    applyAllowance: true,
+                    allowanceOverride: Nullable<String>.value("allowanceOverride"),
                     pensionAccumulation: true,
+                    payrollOptions: [
+                        "key": "value"
+                    ],
                     status: .active,
                     notes: Nullable<String>.value("notes"),
                     attributes: Nullable<[PostV1HrEmployeesListResponseRowsItemAttributesItem]>.value([
@@ -966,9 +1120,12 @@ import Api
                       "socialInsuranceStart": "socialInsuranceStart",
                       "hireDate": "hireDate",
                       "terminationDate": "terminationDate",
-                      "applyNpd": true,
-                      "npdOverride": "npdOverride",
+                      "applyAllowance": true,
+                      "allowanceOverride": "allowanceOverride",
                       "pensionAccumulation": true,
+                      "payrollOptions": {
+                        "payrollOptions": "payrollOptions"
+                      },
                       "status": "active",
                       "notes": "notes",
                       "attributes": [
@@ -1003,9 +1160,12 @@ import Api
                       "socialInsuranceStart": "socialInsuranceStart",
                       "hireDate": "hireDate",
                       "terminationDate": "terminationDate",
-                      "applyNpd": true,
-                      "npdOverride": "npdOverride",
+                      "applyAllowance": true,
+                      "allowanceOverride": "allowanceOverride",
                       "pensionAccumulation": true,
+                      "payrollOptions": {
+                        "payrollOptions": "payrollOptions"
+                      },
                       "status": "active",
                       "notes": "notes",
                       "attributes": [
@@ -1058,9 +1218,12 @@ import Api
                     socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
                     hireDate: Nullable<String>.value("hireDate"),
                     terminationDate: Nullable<String>.value("terminationDate"),
-                    applyNpd: true,
-                    npdOverride: Nullable<String>.value("npdOverride"),
+                    applyAllowance: true,
+                    allowanceOverride: Nullable<String>.value("allowanceOverride"),
                     pensionAccumulation: true,
+                    payrollOptions: [
+                        "payrollOptions": "payrollOptions"
+                    ],
                     status: .active,
                     notes: Nullable<String>.value("notes"),
                     attributes: Nullable<[PostV1HrEmployeesListResponseRowsItemAttributesItem]>.value([
@@ -1095,9 +1258,12 @@ import Api
                     socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
                     hireDate: Nullable<String>.value("hireDate"),
                     terminationDate: Nullable<String>.value("terminationDate"),
-                    applyNpd: true,
-                    npdOverride: Nullable<String>.value("npdOverride"),
+                    applyAllowance: true,
+                    allowanceOverride: Nullable<String>.value("allowanceOverride"),
                     pensionAccumulation: true,
+                    payrollOptions: [
+                        "payrollOptions": "payrollOptions"
+                    ],
                     status: .active,
                     notes: Nullable<String>.value("notes"),
                     attributes: Nullable<[PostV1HrEmployeesListResponseRowsItemAttributesItem]>.value([
@@ -1204,9 +1370,12 @@ import Api
                   "socialInsuranceStart": "socialInsuranceStart",
                   "hireDate": "hireDate",
                   "terminationDate": "terminationDate",
-                  "applyNpd": true,
-                  "npdOverride": "npdOverride",
+                  "applyAllowance": true,
+                  "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
+                  "payrollOptions": {
+                    "key": "value"
+                  },
                   "status": "active",
                   "notes": "notes",
                   "attributes": [
@@ -1245,9 +1414,12 @@ import Api
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
             hireDate: Nullable<String>.value("hireDate"),
             terminationDate: Nullable<String>.value("terminationDate"),
-            applyNpd: true,
-            npdOverride: Nullable<String>.value("npdOverride"),
+            applyAllowance: true,
+            allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
+            payrollOptions: [
+                "key": "value"
+            ],
             status: .active,
             notes: Nullable<String>.value("notes"),
             attributes: Nullable<[PostV1HrEmployeesAnonymizeResponseAttributesItem]>.value([
@@ -1290,9 +1462,12 @@ import Api
                   "socialInsuranceStart": "socialInsuranceStart",
                   "hireDate": "hireDate",
                   "terminationDate": "terminationDate",
-                  "applyNpd": true,
-                  "npdOverride": "npdOverride",
+                  "applyAllowance": true,
+                  "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
+                  "payrollOptions": {
+                    "payrollOptions": "payrollOptions"
+                  },
                   "status": "active",
                   "notes": "notes",
                   "attributes": [
@@ -1335,9 +1510,12 @@ import Api
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
             hireDate: Nullable<String>.value("hireDate"),
             terminationDate: Nullable<String>.value("terminationDate"),
-            applyNpd: true,
-            npdOverride: Nullable<String>.value("npdOverride"),
+            applyAllowance: true,
+            allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
+            payrollOptions: [
+                "payrollOptions": "payrollOptions"
+            ],
             status: .active,
             notes: Nullable<String>.value("notes"),
             attributes: Nullable<[PostV1HrEmployeesAnonymizeResponseAttributesItem]>.value([

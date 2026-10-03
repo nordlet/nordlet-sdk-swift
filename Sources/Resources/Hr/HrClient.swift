@@ -67,6 +67,19 @@ public final class HrClient: Sendable {
         )
     }
 
+    /// Attributes a filing of the company country needs about a person that the shared employee record does not carry, such as the sex and place of birth an Italian income certificate asks for. Their values are kept in the payrollOptions of the employee.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func extraEmployeeDetailsTheCountryOfTheCompanyAsksFor(request: Requests.PostV1HrEmployeesFieldsRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesFieldsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/hr/employees/fields",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1HrEmployeesFieldsResponse.self
+        )
+    }
+
     public func postV1HrEmployeesList(request: Requests.PostV1HrEmployeesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesListResponse {
         return try await httpClient.performRequest(
             method: .post,

@@ -5,7 +5,6 @@ public struct PostV1AccountInvitesCreateResponse: Codable, Hashable, Sendable {
     public let email: String
     public let role: String
     public let expiresAt: String
-    public let inviteUrl: String
     public let emailSent: Bool
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -15,7 +14,6 @@ public struct PostV1AccountInvitesCreateResponse: Codable, Hashable, Sendable {
         email: String,
         role: String,
         expiresAt: String,
-        inviteUrl: String,
         emailSent: Bool,
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -23,7 +21,6 @@ public struct PostV1AccountInvitesCreateResponse: Codable, Hashable, Sendable {
         self.email = email
         self.role = role
         self.expiresAt = expiresAt
-        self.inviteUrl = inviteUrl
         self.emailSent = emailSent
         self.additionalProperties = additionalProperties
     }
@@ -34,7 +31,6 @@ public struct PostV1AccountInvitesCreateResponse: Codable, Hashable, Sendable {
         self.email = try container.decode(String.self, forKey: .email)
         self.role = try container.decode(String.self, forKey: .role)
         self.expiresAt = try container.decode(String.self, forKey: .expiresAt)
-        self.inviteUrl = try container.decode(String.self, forKey: .inviteUrl)
         self.emailSent = try container.decode(Bool.self, forKey: .emailSent)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -46,7 +42,6 @@ public struct PostV1AccountInvitesCreateResponse: Codable, Hashable, Sendable {
         try container.encode(self.email, forKey: .email)
         try container.encode(self.role, forKey: .role)
         try container.encode(self.expiresAt, forKey: .expiresAt)
-        try container.encode(self.inviteUrl, forKey: .inviteUrl)
         try container.encode(self.emailSent, forKey: .emailSent)
     }
 
@@ -56,7 +51,6 @@ public struct PostV1AccountInvitesCreateResponse: Codable, Hashable, Sendable {
         case email
         case role
         case expiresAt
-        case inviteUrl
         case emailSent
     }
 }

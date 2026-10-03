@@ -4,7 +4,7 @@ public struct PostV1LedgerAccountsCreateResponse: Codable, Hashable, Sendable {
     public let id: String
     public let code: String
     public let name: String
-    public let translations: Nullable<PostV1LedgerAccountsCreateResponseTranslations>
+    public let translations: Nullable<[String: Nullable<PostV1LedgerAccountsCreateResponseTranslationsValue>]>
     public let type: PostV1LedgerAccountsCreateResponseType
     public let parentId: Nullable<String>
     public let isPostable: Bool
@@ -16,7 +16,7 @@ public struct PostV1LedgerAccountsCreateResponse: Codable, Hashable, Sendable {
         id: String,
         code: String,
         name: String,
-        translations: Nullable<PostV1LedgerAccountsCreateResponseTranslations>,
+        translations: Nullable<[String: Nullable<PostV1LedgerAccountsCreateResponseTranslationsValue>]>,
         type: PostV1LedgerAccountsCreateResponseType,
         parentId: Nullable<String>,
         isPostable: Bool,
@@ -39,7 +39,7 @@ public struct PostV1LedgerAccountsCreateResponse: Codable, Hashable, Sendable {
         self.id = try container.decode(String.self, forKey: .id)
         self.code = try container.decode(String.self, forKey: .code)
         self.name = try container.decode(String.self, forKey: .name)
-        self.translations = try container.decode(Nullable<PostV1LedgerAccountsCreateResponseTranslations>.self, forKey: .translations)
+        self.translations = try container.decode(Nullable<[String: Nullable<PostV1LedgerAccountsCreateResponseTranslationsValue>]>.self, forKey: .translations)
         self.type = try container.decode(PostV1LedgerAccountsCreateResponseType.self, forKey: .type)
         self.parentId = try container.decode(Nullable<String>.self, forKey: .parentId)
         self.isPostable = try container.decode(Bool.self, forKey: .isPostable)

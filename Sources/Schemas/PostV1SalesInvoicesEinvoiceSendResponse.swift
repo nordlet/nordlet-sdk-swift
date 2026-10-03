@@ -4,7 +4,11 @@ public struct PostV1SalesInvoicesEinvoiceSendResponse: Codable, Hashable, Sendab
     public let sent: Bool
     public let system: String
     public let format: String
+    public let transport: PostV1SalesInvoicesEinvoiceSendResponseTransport
     public let messageId: String
+    public let nationalNumber: Nullable<String>
+    public let status: PostV1SalesInvoicesEinvoiceSendResponseStatus
+    public let detail: Nullable<String>
     public let fileId: String
     public let warnings: [String]
     /// Additional properties that are not explicitly defined in the schema
@@ -14,7 +18,11 @@ public struct PostV1SalesInvoicesEinvoiceSendResponse: Codable, Hashable, Sendab
         sent: Bool,
         system: String,
         format: String,
+        transport: PostV1SalesInvoicesEinvoiceSendResponseTransport,
         messageId: String,
+        nationalNumber: Nullable<String>,
+        status: PostV1SalesInvoicesEinvoiceSendResponseStatus,
+        detail: Nullable<String>,
         fileId: String,
         warnings: [String],
         additionalProperties: [String: JSONValue] = .init()
@@ -22,7 +30,11 @@ public struct PostV1SalesInvoicesEinvoiceSendResponse: Codable, Hashable, Sendab
         self.sent = sent
         self.system = system
         self.format = format
+        self.transport = transport
         self.messageId = messageId
+        self.nationalNumber = nationalNumber
+        self.status = status
+        self.detail = detail
         self.fileId = fileId
         self.warnings = warnings
         self.additionalProperties = additionalProperties
@@ -33,7 +45,11 @@ public struct PostV1SalesInvoicesEinvoiceSendResponse: Codable, Hashable, Sendab
         self.sent = try container.decode(Bool.self, forKey: .sent)
         self.system = try container.decode(String.self, forKey: .system)
         self.format = try container.decode(String.self, forKey: .format)
+        self.transport = try container.decode(PostV1SalesInvoicesEinvoiceSendResponseTransport.self, forKey: .transport)
         self.messageId = try container.decode(String.self, forKey: .messageId)
+        self.nationalNumber = try container.decode(Nullable<String>.self, forKey: .nationalNumber)
+        self.status = try container.decode(PostV1SalesInvoicesEinvoiceSendResponseStatus.self, forKey: .status)
+        self.detail = try container.decode(Nullable<String>.self, forKey: .detail)
         self.fileId = try container.decode(String.self, forKey: .fileId)
         self.warnings = try container.decode([String].self, forKey: .warnings)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -45,7 +61,11 @@ public struct PostV1SalesInvoicesEinvoiceSendResponse: Codable, Hashable, Sendab
         try container.encode(self.sent, forKey: .sent)
         try container.encode(self.system, forKey: .system)
         try container.encode(self.format, forKey: .format)
+        try container.encode(self.transport, forKey: .transport)
         try container.encode(self.messageId, forKey: .messageId)
+        try container.encode(self.nationalNumber, forKey: .nationalNumber)
+        try container.encode(self.status, forKey: .status)
+        try container.encode(self.detail, forKey: .detail)
         try container.encode(self.fileId, forKey: .fileId)
         try container.encode(self.warnings, forKey: .warnings)
     }
@@ -55,7 +75,11 @@ public struct PostV1SalesInvoicesEinvoiceSendResponse: Codable, Hashable, Sendab
         case sent
         case system
         case format
+        case transport
         case messageId
+        case nationalNumber
+        case status
+        case detail
         case fileId
         case warnings
     }

@@ -11,6 +11,8 @@ public struct PostV1BankSettlementsMatchResponse: Codable, Hashable, Sendable {
     public let description: Nullable<String>
     public let sourceId: Nullable<String>
     public let chargeId: Nullable<String>
+    public let commissionPercent: Nullable<String>
+    public let commissionAmount: Nullable<String>
     public let reference: Nullable<String>
     public let matchedInvoiceId: Nullable<String>
     public let matchStatus: PostV1BankSettlementsMatchResponseMatchStatus
@@ -28,6 +30,8 @@ public struct PostV1BankSettlementsMatchResponse: Codable, Hashable, Sendable {
         description: Nullable<String>,
         sourceId: Nullable<String>,
         chargeId: Nullable<String>,
+        commissionPercent: Nullable<String>,
+        commissionAmount: Nullable<String>,
         reference: Nullable<String>,
         matchedInvoiceId: Nullable<String>,
         matchStatus: PostV1BankSettlementsMatchResponseMatchStatus,
@@ -43,6 +47,8 @@ public struct PostV1BankSettlementsMatchResponse: Codable, Hashable, Sendable {
         self.description = description
         self.sourceId = sourceId
         self.chargeId = chargeId
+        self.commissionPercent = commissionPercent
+        self.commissionAmount = commissionAmount
         self.reference = reference
         self.matchedInvoiceId = matchedInvoiceId
         self.matchStatus = matchStatus
@@ -61,6 +67,8 @@ public struct PostV1BankSettlementsMatchResponse: Codable, Hashable, Sendable {
         self.description = try container.decode(Nullable<String>.self, forKey: .description)
         self.sourceId = try container.decode(Nullable<String>.self, forKey: .sourceId)
         self.chargeId = try container.decode(Nullable<String>.self, forKey: .chargeId)
+        self.commissionPercent = try container.decode(Nullable<String>.self, forKey: .commissionPercent)
+        self.commissionAmount = try container.decode(Nullable<String>.self, forKey: .commissionAmount)
         self.reference = try container.decode(Nullable<String>.self, forKey: .reference)
         self.matchedInvoiceId = try container.decode(Nullable<String>.self, forKey: .matchedInvoiceId)
         self.matchStatus = try container.decode(PostV1BankSettlementsMatchResponseMatchStatus.self, forKey: .matchStatus)
@@ -80,6 +88,8 @@ public struct PostV1BankSettlementsMatchResponse: Codable, Hashable, Sendable {
         try container.encode(self.description, forKey: .description)
         try container.encode(self.sourceId, forKey: .sourceId)
         try container.encode(self.chargeId, forKey: .chargeId)
+        try container.encode(self.commissionPercent, forKey: .commissionPercent)
+        try container.encode(self.commissionAmount, forKey: .commissionAmount)
         try container.encode(self.reference, forKey: .reference)
         try container.encode(self.matchedInvoiceId, forKey: .matchedInvoiceId)
         try container.encode(self.matchStatus, forKey: .matchStatus)
@@ -97,6 +107,8 @@ public struct PostV1BankSettlementsMatchResponse: Codable, Hashable, Sendable {
         case description
         case sourceId
         case chargeId
+        case commissionPercent
+        case commissionAmount
         case reference
         case matchedInvoiceId
         case matchStatus

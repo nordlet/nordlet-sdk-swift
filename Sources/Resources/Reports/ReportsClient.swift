@@ -147,6 +147,45 @@ public final class ReportsClient: Sendable {
         )
     }
 
+    /// Export the ledger of one financial year as an SIE file (the Swedish standard accounting interchange format, specification 4B). The file carries the chart of accounts, the opening and closing balance of every balance sheet account and the turnover of every result account for the year and the year before it, and, when asked for, every posted voucher of the year with its lines. Cost centres travel as dimension 1 and projects as dimension 6. Services that build a Swedish annual report read this file.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1ReportsSie(request: Requests.PostV1ReportsSieRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsSieResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/reports/sie",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ReportsSieResponse.self
+        )
+    }
+
+    /// Export the posted ledger of a period as a DATEV Buchungsstapel file (DATEV format, category 21, version 700). Every transaction becomes one or more bookings of an amount between an account and a contra account; a transaction with more than two lines is split into pairs whose totals match it. The file is semicolon separated and written in the Windows-1252 character set DATEV expects.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1ReportsDatev(request: Requests.PostV1ReportsDatevRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsDatevResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/reports/datev",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ReportsDatevResponse.self
+        )
+    }
+
+    /// Export the posted ledger of a period as a French FEC file (fichier des écritures comptables, order of 29 July 2013). One line per journal entry line, with the eighteen fields the order names, in their order, after a header line. Tab separated, UTF-8, comma as the decimal separator.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func postV1ReportsFec(request: Requests.PostV1ReportsFecRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsFecResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/reports/fec",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PostV1ReportsFecResponse.self
+        )
+    }
+
     public func postV1ReportsEuPurchases(request: Requests.PostV1ReportsEuPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsEuPurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,

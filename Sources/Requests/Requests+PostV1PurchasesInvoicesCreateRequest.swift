@@ -12,6 +12,11 @@ extension Requests {
         public let purchaseOrderId: String?
         public let operationTypeId: String?
         public let notes: String?
+        public let intrastatTransportMode: String?
+        public let intrastatDeliveryTerms: String?
+        public let intrastatRegion: String?
+        public let intrastatNatureOfTransaction: String?
+        public let einvoiceNumber: String?
         public let documentRef: String?
         public let lines: [PostV1PurchasesInvoicesCreateRequestLinesItem]
         /// Additional properties that are not explicitly defined in the schema
@@ -28,6 +33,11 @@ extension Requests {
             purchaseOrderId: String? = nil,
             operationTypeId: String? = nil,
             notes: String? = nil,
+            intrastatTransportMode: String? = nil,
+            intrastatDeliveryTerms: String? = nil,
+            intrastatRegion: String? = nil,
+            intrastatNatureOfTransaction: String? = nil,
+            einvoiceNumber: String? = nil,
             documentRef: String? = nil,
             lines: [PostV1PurchasesInvoicesCreateRequestLinesItem],
             additionalProperties: [String: JSONValue] = .init()
@@ -42,6 +52,11 @@ extension Requests {
             self.purchaseOrderId = purchaseOrderId
             self.operationTypeId = operationTypeId
             self.notes = notes
+            self.intrastatTransportMode = intrastatTransportMode
+            self.intrastatDeliveryTerms = intrastatDeliveryTerms
+            self.intrastatRegion = intrastatRegion
+            self.intrastatNatureOfTransaction = intrastatNatureOfTransaction
+            self.einvoiceNumber = einvoiceNumber
             self.documentRef = documentRef
             self.lines = lines
             self.additionalProperties = additionalProperties
@@ -59,6 +74,11 @@ extension Requests {
             self.purchaseOrderId = try container.decodeIfPresent(String.self, forKey: .purchaseOrderId)
             self.operationTypeId = try container.decodeIfPresent(String.self, forKey: .operationTypeId)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
+            self.intrastatTransportMode = try container.decodeIfPresent(String.self, forKey: .intrastatTransportMode)
+            self.intrastatDeliveryTerms = try container.decodeIfPresent(String.self, forKey: .intrastatDeliveryTerms)
+            self.intrastatRegion = try container.decodeIfPresent(String.self, forKey: .intrastatRegion)
+            self.intrastatNatureOfTransaction = try container.decodeIfPresent(String.self, forKey: .intrastatNatureOfTransaction)
+            self.einvoiceNumber = try container.decodeIfPresent(String.self, forKey: .einvoiceNumber)
             self.documentRef = try container.decodeIfPresent(String.self, forKey: .documentRef)
             self.lines = try container.decode([PostV1PurchasesInvoicesCreateRequestLinesItem].self, forKey: .lines)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -77,6 +97,11 @@ extension Requests {
             try container.encodeIfPresent(self.purchaseOrderId, forKey: .purchaseOrderId)
             try container.encodeIfPresent(self.operationTypeId, forKey: .operationTypeId)
             try container.encodeIfPresent(self.notes, forKey: .notes)
+            try container.encodeIfPresent(self.intrastatTransportMode, forKey: .intrastatTransportMode)
+            try container.encodeIfPresent(self.intrastatDeliveryTerms, forKey: .intrastatDeliveryTerms)
+            try container.encodeIfPresent(self.intrastatRegion, forKey: .intrastatRegion)
+            try container.encodeIfPresent(self.intrastatNatureOfTransaction, forKey: .intrastatNatureOfTransaction)
+            try container.encodeIfPresent(self.einvoiceNumber, forKey: .einvoiceNumber)
             try container.encodeIfPresent(self.documentRef, forKey: .documentRef)
             try container.encode(self.lines, forKey: .lines)
         }
@@ -93,6 +118,11 @@ extension Requests {
             case purchaseOrderId
             case operationTypeId
             case notes
+            case intrastatTransportMode
+            case intrastatDeliveryTerms
+            case intrastatRegion
+            case intrastatNatureOfTransaction
+            case einvoiceNumber
             case documentRef
             case lines
         }

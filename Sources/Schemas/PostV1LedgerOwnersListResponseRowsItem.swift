@@ -9,6 +9,10 @@ public struct PostV1LedgerOwnersListResponseRowsItem: Codable, Hashable, Sendabl
     public let sharesAmount: Nullable<String>
     public let sharesType: Nullable<String>
     public let sharesAcquisitionDate: Nullable<String>
+    public let withholdingTaxPercent: Nullable<String>
+    public let partnerLiability: Nullable<PostV1LedgerOwnersListResponseRowsItemPartnerLiability>
+    public let specialBalanceRequired: Nullable<Bool>
+    public let supplementaryBalanceRequired: Nullable<Bool>
     public let address: Nullable<PostV1LedgerOwnersListResponseRowsItemAddress>
     public let createdAt: String
     /// Additional properties that are not explicitly defined in the schema
@@ -23,6 +27,10 @@ public struct PostV1LedgerOwnersListResponseRowsItem: Codable, Hashable, Sendabl
         sharesAmount: Nullable<String>,
         sharesType: Nullable<String>,
         sharesAcquisitionDate: Nullable<String>,
+        withholdingTaxPercent: Nullable<String>,
+        partnerLiability: Nullable<PostV1LedgerOwnersListResponseRowsItemPartnerLiability>,
+        specialBalanceRequired: Nullable<Bool>,
+        supplementaryBalanceRequired: Nullable<Bool>,
         address: Nullable<PostV1LedgerOwnersListResponseRowsItemAddress>,
         createdAt: String,
         additionalProperties: [String: JSONValue] = .init()
@@ -35,6 +43,10 @@ public struct PostV1LedgerOwnersListResponseRowsItem: Codable, Hashable, Sendabl
         self.sharesAmount = sharesAmount
         self.sharesType = sharesType
         self.sharesAcquisitionDate = sharesAcquisitionDate
+        self.withholdingTaxPercent = withholdingTaxPercent
+        self.partnerLiability = partnerLiability
+        self.specialBalanceRequired = specialBalanceRequired
+        self.supplementaryBalanceRequired = supplementaryBalanceRequired
         self.address = address
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
@@ -50,6 +62,10 @@ public struct PostV1LedgerOwnersListResponseRowsItem: Codable, Hashable, Sendabl
         self.sharesAmount = try container.decode(Nullable<String>.self, forKey: .sharesAmount)
         self.sharesType = try container.decode(Nullable<String>.self, forKey: .sharesType)
         self.sharesAcquisitionDate = try container.decode(Nullable<String>.self, forKey: .sharesAcquisitionDate)
+        self.withholdingTaxPercent = try container.decode(Nullable<String>.self, forKey: .withholdingTaxPercent)
+        self.partnerLiability = try container.decode(Nullable<PostV1LedgerOwnersListResponseRowsItemPartnerLiability>.self, forKey: .partnerLiability)
+        self.specialBalanceRequired = try container.decode(Nullable<Bool>.self, forKey: .specialBalanceRequired)
+        self.supplementaryBalanceRequired = try container.decode(Nullable<Bool>.self, forKey: .supplementaryBalanceRequired)
         self.address = try container.decode(Nullable<PostV1LedgerOwnersListResponseRowsItemAddress>.self, forKey: .address)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -66,6 +82,10 @@ public struct PostV1LedgerOwnersListResponseRowsItem: Codable, Hashable, Sendabl
         try container.encode(self.sharesAmount, forKey: .sharesAmount)
         try container.encode(self.sharesType, forKey: .sharesType)
         try container.encode(self.sharesAcquisitionDate, forKey: .sharesAcquisitionDate)
+        try container.encode(self.withholdingTaxPercent, forKey: .withholdingTaxPercent)
+        try container.encode(self.partnerLiability, forKey: .partnerLiability)
+        try container.encode(self.specialBalanceRequired, forKey: .specialBalanceRequired)
+        try container.encode(self.supplementaryBalanceRequired, forKey: .supplementaryBalanceRequired)
         try container.encode(self.address, forKey: .address)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
@@ -80,6 +100,10 @@ public struct PostV1LedgerOwnersListResponseRowsItem: Codable, Hashable, Sendabl
         case sharesAmount
         case sharesType
         case sharesAcquisitionDate
+        case withholdingTaxPercent
+        case partnerLiability
+        case specialBalanceRequired
+        case supplementaryBalanceRequired
         case address
         case createdAt
     }
