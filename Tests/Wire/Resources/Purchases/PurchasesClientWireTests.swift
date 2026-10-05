@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("PurchasesClient Wire Tests") struct PurchasesClientWireTests {
-    @Test func postV1PurchasesInvoicesCreate1() async throws -> Void {
+    @Test func invoicesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -15,9 +15,9 @@ import Api
                   "status": "draft",
                   "paymentStatus": "unpaid",
                   "documentNumber": "documentNumber",
-                  "documentDate": "documentDate",
-                  "dueDate": "dueDate",
-                  "registrationDate": "registrationDate",
+                  "documentDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
+                  "registrationDate": "2026-07-01",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
@@ -34,8 +34,8 @@ import Api
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -65,16 +65,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesCreateResponse(
+        let expectedResponse = InvoicesCreatePurchasesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .invoice,
             status: .draft,
             paymentStatus: .unpaid,
             documentNumber: "documentNumber",
-            documentDate: "documentDate",
-            dueDate: Nullable<String>.value("dueDate"),
-            registrationDate: Nullable<String>.value("registrationDate"),
+            documentDate: CalendarDate("2026-07-01")!,
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            registrationDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
@@ -91,10 +91,10 @@ import Api
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesInvoicesCreateResponseLinesItem(
+                InvoicesCreatePurchasesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -114,13 +114,13 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesCreate(
+        let response = try await client.purchases.invoicesCreate(
             request: .init(
                 partnerId: "partnerId",
                 documentNumber: "documentNumber",
-                documentDate: "documentDate",
+                documentDate: CalendarDate("2026-07-01")!,
                 lines: [
-                    PostV1PurchasesInvoicesCreateRequestLinesItem(
+                    InvoicesCreatePurchasesRequestLinesItem(
 
                     )
                 ]
@@ -130,7 +130,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesInvoicesCreate2() async throws -> Void {
+    @Test func invoicesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -142,9 +142,9 @@ import Api
                   "status": "draft",
                   "paymentStatus": "unpaid",
                   "documentNumber": "documentNumber",
-                  "documentDate": "documentDate",
-                  "dueDate": "dueDate",
-                  "registrationDate": "registrationDate",
+                  "documentDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
+                  "registrationDate": "2023-01-15",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
@@ -161,8 +161,8 @@ import Api
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -210,16 +210,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesCreateResponse(
+        let expectedResponse = InvoicesCreatePurchasesResponse(
             id: "x",
             partnerId: "x",
             type: .invoice,
             status: .draft,
             paymentStatus: .unpaid,
             documentNumber: "documentNumber",
-            documentDate: "documentDate",
-            dueDate: Nullable<String>.value("dueDate"),
-            registrationDate: Nullable<String>.value("registrationDate"),
+            documentDate: CalendarDate("2023-01-15")!,
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            registrationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
@@ -236,10 +236,10 @@ import Api
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesInvoicesCreateResponseLinesItem(
+                InvoicesCreatePurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -257,7 +257,7 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 ),
-                PostV1PurchasesInvoicesCreateResponseLinesItem(
+                InvoicesCreatePurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -277,16 +277,16 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesCreate(
+        let response = try await client.purchases.invoicesCreate(
             request: .init(
                 partnerId: "x",
                 documentNumber: "x",
-                documentDate: "documentDate",
+                documentDate: CalendarDate("2023-01-15")!,
                 lines: [
-                    PostV1PurchasesInvoicesCreateRequestLinesItem(
+                    InvoicesCreatePurchasesRequestLinesItem(
 
                     ),
-                    PostV1PurchasesInvoicesCreateRequestLinesItem(
+                    InvoicesCreatePurchasesRequestLinesItem(
 
                     )
                 ]
@@ -296,7 +296,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesInvoicesGet1() async throws -> Void {
+    @Test func invoicesGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -308,9 +308,9 @@ import Api
                   "status": "draft",
                   "paymentStatus": "unpaid",
                   "documentNumber": "documentNumber",
-                  "documentDate": "documentDate",
-                  "dueDate": "dueDate",
-                  "registrationDate": "registrationDate",
+                  "documentDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
+                  "registrationDate": "2026-07-01",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
@@ -327,8 +327,8 @@ import Api
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -358,16 +358,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesGetResponse(
+        let expectedResponse = InvoicesGetPurchasesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .invoice,
             status: .draft,
             paymentStatus: .unpaid,
             documentNumber: "documentNumber",
-            documentDate: "documentDate",
-            dueDate: Nullable<String>.value("dueDate"),
-            registrationDate: Nullable<String>.value("registrationDate"),
+            documentDate: CalendarDate("2026-07-01")!,
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            registrationDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
@@ -384,10 +384,10 @@ import Api
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesInvoicesGetResponseLinesItem(
+                InvoicesGetPurchasesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -407,14 +407,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesGet(
+        let response = try await client.purchases.invoicesGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesInvoicesGet2() async throws -> Void {
+    @Test func invoicesGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -426,9 +426,9 @@ import Api
                   "status": "draft",
                   "paymentStatus": "unpaid",
                   "documentNumber": "documentNumber",
-                  "documentDate": "documentDate",
-                  "dueDate": "dueDate",
-                  "registrationDate": "registrationDate",
+                  "documentDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
+                  "registrationDate": "2023-01-15",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
@@ -445,8 +445,8 @@ import Api
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -494,16 +494,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesGetResponse(
+        let expectedResponse = InvoicesGetPurchasesResponse(
             id: "x",
             partnerId: "x",
             type: .invoice,
             status: .draft,
             paymentStatus: .unpaid,
             documentNumber: "documentNumber",
-            documentDate: "documentDate",
-            dueDate: Nullable<String>.value("dueDate"),
-            registrationDate: Nullable<String>.value("registrationDate"),
+            documentDate: CalendarDate("2023-01-15")!,
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            registrationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
@@ -520,10 +520,10 @@ import Api
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesInvoicesGetResponseLinesItem(
+                InvoicesGetPurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -541,7 +541,7 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 ),
-                PostV1PurchasesInvoicesGetResponseLinesItem(
+                InvoicesGetPurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -561,14 +561,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesGet(
+        let response = try await client.purchases.invoicesGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesInvoicesUpdate1() async throws -> Void {
+    @Test func invoicesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -580,9 +580,9 @@ import Api
                   "status": "draft",
                   "paymentStatus": "unpaid",
                   "documentNumber": "documentNumber",
-                  "documentDate": "documentDate",
-                  "dueDate": "dueDate",
-                  "registrationDate": "registrationDate",
+                  "documentDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
+                  "registrationDate": "2026-07-01",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
@@ -599,8 +599,8 @@ import Api
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -630,16 +630,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesUpdateResponse(
+        let expectedResponse = InvoicesUpdatePurchasesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .invoice,
             status: .draft,
             paymentStatus: .unpaid,
             documentNumber: "documentNumber",
-            documentDate: "documentDate",
-            dueDate: Nullable<String>.value("dueDate"),
-            registrationDate: Nullable<String>.value("registrationDate"),
+            documentDate: CalendarDate("2026-07-01")!,
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            registrationDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
@@ -656,10 +656,10 @@ import Api
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesInvoicesUpdateResponseLinesItem(
+                InvoicesUpdatePurchasesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -679,14 +679,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesUpdate(
+        let response = try await client.purchases.invoicesUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesInvoicesUpdate2() async throws -> Void {
+    @Test func invoicesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -698,9 +698,9 @@ import Api
                   "status": "draft",
                   "paymentStatus": "unpaid",
                   "documentNumber": "documentNumber",
-                  "documentDate": "documentDate",
-                  "dueDate": "dueDate",
-                  "registrationDate": "registrationDate",
+                  "documentDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
+                  "registrationDate": "2023-01-15",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
@@ -717,8 +717,8 @@ import Api
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -766,16 +766,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesUpdateResponse(
+        let expectedResponse = InvoicesUpdatePurchasesResponse(
             id: "x",
             partnerId: "x",
             type: .invoice,
             status: .draft,
             paymentStatus: .unpaid,
             documentNumber: "documentNumber",
-            documentDate: "documentDate",
-            dueDate: Nullable<String>.value("dueDate"),
-            registrationDate: Nullable<String>.value("registrationDate"),
+            documentDate: CalendarDate("2023-01-15")!,
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            registrationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
@@ -792,10 +792,10 @@ import Api
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesInvoicesUpdateResponseLinesItem(
+                InvoicesUpdatePurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -813,7 +813,7 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 ),
-                PostV1PurchasesInvoicesUpdateResponseLinesItem(
+                InvoicesUpdatePurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -833,14 +833,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesUpdate(
+        let response = try await client.purchases.invoicesUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesInvoicesDelete1() async throws -> Void {
+    @Test func invoicesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -856,17 +856,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesDeleteResponse(
+        let expectedResponse = InvoicesDeletePurchasesResponse(
             id: "id"
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesDelete(
+        let response = try await client.purchases.invoicesDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesInvoicesDelete2() async throws -> Void {
+    @Test func invoicesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -882,17 +882,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesDeleteResponse(
+        let expectedResponse = InvoicesDeletePurchasesResponse(
             id: "x"
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesDelete(
+        let response = try await client.purchases.invoicesDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesInvoicesRegister1() async throws -> Void {
+    @Test func invoicesRegister1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -904,9 +904,9 @@ import Api
                   "status": "draft",
                   "paymentStatus": "unpaid",
                   "documentNumber": "documentNumber",
-                  "documentDate": "documentDate",
-                  "dueDate": "dueDate",
-                  "registrationDate": "registrationDate",
+                  "documentDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
+                  "registrationDate": "2026-07-01",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
@@ -923,8 +923,8 @@ import Api
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -954,16 +954,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesRegisterResponse(
+        let expectedResponse = InvoicesRegisterPurchasesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .invoice,
             status: .draft,
             paymentStatus: .unpaid,
             documentNumber: "documentNumber",
-            documentDate: "documentDate",
-            dueDate: Nullable<String>.value("dueDate"),
-            registrationDate: Nullable<String>.value("registrationDate"),
+            documentDate: CalendarDate("2026-07-01")!,
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            registrationDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
@@ -980,10 +980,10 @@ import Api
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesInvoicesRegisterResponseLinesItem(
+                InvoicesRegisterPurchasesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -1003,14 +1003,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesRegister(
+        let response = try await client.purchases.invoicesRegister(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesInvoicesRegister2() async throws -> Void {
+    @Test func invoicesRegister2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1022,9 +1022,9 @@ import Api
                   "status": "draft",
                   "paymentStatus": "unpaid",
                   "documentNumber": "documentNumber",
-                  "documentDate": "documentDate",
-                  "dueDate": "dueDate",
-                  "registrationDate": "registrationDate",
+                  "documentDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
+                  "registrationDate": "2023-01-15",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
@@ -1041,8 +1041,8 @@ import Api
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -1090,16 +1090,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesRegisterResponse(
+        let expectedResponse = InvoicesRegisterPurchasesResponse(
             id: "x",
             partnerId: "x",
             type: .invoice,
             status: .draft,
             paymentStatus: .unpaid,
             documentNumber: "documentNumber",
-            documentDate: "documentDate",
-            dueDate: Nullable<String>.value("dueDate"),
-            registrationDate: Nullable<String>.value("registrationDate"),
+            documentDate: CalendarDate("2023-01-15")!,
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            registrationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
@@ -1116,10 +1116,10 @@ import Api
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesInvoicesRegisterResponseLinesItem(
+                InvoicesRegisterPurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -1137,7 +1137,7 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 ),
-                PostV1PurchasesInvoicesRegisterResponseLinesItem(
+                InvoicesRegisterPurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -1157,14 +1157,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesRegister(
+        let response = try await client.purchases.invoicesRegister(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesInvoicesList1() async throws -> Void {
+    @Test func invoicesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1178,9 +1178,9 @@ import Api
                       "status": "draft",
                       "paymentStatus": "unpaid",
                       "documentNumber": "documentNumber",
-                      "documentDate": "documentDate",
-                      "dueDate": "dueDate",
-                      "registrationDate": "registrationDate",
+                      "documentDate": "2026-07-01",
+                      "dueDate": "2026-07-01",
+                      "registrationDate": "2026-07-01",
                       "currency": "currency",
                       "netTotal": "netTotal",
                       "vatTotal": "vatTotal",
@@ -1197,8 +1197,9 @@ import Api
                       "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                       "einvoiceNumber": "einvoiceNumber",
                       "documentRef": "documentRef",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z",
+                      "partnerName": "partnerName"
                     }
                   ],
                   "page": 1000000,
@@ -1216,18 +1217,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesListResponse(
+        let expectedResponse = InvoicesListPurchasesResponse(
             rows: [
-                PostV1PurchasesInvoicesListResponseRowsItem(
+                InvoicesListPurchasesResponseRowsItem(
                     id: "id",
                     partnerId: "partnerId",
                     type: .invoice,
                     status: .draft,
                     paymentStatus: .unpaid,
                     documentNumber: "documentNumber",
-                    documentDate: "documentDate",
-                    dueDate: Nullable<String>.value("dueDate"),
-                    registrationDate: Nullable<String>.value("registrationDate"),
+                    documentDate: CalendarDate("2026-07-01")!,
+                    dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    registrationDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     currency: "currency",
                     netTotal: "netTotal",
                     vatTotal: "vatTotal",
@@ -1244,8 +1245,9 @@ import Api
                     intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
                     einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
                     documentRef: Nullable<String>.value("documentRef"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    partnerName: Nullable<String>.value("partnerName")
                 )
             ],
             page: 1000000,
@@ -1255,14 +1257,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesList(
+        let response = try await client.purchases.invoicesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesInvoicesList2() async throws -> Void {
+    @Test func invoicesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1276,9 +1278,9 @@ import Api
                       "status": "draft",
                       "paymentStatus": "unpaid",
                       "documentNumber": "documentNumber",
-                      "documentDate": "documentDate",
-                      "dueDate": "dueDate",
-                      "registrationDate": "registrationDate",
+                      "documentDate": "2023-01-15",
+                      "dueDate": "2023-01-15",
+                      "registrationDate": "2023-01-15",
                       "currency": "currency",
                       "netTotal": "netTotal",
                       "vatTotal": "vatTotal",
@@ -1295,8 +1297,9 @@ import Api
                       "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                       "einvoiceNumber": "einvoiceNumber",
                       "documentRef": "documentRef",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z",
+                      "partnerName": "partnerName"
                     },
                     {
                       "id": "x",
@@ -1305,9 +1308,9 @@ import Api
                       "status": "draft",
                       "paymentStatus": "unpaid",
                       "documentNumber": "documentNumber",
-                      "documentDate": "documentDate",
-                      "dueDate": "dueDate",
-                      "registrationDate": "registrationDate",
+                      "documentDate": "2023-01-15",
+                      "dueDate": "2023-01-15",
+                      "registrationDate": "2023-01-15",
                       "currency": "currency",
                       "netTotal": "netTotal",
                       "vatTotal": "vatTotal",
@@ -1324,8 +1327,9 @@ import Api
                       "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                       "einvoiceNumber": "einvoiceNumber",
                       "documentRef": "documentRef",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z",
+                      "partnerName": "partnerName"
                     }
                   ],
                   "page": 1000000,
@@ -1343,18 +1347,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesListResponse(
+        let expectedResponse = InvoicesListPurchasesResponse(
             rows: [
-                PostV1PurchasesInvoicesListResponseRowsItem(
+                InvoicesListPurchasesResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     type: .invoice,
                     status: .draft,
                     paymentStatus: .unpaid,
                     documentNumber: "documentNumber",
-                    documentDate: "documentDate",
-                    dueDate: Nullable<String>.value("dueDate"),
-                    registrationDate: Nullable<String>.value("registrationDate"),
+                    documentDate: CalendarDate("2023-01-15")!,
+                    dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    registrationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     currency: "currency",
                     netTotal: "netTotal",
                     vatTotal: "vatTotal",
@@ -1371,19 +1375,20 @@ import Api
                     intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
                     einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
                     documentRef: Nullable<String>.value("documentRef"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    partnerName: Nullable<String>.value("partnerName")
                 ),
-                PostV1PurchasesInvoicesListResponseRowsItem(
+                InvoicesListPurchasesResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     type: .invoice,
                     status: .draft,
                     paymentStatus: .unpaid,
                     documentNumber: "documentNumber",
-                    documentDate: "documentDate",
-                    dueDate: Nullable<String>.value("dueDate"),
-                    registrationDate: Nullable<String>.value("registrationDate"),
+                    documentDate: CalendarDate("2023-01-15")!,
+                    dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    registrationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     currency: "currency",
                     netTotal: "netTotal",
                     vatTotal: "vatTotal",
@@ -1400,8 +1405,9 @@ import Api
                     intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
                     einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
                     documentRef: Nullable<String>.value("documentRef"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    partnerName: Nullable<String>.value("partnerName")
                 )
             ],
             page: 1000000,
@@ -1411,14 +1417,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesList(
+        let response = try await client.purchases.invoicesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersCreate1() async throws -> Void {
+    @Test func ordersCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1428,19 +1434,19 @@ import Api
                   "partnerId": "partnerId",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2026-07-01",
+                  "expectedDate": "2026-07-01",
                   "warehouseId": "warehouseId",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -1472,26 +1478,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersCreateResponse(
+        let expectedResponse = OrdersCreatePurchasesResponse(
             id: "id",
             partnerId: "partnerId",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2026-07-01")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             warehouseId: Nullable<String>.value("warehouseId"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersCreateResponseLinesItem(
+                OrdersCreatePurchasesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -1513,12 +1519,12 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersCreate(
+        let response = try await client.purchases.ordersCreate(
             request: .init(
                 partnerId: "partnerId",
-                orderDate: "orderDate",
+                orderDate: CalendarDate("2026-07-01")!,
                 lines: [
-                    PostV1PurchasesOrdersCreateRequestLinesItem(
+                    OrdersCreatePurchasesRequestLinesItem(
 
                     )
                 ]
@@ -1528,7 +1534,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersCreate2() async throws -> Void {
+    @Test func ordersCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1538,19 +1544,19 @@ import Api
                   "partnerId": "x",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2023-01-15",
+                  "expectedDate": "2023-01-15",
                   "warehouseId": "x",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -1602,26 +1608,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersCreateResponse(
+        let expectedResponse = OrdersCreatePurchasesResponse(
             id: "x",
             partnerId: "x",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2023-01-15")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             warehouseId: Nullable<String>.value("x"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersCreateResponseLinesItem(
+                OrdersCreatePurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -1641,7 +1647,7 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 ),
-                PostV1PurchasesOrdersCreateResponseLinesItem(
+                OrdersCreatePurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -1663,15 +1669,15 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersCreate(
+        let response = try await client.purchases.ordersCreate(
             request: .init(
                 partnerId: "x",
-                orderDate: "orderDate",
+                orderDate: CalendarDate("2023-01-15")!,
                 lines: [
-                    PostV1PurchasesOrdersCreateRequestLinesItem(
+                    OrdersCreatePurchasesRequestLinesItem(
 
                     ),
-                    PostV1PurchasesOrdersCreateRequestLinesItem(
+                    OrdersCreatePurchasesRequestLinesItem(
 
                     )
                 ]
@@ -1681,7 +1687,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersUpdate1() async throws -> Void {
+    @Test func ordersUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1691,19 +1697,19 @@ import Api
                   "partnerId": "partnerId",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2026-07-01",
+                  "expectedDate": "2026-07-01",
                   "warehouseId": "warehouseId",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -1735,26 +1741,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersUpdateResponse(
+        let expectedResponse = OrdersUpdatePurchasesResponse(
             id: "id",
             partnerId: "partnerId",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2026-07-01")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             warehouseId: Nullable<String>.value("warehouseId"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersUpdateResponseLinesItem(
+                OrdersUpdatePurchasesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -1776,14 +1782,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersUpdate(
+        let response = try await client.purchases.ordersUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersUpdate2() async throws -> Void {
+    @Test func ordersUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1793,19 +1799,19 @@ import Api
                   "partnerId": "x",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2023-01-15",
+                  "expectedDate": "2023-01-15",
                   "warehouseId": "x",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -1857,26 +1863,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersUpdateResponse(
+        let expectedResponse = OrdersUpdatePurchasesResponse(
             id: "x",
             partnerId: "x",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2023-01-15")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             warehouseId: Nullable<String>.value("x"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersUpdateResponseLinesItem(
+                OrdersUpdatePurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -1896,7 +1902,7 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 ),
-                PostV1PurchasesOrdersUpdateResponseLinesItem(
+                OrdersUpdatePurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -1918,14 +1924,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersUpdate(
+        let response = try await client.purchases.ordersUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersGet1() async throws -> Void {
+    @Test func ordersGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1935,19 +1941,19 @@ import Api
                   "partnerId": "partnerId",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2026-07-01",
+                  "expectedDate": "2026-07-01",
                   "warehouseId": "warehouseId",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -1979,26 +1985,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersGetResponse(
+        let expectedResponse = OrdersGetPurchasesResponse(
             id: "id",
             partnerId: "partnerId",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2026-07-01")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             warehouseId: Nullable<String>.value("warehouseId"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersGetResponseLinesItem(
+                OrdersGetPurchasesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -2020,14 +2026,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersGet(
+        let response = try await client.purchases.ordersGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersGet2() async throws -> Void {
+    @Test func ordersGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2037,19 +2043,19 @@ import Api
                   "partnerId": "x",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2023-01-15",
+                  "expectedDate": "2023-01-15",
                   "warehouseId": "x",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -2101,26 +2107,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersGetResponse(
+        let expectedResponse = OrdersGetPurchasesResponse(
             id: "x",
             partnerId: "x",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2023-01-15")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             warehouseId: Nullable<String>.value("x"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersGetResponseLinesItem(
+                OrdersGetPurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -2140,7 +2146,7 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 ),
-                PostV1PurchasesOrdersGetResponseLinesItem(
+                OrdersGetPurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -2162,14 +2168,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersGet(
+        let response = try await client.purchases.ordersGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersList1() async throws -> Void {
+    @Test func ordersList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2181,19 +2187,20 @@ import Api
                       "partnerId": "partnerId",
                       "status": "draft",
                       "orderNumber": "orderNumber",
-                      "orderDate": "orderDate",
-                      "expectedDate": "expectedDate",
+                      "orderDate": "2026-07-01",
+                      "expectedDate": "2026-07-01",
                       "warehouseId": "warehouseId",
                       "currency": "currency",
                       "netTotal": "netTotal",
                       "vatTotal": "vatTotal",
                       "grossTotal": "grossTotal",
                       "approvedBy": "approvedBy",
-                      "approvedAt": "approvedAt",
+                      "approvedAt": "2026-07-01T09:30:00Z",
                       "notes": "notes",
                       "documentRef": "documentRef",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z",
+                      "partnerName": "partnerName"
                     }
                   ],
                   "page": 1000000,
@@ -2211,26 +2218,27 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersListResponse(
+        let expectedResponse = OrdersListPurchasesResponse(
             rows: [
-                PostV1PurchasesOrdersListResponseRowsItem(
+                OrdersListPurchasesResponseRowsItem(
                     id: "id",
                     partnerId: "partnerId",
                     status: .draft,
                     orderNumber: "orderNumber",
-                    orderDate: "orderDate",
-                    expectedDate: Nullable<String>.value("expectedDate"),
+                    orderDate: CalendarDate("2026-07-01")!,
+                    expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     warehouseId: Nullable<String>.value("warehouseId"),
                     currency: "currency",
                     netTotal: "netTotal",
                     vatTotal: "vatTotal",
                     grossTotal: "grossTotal",
                     approvedBy: Nullable<String>.value("approvedBy"),
-                    approvedAt: Nullable<String>.value("approvedAt"),
+                    approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    partnerName: Nullable<String>.value("partnerName")
                 )
             ],
             page: 1000000,
@@ -2240,14 +2248,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.purchases.postV1PurchasesOrdersList(
+        let response = try await client.purchases.ordersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersList2() async throws -> Void {
+    @Test func ordersList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2259,38 +2267,40 @@ import Api
                       "partnerId": "x",
                       "status": "draft",
                       "orderNumber": "orderNumber",
-                      "orderDate": "orderDate",
-                      "expectedDate": "expectedDate",
+                      "orderDate": "2023-01-15",
+                      "expectedDate": "2023-01-15",
                       "warehouseId": "x",
                       "currency": "currency",
                       "netTotal": "netTotal",
                       "vatTotal": "vatTotal",
                       "grossTotal": "grossTotal",
                       "approvedBy": "approvedBy",
-                      "approvedAt": "approvedAt",
+                      "approvedAt": "2024-01-15T09:30:00Z",
                       "notes": "notes",
                       "documentRef": "documentRef",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z",
+                      "partnerName": "partnerName"
                     },
                     {
                       "id": "x",
                       "partnerId": "x",
                       "status": "draft",
                       "orderNumber": "orderNumber",
-                      "orderDate": "orderDate",
-                      "expectedDate": "expectedDate",
+                      "orderDate": "2023-01-15",
+                      "expectedDate": "2023-01-15",
                       "warehouseId": "x",
                       "currency": "currency",
                       "netTotal": "netTotal",
                       "vatTotal": "vatTotal",
                       "grossTotal": "grossTotal",
                       "approvedBy": "approvedBy",
-                      "approvedAt": "approvedAt",
+                      "approvedAt": "2024-01-15T09:30:00Z",
                       "notes": "notes",
                       "documentRef": "documentRef",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z",
+                      "partnerName": "partnerName"
                     }
                   ],
                   "page": 1000000,
@@ -2308,45 +2318,47 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersListResponse(
+        let expectedResponse = OrdersListPurchasesResponse(
             rows: [
-                PostV1PurchasesOrdersListResponseRowsItem(
+                OrdersListPurchasesResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     status: .draft,
                     orderNumber: "orderNumber",
-                    orderDate: "orderDate",
-                    expectedDate: Nullable<String>.value("expectedDate"),
+                    orderDate: CalendarDate("2023-01-15")!,
+                    expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     warehouseId: Nullable<String>.value("x"),
                     currency: "currency",
                     netTotal: "netTotal",
                     vatTotal: "vatTotal",
                     grossTotal: "grossTotal",
                     approvedBy: Nullable<String>.value("approvedBy"),
-                    approvedAt: Nullable<String>.value("approvedAt"),
+                    approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    partnerName: Nullable<String>.value("partnerName")
                 ),
-                PostV1PurchasesOrdersListResponseRowsItem(
+                OrdersListPurchasesResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     status: .draft,
                     orderNumber: "orderNumber",
-                    orderDate: "orderDate",
-                    expectedDate: Nullable<String>.value("expectedDate"),
+                    orderDate: CalendarDate("2023-01-15")!,
+                    expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     warehouseId: Nullable<String>.value("x"),
                     currency: "currency",
                     netTotal: "netTotal",
                     vatTotal: "vatTotal",
                     grossTotal: "grossTotal",
                     approvedBy: Nullable<String>.value("approvedBy"),
-                    approvedAt: Nullable<String>.value("approvedAt"),
+                    approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    partnerName: Nullable<String>.value("partnerName")
                 )
             ],
             page: 1000000,
@@ -2356,14 +2368,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.purchases.postV1PurchasesOrdersList(
+        let response = try await client.purchases.ordersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersSubmit1() async throws -> Void {
+    @Test func ordersSubmit1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2373,19 +2385,19 @@ import Api
                   "partnerId": "partnerId",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2026-07-01",
+                  "expectedDate": "2026-07-01",
                   "warehouseId": "warehouseId",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -2417,26 +2429,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersSubmitResponse(
+        let expectedResponse = OrdersSubmitPurchasesResponse(
             id: "id",
             partnerId: "partnerId",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2026-07-01")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             warehouseId: Nullable<String>.value("warehouseId"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersSubmitResponseLinesItem(
+                OrdersSubmitPurchasesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -2458,14 +2470,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersSubmit(
+        let response = try await client.purchases.ordersSubmit(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersSubmit2() async throws -> Void {
+    @Test func ordersSubmit2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2475,19 +2487,19 @@ import Api
                   "partnerId": "x",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2023-01-15",
+                  "expectedDate": "2023-01-15",
                   "warehouseId": "x",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -2539,26 +2551,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersSubmitResponse(
+        let expectedResponse = OrdersSubmitPurchasesResponse(
             id: "x",
             partnerId: "x",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2023-01-15")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             warehouseId: Nullable<String>.value("x"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersSubmitResponseLinesItem(
+                OrdersSubmitPurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -2578,7 +2590,7 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 ),
-                PostV1PurchasesOrdersSubmitResponseLinesItem(
+                OrdersSubmitPurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -2600,14 +2612,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersSubmit(
+        let response = try await client.purchases.ordersSubmit(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersApprove1() async throws -> Void {
+    @Test func ordersApprove1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2617,19 +2629,19 @@ import Api
                   "partnerId": "partnerId",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2026-07-01",
+                  "expectedDate": "2026-07-01",
                   "warehouseId": "warehouseId",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -2661,26 +2673,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersApproveResponse(
+        let expectedResponse = OrdersApprovePurchasesResponse(
             id: "id",
             partnerId: "partnerId",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2026-07-01")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             warehouseId: Nullable<String>.value("warehouseId"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersApproveResponseLinesItem(
+                OrdersApprovePurchasesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -2702,14 +2714,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersApprove(
+        let response = try await client.purchases.ordersApprove(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersApprove2() async throws -> Void {
+    @Test func ordersApprove2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2719,19 +2731,19 @@ import Api
                   "partnerId": "x",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2023-01-15",
+                  "expectedDate": "2023-01-15",
                   "warehouseId": "x",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -2783,26 +2795,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersApproveResponse(
+        let expectedResponse = OrdersApprovePurchasesResponse(
             id: "x",
             partnerId: "x",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2023-01-15")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             warehouseId: Nullable<String>.value("x"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersApproveResponseLinesItem(
+                OrdersApprovePurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -2822,7 +2834,7 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 ),
-                PostV1PurchasesOrdersApproveResponseLinesItem(
+                OrdersApprovePurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -2844,14 +2856,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersApprove(
+        let response = try await client.purchases.ordersApprove(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersReject1() async throws -> Void {
+    @Test func ordersReject1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2861,19 +2873,19 @@ import Api
                   "partnerId": "partnerId",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2026-07-01",
+                  "expectedDate": "2026-07-01",
                   "warehouseId": "warehouseId",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -2905,26 +2917,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersRejectResponse(
+        let expectedResponse = OrdersRejectPurchasesResponse(
             id: "id",
             partnerId: "partnerId",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2026-07-01")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             warehouseId: Nullable<String>.value("warehouseId"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersRejectResponseLinesItem(
+                OrdersRejectPurchasesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -2946,14 +2958,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersReject(
+        let response = try await client.purchases.ordersReject(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersReject2() async throws -> Void {
+    @Test func ordersReject2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2963,19 +2975,19 @@ import Api
                   "partnerId": "x",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2023-01-15",
+                  "expectedDate": "2023-01-15",
                   "warehouseId": "x",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -3027,26 +3039,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersRejectResponse(
+        let expectedResponse = OrdersRejectPurchasesResponse(
             id: "x",
             partnerId: "x",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2023-01-15")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             warehouseId: Nullable<String>.value("x"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersRejectResponseLinesItem(
+                OrdersRejectPurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -3066,7 +3078,7 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 ),
-                PostV1PurchasesOrdersRejectResponseLinesItem(
+                OrdersRejectPurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -3088,14 +3100,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersReject(
+        let response = try await client.purchases.ordersReject(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersCancel1() async throws -> Void {
+    @Test func ordersCancel1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3105,19 +3117,19 @@ import Api
                   "partnerId": "partnerId",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2026-07-01",
+                  "expectedDate": "2026-07-01",
                   "warehouseId": "warehouseId",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -3149,26 +3161,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersCancelResponse(
+        let expectedResponse = OrdersCancelPurchasesResponse(
             id: "id",
             partnerId: "partnerId",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2026-07-01")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             warehouseId: Nullable<String>.value("warehouseId"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersCancelResponseLinesItem(
+                OrdersCancelPurchasesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -3190,14 +3202,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersCancel(
+        let response = try await client.purchases.ordersCancel(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersCancel2() async throws -> Void {
+    @Test func ordersCancel2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3207,19 +3219,19 @@ import Api
                   "partnerId": "x",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2023-01-15",
+                  "expectedDate": "2023-01-15",
                   "warehouseId": "x",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -3271,26 +3283,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersCancelResponse(
+        let expectedResponse = OrdersCancelPurchasesResponse(
             id: "x",
             partnerId: "x",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2023-01-15")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             warehouseId: Nullable<String>.value("x"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersCancelResponseLinesItem(
+                OrdersCancelPurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -3310,7 +3322,7 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 ),
-                PostV1PurchasesOrdersCancelResponseLinesItem(
+                OrdersCancelPurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -3332,14 +3344,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersCancel(
+        let response = try await client.purchases.ordersCancel(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersClose1() async throws -> Void {
+    @Test func ordersClose1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3349,19 +3361,19 @@ import Api
                   "partnerId": "partnerId",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2026-07-01",
+                  "expectedDate": "2026-07-01",
                   "warehouseId": "warehouseId",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -3393,26 +3405,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersCloseResponse(
+        let expectedResponse = OrdersClosePurchasesResponse(
             id: "id",
             partnerId: "partnerId",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2026-07-01")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             warehouseId: Nullable<String>.value("warehouseId"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersCloseResponseLinesItem(
+                OrdersClosePurchasesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -3434,14 +3446,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersClose(
+        let response = try await client.purchases.ordersClose(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersClose2() async throws -> Void {
+    @Test func ordersClose2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3451,19 +3463,19 @@ import Api
                   "partnerId": "x",
                   "status": "draft",
                   "orderNumber": "orderNumber",
-                  "orderDate": "orderDate",
-                  "expectedDate": "expectedDate",
+                  "orderDate": "2023-01-15",
+                  "expectedDate": "2023-01-15",
                   "warehouseId": "x",
                   "currency": "currency",
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
                   "approvedBy": "approvedBy",
-                  "approvedAt": "approvedAt",
+                  "approvedAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -3515,26 +3527,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersCloseResponse(
+        let expectedResponse = OrdersClosePurchasesResponse(
             id: "x",
             partnerId: "x",
             status: .draft,
             orderNumber: "orderNumber",
-            orderDate: "orderDate",
-            expectedDate: Nullable<String>.value("expectedDate"),
+            orderDate: CalendarDate("2023-01-15")!,
+            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             warehouseId: Nullable<String>.value("x"),
             currency: "currency",
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
             approvedBy: Nullable<String>.value("approvedBy"),
-            approvedAt: Nullable<String>.value("approvedAt"),
+            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesOrdersCloseResponseLinesItem(
+                OrdersClosePurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -3554,7 +3566,7 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 ),
-                PostV1PurchasesOrdersCloseResponseLinesItem(
+                OrdersClosePurchasesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -3576,14 +3588,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesOrdersClose(
+        let response = try await client.purchases.ordersClose(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersDelete1() async throws -> Void {
+    @Test func ordersDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3599,17 +3611,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersDeleteResponse(
+        let expectedResponse = OrdersDeletePurchasesResponse(
             id: "id"
         )
-        let response = try await client.purchases.postV1PurchasesOrdersDelete(
+        let response = try await client.purchases.ordersDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesOrdersDelete2() async throws -> Void {
+    @Test func ordersDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3625,17 +3637,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesOrdersDeleteResponse(
+        let expectedResponse = OrdersDeletePurchasesResponse(
             id: "x"
         )
-        let response = try await client.purchases.postV1PurchasesOrdersDelete(
+        let response = try await client.purchases.ordersDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesReceiptsCreate1() async throws -> Void {
+    @Test func receiptsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3644,10 +3656,10 @@ import Api
                   "id": "id",
                   "orderId": "orderId",
                   "receiptNumber": "receiptNumber",
-                  "receiptDate": "receiptDate",
+                  "receiptDate": "2026-07-01",
                   "warehouseId": "warehouseId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -3667,16 +3679,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesReceiptsCreateResponse(
+        let expectedResponse = ReceiptsCreatePurchasesResponse(
             id: "id",
             orderId: "orderId",
             receiptNumber: "receiptNumber",
-            receiptDate: "receiptDate",
+            receiptDate: CalendarDate("2026-07-01")!,
             warehouseId: "warehouseId",
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesReceiptsCreateResponseLinesItem(
+                ReceiptsCreatePurchasesResponseLinesItem(
                     id: "id",
                     orderLineId: "orderLineId",
                     itemId: Nullable<String>.value("itemId"),
@@ -3686,14 +3698,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesReceiptsCreate(
+        let response = try await client.purchases.receiptsCreate(
             request: .init(
                 orderId: "orderId",
-                receiptDate: "receiptDate",
+                receiptDate: CalendarDate("2026-07-01")!,
                 lines: [
-                    PostV1PurchasesReceiptsCreateRequestLinesItem(
+                    ReceiptsCreatePurchasesRequestLinesItem(
                         orderLineId: "orderLineId",
-                        quantity: "quantity"
+                        quantity: "121.0000"
                     )
                 ]
             ),
@@ -3702,7 +3714,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesReceiptsCreate2() async throws -> Void {
+    @Test func receiptsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3711,10 +3723,10 @@ import Api
                   "id": "x",
                   "orderId": "x",
                   "receiptNumber": "receiptNumber",
-                  "receiptDate": "receiptDate",
+                  "receiptDate": "2023-01-15",
                   "warehouseId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -3742,16 +3754,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesReceiptsCreateResponse(
+        let expectedResponse = ReceiptsCreatePurchasesResponse(
             id: "x",
             orderId: "x",
             receiptNumber: "receiptNumber",
-            receiptDate: "receiptDate",
+            receiptDate: CalendarDate("2023-01-15")!,
             warehouseId: "x",
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesReceiptsCreateResponseLinesItem(
+                ReceiptsCreatePurchasesResponseLinesItem(
                     id: "x",
                     orderLineId: "x",
                     itemId: Nullable<String>.value("x"),
@@ -3759,7 +3771,7 @@ import Api
                     unitCost: Nullable<String>.value("unitCost"),
                     stockMovementId: Nullable<String>.value("x")
                 ),
-                PostV1PurchasesReceiptsCreateResponseLinesItem(
+                ReceiptsCreatePurchasesResponseLinesItem(
                     id: "x",
                     orderLineId: "x",
                     itemId: Nullable<String>.value("x"),
@@ -3769,16 +3781,16 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesReceiptsCreate(
+        let response = try await client.purchases.receiptsCreate(
             request: .init(
                 orderId: "x",
-                receiptDate: "receiptDate",
+                receiptDate: CalendarDate("2023-01-15")!,
                 lines: [
-                    PostV1PurchasesReceiptsCreateRequestLinesItem(
+                    ReceiptsCreatePurchasesRequestLinesItem(
                         orderLineId: "x",
                         quantity: "quantity"
                     ),
-                    PostV1PurchasesReceiptsCreateRequestLinesItem(
+                    ReceiptsCreatePurchasesRequestLinesItem(
                         orderLineId: "x",
                         quantity: "quantity"
                     )
@@ -3789,7 +3801,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesReceiptsGet1() async throws -> Void {
+    @Test func receiptsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3798,10 +3810,10 @@ import Api
                   "id": "id",
                   "orderId": "orderId",
                   "receiptNumber": "receiptNumber",
-                  "receiptDate": "receiptDate",
+                  "receiptDate": "2026-07-01",
                   "warehouseId": "warehouseId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -3821,16 +3833,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesReceiptsGetResponse(
+        let expectedResponse = ReceiptsGetPurchasesResponse(
             id: "id",
             orderId: "orderId",
             receiptNumber: "receiptNumber",
-            receiptDate: "receiptDate",
+            receiptDate: CalendarDate("2026-07-01")!,
             warehouseId: "warehouseId",
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesReceiptsGetResponseLinesItem(
+                ReceiptsGetPurchasesResponseLinesItem(
                     id: "id",
                     orderLineId: "orderLineId",
                     itemId: Nullable<String>.value("itemId"),
@@ -3840,14 +3852,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesReceiptsGet(
+        let response = try await client.purchases.receiptsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesReceiptsGet2() async throws -> Void {
+    @Test func receiptsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3856,10 +3868,10 @@ import Api
                   "id": "x",
                   "orderId": "x",
                   "receiptNumber": "receiptNumber",
-                  "receiptDate": "receiptDate",
+                  "receiptDate": "2023-01-15",
                   "warehouseId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -3887,16 +3899,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesReceiptsGetResponse(
+        let expectedResponse = ReceiptsGetPurchasesResponse(
             id: "x",
             orderId: "x",
             receiptNumber: "receiptNumber",
-            receiptDate: "receiptDate",
+            receiptDate: CalendarDate("2023-01-15")!,
             warehouseId: "x",
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1PurchasesReceiptsGetResponseLinesItem(
+                ReceiptsGetPurchasesResponseLinesItem(
                     id: "x",
                     orderLineId: "x",
                     itemId: Nullable<String>.value("x"),
@@ -3904,7 +3916,7 @@ import Api
                     unitCost: Nullable<String>.value("unitCost"),
                     stockMovementId: Nullable<String>.value("x")
                 ),
-                PostV1PurchasesReceiptsGetResponseLinesItem(
+                ReceiptsGetPurchasesResponseLinesItem(
                     id: "x",
                     orderLineId: "x",
                     itemId: Nullable<String>.value("x"),
@@ -3914,14 +3926,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesReceiptsGet(
+        let response = try await client.purchases.receiptsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesReceiptsList1() async throws -> Void {
+    @Test func receiptsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3932,10 +3944,10 @@ import Api
                       "id": "id",
                       "orderId": "orderId",
                       "receiptNumber": "receiptNumber",
-                      "receiptDate": "receiptDate",
+                      "receiptDate": "2026-07-01",
                       "warehouseId": "warehouseId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -3953,16 +3965,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesReceiptsListResponse(
+        let expectedResponse = ReceiptsListPurchasesResponse(
             rows: [
-                PostV1PurchasesReceiptsListResponseRowsItem(
+                ReceiptsListPurchasesResponseRowsItem(
                     id: "id",
                     orderId: "orderId",
                     receiptNumber: "receiptNumber",
-                    receiptDate: "receiptDate",
+                    receiptDate: CalendarDate("2026-07-01")!,
                     warehouseId: "warehouseId",
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -3972,14 +3984,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.purchases.postV1PurchasesReceiptsList(
+        let response = try await client.purchases.receiptsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesReceiptsList2() async throws -> Void {
+    @Test func receiptsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3990,19 +4002,19 @@ import Api
                       "id": "x",
                       "orderId": "x",
                       "receiptNumber": "receiptNumber",
-                      "receiptDate": "receiptDate",
+                      "receiptDate": "2023-01-15",
                       "warehouseId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "orderId": "x",
                       "receiptNumber": "receiptNumber",
-                      "receiptDate": "receiptDate",
+                      "receiptDate": "2023-01-15",
                       "warehouseId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -4020,25 +4032,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesReceiptsListResponse(
+        let expectedResponse = ReceiptsListPurchasesResponse(
             rows: [
-                PostV1PurchasesReceiptsListResponseRowsItem(
+                ReceiptsListPurchasesResponseRowsItem(
                     id: "x",
                     orderId: "x",
                     receiptNumber: "receiptNumber",
-                    receiptDate: "receiptDate",
+                    receiptDate: CalendarDate("2023-01-15")!,
                     warehouseId: "x",
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1PurchasesReceiptsListResponseRowsItem(
+                ReceiptsListPurchasesResponseRowsItem(
                     id: "x",
                     orderId: "x",
                     receiptNumber: "receiptNumber",
-                    receiptDate: "receiptDate",
+                    receiptDate: CalendarDate("2023-01-15")!,
                     warehouseId: "x",
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -4048,14 +4060,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.purchases.postV1PurchasesReceiptsList(
+        let response = try await client.purchases.receiptsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesInvoicesMatch1() async throws -> Void {
+    @Test func invoicesMatch1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4086,12 +4098,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesMatchResponse(
+        let expectedResponse = InvoicesMatchPurchasesResponse(
             invoiceId: "invoiceId",
             orderId: "orderId",
             status: .matched,
             rows: [
-                PostV1PurchasesInvoicesMatchResponseRowsItem(
+                InvoicesMatchPurchasesResponseRowsItem(
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
                     orderedQty: "orderedQty",
@@ -4104,14 +4116,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesMatch(
+        let response = try await client.purchases.invoicesMatch(
             request: .init(invoiceId: "invoiceId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PurchasesInvoicesMatch2() async throws -> Void {
+    @Test func invoicesMatch2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4153,12 +4165,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PurchasesInvoicesMatchResponse(
+        let expectedResponse = InvoicesMatchPurchasesResponse(
             invoiceId: "x",
             orderId: "x",
             status: .matched,
             rows: [
-                PostV1PurchasesInvoicesMatchResponseRowsItem(
+                InvoicesMatchPurchasesResponseRowsItem(
                     itemId: Nullable<String>.value("x"),
                     description: "description",
                     orderedQty: "orderedQty",
@@ -4169,7 +4181,7 @@ import Api
                     priceVariancePercent: Nullable<String>.value("priceVariancePercent"),
                     status: .matched
                 ),
-                PostV1PurchasesInvoicesMatchResponseRowsItem(
+                InvoicesMatchPurchasesResponseRowsItem(
                     itemId: Nullable<String>.value("x"),
                     description: "description",
                     orderedQty: "orderedQty",
@@ -4182,7 +4194,7 @@ import Api
                 )
             ]
         )
-        let response = try await client.purchases.postV1PurchasesInvoicesMatch(
+        let response = try await client.purchases.invoicesMatch(
             request: .init(invoiceId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

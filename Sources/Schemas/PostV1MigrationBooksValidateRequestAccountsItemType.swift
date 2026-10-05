@@ -1,9 +1,0 @@
-import Foundation
-
-public enum PostV1MigrationBooksValidateRequestAccountsItemType: String, Codable, Hashable, CaseIterable, Sendable {
-    case asset
-    case liability
-    case equity
-    case income
-    case expense
-}

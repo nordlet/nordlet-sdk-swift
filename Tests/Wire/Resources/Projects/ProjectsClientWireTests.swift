@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("ProjectsClient Wire Tests") struct ProjectsClientWireTests {
-    @Test func postV1ProjectsCreate1() async throws -> Void {
+    @Test func create1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -15,8 +15,8 @@ import Api
                   "partnerId": "partnerId",
                   "status": "active",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -26,17 +26,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsCreateResponse(
+        let expectedResponse = CreateProjectsResponse(
             id: "id",
             code: "code",
             name: "name",
             partnerId: Nullable<String>.value("partnerId"),
             status: .active,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.projects.postV1ProjectsCreate(
+        let response = try await client.projects.create(
             request: .init(
                 code: "code",
                 name: "name"
@@ -46,7 +46,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsCreate2() async throws -> Void {
+    @Test func create2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -58,8 +58,8 @@ import Api
                   "partnerId": "x",
                   "status": "active",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -69,17 +69,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsCreateResponse(
+        let expectedResponse = CreateProjectsResponse(
             id: "x",
             code: "code",
             name: "name",
             partnerId: Nullable<String>.value("x"),
             status: .active,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.projects.postV1ProjectsCreate(
+        let response = try await client.projects.create(
             request: .init(
                 code: "x",
                 name: "x"
@@ -89,7 +89,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsUpdate1() async throws -> Void {
+    @Test func update1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -101,8 +101,8 @@ import Api
                   "partnerId": "partnerId",
                   "status": "active",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -112,24 +112,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsUpdateResponse(
+        let expectedResponse = UpdateProjectsResponse(
             id: "id",
             code: "code",
             name: "name",
             partnerId: Nullable<String>.value("partnerId"),
             status: .active,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.projects.postV1ProjectsUpdate(
+        let response = try await client.projects.update(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsUpdate2() async throws -> Void {
+    @Test func update2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -141,8 +141,8 @@ import Api
                   "partnerId": "x",
                   "status": "active",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -152,24 +152,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsUpdateResponse(
+        let expectedResponse = UpdateProjectsResponse(
             id: "x",
             code: "code",
             name: "name",
             partnerId: Nullable<String>.value("x"),
             status: .active,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.projects.postV1ProjectsUpdate(
+        let response = try await client.projects.update(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsGet1() async throws -> Void {
+    @Test func get1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -181,8 +181,8 @@ import Api
                   "partnerId": "partnerId",
                   "status": "active",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -192,24 +192,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsGetResponse(
+        let expectedResponse = GetProjectsResponse(
             id: "id",
             code: "code",
             name: "name",
             partnerId: Nullable<String>.value("partnerId"),
             status: .active,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.projects.postV1ProjectsGet(
+        let response = try await client.projects.get(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsGet2() async throws -> Void {
+    @Test func get2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -221,8 +221,8 @@ import Api
                   "partnerId": "x",
                   "status": "active",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -232,24 +232,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsGetResponse(
+        let expectedResponse = GetProjectsResponse(
             id: "x",
             code: "code",
             name: "name",
             partnerId: Nullable<String>.value("x"),
             status: .active,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.projects.postV1ProjectsGet(
+        let response = try await client.projects.get(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsList1() async throws -> Void {
+    @Test func list1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -263,8 +263,8 @@ import Api
                       "partnerId": "partnerId",
                       "status": "active",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -282,17 +282,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsListResponse(
+        let expectedResponse = ListProjectsResponse(
             rows: [
-                PostV1ProjectsListResponseRowsItem(
+                ListProjectsResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
                     partnerId: Nullable<String>.value("partnerId"),
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -302,14 +302,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.projects.postV1ProjectsList(
+        let response = try await client.projects.list(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsList2() async throws -> Void {
+    @Test func list2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -323,8 +323,8 @@ import Api
                       "partnerId": "x",
                       "status": "active",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -333,8 +333,8 @@ import Api
                       "partnerId": "x",
                       "status": "active",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -352,27 +352,27 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsListResponse(
+        let expectedResponse = ListProjectsResponse(
             rows: [
-                PostV1ProjectsListResponseRowsItem(
+                ListProjectsResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     partnerId: Nullable<String>.value("x"),
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1ProjectsListResponseRowsItem(
+                ListProjectsResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     partnerId: Nullable<String>.value("x"),
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -382,14 +382,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.projects.postV1ProjectsList(
+        let response = try await client.projects.list(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsTimeEntriesCreate1() async throws -> Void {
+    @Test func timeEntriesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -398,14 +398,14 @@ import Api
                   "id": "id",
                   "projectId": "projectId",
                   "employeeId": "employeeId",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "hours": "hours",
                   "description": "description",
                   "billable": true,
                   "hourlyRate": "hourlyRate",
                   "billedInvoiceId": "billedInvoiceId",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -415,31 +415,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsTimeEntriesCreateResponse(
+        let expectedResponse = TimeEntriesCreateProjectsResponse(
             id: "id",
             projectId: "projectId",
             employeeId: Nullable<String>.value("employeeId"),
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             hours: "hours",
             description: Nullable<String>.value("description"),
             billable: true,
             hourlyRate: Nullable<String>.value("hourlyRate"),
             billedInvoiceId: Nullable<String>.value("billedInvoiceId"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.projects.postV1ProjectsTimeEntriesCreate(
+        let response = try await client.projects.timeEntriesCreate(
             request: .init(
                 projectId: "projectId",
-                date: "date",
-                hours: "hours"
+                date: CalendarDate("2026-07-01")!,
+                hours: "121.00"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsTimeEntriesCreate2() async throws -> Void {
+    @Test func timeEntriesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -448,14 +448,14 @@ import Api
                   "id": "x",
                   "projectId": "x",
                   "employeeId": "x",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "hours": "hours",
                   "description": "description",
                   "billable": true,
                   "hourlyRate": "hourlyRate",
                   "billedInvoiceId": "billedInvoiceId",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -465,23 +465,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsTimeEntriesCreateResponse(
+        let expectedResponse = TimeEntriesCreateProjectsResponse(
             id: "x",
             projectId: "x",
             employeeId: Nullable<String>.value("x"),
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             hours: "hours",
             description: Nullable<String>.value("description"),
             billable: true,
             hourlyRate: Nullable<String>.value("hourlyRate"),
             billedInvoiceId: Nullable<String>.value("billedInvoiceId"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.projects.postV1ProjectsTimeEntriesCreate(
+        let response = try await client.projects.timeEntriesCreate(
             request: .init(
                 projectId: "x",
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 hours: "hours"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -489,7 +489,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsTimeEntriesUpdate1() async throws -> Void {
+    @Test func timeEntriesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -498,14 +498,14 @@ import Api
                   "id": "id",
                   "projectId": "projectId",
                   "employeeId": "employeeId",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "hours": "hours",
                   "description": "description",
                   "billable": true,
                   "hourlyRate": "hourlyRate",
                   "billedInvoiceId": "billedInvoiceId",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -515,27 +515,27 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsTimeEntriesUpdateResponse(
+        let expectedResponse = TimeEntriesUpdateProjectsResponse(
             id: "id",
             projectId: "projectId",
             employeeId: Nullable<String>.value("employeeId"),
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             hours: "hours",
             description: Nullable<String>.value("description"),
             billable: true,
             hourlyRate: Nullable<String>.value("hourlyRate"),
             billedInvoiceId: Nullable<String>.value("billedInvoiceId"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.projects.postV1ProjectsTimeEntriesUpdate(
+        let response = try await client.projects.timeEntriesUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsTimeEntriesUpdate2() async throws -> Void {
+    @Test func timeEntriesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -544,14 +544,14 @@ import Api
                   "id": "x",
                   "projectId": "x",
                   "employeeId": "x",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "hours": "hours",
                   "description": "description",
                   "billable": true,
                   "hourlyRate": "hourlyRate",
                   "billedInvoiceId": "billedInvoiceId",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -561,27 +561,27 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsTimeEntriesUpdateResponse(
+        let expectedResponse = TimeEntriesUpdateProjectsResponse(
             id: "x",
             projectId: "x",
             employeeId: Nullable<String>.value("x"),
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             hours: "hours",
             description: Nullable<String>.value("description"),
             billable: true,
             hourlyRate: Nullable<String>.value("hourlyRate"),
             billedInvoiceId: Nullable<String>.value("billedInvoiceId"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.projects.postV1ProjectsTimeEntriesUpdate(
+        let response = try await client.projects.timeEntriesUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsTimeEntriesDelete1() async throws -> Void {
+    @Test func timeEntriesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -597,17 +597,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsTimeEntriesDeleteResponse(
+        let expectedResponse = TimeEntriesDeleteProjectsResponse(
             id: "id"
         )
-        let response = try await client.projects.postV1ProjectsTimeEntriesDelete(
+        let response = try await client.projects.timeEntriesDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsTimeEntriesDelete2() async throws -> Void {
+    @Test func timeEntriesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -623,17 +623,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsTimeEntriesDeleteResponse(
+        let expectedResponse = TimeEntriesDeleteProjectsResponse(
             id: "x"
         )
-        let response = try await client.projects.postV1ProjectsTimeEntriesDelete(
+        let response = try await client.projects.timeEntriesDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsTimeEntriesList1() async throws -> Void {
+    @Test func timeEntriesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -644,14 +644,14 @@ import Api
                       "id": "id",
                       "projectId": "projectId",
                       "employeeId": "employeeId",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "hours": "hours",
                       "description": "description",
                       "billable": true,
                       "hourlyRate": "hourlyRate",
                       "billedInvoiceId": "billedInvoiceId",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -669,20 +669,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsTimeEntriesListResponse(
+        let expectedResponse = TimeEntriesListProjectsResponse(
             rows: [
-                PostV1ProjectsTimeEntriesListResponseRowsItem(
+                TimeEntriesListProjectsResponseRowsItem(
                     id: "id",
                     projectId: "projectId",
                     employeeId: Nullable<String>.value("employeeId"),
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     hours: "hours",
                     description: Nullable<String>.value("description"),
                     billable: true,
                     hourlyRate: Nullable<String>.value("hourlyRate"),
                     billedInvoiceId: Nullable<String>.value("billedInvoiceId"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -692,14 +692,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.projects.postV1ProjectsTimeEntriesList(
+        let response = try await client.projects.timeEntriesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsTimeEntriesList2() async throws -> Void {
+    @Test func timeEntriesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -710,27 +710,27 @@ import Api
                       "id": "x",
                       "projectId": "x",
                       "employeeId": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "hours": "hours",
                       "description": "description",
                       "billable": true,
                       "hourlyRate": "hourlyRate",
                       "billedInvoiceId": "billedInvoiceId",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "projectId": "x",
                       "employeeId": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "hours": "hours",
                       "description": "description",
                       "billable": true,
                       "hourlyRate": "hourlyRate",
                       "billedInvoiceId": "billedInvoiceId",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -748,33 +748,33 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsTimeEntriesListResponse(
+        let expectedResponse = TimeEntriesListProjectsResponse(
             rows: [
-                PostV1ProjectsTimeEntriesListResponseRowsItem(
+                TimeEntriesListProjectsResponseRowsItem(
                     id: "x",
                     projectId: "x",
                     employeeId: Nullable<String>.value("x"),
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     hours: "hours",
                     description: Nullable<String>.value("description"),
                     billable: true,
                     hourlyRate: Nullable<String>.value("hourlyRate"),
                     billedInvoiceId: Nullable<String>.value("billedInvoiceId"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1ProjectsTimeEntriesListResponseRowsItem(
+                TimeEntriesListProjectsResponseRowsItem(
                     id: "x",
                     projectId: "x",
                     employeeId: Nullable<String>.value("x"),
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     hours: "hours",
                     description: Nullable<String>.value("description"),
                     billable: true,
                     hourlyRate: Nullable<String>.value("hourlyRate"),
                     billedInvoiceId: Nullable<String>.value("billedInvoiceId"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -784,14 +784,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.projects.postV1ProjectsTimeEntriesList(
+        let response = try await client.projects.timeEntriesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsTimeEntriesBill1() async throws -> Void {
+    @Test func timeEntriesBill1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -812,7 +812,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsTimeEntriesBillResponse(
+        let expectedResponse = TimeEntriesBillProjectsResponse(
             invoiceId: "invoiceId",
             entryCount: 1000000,
             hours: "hours",
@@ -820,14 +820,14 @@ import Api
             vatTotal: "vatTotal",
             grossTotal: "grossTotal"
         )
-        let response = try await client.projects.postV1ProjectsTimeEntriesBill(
+        let response = try await client.projects.timeEntriesBill(
             request: .init(projectId: "projectId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsTimeEntriesBill2() async throws -> Void {
+    @Test func timeEntriesBill2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -848,7 +848,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsTimeEntriesBillResponse(
+        let expectedResponse = TimeEntriesBillProjectsResponse(
             invoiceId: "x",
             entryCount: 1000000,
             hours: "hours",
@@ -856,14 +856,14 @@ import Api
             vatTotal: "vatTotal",
             grossTotal: "grossTotal"
         )
-        let response = try await client.projects.postV1ProjectsTimeEntriesBill(
+        let response = try await client.projects.timeEntriesBill(
             request: .init(projectId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsReport1() async throws -> Void {
+    @Test func report1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -894,9 +894,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsReportResponse(
+        let expectedResponse = ReportProjectsResponse(
             rows: [
-                PostV1ProjectsReportResponseRowsItem(
+                ReportProjectsResponseRowsItem(
                     projectId: "projectId",
                     code: "code",
                     name: "name",
@@ -912,14 +912,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.projects.postV1ProjectsReport(
+        let response = try await client.projects.report(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProjectsReport2() async throws -> Void {
+    @Test func report2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -964,9 +964,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProjectsReportResponse(
+        let expectedResponse = ReportProjectsResponse(
             rows: [
-                PostV1ProjectsReportResponseRowsItem(
+                ReportProjectsResponseRowsItem(
                     projectId: "x",
                     code: "code",
                     name: "name",
@@ -980,7 +980,7 @@ import Api
                     unbilledHours: "unbilledHours",
                     unbilledAmount: "unbilledAmount"
                 ),
-                PostV1ProjectsReportResponseRowsItem(
+                ReportProjectsResponseRowsItem(
                     projectId: "x",
                     code: "code",
                     name: "name",
@@ -996,7 +996,7 @@ import Api
                 )
             ]
         )
-        let response = try await client.projects.postV1ProjectsReport(
+        let response = try await client.projects.report(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

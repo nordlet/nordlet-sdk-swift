@@ -7,126 +7,126 @@ public final class PayrollClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1PayrollDepartmentsCreate(request: Requests.PostV1PayrollDepartmentsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollDepartmentsCreateResponse {
+    public func departmentsCreate(request: Requests.DepartmentsCreatePayrollRequest, requestOptions: RequestOptions? = nil) async throws -> DepartmentsCreatePayrollResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/payroll/departments/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PayrollDepartmentsCreateResponse.self
+            responseType: DepartmentsCreatePayrollResponse.self
         )
     }
 
-    public func postV1PayrollDepartmentsList(request: Requests.PostV1PayrollDepartmentsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollDepartmentsListResponse {
+    public func departmentsList(request: Requests.DepartmentsListPayrollRequest, requestOptions: RequestOptions? = nil) async throws -> DepartmentsListPayrollResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/payroll/departments/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PayrollDepartmentsListResponse.self
+            responseType: DepartmentsListPayrollResponse.self
         )
     }
 
-    public func postV1PayrollSchedulesCreate(request: Requests.PostV1PayrollSchedulesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollSchedulesCreateResponse {
+    public func schedulesCreate(request: Requests.SchedulesCreatePayrollRequest, requestOptions: RequestOptions? = nil) async throws -> SchedulesCreatePayrollResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/payroll/schedules/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PayrollSchedulesCreateResponse.self
+            responseType: SchedulesCreatePayrollResponse.self
         )
     }
 
-    public func postV1PayrollSchedulesList(request: Requests.PostV1PayrollSchedulesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollSchedulesListResponse {
+    public func schedulesList(request: Requests.SchedulesListPayrollRequest, requestOptions: RequestOptions? = nil) async throws -> SchedulesListPayrollResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/payroll/schedules/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PayrollSchedulesListResponse.self
+            responseType: SchedulesListPayrollResponse.self
         )
     }
 
-    public func calculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry(request: Requests.PostV1PayrollCalcRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollCalcResponse {
+    public func calc(request: Requests.CalcPayrollRequest, requestOptions: RequestOptions? = nil) async throws -> CalcPayrollResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/payroll/calc",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PayrollCalcResponse.self
+            responseType: CalcPayrollResponse.self
         )
     }
 
-    public func postV1PayrollRunsCreate(request: Requests.PostV1PayrollRunsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollRunsCreateResponse {
+    public func runsCreate(request: Requests.RunsCreatePayrollRequest, requestOptions: RequestOptions? = nil) async throws -> RunsCreatePayrollResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/payroll/runs/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PayrollRunsCreateResponse.self
+            responseType: RunsCreatePayrollResponse.self
         )
     }
 
-    public func postV1PayrollRunsGet(request: Requests.PostV1PayrollRunsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollRunsGetResponse {
+    public func runsGet(request: Requests.RunsGetPayrollRequest, requestOptions: RequestOptions? = nil) async throws -> RunsGetPayrollResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/payroll/runs/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PayrollRunsGetResponse.self
+            responseType: RunsGetPayrollResponse.self
         )
     }
 
-    public func postV1PayrollRunsList(request: Requests.PostV1PayrollRunsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollRunsListResponse {
+    public func runsList(request: Requests.RunsListPayrollRequest, requestOptions: RequestOptions? = nil) async throws -> RunsListPayrollResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/payroll/runs/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PayrollRunsListResponse.self
+            responseType: RunsListPayrollResponse.self
         )
     }
 
     /// The days and hours worked, the days on the register and the average hourly earnings that some countries report per employment. The Czech monthly employer report asks for all four. They can be set while the run is a draft.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func recordTheTimeAPersonWorkedInAPayrollLine(request: Requests.PostV1PayrollLinesAttendanceRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollLinesAttendanceResponse {
+    public func linesAttendance(request: Requests.LinesAttendancePayrollRequest, requestOptions: RequestOptions? = nil) async throws -> LinesAttendancePayrollResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/payroll/lines/attendance",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PayrollLinesAttendanceResponse.self
+            responseType: LinesAttendancePayrollResponse.self
         )
     }
 
-    public func postV1PayrollRunsApprove(request: Requests.PostV1PayrollRunsApproveRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollRunsApproveResponse {
+    public func runsApprove(request: Requests.RunsApprovePayrollRequest, requestOptions: RequestOptions? = nil) async throws -> RunsApprovePayrollResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/payroll/runs/approve",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PayrollRunsApproveResponse.self
+            responseType: RunsApprovePayrollResponse.self
         )
     }
 
-    public func postV1PayrollRunsCancel(request: Requests.PostV1PayrollRunsCancelRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollRunsCancelResponse {
+    public func runsCancel(request: Requests.RunsCancelPayrollRequest, requestOptions: RequestOptions? = nil) async throws -> RunsCancelPayrollResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/payroll/runs/cancel",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PayrollRunsCancelResponse.self
+            responseType: RunsCancelPayrollResponse.self
         )
     }
 
-    public func postV1PayrollPaymentsExport(request: Requests.PostV1PayrollPaymentsExportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PayrollPaymentsExportResponse {
+    public func paymentsExport(request: Requests.PaymentsExportPayrollRequest, requestOptions: RequestOptions? = nil) async throws -> PaymentsExportPayrollResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/payroll/payments/export",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PayrollPaymentsExportResponse.self
+            responseType: PaymentsExportPayrollResponse.self
         )
     }
 }

@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("PosClient Wire Tests") struct PosClientWireTests {
-    @Test func postV1PosDevicesCreate1() async throws -> Void {
+    @Test func devicesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -16,7 +16,7 @@ import Api
                   "registrationNumber": "registrationNumber",
                   "address": "address",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -26,7 +26,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PosDevicesCreateResponse(
+        let expectedResponse = DevicesCreatePosResponse(
             id: "id",
             name: "name",
             serialNumber: "serialNumber",
@@ -34,9 +34,9 @@ import Api
             registrationNumber: Nullable<String>.value("registrationNumber"),
             address: Nullable<String>.value("address"),
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.pos.postV1PosDevicesCreate(
+        let response = try await client.pos.devicesCreate(
             request: .init(
                 name: "name",
                 serialNumber: "serialNumber"
@@ -46,7 +46,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PosDevicesCreate2() async throws -> Void {
+    @Test func devicesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -59,7 +59,7 @@ import Api
                   "registrationNumber": "registrationNumber",
                   "address": "address",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -69,7 +69,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PosDevicesCreateResponse(
+        let expectedResponse = DevicesCreatePosResponse(
             id: "x",
             name: "name",
             serialNumber: "serialNumber",
@@ -77,9 +77,9 @@ import Api
             registrationNumber: Nullable<String>.value("registrationNumber"),
             address: Nullable<String>.value("address"),
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.pos.postV1PosDevicesCreate(
+        let response = try await client.pos.devicesCreate(
             request: .init(
                 name: "x",
                 serialNumber: "x"
@@ -89,7 +89,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PosDevicesUpdate1() async throws -> Void {
+    @Test func devicesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -102,7 +102,7 @@ import Api
                   "registrationNumber": "registrationNumber",
                   "address": "address",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -112,7 +112,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PosDevicesUpdateResponse(
+        let expectedResponse = DevicesUpdatePosResponse(
             id: "id",
             name: "name",
             serialNumber: "serialNumber",
@@ -120,16 +120,16 @@ import Api
             registrationNumber: Nullable<String>.value("registrationNumber"),
             address: Nullable<String>.value("address"),
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.pos.postV1PosDevicesUpdate(
+        let response = try await client.pos.devicesUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PosDevicesUpdate2() async throws -> Void {
+    @Test func devicesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -142,7 +142,7 @@ import Api
                   "registrationNumber": "registrationNumber",
                   "address": "address",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -152,7 +152,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PosDevicesUpdateResponse(
+        let expectedResponse = DevicesUpdatePosResponse(
             id: "x",
             name: "name",
             serialNumber: "serialNumber",
@@ -160,16 +160,16 @@ import Api
             registrationNumber: Nullable<String>.value("registrationNumber"),
             address: Nullable<String>.value("address"),
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.pos.postV1PosDevicesUpdate(
+        let response = try await client.pos.devicesUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PosDevicesList1() async throws -> Void {
+    @Test func devicesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -184,7 +184,7 @@ import Api
                       "registrationNumber": "registrationNumber",
                       "address": "address",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -202,9 +202,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PosDevicesListResponse(
+        let expectedResponse = DevicesListPosResponse(
             rows: [
-                PostV1PosDevicesListResponseRowsItem(
+                DevicesListPosResponseRowsItem(
                     id: "id",
                     name: "name",
                     serialNumber: "serialNumber",
@@ -212,7 +212,7 @@ import Api
                     registrationNumber: Nullable<String>.value("registrationNumber"),
                     address: Nullable<String>.value("address"),
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -222,14 +222,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.pos.postV1PosDevicesList(
+        let response = try await client.pos.devicesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PosDevicesList2() async throws -> Void {
+    @Test func devicesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -244,7 +244,7 @@ import Api
                       "registrationNumber": "registrationNumber",
                       "address": "address",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -254,7 +254,7 @@ import Api
                       "registrationNumber": "registrationNumber",
                       "address": "address",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -272,9 +272,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PosDevicesListResponse(
+        let expectedResponse = DevicesListPosResponse(
             rows: [
-                PostV1PosDevicesListResponseRowsItem(
+                DevicesListPosResponseRowsItem(
                     id: "x",
                     name: "name",
                     serialNumber: "serialNumber",
@@ -282,9 +282,9 @@ import Api
                     registrationNumber: Nullable<String>.value("registrationNumber"),
                     address: Nullable<String>.value("address"),
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1PosDevicesListResponseRowsItem(
+                DevicesListPosResponseRowsItem(
                     id: "x",
                     name: "name",
                     serialNumber: "serialNumber",
@@ -292,7 +292,7 @@ import Api
                     registrationNumber: Nullable<String>.value("registrationNumber"),
                     address: Nullable<String>.value("address"),
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -302,14 +302,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.pos.postV1PosDevicesList(
+        let response = try await client.pos.devicesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PosReportsCreate1() async throws -> Void {
+    @Test func reportsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -317,7 +317,7 @@ import Api
                 {
                   "id": "id",
                   "reportNumber": "reportNumber",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "deviceId": "deviceId",
                   "warehouseId": "warehouseId",
                   "netTotal": "netTotal",
@@ -328,7 +328,7 @@ import Api
                   "cogsTotal": "cogsTotal",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "vatLines": [
                     {
                       "vatRatePercent": "vatRatePercent",
@@ -345,10 +345,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PosReportsCreateResponse(
+        let expectedResponse = ReportsCreatePosResponse(
             id: "id",
             reportNumber: "reportNumber",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             deviceId: Nullable<String>.value("deviceId"),
             warehouseId: Nullable<String>.value("warehouseId"),
             netTotal: "netTotal",
@@ -359,24 +359,24 @@ import Api
             cogsTotal: Nullable<String>.value("cogsTotal"),
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             vatLines: [
-                PostV1PosReportsCreateResponseVatLinesItem(
+                ReportsCreatePosResponseVatLinesItem(
                     vatRatePercent: "vatRatePercent",
                     netAmount: "netAmount",
                     vatAmount: "vatAmount"
                 )
             ]
         )
-        let response = try await client.pos.postV1PosReportsCreate(
+        let response = try await client.pos.reportsCreate(
             request: .init(
                 reportNumber: "reportNumber",
-                date: "date",
+                date: CalendarDate("2026-07-01")!,
                 vatLines: [
-                    PostV1PosReportsCreateRequestVatLinesItem(
-                        vatRatePercent: "vatRatePercent",
-                        netAmount: "netAmount",
-                        vatAmount: "vatAmount"
+                    ReportsCreatePosRequestVatLinesItem(
+                        vatRatePercent: "121.00",
+                        netAmount: "121.0000",
+                        vatAmount: "121.0000"
                     )
                 ]
             ),
@@ -385,7 +385,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PosReportsCreate2() async throws -> Void {
+    @Test func reportsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -393,7 +393,7 @@ import Api
                 {
                   "id": "x",
                   "reportNumber": "reportNumber",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "deviceId": "x",
                   "warehouseId": "x",
                   "netTotal": "netTotal",
@@ -404,7 +404,7 @@ import Api
                   "cogsTotal": "cogsTotal",
                   "journalTransactionId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "vatLines": [
                     {
                       "vatRatePercent": "vatRatePercent",
@@ -426,10 +426,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PosReportsCreateResponse(
+        let expectedResponse = ReportsCreatePosResponse(
             id: "x",
             reportNumber: "reportNumber",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             deviceId: Nullable<String>.value("x"),
             warehouseId: Nullable<String>.value("x"),
             netTotal: "netTotal",
@@ -440,31 +440,31 @@ import Api
             cogsTotal: Nullable<String>.value("cogsTotal"),
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             vatLines: [
-                PostV1PosReportsCreateResponseVatLinesItem(
+                ReportsCreatePosResponseVatLinesItem(
                     vatRatePercent: "vatRatePercent",
                     netAmount: "netAmount",
                     vatAmount: "vatAmount"
                 ),
-                PostV1PosReportsCreateResponseVatLinesItem(
+                ReportsCreatePosResponseVatLinesItem(
                     vatRatePercent: "vatRatePercent",
                     netAmount: "netAmount",
                     vatAmount: "vatAmount"
                 )
             ]
         )
-        let response = try await client.pos.postV1PosReportsCreate(
+        let response = try await client.pos.reportsCreate(
             request: .init(
                 reportNumber: "x",
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 vatLines: [
-                    PostV1PosReportsCreateRequestVatLinesItem(
+                    ReportsCreatePosRequestVatLinesItem(
                         vatRatePercent: "vatRatePercent",
                         netAmount: "netAmount",
                         vatAmount: "vatAmount"
                     ),
-                    PostV1PosReportsCreateRequestVatLinesItem(
+                    ReportsCreatePosRequestVatLinesItem(
                         vatRatePercent: "vatRatePercent",
                         netAmount: "netAmount",
                         vatAmount: "vatAmount"
@@ -476,7 +476,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PosReportsGet1() async throws -> Void {
+    @Test func reportsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -484,7 +484,7 @@ import Api
                 {
                   "id": "id",
                   "reportNumber": "reportNumber",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "deviceId": "deviceId",
                   "warehouseId": "warehouseId",
                   "netTotal": "netTotal",
@@ -495,7 +495,7 @@ import Api
                   "cogsTotal": "cogsTotal",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "vatLines": [
                     {
                       "vatRatePercent": "vatRatePercent",
@@ -512,10 +512,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PosReportsGetResponse(
+        let expectedResponse = ReportsGetPosResponse(
             id: "id",
             reportNumber: "reportNumber",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             deviceId: Nullable<String>.value("deviceId"),
             warehouseId: Nullable<String>.value("warehouseId"),
             netTotal: "netTotal",
@@ -526,23 +526,23 @@ import Api
             cogsTotal: Nullable<String>.value("cogsTotal"),
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             vatLines: [
-                PostV1PosReportsGetResponseVatLinesItem(
+                ReportsGetPosResponseVatLinesItem(
                     vatRatePercent: "vatRatePercent",
                     netAmount: "netAmount",
                     vatAmount: "vatAmount"
                 )
             ]
         )
-        let response = try await client.pos.postV1PosReportsGet(
+        let response = try await client.pos.reportsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PosReportsGet2() async throws -> Void {
+    @Test func reportsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -550,7 +550,7 @@ import Api
                 {
                   "id": "x",
                   "reportNumber": "reportNumber",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "deviceId": "x",
                   "warehouseId": "x",
                   "netTotal": "netTotal",
@@ -561,7 +561,7 @@ import Api
                   "cogsTotal": "cogsTotal",
                   "journalTransactionId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "vatLines": [
                     {
                       "vatRatePercent": "vatRatePercent",
@@ -583,10 +583,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PosReportsGetResponse(
+        let expectedResponse = ReportsGetPosResponse(
             id: "x",
             reportNumber: "reportNumber",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             deviceId: Nullable<String>.value("x"),
             warehouseId: Nullable<String>.value("x"),
             netTotal: "netTotal",
@@ -597,28 +597,28 @@ import Api
             cogsTotal: Nullable<String>.value("cogsTotal"),
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             vatLines: [
-                PostV1PosReportsGetResponseVatLinesItem(
+                ReportsGetPosResponseVatLinesItem(
                     vatRatePercent: "vatRatePercent",
                     netAmount: "netAmount",
                     vatAmount: "vatAmount"
                 ),
-                PostV1PosReportsGetResponseVatLinesItem(
+                ReportsGetPosResponseVatLinesItem(
                     vatRatePercent: "vatRatePercent",
                     netAmount: "netAmount",
                     vatAmount: "vatAmount"
                 )
             ]
         )
-        let response = try await client.pos.postV1PosReportsGet(
+        let response = try await client.pos.reportsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PosReportsList1() async throws -> Void {
+    @Test func reportsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -628,7 +628,7 @@ import Api
                     {
                       "id": "id",
                       "reportNumber": "reportNumber",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "deviceId": "deviceId",
                       "warehouseId": "warehouseId",
                       "netTotal": "netTotal",
@@ -639,7 +639,7 @@ import Api
                       "cogsTotal": "cogsTotal",
                       "journalTransactionId": "journalTransactionId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -657,12 +657,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PosReportsListResponse(
+        let expectedResponse = ReportsListPosResponse(
             rows: [
-                PostV1PosReportsListResponseRowsItem(
+                ReportsListPosResponseRowsItem(
                     id: "id",
                     reportNumber: "reportNumber",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     deviceId: Nullable<String>.value("deviceId"),
                     warehouseId: Nullable<String>.value("warehouseId"),
                     netTotal: "netTotal",
@@ -673,7 +673,7 @@ import Api
                     cogsTotal: Nullable<String>.value("cogsTotal"),
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -683,14 +683,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.pos.postV1PosReportsList(
+        let response = try await client.pos.reportsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PosReportsList2() async throws -> Void {
+    @Test func reportsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -700,7 +700,7 @@ import Api
                     {
                       "id": "x",
                       "reportNumber": "reportNumber",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "deviceId": "x",
                       "warehouseId": "x",
                       "netTotal": "netTotal",
@@ -711,12 +711,12 @@ import Api
                       "cogsTotal": "cogsTotal",
                       "journalTransactionId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "reportNumber": "reportNumber",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "deviceId": "x",
                       "warehouseId": "x",
                       "netTotal": "netTotal",
@@ -727,7 +727,7 @@ import Api
                       "cogsTotal": "cogsTotal",
                       "journalTransactionId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -745,12 +745,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PosReportsListResponse(
+        let expectedResponse = ReportsListPosResponse(
             rows: [
-                PostV1PosReportsListResponseRowsItem(
+                ReportsListPosResponseRowsItem(
                     id: "x",
                     reportNumber: "reportNumber",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     deviceId: Nullable<String>.value("x"),
                     warehouseId: Nullable<String>.value("x"),
                     netTotal: "netTotal",
@@ -761,12 +761,12 @@ import Api
                     cogsTotal: Nullable<String>.value("cogsTotal"),
                     journalTransactionId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1PosReportsListResponseRowsItem(
+                ReportsListPosResponseRowsItem(
                     id: "x",
                     reportNumber: "reportNumber",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     deviceId: Nullable<String>.value("x"),
                     warehouseId: Nullable<String>.value("x"),
                     netTotal: "netTotal",
@@ -777,7 +777,7 @@ import Api
                     cogsTotal: Nullable<String>.value("cogsTotal"),
                     journalTransactionId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -787,7 +787,7 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.pos.postV1PosReportsList(
+        let response = try await client.pos.reportsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

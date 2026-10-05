@@ -3,14 +3,14 @@ import Testing
 import Api
 
 @Suite("MigrationClient Wire Tests") struct MigrationClientWireTests {
-    @Test func checkAHistoricalBooksPackageWithoutWritingAnything1() async throws -> Void {
+    @Test func booksValidate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "dryRun": true,
-                  "cutoverDate": "cutoverDate",
+                  "cutoverDate": "2026-07-01",
                   "accounts": {
                     "created": 1000000,
                     "existing": 1000000
@@ -29,7 +29,7 @@ import Api
                   },
                   "openingBalances": {
                     "journalTransactionId": "journalTransactionId",
-                    "date": "date",
+                    "date": "2026-07-01",
                     "entries": 1000000,
                     "debitTotal": "debitTotal",
                     "creditTotal": "creditTotal",
@@ -75,56 +75,56 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1MigrationBooksValidateResponse(
+        let expectedResponse = BooksValidateMigrationResponse(
             dryRun: true,
-            cutoverDate: "cutoverDate",
-            accounts: PostV1MigrationBooksValidateResponseAccounts(
+            cutoverDate: CalendarDate("2026-07-01")!,
+            accounts: BooksValidateMigrationResponseAccounts(
                 created: 1000000,
                 existing: 1000000
             ),
-            partners: PostV1MigrationBooksValidateResponsePartners(
+            partners: BooksValidateMigrationResponsePartners(
                 created: 1000000,
                 existing: 1000000
             ),
-            items: PostV1MigrationBooksValidateResponseItems(
+            items: BooksValidateMigrationResponseItems(
                 created: 1000000,
                 existing: 1000000
             ),
-            assetGroups: PostV1MigrationBooksValidateResponseAssetGroups(
+            assetGroups: BooksValidateMigrationResponseAssetGroups(
                 created: 1000000,
                 existing: 1000000
             ),
-            openingBalances: Nullable<PostV1MigrationBooksValidateResponseOpeningBalances>.value(PostV1MigrationBooksValidateResponseOpeningBalances(
+            openingBalances: Nullable<BooksValidateMigrationResponseOpeningBalances>.value(BooksValidateMigrationResponseOpeningBalances(
                 journalTransactionId: Nullable<String>.value("journalTransactionId"),
-                date: "date",
+                date: CalendarDate("2026-07-01")!,
                 entries: 1000000,
                 debitTotal: "debitTotal",
                 creditTotal: "creditTotal",
                 balancingAmount: "balancingAmount"
             )),
-            journal: PostV1MigrationBooksValidateResponseJournal(
+            journal: BooksValidateMigrationResponseJournal(
                 transactions: 1000000,
                 entries: 1000000
             ),
-            openReceivables: PostV1MigrationBooksValidateResponseOpenReceivables(
+            openReceivables: BooksValidateMigrationResponseOpenReceivables(
                 created: 1000000,
                 outstandingTotal: "outstandingTotal"
             ),
-            openPayables: PostV1MigrationBooksValidateResponseOpenPayables(
+            openPayables: BooksValidateMigrationResponseOpenPayables(
                 created: 1000000,
                 outstandingTotal: "outstandingTotal"
             ),
-            fixedAssets: PostV1MigrationBooksValidateResponseFixedAssets(
+            fixedAssets: BooksValidateMigrationResponseFixedAssets(
                 created: 1000000,
                 costTotal: "costTotal",
                 accumulatedDepreciationTotal: "accumulatedDepreciationTotal"
             ),
-            stock: PostV1MigrationBooksValidateResponseStock(
+            stock: BooksValidateMigrationResponseStock(
                 movements: 1000000,
                 costTotal: "costTotal"
             ),
             numberSeries: [
-                PostV1MigrationBooksValidateResponseNumberSeriesItem(
+                BooksValidateMigrationResponseNumberSeriesItem(
                     prefix: "prefix",
                     year: 1000000,
                     nextNumber: 1000000
@@ -134,21 +134,21 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.migration.checkAHistoricalBooksPackageWithoutWritingAnything(
-            request: .init(cutoverDate: "cutoverDate"),
+        let response = try await client.migration.booksValidate(
+            request: .init(cutoverDate: CalendarDate("2026-07-01")!),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func checkAHistoricalBooksPackageWithoutWritingAnything2() async throws -> Void {
+    @Test func booksValidate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "dryRun": true,
-                  "cutoverDate": "cutoverDate",
+                  "cutoverDate": "2023-01-15",
                   "accounts": {
                     "created": 1000000,
                     "existing": 1000000
@@ -167,7 +167,7 @@ import Api
                   },
                   "openingBalances": {
                     "journalTransactionId": "journalTransactionId",
-                    "date": "date",
+                    "date": "2023-01-15",
                     "entries": 1000000,
                     "debitTotal": "debitTotal",
                     "creditTotal": "creditTotal",
@@ -219,61 +219,61 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1MigrationBooksValidateResponse(
+        let expectedResponse = BooksValidateMigrationResponse(
             dryRun: true,
-            cutoverDate: "cutoverDate",
-            accounts: PostV1MigrationBooksValidateResponseAccounts(
+            cutoverDate: CalendarDate("2023-01-15")!,
+            accounts: BooksValidateMigrationResponseAccounts(
                 created: 1000000,
                 existing: 1000000
             ),
-            partners: PostV1MigrationBooksValidateResponsePartners(
+            partners: BooksValidateMigrationResponsePartners(
                 created: 1000000,
                 existing: 1000000
             ),
-            items: PostV1MigrationBooksValidateResponseItems(
+            items: BooksValidateMigrationResponseItems(
                 created: 1000000,
                 existing: 1000000
             ),
-            assetGroups: PostV1MigrationBooksValidateResponseAssetGroups(
+            assetGroups: BooksValidateMigrationResponseAssetGroups(
                 created: 1000000,
                 existing: 1000000
             ),
-            openingBalances: Nullable<PostV1MigrationBooksValidateResponseOpeningBalances>.value(PostV1MigrationBooksValidateResponseOpeningBalances(
+            openingBalances: Nullable<BooksValidateMigrationResponseOpeningBalances>.value(BooksValidateMigrationResponseOpeningBalances(
                 journalTransactionId: Nullable<String>.value("journalTransactionId"),
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 entries: 1000000,
                 debitTotal: "debitTotal",
                 creditTotal: "creditTotal",
                 balancingAmount: "balancingAmount"
             )),
-            journal: PostV1MigrationBooksValidateResponseJournal(
+            journal: BooksValidateMigrationResponseJournal(
                 transactions: 1000000,
                 entries: 1000000
             ),
-            openReceivables: PostV1MigrationBooksValidateResponseOpenReceivables(
+            openReceivables: BooksValidateMigrationResponseOpenReceivables(
                 created: 1000000,
                 outstandingTotal: "outstandingTotal"
             ),
-            openPayables: PostV1MigrationBooksValidateResponseOpenPayables(
+            openPayables: BooksValidateMigrationResponseOpenPayables(
                 created: 1000000,
                 outstandingTotal: "outstandingTotal"
             ),
-            fixedAssets: PostV1MigrationBooksValidateResponseFixedAssets(
+            fixedAssets: BooksValidateMigrationResponseFixedAssets(
                 created: 1000000,
                 costTotal: "costTotal",
                 accumulatedDepreciationTotal: "accumulatedDepreciationTotal"
             ),
-            stock: PostV1MigrationBooksValidateResponseStock(
+            stock: BooksValidateMigrationResponseStock(
                 movements: 1000000,
                 costTotal: "costTotal"
             ),
             numberSeries: [
-                PostV1MigrationBooksValidateResponseNumberSeriesItem(
+                BooksValidateMigrationResponseNumberSeriesItem(
                     prefix: "prefix",
                     year: 1000000,
                     nextNumber: 1000000
                 ),
-                PostV1MigrationBooksValidateResponseNumberSeriesItem(
+                BooksValidateMigrationResponseNumberSeriesItem(
                     prefix: "prefix",
                     year: 1000000,
                     nextNumber: 1000000
@@ -284,21 +284,21 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.migration.checkAHistoricalBooksPackageWithoutWritingAnything(
-            request: .init(cutoverDate: "cutoverDate"),
+        let response = try await client.migration.booksValidate(
+            request: .init(cutoverDate: CalendarDate("2023-01-15")!),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func importHistoricalBooksFromAPreviousAccountingSystem1() async throws -> Void {
+    @Test func booksImport1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "dryRun": true,
-                  "cutoverDate": "cutoverDate",
+                  "cutoverDate": "2026-07-01",
                   "accounts": {
                     "created": 1000000,
                     "existing": 1000000
@@ -317,7 +317,7 @@ import Api
                   },
                   "openingBalances": {
                     "journalTransactionId": "journalTransactionId",
-                    "date": "date",
+                    "date": "2026-07-01",
                     "entries": 1000000,
                     "debitTotal": "debitTotal",
                     "creditTotal": "creditTotal",
@@ -363,56 +363,56 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1MigrationBooksImportResponse(
+        let expectedResponse = BooksImportMigrationResponse(
             dryRun: true,
-            cutoverDate: "cutoverDate",
-            accounts: PostV1MigrationBooksImportResponseAccounts(
+            cutoverDate: CalendarDate("2026-07-01")!,
+            accounts: BooksImportMigrationResponseAccounts(
                 created: 1000000,
                 existing: 1000000
             ),
-            partners: PostV1MigrationBooksImportResponsePartners(
+            partners: BooksImportMigrationResponsePartners(
                 created: 1000000,
                 existing: 1000000
             ),
-            items: PostV1MigrationBooksImportResponseItems(
+            items: BooksImportMigrationResponseItems(
                 created: 1000000,
                 existing: 1000000
             ),
-            assetGroups: PostV1MigrationBooksImportResponseAssetGroups(
+            assetGroups: BooksImportMigrationResponseAssetGroups(
                 created: 1000000,
                 existing: 1000000
             ),
-            openingBalances: Nullable<PostV1MigrationBooksImportResponseOpeningBalances>.value(PostV1MigrationBooksImportResponseOpeningBalances(
+            openingBalances: Nullable<BooksImportMigrationResponseOpeningBalances>.value(BooksImportMigrationResponseOpeningBalances(
                 journalTransactionId: Nullable<String>.value("journalTransactionId"),
-                date: "date",
+                date: CalendarDate("2026-07-01")!,
                 entries: 1000000,
                 debitTotal: "debitTotal",
                 creditTotal: "creditTotal",
                 balancingAmount: "balancingAmount"
             )),
-            journal: PostV1MigrationBooksImportResponseJournal(
+            journal: BooksImportMigrationResponseJournal(
                 transactions: 1000000,
                 entries: 1000000
             ),
-            openReceivables: PostV1MigrationBooksImportResponseOpenReceivables(
+            openReceivables: BooksImportMigrationResponseOpenReceivables(
                 created: 1000000,
                 outstandingTotal: "outstandingTotal"
             ),
-            openPayables: PostV1MigrationBooksImportResponseOpenPayables(
+            openPayables: BooksImportMigrationResponseOpenPayables(
                 created: 1000000,
                 outstandingTotal: "outstandingTotal"
             ),
-            fixedAssets: PostV1MigrationBooksImportResponseFixedAssets(
+            fixedAssets: BooksImportMigrationResponseFixedAssets(
                 created: 1000000,
                 costTotal: "costTotal",
                 accumulatedDepreciationTotal: "accumulatedDepreciationTotal"
             ),
-            stock: PostV1MigrationBooksImportResponseStock(
+            stock: BooksImportMigrationResponseStock(
                 movements: 1000000,
                 costTotal: "costTotal"
             ),
             numberSeries: [
-                PostV1MigrationBooksImportResponseNumberSeriesItem(
+                BooksImportMigrationResponseNumberSeriesItem(
                     prefix: "prefix",
                     year: 1000000,
                     nextNumber: 1000000
@@ -422,21 +422,21 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.migration.importHistoricalBooksFromAPreviousAccountingSystem(
-            request: .init(cutoverDate: "cutoverDate"),
+        let response = try await client.migration.booksImport(
+            request: .init(cutoverDate: CalendarDate("2026-07-01")!),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func importHistoricalBooksFromAPreviousAccountingSystem2() async throws -> Void {
+    @Test func booksImport2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "dryRun": true,
-                  "cutoverDate": "cutoverDate",
+                  "cutoverDate": "2023-01-15",
                   "accounts": {
                     "created": 1000000,
                     "existing": 1000000
@@ -455,7 +455,7 @@ import Api
                   },
                   "openingBalances": {
                     "journalTransactionId": "journalTransactionId",
-                    "date": "date",
+                    "date": "2023-01-15",
                     "entries": 1000000,
                     "debitTotal": "debitTotal",
                     "creditTotal": "creditTotal",
@@ -507,61 +507,61 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1MigrationBooksImportResponse(
+        let expectedResponse = BooksImportMigrationResponse(
             dryRun: true,
-            cutoverDate: "cutoverDate",
-            accounts: PostV1MigrationBooksImportResponseAccounts(
+            cutoverDate: CalendarDate("2023-01-15")!,
+            accounts: BooksImportMigrationResponseAccounts(
                 created: 1000000,
                 existing: 1000000
             ),
-            partners: PostV1MigrationBooksImportResponsePartners(
+            partners: BooksImportMigrationResponsePartners(
                 created: 1000000,
                 existing: 1000000
             ),
-            items: PostV1MigrationBooksImportResponseItems(
+            items: BooksImportMigrationResponseItems(
                 created: 1000000,
                 existing: 1000000
             ),
-            assetGroups: PostV1MigrationBooksImportResponseAssetGroups(
+            assetGroups: BooksImportMigrationResponseAssetGroups(
                 created: 1000000,
                 existing: 1000000
             ),
-            openingBalances: Nullable<PostV1MigrationBooksImportResponseOpeningBalances>.value(PostV1MigrationBooksImportResponseOpeningBalances(
+            openingBalances: Nullable<BooksImportMigrationResponseOpeningBalances>.value(BooksImportMigrationResponseOpeningBalances(
                 journalTransactionId: Nullable<String>.value("journalTransactionId"),
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 entries: 1000000,
                 debitTotal: "debitTotal",
                 creditTotal: "creditTotal",
                 balancingAmount: "balancingAmount"
             )),
-            journal: PostV1MigrationBooksImportResponseJournal(
+            journal: BooksImportMigrationResponseJournal(
                 transactions: 1000000,
                 entries: 1000000
             ),
-            openReceivables: PostV1MigrationBooksImportResponseOpenReceivables(
+            openReceivables: BooksImportMigrationResponseOpenReceivables(
                 created: 1000000,
                 outstandingTotal: "outstandingTotal"
             ),
-            openPayables: PostV1MigrationBooksImportResponseOpenPayables(
+            openPayables: BooksImportMigrationResponseOpenPayables(
                 created: 1000000,
                 outstandingTotal: "outstandingTotal"
             ),
-            fixedAssets: PostV1MigrationBooksImportResponseFixedAssets(
+            fixedAssets: BooksImportMigrationResponseFixedAssets(
                 created: 1000000,
                 costTotal: "costTotal",
                 accumulatedDepreciationTotal: "accumulatedDepreciationTotal"
             ),
-            stock: PostV1MigrationBooksImportResponseStock(
+            stock: BooksImportMigrationResponseStock(
                 movements: 1000000,
                 costTotal: "costTotal"
             ),
             numberSeries: [
-                PostV1MigrationBooksImportResponseNumberSeriesItem(
+                BooksImportMigrationResponseNumberSeriesItem(
                     prefix: "prefix",
                     year: 1000000,
                     nextNumber: 1000000
                 ),
-                PostV1MigrationBooksImportResponseNumberSeriesItem(
+                BooksImportMigrationResponseNumberSeriesItem(
                     prefix: "prefix",
                     year: 1000000,
                     nextNumber: 1000000
@@ -572,8 +572,8 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.migration.importHistoricalBooksFromAPreviousAccountingSystem(
-            request: .init(cutoverDate: "cutoverDate"),
+        let response = try await client.migration.booksImport(
+            request: .init(cutoverDate: CalendarDate("2023-01-15")!),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

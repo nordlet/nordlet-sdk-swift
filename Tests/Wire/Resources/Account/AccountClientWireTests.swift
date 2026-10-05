@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("AccountClient Wire Tests") struct AccountClientWireTests {
-    @Test func postV1AccountLoginLinkRequest1() async throws -> Void {
+    @Test func loginLinkRequest1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -19,17 +19,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountLoginLinkRequestResponse(
+        let expectedResponse = LoginLinkRequestAccountResponse(
             sent: true
         )
-        let response = try await client.account.postV1AccountLoginLinkRequest(
+        let response = try await client.account.loginLinkRequest(
             request: .init(email: "email"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountLoginLinkRequest2() async throws -> Void {
+    @Test func loginLinkRequest2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -45,24 +45,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountLoginLinkRequestResponse(
+        let expectedResponse = LoginLinkRequestAccountResponse(
             sent: true
         )
-        let response = try await client.account.postV1AccountLoginLinkRequest(
+        let response = try await client.account.loginLinkRequest(
             request: .init(email: "email"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountLoginLinkConsume1() async throws -> Void {
+    @Test func loginLinkConsume1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "token": "token",
-                  "expiresAt": "expiresAt",
+                  "expiresAt": "2026-07-01T09:30:00Z",
                   "user": {
                     "id": "id",
                     "email": "email",
@@ -79,10 +79,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountLoginLinkConsumeResponse(
+        let expectedResponse = LoginLinkConsumeAccountResponse(
             token: "token",
-            expiresAt: "expiresAt",
-            user: PostV1AccountLoginLinkConsumeResponseUser(
+            expiresAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            user: LoginLinkConsumeAccountResponseUser(
                 id: "id",
                 email: "email",
                 name: Nullable<String>.value("name"),
@@ -90,21 +90,21 @@ import Api
             ),
             isNewUser: true
         )
-        let response = try await client.account.postV1AccountLoginLinkConsume(
+        let response = try await client.account.loginLinkConsume(
             request: .init(token: "token"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountLoginLinkConsume2() async throws -> Void {
+    @Test func loginLinkConsume2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "token": "token",
-                  "expiresAt": "expiresAt",
+                  "expiresAt": "2024-01-15T09:30:00Z",
                   "user": {
                     "id": "x",
                     "email": "email",
@@ -121,10 +121,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountLoginLinkConsumeResponse(
+        let expectedResponse = LoginLinkConsumeAccountResponse(
             token: "token",
-            expiresAt: "expiresAt",
-            user: PostV1AccountLoginLinkConsumeResponseUser(
+            expiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            user: LoginLinkConsumeAccountResponseUser(
                 id: "x",
                 email: "email",
                 name: Nullable<String>.value("name"),
@@ -132,14 +132,14 @@ import Api
             ),
             isNewUser: true
         )
-        let response = try await client.account.postV1AccountLoginLinkConsume(
+        let response = try await client.account.loginLinkConsume(
             request: .init(token: "strawberry"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountLogout1() async throws -> Void {
+    @Test func logout1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -155,17 +155,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountLogoutResponse(
+        let expectedResponse = LogoutAccountResponse(
             loggedOut: true
         )
-        let response = try await client.account.postV1AccountLogout(
+        let response = try await client.account.logout(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountLogout2() async throws -> Void {
+    @Test func logout2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -181,17 +181,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountLogoutResponse(
+        let expectedResponse = LogoutAccountResponse(
             loggedOut: true
         )
-        let response = try await client.account.postV1AccountLogout(
+        let response = try await client.account.logout(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountMe1() async throws -> Void {
+    @Test func me1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -213,7 +213,7 @@ import Api
                     "status": "trial",
                     "plan": "plan",
                     "balanceCents": 1000000,
-                    "trialEndsAt": "trialEndsAt",
+                    "trialEndsAt": "2026-07-01T09:30:00Z",
                     "payerUserId": "payerUserId",
                     "payerEmail": "payerEmail",
                     "isPayer": true
@@ -221,9 +221,9 @@ import Api
                   "referralPoints": 1000000,
                   "consent": {
                     "termsVersion": "termsVersion",
-                    "termsAcceptedAt": "termsAcceptedAt",
+                    "termsAcceptedAt": "2026-07-01T09:30:00Z",
                     "dpaVersion": "dpaVersion",
-                    "dpaAcceptedAt": "dpaAcceptedAt",
+                    "dpaAcceptedAt": "2026-07-01T09:30:00Z",
                     "currentTermsVersion": "currentTermsVersion",
                     "currentDpaVersion": "currentDpaVersion",
                     "required": true
@@ -237,7 +237,7 @@ import Api
                       "role": "role",
                       "isSandbox": true,
                       "status": "active",
-                      "deletedAt": "deletedAt"
+                      "deletedAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -249,8 +249,8 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountMeResponse(
-            user: PostV1AccountMeResponseUser(
+        let expectedResponse = MeAccountResponse(
+            user: MeAccountResponseUser(
                 id: "id",
                 email: "email",
                 name: Nullable<String>.value("name"),
@@ -262,27 +262,27 @@ import Api
             activeCompanyId: Nullable<String>.value("activeCompanyId"),
             timeZone: "timeZone",
             role: Nullable<String>.value("role"),
-            billing: PostV1AccountMeResponseBilling(
+            billing: MeAccountResponseBilling(
                 status: .trial,
                 plan: "plan",
                 balanceCents: 1000000,
-                trialEndsAt: Nullable<String>.value("trialEndsAt"),
+                trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                 payerUserId: "payerUserId",
                 payerEmail: "payerEmail",
                 isPayer: true
             ),
             referralPoints: 1000000,
-            consent: PostV1AccountMeResponseConsent(
+            consent: MeAccountResponseConsent(
                 termsVersion: Nullable<String>.value("termsVersion"),
-                termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
+                termsAcceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                 dpaVersion: Nullable<String>.value("dpaVersion"),
-                dpaAcceptedAt: Nullable<String>.value("dpaAcceptedAt"),
+                dpaAcceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                 currentTermsVersion: "currentTermsVersion",
                 currentDpaVersion: "currentDpaVersion",
                 required: true
             ),
             companies: [
-                PostV1AccountMeResponseCompaniesItem(
+                MeAccountResponseCompaniesItem(
                     id: "id",
                     name: "name",
                     code: Nullable<String>.value("code"),
@@ -290,18 +290,18 @@ import Api
                     role: "role",
                     isSandbox: true,
                     status: .active,
-                    deletedAt: Nullable<String>.value("deletedAt")
+                    deletedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 )
             ]
         )
-        let response = try await client.account.postV1AccountMe(
+        let response = try await client.account.me(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountMe2() async throws -> Void {
+    @Test func me2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -323,7 +323,7 @@ import Api
                     "status": "trial",
                     "plan": "plan",
                     "balanceCents": 1000000,
-                    "trialEndsAt": "trialEndsAt",
+                    "trialEndsAt": "2024-01-15T09:30:00Z",
                     "payerUserId": "x",
                     "payerEmail": "payerEmail",
                     "isPayer": true
@@ -331,9 +331,9 @@ import Api
                   "referralPoints": 1000000,
                   "consent": {
                     "termsVersion": "termsVersion",
-                    "termsAcceptedAt": "termsAcceptedAt",
+                    "termsAcceptedAt": "2024-01-15T09:30:00Z",
                     "dpaVersion": "dpaVersion",
-                    "dpaAcceptedAt": "dpaAcceptedAt",
+                    "dpaAcceptedAt": "2024-01-15T09:30:00Z",
                     "currentTermsVersion": "currentTermsVersion",
                     "currentDpaVersion": "currentDpaVersion",
                     "required": true
@@ -347,7 +347,7 @@ import Api
                       "role": "role",
                       "isSandbox": true,
                       "status": "active",
-                      "deletedAt": "deletedAt"
+                      "deletedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -357,7 +357,7 @@ import Api
                       "role": "role",
                       "isSandbox": true,
                       "status": "active",
-                      "deletedAt": "deletedAt"
+                      "deletedAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -369,8 +369,8 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountMeResponse(
-            user: PostV1AccountMeResponseUser(
+        let expectedResponse = MeAccountResponse(
+            user: MeAccountResponseUser(
                 id: "x",
                 email: "email",
                 name: Nullable<String>.value("name"),
@@ -382,27 +382,27 @@ import Api
             activeCompanyId: Nullable<String>.value("x"),
             timeZone: "timeZone",
             role: Nullable<String>.value("role"),
-            billing: PostV1AccountMeResponseBilling(
+            billing: MeAccountResponseBilling(
                 status: .trial,
                 plan: "plan",
                 balanceCents: 1000000,
-                trialEndsAt: Nullable<String>.value("trialEndsAt"),
+                trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                 payerUserId: "x",
                 payerEmail: "payerEmail",
                 isPayer: true
             ),
             referralPoints: 1000000,
-            consent: PostV1AccountMeResponseConsent(
+            consent: MeAccountResponseConsent(
                 termsVersion: Nullable<String>.value("termsVersion"),
-                termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
+                termsAcceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                 dpaVersion: Nullable<String>.value("dpaVersion"),
-                dpaAcceptedAt: Nullable<String>.value("dpaAcceptedAt"),
+                dpaAcceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                 currentTermsVersion: "currentTermsVersion",
                 currentDpaVersion: "currentDpaVersion",
                 required: true
             ),
             companies: [
-                PostV1AccountMeResponseCompaniesItem(
+                MeAccountResponseCompaniesItem(
                     id: "x",
                     name: "name",
                     code: Nullable<String>.value("code"),
@@ -410,9 +410,9 @@ import Api
                     role: "role",
                     isSandbox: true,
                     status: .active,
-                    deletedAt: Nullable<String>.value("deletedAt")
+                    deletedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                PostV1AccountMeResponseCompaniesItem(
+                MeAccountResponseCompaniesItem(
                     id: "x",
                     name: "name",
                     code: Nullable<String>.value("code"),
@@ -420,18 +420,18 @@ import Api
                     role: "role",
                     isSandbox: true,
                     status: .active,
-                    deletedAt: Nullable<String>.value("deletedAt")
+                    deletedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 )
             ]
         )
-        let response = try await client.account.postV1AccountMe(
+        let response = try await client.account.me(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountMembersList1() async throws -> Void {
+    @Test func membersList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -443,7 +443,7 @@ import Api
                       "email": "email",
                       "name": "name",
                       "role": "role",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -455,25 +455,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountMembersListResponse(
+        let expectedResponse = MembersListAccountResponse(
             rows: [
-                PostV1AccountMembersListResponseRowsItem(
+                MembersListAccountResponseRowsItem(
                     userId: "userId",
                     email: "email",
                     name: Nullable<String>.value("name"),
                     role: "role",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.account.postV1AccountMembersList(
+        let response = try await client.account.membersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountMembersList2() async throws -> Void {
+    @Test func membersList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -485,14 +485,14 @@ import Api
                       "email": "email",
                       "name": "name",
                       "role": "role",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "userId": "x",
                       "email": "email",
                       "name": "name",
                       "role": "role",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -504,32 +504,32 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountMembersListResponse(
+        let expectedResponse = MembersListAccountResponse(
             rows: [
-                PostV1AccountMembersListResponseRowsItem(
+                MembersListAccountResponseRowsItem(
                     userId: "x",
                     email: "email",
                     name: Nullable<String>.value("name"),
                     role: "role",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1AccountMembersListResponseRowsItem(
+                MembersListAccountResponseRowsItem(
                     userId: "x",
                     email: "email",
                     name: Nullable<String>.value("name"),
                     role: "role",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.account.postV1AccountMembersList(
+        let response = try await client.account.membersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountMembersSetRole1() async throws -> Void {
+    @Test func membersSetRole1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -546,11 +546,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountMembersSetRoleResponse(
+        let expectedResponse = MembersSetRoleAccountResponse(
             userId: "userId",
             role: "role"
         )
-        let response = try await client.account.postV1AccountMembersSetRole(
+        let response = try await client.account.membersSetRole(
             request: .init(
                 userId: "userId",
                 role: .admin
@@ -560,7 +560,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountMembersSetRole2() async throws -> Void {
+    @Test func membersSetRole2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -577,11 +577,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountMembersSetRoleResponse(
+        let expectedResponse = MembersSetRoleAccountResponse(
             userId: "x",
             role: "role"
         )
-        let response = try await client.account.postV1AccountMembersSetRole(
+        let response = try await client.account.membersSetRole(
             request: .init(
                 userId: "x",
                 role: .admin
@@ -591,7 +591,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountMembersTransferOwnership1() async throws -> Void {
+    @Test func membersTransferOwnership1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -609,19 +609,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountMembersTransferOwnershipResponse(
+        let expectedResponse = MembersTransferOwnershipAccountResponse(
             ownerUserId: "ownerUserId",
             previousOwnerRole: "previousOwnerRole",
             payerUserId: Nullable<String>.value("payerUserId")
         )
-        let response = try await client.account.postV1AccountMembersTransferOwnership(
+        let response = try await client.account.membersTransferOwnership(
             request: .init(userId: "userId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountMembersTransferOwnership2() async throws -> Void {
+    @Test func membersTransferOwnership2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -639,19 +639,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountMembersTransferOwnershipResponse(
+        let expectedResponse = MembersTransferOwnershipAccountResponse(
             ownerUserId: "x",
             previousOwnerRole: "previousOwnerRole",
             payerUserId: Nullable<String>.value("x")
         )
-        let response = try await client.account.postV1AccountMembersTransferOwnership(
+        let response = try await client.account.membersTransferOwnership(
             request: .init(userId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountMembersRemove1() async throws -> Void {
+    @Test func membersRemove1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -667,17 +667,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountMembersRemoveResponse(
+        let expectedResponse = MembersRemoveAccountResponse(
             removed: true
         )
-        let response = try await client.account.postV1AccountMembersRemove(
+        let response = try await client.account.membersRemove(
             request: .init(userId: "userId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountMembersRemove2() async throws -> Void {
+    @Test func membersRemove2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -693,17 +693,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountMembersRemoveResponse(
+        let expectedResponse = MembersRemoveAccountResponse(
             removed: true
         )
-        let response = try await client.account.postV1AccountMembersRemove(
+        let response = try await client.account.membersRemove(
             request: .init(userId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountInvitesCreate1() async throws -> Void {
+    @Test func invitesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -712,7 +712,7 @@ import Api
                   "id": "id",
                   "email": "email",
                   "role": "role",
-                  "expiresAt": "expiresAt",
+                  "expiresAt": "2026-07-01T09:30:00Z",
                   "emailSent": true
                 }
                 """#.utf8
@@ -723,14 +723,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountInvitesCreateResponse(
+        let expectedResponse = InvitesCreateAccountResponse(
             id: "id",
             email: "email",
             role: "role",
-            expiresAt: "expiresAt",
+            expiresAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             emailSent: true
         )
-        let response = try await client.account.postV1AccountInvitesCreate(
+        let response = try await client.account.invitesCreate(
             request: .init(
                 email: "email",
                 role: .admin
@@ -740,7 +740,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountInvitesCreate2() async throws -> Void {
+    @Test func invitesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -749,7 +749,7 @@ import Api
                   "id": "x",
                   "email": "email",
                   "role": "role",
-                  "expiresAt": "expiresAt",
+                  "expiresAt": "2024-01-15T09:30:00Z",
                   "emailSent": true
                 }
                 """#.utf8
@@ -760,14 +760,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountInvitesCreateResponse(
+        let expectedResponse = InvitesCreateAccountResponse(
             id: "x",
             email: "email",
             role: "role",
-            expiresAt: "expiresAt",
+            expiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             emailSent: true
         )
-        let response = try await client.account.postV1AccountInvitesCreate(
+        let response = try await client.account.invitesCreate(
             request: .init(
                 email: "email",
                 role: .admin
@@ -777,7 +777,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountInvitesList1() async throws -> Void {
+    @Test func invitesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -788,8 +788,8 @@ import Api
                       "id": "id",
                       "email": "email",
                       "role": "role",
-                      "expiresAt": "expiresAt",
-                      "createdAt": "createdAt",
+                      "expiresAt": "2026-07-01T09:30:00Z",
+                      "createdAt": "2026-07-01T09:30:00Z",
                       "expired": true
                     }
                   ]
@@ -802,26 +802,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountInvitesListResponse(
+        let expectedResponse = InvitesListAccountResponse(
             rows: [
-                PostV1AccountInvitesListResponseRowsItem(
+                InvitesListAccountResponseRowsItem(
                     id: "id",
                     email: "email",
                     role: "role",
-                    expiresAt: "expiresAt",
-                    createdAt: "createdAt",
+                    expiresAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                     expired: true
                 )
             ]
         )
-        let response = try await client.account.postV1AccountInvitesList(
+        let response = try await client.account.invitesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountInvitesList2() async throws -> Void {
+    @Test func invitesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -832,16 +832,16 @@ import Api
                       "id": "x",
                       "email": "email",
                       "role": "role",
-                      "expiresAt": "expiresAt",
-                      "createdAt": "createdAt",
+                      "expiresAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z",
                       "expired": true
                     },
                     {
                       "id": "x",
                       "email": "email",
                       "role": "role",
-                      "expiresAt": "expiresAt",
-                      "createdAt": "createdAt",
+                      "expiresAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z",
                       "expired": true
                     }
                   ]
@@ -854,34 +854,34 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountInvitesListResponse(
+        let expectedResponse = InvitesListAccountResponse(
             rows: [
-                PostV1AccountInvitesListResponseRowsItem(
+                InvitesListAccountResponseRowsItem(
                     id: "x",
                     email: "email",
                     role: "role",
-                    expiresAt: "expiresAt",
-                    createdAt: "createdAt",
+                    expiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     expired: true
                 ),
-                PostV1AccountInvitesListResponseRowsItem(
+                InvitesListAccountResponseRowsItem(
                     id: "x",
                     email: "email",
                     role: "role",
-                    expiresAt: "expiresAt",
-                    createdAt: "createdAt",
+                    expiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     expired: true
                 )
             ]
         )
-        let response = try await client.account.postV1AccountInvitesList(
+        let response = try await client.account.invitesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountInvitesRevoke1() async throws -> Void {
+    @Test func invitesRevoke1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -897,17 +897,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountInvitesRevokeResponse(
+        let expectedResponse = InvitesRevokeAccountResponse(
             revoked: true
         )
-        let response = try await client.account.postV1AccountInvitesRevoke(
+        let response = try await client.account.invitesRevoke(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountInvitesRevoke2() async throws -> Void {
+    @Test func invitesRevoke2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -923,17 +923,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountInvitesRevokeResponse(
+        let expectedResponse = InvitesRevokeAccountResponse(
             revoked: true
         )
-        let response = try await client.account.postV1AccountInvitesRevoke(
+        let response = try await client.account.invitesRevoke(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountInvitesGet1() async throws -> Void {
+    @Test func invitesGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -953,21 +953,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountInvitesGetResponse(
+        let expectedResponse = InvitesGetAccountResponse(
             email: "email",
             role: "role",
             companyName: "companyName",
             expired: true,
             userExists: true
         )
-        let response = try await client.account.postV1AccountInvitesGet(
+        let response = try await client.account.invitesGet(
             request: .init(token: "token"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountInvitesGet2() async throws -> Void {
+    @Test func invitesGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -987,28 +987,28 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountInvitesGetResponse(
+        let expectedResponse = InvitesGetAccountResponse(
             email: "email",
             role: "role",
             companyName: "companyName",
             expired: true,
             userExists: true
         )
-        let response = try await client.account.postV1AccountInvitesGet(
+        let response = try await client.account.invitesGet(
             request: .init(token: "strawberry"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountInvitesAccept1() async throws -> Void {
+    @Test func invitesAccept1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "token": "token",
-                  "expiresAt": "expiresAt",
+                  "expiresAt": "2026-07-01T09:30:00Z",
                   "user": {
                     "id": "id",
                     "email": "email",
@@ -1024,31 +1024,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountInvitesAcceptResponse(
+        let expectedResponse = InvitesAcceptAccountResponse(
             token: "token",
-            expiresAt: "expiresAt",
-            user: PostV1AccountInvitesAcceptResponseUser(
+            expiresAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            user: InvitesAcceptAccountResponseUser(
                 id: "id",
                 email: "email",
                 name: Nullable<String>.value("name"),
                 plan: "plan"
             )
         )
-        let response = try await client.account.postV1AccountInvitesAccept(
+        let response = try await client.account.invitesAccept(
             request: .init(token: "token"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountInvitesAccept2() async throws -> Void {
+    @Test func invitesAccept2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "token": "token",
-                  "expiresAt": "expiresAt",
+                  "expiresAt": "2024-01-15T09:30:00Z",
                   "user": {
                     "id": "x",
                     "email": "email",
@@ -1064,24 +1064,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountInvitesAcceptResponse(
+        let expectedResponse = InvitesAcceptAccountResponse(
             token: "token",
-            expiresAt: "expiresAt",
-            user: PostV1AccountInvitesAcceptResponseUser(
+            expiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            user: InvitesAcceptAccountResponseUser(
                 id: "x",
                 email: "email",
                 name: Nullable<String>.value("name"),
                 plan: "plan"
             )
         )
-        let response = try await client.account.postV1AccountInvitesAccept(
+        let response = try await client.account.invitesAccept(
             request: .init(token: "strawberry"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountLocaleSet1() async throws -> Void {
+    @Test func localeSet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1098,18 +1098,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountLocaleSetResponse(
+        let expectedResponse = LocaleSetAccountResponse(
             locale: "locale",
             scope: .membership
         )
-        let response = try await client.account.postV1AccountLocaleSet(
+        let response = try await client.account.localeSet(
             request: .init(locale: .en),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountLocaleSet2() async throws -> Void {
+    @Test func localeSet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1126,18 +1126,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountLocaleSetResponse(
+        let expectedResponse = LocaleSetAccountResponse(
             locale: "locale",
             scope: .membership
         )
-        let response = try await client.account.postV1AccountLocaleSet(
+        let response = try await client.account.localeSet(
             request: .init(locale: .en),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesCreate1() async throws -> Void {
+    @Test func companiesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1158,7 +1158,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesCreateResponse(
+        let expectedResponse = CompaniesCreateAccountResponse(
             id: "id",
             name: "name",
             code: Nullable<String>.value("code"),
@@ -1166,14 +1166,14 @@ import Api
             role: "role",
             isSandbox: true
         )
-        let response = try await client.account.postV1AccountCompaniesCreate(
+        let response = try await client.account.companiesCreate(
             request: .init(name: "name"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesCreate2() async throws -> Void {
+    @Test func companiesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1194,7 +1194,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesCreateResponse(
+        let expectedResponse = CompaniesCreateAccountResponse(
             id: "x",
             name: "name",
             code: Nullable<String>.value("code"),
@@ -1202,14 +1202,14 @@ import Api
             role: "role",
             isSandbox: true
         )
-        let response = try await client.account.postV1AccountCompaniesCreate(
+        let response = try await client.account.companiesCreate(
             request: .init(name: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesSelect1() async throws -> Void {
+    @Test func companiesSelect1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1225,17 +1225,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesSelectResponse(
+        let expectedResponse = CompaniesSelectAccountResponse(
             activeCompanyId: "activeCompanyId"
         )
-        let response = try await client.account.postV1AccountCompaniesSelect(
+        let response = try await client.account.companiesSelect(
             request: .init(companyId: "companyId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesSelect2() async throws -> Void {
+    @Test func companiesSelect2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1251,17 +1251,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesSelectResponse(
+        let expectedResponse = CompaniesSelectAccountResponse(
             activeCompanyId: "x"
         )
-        let response = try await client.account.postV1AccountCompaniesSelect(
+        let response = try await client.account.companiesSelect(
             request: .init(companyId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesProfile1() async throws -> Void {
+    @Test func companiesProfile1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1317,7 +1317,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesProfileResponse(
+        let expectedResponse = CompaniesProfileAccountResponse(
             id: "id",
             name: "name",
             code: Nullable<String>.value("code"),
@@ -1331,7 +1331,7 @@ import Api
             baseCurrency: "baseCurrency",
             defaultInvoiceCurrency: "defaultInvoiceCurrency",
             status: .active,
-            address: Nullable<PostV1AccountCompaniesProfileResponseAddress>.value(PostV1AccountCompaniesProfileResponseAddress(
+            address: Nullable<CompaniesProfileAccountResponseAddress>.value(CompaniesProfileAccountResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
@@ -1348,8 +1348,8 @@ import Api
             registryName: Nullable<String>.value("registryName"),
             incorporatedOn: Nullable<String>.value("incorporatedOn"),
             shareCapital: Nullable<String>.value("shareCapital"),
-            accountsKeptBy: Nullable<PostV1AccountCompaniesProfileResponseAccountsKeptBy>.value(.company),
-            vatPeriod: Nullable<PostV1AccountCompaniesProfileResponseVatPeriod>.value(.monthly),
+            accountsKeptBy: Nullable<CompaniesProfileAccountResponseAccountsKeptBy>.value(.company),
+            vatPeriod: Nullable<CompaniesProfileAccountResponseVatPeriod>.value(.monthly),
             fiscalYearEndMonth: Nullable<Int64>.value(1000000),
             timeZone: "timeZone",
             filingOptions: Nullable<[String: Nullable<String>]>.value([
@@ -1360,14 +1360,14 @@ import Api
             auditorRegistrationNumber: Nullable<String>.value("auditorRegistrationNumber"),
             auditRequired: true
         )
-        let response = try await client.account.postV1AccountCompaniesProfile(
+        let response = try await client.account.companiesProfile(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesProfile2() async throws -> Void {
+    @Test func companiesProfile2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1423,7 +1423,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesProfileResponse(
+        let expectedResponse = CompaniesProfileAccountResponse(
             id: "x",
             name: "name",
             code: Nullable<String>.value("code"),
@@ -1437,7 +1437,7 @@ import Api
             baseCurrency: "baseCurrency",
             defaultInvoiceCurrency: "defaultInvoiceCurrency",
             status: .active,
-            address: Nullable<PostV1AccountCompaniesProfileResponseAddress>.value(PostV1AccountCompaniesProfileResponseAddress(
+            address: Nullable<CompaniesProfileAccountResponseAddress>.value(CompaniesProfileAccountResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
@@ -1454,8 +1454,8 @@ import Api
             registryName: Nullable<String>.value("registryName"),
             incorporatedOn: Nullable<String>.value("incorporatedOn"),
             shareCapital: Nullable<String>.value("shareCapital"),
-            accountsKeptBy: Nullable<PostV1AccountCompaniesProfileResponseAccountsKeptBy>.value(.company),
-            vatPeriod: Nullable<PostV1AccountCompaniesProfileResponseVatPeriod>.value(.monthly),
+            accountsKeptBy: Nullable<CompaniesProfileAccountResponseAccountsKeptBy>.value(.company),
+            vatPeriod: Nullable<CompaniesProfileAccountResponseVatPeriod>.value(.monthly),
             fiscalYearEndMonth: Nullable<Int64>.value(1000000),
             timeZone: "timeZone",
             filingOptions: Nullable<[String: Nullable<String>]>.value([
@@ -1466,14 +1466,14 @@ import Api
             auditorRegistrationNumber: Nullable<String>.value("auditorRegistrationNumber"),
             auditRequired: true
         )
-        let response = try await client.account.postV1AccountCompaniesProfile(
+        let response = try await client.account.companiesProfile(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesUpdate1() async throws -> Void {
+    @Test func companiesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1529,7 +1529,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesUpdateResponse(
+        let expectedResponse = CompaniesUpdateAccountResponse(
             id: "id",
             name: "name",
             code: Nullable<String>.value("code"),
@@ -1543,7 +1543,7 @@ import Api
             baseCurrency: "baseCurrency",
             defaultInvoiceCurrency: "defaultInvoiceCurrency",
             status: .active,
-            address: Nullable<PostV1AccountCompaniesUpdateResponseAddress>.value(PostV1AccountCompaniesUpdateResponseAddress(
+            address: Nullable<CompaniesUpdateAccountResponseAddress>.value(CompaniesUpdateAccountResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
@@ -1560,8 +1560,8 @@ import Api
             registryName: Nullable<String>.value("registryName"),
             incorporatedOn: Nullable<String>.value("incorporatedOn"),
             shareCapital: Nullable<String>.value("shareCapital"),
-            accountsKeptBy: Nullable<PostV1AccountCompaniesUpdateResponseAccountsKeptBy>.value(.company),
-            vatPeriod: Nullable<PostV1AccountCompaniesUpdateResponseVatPeriod>.value(.monthly),
+            accountsKeptBy: Nullable<CompaniesUpdateAccountResponseAccountsKeptBy>.value(.company),
+            vatPeriod: Nullable<CompaniesUpdateAccountResponseVatPeriod>.value(.monthly),
             fiscalYearEndMonth: Nullable<Int64>.value(1000000),
             timeZone: "timeZone",
             filingOptions: Nullable<[String: Nullable<String>]>.value([
@@ -1572,14 +1572,14 @@ import Api
             auditorRegistrationNumber: Nullable<String>.value("auditorRegistrationNumber"),
             auditRequired: true
         )
-        let response = try await client.account.postV1AccountCompaniesUpdate(
+        let response = try await client.account.companiesUpdate(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesUpdate2() async throws -> Void {
+    @Test func companiesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1635,7 +1635,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesUpdateResponse(
+        let expectedResponse = CompaniesUpdateAccountResponse(
             id: "x",
             name: "name",
             code: Nullable<String>.value("code"),
@@ -1649,7 +1649,7 @@ import Api
             baseCurrency: "baseCurrency",
             defaultInvoiceCurrency: "defaultInvoiceCurrency",
             status: .active,
-            address: Nullable<PostV1AccountCompaniesUpdateResponseAddress>.value(PostV1AccountCompaniesUpdateResponseAddress(
+            address: Nullable<CompaniesUpdateAccountResponseAddress>.value(CompaniesUpdateAccountResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
@@ -1666,8 +1666,8 @@ import Api
             registryName: Nullable<String>.value("registryName"),
             incorporatedOn: Nullable<String>.value("incorporatedOn"),
             shareCapital: Nullable<String>.value("shareCapital"),
-            accountsKeptBy: Nullable<PostV1AccountCompaniesUpdateResponseAccountsKeptBy>.value(.company),
-            vatPeriod: Nullable<PostV1AccountCompaniesUpdateResponseVatPeriod>.value(.monthly),
+            accountsKeptBy: Nullable<CompaniesUpdateAccountResponseAccountsKeptBy>.value(.company),
+            vatPeriod: Nullable<CompaniesUpdateAccountResponseVatPeriod>.value(.monthly),
             fiscalYearEndMonth: Nullable<Int64>.value(1000000),
             timeZone: "timeZone",
             filingOptions: Nullable<[String: Nullable<String>]>.value([
@@ -1678,14 +1678,14 @@ import Api
             auditorRegistrationNumber: Nullable<String>.value("auditorRegistrationNumber"),
             auditRequired: true
         )
-        let response = try await client.account.postV1AccountCompaniesUpdate(
+        let response = try await client.account.companiesUpdate(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesArchive1() async throws -> Void {
+    @Test func companiesArchive1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1702,18 +1702,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesArchiveResponse(
+        let expectedResponse = CompaniesArchiveAccountResponse(
             id: "id",
             status: "status"
         )
-        let response = try await client.account.postV1AccountCompaniesArchive(
+        let response = try await client.account.companiesArchive(
             request: .init(companyId: "companyId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesArchive2() async throws -> Void {
+    @Test func companiesArchive2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1730,18 +1730,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesArchiveResponse(
+        let expectedResponse = CompaniesArchiveAccountResponse(
             id: "x",
             status: "status"
         )
-        let response = try await client.account.postV1AccountCompaniesArchive(
+        let response = try await client.account.companiesArchive(
             request: .init(companyId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesDelete1() async throws -> Void {
+    @Test func companiesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1759,19 +1759,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesDeleteResponse(
+        let expectedResponse = CompaniesDeleteAccountResponse(
             id: "id",
             status: "status",
             purgeAfter: "purgeAfter"
         )
-        let response = try await client.account.postV1AccountCompaniesDelete(
+        let response = try await client.account.companiesDelete(
             request: .init(companyId: "companyId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesDelete2() async throws -> Void {
+    @Test func companiesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1789,19 +1789,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesDeleteResponse(
+        let expectedResponse = CompaniesDeleteAccountResponse(
             id: "x",
             status: "status",
             purgeAfter: "purgeAfter"
         )
-        let response = try await client.account.postV1AccountCompaniesDelete(
+        let response = try await client.account.companiesDelete(
             request: .init(companyId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesActivate1() async throws -> Void {
+    @Test func companiesActivate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1818,18 +1818,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesActivateResponse(
+        let expectedResponse = CompaniesActivateAccountResponse(
             id: "id",
             status: "status"
         )
-        let response = try await client.account.postV1AccountCompaniesActivate(
+        let response = try await client.account.companiesActivate(
             request: .init(companyId: "companyId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountCompaniesActivate2() async throws -> Void {
+    @Test func companiesActivate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1846,18 +1846,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountCompaniesActivateResponse(
+        let expectedResponse = CompaniesActivateAccountResponse(
             id: "x",
             status: "status"
         )
-        let response = try await client.account.postV1AccountCompaniesActivate(
+        let response = try await client.account.companiesActivate(
             request: .init(companyId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountApiKeysCreate1() async throws -> Void {
+    @Test func apiKeysCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1869,7 +1869,7 @@ import Api
                     "scopes"
                   ],
                   "key": "key",
-                  "expiresAt": "expiresAt"
+                  "expiresAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1879,23 +1879,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountApiKeysCreateResponse(
+        let expectedResponse = ApiKeysCreateAccountResponse(
             id: "id",
             name: "name",
             scopes: [
                 "scopes"
             ],
             key: "key",
-            expiresAt: Nullable<String>.value("expiresAt")
+            expiresAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.account.postV1AccountApiKeysCreate(
+        let response = try await client.account.apiKeysCreate(
             request: .init(name: "name"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountApiKeysCreate2() async throws -> Void {
+    @Test func apiKeysCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1908,7 +1908,7 @@ import Api
                     "scopes"
                   ],
                   "key": "key",
-                  "expiresAt": "expiresAt"
+                  "expiresAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1918,7 +1918,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountApiKeysCreateResponse(
+        let expectedResponse = ApiKeysCreateAccountResponse(
             id: "x",
             name: "name",
             scopes: [
@@ -1926,16 +1926,16 @@ import Api
                 "scopes"
             ],
             key: "key",
-            expiresAt: Nullable<String>.value("expiresAt")
+            expiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.account.postV1AccountApiKeysCreate(
+        let response = try await client.account.apiKeysCreate(
             request: .init(name: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountApiKeysList1() async throws -> Void {
+    @Test func apiKeysList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1948,11 +1948,11 @@ import Api
                       "scopes": [
                         "scopes"
                       ],
-                      "lastUsedAt": "lastUsedAt",
-                      "expiresAt": "expiresAt",
+                      "lastUsedAt": "2026-07-01T09:30:00Z",
+                      "expiresAt": "2026-07-01T09:30:00Z",
                       "replacedByKeyId": "replacedByKeyId",
-                      "revokedAt": "revokedAt",
-                      "createdAt": "createdAt"
+                      "revokedAt": "2026-07-01T09:30:00Z",
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -1964,30 +1964,30 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountApiKeysListResponse(
+        let expectedResponse = ApiKeysListAccountResponse(
             rows: [
-                PostV1AccountApiKeysListResponseRowsItem(
+                ApiKeysListAccountResponseRowsItem(
                     id: "id",
                     name: "name",
                     scopes: [
                         "scopes"
                     ],
-                    lastUsedAt: Nullable<String>.value("lastUsedAt"),
-                    expiresAt: Nullable<String>.value("expiresAt"),
+                    lastUsedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    expiresAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     replacedByKeyId: Nullable<String>.value("replacedByKeyId"),
-                    revokedAt: Nullable<String>.value("revokedAt"),
-                    createdAt: "createdAt"
+                    revokedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.account.postV1AccountApiKeysList(
+        let response = try await client.account.apiKeysList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountApiKeysList2() async throws -> Void {
+    @Test func apiKeysList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2001,11 +2001,11 @@ import Api
                         "scopes",
                         "scopes"
                       ],
-                      "lastUsedAt": "lastUsedAt",
-                      "expiresAt": "expiresAt",
+                      "lastUsedAt": "2024-01-15T09:30:00Z",
+                      "expiresAt": "2024-01-15T09:30:00Z",
                       "replacedByKeyId": "x",
-                      "revokedAt": "revokedAt",
-                      "createdAt": "createdAt"
+                      "revokedAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -2014,11 +2014,11 @@ import Api
                         "scopes",
                         "scopes"
                       ],
-                      "lastUsedAt": "lastUsedAt",
-                      "expiresAt": "expiresAt",
+                      "lastUsedAt": "2024-01-15T09:30:00Z",
+                      "expiresAt": "2024-01-15T09:30:00Z",
                       "replacedByKeyId": "x",
-                      "revokedAt": "revokedAt",
-                      "createdAt": "createdAt"
+                      "revokedAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -2030,44 +2030,44 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountApiKeysListResponse(
+        let expectedResponse = ApiKeysListAccountResponse(
             rows: [
-                PostV1AccountApiKeysListResponseRowsItem(
+                ApiKeysListAccountResponseRowsItem(
                     id: "x",
                     name: "name",
                     scopes: [
                         "scopes",
                         "scopes"
                     ],
-                    lastUsedAt: Nullable<String>.value("lastUsedAt"),
-                    expiresAt: Nullable<String>.value("expiresAt"),
+                    lastUsedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    expiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     replacedByKeyId: Nullable<String>.value("x"),
-                    revokedAt: Nullable<String>.value("revokedAt"),
-                    createdAt: "createdAt"
+                    revokedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1AccountApiKeysListResponseRowsItem(
+                ApiKeysListAccountResponseRowsItem(
                     id: "x",
                     name: "name",
                     scopes: [
                         "scopes",
                         "scopes"
                     ],
-                    lastUsedAt: Nullable<String>.value("lastUsedAt"),
-                    expiresAt: Nullable<String>.value("expiresAt"),
+                    lastUsedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    expiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     replacedByKeyId: Nullable<String>.value("x"),
-                    revokedAt: Nullable<String>.value("revokedAt"),
-                    createdAt: "createdAt"
+                    revokedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.account.postV1AccountApiKeysList(
+        let response = try await client.account.apiKeysList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func issueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlap1() async throws -> Void {
+    @Test func apiKeysRotate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2079,9 +2079,9 @@ import Api
                     "scopes"
                   ],
                   "key": "key",
-                  "expiresAt": "expiresAt",
+                  "expiresAt": "2026-07-01T09:30:00Z",
                   "replacedKeyId": "replacedKeyId",
-                  "replacedKeyExpiresAt": "replacedKeyExpiresAt"
+                  "replacedKeyExpiresAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2091,25 +2091,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountApiKeysRotateResponse(
+        let expectedResponse = ApiKeysRotateAccountResponse(
             id: "id",
             name: "name",
             scopes: [
                 "scopes"
             ],
             key: "key",
-            expiresAt: Nullable<String>.value("expiresAt"),
+            expiresAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             replacedKeyId: "replacedKeyId",
-            replacedKeyExpiresAt: "replacedKeyExpiresAt"
+            replacedKeyExpiresAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.account.issueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlap(
+        let response = try await client.account.apiKeysRotate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func issueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlap2() async throws -> Void {
+    @Test func apiKeysRotate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2122,9 +2122,9 @@ import Api
                     "scopes"
                   ],
                   "key": "key",
-                  "expiresAt": "expiresAt",
+                  "expiresAt": "2024-01-15T09:30:00Z",
                   "replacedKeyId": "x",
-                  "replacedKeyExpiresAt": "replacedKeyExpiresAt"
+                  "replacedKeyExpiresAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2134,7 +2134,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountApiKeysRotateResponse(
+        let expectedResponse = ApiKeysRotateAccountResponse(
             id: "x",
             name: "name",
             scopes: [
@@ -2142,18 +2142,18 @@ import Api
                 "scopes"
             ],
             key: "key",
-            expiresAt: Nullable<String>.value("expiresAt"),
+            expiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             replacedKeyId: "x",
-            replacedKeyExpiresAt: "replacedKeyExpiresAt"
+            replacedKeyExpiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.account.issueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlap(
+        let response = try await client.account.apiKeysRotate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountApiKeysRevoke1() async throws -> Void {
+    @Test func apiKeysRevoke1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2169,17 +2169,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountApiKeysRevokeResponse(
+        let expectedResponse = ApiKeysRevokeAccountResponse(
             revoked: true
         )
-        let response = try await client.account.postV1AccountApiKeysRevoke(
+        let response = try await client.account.apiKeysRevoke(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountApiKeysRevoke2() async throws -> Void {
+    @Test func apiKeysRevoke2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2195,26 +2195,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountApiKeysRevokeResponse(
+        let expectedResponse = ApiKeysRevokeAccountResponse(
             revoked: true
         )
-        let response = try await client.account.postV1AccountApiKeysRevoke(
+        let response = try await client.account.apiKeysRevoke(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountConsentAccept1() async throws -> Void {
+    @Test func consentAccept1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "termsVersion": "termsVersion",
-                  "termsAcceptedAt": "termsAcceptedAt",
+                  "termsAcceptedAt": "2026-07-01T09:30:00Z",
                   "dpaVersion": "dpaVersion",
-                  "dpaAcceptedAt": "dpaAcceptedAt",
+                  "dpaAcceptedAt": "2026-07-01T09:30:00Z",
                   "currentTermsVersion": "currentTermsVersion",
                   "currentDpaVersion": "currentDpaVersion",
                   "required": true
@@ -2227,16 +2227,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountConsentAcceptResponse(
+        let expectedResponse = ConsentAcceptAccountResponse(
             termsVersion: Nullable<String>.value("termsVersion"),
-            termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
+            termsAcceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             dpaVersion: Nullable<String>.value("dpaVersion"),
-            dpaAcceptedAt: Nullable<String>.value("dpaAcceptedAt"),
+            dpaAcceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             currentTermsVersion: "currentTermsVersion",
             currentDpaVersion: "currentDpaVersion",
             required: true
         )
-        let response = try await client.account.postV1AccountConsentAccept(
+        let response = try await client.account.consentAccept(
             request: .init(
                 acceptTerms: true,
                 acceptDpa: true
@@ -2246,16 +2246,16 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountConsentAccept2() async throws -> Void {
+    @Test func consentAccept2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "termsVersion": "termsVersion",
-                  "termsAcceptedAt": "termsAcceptedAt",
+                  "termsAcceptedAt": "2024-01-15T09:30:00Z",
                   "dpaVersion": "dpaVersion",
-                  "dpaAcceptedAt": "dpaAcceptedAt",
+                  "dpaAcceptedAt": "2024-01-15T09:30:00Z",
                   "currentTermsVersion": "currentTermsVersion",
                   "currentDpaVersion": "currentDpaVersion",
                   "required": true
@@ -2268,16 +2268,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountConsentAcceptResponse(
+        let expectedResponse = ConsentAcceptAccountResponse(
             termsVersion: Nullable<String>.value("termsVersion"),
-            termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
+            termsAcceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             dpaVersion: Nullable<String>.value("dpaVersion"),
-            dpaAcceptedAt: Nullable<String>.value("dpaAcceptedAt"),
+            dpaAcceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             currentTermsVersion: "currentTermsVersion",
             currentDpaVersion: "currentDpaVersion",
             required: true
         )
-        let response = try await client.account.postV1AccountConsentAccept(
+        let response = try await client.account.consentAccept(
             request: .init(
                 acceptTerms: true,
                 acceptDpa: true
@@ -2287,7 +2287,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountProfileUpdate1() async throws -> Void {
+    @Test func profileUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2305,19 +2305,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountProfileUpdateResponse(
+        let expectedResponse = ProfileUpdateAccountResponse(
             id: "id",
             email: "email",
             name: Nullable<String>.value("name")
         )
-        let response = try await client.account.postV1AccountProfileUpdate(
+        let response = try await client.account.profileUpdate(
             request: .init(name: .null),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountProfileUpdate2() async throws -> Void {
+    @Test func profileUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2335,19 +2335,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountProfileUpdateResponse(
+        let expectedResponse = ProfileUpdateAccountResponse(
             id: "x",
             email: "email",
             name: Nullable<String>.value("name")
         )
-        let response = try await client.account.postV1AccountProfileUpdate(
+        let response = try await client.account.profileUpdate(
             request: .init(name: .null),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountEmailChangeRequest1() async throws -> Void {
+    @Test func emailChangeRequest1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2363,17 +2363,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountEmailChangeRequestResponse(
+        let expectedResponse = EmailChangeRequestAccountResponse(
             sent: true
         )
-        let response = try await client.account.postV1AccountEmailChangeRequest(
+        let response = try await client.account.emailChangeRequest(
             request: .init(newEmail: "newEmail"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountEmailChangeRequest2() async throws -> Void {
+    @Test func emailChangeRequest2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2389,17 +2389,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountEmailChangeRequestResponse(
+        let expectedResponse = EmailChangeRequestAccountResponse(
             sent: true
         )
-        let response = try await client.account.postV1AccountEmailChangeRequest(
+        let response = try await client.account.emailChangeRequest(
             request: .init(newEmail: "newEmail"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountSessionsList1() async throws -> Void {
+    @Test func sessionsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2411,9 +2411,9 @@ import Api
                       "companyId": "companyId",
                       "ipAddress": "ipAddress",
                       "userAgent": "userAgent",
-                      "lastSeenAt": "lastSeenAt",
-                      "createdAt": "createdAt",
-                      "expiresAt": "expiresAt",
+                      "lastSeenAt": "2026-07-01T09:30:00Z",
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "expiresAt": "2026-07-01T09:30:00Z",
                       "current": true
                     }
                   ]
@@ -2426,28 +2426,28 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountSessionsListResponse(
+        let expectedResponse = SessionsListAccountResponse(
             rows: [
-                PostV1AccountSessionsListResponseRowsItem(
+                SessionsListAccountResponseRowsItem(
                     id: "id",
                     companyId: Nullable<String>.value("companyId"),
                     ipAddress: Nullable<String>.value("ipAddress"),
                     userAgent: Nullable<String>.value("userAgent"),
-                    lastSeenAt: Nullable<String>.value("lastSeenAt"),
-                    createdAt: "createdAt",
-                    expiresAt: "expiresAt",
+                    lastSeenAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    expiresAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                     current: true
                 )
             ]
         )
-        let response = try await client.account.postV1AccountSessionsList(
+        let response = try await client.account.sessionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountSessionsList2() async throws -> Void {
+    @Test func sessionsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2459,9 +2459,9 @@ import Api
                       "companyId": "x",
                       "ipAddress": "ipAddress",
                       "userAgent": "userAgent",
-                      "lastSeenAt": "lastSeenAt",
-                      "createdAt": "createdAt",
-                      "expiresAt": "expiresAt",
+                      "lastSeenAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "expiresAt": "2024-01-15T09:30:00Z",
                       "current": true
                     },
                     {
@@ -2469,9 +2469,9 @@ import Api
                       "companyId": "x",
                       "ipAddress": "ipAddress",
                       "userAgent": "userAgent",
-                      "lastSeenAt": "lastSeenAt",
-                      "createdAt": "createdAt",
-                      "expiresAt": "expiresAt",
+                      "lastSeenAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "expiresAt": "2024-01-15T09:30:00Z",
                       "current": true
                     }
                   ]
@@ -2484,38 +2484,38 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountSessionsListResponse(
+        let expectedResponse = SessionsListAccountResponse(
             rows: [
-                PostV1AccountSessionsListResponseRowsItem(
+                SessionsListAccountResponseRowsItem(
                     id: "x",
                     companyId: Nullable<String>.value("x"),
                     ipAddress: Nullable<String>.value("ipAddress"),
                     userAgent: Nullable<String>.value("userAgent"),
-                    lastSeenAt: Nullable<String>.value("lastSeenAt"),
-                    createdAt: "createdAt",
-                    expiresAt: "expiresAt",
+                    lastSeenAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    expiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     current: true
                 ),
-                PostV1AccountSessionsListResponseRowsItem(
+                SessionsListAccountResponseRowsItem(
                     id: "x",
                     companyId: Nullable<String>.value("x"),
                     ipAddress: Nullable<String>.value("ipAddress"),
                     userAgent: Nullable<String>.value("userAgent"),
-                    lastSeenAt: Nullable<String>.value("lastSeenAt"),
-                    createdAt: "createdAt",
-                    expiresAt: "expiresAt",
+                    lastSeenAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    expiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     current: true
                 )
             ]
         )
-        let response = try await client.account.postV1AccountSessionsList(
+        let response = try await client.account.sessionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountSessionsRevoke1() async throws -> Void {
+    @Test func sessionsRevoke1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2531,17 +2531,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountSessionsRevokeResponse(
+        let expectedResponse = SessionsRevokeAccountResponse(
             revoked: true
         )
-        let response = try await client.account.postV1AccountSessionsRevoke(
+        let response = try await client.account.sessionsRevoke(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountSessionsRevoke2() async throws -> Void {
+    @Test func sessionsRevoke2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2557,17 +2557,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountSessionsRevokeResponse(
+        let expectedResponse = SessionsRevokeAccountResponse(
             revoked: true
         )
-        let response = try await client.account.postV1AccountSessionsRevoke(
+        let response = try await client.account.sessionsRevoke(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountSessionsRevokeOthers1() async throws -> Void {
+    @Test func sessionsRevokeOthers1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2583,17 +2583,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountSessionsRevokeOthersResponse(
+        let expectedResponse = SessionsRevokeOthersAccountResponse(
             revoked: 1000000
         )
-        let response = try await client.account.postV1AccountSessionsRevokeOthers(
+        let response = try await client.account.sessionsRevokeOthers(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountSessionsRevokeOthers2() async throws -> Void {
+    @Test func sessionsRevokeOthers2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2609,36 +2609,36 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountSessionsRevokeOthersResponse(
+        let expectedResponse = SessionsRevokeOthersAccountResponse(
             revoked: 1000000
         )
-        let response = try await client.account.postV1AccountSessionsRevokeOthers(
+        let response = try await client.account.sessionsRevokeOthers(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func downloadEverythingNordletStoresAboutTheSignedInUser1() async throws -> Void {
+    @Test func export1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "generatedAt": "generatedAt",
+                  "generatedAt": "2026-07-01T09:30:00Z",
                   "user": {
                     "id": "id",
                     "email": "email",
                     "name": "name",
                     "locale": "locale",
                     "plan": "plan",
-                    "createdAt": "createdAt"
+                    "createdAt": "2026-07-01T09:30:00Z"
                   },
                   "consent": {
                     "termsVersion": "termsVersion",
-                    "termsAcceptedAt": "termsAcceptedAt",
+                    "termsAcceptedAt": "2026-07-01T09:30:00Z",
                     "dpaVersion": "dpaVersion",
-                    "dpaAcceptedAt": "dpaAcceptedAt",
+                    "dpaAcceptedAt": "2026-07-01T09:30:00Z",
                     "currentTermsVersion": "currentTermsVersion",
                     "currentDpaVersion": "currentDpaVersion",
                     "required": true
@@ -2657,9 +2657,9 @@ import Api
                       "companyId": "companyId",
                       "ipAddress": "ipAddress",
                       "userAgent": "userAgent",
-                      "lastSeenAt": "lastSeenAt",
-                      "createdAt": "createdAt",
-                      "expiresAt": "expiresAt",
+                      "lastSeenAt": "2026-07-01T09:30:00Z",
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "expiresAt": "2026-07-01T09:30:00Z",
                       "current": true
                     }
                   ],
@@ -2667,8 +2667,8 @@ import Api
                     "status": "status",
                     "plan": "plan",
                     "balanceCents": 1000000,
-                    "trialEndsAt": "trialEndsAt",
-                    "firstTopUpAt": "firstTopUpAt"
+                    "trialEndsAt": "2026-07-01T09:30:00Z",
+                    "firstTopUpAt": "2026-07-01T09:30:00Z"
                   },
                   "creditTransactions": [
                     {
@@ -2677,7 +2677,7 @@ import Api
                       "amountCents": 1000000,
                       "balanceAfterCents": 1000000,
                       "description": "description",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "auditEntries": [
@@ -2687,7 +2687,7 @@ import Api
                       "action": "action",
                       "entity": "entity",
                       "entityId": "entityId",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -2699,27 +2699,27 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountExportResponse(
-            generatedAt: "generatedAt",
-            user: PostV1AccountExportResponseUser(
+        let expectedResponse = ExportAccountResponse(
+            generatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            user: ExportAccountResponseUser(
                 id: "id",
                 email: "email",
                 name: Nullable<String>.value("name"),
                 locale: "locale",
                 plan: "plan",
-                createdAt: "createdAt"
+                createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
             ),
-            consent: PostV1AccountExportResponseConsent(
+            consent: ExportAccountResponseConsent(
                 termsVersion: Nullable<String>.value("termsVersion"),
-                termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
+                termsAcceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                 dpaVersion: Nullable<String>.value("dpaVersion"),
-                dpaAcceptedAt: Nullable<String>.value("dpaAcceptedAt"),
+                dpaAcceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                 currentTermsVersion: "currentTermsVersion",
                 currentDpaVersion: "currentDpaVersion",
                 required: true
             ),
             memberships: [
-                PostV1AccountExportResponseMembershipsItem(
+                ExportAccountResponseMembershipsItem(
                     companyId: "companyId",
                     companyName: "companyName",
                     role: "role",
@@ -2727,72 +2727,72 @@ import Api
                 )
             ],
             sessions: [
-                PostV1AccountExportResponseSessionsItem(
+                ExportAccountResponseSessionsItem(
                     id: "id",
                     companyId: Nullable<String>.value("companyId"),
                     ipAddress: Nullable<String>.value("ipAddress"),
                     userAgent: Nullable<String>.value("userAgent"),
-                    lastSeenAt: Nullable<String>.value("lastSeenAt"),
-                    createdAt: "createdAt",
-                    expiresAt: "expiresAt",
+                    lastSeenAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    expiresAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                     current: true
                 )
             ],
-            billing: Nullable<PostV1AccountExportResponseBilling>.value(PostV1AccountExportResponseBilling(
+            billing: Nullable<ExportAccountResponseBilling>.value(ExportAccountResponseBilling(
                 status: "status",
                 plan: "plan",
                 balanceCents: 1000000,
-                trialEndsAt: Nullable<String>.value("trialEndsAt"),
-                firstTopUpAt: Nullable<String>.value("firstTopUpAt")
+                trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
             )),
             creditTransactions: [
-                PostV1AccountExportResponseCreditTransactionsItem(
+                ExportAccountResponseCreditTransactionsItem(
                     id: "id",
                     type: "type",
                     amountCents: 1000000,
                     balanceAfterCents: 1000000,
                     description: "description",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             auditEntries: [
-                PostV1AccountExportResponseAuditEntriesItem(
+                ExportAccountResponseAuditEntriesItem(
                     id: 1000000,
                     companyId: "companyId",
                     action: "action",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.account.downloadEverythingNordletStoresAboutTheSignedInUser(
+        let response = try await client.account.export(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func downloadEverythingNordletStoresAboutTheSignedInUser2() async throws -> Void {
+    @Test func export2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "generatedAt": "generatedAt",
+                  "generatedAt": "2024-01-15T09:30:00Z",
                   "user": {
                     "id": "x",
                     "email": "email",
                     "name": "name",
                     "locale": "locale",
                     "plan": "plan",
-                    "createdAt": "createdAt"
+                    "createdAt": "2024-01-15T09:30:00Z"
                   },
                   "consent": {
                     "termsVersion": "termsVersion",
-                    "termsAcceptedAt": "termsAcceptedAt",
+                    "termsAcceptedAt": "2024-01-15T09:30:00Z",
                     "dpaVersion": "dpaVersion",
-                    "dpaAcceptedAt": "dpaAcceptedAt",
+                    "dpaAcceptedAt": "2024-01-15T09:30:00Z",
                     "currentTermsVersion": "currentTermsVersion",
                     "currentDpaVersion": "currentDpaVersion",
                     "required": true
@@ -2817,9 +2817,9 @@ import Api
                       "companyId": "x",
                       "ipAddress": "ipAddress",
                       "userAgent": "userAgent",
-                      "lastSeenAt": "lastSeenAt",
-                      "createdAt": "createdAt",
-                      "expiresAt": "expiresAt",
+                      "lastSeenAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "expiresAt": "2024-01-15T09:30:00Z",
                       "current": true
                     },
                     {
@@ -2827,9 +2827,9 @@ import Api
                       "companyId": "x",
                       "ipAddress": "ipAddress",
                       "userAgent": "userAgent",
-                      "lastSeenAt": "lastSeenAt",
-                      "createdAt": "createdAt",
-                      "expiresAt": "expiresAt",
+                      "lastSeenAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "expiresAt": "2024-01-15T09:30:00Z",
                       "current": true
                     }
                   ],
@@ -2837,8 +2837,8 @@ import Api
                     "status": "status",
                     "plan": "plan",
                     "balanceCents": 1000000,
-                    "trialEndsAt": "trialEndsAt",
-                    "firstTopUpAt": "firstTopUpAt"
+                    "trialEndsAt": "2024-01-15T09:30:00Z",
+                    "firstTopUpAt": "2024-01-15T09:30:00Z"
                   },
                   "creditTransactions": [
                     {
@@ -2847,7 +2847,7 @@ import Api
                       "amountCents": 1000000,
                       "balanceAfterCents": 1000000,
                       "description": "description",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -2855,7 +2855,7 @@ import Api
                       "amountCents": 1000000,
                       "balanceAfterCents": 1000000,
                       "description": "description",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "auditEntries": [
@@ -2865,7 +2865,7 @@ import Api
                       "action": "action",
                       "entity": "entity",
                       "entityId": "entityId",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": 1000000,
@@ -2873,7 +2873,7 @@ import Api
                       "action": "action",
                       "entity": "entity",
                       "entityId": "entityId",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -2885,33 +2885,33 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountExportResponse(
-            generatedAt: "generatedAt",
-            user: PostV1AccountExportResponseUser(
+        let expectedResponse = ExportAccountResponse(
+            generatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            user: ExportAccountResponseUser(
                 id: "x",
                 email: "email",
                 name: Nullable<String>.value("name"),
                 locale: "locale",
                 plan: "plan",
-                createdAt: "createdAt"
+                createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
             ),
-            consent: PostV1AccountExportResponseConsent(
+            consent: ExportAccountResponseConsent(
                 termsVersion: Nullable<String>.value("termsVersion"),
-                termsAcceptedAt: Nullable<String>.value("termsAcceptedAt"),
+                termsAcceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                 dpaVersion: Nullable<String>.value("dpaVersion"),
-                dpaAcceptedAt: Nullable<String>.value("dpaAcceptedAt"),
+                dpaAcceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                 currentTermsVersion: "currentTermsVersion",
                 currentDpaVersion: "currentDpaVersion",
                 required: true
             ),
             memberships: [
-                PostV1AccountExportResponseMembershipsItem(
+                ExportAccountResponseMembershipsItem(
                     companyId: "x",
                     companyName: "companyName",
                     role: "role",
                     since: "since"
                 ),
-                PostV1AccountExportResponseMembershipsItem(
+                ExportAccountResponseMembershipsItem(
                     companyId: "x",
                     companyName: "companyName",
                     role: "role",
@@ -2919,79 +2919,79 @@ import Api
                 )
             ],
             sessions: [
-                PostV1AccountExportResponseSessionsItem(
+                ExportAccountResponseSessionsItem(
                     id: "x",
                     companyId: Nullable<String>.value("x"),
                     ipAddress: Nullable<String>.value("ipAddress"),
                     userAgent: Nullable<String>.value("userAgent"),
-                    lastSeenAt: Nullable<String>.value("lastSeenAt"),
-                    createdAt: "createdAt",
-                    expiresAt: "expiresAt",
+                    lastSeenAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    expiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     current: true
                 ),
-                PostV1AccountExportResponseSessionsItem(
+                ExportAccountResponseSessionsItem(
                     id: "x",
                     companyId: Nullable<String>.value("x"),
                     ipAddress: Nullable<String>.value("ipAddress"),
                     userAgent: Nullable<String>.value("userAgent"),
-                    lastSeenAt: Nullable<String>.value("lastSeenAt"),
-                    createdAt: "createdAt",
-                    expiresAt: "expiresAt",
+                    lastSeenAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    expiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     current: true
                 )
             ],
-            billing: Nullable<PostV1AccountExportResponseBilling>.value(PostV1AccountExportResponseBilling(
+            billing: Nullable<ExportAccountResponseBilling>.value(ExportAccountResponseBilling(
                 status: "status",
                 plan: "plan",
                 balanceCents: 1000000,
-                trialEndsAt: Nullable<String>.value("trialEndsAt"),
-                firstTopUpAt: Nullable<String>.value("firstTopUpAt")
+                trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
             )),
             creditTransactions: [
-                PostV1AccountExportResponseCreditTransactionsItem(
+                ExportAccountResponseCreditTransactionsItem(
                     id: "x",
                     type: "type",
                     amountCents: 1000000,
                     balanceAfterCents: 1000000,
                     description: "description",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1AccountExportResponseCreditTransactionsItem(
+                ExportAccountResponseCreditTransactionsItem(
                     id: "x",
                     type: "type",
                     amountCents: 1000000,
                     balanceAfterCents: 1000000,
                     description: "description",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             auditEntries: [
-                PostV1AccountExportResponseAuditEntriesItem(
+                ExportAccountResponseAuditEntriesItem(
                     id: 1000000,
                     companyId: "x",
                     action: "action",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1AccountExportResponseAuditEntriesItem(
+                ExportAccountResponseAuditEntriesItem(
                     id: 1000000,
                     companyId: "x",
                     action: "action",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.account.downloadEverythingNordletStoresAboutTheSignedInUser(
+        let response = try await client.account.export(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func deleteTheSignedInUserAccount1() async throws -> Void {
+    @Test func delete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3007,17 +3007,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountDeleteResponse(
+        let expectedResponse = DeleteAccountResponse(
             deleted: true
         )
-        let response = try await client.account.deleteTheSignedInUserAccount(
+        let response = try await client.account.delete(
             request: .init(confirmEmail: "confirmEmail"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func deleteTheSignedInUserAccount2() async throws -> Void {
+    @Test func delete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3033,17 +3033,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountDeleteResponse(
+        let expectedResponse = DeleteAccountResponse(
             deleted: true
         )
-        let response = try await client.account.deleteTheSignedInUserAccount(
+        let response = try await client.account.delete(
             request: .init(confirmEmail: "confirmEmail"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountReferralGet1() async throws -> Void {
+    @Test func referralGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3061,7 +3061,7 @@ import Api
                     {
                       "points": 1000000,
                       "reason": "reason",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -3073,31 +3073,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountReferralGetResponse(
+        let expectedResponse = ReferralGetAccountResponse(
             code: "code",
             link: "link",
             points: 1000000,
             referredCount: 1000000,
-            rates: PostV1AccountReferralGetResponseRates(
+            rates: ReferralGetAccountResponseRates(
                 perEur: 1000000,
                 pointCents: 1000000
             ),
             history: [
-                PostV1AccountReferralGetResponseHistoryItem(
+                ReferralGetAccountResponseHistoryItem(
                     points: 1000000,
                     reason: "reason",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.account.postV1AccountReferralGet(
+        let response = try await client.account.referralGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountReferralGet2() async throws -> Void {
+    @Test func referralGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3115,12 +3115,12 @@ import Api
                     {
                       "points": 1000000,
                       "reason": "reason",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "points": 1000000,
                       "reason": "reason",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -3132,36 +3132,36 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountReferralGetResponse(
+        let expectedResponse = ReferralGetAccountResponse(
             code: "code",
             link: "link",
             points: 1000000,
             referredCount: 1000000,
-            rates: PostV1AccountReferralGetResponseRates(
+            rates: ReferralGetAccountResponseRates(
                 perEur: 1000000,
                 pointCents: 1000000
             ),
             history: [
-                PostV1AccountReferralGetResponseHistoryItem(
+                ReferralGetAccountResponseHistoryItem(
                     points: 1000000,
                     reason: "reason",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1AccountReferralGetResponseHistoryItem(
+                ReferralGetAccountResponseHistoryItem(
                     points: 1000000,
                     reason: "reason",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.account.postV1AccountReferralGet(
+        let response = try await client.account.referralGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountReferralConvert1() async throws -> Void {
+    @Test func referralConvert1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3180,20 +3180,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountReferralConvertResponse(
+        let expectedResponse = ReferralConvertAccountResponse(
             points: 1000000,
             amountCents: 1000000,
             pointsLeft: 1000000,
             balanceCents: 1000000
         )
-        let response = try await client.account.postV1AccountReferralConvert(
+        let response = try await client.account.referralConvert(
             request: .init(points: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountReferralConvert2() async throws -> Void {
+    @Test func referralConvert2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3212,20 +3212,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountReferralConvertResponse(
+        let expectedResponse = ReferralConvertAccountResponse(
             points: 1000000,
             amountCents: 1000000,
             pointsLeft: 1000000,
             balanceCents: 1000000
         )
-        let response = try await client.account.postV1AccountReferralConvert(
+        let response = try await client.account.referralConvert(
             request: .init(points: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountTableSettingsGet1() async throws -> Void {
+    @Test func tableSettingsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3245,21 +3245,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountTableSettingsGetResponse(
+        let expectedResponse = TableSettingsGetAccountResponse(
             tableKey: "tableKey",
             columns: Nullable<[String]>.value([
                 "columns"
             ]),
             pageSize: Nullable<Int64>.value(1000000)
         )
-        let response = try await client.account.postV1AccountTableSettingsGet(
+        let response = try await client.account.tableSettingsGet(
             request: .init(tableKey: "tableKey"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountTableSettingsGet2() async throws -> Void {
+    @Test func tableSettingsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3280,7 +3280,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountTableSettingsGetResponse(
+        let expectedResponse = TableSettingsGetAccountResponse(
             tableKey: "tableKey",
             columns: Nullable<[String]>.value([
                 "columns",
@@ -3288,14 +3288,14 @@ import Api
             ]),
             pageSize: Nullable<Int64>.value(1000000)
         )
-        let response = try await client.account.postV1AccountTableSettingsGet(
+        let response = try await client.account.tableSettingsGet(
             request: .init(tableKey: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountTableSettingsSet1() async throws -> Void {
+    @Test func tableSettingsSet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3315,21 +3315,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountTableSettingsSetResponse(
+        let expectedResponse = TableSettingsSetAccountResponse(
             tableKey: "tableKey",
             columns: Nullable<[String]>.value([
                 "columns"
             ]),
             pageSize: Nullable<Int64>.value(1000000)
         )
-        let response = try await client.account.postV1AccountTableSettingsSet(
+        let response = try await client.account.tableSettingsSet(
             request: .init(tableKey: "tableKey"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountTableSettingsSet2() async throws -> Void {
+    @Test func tableSettingsSet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3350,7 +3350,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountTableSettingsSetResponse(
+        let expectedResponse = TableSettingsSetAccountResponse(
             tableKey: "tableKey",
             columns: Nullable<[String]>.value([
                 "columns",
@@ -3358,14 +3358,14 @@ import Api
             ]),
             pageSize: Nullable<Int64>.value(1000000)
         )
-        let response = try await client.account.postV1AccountTableSettingsSet(
+        let response = try await client.account.tableSettingsSet(
             request: .init(tableKey: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountTableSettingsList1() async throws -> Void {
+    @Test func tableSettingsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3389,9 +3389,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountTableSettingsListResponse(
+        let expectedResponse = TableSettingsListAccountResponse(
             rows: [
-                PostV1AccountTableSettingsListResponseRowsItem(
+                TableSettingsListAccountResponseRowsItem(
                     tableKey: "tableKey",
                     columns: Nullable<[String]>.value([
                         "columns"
@@ -3400,14 +3400,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.account.postV1AccountTableSettingsList(
+        let response = try await client.account.tableSettingsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AccountTableSettingsList2() async throws -> Void {
+    @Test func tableSettingsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3440,9 +3440,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AccountTableSettingsListResponse(
+        let expectedResponse = TableSettingsListAccountResponse(
             rows: [
-                PostV1AccountTableSettingsListResponseRowsItem(
+                TableSettingsListAccountResponseRowsItem(
                     tableKey: "tableKey",
                     columns: Nullable<[String]>.value([
                         "columns",
@@ -3450,7 +3450,7 @@ import Api
                     ]),
                     pageSize: Nullable<Int64>.value(1000000)
                 ),
-                PostV1AccountTableSettingsListResponseRowsItem(
+                TableSettingsListAccountResponseRowsItem(
                     tableKey: "tableKey",
                     columns: Nullable<[String]>.value([
                         "columns",
@@ -3460,7 +3460,7 @@ import Api
                 )
             ]
         )
-        let response = try await client.account.postV1AccountTableSettingsList(
+        let response = try await client.account.tableSettingsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

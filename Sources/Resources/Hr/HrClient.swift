@@ -7,279 +7,279 @@ public final class HrClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1HrPositionsCreate(request: Requests.PostV1HrPositionsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrPositionsCreateResponse {
+    public func positionsCreate(request: Requests.PositionsCreateHrRequest, requestOptions: RequestOptions? = nil) async throws -> PositionsCreateHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/positions/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrPositionsCreateResponse.self
+            responseType: PositionsCreateHrResponse.self
         )
     }
 
-    public func postV1HrPositionsUpdate(request: Requests.PostV1HrPositionsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrPositionsUpdateResponse {
+    public func positionsUpdate(request: Requests.PositionsUpdateHrRequest, requestOptions: RequestOptions? = nil) async throws -> PositionsUpdateHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/positions/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrPositionsUpdateResponse.self
+            responseType: PositionsUpdateHrResponse.self
         )
     }
 
-    public func postV1HrPositionsList(request: Requests.PostV1HrPositionsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrPositionsListResponse {
+    public func positionsList(request: Requests.PositionsListHrRequest, requestOptions: RequestOptions? = nil) async throws -> PositionsListHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/positions/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrPositionsListResponse.self
+            responseType: PositionsListHrResponse.self
         )
     }
 
-    public func postV1HrEmployeesCreate(request: Requests.PostV1HrEmployeesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesCreateResponse {
+    public func employeesCreate(request: Requests.EmployeesCreateHrRequest, requestOptions: RequestOptions? = nil) async throws -> EmployeesCreateHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/employees/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrEmployeesCreateResponse.self
+            responseType: EmployeesCreateHrResponse.self
         )
     }
 
-    public func postV1HrEmployeesUpdate(request: Requests.PostV1HrEmployeesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesUpdateResponse {
+    public func employeesUpdate(request: Requests.EmployeesUpdateHrRequest, requestOptions: RequestOptions? = nil) async throws -> EmployeesUpdateHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/employees/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrEmployeesUpdateResponse.self
+            responseType: EmployeesUpdateHrResponse.self
         )
     }
 
-    public func postV1HrEmployeesGet(request: Requests.PostV1HrEmployeesGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesGetResponse {
+    public func employeesGet(request: Requests.EmployeesGetHrRequest, requestOptions: RequestOptions? = nil) async throws -> EmployeesGetHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/employees/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrEmployeesGetResponse.self
+            responseType: EmployeesGetHrResponse.self
         )
     }
 
     /// Attributes a filing of the company country needs about a person that the shared employee record does not carry, such as the sex and place of birth an Italian income certificate asks for. Their values are kept in the payrollOptions of the employee.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func extraEmployeeDetailsTheCountryOfTheCompanyAsksFor(request: Requests.PostV1HrEmployeesFieldsRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesFieldsResponse {
+    public func employeesFields(request: Requests.EmployeesFieldsHrRequest, requestOptions: RequestOptions? = nil) async throws -> EmployeesFieldsHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/employees/fields",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrEmployeesFieldsResponse.self
+            responseType: EmployeesFieldsHrResponse.self
         )
     }
 
-    public func postV1HrEmployeesList(request: Requests.PostV1HrEmployeesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesListResponse {
+    public func employeesList(request: Requests.EmployeesListHrRequest, requestOptions: RequestOptions? = nil) async throws -> EmployeesListHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/employees/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrEmployeesListResponse.self
+            responseType: EmployeesListHrResponse.self
         )
     }
 
-    public func postV1HrEmployeesDelete(request: Requests.PostV1HrEmployeesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesDeleteResponse {
+    public func employeesDelete(request: Requests.EmployeesDeleteHrRequest, requestOptions: RequestOptions? = nil) async throws -> EmployeesDeleteHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/employees/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrEmployeesDeleteResponse.self
+            responseType: EmployeesDeleteHrResponse.self
         )
     }
 
     /// Replaces the name with a placeholder and removes personal code, birth date, contact details, address, bank account, social-insurance number, notes and sick-leave reasons. Payroll and contract rows stay linked to the record for the statutory retention period.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func blankAnEmployeesPersonalDataAndHideTheRecord(request: Requests.PostV1HrEmployeesAnonymizeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesAnonymizeResponse {
+    public func employeesAnonymize(request: Requests.EmployeesAnonymizeHrRequest, requestOptions: RequestOptions? = nil) async throws -> EmployeesAnonymizeHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/employees/anonymize",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrEmployeesAnonymizeResponse.self
+            responseType: EmployeesAnonymizeHrResponse.self
         )
     }
 
-    public func postV1HrContractsCreate(request: Requests.PostV1HrContractsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrContractsCreateResponse {
+    public func contractsCreate(request: Requests.ContractsCreateHrRequest, requestOptions: RequestOptions? = nil) async throws -> ContractsCreateHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/contracts/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrContractsCreateResponse.self
+            responseType: ContractsCreateHrResponse.self
         )
     }
 
-    public func postV1HrContractsEnd(request: Requests.PostV1HrContractsEndRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrContractsEndResponse {
+    public func contractsEnd(request: Requests.ContractsEndHrRequest, requestOptions: RequestOptions? = nil) async throws -> ContractsEndHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/contracts/end",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrContractsEndResponse.self
+            responseType: ContractsEndHrResponse.self
         )
     }
 
-    public func postV1HrContractsList(request: Requests.PostV1HrContractsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrContractsListResponse {
+    public func contractsList(request: Requests.ContractsListHrRequest, requestOptions: RequestOptions? = nil) async throws -> ContractsListHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/contracts/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrContractsListResponse.self
+            responseType: ContractsListHrResponse.self
         )
     }
 
-    public func postV1HrLeaveBalancesSet(request: Requests.PostV1HrLeaveBalancesSetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrLeaveBalancesSetResponse {
+    public func leaveBalancesSet(request: Requests.LeaveBalancesSetHrRequest, requestOptions: RequestOptions? = nil) async throws -> LeaveBalancesSetHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/leave-balances/set",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrLeaveBalancesSetResponse.self
+            responseType: LeaveBalancesSetHrResponse.self
         )
     }
 
-    public func postV1HrLeaveBalancesList(request: Requests.PostV1HrLeaveBalancesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrLeaveBalancesListResponse {
+    public func leaveBalancesList(request: Requests.LeaveBalancesListHrRequest, requestOptions: RequestOptions? = nil) async throws -> LeaveBalancesListHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/leave-balances/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrLeaveBalancesListResponse.self
+            responseType: LeaveBalancesListHrResponse.self
         )
     }
 
-    public func postV1HrIncapacityCertificatesCreate(request: Requests.PostV1HrIncapacityCertificatesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrIncapacityCertificatesCreateResponse {
+    public func incapacityCertificatesCreate(request: Requests.IncapacityCertificatesCreateHrRequest, requestOptions: RequestOptions? = nil) async throws -> IncapacityCertificatesCreateHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/incapacity-certificates/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrIncapacityCertificatesCreateResponse.self
+            responseType: IncapacityCertificatesCreateHrResponse.self
         )
     }
 
-    public func postV1HrIncapacityCertificatesList(request: Requests.PostV1HrIncapacityCertificatesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrIncapacityCertificatesListResponse {
+    public func incapacityCertificatesList(request: Requests.IncapacityCertificatesListHrRequest, requestOptions: RequestOptions? = nil) async throws -> IncapacityCertificatesListHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/incapacity-certificates/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrIncapacityCertificatesListResponse.self
+            responseType: IncapacityCertificatesListHrResponse.self
         )
     }
 
-    public func postV1HrEmployeesRecordsCreate(request: Requests.PostV1HrEmployeesRecordsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesRecordsCreateResponse {
+    public func employeesRecordsCreate(request: Requests.EmployeesRecordsCreateHrRequest, requestOptions: RequestOptions? = nil) async throws -> EmployeesRecordsCreateHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/employees/records/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrEmployeesRecordsCreateResponse.self
+            responseType: EmployeesRecordsCreateHrResponse.self
         )
     }
 
-    public func postV1HrEmployeesRecordsUpdate(request: Requests.PostV1HrEmployeesRecordsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesRecordsUpdateResponse {
+    public func employeesRecordsUpdate(request: Requests.EmployeesRecordsUpdateHrRequest, requestOptions: RequestOptions? = nil) async throws -> EmployeesRecordsUpdateHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/employees/records/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrEmployeesRecordsUpdateResponse.self
+            responseType: EmployeesRecordsUpdateHrResponse.self
         )
     }
 
-    public func postV1HrEmployeesRecordsDelete(request: Requests.PostV1HrEmployeesRecordsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesRecordsDeleteResponse {
+    public func employeesRecordsDelete(request: Requests.EmployeesRecordsDeleteHrRequest, requestOptions: RequestOptions? = nil) async throws -> EmployeesRecordsDeleteHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/employees/records/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrEmployeesRecordsDeleteResponse.self
+            responseType: EmployeesRecordsDeleteHrResponse.self
         )
     }
 
-    public func postV1HrEmployeesRecordsList(request: Requests.PostV1HrEmployeesRecordsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesRecordsListResponse {
+    public func employeesRecordsList(request: Requests.EmployeesRecordsListHrRequest, requestOptions: RequestOptions? = nil) async throws -> EmployeesRecordsListHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/employees/records/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrEmployeesRecordsListResponse.self
+            responseType: EmployeesRecordsListHrResponse.self
         )
     }
 
-    public func postV1HrEmployeesAttachmentsList(request: Requests.PostV1HrEmployeesAttachmentsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrEmployeesAttachmentsListResponse {
+    public func employeesAttachmentsList(request: Requests.EmployeesAttachmentsListHrRequest, requestOptions: RequestOptions? = nil) async throws -> EmployeesAttachmentsListHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/employees/attachments/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrEmployeesAttachmentsListResponse.self
+            responseType: EmployeesAttachmentsListHrResponse.self
         )
     }
 
-    public func postV1HrTimesheetsGenerate(request: Requests.PostV1HrTimesheetsGenerateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrTimesheetsGenerateResponse {
+    public func timesheetsGenerate(request: Requests.TimesheetsGenerateHrRequest, requestOptions: RequestOptions? = nil) async throws -> TimesheetsGenerateHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/timesheets/generate",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrTimesheetsGenerateResponse.self
+            responseType: TimesheetsGenerateHrResponse.self
         )
     }
 
-    public func postV1HrTimesheetsUpsert(request: Requests.PostV1HrTimesheetsUpsertRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrTimesheetsUpsertResponse {
+    public func timesheetsUpsert(request: Requests.TimesheetsUpsertHrRequest, requestOptions: RequestOptions? = nil) async throws -> TimesheetsUpsertHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/timesheets/upsert",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrTimesheetsUpsertResponse.self
+            responseType: TimesheetsUpsertHrResponse.self
         )
     }
 
-    public func postV1HrTimesheetsGet(request: Requests.PostV1HrTimesheetsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrTimesheetsGetResponse {
+    public func timesheetsGet(request: Requests.TimesheetsGetHrRequest, requestOptions: RequestOptions? = nil) async throws -> TimesheetsGetHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/timesheets/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrTimesheetsGetResponse.self
+            responseType: TimesheetsGetHrResponse.self
         )
     }
 
-    public func postV1HrTimesheetsList(request: Requests.PostV1HrTimesheetsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrTimesheetsListResponse {
+    public func timesheetsList(request: Requests.TimesheetsListHrRequest, requestOptions: RequestOptions? = nil) async throws -> TimesheetsListHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/timesheets/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrTimesheetsListResponse.self
+            responseType: TimesheetsListHrResponse.self
         )
     }
 
-    public func postV1HrTimesheetsDelete(request: Requests.PostV1HrTimesheetsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1HrTimesheetsDeleteResponse {
+    public func timesheetsDelete(request: Requests.TimesheetsDeleteHrRequest, requestOptions: RequestOptions? = nil) async throws -> TimesheetsDeleteHrResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/hr/timesheets/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1HrTimesheetsDeleteResponse.self
+            responseType: TimesheetsDeleteHrResponse.self
         )
     }
 }

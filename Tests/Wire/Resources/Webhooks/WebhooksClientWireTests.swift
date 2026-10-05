@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("WebhooksClient Wire Tests") struct WebhooksClientWireTests {
-    @Test func postV1WebhooksSubscriptionsCreate1() async throws -> Void {
+    @Test func subscriptionsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -15,7 +15,11 @@ import Api
                     "events"
                   ],
                   "isActive": true,
-                  "createdAt": "createdAt",
+                  "consecutiveFailures": 1000000,
+                  "lastDeliveryStatus": "pending",
+                  "lastDeliveryAt": "2026-07-01T09:30:00Z",
+                  "pausedAt": "2026-07-01T09:30:00Z",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "secret": "secret"
                 }
                 """#.utf8
@@ -26,21 +30,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1WebhooksSubscriptionsCreateResponse(
+        let expectedResponse = SubscriptionsCreateWebhooksResponse(
             id: "id",
             url: "url",
             events: [
                 "events"
             ],
             isActive: true,
-            createdAt: "createdAt",
+            consecutiveFailures: 1000000,
+            lastDeliveryStatus: Nullable<SubscriptionsCreateWebhooksResponseLastDeliveryStatus>.value(.pending),
+            lastDeliveryAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            pausedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             secret: "secret"
         )
-        let response = try await client.webhooks.postV1WebhooksSubscriptionsCreate(
+        let response = try await client.webhooks.subscriptionsCreate(
             request: .init(
                 url: "url",
                 events: [
-                    "events"
+                    .agreementInvoiceGenerated
                 ]
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -48,7 +56,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1WebhooksSubscriptionsCreate2() async throws -> Void {
+    @Test func subscriptionsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -61,7 +69,11 @@ import Api
                     "events"
                   ],
                   "isActive": true,
-                  "createdAt": "createdAt",
+                  "consecutiveFailures": 1000000,
+                  "lastDeliveryStatus": "pending",
+                  "lastDeliveryAt": "2024-01-15T09:30:00Z",
+                  "pausedAt": "2024-01-15T09:30:00Z",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "secret": "secret"
                 }
                 """#.utf8
@@ -72,7 +84,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1WebhooksSubscriptionsCreateResponse(
+        let expectedResponse = SubscriptionsCreateWebhooksResponse(
             id: "x",
             url: "url",
             events: [
@@ -80,15 +92,19 @@ import Api
                 "events"
             ],
             isActive: true,
-            createdAt: "createdAt",
+            consecutiveFailures: 1000000,
+            lastDeliveryStatus: Nullable<SubscriptionsCreateWebhooksResponseLastDeliveryStatus>.value(.pending),
+            lastDeliveryAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            pausedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             secret: "secret"
         )
-        let response = try await client.webhooks.postV1WebhooksSubscriptionsCreate(
+        let response = try await client.webhooks.subscriptionsCreate(
             request: .init(
                 url: "url",
                 events: [
-                    "events",
-                    "events"
+                    .agreementInvoiceGenerated,
+                    .agreementInvoiceGenerated
                 ]
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -96,7 +112,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1WebhooksSubscriptionsList1() async throws -> Void {
+    @Test func subscriptionsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -110,7 +126,11 @@ import Api
                         "events"
                       ],
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "consecutiveFailures": 1000000,
+                      "lastDeliveryStatus": "pending",
+                      "lastDeliveryAt": "2026-07-01T09:30:00Z",
+                      "pausedAt": "2026-07-01T09:30:00Z",
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -128,16 +148,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1WebhooksSubscriptionsListResponse(
+        let expectedResponse = SubscriptionsListWebhooksResponse(
             rows: [
-                PostV1WebhooksSubscriptionsListResponseRowsItem(
+                SubscriptionsListWebhooksResponseRowsItem(
                     id: "id",
                     url: "url",
                     events: [
                         "events"
                     ],
                     isActive: true,
-                    createdAt: "createdAt"
+                    consecutiveFailures: 1000000,
+                    lastDeliveryStatus: Nullable<SubscriptionsListWebhooksResponseRowsItemLastDeliveryStatus>.value(.pending),
+                    lastDeliveryAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    pausedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -147,14 +171,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.webhooks.postV1WebhooksSubscriptionsList(
+        let response = try await client.webhooks.subscriptionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1WebhooksSubscriptionsList2() async throws -> Void {
+    @Test func subscriptionsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -169,7 +193,11 @@ import Api
                         "events"
                       ],
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "consecutiveFailures": 1000000,
+                      "lastDeliveryStatus": "pending",
+                      "lastDeliveryAt": "2024-01-15T09:30:00Z",
+                      "pausedAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -179,7 +207,11 @@ import Api
                         "events"
                       ],
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "consecutiveFailures": 1000000,
+                      "lastDeliveryStatus": "pending",
+                      "lastDeliveryAt": "2024-01-15T09:30:00Z",
+                      "pausedAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -197,9 +229,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1WebhooksSubscriptionsListResponse(
+        let expectedResponse = SubscriptionsListWebhooksResponse(
             rows: [
-                PostV1WebhooksSubscriptionsListResponseRowsItem(
+                SubscriptionsListWebhooksResponseRowsItem(
                     id: "x",
                     url: "url",
                     events: [
@@ -207,9 +239,13 @@ import Api
                         "events"
                     ],
                     isActive: true,
-                    createdAt: "createdAt"
+                    consecutiveFailures: 1000000,
+                    lastDeliveryStatus: Nullable<SubscriptionsListWebhooksResponseRowsItemLastDeliveryStatus>.value(.pending),
+                    lastDeliveryAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    pausedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1WebhooksSubscriptionsListResponseRowsItem(
+                SubscriptionsListWebhooksResponseRowsItem(
                     id: "x",
                     url: "url",
                     events: [
@@ -217,7 +253,11 @@ import Api
                         "events"
                     ],
                     isActive: true,
-                    createdAt: "createdAt"
+                    consecutiveFailures: 1000000,
+                    lastDeliveryStatus: Nullable<SubscriptionsListWebhooksResponseRowsItemLastDeliveryStatus>.value(.pending),
+                    lastDeliveryAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    pausedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -227,14 +267,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.webhooks.postV1WebhooksSubscriptionsList(
+        let response = try await client.webhooks.subscriptionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1WebhooksSubscriptionsUpdate1() async throws -> Void {
+    @Test func subscriptionsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -246,7 +286,11 @@ import Api
                     "events"
                   ],
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "consecutiveFailures": 1000000,
+                  "lastDeliveryStatus": "pending",
+                  "lastDeliveryAt": "2026-07-01T09:30:00Z",
+                  "pausedAt": "2026-07-01T09:30:00Z",
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -256,23 +300,27 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1WebhooksSubscriptionsUpdateResponse(
+        let expectedResponse = SubscriptionsUpdateWebhooksResponse(
             id: "id",
             url: "url",
             events: [
                 "events"
             ],
             isActive: true,
-            createdAt: "createdAt"
+            consecutiveFailures: 1000000,
+            lastDeliveryStatus: Nullable<SubscriptionsUpdateWebhooksResponseLastDeliveryStatus>.value(.pending),
+            lastDeliveryAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            pausedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.webhooks.postV1WebhooksSubscriptionsUpdate(
+        let response = try await client.webhooks.subscriptionsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1WebhooksSubscriptionsUpdate2() async throws -> Void {
+    @Test func subscriptionsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -285,7 +333,11 @@ import Api
                     "events"
                   ],
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "consecutiveFailures": 1000000,
+                  "lastDeliveryStatus": "pending",
+                  "lastDeliveryAt": "2024-01-15T09:30:00Z",
+                  "pausedAt": "2024-01-15T09:30:00Z",
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -295,7 +347,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1WebhooksSubscriptionsUpdateResponse(
+        let expectedResponse = SubscriptionsUpdateWebhooksResponse(
             id: "x",
             url: "url",
             events: [
@@ -303,16 +355,20 @@ import Api
                 "events"
             ],
             isActive: true,
-            createdAt: "createdAt"
+            consecutiveFailures: 1000000,
+            lastDeliveryStatus: Nullable<SubscriptionsUpdateWebhooksResponseLastDeliveryStatus>.value(.pending),
+            lastDeliveryAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            pausedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.webhooks.postV1WebhooksSubscriptionsUpdate(
+        let response = try await client.webhooks.subscriptionsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1WebhooksSubscriptionsDelete1() async throws -> Void {
+    @Test func subscriptionsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -328,17 +384,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1WebhooksSubscriptionsDeleteResponse(
+        let expectedResponse = SubscriptionsDeleteWebhooksResponse(
             id: "id"
         )
-        let response = try await client.webhooks.postV1WebhooksSubscriptionsDelete(
+        let response = try await client.webhooks.subscriptionsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1WebhooksSubscriptionsDelete2() async throws -> Void {
+    @Test func subscriptionsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -354,17 +410,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1WebhooksSubscriptionsDeleteResponse(
+        let expectedResponse = SubscriptionsDeleteWebhooksResponse(
             id: "x"
         )
-        let response = try await client.webhooks.postV1WebhooksSubscriptionsDelete(
+        let response = try await client.webhooks.subscriptionsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1WebhooksDeliveriesList1() async throws -> Void {
+    @Test func deliveriesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -378,8 +434,8 @@ import Api
                       "status": "pending",
                       "attempts": 1000000,
                       "lastError": "lastError",
-                      "createdAt": "createdAt",
-                      "deliveredAt": "deliveredAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "deliveredAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -397,17 +453,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1WebhooksDeliveriesListResponse(
+        let expectedResponse = DeliveriesListWebhooksResponse(
             rows: [
-                PostV1WebhooksDeliveriesListResponseRowsItem(
+                DeliveriesListWebhooksResponseRowsItem(
                     id: "id",
                     subscriptionId: "subscriptionId",
                     eventType: "eventType",
                     status: .pending,
                     attempts: 1000000,
                     lastError: Nullable<String>.value("lastError"),
-                    createdAt: "createdAt",
-                    deliveredAt: Nullable<String>.value("deliveredAt")
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    deliveredAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 )
             ],
             page: 1000000,
@@ -417,14 +473,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.webhooks.postV1WebhooksDeliveriesList(
+        let response = try await client.webhooks.deliveriesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1WebhooksDeliveriesList2() async throws -> Void {
+    @Test func deliveriesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -438,8 +494,8 @@ import Api
                       "status": "pending",
                       "attempts": 1000000,
                       "lastError": "lastError",
-                      "createdAt": "createdAt",
-                      "deliveredAt": "deliveredAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "deliveredAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -448,8 +504,8 @@ import Api
                       "status": "pending",
                       "attempts": 1000000,
                       "lastError": "lastError",
-                      "createdAt": "createdAt",
-                      "deliveredAt": "deliveredAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "deliveredAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -467,27 +523,27 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1WebhooksDeliveriesListResponse(
+        let expectedResponse = DeliveriesListWebhooksResponse(
             rows: [
-                PostV1WebhooksDeliveriesListResponseRowsItem(
+                DeliveriesListWebhooksResponseRowsItem(
                     id: "x",
                     subscriptionId: "x",
                     eventType: "eventType",
                     status: .pending,
                     attempts: 1000000,
                     lastError: Nullable<String>.value("lastError"),
-                    createdAt: "createdAt",
-                    deliveredAt: Nullable<String>.value("deliveredAt")
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    deliveredAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                PostV1WebhooksDeliveriesListResponseRowsItem(
+                DeliveriesListWebhooksResponseRowsItem(
                     id: "x",
                     subscriptionId: "x",
                     eventType: "eventType",
                     status: .pending,
                     attempts: 1000000,
                     lastError: Nullable<String>.value("lastError"),
-                    createdAt: "createdAt",
-                    deliveredAt: Nullable<String>.value("deliveredAt")
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    deliveredAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 )
             ],
             page: 1000000,
@@ -497,14 +553,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.webhooks.postV1WebhooksDeliveriesList(
+        let response = try await client.webhooks.deliveriesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1WebhooksDeliveriesRedeliver1() async throws -> Void {
+    @Test func deliveriesRedeliver1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -521,18 +577,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1WebhooksDeliveriesRedeliverResponse(
+        let expectedResponse = DeliveriesRedeliverWebhooksResponse(
             id: "id",
             status: "status"
         )
-        let response = try await client.webhooks.postV1WebhooksDeliveriesRedeliver(
+        let response = try await client.webhooks.deliveriesRedeliver(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1WebhooksDeliveriesRedeliver2() async throws -> Void {
+    @Test func deliveriesRedeliver2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -549,11 +605,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1WebhooksDeliveriesRedeliverResponse(
+        let expectedResponse = DeliveriesRedeliverWebhooksResponse(
             id: "x",
             status: "status"
         )
-        let response = try await client.webhooks.postV1WebhooksDeliveriesRedeliver(
+        let response = try await client.webhooks.deliveriesRedeliver(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

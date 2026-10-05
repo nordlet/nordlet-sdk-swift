@@ -7,142 +7,142 @@ public final class ConsolidationClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1ConsolidationGroupsCreate(request: Requests.PostV1ConsolidationGroupsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationGroupsCreateResponse {
+    public func groupsCreate(request: Requests.GroupsCreateConsolidationRequest, requestOptions: RequestOptions? = nil) async throws -> GroupsCreateConsolidationResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/consolidation/groups/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ConsolidationGroupsCreateResponse.self
+            responseType: GroupsCreateConsolidationResponse.self
         )
     }
 
-    public func postV1ConsolidationGroupsList(request: Requests.PostV1ConsolidationGroupsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationGroupsListResponse {
+    public func groupsList(request: Requests.GroupsListConsolidationRequest, requestOptions: RequestOptions? = nil) async throws -> GroupsListConsolidationResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/consolidation/groups/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ConsolidationGroupsListResponse.self
+            responseType: GroupsListConsolidationResponse.self
         )
     }
 
-    public func postV1ConsolidationGroupsGet(request: Requests.PostV1ConsolidationGroupsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationGroupsGetResponse {
+    public func groupsGet(request: Requests.GroupsGetConsolidationRequest, requestOptions: RequestOptions? = nil) async throws -> GroupsGetConsolidationResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/consolidation/groups/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ConsolidationGroupsGetResponse.self
+            responseType: GroupsGetConsolidationResponse.self
         )
     }
 
-    public func postV1ConsolidationGroupsUpdate(request: Requests.PostV1ConsolidationGroupsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationGroupsUpdateResponse {
+    public func groupsUpdate(request: Requests.GroupsUpdateConsolidationRequest, requestOptions: RequestOptions? = nil) async throws -> GroupsUpdateConsolidationResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/consolidation/groups/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ConsolidationGroupsUpdateResponse.self
+            responseType: GroupsUpdateConsolidationResponse.self
         )
     }
 
-    public func postV1ConsolidationGroupsDelete(request: Requests.PostV1ConsolidationGroupsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationGroupsDeleteResponse {
+    public func groupsDelete(request: Requests.GroupsDeleteConsolidationRequest, requestOptions: RequestOptions? = nil) async throws -> GroupsDeleteConsolidationResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/consolidation/groups/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ConsolidationGroupsDeleteResponse.self
+            responseType: GroupsDeleteConsolidationResponse.self
         )
     }
 
-    public func postV1ConsolidationMembersAdd(request: Requests.PostV1ConsolidationMembersAddRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationMembersAddResponse {
+    public func membersAdd(request: Requests.MembersAddConsolidationRequest, requestOptions: RequestOptions? = nil) async throws -> MembersAddConsolidationResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/consolidation/members/add",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ConsolidationMembersAddResponse.self
+            responseType: MembersAddConsolidationResponse.self
         )
     }
 
-    public func postV1ConsolidationMembersRemove(request: Requests.PostV1ConsolidationMembersRemoveRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationMembersRemoveResponse {
+    public func membersRemove(request: Requests.MembersRemoveConsolidationRequest, requestOptions: RequestOptions? = nil) async throws -> MembersRemoveConsolidationResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/consolidation/members/remove",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ConsolidationMembersRemoveResponse.self
+            responseType: MembersRemoveConsolidationResponse.self
         )
     }
 
     /// Partners in member companies that look like other members of the same group (matched on company code or VAT code), with any existing intercompany link. Confirming a candidate via intercompany/links/set enables invoice mirroring.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1ConsolidationIntercompanyCandidates(request: Requests.PostV1ConsolidationIntercompanyCandidatesRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationIntercompanyCandidatesResponse {
+    public func intercompanyCandidates(request: Requests.IntercompanyCandidatesConsolidationRequest, requestOptions: RequestOptions? = nil) async throws -> IntercompanyCandidatesConsolidationResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/consolidation/intercompany/candidates",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ConsolidationIntercompanyCandidatesResponse.self
+            responseType: IntercompanyCandidatesConsolidationResponse.self
         )
     }
 
     /// Confirm that a partner record in one member company represents another member company of the group. Once links exist in both directions, issuing an intercompany sale invoice automatically creates the matching draft purchase invoice in the counterparty.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1ConsolidationIntercompanyLinksSet(request: Requests.PostV1ConsolidationIntercompanyLinksSetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationIntercompanyLinksSetResponse {
+    public func intercompanyLinksSet(request: Requests.IntercompanyLinksSetConsolidationRequest, requestOptions: RequestOptions? = nil) async throws -> IntercompanyLinksSetConsolidationResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/consolidation/intercompany/links/set",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ConsolidationIntercompanyLinksSetResponse.self
+            responseType: IntercompanyLinksSetConsolidationResponse.self
         )
     }
 
-    public func postV1ConsolidationIntercompanyLinksList(request: Requests.PostV1ConsolidationIntercompanyLinksListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationIntercompanyLinksListResponse {
+    public func intercompanyLinksList(request: Requests.IntercompanyLinksListConsolidationRequest, requestOptions: RequestOptions? = nil) async throws -> IntercompanyLinksListConsolidationResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/consolidation/intercompany/links/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ConsolidationIntercompanyLinksListResponse.self
+            responseType: IntercompanyLinksListConsolidationResponse.self
         )
     }
 
-    public func postV1ConsolidationIntercompanyLinksRemove(request: Requests.PostV1ConsolidationIntercompanyLinksRemoveRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationIntercompanyLinksRemoveResponse {
+    public func intercompanyLinksRemove(request: Requests.IntercompanyLinksRemoveConsolidationRequest, requestOptions: RequestOptions? = nil) async throws -> IntercompanyLinksRemoveConsolidationResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/consolidation/intercompany/links/remove",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ConsolidationIntercompanyLinksRemoveResponse.self
+            responseType: IntercompanyLinksRemoveConsolidationResponse.self
         )
     }
 
     /// Intercompany reconciliation for a period: every issued intercompany sale invoice with its mirrored or manually recorded counterpart, unmatched documents on both sides, and per-currency totals with differences. Confirmed pairs are the basis for consolidation eliminations.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1ConsolidationIntercompanyReport(request: Requests.PostV1ConsolidationIntercompanyReportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationIntercompanyReportResponse {
+    public func intercompanyReport(request: Requests.IntercompanyReportConsolidationRequest, requestOptions: RequestOptions? = nil) async throws -> IntercompanyReportConsolidationResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/consolidation/intercompany/report",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ConsolidationIntercompanyReportResponse.self
+            responseType: IntercompanyReportConsolidationResponse.self
         )
     }
 
-    public func postV1ConsolidationReport(request: Requests.PostV1ConsolidationReportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ConsolidationReportResponse {
+    public func report(request: Requests.ReportConsolidationRequest, requestOptions: RequestOptions? = nil) async throws -> ReportConsolidationResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/consolidation/report",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ConsolidationReportResponse.self
+            responseType: ReportConsolidationResponse.self
         )
     }
 }

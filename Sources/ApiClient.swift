@@ -4,12 +4,16 @@ import Foundation
 public final class ApiClient: Sendable {
     public let reference: ReferenceClient
     public let partners: PartnersClient
+    public let leads: LeadsClient
     public let catalog: CatalogClient
     public let sales: SalesClient
+    public let operationTypes: OperationTypesClient
+    public let documentSeries: DocumentSeriesClient
     public let purchases: PurchasesClient
     public let capture: CaptureClient
     public let declarations: DeclarationsClient
     public let ledger: LedgerClient
+    public let officers: OfficersClient
     public let migration: MigrationClient
     public let assets: AssetsClient
     public let hr: HrClient
@@ -113,12 +117,16 @@ public final class ApiClient: Sendable {
         )
         self.reference = ReferenceClient(config: config)
         self.partners = PartnersClient(config: config)
+        self.leads = LeadsClient(config: config)
         self.catalog = CatalogClient(config: config)
         self.sales = SalesClient(config: config)
+        self.operationTypes = OperationTypesClient(config: config)
+        self.documentSeries = DocumentSeriesClient(config: config)
         self.purchases = PurchasesClient(config: config)
         self.capture = CaptureClient(config: config)
         self.declarations = DeclarationsClient(config: config)
         self.ledger = LedgerClient(config: config)
+        self.officers = OfficersClient(config: config)
         self.migration = MigrationClient(config: config)
         self.assets = AssetsClient(config: config)
         self.hr = HrClient(config: config)

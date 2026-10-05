@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("ConsolidationClient Wire Tests") struct ConsolidationClientWireTests {
-    @Test func postV1ConsolidationGroupsCreate1() async throws -> Void {
+    @Test func groupsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13,8 +13,8 @@ import Api
                   "name": "name",
                   "presentationCurrency": "presentationCurrency",
                   "memberCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -24,22 +24,22 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationGroupsCreateResponse(
+        let expectedResponse = GroupsCreateConsolidationResponse(
             id: "id",
             name: "name",
             presentationCurrency: "presentationCurrency",
             memberCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.consolidation.postV1ConsolidationGroupsCreate(
+        let response = try await client.consolidation.groupsCreate(
             request: .init(name: "name"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationGroupsCreate2() async throws -> Void {
+    @Test func groupsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -49,8 +49,8 @@ import Api
                   "name": "name",
                   "presentationCurrency": "presentationCurrency",
                   "memberCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -60,22 +60,22 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationGroupsCreateResponse(
+        let expectedResponse = GroupsCreateConsolidationResponse(
             id: "x",
             name: "name",
             presentationCurrency: "presentationCurrency",
             memberCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.consolidation.postV1ConsolidationGroupsCreate(
+        let response = try await client.consolidation.groupsCreate(
             request: .init(name: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationGroupsList1() async throws -> Void {
+    @Test func groupsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -87,8 +87,8 @@ import Api
                       "name": "name",
                       "presentationCurrency": "presentationCurrency",
                       "memberCount": 1000000,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -100,26 +100,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationGroupsListResponse(
+        let expectedResponse = GroupsListConsolidationResponse(
             rows: [
-                PostV1ConsolidationGroupsListResponseRowsItem(
+                GroupsListConsolidationResponseRowsItem(
                     id: "id",
                     name: "name",
                     presentationCurrency: "presentationCurrency",
                     memberCount: 1000000,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.consolidation.postV1ConsolidationGroupsList(
+        let response = try await client.consolidation.groupsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationGroupsList2() async throws -> Void {
+    @Test func groupsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -131,16 +131,16 @@ import Api
                       "name": "name",
                       "presentationCurrency": "presentationCurrency",
                       "memberCount": 1000000,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "name": "name",
                       "presentationCurrency": "presentationCurrency",
                       "memberCount": 1000000,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -152,34 +152,34 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationGroupsListResponse(
+        let expectedResponse = GroupsListConsolidationResponse(
             rows: [
-                PostV1ConsolidationGroupsListResponseRowsItem(
+                GroupsListConsolidationResponseRowsItem(
                     id: "x",
                     name: "name",
                     presentationCurrency: "presentationCurrency",
                     memberCount: 1000000,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1ConsolidationGroupsListResponseRowsItem(
+                GroupsListConsolidationResponseRowsItem(
                     id: "x",
                     name: "name",
                     presentationCurrency: "presentationCurrency",
                     memberCount: 1000000,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.consolidation.postV1ConsolidationGroupsList(
+        let response = try await client.consolidation.groupsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationGroupsGet1() async throws -> Void {
+    @Test func groupsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -189,8 +189,8 @@ import Api
                   "name": "name",
                   "presentationCurrency": "presentationCurrency",
                   "memberCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "members": [
                     {
                       "memberCompanyId": "memberCompanyId",
@@ -209,15 +209,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationGroupsGetResponse(
+        let expectedResponse = GroupsGetConsolidationResponse(
             id: "id",
             name: "name",
             presentationCurrency: "presentationCurrency",
             memberCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             members: [
-                PostV1ConsolidationGroupsGetResponseMembersItem(
+                GroupsGetConsolidationResponseMembersItem(
                     memberCompanyId: "memberCompanyId",
                     name: "name",
                     baseCurrency: "baseCurrency",
@@ -226,14 +226,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.consolidation.postV1ConsolidationGroupsGet(
+        let response = try await client.consolidation.groupsGet(
             request: .init(groupId: "groupId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationGroupsGet2() async throws -> Void {
+    @Test func groupsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -243,8 +243,8 @@ import Api
                   "name": "name",
                   "presentationCurrency": "presentationCurrency",
                   "memberCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "members": [
                     {
                       "memberCompanyId": "x",
@@ -270,22 +270,22 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationGroupsGetResponse(
+        let expectedResponse = GroupsGetConsolidationResponse(
             id: "x",
             name: "name",
             presentationCurrency: "presentationCurrency",
             memberCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             members: [
-                PostV1ConsolidationGroupsGetResponseMembersItem(
+                GroupsGetConsolidationResponseMembersItem(
                     memberCompanyId: "x",
                     name: "name",
                     baseCurrency: "baseCurrency",
                     ownershipPercent: "ownershipPercent",
                     method: .full
                 ),
-                PostV1ConsolidationGroupsGetResponseMembersItem(
+                GroupsGetConsolidationResponseMembersItem(
                     memberCompanyId: "x",
                     name: "name",
                     baseCurrency: "baseCurrency",
@@ -294,14 +294,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.consolidation.postV1ConsolidationGroupsGet(
+        let response = try await client.consolidation.groupsGet(
             request: .init(groupId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationGroupsUpdate1() async throws -> Void {
+    @Test func groupsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -311,8 +311,8 @@ import Api
                   "name": "name",
                   "presentationCurrency": "presentationCurrency",
                   "memberCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -322,22 +322,22 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationGroupsUpdateResponse(
+        let expectedResponse = GroupsUpdateConsolidationResponse(
             id: "id",
             name: "name",
             presentationCurrency: "presentationCurrency",
             memberCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.consolidation.postV1ConsolidationGroupsUpdate(
+        let response = try await client.consolidation.groupsUpdate(
             request: .init(groupId: "groupId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationGroupsUpdate2() async throws -> Void {
+    @Test func groupsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -347,8 +347,8 @@ import Api
                   "name": "name",
                   "presentationCurrency": "presentationCurrency",
                   "memberCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -358,22 +358,22 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationGroupsUpdateResponse(
+        let expectedResponse = GroupsUpdateConsolidationResponse(
             id: "x",
             name: "name",
             presentationCurrency: "presentationCurrency",
             memberCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.consolidation.postV1ConsolidationGroupsUpdate(
+        let response = try await client.consolidation.groupsUpdate(
             request: .init(groupId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationGroupsDelete1() async throws -> Void {
+    @Test func groupsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -389,17 +389,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationGroupsDeleteResponse(
+        let expectedResponse = GroupsDeleteConsolidationResponse(
             ok: true
         )
-        let response = try await client.consolidation.postV1ConsolidationGroupsDelete(
+        let response = try await client.consolidation.groupsDelete(
             request: .init(groupId: "groupId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationGroupsDelete2() async throws -> Void {
+    @Test func groupsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -415,17 +415,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationGroupsDeleteResponse(
+        let expectedResponse = GroupsDeleteConsolidationResponse(
             ok: true
         )
-        let response = try await client.consolidation.postV1ConsolidationGroupsDelete(
+        let response = try await client.consolidation.groupsDelete(
             request: .init(groupId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationMembersAdd1() async throws -> Void {
+    @Test func membersAdd1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -445,14 +445,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationMembersAddResponse(
+        let expectedResponse = MembersAddConsolidationResponse(
             memberCompanyId: "memberCompanyId",
             name: "name",
             baseCurrency: "baseCurrency",
             ownershipPercent: "ownershipPercent",
             method: .full
         )
-        let response = try await client.consolidation.postV1ConsolidationMembersAdd(
+        let response = try await client.consolidation.membersAdd(
             request: .init(
                 groupId: "groupId",
                 memberCompanyId: "memberCompanyId"
@@ -462,7 +462,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationMembersAdd2() async throws -> Void {
+    @Test func membersAdd2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -482,14 +482,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationMembersAddResponse(
+        let expectedResponse = MembersAddConsolidationResponse(
             memberCompanyId: "x",
             name: "name",
             baseCurrency: "baseCurrency",
             ownershipPercent: "ownershipPercent",
             method: .full
         )
-        let response = try await client.consolidation.postV1ConsolidationMembersAdd(
+        let response = try await client.consolidation.membersAdd(
             request: .init(
                 groupId: "x",
                 memberCompanyId: "x"
@@ -499,7 +499,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationMembersRemove1() async throws -> Void {
+    @Test func membersRemove1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -515,10 +515,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationMembersRemoveResponse(
+        let expectedResponse = MembersRemoveConsolidationResponse(
             ok: true
         )
-        let response = try await client.consolidation.postV1ConsolidationMembersRemove(
+        let response = try await client.consolidation.membersRemove(
             request: .init(
                 groupId: "groupId",
                 memberCompanyId: "memberCompanyId"
@@ -528,7 +528,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationMembersRemove2() async throws -> Void {
+    @Test func membersRemove2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -544,10 +544,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationMembersRemoveResponse(
+        let expectedResponse = MembersRemoveConsolidationResponse(
             ok: true
         )
-        let response = try await client.consolidation.postV1ConsolidationMembersRemove(
+        let response = try await client.consolidation.membersRemove(
             request: .init(
                 groupId: "x",
                 memberCompanyId: "x"
@@ -557,7 +557,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationIntercompanyCandidates1() async throws -> Void {
+    @Test func intercompanyCandidates1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -585,9 +585,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationIntercompanyCandidatesResponse(
+        let expectedResponse = IntercompanyCandidatesConsolidationResponse(
             rows: [
-                PostV1ConsolidationIntercompanyCandidatesResponseRowsItem(
+                IntercompanyCandidatesConsolidationResponseRowsItem(
                     memberCompanyId: "memberCompanyId",
                     memberName: "memberName",
                     partnerId: "partnerId",
@@ -600,14 +600,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.consolidation.postV1ConsolidationIntercompanyCandidates(
+        let response = try await client.consolidation.intercompanyCandidates(
             request: .init(groupId: "groupId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationIntercompanyCandidates2() async throws -> Void {
+    @Test func intercompanyCandidates2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -646,9 +646,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationIntercompanyCandidatesResponse(
+        let expectedResponse = IntercompanyCandidatesConsolidationResponse(
             rows: [
-                PostV1ConsolidationIntercompanyCandidatesResponseRowsItem(
+                IntercompanyCandidatesConsolidationResponseRowsItem(
                     memberCompanyId: "x",
                     memberName: "memberName",
                     partnerId: "x",
@@ -659,7 +659,7 @@ import Api
                     matchedOn: .code,
                     linkId: Nullable<String>.value("x")
                 ),
-                PostV1ConsolidationIntercompanyCandidatesResponseRowsItem(
+                IntercompanyCandidatesConsolidationResponseRowsItem(
                     memberCompanyId: "x",
                     memberName: "memberName",
                     partnerId: "x",
@@ -672,14 +672,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.consolidation.postV1ConsolidationIntercompanyCandidates(
+        let response = try await client.consolidation.intercompanyCandidates(
             request: .init(groupId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationIntercompanyLinksSet1() async throws -> Void {
+    @Test func intercompanyLinksSet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -699,14 +699,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationIntercompanyLinksSetResponse(
+        let expectedResponse = IntercompanyLinksSetConsolidationResponse(
             id: "id",
             groupId: "groupId",
             companyId: "companyId",
             partnerId: "partnerId",
             counterpartyCompanyId: "counterpartyCompanyId"
         )
-        let response = try await client.consolidation.postV1ConsolidationIntercompanyLinksSet(
+        let response = try await client.consolidation.intercompanyLinksSet(
             request: .init(
                 groupId: "groupId",
                 partnerId: "partnerId",
@@ -717,7 +717,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationIntercompanyLinksSet2() async throws -> Void {
+    @Test func intercompanyLinksSet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -737,14 +737,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationIntercompanyLinksSetResponse(
+        let expectedResponse = IntercompanyLinksSetConsolidationResponse(
             id: "x",
             groupId: "x",
             companyId: "x",
             partnerId: "x",
             counterpartyCompanyId: "x"
         )
-        let response = try await client.consolidation.postV1ConsolidationIntercompanyLinksSet(
+        let response = try await client.consolidation.intercompanyLinksSet(
             request: .init(
                 groupId: "x",
                 partnerId: "x",
@@ -755,7 +755,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationIntercompanyLinksList1() async throws -> Void {
+    @Test func intercompanyLinksList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -770,7 +770,7 @@ import Api
                       "partnerName": "partnerName",
                       "counterpartyCompanyId": "counterpartyCompanyId",
                       "counterpartyCompanyName": "counterpartyCompanyName",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -782,9 +782,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationIntercompanyLinksListResponse(
+        let expectedResponse = IntercompanyLinksListConsolidationResponse(
             rows: [
-                PostV1ConsolidationIntercompanyLinksListResponseRowsItem(
+                IntercompanyLinksListConsolidationResponseRowsItem(
                     id: "id",
                     companyId: "companyId",
                     companyName: "companyName",
@@ -792,18 +792,18 @@ import Api
                     partnerName: "partnerName",
                     counterpartyCompanyId: "counterpartyCompanyId",
                     counterpartyCompanyName: "counterpartyCompanyName",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.consolidation.postV1ConsolidationIntercompanyLinksList(
+        let response = try await client.consolidation.intercompanyLinksList(
             request: .init(groupId: "groupId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationIntercompanyLinksList2() async throws -> Void {
+    @Test func intercompanyLinksList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -818,7 +818,7 @@ import Api
                       "partnerName": "partnerName",
                       "counterpartyCompanyId": "x",
                       "counterpartyCompanyName": "counterpartyCompanyName",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -828,7 +828,7 @@ import Api
                       "partnerName": "partnerName",
                       "counterpartyCompanyId": "x",
                       "counterpartyCompanyName": "counterpartyCompanyName",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -840,9 +840,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationIntercompanyLinksListResponse(
+        let expectedResponse = IntercompanyLinksListConsolidationResponse(
             rows: [
-                PostV1ConsolidationIntercompanyLinksListResponseRowsItem(
+                IntercompanyLinksListConsolidationResponseRowsItem(
                     id: "x",
                     companyId: "x",
                     companyName: "companyName",
@@ -850,9 +850,9 @@ import Api
                     partnerName: "partnerName",
                     counterpartyCompanyId: "x",
                     counterpartyCompanyName: "counterpartyCompanyName",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1ConsolidationIntercompanyLinksListResponseRowsItem(
+                IntercompanyLinksListConsolidationResponseRowsItem(
                     id: "x",
                     companyId: "x",
                     companyName: "companyName",
@@ -860,18 +860,18 @@ import Api
                     partnerName: "partnerName",
                     counterpartyCompanyId: "x",
                     counterpartyCompanyName: "counterpartyCompanyName",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.consolidation.postV1ConsolidationIntercompanyLinksList(
+        let response = try await client.consolidation.intercompanyLinksList(
             request: .init(groupId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationIntercompanyLinksRemove1() async throws -> Void {
+    @Test func intercompanyLinksRemove1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -887,10 +887,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationIntercompanyLinksRemoveResponse(
+        let expectedResponse = IntercompanyLinksRemoveConsolidationResponse(
             ok: true
         )
-        let response = try await client.consolidation.postV1ConsolidationIntercompanyLinksRemove(
+        let response = try await client.consolidation.intercompanyLinksRemove(
             request: .init(
                 groupId: "groupId",
                 id: "id"
@@ -900,7 +900,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationIntercompanyLinksRemove2() async throws -> Void {
+    @Test func intercompanyLinksRemove2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -916,10 +916,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationIntercompanyLinksRemoveResponse(
+        let expectedResponse = IntercompanyLinksRemoveConsolidationResponse(
             ok: true
         )
-        let response = try await client.consolidation.postV1ConsolidationIntercompanyLinksRemove(
+        let response = try await client.consolidation.intercompanyLinksRemove(
             request: .init(
                 groupId: "x",
                 id: "x"
@@ -929,14 +929,14 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationIntercompanyReport1() async throws -> Void {
+    @Test func intercompanyReport1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "directions": [
                     {
                       "sellerCompanyId": "sellerCompanyId",
@@ -947,7 +947,7 @@ import Api
                         {
                           "sourceInvoiceId": "sourceInvoiceId",
                           "fullNumber": "fullNumber",
-                          "issueDate": "issueDate",
+                          "issueDate": "2026-07-01",
                           "type": "invoice",
                           "currency": "currency",
                           "grossTotal": "grossTotal",
@@ -960,7 +960,7 @@ import Api
                         {
                           "invoiceId": "invoiceId",
                           "documentNumber": "documentNumber",
-                          "documentDate": "documentDate",
+                          "documentDate": "2026-07-01",
                           "currency": "currency",
                           "grossTotal": "grossTotal",
                           "status": "draft"
@@ -988,20 +988,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationIntercompanyReportResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = IntercompanyReportConsolidationResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             directions: [
-                PostV1ConsolidationIntercompanyReportResponseDirectionsItem(
+                IntercompanyReportConsolidationResponseDirectionsItem(
                     sellerCompanyId: "sellerCompanyId",
                     sellerName: "sellerName",
                     buyerCompanyId: "buyerCompanyId",
                     buyerName: "buyerName",
                     documents: [
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemDocumentsItem(
                             sourceInvoiceId: "sourceInvoiceId",
                             fullNumber: "fullNumber",
-                            issueDate: "issueDate",
+                            issueDate: CalendarDate("2026-07-01")!,
                             type: .invoice,
                             currency: "currency",
                             grossTotal: "grossTotal",
@@ -1011,17 +1011,17 @@ import Api
                         )
                     ],
                     unmatchedPurchases: [
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemUnmatchedPurchasesItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemUnmatchedPurchasesItem(
                             invoiceId: "invoiceId",
                             documentNumber: "documentNumber",
-                            documentDate: "documentDate",
+                            documentDate: CalendarDate("2026-07-01")!,
                             currency: "currency",
                             grossTotal: "grossTotal",
                             status: .draft
                         )
                     ],
                     totals: [
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemTotalsItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemTotalsItem(
                             currency: "currency",
                             salesGross: "salesGross",
                             purchasesGross: "purchasesGross",
@@ -1034,25 +1034,25 @@ import Api
                 )
             ]
         )
-        let response = try await client.consolidation.postV1ConsolidationIntercompanyReport(
+        let response = try await client.consolidation.intercompanyReport(
             request: .init(
                 groupId: "groupId",
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationIntercompanyReport2() async throws -> Void {
+    @Test func intercompanyReport2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "directions": [
                     {
                       "sellerCompanyId": "x",
@@ -1063,7 +1063,7 @@ import Api
                         {
                           "sourceInvoiceId": "x",
                           "fullNumber": "fullNumber",
-                          "issueDate": "issueDate",
+                          "issueDate": "2023-01-15",
                           "type": "invoice",
                           "currency": "currency",
                           "grossTotal": "grossTotal",
@@ -1080,7 +1080,7 @@ import Api
                         {
                           "sourceInvoiceId": "x",
                           "fullNumber": "fullNumber",
-                          "issueDate": "issueDate",
+                          "issueDate": "2023-01-15",
                           "type": "invoice",
                           "currency": "currency",
                           "grossTotal": "grossTotal",
@@ -1099,7 +1099,7 @@ import Api
                         {
                           "invoiceId": "x",
                           "documentNumber": "documentNumber",
-                          "documentDate": "documentDate",
+                          "documentDate": "2023-01-15",
                           "currency": "currency",
                           "grossTotal": "grossTotal",
                           "status": "draft"
@@ -1107,7 +1107,7 @@ import Api
                         {
                           "invoiceId": "x",
                           "documentNumber": "documentNumber",
-                          "documentDate": "documentDate",
+                          "documentDate": "2023-01-15",
                           "currency": "currency",
                           "grossTotal": "grossTotal",
                           "status": "draft"
@@ -1143,7 +1143,7 @@ import Api
                         {
                           "sourceInvoiceId": "x",
                           "fullNumber": "fullNumber",
-                          "issueDate": "issueDate",
+                          "issueDate": "2023-01-15",
                           "type": "invoice",
                           "currency": "currency",
                           "grossTotal": "grossTotal",
@@ -1160,7 +1160,7 @@ import Api
                         {
                           "sourceInvoiceId": "x",
                           "fullNumber": "fullNumber",
-                          "issueDate": "issueDate",
+                          "issueDate": "2023-01-15",
                           "type": "invoice",
                           "currency": "currency",
                           "grossTotal": "grossTotal",
@@ -1179,7 +1179,7 @@ import Api
                         {
                           "invoiceId": "x",
                           "documentNumber": "documentNumber",
-                          "documentDate": "documentDate",
+                          "documentDate": "2023-01-15",
                           "currency": "currency",
                           "grossTotal": "grossTotal",
                           "status": "draft"
@@ -1187,7 +1187,7 @@ import Api
                         {
                           "invoiceId": "x",
                           "documentNumber": "documentNumber",
-                          "documentDate": "documentDate",
+                          "documentDate": "2023-01-15",
                           "currency": "currency",
                           "grossTotal": "grossTotal",
                           "status": "draft"
@@ -1224,26 +1224,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationIntercompanyReportResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = IntercompanyReportConsolidationResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             directions: [
-                PostV1ConsolidationIntercompanyReportResponseDirectionsItem(
+                IntercompanyReportConsolidationResponseDirectionsItem(
                     sellerCompanyId: "x",
                     sellerName: "sellerName",
                     buyerCompanyId: "x",
                     buyerName: "buyerName",
                     documents: [
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemDocumentsItem(
                             sourceInvoiceId: "x",
                             fullNumber: "fullNumber",
-                            issueDate: "issueDate",
+                            issueDate: CalendarDate("2023-01-15")!,
                             type: .invoice,
                             currency: "currency",
                             grossTotal: "grossTotal",
                             paymentStatus: .unpaid,
                             match: .mirrored,
-                            counterpart: Nullable<PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart>.value(PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart(
+                            counterpart: Nullable<IntercompanyReportConsolidationResponseDirectionsItemDocumentsItemCounterpart>.value(IntercompanyReportConsolidationResponseDirectionsItemDocumentsItemCounterpart(
                                 invoiceId: "x",
                                 status: .draft,
                                 paymentStatus: .unpaid,
@@ -1251,16 +1251,16 @@ import Api
                                 amountsMatch: true
                             ))
                         ),
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemDocumentsItem(
                             sourceInvoiceId: "x",
                             fullNumber: "fullNumber",
-                            issueDate: "issueDate",
+                            issueDate: CalendarDate("2023-01-15")!,
                             type: .invoice,
                             currency: "currency",
                             grossTotal: "grossTotal",
                             paymentStatus: .unpaid,
                             match: .mirrored,
-                            counterpart: Nullable<PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart>.value(PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart(
+                            counterpart: Nullable<IntercompanyReportConsolidationResponseDirectionsItemDocumentsItemCounterpart>.value(IntercompanyReportConsolidationResponseDirectionsItemDocumentsItemCounterpart(
                                 invoiceId: "x",
                                 status: .draft,
                                 paymentStatus: .unpaid,
@@ -1270,25 +1270,25 @@ import Api
                         )
                     ],
                     unmatchedPurchases: [
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemUnmatchedPurchasesItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemUnmatchedPurchasesItem(
                             invoiceId: "x",
                             documentNumber: "documentNumber",
-                            documentDate: "documentDate",
+                            documentDate: CalendarDate("2023-01-15")!,
                             currency: "currency",
                             grossTotal: "grossTotal",
                             status: .draft
                         ),
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemUnmatchedPurchasesItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemUnmatchedPurchasesItem(
                             invoiceId: "x",
                             documentNumber: "documentNumber",
-                            documentDate: "documentDate",
+                            documentDate: CalendarDate("2023-01-15")!,
                             currency: "currency",
                             grossTotal: "grossTotal",
                             status: .draft
                         )
                     ],
                     totals: [
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemTotalsItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemTotalsItem(
                             currency: "currency",
                             salesGross: "salesGross",
                             purchasesGross: "purchasesGross",
@@ -1297,7 +1297,7 @@ import Api
                             openPayable: "openPayable",
                             openDifference: "openDifference"
                         ),
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemTotalsItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemTotalsItem(
                             currency: "currency",
                             salesGross: "salesGross",
                             purchasesGross: "purchasesGross",
@@ -1308,22 +1308,22 @@ import Api
                         )
                     ]
                 ),
-                PostV1ConsolidationIntercompanyReportResponseDirectionsItem(
+                IntercompanyReportConsolidationResponseDirectionsItem(
                     sellerCompanyId: "x",
                     sellerName: "sellerName",
                     buyerCompanyId: "x",
                     buyerName: "buyerName",
                     documents: [
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemDocumentsItem(
                             sourceInvoiceId: "x",
                             fullNumber: "fullNumber",
-                            issueDate: "issueDate",
+                            issueDate: CalendarDate("2023-01-15")!,
                             type: .invoice,
                             currency: "currency",
                             grossTotal: "grossTotal",
                             paymentStatus: .unpaid,
                             match: .mirrored,
-                            counterpart: Nullable<PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart>.value(PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart(
+                            counterpart: Nullable<IntercompanyReportConsolidationResponseDirectionsItemDocumentsItemCounterpart>.value(IntercompanyReportConsolidationResponseDirectionsItemDocumentsItemCounterpart(
                                 invoiceId: "x",
                                 status: .draft,
                                 paymentStatus: .unpaid,
@@ -1331,16 +1331,16 @@ import Api
                                 amountsMatch: true
                             ))
                         ),
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemDocumentsItem(
                             sourceInvoiceId: "x",
                             fullNumber: "fullNumber",
-                            issueDate: "issueDate",
+                            issueDate: CalendarDate("2023-01-15")!,
                             type: .invoice,
                             currency: "currency",
                             grossTotal: "grossTotal",
                             paymentStatus: .unpaid,
                             match: .mirrored,
-                            counterpart: Nullable<PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart>.value(PostV1ConsolidationIntercompanyReportResponseDirectionsItemDocumentsItemCounterpart(
+                            counterpart: Nullable<IntercompanyReportConsolidationResponseDirectionsItemDocumentsItemCounterpart>.value(IntercompanyReportConsolidationResponseDirectionsItemDocumentsItemCounterpart(
                                 invoiceId: "x",
                                 status: .draft,
                                 paymentStatus: .unpaid,
@@ -1350,25 +1350,25 @@ import Api
                         )
                     ],
                     unmatchedPurchases: [
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemUnmatchedPurchasesItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemUnmatchedPurchasesItem(
                             invoiceId: "x",
                             documentNumber: "documentNumber",
-                            documentDate: "documentDate",
+                            documentDate: CalendarDate("2023-01-15")!,
                             currency: "currency",
                             grossTotal: "grossTotal",
                             status: .draft
                         ),
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemUnmatchedPurchasesItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemUnmatchedPurchasesItem(
                             invoiceId: "x",
                             documentNumber: "documentNumber",
-                            documentDate: "documentDate",
+                            documentDate: CalendarDate("2023-01-15")!,
                             currency: "currency",
                             grossTotal: "grossTotal",
                             status: .draft
                         )
                     ],
                     totals: [
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemTotalsItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemTotalsItem(
                             currency: "currency",
                             salesGross: "salesGross",
                             purchasesGross: "purchasesGross",
@@ -1377,7 +1377,7 @@ import Api
                             openPayable: "openPayable",
                             openDifference: "openDifference"
                         ),
-                        PostV1ConsolidationIntercompanyReportResponseDirectionsItemTotalsItem(
+                        IntercompanyReportConsolidationResponseDirectionsItemTotalsItem(
                             currency: "currency",
                             salesGross: "salesGross",
                             purchasesGross: "purchasesGross",
@@ -1390,26 +1390,26 @@ import Api
                 )
             ]
         )
-        let response = try await client.consolidation.postV1ConsolidationIntercompanyReport(
+        let response = try await client.consolidation.intercompanyReport(
             request: .init(
                 groupId: "x",
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationReport1() async throws -> Void {
+    @Test func report1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "presentationCurrency": "presentationCurrency",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "category": "micro",
                   "statements": {
                     "category": "micro",
@@ -1429,8 +1429,8 @@ import Api
                       "balanced": true
                     },
                     "profitLoss": {
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2026-07-01",
+                      "toDate": "2026-07-01",
                       "revenue": "revenue",
                       "expenses": "expenses",
                       "netResult": "netResult"
@@ -1586,19 +1586,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationReportResponse(
+        let expectedResponse = ReportConsolidationResponse(
             presentationCurrency: "presentationCurrency",
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             category: .micro,
-            statements: PostV1ConsolidationReportResponseStatements(
+            statements: ReportConsolidationResponseStatements(
                 category: .micro,
                 layout: "layout",
                 requiredStatements: [
                     "requiredStatements"
                 ],
                 asOf: "asOf",
-                balanceSheet: PostV1ConsolidationReportResponseStatementsBalanceSheet(
+                balanceSheet: ReportConsolidationResponseStatementsBalanceSheet(
                     nonCurrentAssets: "nonCurrentAssets",
                     currentAssets: "currentAssets",
                     totalAssets: "totalAssets",
@@ -1608,29 +1608,29 @@ import Api
                     totalEquityAndLiabilities: "totalEquityAndLiabilities",
                     balanced: true
                 ),
-                profitLoss: PostV1ConsolidationReportResponseStatementsProfitLoss(
-                    fromDate: "fromDate",
-                    toDate: "toDate",
+                profitLoss: ReportConsolidationResponseStatementsProfitLoss(
+                    fromDate: CalendarDate("2026-07-01")!,
+                    toDate: CalendarDate("2026-07-01")!,
                     revenue: "revenue",
                     expenses: "expenses",
                     netResult: "netResult"
                 ),
-                balanceSheetDetail: Optional(PostV1ConsolidationReportResponseStatementsBalanceSheetDetail(
-                    nonCurrentAssets: PostV1ConsolidationReportResponseStatementsBalanceSheetDetailNonCurrentAssets(
+                balanceSheetDetail: Optional(ReportConsolidationResponseStatementsBalanceSheetDetail(
+                    nonCurrentAssets: ReportConsolidationResponseStatementsBalanceSheetDetailNonCurrentAssets(
                         intangible: "intangible",
                         tangible: "tangible",
                         financial: "financial",
                         other: "other",
                         total: "total"
                     ),
-                    currentAssets: PostV1ConsolidationReportResponseStatementsBalanceSheetDetailCurrentAssets(
+                    currentAssets: ReportConsolidationResponseStatementsBalanceSheetDetailCurrentAssets(
                         inventories: "inventories",
                         receivables: "receivables",
                         otherCurrent: "otherCurrent",
                         cash: "cash",
                         total: "total"
                     ),
-                    equity: PostV1ConsolidationReportResponseStatementsBalanceSheetDetailEquity(
+                    equity: ReportConsolidationResponseStatementsBalanceSheetDetailEquity(
                         capital: "capital",
                         reserves: "reserves",
                         retainedEarnings: "retainedEarnings",
@@ -1638,14 +1638,14 @@ import Api
                         periodResult: "periodResult",
                         total: "total"
                     ),
-                    liabilities: PostV1ConsolidationReportResponseStatementsBalanceSheetDetailLiabilities(
+                    liabilities: ReportConsolidationResponseStatementsBalanceSheetDetailLiabilities(
                         nonCurrent: "nonCurrent",
                         current: "current",
                         other: "other",
                         total: "total"
                     )
                 )),
-                profitLossDetail: Optional(PostV1ConsolidationReportResponseStatementsProfitLossDetail(
+                profitLossDetail: Optional(ReportConsolidationResponseStatementsProfitLossDetail(
                     salesRevenue: "salesRevenue",
                     costOfSales: "costOfSales",
                     grossProfit: "grossProfit",
@@ -1660,23 +1660,23 @@ import Api
                 ))
             ),
             trialBalance: [
-                PostV1ConsolidationReportResponseTrialBalanceItem(
+                ReportConsolidationResponseTrialBalanceItem(
                     code: "code",
                     type: "type",
                     closing: "closing",
                     period: "period"
                 )
             ],
-            nonControllingInterest: PostV1ConsolidationReportResponseNonControllingInterest(
+            nonControllingInterest: ReportConsolidationResponseNonControllingInterest(
                 equity: "equity",
                 result: "result"
             ),
-            equityMethod: PostV1ConsolidationReportResponseEquityMethod(
+            equityMethod: ReportConsolidationResponseEquityMethod(
                 investmentsInAssociates: "investmentsInAssociates",
                 shareOfAssociatesResult: "shareOfAssociatesResult"
             ),
             members: [
-                PostV1ConsolidationReportResponseMembersItem(
+                ReportConsolidationResponseMembersItem(
                     companyId: "companyId",
                     name: "name",
                     baseCurrency: "baseCurrency",
@@ -1690,9 +1690,9 @@ import Api
                     periodResult: "periodResult"
                 )
             ],
-            eliminations: PostV1ConsolidationReportResponseEliminations(
+            eliminations: ReportConsolidationResponseEliminations(
                 applied: [
-                    PostV1ConsolidationReportResponseEliminationsAppliedItem(
+                    ReportConsolidationResponseEliminationsAppliedItem(
                         code: "code",
                         amount: "amount"
                     )
@@ -1700,16 +1700,16 @@ import Api
                 balanced: true,
                 net: "net"
             ),
-            cashFlow: PostV1ConsolidationReportResponseCashFlow(
+            cashFlow: ReportConsolidationResponseCashFlow(
                 openingCash: "openingCash",
                 closingCash: "closingCash",
                 netChange: "netChange",
-                operating: PostV1ConsolidationReportResponseCashFlowOperating(
+                operating: ReportConsolidationResponseCashFlowOperating(
                     inflow: "inflow",
                     outflow: "outflow",
                     net: "net",
                     rows: [
-                        PostV1ConsolidationReportResponseCashFlowOperatingRowsItem(
+                        ReportConsolidationResponseCashFlowOperatingRowsItem(
                             code: "code",
                             name: "name",
                             inflow: "inflow",
@@ -1717,12 +1717,12 @@ import Api
                         )
                     ]
                 ),
-                investing: PostV1ConsolidationReportResponseCashFlowInvesting(
+                investing: ReportConsolidationResponseCashFlowInvesting(
                     inflow: "inflow",
                     outflow: "outflow",
                     net: "net",
                     rows: [
-                        PostV1ConsolidationReportResponseCashFlowInvestingRowsItem(
+                        ReportConsolidationResponseCashFlowInvestingRowsItem(
                             code: "code",
                             name: "name",
                             inflow: "inflow",
@@ -1730,12 +1730,12 @@ import Api
                         )
                     ]
                 ),
-                financing: PostV1ConsolidationReportResponseCashFlowFinancing(
+                financing: ReportConsolidationResponseCashFlowFinancing(
                     inflow: "inflow",
                     outflow: "outflow",
                     net: "net",
                     rows: [
-                        PostV1ConsolidationReportResponseCashFlowFinancingRowsItem(
+                        ReportConsolidationResponseCashFlowFinancingRowsItem(
                             code: "code",
                             name: "name",
                             inflow: "inflow",
@@ -1746,7 +1746,7 @@ import Api
                 balanced: true
             ),
             intercompanyCandidates: [
-                PostV1ConsolidationReportResponseIntercompanyCandidatesItem(
+                ReportConsolidationResponseIntercompanyCandidatesItem(
                     memberCompanyId: "memberCompanyId",
                     memberName: "memberName",
                     partnerId: "partnerId",
@@ -1758,26 +1758,26 @@ import Api
                 )
             ]
         )
-        let response = try await client.consolidation.postV1ConsolidationReport(
+        let response = try await client.consolidation.report(
             request: .init(
                 groupId: "groupId",
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ConsolidationReport2() async throws -> Void {
+    @Test func report2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "presentationCurrency": "presentationCurrency",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "category": "micro",
                   "statements": {
                     "category": "micro",
@@ -1798,8 +1798,8 @@ import Api
                       "balanced": true
                     },
                     "profitLoss": {
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2023-01-15",
+                      "toDate": "2023-01-15",
                       "revenue": "revenue",
                       "expenses": "expenses",
                       "netResult": "netResult"
@@ -2008,12 +2008,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ConsolidationReportResponse(
+        let expectedResponse = ReportConsolidationResponse(
             presentationCurrency: "presentationCurrency",
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             category: .micro,
-            statements: PostV1ConsolidationReportResponseStatements(
+            statements: ReportConsolidationResponseStatements(
                 category: .micro,
                 layout: "layout",
                 requiredStatements: [
@@ -2021,7 +2021,7 @@ import Api
                     "requiredStatements"
                 ],
                 asOf: "asOf",
-                balanceSheet: PostV1ConsolidationReportResponseStatementsBalanceSheet(
+                balanceSheet: ReportConsolidationResponseStatementsBalanceSheet(
                     nonCurrentAssets: "nonCurrentAssets",
                     currentAssets: "currentAssets",
                     totalAssets: "totalAssets",
@@ -2031,29 +2031,29 @@ import Api
                     totalEquityAndLiabilities: "totalEquityAndLiabilities",
                     balanced: true
                 ),
-                profitLoss: PostV1ConsolidationReportResponseStatementsProfitLoss(
-                    fromDate: "fromDate",
-                    toDate: "toDate",
+                profitLoss: ReportConsolidationResponseStatementsProfitLoss(
+                    fromDate: CalendarDate("2023-01-15")!,
+                    toDate: CalendarDate("2023-01-15")!,
                     revenue: "revenue",
                     expenses: "expenses",
                     netResult: "netResult"
                 ),
-                balanceSheetDetail: Optional(PostV1ConsolidationReportResponseStatementsBalanceSheetDetail(
-                    nonCurrentAssets: PostV1ConsolidationReportResponseStatementsBalanceSheetDetailNonCurrentAssets(
+                balanceSheetDetail: Optional(ReportConsolidationResponseStatementsBalanceSheetDetail(
+                    nonCurrentAssets: ReportConsolidationResponseStatementsBalanceSheetDetailNonCurrentAssets(
                         intangible: "intangible",
                         tangible: "tangible",
                         financial: "financial",
                         other: "other",
                         total: "total"
                     ),
-                    currentAssets: PostV1ConsolidationReportResponseStatementsBalanceSheetDetailCurrentAssets(
+                    currentAssets: ReportConsolidationResponseStatementsBalanceSheetDetailCurrentAssets(
                         inventories: "inventories",
                         receivables: "receivables",
                         otherCurrent: "otherCurrent",
                         cash: "cash",
                         total: "total"
                     ),
-                    equity: PostV1ConsolidationReportResponseStatementsBalanceSheetDetailEquity(
+                    equity: ReportConsolidationResponseStatementsBalanceSheetDetailEquity(
                         capital: "capital",
                         reserves: "reserves",
                         retainedEarnings: "retainedEarnings",
@@ -2061,14 +2061,14 @@ import Api
                         periodResult: "periodResult",
                         total: "total"
                     ),
-                    liabilities: PostV1ConsolidationReportResponseStatementsBalanceSheetDetailLiabilities(
+                    liabilities: ReportConsolidationResponseStatementsBalanceSheetDetailLiabilities(
                         nonCurrent: "nonCurrent",
                         current: "current",
                         other: "other",
                         total: "total"
                     )
                 )),
-                profitLossDetail: Optional(PostV1ConsolidationReportResponseStatementsProfitLossDetail(
+                profitLossDetail: Optional(ReportConsolidationResponseStatementsProfitLossDetail(
                     salesRevenue: "salesRevenue",
                     costOfSales: "costOfSales",
                     grossProfit: "grossProfit",
@@ -2083,29 +2083,29 @@ import Api
                 ))
             ),
             trialBalance: [
-                PostV1ConsolidationReportResponseTrialBalanceItem(
+                ReportConsolidationResponseTrialBalanceItem(
                     code: "code",
                     type: "type",
                     closing: "closing",
                     period: "period"
                 ),
-                PostV1ConsolidationReportResponseTrialBalanceItem(
+                ReportConsolidationResponseTrialBalanceItem(
                     code: "code",
                     type: "type",
                     closing: "closing",
                     period: "period"
                 )
             ],
-            nonControllingInterest: PostV1ConsolidationReportResponseNonControllingInterest(
+            nonControllingInterest: ReportConsolidationResponseNonControllingInterest(
                 equity: "equity",
                 result: "result"
             ),
-            equityMethod: PostV1ConsolidationReportResponseEquityMethod(
+            equityMethod: ReportConsolidationResponseEquityMethod(
                 investmentsInAssociates: "investmentsInAssociates",
                 shareOfAssociatesResult: "shareOfAssociatesResult"
             ),
             members: [
-                PostV1ConsolidationReportResponseMembersItem(
+                ReportConsolidationResponseMembersItem(
                     companyId: "x",
                     name: "name",
                     baseCurrency: "baseCurrency",
@@ -2118,7 +2118,7 @@ import Api
                     netEquity: "netEquity",
                     periodResult: "periodResult"
                 ),
-                PostV1ConsolidationReportResponseMembersItem(
+                ReportConsolidationResponseMembersItem(
                     companyId: "x",
                     name: "name",
                     baseCurrency: "baseCurrency",
@@ -2132,14 +2132,14 @@ import Api
                     periodResult: "periodResult"
                 )
             ],
-            eliminations: PostV1ConsolidationReportResponseEliminations(
+            eliminations: ReportConsolidationResponseEliminations(
                 applied: [
-                    PostV1ConsolidationReportResponseEliminationsAppliedItem(
+                    ReportConsolidationResponseEliminationsAppliedItem(
                         code: "code",
                         amount: "amount",
                         note: Optional("note")
                     ),
-                    PostV1ConsolidationReportResponseEliminationsAppliedItem(
+                    ReportConsolidationResponseEliminationsAppliedItem(
                         code: "code",
                         amount: "amount",
                         note: Optional("note")
@@ -2148,22 +2148,22 @@ import Api
                 balanced: true,
                 net: "net"
             ),
-            cashFlow: PostV1ConsolidationReportResponseCashFlow(
+            cashFlow: ReportConsolidationResponseCashFlow(
                 openingCash: "openingCash",
                 closingCash: "closingCash",
                 netChange: "netChange",
-                operating: PostV1ConsolidationReportResponseCashFlowOperating(
+                operating: ReportConsolidationResponseCashFlowOperating(
                     inflow: "inflow",
                     outflow: "outflow",
                     net: "net",
                     rows: [
-                        PostV1ConsolidationReportResponseCashFlowOperatingRowsItem(
+                        ReportConsolidationResponseCashFlowOperatingRowsItem(
                             code: "code",
                             name: "name",
                             inflow: "inflow",
                             outflow: "outflow"
                         ),
-                        PostV1ConsolidationReportResponseCashFlowOperatingRowsItem(
+                        ReportConsolidationResponseCashFlowOperatingRowsItem(
                             code: "code",
                             name: "name",
                             inflow: "inflow",
@@ -2171,18 +2171,18 @@ import Api
                         )
                     ]
                 ),
-                investing: PostV1ConsolidationReportResponseCashFlowInvesting(
+                investing: ReportConsolidationResponseCashFlowInvesting(
                     inflow: "inflow",
                     outflow: "outflow",
                     net: "net",
                     rows: [
-                        PostV1ConsolidationReportResponseCashFlowInvestingRowsItem(
+                        ReportConsolidationResponseCashFlowInvestingRowsItem(
                             code: "code",
                             name: "name",
                             inflow: "inflow",
                             outflow: "outflow"
                         ),
-                        PostV1ConsolidationReportResponseCashFlowInvestingRowsItem(
+                        ReportConsolidationResponseCashFlowInvestingRowsItem(
                             code: "code",
                             name: "name",
                             inflow: "inflow",
@@ -2190,18 +2190,18 @@ import Api
                         )
                     ]
                 ),
-                financing: PostV1ConsolidationReportResponseCashFlowFinancing(
+                financing: ReportConsolidationResponseCashFlowFinancing(
                     inflow: "inflow",
                     outflow: "outflow",
                     net: "net",
                     rows: [
-                        PostV1ConsolidationReportResponseCashFlowFinancingRowsItem(
+                        ReportConsolidationResponseCashFlowFinancingRowsItem(
                             code: "code",
                             name: "name",
                             inflow: "inflow",
                             outflow: "outflow"
                         ),
-                        PostV1ConsolidationReportResponseCashFlowFinancingRowsItem(
+                        ReportConsolidationResponseCashFlowFinancingRowsItem(
                             code: "code",
                             name: "name",
                             inflow: "inflow",
@@ -2212,7 +2212,7 @@ import Api
                 balanced: true
             ),
             intercompanyCandidates: [
-                PostV1ConsolidationReportResponseIntercompanyCandidatesItem(
+                ReportConsolidationResponseIntercompanyCandidatesItem(
                     memberCompanyId: "x",
                     memberName: "memberName",
                     partnerId: "x",
@@ -2222,7 +2222,7 @@ import Api
                     matchesCompanyName: "matchesCompanyName",
                     matchedOn: .code
                 ),
-                PostV1ConsolidationReportResponseIntercompanyCandidatesItem(
+                ReportConsolidationResponseIntercompanyCandidatesItem(
                     memberCompanyId: "x",
                     memberName: "memberName",
                     partnerId: "x",
@@ -2234,11 +2234,11 @@ import Api
                 )
             ]
         )
-        let response = try await client.consolidation.postV1ConsolidationReport(
+        let response = try await client.consolidation.report(
             request: .init(
                 groupId: "x",
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

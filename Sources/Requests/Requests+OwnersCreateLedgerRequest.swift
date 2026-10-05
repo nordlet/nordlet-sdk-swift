@@ -1,0 +1,100 @@
+import Foundation
+
+extension Requests {
+    public struct OwnersCreateLedgerRequest: Codable, Hashable, Sendable {
+        public let name: String
+        public let code: String?
+        public let equityAccountCode: String?
+        public let sharesQuantity: String?
+        public let sharesAmount: String?
+        public let sharesType: OwnersCreateLedgerRequestSharesType?
+        public let sharesAcquisitionDate: CalendarDate?
+        public let withholdingTaxPercent: String?
+        public let partnerLiability: Nullable<OwnersCreateLedgerRequestPartnerLiability>?
+        public let specialBalanceRequired: Nullable<Bool>?
+        public let supplementaryBalanceRequired: Nullable<Bool>?
+        public let address: OwnersCreateLedgerRequestAddress?
+        /// Additional properties that are not explicitly defined in the schema
+        public let additionalProperties: [String: JSONValue]
+
+        public init(
+            name: String,
+            code: String? = nil,
+            equityAccountCode: String? = nil,
+            sharesQuantity: String? = nil,
+            sharesAmount: String? = nil,
+            sharesType: OwnersCreateLedgerRequestSharesType? = nil,
+            sharesAcquisitionDate: CalendarDate? = nil,
+            withholdingTaxPercent: String? = nil,
+            partnerLiability: Nullable<OwnersCreateLedgerRequestPartnerLiability>? = nil,
+            specialBalanceRequired: Nullable<Bool>? = nil,
+            supplementaryBalanceRequired: Nullable<Bool>? = nil,
+            address: OwnersCreateLedgerRequestAddress? = nil,
+            additionalProperties: [String: JSONValue] = .init()
+        ) {
+            self.name = name
+            self.code = code
+            self.equityAccountCode = equityAccountCode
+            self.sharesQuantity = sharesQuantity
+            self.sharesAmount = sharesAmount
+            self.sharesType = sharesType
+            self.sharesAcquisitionDate = sharesAcquisitionDate
+            self.withholdingTaxPercent = withholdingTaxPercent
+            self.partnerLiability = partnerLiability
+            self.specialBalanceRequired = specialBalanceRequired
+            self.supplementaryBalanceRequired = supplementaryBalanceRequired
+            self.address = address
+            self.additionalProperties = additionalProperties
+        }
+
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.name = try container.decode(String.self, forKey: .name)
+            self.code = try container.decodeIfPresent(String.self, forKey: .code)
+            self.equityAccountCode = try container.decodeIfPresent(String.self, forKey: .equityAccountCode)
+            self.sharesQuantity = try container.decodeIfPresent(String.self, forKey: .sharesQuantity)
+            self.sharesAmount = try container.decodeIfPresent(String.self, forKey: .sharesAmount)
+            self.sharesType = try container.decodeIfPresent(OwnersCreateLedgerRequestSharesType.self, forKey: .sharesType)
+            self.sharesAcquisitionDate = try container.decodeIfPresent(CalendarDate.self, forKey: .sharesAcquisitionDate)
+            self.withholdingTaxPercent = try container.decodeIfPresent(String.self, forKey: .withholdingTaxPercent)
+            self.partnerLiability = try container.decodeNullableIfPresent(OwnersCreateLedgerRequestPartnerLiability.self, forKey: .partnerLiability)
+            self.specialBalanceRequired = try container.decodeNullableIfPresent(Bool.self, forKey: .specialBalanceRequired)
+            self.supplementaryBalanceRequired = try container.decodeNullableIfPresent(Bool.self, forKey: .supplementaryBalanceRequired)
+            self.address = try container.decodeIfPresent(OwnersCreateLedgerRequestAddress.self, forKey: .address)
+            self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
+        }
+
+        public func encode(to encoder: Encoder) throws -> Void {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try encoder.encodeAdditionalProperties(self.additionalProperties)
+            try container.encode(self.name, forKey: .name)
+            try container.encodeIfPresent(self.code, forKey: .code)
+            try container.encodeIfPresent(self.equityAccountCode, forKey: .equityAccountCode)
+            try container.encodeIfPresent(self.sharesQuantity, forKey: .sharesQuantity)
+            try container.encodeIfPresent(self.sharesAmount, forKey: .sharesAmount)
+            try container.encodeIfPresent(self.sharesType, forKey: .sharesType)
+            try container.encodeIfPresent(self.sharesAcquisitionDate, forKey: .sharesAcquisitionDate)
+            try container.encodeIfPresent(self.withholdingTaxPercent, forKey: .withholdingTaxPercent)
+            try container.encodeNullableIfPresent(self.partnerLiability, forKey: .partnerLiability)
+            try container.encodeNullableIfPresent(self.specialBalanceRequired, forKey: .specialBalanceRequired)
+            try container.encodeNullableIfPresent(self.supplementaryBalanceRequired, forKey: .supplementaryBalanceRequired)
+            try container.encodeIfPresent(self.address, forKey: .address)
+        }
+
+        /// Keys for encoding/decoding struct properties.
+        enum CodingKeys: String, CodingKey, CaseIterable {
+            case name
+            case code
+            case equityAccountCode
+            case sharesQuantity
+            case sharesAmount
+            case sharesType
+            case sharesAcquisitionDate
+            case withholdingTaxPercent
+            case partnerLiability
+            case specialBalanceRequired
+            case supplementaryBalanceRequired
+            case address
+        }
+    }
+}

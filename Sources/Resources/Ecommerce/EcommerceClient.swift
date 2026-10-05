@@ -7,83 +7,83 @@ public final class EcommerceClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1EcommerceOrdersCreate(request: Requests.PostV1EcommerceOrdersCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1EcommerceOrdersCreateResponse {
+    public func ordersCreate(request: Requests.OrdersCreateEcommerceRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersCreateEcommerceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/ecommerce/orders/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1EcommerceOrdersCreateResponse.self
+            responseType: OrdersCreateEcommerceResponse.self
         )
     }
 
-    public func postV1EcommerceOrdersGet(request: Requests.PostV1EcommerceOrdersGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1EcommerceOrdersGetResponse {
+    public func ordersGet(request: Requests.OrdersGetEcommerceRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersGetEcommerceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/ecommerce/orders/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1EcommerceOrdersGetResponse.self
+            responseType: OrdersGetEcommerceResponse.self
         )
     }
 
-    public func postV1EcommerceOrdersList(request: Requests.PostV1EcommerceOrdersListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1EcommerceOrdersListResponse {
+    public func ordersList(request: Requests.OrdersListEcommerceRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersListEcommerceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/ecommerce/orders/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1EcommerceOrdersListResponse.self
+            responseType: OrdersListEcommerceResponse.self
         )
     }
 
-    public func postV1EcommerceOrdersReserve(request: Requests.PostV1EcommerceOrdersReserveRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1EcommerceOrdersReserveResponse {
+    public func ordersReserve(request: Requests.OrdersReserveEcommerceRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersReserveEcommerceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/ecommerce/orders/reserve",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1EcommerceOrdersReserveResponse.self
+            responseType: OrdersReserveEcommerceResponse.self
         )
     }
 
-    public func postV1EcommerceOrdersFulfill(request: Requests.PostV1EcommerceOrdersFulfillRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1EcommerceOrdersFulfillResponse {
+    public func ordersFulfill(request: Requests.OrdersFulfillEcommerceRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersFulfillEcommerceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/ecommerce/orders/fulfill",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1EcommerceOrdersFulfillResponse.self
+            responseType: OrdersFulfillEcommerceResponse.self
         )
     }
 
-    public func postV1EcommerceOrdersCancel(request: Requests.PostV1EcommerceOrdersCancelRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1EcommerceOrdersCancelResponse {
+    public func ordersCancel(request: Requests.OrdersCancelEcommerceRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersCancelEcommerceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/ecommerce/orders/cancel",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1EcommerceOrdersCancelResponse.self
+            responseType: OrdersCancelEcommerceResponse.self
         )
     }
 
-    public func postV1EcommerceProductsList(request: Requests.PostV1EcommerceProductsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1EcommerceProductsListResponse {
+    public func productsList(request: Requests.ProductsListEcommerceRequest, requestOptions: RequestOptions? = nil) async throws -> ProductsListEcommerceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/ecommerce/products/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1EcommerceProductsListResponse.self
+            responseType: ProductsListEcommerceResponse.self
         )
     }
 
-    public func postV1EcommerceStockList(request: Requests.PostV1EcommerceStockListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1EcommerceStockListResponse {
+    public func stockList(request: Requests.StockListEcommerceRequest, requestOptions: RequestOptions? = nil) async throws -> StockListEcommerceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/ecommerce/stock/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1EcommerceStockListResponse.self
+            responseType: StockListEcommerceResponse.self
         )
     }
 }

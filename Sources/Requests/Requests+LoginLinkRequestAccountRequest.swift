@@ -1,0 +1,58 @@
+import Foundation
+
+extension Requests {
+    public struct LoginLinkRequestAccountRequest: Codable, Hashable, Sendable {
+        public let email: String
+        public let locale: LoginLinkRequestAccountRequestLocale?
+        public let acceptTerms: Bool?
+        public let acceptDpa: Bool?
+        public let referralCode: String?
+        /// Additional properties that are not explicitly defined in the schema
+        public let additionalProperties: [String: JSONValue]
+
+        public init(
+            email: String,
+            locale: LoginLinkRequestAccountRequestLocale? = nil,
+            acceptTerms: Bool? = nil,
+            acceptDpa: Bool? = nil,
+            referralCode: String? = nil,
+            additionalProperties: [String: JSONValue] = .init()
+        ) {
+            self.email = email
+            self.locale = locale
+            self.acceptTerms = acceptTerms
+            self.acceptDpa = acceptDpa
+            self.referralCode = referralCode
+            self.additionalProperties = additionalProperties
+        }
+
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.email = try container.decode(String.self, forKey: .email)
+            self.locale = try container.decodeIfPresent(LoginLinkRequestAccountRequestLocale.self, forKey: .locale)
+            self.acceptTerms = try container.decodeIfPresent(Bool.self, forKey: .acceptTerms)
+            self.acceptDpa = try container.decodeIfPresent(Bool.self, forKey: .acceptDpa)
+            self.referralCode = try container.decodeIfPresent(String.self, forKey: .referralCode)
+            self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
+        }
+
+        public func encode(to encoder: Encoder) throws -> Void {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try encoder.encodeAdditionalProperties(self.additionalProperties)
+            try container.encode(self.email, forKey: .email)
+            try container.encodeIfPresent(self.locale, forKey: .locale)
+            try container.encodeIfPresent(self.acceptTerms, forKey: .acceptTerms)
+            try container.encodeIfPresent(self.acceptDpa, forKey: .acceptDpa)
+            try container.encodeIfPresent(self.referralCode, forKey: .referralCode)
+        }
+
+        /// Keys for encoding/decoding struct properties.
+        enum CodingKeys: String, CodingKey, CaseIterable {
+            case email
+            case locale
+            case acceptTerms
+            case acceptDpa
+            case referralCode
+        }
+    }
+}

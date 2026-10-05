@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("ProductionClient Wire Tests") struct ProductionClientWireTests {
-    @Test func postV1ProductionWorkCentersCreate1() async throws -> Void {
+    @Test func workCentersCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -15,10 +15,10 @@ import Api
                   "costPerHour": "costPerHour",
                   "costAccountCode": "costAccountCode",
                   "maintenanceIntervalDays": 1000000,
-                  "nextMaintenanceDate": "nextMaintenanceDate",
+                  "nextMaintenanceDate": "2026-07-01",
                   "isActive": true,
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -28,19 +28,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionWorkCentersCreateResponse(
+        let expectedResponse = WorkCentersCreateProductionResponse(
             id: "id",
             code: "code",
             name: "name",
             costPerHour: "costPerHour",
             costAccountCode: Nullable<String>.value("costAccountCode"),
             maintenanceIntervalDays: Nullable<Int64>.value(1000000),
-            nextMaintenanceDate: Nullable<String>.value("nextMaintenanceDate"),
+            nextMaintenanceDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             isActive: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionWorkCentersCreate(
+        let response = try await client.production.workCentersCreate(
             request: .init(
                 code: "code",
                 name: "name"
@@ -50,7 +50,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionWorkCentersCreate2() async throws -> Void {
+    @Test func workCentersCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -62,10 +62,10 @@ import Api
                   "costPerHour": "costPerHour",
                   "costAccountCode": "costAccountCode",
                   "maintenanceIntervalDays": 1000000,
-                  "nextMaintenanceDate": "nextMaintenanceDate",
+                  "nextMaintenanceDate": "2023-01-15",
                   "isActive": true,
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -75,19 +75,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionWorkCentersCreateResponse(
+        let expectedResponse = WorkCentersCreateProductionResponse(
             id: "x",
             code: "code",
             name: "name",
             costPerHour: "costPerHour",
             costAccountCode: Nullable<String>.value("costAccountCode"),
             maintenanceIntervalDays: Nullable<Int64>.value(1000000),
-            nextMaintenanceDate: Nullable<String>.value("nextMaintenanceDate"),
+            nextMaintenanceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             isActive: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionWorkCentersCreate(
+        let response = try await client.production.workCentersCreate(
             request: .init(
                 code: "x",
                 name: "x"
@@ -97,7 +97,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionWorkCentersUpdate1() async throws -> Void {
+    @Test func workCentersUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -109,10 +109,10 @@ import Api
                   "costPerHour": "costPerHour",
                   "costAccountCode": "costAccountCode",
                   "maintenanceIntervalDays": 1000000,
-                  "nextMaintenanceDate": "nextMaintenanceDate",
+                  "nextMaintenanceDate": "2026-07-01",
                   "isActive": true,
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -122,26 +122,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionWorkCentersUpdateResponse(
+        let expectedResponse = WorkCentersUpdateProductionResponse(
             id: "id",
             code: "code",
             name: "name",
             costPerHour: "costPerHour",
             costAccountCode: Nullable<String>.value("costAccountCode"),
             maintenanceIntervalDays: Nullable<Int64>.value(1000000),
-            nextMaintenanceDate: Nullable<String>.value("nextMaintenanceDate"),
+            nextMaintenanceDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             isActive: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionWorkCentersUpdate(
+        let response = try await client.production.workCentersUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionWorkCentersUpdate2() async throws -> Void {
+    @Test func workCentersUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -153,10 +153,10 @@ import Api
                   "costPerHour": "costPerHour",
                   "costAccountCode": "costAccountCode",
                   "maintenanceIntervalDays": 1000000,
-                  "nextMaintenanceDate": "nextMaintenanceDate",
+                  "nextMaintenanceDate": "2023-01-15",
                   "isActive": true,
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -166,26 +166,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionWorkCentersUpdateResponse(
+        let expectedResponse = WorkCentersUpdateProductionResponse(
             id: "x",
             code: "code",
             name: "name",
             costPerHour: "costPerHour",
             costAccountCode: Nullable<String>.value("costAccountCode"),
             maintenanceIntervalDays: Nullable<Int64>.value(1000000),
-            nextMaintenanceDate: Nullable<String>.value("nextMaintenanceDate"),
+            nextMaintenanceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             isActive: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionWorkCentersUpdate(
+        let response = try await client.production.workCentersUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionWorkCentersList1() async throws -> Void {
+    @Test func workCentersList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -199,10 +199,10 @@ import Api
                       "costPerHour": "costPerHour",
                       "costAccountCode": "costAccountCode",
                       "maintenanceIntervalDays": 1000000,
-                      "nextMaintenanceDate": "nextMaintenanceDate",
+                      "nextMaintenanceDate": "2026-07-01",
                       "isActive": true,
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -220,19 +220,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionWorkCentersListResponse(
+        let expectedResponse = WorkCentersListProductionResponse(
             rows: [
-                PostV1ProductionWorkCentersListResponseRowsItem(
+                WorkCentersListProductionResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
                     costPerHour: "costPerHour",
                     costAccountCode: Nullable<String>.value("costAccountCode"),
                     maintenanceIntervalDays: Nullable<Int64>.value(1000000),
-                    nextMaintenanceDate: Nullable<String>.value("nextMaintenanceDate"),
+                    nextMaintenanceDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     isActive: true,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -242,14 +242,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.production.postV1ProductionWorkCentersList(
+        let response = try await client.production.workCentersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionWorkCentersList2() async throws -> Void {
+    @Test func workCentersList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -263,10 +263,10 @@ import Api
                       "costPerHour": "costPerHour",
                       "costAccountCode": "costAccountCode",
                       "maintenanceIntervalDays": 1000000,
-                      "nextMaintenanceDate": "nextMaintenanceDate",
+                      "nextMaintenanceDate": "2023-01-15",
                       "isActive": true,
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -275,10 +275,10 @@ import Api
                       "costPerHour": "costPerHour",
                       "costAccountCode": "costAccountCode",
                       "maintenanceIntervalDays": 1000000,
-                      "nextMaintenanceDate": "nextMaintenanceDate",
+                      "nextMaintenanceDate": "2023-01-15",
                       "isActive": true,
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -296,31 +296,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionWorkCentersListResponse(
+        let expectedResponse = WorkCentersListProductionResponse(
             rows: [
-                PostV1ProductionWorkCentersListResponseRowsItem(
+                WorkCentersListProductionResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     costPerHour: "costPerHour",
                     costAccountCode: Nullable<String>.value("costAccountCode"),
                     maintenanceIntervalDays: Nullable<Int64>.value(1000000),
-                    nextMaintenanceDate: Nullable<String>.value("nextMaintenanceDate"),
+                    nextMaintenanceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     isActive: true,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1ProductionWorkCentersListResponseRowsItem(
+                WorkCentersListProductionResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     costPerHour: "costPerHour",
                     costAccountCode: Nullable<String>.value("costAccountCode"),
                     maintenanceIntervalDays: Nullable<Int64>.value(1000000),
-                    nextMaintenanceDate: Nullable<String>.value("nextMaintenanceDate"),
+                    nextMaintenanceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     isActive: true,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -330,14 +330,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.production.postV1ProductionWorkCentersList(
+        let response = try await client.production.workCentersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionRoutingsCreate1() async throws -> Void {
+    @Test func routingsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -348,7 +348,7 @@ import Api
                   "name": "name",
                   "isActive": true,
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "operations": [
                     {
                       "id": "id",
@@ -370,15 +370,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionRoutingsCreateResponse(
+        let expectedResponse = RoutingsCreateProductionResponse(
             id: "id",
             code: "code",
             name: "name",
             isActive: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             operations: [
-                PostV1ProductionRoutingsCreateResponseOperationsItem(
+                RoutingsCreateProductionResponseOperationsItem(
                     id: "id",
                     sequence: 1000000,
                     name: "name",
@@ -390,12 +390,12 @@ import Api
                 )
             ]
         )
-        let response = try await client.production.postV1ProductionRoutingsCreate(
+        let response = try await client.production.routingsCreate(
             request: .init(
                 code: "code",
                 name: "name",
                 operations: [
-                    PostV1ProductionRoutingsCreateRequestOperationsItem(
+                    RoutingsCreateProductionRequestOperationsItem(
                         sequence: 1000000,
                         name: "name",
                         workCenterId: "workCenterId"
@@ -407,7 +407,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionRoutingsCreate2() async throws -> Void {
+    @Test func routingsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -418,7 +418,7 @@ import Api
                   "name": "name",
                   "isActive": true,
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "operations": [
                     {
                       "id": "x",
@@ -450,15 +450,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionRoutingsCreateResponse(
+        let expectedResponse = RoutingsCreateProductionResponse(
             id: "x",
             code: "code",
             name: "name",
             isActive: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             operations: [
-                PostV1ProductionRoutingsCreateResponseOperationsItem(
+                RoutingsCreateProductionResponseOperationsItem(
                     id: "x",
                     sequence: 1000000,
                     name: "name",
@@ -468,7 +468,7 @@ import Api
                     qualityCheckName: Nullable<String>.value("qualityCheckName"),
                     notes: Nullable<String>.value("notes")
                 ),
-                PostV1ProductionRoutingsCreateResponseOperationsItem(
+                RoutingsCreateProductionResponseOperationsItem(
                     id: "x",
                     sequence: 1000000,
                     name: "name",
@@ -480,17 +480,17 @@ import Api
                 )
             ]
         )
-        let response = try await client.production.postV1ProductionRoutingsCreate(
+        let response = try await client.production.routingsCreate(
             request: .init(
                 code: "x",
                 name: "x",
                 operations: [
-                    PostV1ProductionRoutingsCreateRequestOperationsItem(
+                    RoutingsCreateProductionRequestOperationsItem(
                         sequence: 1000000,
                         name: "x",
                         workCenterId: "x"
                     ),
-                    PostV1ProductionRoutingsCreateRequestOperationsItem(
+                    RoutingsCreateProductionRequestOperationsItem(
                         sequence: 1000000,
                         name: "x",
                         workCenterId: "x"
@@ -502,7 +502,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionRoutingsGet1() async throws -> Void {
+    @Test func routingsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -513,7 +513,7 @@ import Api
                   "name": "name",
                   "isActive": true,
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "operations": [
                     {
                       "id": "id",
@@ -535,15 +535,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionRoutingsGetResponse(
+        let expectedResponse = RoutingsGetProductionResponse(
             id: "id",
             code: "code",
             name: "name",
             isActive: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             operations: [
-                PostV1ProductionRoutingsGetResponseOperationsItem(
+                RoutingsGetProductionResponseOperationsItem(
                     id: "id",
                     sequence: 1000000,
                     name: "name",
@@ -555,14 +555,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.production.postV1ProductionRoutingsGet(
+        let response = try await client.production.routingsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionRoutingsGet2() async throws -> Void {
+    @Test func routingsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -573,7 +573,7 @@ import Api
                   "name": "name",
                   "isActive": true,
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "operations": [
                     {
                       "id": "x",
@@ -605,15 +605,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionRoutingsGetResponse(
+        let expectedResponse = RoutingsGetProductionResponse(
             id: "x",
             code: "code",
             name: "name",
             isActive: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             operations: [
-                PostV1ProductionRoutingsGetResponseOperationsItem(
+                RoutingsGetProductionResponseOperationsItem(
                     id: "x",
                     sequence: 1000000,
                     name: "name",
@@ -623,7 +623,7 @@ import Api
                     qualityCheckName: Nullable<String>.value("qualityCheckName"),
                     notes: Nullable<String>.value("notes")
                 ),
-                PostV1ProductionRoutingsGetResponseOperationsItem(
+                RoutingsGetProductionResponseOperationsItem(
                     id: "x",
                     sequence: 1000000,
                     name: "name",
@@ -635,14 +635,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.production.postV1ProductionRoutingsGet(
+        let response = try await client.production.routingsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionRoutingsList1() async throws -> Void {
+    @Test func routingsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -655,7 +655,7 @@ import Api
                       "name": "name",
                       "isActive": true,
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -673,15 +673,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionRoutingsListResponse(
+        let expectedResponse = RoutingsListProductionResponse(
             rows: [
-                PostV1ProductionRoutingsListResponseRowsItem(
+                RoutingsListProductionResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
                     isActive: true,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -691,14 +691,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.production.postV1ProductionRoutingsList(
+        let response = try await client.production.routingsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionRoutingsList2() async throws -> Void {
+    @Test func routingsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -711,7 +711,7 @@ import Api
                       "name": "name",
                       "isActive": true,
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -719,7 +719,7 @@ import Api
                       "name": "name",
                       "isActive": true,
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -737,23 +737,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionRoutingsListResponse(
+        let expectedResponse = RoutingsListProductionResponse(
             rows: [
-                PostV1ProductionRoutingsListResponseRowsItem(
+                RoutingsListProductionResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     isActive: true,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1ProductionRoutingsListResponseRowsItem(
+                RoutingsListProductionResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     isActive: true,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -763,14 +763,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.production.postV1ProductionRoutingsList(
+        let response = try await client.production.routingsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionMaintenanceCreate1() async throws -> Void {
+    @Test func maintenanceCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -780,13 +780,13 @@ import Api
                   "workCenterId": "workCenterId",
                   "type": "preventive",
                   "status": "planned",
-                  "plannedDate": "plannedDate",
-                  "completedDate": "completedDate",
+                  "plannedDate": "2026-07-01",
+                  "completedDate": "2026-07-01",
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -796,31 +796,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionMaintenanceCreateResponse(
+        let expectedResponse = MaintenanceCreateProductionResponse(
             id: "id",
             workCenterId: "workCenterId",
             type: .preventive,
             status: .planned,
-            plannedDate: "plannedDate",
-            completedDate: Nullable<String>.value("completedDate"),
+            plannedDate: CalendarDate("2026-07-01")!,
+            completedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             description: Nullable<String>.value("description"),
             downtimeHours: Nullable<String>.value("downtimeHours"),
             cost: Nullable<String>.value("cost"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionMaintenanceCreate(
+        let response = try await client.production.maintenanceCreate(
             request: .init(
                 workCenterId: "workCenterId",
                 type: .preventive,
-                plannedDate: "plannedDate"
+                plannedDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionMaintenanceCreate2() async throws -> Void {
+    @Test func maintenanceCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -830,13 +830,13 @@ import Api
                   "workCenterId": "x",
                   "type": "preventive",
                   "status": "planned",
-                  "plannedDate": "plannedDate",
-                  "completedDate": "completedDate",
+                  "plannedDate": "2023-01-15",
+                  "completedDate": "2023-01-15",
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -846,31 +846,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionMaintenanceCreateResponse(
+        let expectedResponse = MaintenanceCreateProductionResponse(
             id: "x",
             workCenterId: "x",
             type: .preventive,
             status: .planned,
-            plannedDate: "plannedDate",
-            completedDate: Nullable<String>.value("completedDate"),
+            plannedDate: CalendarDate("2023-01-15")!,
+            completedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             description: Nullable<String>.value("description"),
             downtimeHours: Nullable<String>.value("downtimeHours"),
             cost: Nullable<String>.value("cost"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionMaintenanceCreate(
+        let response = try await client.production.maintenanceCreate(
             request: .init(
                 workCenterId: "x",
                 type: .preventive,
-                plannedDate: "plannedDate"
+                plannedDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionMaintenanceComplete1() async throws -> Void {
+    @Test func maintenanceComplete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -880,13 +880,13 @@ import Api
                   "workCenterId": "workCenterId",
                   "type": "preventive",
                   "status": "planned",
-                  "plannedDate": "plannedDate",
-                  "completedDate": "completedDate",
+                  "plannedDate": "2026-07-01",
+                  "completedDate": "2026-07-01",
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -896,30 +896,30 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionMaintenanceCompleteResponse(
+        let expectedResponse = MaintenanceCompleteProductionResponse(
             id: "id",
             workCenterId: "workCenterId",
             type: .preventive,
             status: .planned,
-            plannedDate: "plannedDate",
-            completedDate: Nullable<String>.value("completedDate"),
+            plannedDate: CalendarDate("2026-07-01")!,
+            completedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             description: Nullable<String>.value("description"),
             downtimeHours: Nullable<String>.value("downtimeHours"),
             cost: Nullable<String>.value("cost"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionMaintenanceComplete(
+        let response = try await client.production.maintenanceComplete(
             request: .init(
                 id: "id",
-                completedDate: "completedDate"
+                completedDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionMaintenanceComplete2() async throws -> Void {
+    @Test func maintenanceComplete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -929,13 +929,13 @@ import Api
                   "workCenterId": "x",
                   "type": "preventive",
                   "status": "planned",
-                  "plannedDate": "plannedDate",
-                  "completedDate": "completedDate",
+                  "plannedDate": "2023-01-15",
+                  "completedDate": "2023-01-15",
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -945,30 +945,30 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionMaintenanceCompleteResponse(
+        let expectedResponse = MaintenanceCompleteProductionResponse(
             id: "x",
             workCenterId: "x",
             type: .preventive,
             status: .planned,
-            plannedDate: "plannedDate",
-            completedDate: Nullable<String>.value("completedDate"),
+            plannedDate: CalendarDate("2023-01-15")!,
+            completedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             description: Nullable<String>.value("description"),
             downtimeHours: Nullable<String>.value("downtimeHours"),
             cost: Nullable<String>.value("cost"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionMaintenanceComplete(
+        let response = try await client.production.maintenanceComplete(
             request: .init(
                 id: "x",
-                completedDate: "completedDate"
+                completedDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionMaintenanceCancel1() async throws -> Void {
+    @Test func maintenanceCancel1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -978,13 +978,13 @@ import Api
                   "workCenterId": "workCenterId",
                   "type": "preventive",
                   "status": "planned",
-                  "plannedDate": "plannedDate",
-                  "completedDate": "completedDate",
+                  "plannedDate": "2026-07-01",
+                  "completedDate": "2026-07-01",
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -994,27 +994,27 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionMaintenanceCancelResponse(
+        let expectedResponse = MaintenanceCancelProductionResponse(
             id: "id",
             workCenterId: "workCenterId",
             type: .preventive,
             status: .planned,
-            plannedDate: "plannedDate",
-            completedDate: Nullable<String>.value("completedDate"),
+            plannedDate: CalendarDate("2026-07-01")!,
+            completedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             description: Nullable<String>.value("description"),
             downtimeHours: Nullable<String>.value("downtimeHours"),
             cost: Nullable<String>.value("cost"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionMaintenanceCancel(
+        let response = try await client.production.maintenanceCancel(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionMaintenanceCancel2() async throws -> Void {
+    @Test func maintenanceCancel2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1024,13 +1024,13 @@ import Api
                   "workCenterId": "x",
                   "type": "preventive",
                   "status": "planned",
-                  "plannedDate": "plannedDate",
-                  "completedDate": "completedDate",
+                  "plannedDate": "2023-01-15",
+                  "completedDate": "2023-01-15",
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1040,27 +1040,27 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionMaintenanceCancelResponse(
+        let expectedResponse = MaintenanceCancelProductionResponse(
             id: "x",
             workCenterId: "x",
             type: .preventive,
             status: .planned,
-            plannedDate: "plannedDate",
-            completedDate: Nullable<String>.value("completedDate"),
+            plannedDate: CalendarDate("2023-01-15")!,
+            completedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             description: Nullable<String>.value("description"),
             downtimeHours: Nullable<String>.value("downtimeHours"),
             cost: Nullable<String>.value("cost"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionMaintenanceCancel(
+        let response = try await client.production.maintenanceCancel(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionMaintenanceList1() async throws -> Void {
+    @Test func maintenanceList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1072,13 +1072,13 @@ import Api
                       "workCenterId": "workCenterId",
                       "type": "preventive",
                       "status": "planned",
-                      "plannedDate": "plannedDate",
-                      "completedDate": "completedDate",
+                      "plannedDate": "2026-07-01",
+                      "completedDate": "2026-07-01",
                       "description": "description",
                       "downtimeHours": "downtimeHours",
                       "cost": "cost",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1096,20 +1096,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionMaintenanceListResponse(
+        let expectedResponse = MaintenanceListProductionResponse(
             rows: [
-                PostV1ProductionMaintenanceListResponseRowsItem(
+                MaintenanceListProductionResponseRowsItem(
                     id: "id",
                     workCenterId: "workCenterId",
                     type: .preventive,
                     status: .planned,
-                    plannedDate: "plannedDate",
-                    completedDate: Nullable<String>.value("completedDate"),
+                    plannedDate: CalendarDate("2026-07-01")!,
+                    completedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     description: Nullable<String>.value("description"),
                     downtimeHours: Nullable<String>.value("downtimeHours"),
                     cost: Nullable<String>.value("cost"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1119,14 +1119,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.production.postV1ProductionMaintenanceList(
+        let response = try await client.production.maintenanceList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionMaintenanceList2() async throws -> Void {
+    @Test func maintenanceList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1138,26 +1138,26 @@ import Api
                       "workCenterId": "x",
                       "type": "preventive",
                       "status": "planned",
-                      "plannedDate": "plannedDate",
-                      "completedDate": "completedDate",
+                      "plannedDate": "2023-01-15",
+                      "completedDate": "2023-01-15",
                       "description": "description",
                       "downtimeHours": "downtimeHours",
                       "cost": "cost",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "workCenterId": "x",
                       "type": "preventive",
                       "status": "planned",
-                      "plannedDate": "plannedDate",
-                      "completedDate": "completedDate",
+                      "plannedDate": "2023-01-15",
+                      "completedDate": "2023-01-15",
                       "description": "description",
                       "downtimeHours": "downtimeHours",
                       "cost": "cost",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1175,33 +1175,33 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionMaintenanceListResponse(
+        let expectedResponse = MaintenanceListProductionResponse(
             rows: [
-                PostV1ProductionMaintenanceListResponseRowsItem(
+                MaintenanceListProductionResponseRowsItem(
                     id: "x",
                     workCenterId: "x",
                     type: .preventive,
                     status: .planned,
-                    plannedDate: "plannedDate",
-                    completedDate: Nullable<String>.value("completedDate"),
+                    plannedDate: CalendarDate("2023-01-15")!,
+                    completedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     description: Nullable<String>.value("description"),
                     downtimeHours: Nullable<String>.value("downtimeHours"),
                     cost: Nullable<String>.value("cost"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1ProductionMaintenanceListResponseRowsItem(
+                MaintenanceListProductionResponseRowsItem(
                     id: "x",
                     workCenterId: "x",
                     type: .preventive,
                     status: .planned,
-                    plannedDate: "plannedDate",
-                    completedDate: Nullable<String>.value("completedDate"),
+                    plannedDate: CalendarDate("2023-01-15")!,
+                    completedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     description: Nullable<String>.value("description"),
                     downtimeHours: Nullable<String>.value("downtimeHours"),
                     cost: Nullable<String>.value("cost"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1211,14 +1211,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.production.postV1ProductionMaintenanceList(
+        let response = try await client.production.maintenanceList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionBomsCreate1() async throws -> Void {
+    @Test func bomsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1248,7 +1248,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionBomsCreateResponse(
+        let expectedResponse = BomsCreateProductionResponse(
             id: "id",
             code: "code",
             name: "name",
@@ -1257,7 +1257,7 @@ import Api
             routingId: Nullable<String>.value("routingId"),
             isActive: true,
             lines: [
-                PostV1ProductionBomsCreateResponseLinesItem(
+                BomsCreateProductionResponseLinesItem(
                     id: "id",
                     componentItemId: "componentItemId",
                     quantity: "quantity",
@@ -1265,15 +1265,15 @@ import Api
                 )
             ]
         )
-        let response = try await client.production.postV1ProductionBomsCreate(
+        let response = try await client.production.bomsCreate(
             request: .init(
                 code: "code",
                 name: "name",
                 finishedItemId: "finishedItemId",
                 lines: [
-                    PostV1ProductionBomsCreateRequestLinesItem(
+                    BomsCreateProductionRequestLinesItem(
                         componentItemId: "componentItemId",
-                        quantity: "quantity"
+                        quantity: "121.0000"
                     )
                 ]
             ),
@@ -1282,7 +1282,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionBomsCreate2() async throws -> Void {
+    @Test func bomsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1318,7 +1318,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionBomsCreateResponse(
+        let expectedResponse = BomsCreateProductionResponse(
             id: "x",
             code: "code",
             name: "name",
@@ -1327,13 +1327,13 @@ import Api
             routingId: Nullable<String>.value("x"),
             isActive: true,
             lines: [
-                PostV1ProductionBomsCreateResponseLinesItem(
+                BomsCreateProductionResponseLinesItem(
                     id: "x",
                     componentItemId: "x",
                     quantity: "quantity",
                     scrapPercent: "scrapPercent"
                 ),
-                PostV1ProductionBomsCreateResponseLinesItem(
+                BomsCreateProductionResponseLinesItem(
                     id: "x",
                     componentItemId: "x",
                     quantity: "quantity",
@@ -1341,17 +1341,17 @@ import Api
                 )
             ]
         )
-        let response = try await client.production.postV1ProductionBomsCreate(
+        let response = try await client.production.bomsCreate(
             request: .init(
                 code: "x",
                 name: "x",
                 finishedItemId: "x",
                 lines: [
-                    PostV1ProductionBomsCreateRequestLinesItem(
+                    BomsCreateProductionRequestLinesItem(
                         componentItemId: "x",
                         quantity: "quantity"
                     ),
-                    PostV1ProductionBomsCreateRequestLinesItem(
+                    BomsCreateProductionRequestLinesItem(
                         componentItemId: "x",
                         quantity: "quantity"
                     )
@@ -1362,7 +1362,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionBomsGet1() async throws -> Void {
+    @Test func bomsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1392,7 +1392,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionBomsGetResponse(
+        let expectedResponse = BomsGetProductionResponse(
             id: "id",
             code: "code",
             name: "name",
@@ -1401,7 +1401,7 @@ import Api
             routingId: Nullable<String>.value("routingId"),
             isActive: true,
             lines: [
-                PostV1ProductionBomsGetResponseLinesItem(
+                BomsGetProductionResponseLinesItem(
                     id: "id",
                     componentItemId: "componentItemId",
                     quantity: "quantity",
@@ -1409,14 +1409,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.production.postV1ProductionBomsGet(
+        let response = try await client.production.bomsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionBomsGet2() async throws -> Void {
+    @Test func bomsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1452,7 +1452,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionBomsGetResponse(
+        let expectedResponse = BomsGetProductionResponse(
             id: "x",
             code: "code",
             name: "name",
@@ -1461,13 +1461,13 @@ import Api
             routingId: Nullable<String>.value("x"),
             isActive: true,
             lines: [
-                PostV1ProductionBomsGetResponseLinesItem(
+                BomsGetProductionResponseLinesItem(
                     id: "x",
                     componentItemId: "x",
                     quantity: "quantity",
                     scrapPercent: "scrapPercent"
                 ),
-                PostV1ProductionBomsGetResponseLinesItem(
+                BomsGetProductionResponseLinesItem(
                     id: "x",
                     componentItemId: "x",
                     quantity: "quantity",
@@ -1475,14 +1475,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.production.postV1ProductionBomsGet(
+        let response = try await client.production.bomsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionBomsList1() async throws -> Void {
+    @Test func bomsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1514,9 +1514,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionBomsListResponse(
+        let expectedResponse = BomsListProductionResponse(
             rows: [
-                PostV1ProductionBomsListResponseRowsItem(
+                BomsListProductionResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
@@ -1533,14 +1533,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.production.postV1ProductionBomsList(
+        let response = try await client.production.bomsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionBomsList2() async throws -> Void {
+    @Test func bomsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1581,9 +1581,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionBomsListResponse(
+        let expectedResponse = BomsListProductionResponse(
             rows: [
-                PostV1ProductionBomsListResponseRowsItem(
+                BomsListProductionResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
@@ -1592,7 +1592,7 @@ import Api
                     routingId: Nullable<String>.value("x"),
                     isActive: true
                 ),
-                PostV1ProductionBomsListResponseRowsItem(
+                BomsListProductionResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
@@ -1609,14 +1609,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.production.postV1ProductionBomsList(
+        let response = try await client.production.bomsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionOrdersCreate1() async throws -> Void {
+    @Test func ordersCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1628,7 +1628,7 @@ import Api
                   "warehouseId": "warehouseId",
                   "routingId": "routingId",
                   "quantity": "quantity",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "status": "draft",
                   "scrappedQuantity": "scrappedQuantity",
                   "materialCost": "materialCost",
@@ -1637,7 +1637,7 @@ import Api
                   "totalCost": "totalCost",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "operations": [
                     {
                       "id": "id",
@@ -1659,9 +1659,9 @@ import Api
                       "name": "name",
                       "result": "pending",
                       "notes": "notes",
-                      "checkedAt": "checkedAt",
+                      "checkedAt": "2026-07-01T09:30:00Z",
                       "checkedBy": "checkedBy",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -1673,14 +1673,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionOrdersCreateResponse(
+        let expectedResponse = OrdersCreateProductionResponse(
             id: "id",
             type: .assembly,
             bomId: "bomId",
             warehouseId: "warehouseId",
             routingId: Nullable<String>.value("routingId"),
             quantity: "quantity",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             status: .draft,
             scrappedQuantity: Nullable<String>.value("scrappedQuantity"),
             materialCost: Nullable<String>.value("materialCost"),
@@ -1689,9 +1689,9 @@ import Api
             totalCost: Nullable<String>.value("totalCost"),
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             operations: [
-                PostV1ProductionOrdersCreateResponseOperationsItem(
+                OrdersCreateProductionResponseOperationsItem(
                     id: "id",
                     routingOperationId: Nullable<String>.value("routingOperationId"),
                     workCenterId: "workCenterId",
@@ -1704,32 +1704,32 @@ import Api
                 )
             ],
             qualityChecks: [
-                PostV1ProductionOrdersCreateResponseQualityChecksItem(
+                OrdersCreateProductionResponseQualityChecksItem(
                     id: "id",
                     orderId: "orderId",
                     routingOperationId: Nullable<String>.value("routingOperationId"),
                     name: "name",
                     result: .pending,
                     notes: Nullable<String>.value("notes"),
-                    checkedAt: Nullable<String>.value("checkedAt"),
+                    checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     checkedBy: Nullable<String>.value("checkedBy"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.production.postV1ProductionOrdersCreate(
+        let response = try await client.production.ordersCreate(
             request: .init(
                 bomId: "bomId",
                 warehouseId: "warehouseId",
-                quantity: "quantity",
-                date: "date"
+                quantity: "121.0000",
+                date: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionOrdersCreate2() async throws -> Void {
+    @Test func ordersCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1741,7 +1741,7 @@ import Api
                   "warehouseId": "x",
                   "routingId": "x",
                   "quantity": "quantity",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "status": "draft",
                   "scrappedQuantity": "scrappedQuantity",
                   "materialCost": "materialCost",
@@ -1750,7 +1750,7 @@ import Api
                   "totalCost": "totalCost",
                   "journalTransactionId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "operations": [
                     {
                       "id": "x",
@@ -1783,9 +1783,9 @@ import Api
                       "name": "name",
                       "result": "pending",
                       "notes": "notes",
-                      "checkedAt": "checkedAt",
+                      "checkedAt": "2024-01-15T09:30:00Z",
                       "checkedBy": "checkedBy",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1794,9 +1794,9 @@ import Api
                       "name": "name",
                       "result": "pending",
                       "notes": "notes",
-                      "checkedAt": "checkedAt",
+                      "checkedAt": "2024-01-15T09:30:00Z",
                       "checkedBy": "checkedBy",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -1808,14 +1808,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionOrdersCreateResponse(
+        let expectedResponse = OrdersCreateProductionResponse(
             id: "x",
             type: .assembly,
             bomId: "x",
             warehouseId: "x",
             routingId: Nullable<String>.value("x"),
             quantity: "quantity",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             status: .draft,
             scrappedQuantity: Nullable<String>.value("scrappedQuantity"),
             materialCost: Nullable<String>.value("materialCost"),
@@ -1824,9 +1824,9 @@ import Api
             totalCost: Nullable<String>.value("totalCost"),
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             operations: [
-                PostV1ProductionOrdersCreateResponseOperationsItem(
+                OrdersCreateProductionResponseOperationsItem(
                     id: "x",
                     routingOperationId: Nullable<String>.value("x"),
                     workCenterId: "x",
@@ -1837,7 +1837,7 @@ import Api
                     costPerHour: "costPerHour",
                     cost: Nullable<String>.value("cost")
                 ),
-                PostV1ProductionOrdersCreateResponseOperationsItem(
+                OrdersCreateProductionResponseOperationsItem(
                     id: "x",
                     routingOperationId: Nullable<String>.value("x"),
                     workCenterId: "x",
@@ -1850,43 +1850,43 @@ import Api
                 )
             ],
             qualityChecks: [
-                PostV1ProductionOrdersCreateResponseQualityChecksItem(
+                OrdersCreateProductionResponseQualityChecksItem(
                     id: "x",
                     orderId: "x",
                     routingOperationId: Nullable<String>.value("x"),
                     name: "name",
                     result: .pending,
                     notes: Nullable<String>.value("notes"),
-                    checkedAt: Nullable<String>.value("checkedAt"),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     checkedBy: Nullable<String>.value("checkedBy"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1ProductionOrdersCreateResponseQualityChecksItem(
+                OrdersCreateProductionResponseQualityChecksItem(
                     id: "x",
                     orderId: "x",
                     routingOperationId: Nullable<String>.value("x"),
                     name: "name",
                     result: .pending,
                     notes: Nullable<String>.value("notes"),
-                    checkedAt: Nullable<String>.value("checkedAt"),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     checkedBy: Nullable<String>.value("checkedBy"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.production.postV1ProductionOrdersCreate(
+        let response = try await client.production.ordersCreate(
             request: .init(
                 bomId: "x",
                 warehouseId: "x",
                 quantity: "quantity",
-                date: "date"
+                date: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionOrdersRecordOperation1() async throws -> Void {
+    @Test func ordersRecordOperation1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1910,7 +1910,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionOrdersRecordOperationResponse(
+        let expectedResponse = OrdersRecordOperationProductionResponse(
             id: "id",
             routingOperationId: Nullable<String>.value("routingOperationId"),
             workCenterId: "workCenterId",
@@ -1921,17 +1921,17 @@ import Api
             costPerHour: "costPerHour",
             cost: Nullable<String>.value("cost")
         )
-        let response = try await client.production.postV1ProductionOrdersRecordOperation(
+        let response = try await client.production.ordersRecordOperation(
             request: .init(
                 id: "id",
-                actualMinutes: "actualMinutes"
+                actualMinutes: "121.00"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionOrdersRecordOperation2() async throws -> Void {
+    @Test func ordersRecordOperation2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1955,7 +1955,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionOrdersRecordOperationResponse(
+        let expectedResponse = OrdersRecordOperationProductionResponse(
             id: "x",
             routingOperationId: Nullable<String>.value("x"),
             workCenterId: "x",
@@ -1966,7 +1966,7 @@ import Api
             costPerHour: "costPerHour",
             cost: Nullable<String>.value("cost")
         )
-        let response = try await client.production.postV1ProductionOrdersRecordOperation(
+        let response = try await client.production.ordersRecordOperation(
             request: .init(
                 id: "x",
                 actualMinutes: "actualMinutes"
@@ -1976,7 +1976,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionQualityChecksAdd1() async throws -> Void {
+    @Test func qualityChecksAdd1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1988,9 +1988,9 @@ import Api
                   "name": "name",
                   "result": "pending",
                   "notes": "notes",
-                  "checkedAt": "checkedAt",
+                  "checkedAt": "2026-07-01T09:30:00Z",
                   "checkedBy": "checkedBy",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2000,18 +2000,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionQualityChecksAddResponse(
+        let expectedResponse = QualityChecksAddProductionResponse(
             id: "id",
             orderId: "orderId",
             routingOperationId: Nullable<String>.value("routingOperationId"),
             name: "name",
             result: .pending,
             notes: Nullable<String>.value("notes"),
-            checkedAt: Nullable<String>.value("checkedAt"),
+            checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             checkedBy: Nullable<String>.value("checkedBy"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionQualityChecksAdd(
+        let response = try await client.production.qualityChecksAdd(
             request: .init(
                 orderId: "orderId",
                 name: "name"
@@ -2021,7 +2021,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionQualityChecksAdd2() async throws -> Void {
+    @Test func qualityChecksAdd2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2033,9 +2033,9 @@ import Api
                   "name": "name",
                   "result": "pending",
                   "notes": "notes",
-                  "checkedAt": "checkedAt",
+                  "checkedAt": "2024-01-15T09:30:00Z",
                   "checkedBy": "checkedBy",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2045,18 +2045,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionQualityChecksAddResponse(
+        let expectedResponse = QualityChecksAddProductionResponse(
             id: "x",
             orderId: "x",
             routingOperationId: Nullable<String>.value("x"),
             name: "name",
             result: .pending,
             notes: Nullable<String>.value("notes"),
-            checkedAt: Nullable<String>.value("checkedAt"),
+            checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             checkedBy: Nullable<String>.value("checkedBy"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionQualityChecksAdd(
+        let response = try await client.production.qualityChecksAdd(
             request: .init(
                 orderId: "x",
                 name: "x"
@@ -2066,7 +2066,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionQualityChecksRecord1() async throws -> Void {
+    @Test func qualityChecksRecord1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2078,9 +2078,9 @@ import Api
                   "name": "name",
                   "result": "pending",
                   "notes": "notes",
-                  "checkedAt": "checkedAt",
+                  "checkedAt": "2026-07-01T09:30:00Z",
                   "checkedBy": "checkedBy",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2090,18 +2090,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionQualityChecksRecordResponse(
+        let expectedResponse = QualityChecksRecordProductionResponse(
             id: "id",
             orderId: "orderId",
             routingOperationId: Nullable<String>.value("routingOperationId"),
             name: "name",
             result: .pending,
             notes: Nullable<String>.value("notes"),
-            checkedAt: Nullable<String>.value("checkedAt"),
+            checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             checkedBy: Nullable<String>.value("checkedBy"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionQualityChecksRecord(
+        let response = try await client.production.qualityChecksRecord(
             request: .init(
                 id: "id",
                 result: .passed
@@ -2111,7 +2111,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionQualityChecksRecord2() async throws -> Void {
+    @Test func qualityChecksRecord2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2123,9 +2123,9 @@ import Api
                   "name": "name",
                   "result": "pending",
                   "notes": "notes",
-                  "checkedAt": "checkedAt",
+                  "checkedAt": "2024-01-15T09:30:00Z",
                   "checkedBy": "checkedBy",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2135,18 +2135,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionQualityChecksRecordResponse(
+        let expectedResponse = QualityChecksRecordProductionResponse(
             id: "x",
             orderId: "x",
             routingOperationId: Nullable<String>.value("x"),
             name: "name",
             result: .pending,
             notes: Nullable<String>.value("notes"),
-            checkedAt: Nullable<String>.value("checkedAt"),
+            checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             checkedBy: Nullable<String>.value("checkedBy"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionQualityChecksRecord(
+        let response = try await client.production.qualityChecksRecord(
             request: .init(
                 id: "x",
                 result: .passed
@@ -2156,7 +2156,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionQualityChecksList1() async throws -> Void {
+    @Test func qualityChecksList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2170,9 +2170,9 @@ import Api
                       "name": "name",
                       "result": "pending",
                       "notes": "notes",
-                      "checkedAt": "checkedAt",
+                      "checkedAt": "2026-07-01T09:30:00Z",
                       "checkedBy": "checkedBy",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -2190,18 +2190,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionQualityChecksListResponse(
+        let expectedResponse = QualityChecksListProductionResponse(
             rows: [
-                PostV1ProductionQualityChecksListResponseRowsItem(
+                QualityChecksListProductionResponseRowsItem(
                     id: "id",
                     orderId: "orderId",
                     routingOperationId: Nullable<String>.value("routingOperationId"),
                     name: "name",
                     result: .pending,
                     notes: Nullable<String>.value("notes"),
-                    checkedAt: Nullable<String>.value("checkedAt"),
+                    checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     checkedBy: Nullable<String>.value("checkedBy"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -2211,14 +2211,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.production.postV1ProductionQualityChecksList(
+        let response = try await client.production.qualityChecksList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionQualityChecksList2() async throws -> Void {
+    @Test func qualityChecksList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2232,9 +2232,9 @@ import Api
                       "name": "name",
                       "result": "pending",
                       "notes": "notes",
-                      "checkedAt": "checkedAt",
+                      "checkedAt": "2024-01-15T09:30:00Z",
                       "checkedBy": "checkedBy",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -2243,9 +2243,9 @@ import Api
                       "name": "name",
                       "result": "pending",
                       "notes": "notes",
-                      "checkedAt": "checkedAt",
+                      "checkedAt": "2024-01-15T09:30:00Z",
                       "checkedBy": "checkedBy",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -2263,29 +2263,29 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionQualityChecksListResponse(
+        let expectedResponse = QualityChecksListProductionResponse(
             rows: [
-                PostV1ProductionQualityChecksListResponseRowsItem(
+                QualityChecksListProductionResponseRowsItem(
                     id: "x",
                     orderId: "x",
                     routingOperationId: Nullable<String>.value("x"),
                     name: "name",
                     result: .pending,
                     notes: Nullable<String>.value("notes"),
-                    checkedAt: Nullable<String>.value("checkedAt"),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     checkedBy: Nullable<String>.value("checkedBy"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1ProductionQualityChecksListResponseRowsItem(
+                QualityChecksListProductionResponseRowsItem(
                     id: "x",
                     orderId: "x",
                     routingOperationId: Nullable<String>.value("x"),
                     name: "name",
                     result: .pending,
                     notes: Nullable<String>.value("notes"),
-                    checkedAt: Nullable<String>.value("checkedAt"),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     checkedBy: Nullable<String>.value("checkedBy"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -2295,14 +2295,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.production.postV1ProductionQualityChecksList(
+        let response = try await client.production.qualityChecksList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionOrdersComplete1() async throws -> Void {
+    @Test func ordersComplete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2314,7 +2314,7 @@ import Api
                   "warehouseId": "warehouseId",
                   "routingId": "routingId",
                   "quantity": "quantity",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "status": "draft",
                   "scrappedQuantity": "scrappedQuantity",
                   "materialCost": "materialCost",
@@ -2323,7 +2323,7 @@ import Api
                   "totalCost": "totalCost",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2333,14 +2333,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionOrdersCompleteResponse(
+        let expectedResponse = OrdersCompleteProductionResponse(
             id: "id",
             type: .assembly,
             bomId: "bomId",
             warehouseId: "warehouseId",
             routingId: Nullable<String>.value("routingId"),
             quantity: "quantity",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             status: .draft,
             scrappedQuantity: Nullable<String>.value("scrappedQuantity"),
             materialCost: Nullable<String>.value("materialCost"),
@@ -2349,16 +2349,16 @@ import Api
             totalCost: Nullable<String>.value("totalCost"),
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionOrdersComplete(
+        let response = try await client.production.ordersComplete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionOrdersComplete2() async throws -> Void {
+    @Test func ordersComplete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2370,7 +2370,7 @@ import Api
                   "warehouseId": "x",
                   "routingId": "x",
                   "quantity": "quantity",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "status": "draft",
                   "scrappedQuantity": "scrappedQuantity",
                   "materialCost": "materialCost",
@@ -2379,7 +2379,7 @@ import Api
                   "totalCost": "totalCost",
                   "journalTransactionId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2389,14 +2389,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionOrdersCompleteResponse(
+        let expectedResponse = OrdersCompleteProductionResponse(
             id: "x",
             type: .assembly,
             bomId: "x",
             warehouseId: "x",
             routingId: Nullable<String>.value("x"),
             quantity: "quantity",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             status: .draft,
             scrappedQuantity: Nullable<String>.value("scrappedQuantity"),
             materialCost: Nullable<String>.value("materialCost"),
@@ -2405,16 +2405,16 @@ import Api
             totalCost: Nullable<String>.value("totalCost"),
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.production.postV1ProductionOrdersComplete(
+        let response = try await client.production.ordersComplete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionOrdersGet1() async throws -> Void {
+    @Test func ordersGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2426,7 +2426,7 @@ import Api
                   "warehouseId": "warehouseId",
                   "routingId": "routingId",
                   "quantity": "quantity",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "status": "draft",
                   "scrappedQuantity": "scrappedQuantity",
                   "materialCost": "materialCost",
@@ -2435,7 +2435,7 @@ import Api
                   "totalCost": "totalCost",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "operations": [
                     {
                       "id": "id",
@@ -2457,9 +2457,9 @@ import Api
                       "name": "name",
                       "result": "pending",
                       "notes": "notes",
-                      "checkedAt": "checkedAt",
+                      "checkedAt": "2026-07-01T09:30:00Z",
                       "checkedBy": "checkedBy",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -2471,14 +2471,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionOrdersGetResponse(
+        let expectedResponse = OrdersGetProductionResponse(
             id: "id",
             type: .assembly,
             bomId: "bomId",
             warehouseId: "warehouseId",
             routingId: Nullable<String>.value("routingId"),
             quantity: "quantity",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             status: .draft,
             scrappedQuantity: Nullable<String>.value("scrappedQuantity"),
             materialCost: Nullable<String>.value("materialCost"),
@@ -2487,9 +2487,9 @@ import Api
             totalCost: Nullable<String>.value("totalCost"),
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             operations: [
-                PostV1ProductionOrdersGetResponseOperationsItem(
+                OrdersGetProductionResponseOperationsItem(
                     id: "id",
                     routingOperationId: Nullable<String>.value("routingOperationId"),
                     workCenterId: "workCenterId",
@@ -2502,27 +2502,27 @@ import Api
                 )
             ],
             qualityChecks: [
-                PostV1ProductionOrdersGetResponseQualityChecksItem(
+                OrdersGetProductionResponseQualityChecksItem(
                     id: "id",
                     orderId: "orderId",
                     routingOperationId: Nullable<String>.value("routingOperationId"),
                     name: "name",
                     result: .pending,
                     notes: Nullable<String>.value("notes"),
-                    checkedAt: Nullable<String>.value("checkedAt"),
+                    checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     checkedBy: Nullable<String>.value("checkedBy"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.production.postV1ProductionOrdersGet(
+        let response = try await client.production.ordersGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionOrdersGet2() async throws -> Void {
+    @Test func ordersGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2534,7 +2534,7 @@ import Api
                   "warehouseId": "x",
                   "routingId": "x",
                   "quantity": "quantity",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "status": "draft",
                   "scrappedQuantity": "scrappedQuantity",
                   "materialCost": "materialCost",
@@ -2543,7 +2543,7 @@ import Api
                   "totalCost": "totalCost",
                   "journalTransactionId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "operations": [
                     {
                       "id": "x",
@@ -2576,9 +2576,9 @@ import Api
                       "name": "name",
                       "result": "pending",
                       "notes": "notes",
-                      "checkedAt": "checkedAt",
+                      "checkedAt": "2024-01-15T09:30:00Z",
                       "checkedBy": "checkedBy",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -2587,9 +2587,9 @@ import Api
                       "name": "name",
                       "result": "pending",
                       "notes": "notes",
-                      "checkedAt": "checkedAt",
+                      "checkedAt": "2024-01-15T09:30:00Z",
                       "checkedBy": "checkedBy",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -2601,14 +2601,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionOrdersGetResponse(
+        let expectedResponse = OrdersGetProductionResponse(
             id: "x",
             type: .assembly,
             bomId: "x",
             warehouseId: "x",
             routingId: Nullable<String>.value("x"),
             quantity: "quantity",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             status: .draft,
             scrappedQuantity: Nullable<String>.value("scrappedQuantity"),
             materialCost: Nullable<String>.value("materialCost"),
@@ -2617,9 +2617,9 @@ import Api
             totalCost: Nullable<String>.value("totalCost"),
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             operations: [
-                PostV1ProductionOrdersGetResponseOperationsItem(
+                OrdersGetProductionResponseOperationsItem(
                     id: "x",
                     routingOperationId: Nullable<String>.value("x"),
                     workCenterId: "x",
@@ -2630,7 +2630,7 @@ import Api
                     costPerHour: "costPerHour",
                     cost: Nullable<String>.value("cost")
                 ),
-                PostV1ProductionOrdersGetResponseOperationsItem(
+                OrdersGetProductionResponseOperationsItem(
                     id: "x",
                     routingOperationId: Nullable<String>.value("x"),
                     workCenterId: "x",
@@ -2643,38 +2643,38 @@ import Api
                 )
             ],
             qualityChecks: [
-                PostV1ProductionOrdersGetResponseQualityChecksItem(
+                OrdersGetProductionResponseQualityChecksItem(
                     id: "x",
                     orderId: "x",
                     routingOperationId: Nullable<String>.value("x"),
                     name: "name",
                     result: .pending,
                     notes: Nullable<String>.value("notes"),
-                    checkedAt: Nullable<String>.value("checkedAt"),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     checkedBy: Nullable<String>.value("checkedBy"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1ProductionOrdersGetResponseQualityChecksItem(
+                OrdersGetProductionResponseQualityChecksItem(
                     id: "x",
                     orderId: "x",
                     routingOperationId: Nullable<String>.value("x"),
                     name: "name",
                     result: .pending,
                     notes: Nullable<String>.value("notes"),
-                    checkedAt: Nullable<String>.value("checkedAt"),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     checkedBy: Nullable<String>.value("checkedBy"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.production.postV1ProductionOrdersGet(
+        let response = try await client.production.ordersGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionOrdersList1() async throws -> Void {
+    @Test func ordersList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2688,7 +2688,7 @@ import Api
                       "warehouseId": "warehouseId",
                       "routingId": "routingId",
                       "quantity": "quantity",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "status": "draft",
                       "scrappedQuantity": "scrappedQuantity",
                       "materialCost": "materialCost",
@@ -2697,7 +2697,7 @@ import Api
                       "totalCost": "totalCost",
                       "journalTransactionId": "journalTransactionId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -2715,16 +2715,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionOrdersListResponse(
+        let expectedResponse = OrdersListProductionResponse(
             rows: [
-                PostV1ProductionOrdersListResponseRowsItem(
+                OrdersListProductionResponseRowsItem(
                     id: "id",
                     type: .assembly,
                     bomId: "bomId",
                     warehouseId: "warehouseId",
                     routingId: Nullable<String>.value("routingId"),
                     quantity: "quantity",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     status: .draft,
                     scrappedQuantity: Nullable<String>.value("scrappedQuantity"),
                     materialCost: Nullable<String>.value("materialCost"),
@@ -2733,7 +2733,7 @@ import Api
                     totalCost: Nullable<String>.value("totalCost"),
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -2743,14 +2743,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.production.postV1ProductionOrdersList(
+        let response = try await client.production.ordersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ProductionOrdersList2() async throws -> Void {
+    @Test func ordersList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2764,7 +2764,7 @@ import Api
                       "warehouseId": "x",
                       "routingId": "x",
                       "quantity": "quantity",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "status": "draft",
                       "scrappedQuantity": "scrappedQuantity",
                       "materialCost": "materialCost",
@@ -2773,7 +2773,7 @@ import Api
                       "totalCost": "totalCost",
                       "journalTransactionId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -2782,7 +2782,7 @@ import Api
                       "warehouseId": "x",
                       "routingId": "x",
                       "quantity": "quantity",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "status": "draft",
                       "scrappedQuantity": "scrappedQuantity",
                       "materialCost": "materialCost",
@@ -2791,7 +2791,7 @@ import Api
                       "totalCost": "totalCost",
                       "journalTransactionId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -2809,16 +2809,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ProductionOrdersListResponse(
+        let expectedResponse = OrdersListProductionResponse(
             rows: [
-                PostV1ProductionOrdersListResponseRowsItem(
+                OrdersListProductionResponseRowsItem(
                     id: "x",
                     type: .assembly,
                     bomId: "x",
                     warehouseId: "x",
                     routingId: Nullable<String>.value("x"),
                     quantity: "quantity",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     status: .draft,
                     scrappedQuantity: Nullable<String>.value("scrappedQuantity"),
                     materialCost: Nullable<String>.value("materialCost"),
@@ -2827,16 +2827,16 @@ import Api
                     totalCost: Nullable<String>.value("totalCost"),
                     journalTransactionId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1ProductionOrdersListResponseRowsItem(
+                OrdersListProductionResponseRowsItem(
                     id: "x",
                     type: .assembly,
                     bomId: "x",
                     warehouseId: "x",
                     routingId: Nullable<String>.value("x"),
                     quantity: "quantity",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     status: .draft,
                     scrappedQuantity: Nullable<String>.value("scrappedQuantity"),
                     materialCost: Nullable<String>.value("materialCost"),
@@ -2845,7 +2845,7 @@ import Api
                     totalCost: Nullable<String>.value("totalCost"),
                     journalTransactionId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -2855,7 +2855,7 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.production.postV1ProductionOrdersList(
+        let response = try await client.production.ordersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

@@ -1,0 +1,68 @@
+import Foundation
+
+public struct ConfigsUpdateDeclarationsResponse: Codable, Hashable, Sendable {
+    public let system: String
+    public let country: String
+    public let title: String
+    public let fields: [ConfigsUpdateDeclarationsResponseFieldsItem]
+    public let endpoints: [ConfigsUpdateDeclarationsResponseEndpointsItem]?
+    public let values: [String: String]
+    public let acceptsCertificate: Bool
+    /// Additional properties that are not explicitly defined in the schema
+    public let additionalProperties: [String: JSONValue]
+
+    public init(
+        system: String,
+        country: String,
+        title: String,
+        fields: [ConfigsUpdateDeclarationsResponseFieldsItem],
+        endpoints: [ConfigsUpdateDeclarationsResponseEndpointsItem]? = nil,
+        values: [String: String],
+        acceptsCertificate: Bool,
+        additionalProperties: [String: JSONValue] = .init()
+    ) {
+        self.system = system
+        self.country = country
+        self.title = title
+        self.fields = fields
+        self.endpoints = endpoints
+        self.values = values
+        self.acceptsCertificate = acceptsCertificate
+        self.additionalProperties = additionalProperties
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.system = try container.decode(String.self, forKey: .system)
+        self.country = try container.decode(String.self, forKey: .country)
+        self.title = try container.decode(String.self, forKey: .title)
+        self.fields = try container.decode([ConfigsUpdateDeclarationsResponseFieldsItem].self, forKey: .fields)
+        self.endpoints = try container.decodeIfPresent([ConfigsUpdateDeclarationsResponseEndpointsItem].self, forKey: .endpoints)
+        self.values = try container.decode([String: String].self, forKey: .values)
+        self.acceptsCertificate = try container.decode(Bool.self, forKey: .acceptsCertificate)
+        self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
+    }
+
+    public func encode(to encoder: Encoder) throws -> Void {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try encoder.encodeAdditionalProperties(self.additionalProperties)
+        try container.encode(self.system, forKey: .system)
+        try container.encode(self.country, forKey: .country)
+        try container.encode(self.title, forKey: .title)
+        try container.encode(self.fields, forKey: .fields)
+        try container.encodeIfPresent(self.endpoints, forKey: .endpoints)
+        try container.encode(self.values, forKey: .values)
+        try container.encode(self.acceptsCertificate, forKey: .acceptsCertificate)
+    }
+
+    /// Keys for encoding/decoding struct properties.
+    enum CodingKeys: String, CodingKey, CaseIterable {
+        case system
+        case country
+        case title
+        case fields
+        case endpoints
+        case values
+        case acceptsCertificate
+    }
+}

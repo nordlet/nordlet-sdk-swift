@@ -7,203 +7,203 @@ public final class PurchasesClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1PurchasesInvoicesCreate(request: Requests.PostV1PurchasesInvoicesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesInvoicesCreateResponse {
+    public func invoicesCreate(request: Requests.InvoicesCreatePurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesCreatePurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/invoices/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesInvoicesCreateResponse.self
+            responseType: InvoicesCreatePurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesInvoicesGet(request: Requests.PostV1PurchasesInvoicesGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesInvoicesGetResponse {
+    public func invoicesGet(request: Requests.InvoicesGetPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesGetPurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/invoices/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesInvoicesGetResponse.self
+            responseType: InvoicesGetPurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesInvoicesUpdate(request: Requests.PostV1PurchasesInvoicesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesInvoicesUpdateResponse {
+    public func invoicesUpdate(request: Requests.InvoicesUpdatePurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesUpdatePurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/invoices/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesInvoicesUpdateResponse.self
+            responseType: InvoicesUpdatePurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesInvoicesDelete(request: Requests.PostV1PurchasesInvoicesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesInvoicesDeleteResponse {
+    public func invoicesDelete(request: Requests.InvoicesDeletePurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesDeletePurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/invoices/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesInvoicesDeleteResponse.self
+            responseType: InvoicesDeletePurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesInvoicesRegister(request: Requests.PostV1PurchasesInvoicesRegisterRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesInvoicesRegisterResponse {
+    public func invoicesRegister(request: Requests.InvoicesRegisterPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesRegisterPurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/invoices/register",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesInvoicesRegisterResponse.self
+            responseType: InvoicesRegisterPurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesInvoicesList(request: Requests.PostV1PurchasesInvoicesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesInvoicesListResponse {
+    public func invoicesList(request: Requests.InvoicesListPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesListPurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/invoices/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesInvoicesListResponse.self
+            responseType: InvoicesListPurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesOrdersCreate(request: Requests.PostV1PurchasesOrdersCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesOrdersCreateResponse {
+    public func ordersCreate(request: Requests.OrdersCreatePurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersCreatePurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/orders/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesOrdersCreateResponse.self
+            responseType: OrdersCreatePurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesOrdersUpdate(request: Requests.PostV1PurchasesOrdersUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesOrdersUpdateResponse {
+    public func ordersUpdate(request: Requests.OrdersUpdatePurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersUpdatePurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/orders/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesOrdersUpdateResponse.self
+            responseType: OrdersUpdatePurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesOrdersGet(request: Requests.PostV1PurchasesOrdersGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesOrdersGetResponse {
+    public func ordersGet(request: Requests.OrdersGetPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersGetPurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/orders/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesOrdersGetResponse.self
+            responseType: OrdersGetPurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesOrdersList(request: Requests.PostV1PurchasesOrdersListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesOrdersListResponse {
+    public func ordersList(request: Requests.OrdersListPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersListPurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/orders/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesOrdersListResponse.self
+            responseType: OrdersListPurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesOrdersSubmit(request: Requests.PostV1PurchasesOrdersSubmitRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesOrdersSubmitResponse {
+    public func ordersSubmit(request: Requests.OrdersSubmitPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersSubmitPurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/orders/submit",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesOrdersSubmitResponse.self
+            responseType: OrdersSubmitPurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesOrdersApprove(request: Requests.PostV1PurchasesOrdersApproveRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesOrdersApproveResponse {
+    public func ordersApprove(request: Requests.OrdersApprovePurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersApprovePurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/orders/approve",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesOrdersApproveResponse.self
+            responseType: OrdersApprovePurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesOrdersReject(request: Requests.PostV1PurchasesOrdersRejectRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesOrdersRejectResponse {
+    public func ordersReject(request: Requests.OrdersRejectPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersRejectPurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/orders/reject",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesOrdersRejectResponse.self
+            responseType: OrdersRejectPurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesOrdersCancel(request: Requests.PostV1PurchasesOrdersCancelRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesOrdersCancelResponse {
+    public func ordersCancel(request: Requests.OrdersCancelPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersCancelPurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/orders/cancel",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesOrdersCancelResponse.self
+            responseType: OrdersCancelPurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesOrdersClose(request: Requests.PostV1PurchasesOrdersCloseRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesOrdersCloseResponse {
+    public func ordersClose(request: Requests.OrdersClosePurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersClosePurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/orders/close",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesOrdersCloseResponse.self
+            responseType: OrdersClosePurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesOrdersDelete(request: Requests.PostV1PurchasesOrdersDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesOrdersDeleteResponse {
+    public func ordersDelete(request: Requests.OrdersDeletePurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersDeletePurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/orders/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesOrdersDeleteResponse.self
+            responseType: OrdersDeletePurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesReceiptsCreate(request: Requests.PostV1PurchasesReceiptsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesReceiptsCreateResponse {
+    public func receiptsCreate(request: Requests.ReceiptsCreatePurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> ReceiptsCreatePurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/receipts/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesReceiptsCreateResponse.self
+            responseType: ReceiptsCreatePurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesReceiptsGet(request: Requests.PostV1PurchasesReceiptsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesReceiptsGetResponse {
+    public func receiptsGet(request: Requests.ReceiptsGetPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> ReceiptsGetPurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/receipts/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesReceiptsGetResponse.self
+            responseType: ReceiptsGetPurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesReceiptsList(request: Requests.PostV1PurchasesReceiptsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesReceiptsListResponse {
+    public func receiptsList(request: Requests.ReceiptsListPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> ReceiptsListPurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/receipts/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesReceiptsListResponse.self
+            responseType: ReceiptsListPurchasesResponse.self
         )
     }
 
-    public func postV1PurchasesInvoicesMatch(request: Requests.PostV1PurchasesInvoicesMatchRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PurchasesInvoicesMatchResponse {
+    public func invoicesMatch(request: Requests.InvoicesMatchPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesMatchPurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/purchases/invoices/match",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PurchasesInvoicesMatchResponse.self
+            responseType: InvoicesMatchPurchasesResponse.self
         )
     }
 }

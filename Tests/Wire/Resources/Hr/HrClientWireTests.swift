@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("HrClient Wire Tests") struct HrClientWireTests {
-    @Test func postV1HrPositionsCreate1() async throws -> Void {
+    @Test func positionsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -26,24 +26,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrPositionsCreateResponse(
+        let expectedResponse = PositionsCreateHrResponse(
             id: "id",
             code: Nullable<String>.value("code"),
             name: "name",
-            translations: Nullable<[String: Nullable<PostV1HrPositionsCreateResponseTranslationsValue>]>.value([
-                "key": Nullable<PostV1HrPositionsCreateResponseTranslationsValue>.value(PostV1HrPositionsCreateResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<PositionsCreateHrResponseTranslationsValue>]>.value([
+                "key": Nullable<PositionsCreateHrResponseTranslationsValue>.value(PositionsCreateHrResponseTranslationsValue(
                     name: "name"
                 ))
             ])
         )
-        let response = try await client.hr.postV1HrPositionsCreate(
+        let response = try await client.hr.positionsCreate(
             request: .init(name: "name"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrPositionsCreate2() async throws -> Void {
+    @Test func positionsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -66,24 +66,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrPositionsCreateResponse(
+        let expectedResponse = PositionsCreateHrResponse(
             id: "x",
             code: Nullable<String>.value("code"),
             name: "name",
-            translations: Nullable<[String: Nullable<PostV1HrPositionsCreateResponseTranslationsValue>]>.value([
-                "translations": Nullable<PostV1HrPositionsCreateResponseTranslationsValue>.value(PostV1HrPositionsCreateResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<PositionsCreateHrResponseTranslationsValue>]>.value([
+                "translations": Nullable<PositionsCreateHrResponseTranslationsValue>.value(PositionsCreateHrResponseTranslationsValue(
                     name: "x"
                 ))
             ])
         )
-        let response = try await client.hr.postV1HrPositionsCreate(
+        let response = try await client.hr.positionsCreate(
             request: .init(name: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrPositionsUpdate1() async throws -> Void {
+    @Test func positionsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -106,24 +106,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrPositionsUpdateResponse(
+        let expectedResponse = PositionsUpdateHrResponse(
             id: "id",
             code: Nullable<String>.value("code"),
             name: "name",
-            translations: Nullable<[String: Nullable<PostV1HrPositionsUpdateResponseTranslationsValue>]>.value([
-                "key": Nullable<PostV1HrPositionsUpdateResponseTranslationsValue>.value(PostV1HrPositionsUpdateResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<PositionsUpdateHrResponseTranslationsValue>]>.value([
+                "key": Nullable<PositionsUpdateHrResponseTranslationsValue>.value(PositionsUpdateHrResponseTranslationsValue(
                     name: "name"
                 ))
             ])
         )
-        let response = try await client.hr.postV1HrPositionsUpdate(
+        let response = try await client.hr.positionsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrPositionsUpdate2() async throws -> Void {
+    @Test func positionsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -146,24 +146,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrPositionsUpdateResponse(
+        let expectedResponse = PositionsUpdateHrResponse(
             id: "x",
             code: Nullable<String>.value("code"),
             name: "name",
-            translations: Nullable<[String: Nullable<PostV1HrPositionsUpdateResponseTranslationsValue>]>.value([
-                "translations": Nullable<PostV1HrPositionsUpdateResponseTranslationsValue>.value(PostV1HrPositionsUpdateResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<PositionsUpdateHrResponseTranslationsValue>]>.value([
+                "translations": Nullable<PositionsUpdateHrResponseTranslationsValue>.value(PositionsUpdateHrResponseTranslationsValue(
                     name: "x"
                 ))
             ])
         )
-        let response = try await client.hr.postV1HrPositionsUpdate(
+        let response = try await client.hr.positionsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrPositionsList1() async throws -> Void {
+    @Test func positionsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -192,13 +192,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrPositionsListResponse(
+        let expectedResponse = PositionsListHrResponse(
             rows: [
-                PostV1HrPositionsListResponseRowsItem(
+                PositionsListHrResponseRowsItem(
                     id: "id",
                     code: Nullable<String>.value("code"),
                     name: "name",
-                    translations: Nullable<[String: Nullable<PostV1HrPositionsListResponseRowsItemTranslationsValue>]>.value([:])
+                    translations: Nullable<[String: Nullable<PositionsListHrResponseRowsItemTranslationsValue>]>.value([:])
                 )
             ],
             page: 1000000,
@@ -208,14 +208,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.hr.postV1HrPositionsList(
+        let response = try await client.hr.positionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrPositionsList2() async throws -> Void {
+    @Test func positionsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -258,24 +258,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrPositionsListResponse(
+        let expectedResponse = PositionsListHrResponse(
             rows: [
-                PostV1HrPositionsListResponseRowsItem(
+                PositionsListHrResponseRowsItem(
                     id: "x",
                     code: Nullable<String>.value("code"),
                     name: "name",
-                    translations: Nullable<[String: Nullable<PostV1HrPositionsListResponseRowsItemTranslationsValue>]>.value([
-                        "translations": Nullable<PostV1HrPositionsListResponseRowsItemTranslationsValue>.value(PostV1HrPositionsListResponseRowsItemTranslationsValue(
+                    translations: Nullable<[String: Nullable<PositionsListHrResponseRowsItemTranslationsValue>]>.value([
+                        "translations": Nullable<PositionsListHrResponseRowsItemTranslationsValue>.value(PositionsListHrResponseRowsItemTranslationsValue(
                             name: "x"
                         ))
                     ])
                 ),
-                PostV1HrPositionsListResponseRowsItem(
+                PositionsListHrResponseRowsItem(
                     id: "x",
                     code: Nullable<String>.value("code"),
                     name: "name",
-                    translations: Nullable<[String: Nullable<PostV1HrPositionsListResponseRowsItemTranslationsValue>]>.value([
-                        "translations": Nullable<PostV1HrPositionsListResponseRowsItemTranslationsValue>.value(PostV1HrPositionsListResponseRowsItemTranslationsValue(
+                    translations: Nullable<[String: Nullable<PositionsListHrResponseRowsItemTranslationsValue>]>.value([
+                        "translations": Nullable<PositionsListHrResponseRowsItemTranslationsValue>.value(PositionsListHrResponseRowsItemTranslationsValue(
                             name: "x"
                         ))
                     ])
@@ -288,14 +288,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.hr.postV1HrPositionsList(
+        let response = try await client.hr.positionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesCreate1() async throws -> Void {
+    @Test func employeesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -306,7 +306,7 @@ import Api
                   "firstName": "firstName",
                   "lastName": "lastName",
                   "personalCode": "personalCode",
-                  "birthDate": "birthDate",
+                  "birthDate": "2026-07-01",
                   "email": "email",
                   "phone": "phone",
                   "address": {
@@ -318,8 +318,8 @@ import Api
                   "iban": "iban",
                   "socialInsuranceNo": "socialInsuranceNo",
                   "socialInsuranceStart": "socialInsuranceStart",
-                  "hireDate": "hireDate",
-                  "terminationDate": "terminationDate",
+                  "hireDate": "2026-07-01",
+                  "terminationDate": "2026-07-01",
                   "applyAllowance": true,
                   "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
@@ -334,7 +334,7 @@ import Api
                       "value": "value"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -344,16 +344,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesCreateResponse(
+        let expectedResponse = EmployeesCreateHrResponse(
             id: "id",
             code: Nullable<String>.value("code"),
             firstName: "firstName",
             lastName: "lastName",
             personalCode: Nullable<String>.value("personalCode"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
-            address: Nullable<PostV1HrEmployeesCreateResponseAddress>.value(PostV1HrEmployeesCreateResponseAddress(
+            address: Nullable<EmployeesCreateHrResponseAddress>.value(EmployeesCreateHrResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
@@ -362,8 +362,8 @@ import Api
             iban: Nullable<String>.value("iban"),
             socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
-            hireDate: Nullable<String>.value("hireDate"),
-            terminationDate: Nullable<String>.value("terminationDate"),
+            hireDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            terminationDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             applyAllowance: true,
             allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
@@ -372,15 +372,15 @@ import Api
             ],
             status: .active,
             notes: Nullable<String>.value("notes"),
-            attributes: Nullable<[PostV1HrEmployeesCreateResponseAttributesItem]>.value([
-                PostV1HrEmployeesCreateResponseAttributesItem(
+            attributes: Nullable<[EmployeesCreateHrResponseAttributesItem]>.value([
+                EmployeesCreateHrResponseAttributesItem(
                     name: "name",
                     value: "value"
                 )
             ]),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrEmployeesCreate(
+        let response = try await client.hr.employeesCreate(
             request: .init(
                 firstName: "firstName",
                 lastName: "lastName"
@@ -390,7 +390,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesCreate2() async throws -> Void {
+    @Test func employeesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -401,7 +401,7 @@ import Api
                   "firstName": "firstName",
                   "lastName": "lastName",
                   "personalCode": "personalCode",
-                  "birthDate": "birthDate",
+                  "birthDate": "2023-01-15",
                   "email": "email",
                   "phone": "phone",
                   "address": {
@@ -413,8 +413,8 @@ import Api
                   "iban": "iban",
                   "socialInsuranceNo": "socialInsuranceNo",
                   "socialInsuranceStart": "socialInsuranceStart",
-                  "hireDate": "hireDate",
-                  "terminationDate": "terminationDate",
+                  "hireDate": "2023-01-15",
+                  "terminationDate": "2023-01-15",
                   "applyAllowance": true,
                   "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
@@ -433,7 +433,7 @@ import Api
                       "value": "value"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -443,16 +443,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesCreateResponse(
+        let expectedResponse = EmployeesCreateHrResponse(
             id: "x",
             code: Nullable<String>.value("code"),
             firstName: "firstName",
             lastName: "lastName",
             personalCode: Nullable<String>.value("personalCode"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
-            address: Nullable<PostV1HrEmployeesCreateResponseAddress>.value(PostV1HrEmployeesCreateResponseAddress(
+            address: Nullable<EmployeesCreateHrResponseAddress>.value(EmployeesCreateHrResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
@@ -461,8 +461,8 @@ import Api
             iban: Nullable<String>.value("iban"),
             socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
-            hireDate: Nullable<String>.value("hireDate"),
-            terminationDate: Nullable<String>.value("terminationDate"),
+            hireDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            terminationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             applyAllowance: true,
             allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
@@ -471,19 +471,19 @@ import Api
             ],
             status: .active,
             notes: Nullable<String>.value("notes"),
-            attributes: Nullable<[PostV1HrEmployeesCreateResponseAttributesItem]>.value([
-                PostV1HrEmployeesCreateResponseAttributesItem(
+            attributes: Nullable<[EmployeesCreateHrResponseAttributesItem]>.value([
+                EmployeesCreateHrResponseAttributesItem(
                     name: "x",
                     value: "value"
                 ),
-                PostV1HrEmployeesCreateResponseAttributesItem(
+                EmployeesCreateHrResponseAttributesItem(
                     name: "x",
                     value: "value"
                 )
             ]),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrEmployeesCreate(
+        let response = try await client.hr.employeesCreate(
             request: .init(
                 firstName: "x",
                 lastName: "x"
@@ -493,7 +493,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesUpdate1() async throws -> Void {
+    @Test func employeesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -504,7 +504,7 @@ import Api
                   "firstName": "firstName",
                   "lastName": "lastName",
                   "personalCode": "personalCode",
-                  "birthDate": "birthDate",
+                  "birthDate": "2026-07-01",
                   "email": "email",
                   "phone": "phone",
                   "address": {
@@ -516,8 +516,8 @@ import Api
                   "iban": "iban",
                   "socialInsuranceNo": "socialInsuranceNo",
                   "socialInsuranceStart": "socialInsuranceStart",
-                  "hireDate": "hireDate",
-                  "terminationDate": "terminationDate",
+                  "hireDate": "2026-07-01",
+                  "terminationDate": "2026-07-01",
                   "applyAllowance": true,
                   "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
@@ -532,7 +532,7 @@ import Api
                       "value": "value"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -542,16 +542,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesUpdateResponse(
+        let expectedResponse = EmployeesUpdateHrResponse(
             id: "id",
             code: Nullable<String>.value("code"),
             firstName: "firstName",
             lastName: "lastName",
             personalCode: Nullable<String>.value("personalCode"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
-            address: Nullable<PostV1HrEmployeesUpdateResponseAddress>.value(PostV1HrEmployeesUpdateResponseAddress(
+            address: Nullable<EmployeesUpdateHrResponseAddress>.value(EmployeesUpdateHrResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
@@ -560,8 +560,8 @@ import Api
             iban: Nullable<String>.value("iban"),
             socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
-            hireDate: Nullable<String>.value("hireDate"),
-            terminationDate: Nullable<String>.value("terminationDate"),
+            hireDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            terminationDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             applyAllowance: true,
             allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
@@ -570,22 +570,22 @@ import Api
             ],
             status: .active,
             notes: Nullable<String>.value("notes"),
-            attributes: Nullable<[PostV1HrEmployeesUpdateResponseAttributesItem]>.value([
-                PostV1HrEmployeesUpdateResponseAttributesItem(
+            attributes: Nullable<[EmployeesUpdateHrResponseAttributesItem]>.value([
+                EmployeesUpdateHrResponseAttributesItem(
                     name: "name",
                     value: "value"
                 )
             ]),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrEmployeesUpdate(
+        let response = try await client.hr.employeesUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesUpdate2() async throws -> Void {
+    @Test func employeesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -596,7 +596,7 @@ import Api
                   "firstName": "firstName",
                   "lastName": "lastName",
                   "personalCode": "personalCode",
-                  "birthDate": "birthDate",
+                  "birthDate": "2023-01-15",
                   "email": "email",
                   "phone": "phone",
                   "address": {
@@ -608,8 +608,8 @@ import Api
                   "iban": "iban",
                   "socialInsuranceNo": "socialInsuranceNo",
                   "socialInsuranceStart": "socialInsuranceStart",
-                  "hireDate": "hireDate",
-                  "terminationDate": "terminationDate",
+                  "hireDate": "2023-01-15",
+                  "terminationDate": "2023-01-15",
                   "applyAllowance": true,
                   "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
@@ -628,7 +628,7 @@ import Api
                       "value": "value"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -638,16 +638,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesUpdateResponse(
+        let expectedResponse = EmployeesUpdateHrResponse(
             id: "x",
             code: Nullable<String>.value("code"),
             firstName: "firstName",
             lastName: "lastName",
             personalCode: Nullable<String>.value("personalCode"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
-            address: Nullable<PostV1HrEmployeesUpdateResponseAddress>.value(PostV1HrEmployeesUpdateResponseAddress(
+            address: Nullable<EmployeesUpdateHrResponseAddress>.value(EmployeesUpdateHrResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
@@ -656,8 +656,8 @@ import Api
             iban: Nullable<String>.value("iban"),
             socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
-            hireDate: Nullable<String>.value("hireDate"),
-            terminationDate: Nullable<String>.value("terminationDate"),
+            hireDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            terminationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             applyAllowance: true,
             allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
@@ -666,26 +666,26 @@ import Api
             ],
             status: .active,
             notes: Nullable<String>.value("notes"),
-            attributes: Nullable<[PostV1HrEmployeesUpdateResponseAttributesItem]>.value([
-                PostV1HrEmployeesUpdateResponseAttributesItem(
+            attributes: Nullable<[EmployeesUpdateHrResponseAttributesItem]>.value([
+                EmployeesUpdateHrResponseAttributesItem(
                     name: "x",
                     value: "value"
                 ),
-                PostV1HrEmployeesUpdateResponseAttributesItem(
+                EmployeesUpdateHrResponseAttributesItem(
                     name: "x",
                     value: "value"
                 )
             ]),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrEmployeesUpdate(
+        let response = try await client.hr.employeesUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesGet1() async throws -> Void {
+    @Test func employeesGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -696,7 +696,7 @@ import Api
                   "firstName": "firstName",
                   "lastName": "lastName",
                   "personalCode": "personalCode",
-                  "birthDate": "birthDate",
+                  "birthDate": "2026-07-01",
                   "email": "email",
                   "phone": "phone",
                   "address": {
@@ -708,8 +708,8 @@ import Api
                   "iban": "iban",
                   "socialInsuranceNo": "socialInsuranceNo",
                   "socialInsuranceStart": "socialInsuranceStart",
-                  "hireDate": "hireDate",
-                  "terminationDate": "terminationDate",
+                  "hireDate": "2026-07-01",
+                  "terminationDate": "2026-07-01",
                   "applyAllowance": true,
                   "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
@@ -724,7 +724,7 @@ import Api
                       "value": "value"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -734,16 +734,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesGetResponse(
+        let expectedResponse = EmployeesGetHrResponse(
             id: "id",
             code: Nullable<String>.value("code"),
             firstName: "firstName",
             lastName: "lastName",
             personalCode: Nullable<String>.value("personalCode"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
-            address: Nullable<PostV1HrEmployeesGetResponseAddress>.value(PostV1HrEmployeesGetResponseAddress(
+            address: Nullable<EmployeesGetHrResponseAddress>.value(EmployeesGetHrResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
@@ -752,8 +752,8 @@ import Api
             iban: Nullable<String>.value("iban"),
             socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
-            hireDate: Nullable<String>.value("hireDate"),
-            terminationDate: Nullable<String>.value("terminationDate"),
+            hireDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            terminationDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             applyAllowance: true,
             allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
@@ -762,22 +762,22 @@ import Api
             ],
             status: .active,
             notes: Nullable<String>.value("notes"),
-            attributes: Nullable<[PostV1HrEmployeesGetResponseAttributesItem]>.value([
-                PostV1HrEmployeesGetResponseAttributesItem(
+            attributes: Nullable<[EmployeesGetHrResponseAttributesItem]>.value([
+                EmployeesGetHrResponseAttributesItem(
                     name: "name",
                     value: "value"
                 )
             ]),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrEmployeesGet(
+        let response = try await client.hr.employeesGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesGet2() async throws -> Void {
+    @Test func employeesGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -788,7 +788,7 @@ import Api
                   "firstName": "firstName",
                   "lastName": "lastName",
                   "personalCode": "personalCode",
-                  "birthDate": "birthDate",
+                  "birthDate": "2023-01-15",
                   "email": "email",
                   "phone": "phone",
                   "address": {
@@ -800,8 +800,8 @@ import Api
                   "iban": "iban",
                   "socialInsuranceNo": "socialInsuranceNo",
                   "socialInsuranceStart": "socialInsuranceStart",
-                  "hireDate": "hireDate",
-                  "terminationDate": "terminationDate",
+                  "hireDate": "2023-01-15",
+                  "terminationDate": "2023-01-15",
                   "applyAllowance": true,
                   "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
@@ -820,7 +820,7 @@ import Api
                       "value": "value"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -830,16 +830,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesGetResponse(
+        let expectedResponse = EmployeesGetHrResponse(
             id: "x",
             code: Nullable<String>.value("code"),
             firstName: "firstName",
             lastName: "lastName",
             personalCode: Nullable<String>.value("personalCode"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
-            address: Nullable<PostV1HrEmployeesGetResponseAddress>.value(PostV1HrEmployeesGetResponseAddress(
+            address: Nullable<EmployeesGetHrResponseAddress>.value(EmployeesGetHrResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
@@ -848,8 +848,8 @@ import Api
             iban: Nullable<String>.value("iban"),
             socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
-            hireDate: Nullable<String>.value("hireDate"),
-            terminationDate: Nullable<String>.value("terminationDate"),
+            hireDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            terminationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             applyAllowance: true,
             allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
@@ -858,26 +858,26 @@ import Api
             ],
             status: .active,
             notes: Nullable<String>.value("notes"),
-            attributes: Nullable<[PostV1HrEmployeesGetResponseAttributesItem]>.value([
-                PostV1HrEmployeesGetResponseAttributesItem(
+            attributes: Nullable<[EmployeesGetHrResponseAttributesItem]>.value([
+                EmployeesGetHrResponseAttributesItem(
                     name: "x",
                     value: "value"
                 ),
-                PostV1HrEmployeesGetResponseAttributesItem(
+                EmployeesGetHrResponseAttributesItem(
                     name: "x",
                     value: "value"
                 )
             ]),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrEmployeesGet(
+        let response = try await client.hr.employeesGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func extraEmployeeDetailsTheCountryOfTheCompanyAsksFor1() async throws -> Void {
+    @Test func employeesFields1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -903,10 +903,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesFieldsResponse(
+        let expectedResponse = EmployeesFieldsHrResponse(
             country: "country",
             fields: [
-                PostV1HrEmployeesFieldsResponseFieldsItem(
+                EmployeesFieldsHrResponseFieldsItem(
                     key: "key",
                     kind: .text,
                     options: Optional([
@@ -916,14 +916,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.hr.extraEmployeeDetailsTheCountryOfTheCompanyAsksFor(
+        let response = try await client.hr.employeesFields(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func extraEmployeeDetailsTheCountryOfTheCompanyAsksFor2() async throws -> Void {
+    @Test func employeesFields2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -959,10 +959,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesFieldsResponse(
+        let expectedResponse = EmployeesFieldsHrResponse(
             country: "country",
             fields: [
-                PostV1HrEmployeesFieldsResponseFieldsItem(
+                EmployeesFieldsHrResponseFieldsItem(
                     key: "key",
                     kind: .text,
                     options: Optional([
@@ -971,7 +971,7 @@ import Api
                     ]),
                     maxLength: Optional(1000000)
                 ),
-                PostV1HrEmployeesFieldsResponseFieldsItem(
+                EmployeesFieldsHrResponseFieldsItem(
                     key: "key",
                     kind: .text,
                     options: Optional([
@@ -982,14 +982,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.hr.extraEmployeeDetailsTheCountryOfTheCompanyAsksFor(
+        let response = try await client.hr.employeesFields(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesList1() async throws -> Void {
+    @Test func employeesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1002,15 +1002,15 @@ import Api
                       "firstName": "firstName",
                       "lastName": "lastName",
                       "personalCode": "personalCode",
-                      "birthDate": "birthDate",
+                      "birthDate": "2026-07-01",
                       "email": "email",
                       "phone": "phone",
                       "address": {},
                       "iban": "iban",
                       "socialInsuranceNo": "socialInsuranceNo",
                       "socialInsuranceStart": "socialInsuranceStart",
-                      "hireDate": "hireDate",
-                      "terminationDate": "terminationDate",
+                      "hireDate": "2026-07-01",
+                      "terminationDate": "2026-07-01",
                       "applyAllowance": true,
                       "allowanceOverride": "allowanceOverride",
                       "pensionAccumulation": true,
@@ -1025,7 +1025,7 @@ import Api
                           "value": "value"
                         }
                       ],
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1043,25 +1043,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesListResponse(
+        let expectedResponse = EmployeesListHrResponse(
             rows: [
-                PostV1HrEmployeesListResponseRowsItem(
+                EmployeesListHrResponseRowsItem(
                     id: "id",
                     code: Nullable<String>.value("code"),
                     firstName: "firstName",
                     lastName: "lastName",
                     personalCode: Nullable<String>.value("personalCode"),
-                    birthDate: Nullable<String>.value("birthDate"),
+                    birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     email: Nullable<String>.value("email"),
                     phone: Nullable<String>.value("phone"),
-                    address: Nullable<PostV1HrEmployeesListResponseRowsItemAddress>.value(PostV1HrEmployeesListResponseRowsItemAddress(
+                    address: Nullable<EmployeesListHrResponseRowsItemAddress>.value(EmployeesListHrResponseRowsItemAddress(
 
                     )),
                     iban: Nullable<String>.value("iban"),
                     socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
                     socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
-                    hireDate: Nullable<String>.value("hireDate"),
-                    terminationDate: Nullable<String>.value("terminationDate"),
+                    hireDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    terminationDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     applyAllowance: true,
                     allowanceOverride: Nullable<String>.value("allowanceOverride"),
                     pensionAccumulation: true,
@@ -1070,13 +1070,13 @@ import Api
                     ],
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    attributes: Nullable<[PostV1HrEmployeesListResponseRowsItemAttributesItem]>.value([
-                        PostV1HrEmployeesListResponseRowsItemAttributesItem(
+                    attributes: Nullable<[EmployeesListHrResponseRowsItemAttributesItem]>.value([
+                        EmployeesListHrResponseRowsItemAttributesItem(
                             name: "name",
                             value: "value"
                         )
                     ]),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1086,14 +1086,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.hr.postV1HrEmployeesList(
+        let response = try await client.hr.employeesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesList2() async throws -> Void {
+    @Test func employeesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1106,7 +1106,7 @@ import Api
                       "firstName": "firstName",
                       "lastName": "lastName",
                       "personalCode": "personalCode",
-                      "birthDate": "birthDate",
+                      "birthDate": "2023-01-15",
                       "email": "email",
                       "phone": "phone",
                       "address": {
@@ -1118,8 +1118,8 @@ import Api
                       "iban": "iban",
                       "socialInsuranceNo": "socialInsuranceNo",
                       "socialInsuranceStart": "socialInsuranceStart",
-                      "hireDate": "hireDate",
-                      "terminationDate": "terminationDate",
+                      "hireDate": "2023-01-15",
+                      "terminationDate": "2023-01-15",
                       "applyAllowance": true,
                       "allowanceOverride": "allowanceOverride",
                       "pensionAccumulation": true,
@@ -1138,7 +1138,7 @@ import Api
                           "value": "value"
                         }
                       ],
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1146,7 +1146,7 @@ import Api
                       "firstName": "firstName",
                       "lastName": "lastName",
                       "personalCode": "personalCode",
-                      "birthDate": "birthDate",
+                      "birthDate": "2023-01-15",
                       "email": "email",
                       "phone": "phone",
                       "address": {
@@ -1158,8 +1158,8 @@ import Api
                       "iban": "iban",
                       "socialInsuranceNo": "socialInsuranceNo",
                       "socialInsuranceStart": "socialInsuranceStart",
-                      "hireDate": "hireDate",
-                      "terminationDate": "terminationDate",
+                      "hireDate": "2023-01-15",
+                      "terminationDate": "2023-01-15",
                       "applyAllowance": true,
                       "allowanceOverride": "allowanceOverride",
                       "pensionAccumulation": true,
@@ -1178,7 +1178,7 @@ import Api
                           "value": "value"
                         }
                       ],
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1196,18 +1196,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesListResponse(
+        let expectedResponse = EmployeesListHrResponse(
             rows: [
-                PostV1HrEmployeesListResponseRowsItem(
+                EmployeesListHrResponseRowsItem(
                     id: "x",
                     code: Nullable<String>.value("code"),
                     firstName: "firstName",
                     lastName: "lastName",
                     personalCode: Nullable<String>.value("personalCode"),
-                    birthDate: Nullable<String>.value("birthDate"),
+                    birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     email: Nullable<String>.value("email"),
                     phone: Nullable<String>.value("phone"),
-                    address: Nullable<PostV1HrEmployeesListResponseRowsItemAddress>.value(PostV1HrEmployeesListResponseRowsItemAddress(
+                    address: Nullable<EmployeesListHrResponseRowsItemAddress>.value(EmployeesListHrResponseRowsItemAddress(
                         street: Optional("street"),
                         city: Optional("city"),
                         postalCode: Optional("postalCode"),
@@ -1216,8 +1216,8 @@ import Api
                     iban: Nullable<String>.value("iban"),
                     socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
                     socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
-                    hireDate: Nullable<String>.value("hireDate"),
-                    terminationDate: Nullable<String>.value("terminationDate"),
+                    hireDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    terminationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     applyAllowance: true,
                     allowanceOverride: Nullable<String>.value("allowanceOverride"),
                     pensionAccumulation: true,
@@ -1226,28 +1226,28 @@ import Api
                     ],
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    attributes: Nullable<[PostV1HrEmployeesListResponseRowsItemAttributesItem]>.value([
-                        PostV1HrEmployeesListResponseRowsItemAttributesItem(
+                    attributes: Nullable<[EmployeesListHrResponseRowsItemAttributesItem]>.value([
+                        EmployeesListHrResponseRowsItemAttributesItem(
                             name: "x",
                             value: "value"
                         ),
-                        PostV1HrEmployeesListResponseRowsItemAttributesItem(
+                        EmployeesListHrResponseRowsItemAttributesItem(
                             name: "x",
                             value: "value"
                         )
                     ]),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1HrEmployeesListResponseRowsItem(
+                EmployeesListHrResponseRowsItem(
                     id: "x",
                     code: Nullable<String>.value("code"),
                     firstName: "firstName",
                     lastName: "lastName",
                     personalCode: Nullable<String>.value("personalCode"),
-                    birthDate: Nullable<String>.value("birthDate"),
+                    birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     email: Nullable<String>.value("email"),
                     phone: Nullable<String>.value("phone"),
-                    address: Nullable<PostV1HrEmployeesListResponseRowsItemAddress>.value(PostV1HrEmployeesListResponseRowsItemAddress(
+                    address: Nullable<EmployeesListHrResponseRowsItemAddress>.value(EmployeesListHrResponseRowsItemAddress(
                         street: Optional("street"),
                         city: Optional("city"),
                         postalCode: Optional("postalCode"),
@@ -1256,8 +1256,8 @@ import Api
                     iban: Nullable<String>.value("iban"),
                     socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
                     socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
-                    hireDate: Nullable<String>.value("hireDate"),
-                    terminationDate: Nullable<String>.value("terminationDate"),
+                    hireDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    terminationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     applyAllowance: true,
                     allowanceOverride: Nullable<String>.value("allowanceOverride"),
                     pensionAccumulation: true,
@@ -1266,17 +1266,17 @@ import Api
                     ],
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    attributes: Nullable<[PostV1HrEmployeesListResponseRowsItemAttributesItem]>.value([
-                        PostV1HrEmployeesListResponseRowsItemAttributesItem(
+                    attributes: Nullable<[EmployeesListHrResponseRowsItemAttributesItem]>.value([
+                        EmployeesListHrResponseRowsItemAttributesItem(
                             name: "x",
                             value: "value"
                         ),
-                        PostV1HrEmployeesListResponseRowsItemAttributesItem(
+                        EmployeesListHrResponseRowsItemAttributesItem(
                             name: "x",
                             value: "value"
                         )
                     ]),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1286,14 +1286,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.hr.postV1HrEmployeesList(
+        let response = try await client.hr.employeesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesDelete1() async throws -> Void {
+    @Test func employeesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1309,17 +1309,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesDeleteResponse(
+        let expectedResponse = EmployeesDeleteHrResponse(
             id: "id"
         )
-        let response = try await client.hr.postV1HrEmployeesDelete(
+        let response = try await client.hr.employeesDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesDelete2() async throws -> Void {
+    @Test func employeesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1335,17 +1335,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesDeleteResponse(
+        let expectedResponse = EmployeesDeleteHrResponse(
             id: "x"
         )
-        let response = try await client.hr.postV1HrEmployeesDelete(
+        let response = try await client.hr.employeesDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func blankAnEmployeesPersonalDataAndHideTheRecord1() async throws -> Void {
+    @Test func employeesAnonymize1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1356,7 +1356,7 @@ import Api
                   "firstName": "firstName",
                   "lastName": "lastName",
                   "personalCode": "personalCode",
-                  "birthDate": "birthDate",
+                  "birthDate": "2026-07-01",
                   "email": "email",
                   "phone": "phone",
                   "address": {
@@ -1368,8 +1368,8 @@ import Api
                   "iban": "iban",
                   "socialInsuranceNo": "socialInsuranceNo",
                   "socialInsuranceStart": "socialInsuranceStart",
-                  "hireDate": "hireDate",
-                  "terminationDate": "terminationDate",
+                  "hireDate": "2026-07-01",
+                  "terminationDate": "2026-07-01",
                   "applyAllowance": true,
                   "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
@@ -1384,7 +1384,7 @@ import Api
                       "value": "value"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1394,16 +1394,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesAnonymizeResponse(
+        let expectedResponse = EmployeesAnonymizeHrResponse(
             id: "id",
             code: Nullable<String>.value("code"),
             firstName: "firstName",
             lastName: "lastName",
             personalCode: Nullable<String>.value("personalCode"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
-            address: Nullable<PostV1HrEmployeesAnonymizeResponseAddress>.value(PostV1HrEmployeesAnonymizeResponseAddress(
+            address: Nullable<EmployeesAnonymizeHrResponseAddress>.value(EmployeesAnonymizeHrResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
@@ -1412,8 +1412,8 @@ import Api
             iban: Nullable<String>.value("iban"),
             socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
-            hireDate: Nullable<String>.value("hireDate"),
-            terminationDate: Nullable<String>.value("terminationDate"),
+            hireDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            terminationDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             applyAllowance: true,
             allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
@@ -1422,22 +1422,22 @@ import Api
             ],
             status: .active,
             notes: Nullable<String>.value("notes"),
-            attributes: Nullable<[PostV1HrEmployeesAnonymizeResponseAttributesItem]>.value([
-                PostV1HrEmployeesAnonymizeResponseAttributesItem(
+            attributes: Nullable<[EmployeesAnonymizeHrResponseAttributesItem]>.value([
+                EmployeesAnonymizeHrResponseAttributesItem(
                     name: "name",
                     value: "value"
                 )
             ]),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.blankAnEmployeesPersonalDataAndHideTheRecord(
+        let response = try await client.hr.employeesAnonymize(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func blankAnEmployeesPersonalDataAndHideTheRecord2() async throws -> Void {
+    @Test func employeesAnonymize2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1448,7 +1448,7 @@ import Api
                   "firstName": "firstName",
                   "lastName": "lastName",
                   "personalCode": "personalCode",
-                  "birthDate": "birthDate",
+                  "birthDate": "2023-01-15",
                   "email": "email",
                   "phone": "phone",
                   "address": {
@@ -1460,8 +1460,8 @@ import Api
                   "iban": "iban",
                   "socialInsuranceNo": "socialInsuranceNo",
                   "socialInsuranceStart": "socialInsuranceStart",
-                  "hireDate": "hireDate",
-                  "terminationDate": "terminationDate",
+                  "hireDate": "2023-01-15",
+                  "terminationDate": "2023-01-15",
                   "applyAllowance": true,
                   "allowanceOverride": "allowanceOverride",
                   "pensionAccumulation": true,
@@ -1480,7 +1480,7 @@ import Api
                       "value": "value"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1490,16 +1490,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesAnonymizeResponse(
+        let expectedResponse = EmployeesAnonymizeHrResponse(
             id: "x",
             code: Nullable<String>.value("code"),
             firstName: "firstName",
             lastName: "lastName",
             personalCode: Nullable<String>.value("personalCode"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
-            address: Nullable<PostV1HrEmployeesAnonymizeResponseAddress>.value(PostV1HrEmployeesAnonymizeResponseAddress(
+            address: Nullable<EmployeesAnonymizeHrResponseAddress>.value(EmployeesAnonymizeHrResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
@@ -1508,8 +1508,8 @@ import Api
             iban: Nullable<String>.value("iban"),
             socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
             socialInsuranceStart: Nullable<String>.value("socialInsuranceStart"),
-            hireDate: Nullable<String>.value("hireDate"),
-            terminationDate: Nullable<String>.value("terminationDate"),
+            hireDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            terminationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             applyAllowance: true,
             allowanceOverride: Nullable<String>.value("allowanceOverride"),
             pensionAccumulation: true,
@@ -1518,26 +1518,26 @@ import Api
             ],
             status: .active,
             notes: Nullable<String>.value("notes"),
-            attributes: Nullable<[PostV1HrEmployeesAnonymizeResponseAttributesItem]>.value([
-                PostV1HrEmployeesAnonymizeResponseAttributesItem(
+            attributes: Nullable<[EmployeesAnonymizeHrResponseAttributesItem]>.value([
+                EmployeesAnonymizeHrResponseAttributesItem(
                     name: "x",
                     value: "value"
                 ),
-                PostV1HrEmployeesAnonymizeResponseAttributesItem(
+                EmployeesAnonymizeHrResponseAttributesItem(
                     name: "x",
                     value: "value"
                 )
             ]),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.blankAnEmployeesPersonalDataAndHideTheRecord(
+        let response = try await client.hr.employeesAnonymize(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrContractsCreate1() async throws -> Void {
+    @Test func contractsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1551,8 +1551,8 @@ import Api
                   "agreementId": "agreementId",
                   "contractNo": "contractNo",
                   "type": "permanent",
-                  "startDate": "startDate",
-                  "endDate": "endDate",
+                  "startDate": "2026-07-01",
+                  "endDate": "2026-07-01",
                   "endReason": "endReason",
                   "baseSalary": "baseSalary",
                   "salaryType": "monthly",
@@ -1560,7 +1560,7 @@ import Api
                   "workHoursUnit": "day",
                   "status": "active",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1570,7 +1570,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrContractsCreateResponse(
+        let expectedResponse = ContractsCreateHrResponse(
             id: "id",
             employeeId: "employeeId",
             positionId: Nullable<String>.value("positionId"),
@@ -1579,8 +1579,8 @@ import Api
             agreementId: Nullable<String>.value("agreementId"),
             contractNo: "contractNo",
             type: .permanent,
-            startDate: "startDate",
-            endDate: Nullable<String>.value("endDate"),
+            startDate: CalendarDate("2026-07-01")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             endReason: Nullable<String>.value("endReason"),
             baseSalary: "baseSalary",
             salaryType: .monthly,
@@ -1588,20 +1588,20 @@ import Api
             workHoursUnit: .day,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrContractsCreate(
+        let response = try await client.hr.contractsCreate(
             request: .init(
                 employeeId: "employeeId",
-                startDate: "startDate",
-                baseSalary: "baseSalary"
+                startDate: CalendarDate("2026-07-01")!,
+                baseSalary: "121.0000"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrContractsCreate2() async throws -> Void {
+    @Test func contractsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1615,8 +1615,8 @@ import Api
                   "agreementId": "x",
                   "contractNo": "contractNo",
                   "type": "permanent",
-                  "startDate": "startDate",
-                  "endDate": "endDate",
+                  "startDate": "2023-01-15",
+                  "endDate": "2023-01-15",
                   "endReason": "endReason",
                   "baseSalary": "baseSalary",
                   "salaryType": "monthly",
@@ -1624,7 +1624,7 @@ import Api
                   "workHoursUnit": "day",
                   "status": "active",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1634,7 +1634,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrContractsCreateResponse(
+        let expectedResponse = ContractsCreateHrResponse(
             id: "x",
             employeeId: "x",
             positionId: Nullable<String>.value("x"),
@@ -1643,8 +1643,8 @@ import Api
             agreementId: Nullable<String>.value("x"),
             contractNo: "contractNo",
             type: .permanent,
-            startDate: "startDate",
-            endDate: Nullable<String>.value("endDate"),
+            startDate: CalendarDate("2023-01-15")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             endReason: Nullable<String>.value("endReason"),
             baseSalary: "baseSalary",
             salaryType: .monthly,
@@ -1652,12 +1652,12 @@ import Api
             workHoursUnit: .day,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrContractsCreate(
+        let response = try await client.hr.contractsCreate(
             request: .init(
                 employeeId: "x",
-                startDate: "startDate",
+                startDate: CalendarDate("2023-01-15")!,
                 baseSalary: "baseSalary"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -1665,7 +1665,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrContractsEnd1() async throws -> Void {
+    @Test func contractsEnd1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1679,8 +1679,8 @@ import Api
                   "agreementId": "agreementId",
                   "contractNo": "contractNo",
                   "type": "permanent",
-                  "startDate": "startDate",
-                  "endDate": "endDate",
+                  "startDate": "2026-07-01",
+                  "endDate": "2026-07-01",
                   "endReason": "endReason",
                   "baseSalary": "baseSalary",
                   "salaryType": "monthly",
@@ -1688,7 +1688,7 @@ import Api
                   "workHoursUnit": "day",
                   "status": "active",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1698,7 +1698,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrContractsEndResponse(
+        let expectedResponse = ContractsEndHrResponse(
             id: "id",
             employeeId: "employeeId",
             positionId: Nullable<String>.value("positionId"),
@@ -1707,8 +1707,8 @@ import Api
             agreementId: Nullable<String>.value("agreementId"),
             contractNo: "contractNo",
             type: .permanent,
-            startDate: "startDate",
-            endDate: Nullable<String>.value("endDate"),
+            startDate: CalendarDate("2026-07-01")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             endReason: Nullable<String>.value("endReason"),
             baseSalary: "baseSalary",
             salaryType: .monthly,
@@ -1716,19 +1716,19 @@ import Api
             workHoursUnit: .day,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrContractsEnd(
+        let response = try await client.hr.contractsEnd(
             request: .init(
                 id: "id",
-                endDate: "endDate"
+                endDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrContractsEnd2() async throws -> Void {
+    @Test func contractsEnd2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1742,8 +1742,8 @@ import Api
                   "agreementId": "x",
                   "contractNo": "contractNo",
                   "type": "permanent",
-                  "startDate": "startDate",
-                  "endDate": "endDate",
+                  "startDate": "2023-01-15",
+                  "endDate": "2023-01-15",
                   "endReason": "endReason",
                   "baseSalary": "baseSalary",
                   "salaryType": "monthly",
@@ -1751,7 +1751,7 @@ import Api
                   "workHoursUnit": "day",
                   "status": "active",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1761,7 +1761,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrContractsEndResponse(
+        let expectedResponse = ContractsEndHrResponse(
             id: "x",
             employeeId: "x",
             positionId: Nullable<String>.value("x"),
@@ -1770,8 +1770,8 @@ import Api
             agreementId: Nullable<String>.value("x"),
             contractNo: "contractNo",
             type: .permanent,
-            startDate: "startDate",
-            endDate: Nullable<String>.value("endDate"),
+            startDate: CalendarDate("2023-01-15")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             endReason: Nullable<String>.value("endReason"),
             baseSalary: "baseSalary",
             salaryType: .monthly,
@@ -1779,19 +1779,19 @@ import Api
             workHoursUnit: .day,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrContractsEnd(
+        let response = try await client.hr.contractsEnd(
             request: .init(
                 id: "x",
-                endDate: "endDate"
+                endDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrContractsList1() async throws -> Void {
+    @Test func contractsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1807,8 +1807,8 @@ import Api
                       "agreementId": "agreementId",
                       "contractNo": "contractNo",
                       "type": "permanent",
-                      "startDate": "startDate",
-                      "endDate": "endDate",
+                      "startDate": "2026-07-01",
+                      "endDate": "2026-07-01",
                       "endReason": "endReason",
                       "baseSalary": "baseSalary",
                       "salaryType": "monthly",
@@ -1816,7 +1816,7 @@ import Api
                       "workHoursUnit": "day",
                       "status": "active",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1834,9 +1834,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrContractsListResponse(
+        let expectedResponse = ContractsListHrResponse(
             rows: [
-                PostV1HrContractsListResponseRowsItem(
+                ContractsListHrResponseRowsItem(
                     id: "id",
                     employeeId: "employeeId",
                     positionId: Nullable<String>.value("positionId"),
@@ -1845,8 +1845,8 @@ import Api
                     agreementId: Nullable<String>.value("agreementId"),
                     contractNo: "contractNo",
                     type: .permanent,
-                    startDate: "startDate",
-                    endDate: Nullable<String>.value("endDate"),
+                    startDate: CalendarDate("2026-07-01")!,
+                    endDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     endReason: Nullable<String>.value("endReason"),
                     baseSalary: "baseSalary",
                     salaryType: .monthly,
@@ -1854,7 +1854,7 @@ import Api
                     workHoursUnit: .day,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1864,14 +1864,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.hr.postV1HrContractsList(
+        let response = try await client.hr.contractsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrContractsList2() async throws -> Void {
+    @Test func contractsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1887,8 +1887,8 @@ import Api
                       "agreementId": "x",
                       "contractNo": "contractNo",
                       "type": "permanent",
-                      "startDate": "startDate",
-                      "endDate": "endDate",
+                      "startDate": "2023-01-15",
+                      "endDate": "2023-01-15",
                       "endReason": "endReason",
                       "baseSalary": "baseSalary",
                       "salaryType": "monthly",
@@ -1896,7 +1896,7 @@ import Api
                       "workHoursUnit": "day",
                       "status": "active",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1907,8 +1907,8 @@ import Api
                       "agreementId": "x",
                       "contractNo": "contractNo",
                       "type": "permanent",
-                      "startDate": "startDate",
-                      "endDate": "endDate",
+                      "startDate": "2023-01-15",
+                      "endDate": "2023-01-15",
                       "endReason": "endReason",
                       "baseSalary": "baseSalary",
                       "salaryType": "monthly",
@@ -1916,7 +1916,7 @@ import Api
                       "workHoursUnit": "day",
                       "status": "active",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1934,9 +1934,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrContractsListResponse(
+        let expectedResponse = ContractsListHrResponse(
             rows: [
-                PostV1HrContractsListResponseRowsItem(
+                ContractsListHrResponseRowsItem(
                     id: "x",
                     employeeId: "x",
                     positionId: Nullable<String>.value("x"),
@@ -1945,8 +1945,8 @@ import Api
                     agreementId: Nullable<String>.value("x"),
                     contractNo: "contractNo",
                     type: .permanent,
-                    startDate: "startDate",
-                    endDate: Nullable<String>.value("endDate"),
+                    startDate: CalendarDate("2023-01-15")!,
+                    endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     endReason: Nullable<String>.value("endReason"),
                     baseSalary: "baseSalary",
                     salaryType: .monthly,
@@ -1954,9 +1954,9 @@ import Api
                     workHoursUnit: .day,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1HrContractsListResponseRowsItem(
+                ContractsListHrResponseRowsItem(
                     id: "x",
                     employeeId: "x",
                     positionId: Nullable<String>.value("x"),
@@ -1965,8 +1965,8 @@ import Api
                     agreementId: Nullable<String>.value("x"),
                     contractNo: "contractNo",
                     type: .permanent,
-                    startDate: "startDate",
-                    endDate: Nullable<String>.value("endDate"),
+                    startDate: CalendarDate("2023-01-15")!,
+                    endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     endReason: Nullable<String>.value("endReason"),
                     baseSalary: "baseSalary",
                     salaryType: .monthly,
@@ -1974,7 +1974,7 @@ import Api
                     workHoursUnit: .day,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1984,14 +1984,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.hr.postV1HrContractsList(
+        let response = try await client.hr.contractsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrLeaveBalancesSet1() async throws -> Void {
+    @Test func leaveBalancesSet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2011,25 +2011,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrLeaveBalancesSetResponse(
+        let expectedResponse = LeaveBalancesSetHrResponse(
             employeeId: "employeeId",
             year: 1000000,
             entitledDays: "entitledDays",
             usedDays: "usedDays",
             remainingDays: "remainingDays"
         )
-        let response = try await client.hr.postV1HrLeaveBalancesSet(
+        let response = try await client.hr.leaveBalancesSet(
             request: .init(
                 employeeId: "employeeId",
                 year: 1000000,
-                entitledDays: "entitledDays"
+                entitledDays: "121.00"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrLeaveBalancesSet2() async throws -> Void {
+    @Test func leaveBalancesSet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2049,14 +2049,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrLeaveBalancesSetResponse(
+        let expectedResponse = LeaveBalancesSetHrResponse(
             employeeId: "x",
             year: 1000000,
             entitledDays: "entitledDays",
             usedDays: "usedDays",
             remainingDays: "remainingDays"
         )
-        let response = try await client.hr.postV1HrLeaveBalancesSet(
+        let response = try await client.hr.leaveBalancesSet(
             request: .init(
                 employeeId: "x",
                 year: 1000000,
@@ -2067,7 +2067,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrLeaveBalancesList1() async throws -> Void {
+    @Test func leaveBalancesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2091,9 +2091,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrLeaveBalancesListResponse(
+        let expectedResponse = LeaveBalancesListHrResponse(
             rows: [
-                PostV1HrLeaveBalancesListResponseRowsItem(
+                LeaveBalancesListHrResponseRowsItem(
                     employeeId: "employeeId",
                     year: 1000000,
                     entitledDays: "entitledDays",
@@ -2102,14 +2102,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.hr.postV1HrLeaveBalancesList(
+        let response = try await client.hr.leaveBalancesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrLeaveBalancesList2() async throws -> Void {
+    @Test func leaveBalancesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2140,16 +2140,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrLeaveBalancesListResponse(
+        let expectedResponse = LeaveBalancesListHrResponse(
             rows: [
-                PostV1HrLeaveBalancesListResponseRowsItem(
+                LeaveBalancesListHrResponseRowsItem(
                     employeeId: "x",
                     year: 1000000,
                     entitledDays: "entitledDays",
                     usedDays: "usedDays",
                     remainingDays: "remainingDays"
                 ),
-                PostV1HrLeaveBalancesListResponseRowsItem(
+                LeaveBalancesListHrResponseRowsItem(
                     employeeId: "x",
                     year: 1000000,
                     entitledDays: "entitledDays",
@@ -2158,14 +2158,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.hr.postV1HrLeaveBalancesList(
+        let response = try await client.hr.leaveBalancesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrIncapacityCertificatesCreate1() async throws -> Void {
+    @Test func incapacityCertificatesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2175,8 +2175,8 @@ import Api
                   "employeeId": "employeeId",
                   "series": "series",
                   "number": "number",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "reason": "reason",
                   "notes": "notes"
                 }
@@ -2188,29 +2188,29 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrIncapacityCertificatesCreateResponse(
+        let expectedResponse = IncapacityCertificatesCreateHrResponse(
             id: "id",
             employeeId: "employeeId",
             series: Nullable<String>.value("series"),
             number: "number",
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             reason: Nullable<String>.value("reason"),
             notes: Nullable<String>.value("notes")
         )
-        let response = try await client.hr.postV1HrIncapacityCertificatesCreate(
+        let response = try await client.hr.incapacityCertificatesCreate(
             request: .init(
                 employeeId: "employeeId",
                 number: "number",
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrIncapacityCertificatesCreate2() async throws -> Void {
+    @Test func incapacityCertificatesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2220,8 +2220,8 @@ import Api
                   "employeeId": "x",
                   "series": "series",
                   "number": "number",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "reason": "reason",
                   "notes": "notes"
                 }
@@ -2233,29 +2233,29 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrIncapacityCertificatesCreateResponse(
+        let expectedResponse = IncapacityCertificatesCreateHrResponse(
             id: "x",
             employeeId: "x",
             series: Nullable<String>.value("series"),
             number: "number",
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             reason: Nullable<String>.value("reason"),
             notes: Nullable<String>.value("notes")
         )
-        let response = try await client.hr.postV1HrIncapacityCertificatesCreate(
+        let response = try await client.hr.incapacityCertificatesCreate(
             request: .init(
                 employeeId: "x",
                 number: "x",
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrIncapacityCertificatesList1() async throws -> Void {
+    @Test func incapacityCertificatesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2267,8 +2267,8 @@ import Api
                       "employeeId": "employeeId",
                       "series": "series",
                       "number": "number",
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2026-07-01",
+                      "toDate": "2026-07-01",
                       "reason": "reason",
                       "notes": "notes"
                     }
@@ -2288,15 +2288,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrIncapacityCertificatesListResponse(
+        let expectedResponse = IncapacityCertificatesListHrResponse(
             rows: [
-                PostV1HrIncapacityCertificatesListResponseRowsItem(
+                IncapacityCertificatesListHrResponseRowsItem(
                     id: "id",
                     employeeId: "employeeId",
                     series: Nullable<String>.value("series"),
                     number: "number",
-                    fromDate: "fromDate",
-                    toDate: "toDate",
+                    fromDate: CalendarDate("2026-07-01")!,
+                    toDate: CalendarDate("2026-07-01")!,
                     reason: Nullable<String>.value("reason"),
                     notes: Nullable<String>.value("notes")
                 )
@@ -2308,14 +2308,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.hr.postV1HrIncapacityCertificatesList(
+        let response = try await client.hr.incapacityCertificatesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrIncapacityCertificatesList2() async throws -> Void {
+    @Test func incapacityCertificatesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2327,8 +2327,8 @@ import Api
                       "employeeId": "x",
                       "series": "series",
                       "number": "number",
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2023-01-15",
+                      "toDate": "2023-01-15",
                       "reason": "reason",
                       "notes": "notes"
                     },
@@ -2337,8 +2337,8 @@ import Api
                       "employeeId": "x",
                       "series": "series",
                       "number": "number",
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2023-01-15",
+                      "toDate": "2023-01-15",
                       "reason": "reason",
                       "notes": "notes"
                     }
@@ -2358,25 +2358,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrIncapacityCertificatesListResponse(
+        let expectedResponse = IncapacityCertificatesListHrResponse(
             rows: [
-                PostV1HrIncapacityCertificatesListResponseRowsItem(
+                IncapacityCertificatesListHrResponseRowsItem(
                     id: "x",
                     employeeId: "x",
                     series: Nullable<String>.value("series"),
                     number: "number",
-                    fromDate: "fromDate",
-                    toDate: "toDate",
+                    fromDate: CalendarDate("2023-01-15")!,
+                    toDate: CalendarDate("2023-01-15")!,
                     reason: Nullable<String>.value("reason"),
                     notes: Nullable<String>.value("notes")
                 ),
-                PostV1HrIncapacityCertificatesListResponseRowsItem(
+                IncapacityCertificatesListHrResponseRowsItem(
                     id: "x",
                     employeeId: "x",
                     series: Nullable<String>.value("series"),
                     number: "number",
-                    fromDate: "fromDate",
-                    toDate: "toDate",
+                    fromDate: CalendarDate("2023-01-15")!,
+                    toDate: CalendarDate("2023-01-15")!,
                     reason: Nullable<String>.value("reason"),
                     notes: Nullable<String>.value("notes")
                 )
@@ -2388,14 +2388,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.hr.postV1HrIncapacityCertificatesList(
+        let response = try await client.hr.incapacityCertificatesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesRecordsCreate1() async throws -> Void {
+    @Test func employeesRecordsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2406,11 +2406,11 @@ import Api
                   "type": "education",
                   "title": "title",
                   "institution": "institution",
-                  "issuedAt": "issuedAt",
+                  "issuedAt": "2026-07-01T09:30:00Z",
                   "validUntil": "validUntil",
                   "fileId": "fileId",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2420,19 +2420,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesRecordsCreateResponse(
+        let expectedResponse = EmployeesRecordsCreateHrResponse(
             id: "id",
             employeeId: "employeeId",
             type: .education,
             title: "title",
             institution: Nullable<String>.value("institution"),
-            issuedAt: Nullable<String>.value("issuedAt"),
+            issuedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             validUntil: Nullable<String>.value("validUntil"),
             fileId: Nullable<String>.value("fileId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrEmployeesRecordsCreate(
+        let response = try await client.hr.employeesRecordsCreate(
             request: .init(
                 employeeId: "employeeId",
                 type: .education,
@@ -2443,7 +2443,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesRecordsCreate2() async throws -> Void {
+    @Test func employeesRecordsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2454,11 +2454,11 @@ import Api
                   "type": "education",
                   "title": "title",
                   "institution": "institution",
-                  "issuedAt": "issuedAt",
+                  "issuedAt": "2024-01-15T09:30:00Z",
                   "validUntil": "validUntil",
                   "fileId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2468,19 +2468,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesRecordsCreateResponse(
+        let expectedResponse = EmployeesRecordsCreateHrResponse(
             id: "x",
             employeeId: "x",
             type: .education,
             title: "title",
             institution: Nullable<String>.value("institution"),
-            issuedAt: Nullable<String>.value("issuedAt"),
+            issuedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             validUntil: Nullable<String>.value("validUntil"),
             fileId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrEmployeesRecordsCreate(
+        let response = try await client.hr.employeesRecordsCreate(
             request: .init(
                 employeeId: "x",
                 type: .education,
@@ -2491,7 +2491,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesRecordsUpdate1() async throws -> Void {
+    @Test func employeesRecordsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2502,11 +2502,11 @@ import Api
                   "type": "education",
                   "title": "title",
                   "institution": "institution",
-                  "issuedAt": "issuedAt",
+                  "issuedAt": "2026-07-01T09:30:00Z",
                   "validUntil": "validUntil",
                   "fileId": "fileId",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2516,26 +2516,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesRecordsUpdateResponse(
+        let expectedResponse = EmployeesRecordsUpdateHrResponse(
             id: "id",
             employeeId: "employeeId",
             type: .education,
             title: "title",
             institution: Nullable<String>.value("institution"),
-            issuedAt: Nullable<String>.value("issuedAt"),
+            issuedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             validUntil: Nullable<String>.value("validUntil"),
             fileId: Nullable<String>.value("fileId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrEmployeesRecordsUpdate(
+        let response = try await client.hr.employeesRecordsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesRecordsUpdate2() async throws -> Void {
+    @Test func employeesRecordsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2546,11 +2546,11 @@ import Api
                   "type": "education",
                   "title": "title",
                   "institution": "institution",
-                  "issuedAt": "issuedAt",
+                  "issuedAt": "2024-01-15T09:30:00Z",
                   "validUntil": "validUntil",
                   "fileId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2560,26 +2560,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesRecordsUpdateResponse(
+        let expectedResponse = EmployeesRecordsUpdateHrResponse(
             id: "x",
             employeeId: "x",
             type: .education,
             title: "title",
             institution: Nullable<String>.value("institution"),
-            issuedAt: Nullable<String>.value("issuedAt"),
+            issuedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             validUntil: Nullable<String>.value("validUntil"),
             fileId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrEmployeesRecordsUpdate(
+        let response = try await client.hr.employeesRecordsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesRecordsDelete1() async throws -> Void {
+    @Test func employeesRecordsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2595,17 +2595,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesRecordsDeleteResponse(
+        let expectedResponse = EmployeesRecordsDeleteHrResponse(
             id: "id"
         )
-        let response = try await client.hr.postV1HrEmployeesRecordsDelete(
+        let response = try await client.hr.employeesRecordsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesRecordsDelete2() async throws -> Void {
+    @Test func employeesRecordsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2621,17 +2621,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesRecordsDeleteResponse(
+        let expectedResponse = EmployeesRecordsDeleteHrResponse(
             id: "x"
         )
-        let response = try await client.hr.postV1HrEmployeesRecordsDelete(
+        let response = try await client.hr.employeesRecordsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesRecordsList1() async throws -> Void {
+    @Test func employeesRecordsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2644,11 +2644,11 @@ import Api
                       "type": "education",
                       "title": "title",
                       "institution": "institution",
-                      "issuedAt": "issuedAt",
+                      "issuedAt": "2026-07-01T09:30:00Z",
                       "validUntil": "validUntil",
                       "fileId": "fileId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -2666,19 +2666,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesRecordsListResponse(
+        let expectedResponse = EmployeesRecordsListHrResponse(
             rows: [
-                PostV1HrEmployeesRecordsListResponseRowsItem(
+                EmployeesRecordsListHrResponseRowsItem(
                     id: "id",
                     employeeId: "employeeId",
                     type: .education,
                     title: "title",
                     institution: Nullable<String>.value("institution"),
-                    issuedAt: Nullable<String>.value("issuedAt"),
+                    issuedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     validUntil: Nullable<String>.value("validUntil"),
                     fileId: Nullable<String>.value("fileId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -2688,14 +2688,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.hr.postV1HrEmployeesRecordsList(
+        let response = try await client.hr.employeesRecordsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesRecordsList2() async throws -> Void {
+    @Test func employeesRecordsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2708,11 +2708,11 @@ import Api
                       "type": "education",
                       "title": "title",
                       "institution": "institution",
-                      "issuedAt": "issuedAt",
+                      "issuedAt": "2024-01-15T09:30:00Z",
                       "validUntil": "validUntil",
                       "fileId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -2720,11 +2720,11 @@ import Api
                       "type": "education",
                       "title": "title",
                       "institution": "institution",
-                      "issuedAt": "issuedAt",
+                      "issuedAt": "2024-01-15T09:30:00Z",
                       "validUntil": "validUntil",
                       "fileId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -2742,31 +2742,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesRecordsListResponse(
+        let expectedResponse = EmployeesRecordsListHrResponse(
             rows: [
-                PostV1HrEmployeesRecordsListResponseRowsItem(
+                EmployeesRecordsListHrResponseRowsItem(
                     id: "x",
                     employeeId: "x",
                     type: .education,
                     title: "title",
                     institution: Nullable<String>.value("institution"),
-                    issuedAt: Nullable<String>.value("issuedAt"),
+                    issuedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     validUntil: Nullable<String>.value("validUntil"),
                     fileId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1HrEmployeesRecordsListResponseRowsItem(
+                EmployeesRecordsListHrResponseRowsItem(
                     id: "x",
                     employeeId: "x",
                     type: .education,
                     title: "title",
                     institution: Nullable<String>.value("institution"),
-                    issuedAt: Nullable<String>.value("issuedAt"),
+                    issuedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     validUntil: Nullable<String>.value("validUntil"),
                     fileId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -2776,14 +2776,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.hr.postV1HrEmployeesRecordsList(
+        let response = try await client.hr.employeesRecordsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesAttachmentsList1() async throws -> Void {
+    @Test func employeesAttachmentsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2795,7 +2795,7 @@ import Api
                       "fileName": "fileName",
                       "mimeType": "mimeType",
                       "sizeBytes": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -2807,25 +2807,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesAttachmentsListResponse(
+        let expectedResponse = EmployeesAttachmentsListHrResponse(
             rows: [
-                PostV1HrEmployeesAttachmentsListResponseRowsItem(
+                EmployeesAttachmentsListHrResponseRowsItem(
                     id: "id",
                     fileName: "fileName",
                     mimeType: "mimeType",
                     sizeBytes: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.hr.postV1HrEmployeesAttachmentsList(
+        let response = try await client.hr.employeesAttachmentsList(
             request: .init(employeeId: "employeeId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrEmployeesAttachmentsList2() async throws -> Void {
+    @Test func employeesAttachmentsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2837,14 +2837,14 @@ import Api
                       "fileName": "fileName",
                       "mimeType": "mimeType",
                       "sizeBytes": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "fileName": "fileName",
                       "mimeType": "mimeType",
                       "sizeBytes": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -2856,32 +2856,32 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrEmployeesAttachmentsListResponse(
+        let expectedResponse = EmployeesAttachmentsListHrResponse(
             rows: [
-                PostV1HrEmployeesAttachmentsListResponseRowsItem(
+                EmployeesAttachmentsListHrResponseRowsItem(
                     id: "x",
                     fileName: "fileName",
                     mimeType: "mimeType",
                     sizeBytes: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1HrEmployeesAttachmentsListResponseRowsItem(
+                EmployeesAttachmentsListHrResponseRowsItem(
                     id: "x",
                     fileName: "fileName",
                     mimeType: "mimeType",
                     sizeBytes: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.hr.postV1HrEmployeesAttachmentsList(
+        let response = try await client.hr.employeesAttachmentsList(
             request: .init(employeeId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrTimesheetsGenerate1() async throws -> Void {
+    @Test func timesheetsGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2897,10 +2897,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrTimesheetsGenerateResponse(
+        let expectedResponse = TimesheetsGenerateHrResponse(
             generated: 1000000
         )
-        let response = try await client.hr.postV1HrTimesheetsGenerate(
+        let response = try await client.hr.timesheetsGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -2910,7 +2910,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrTimesheetsGenerate2() async throws -> Void {
+    @Test func timesheetsGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2926,10 +2926,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrTimesheetsGenerateResponse(
+        let expectedResponse = TimesheetsGenerateHrResponse(
             generated: 1000000
         )
-        let response = try await client.hr.postV1HrTimesheetsGenerate(
+        let response = try await client.hr.timesheetsGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -2939,7 +2939,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrTimesheetsUpsert1() async throws -> Void {
+    @Test func timesheetsUpsert1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2953,13 +2953,13 @@ import Api
                   "days": [
                     {
                       "day": 1000000,
-                      "hours": "hours",
+                      "hours": "121.00",
                       "type": "work"
                     }
                   ],
                   "workedDays": "workedDays",
                   "workedHours": "workedHours",
-                  "updatedAt": "updatedAt"
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2969,32 +2969,32 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrTimesheetsUpsertResponse(
+        let expectedResponse = TimesheetsUpsertHrResponse(
             id: "id",
             employeeId: "employeeId",
             employeeName: "employeeName",
             year: 1000000,
             month: 1000000,
             days: [
-                PostV1HrTimesheetsUpsertResponseDaysItem(
+                TimesheetsUpsertHrResponseDaysItem(
                     day: 1000000,
-                    hours: "hours",
+                    hours: "121.00",
                     type: .work
                 )
             ],
             workedDays: "workedDays",
             workedHours: "workedHours",
-            updatedAt: "updatedAt"
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrTimesheetsUpsert(
+        let response = try await client.hr.timesheetsUpsert(
             request: .init(
                 employeeId: "employeeId",
                 year: 1000000,
                 month: 1000000,
                 days: [
-                    PostV1HrTimesheetsUpsertRequestDaysItem(
+                    TimesheetsUpsertHrRequestDaysItem(
                         day: 1000000,
-                        hours: "hours",
+                        hours: "121.00",
                         type: .work
                     )
                 ]
@@ -3004,7 +3004,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrTimesheetsUpsert2() async throws -> Void {
+    @Test func timesheetsUpsert2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3029,7 +3029,7 @@ import Api
                   ],
                   "workedDays": "workedDays",
                   "workedHours": "workedHours",
-                  "updatedAt": "updatedAt"
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3039,19 +3039,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrTimesheetsUpsertResponse(
+        let expectedResponse = TimesheetsUpsertHrResponse(
             id: "x",
             employeeId: "x",
             employeeName: "employeeName",
             year: 1000000,
             month: 1000000,
             days: [
-                PostV1HrTimesheetsUpsertResponseDaysItem(
+                TimesheetsUpsertHrResponseDaysItem(
                     day: 1000000,
                     hours: "hours",
                     type: .work
                 ),
-                PostV1HrTimesheetsUpsertResponseDaysItem(
+                TimesheetsUpsertHrResponseDaysItem(
                     day: 1000000,
                     hours: "hours",
                     type: .work
@@ -3059,20 +3059,20 @@ import Api
             ],
             workedDays: "workedDays",
             workedHours: "workedHours",
-            updatedAt: "updatedAt"
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrTimesheetsUpsert(
+        let response = try await client.hr.timesheetsUpsert(
             request: .init(
                 employeeId: "x",
                 year: 1000000,
                 month: 1000000,
                 days: [
-                    PostV1HrTimesheetsUpsertRequestDaysItem(
+                    TimesheetsUpsertHrRequestDaysItem(
                         day: 1000000,
                         hours: "hours",
                         type: .work
                     ),
-                    PostV1HrTimesheetsUpsertRequestDaysItem(
+                    TimesheetsUpsertHrRequestDaysItem(
                         day: 1000000,
                         hours: "hours",
                         type: .work
@@ -3084,7 +3084,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrTimesheetsGet1() async throws -> Void {
+    @Test func timesheetsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3098,13 +3098,13 @@ import Api
                   "days": [
                     {
                       "day": 1000000,
-                      "hours": "hours",
+                      "hours": "121.00",
                       "type": "work"
                     }
                   ],
                   "workedDays": "workedDays",
                   "workedHours": "workedHours",
-                  "updatedAt": "updatedAt"
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3114,24 +3114,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrTimesheetsGetResponse(
+        let expectedResponse = TimesheetsGetHrResponse(
             id: "id",
             employeeId: "employeeId",
             employeeName: "employeeName",
             year: 1000000,
             month: 1000000,
             days: [
-                PostV1HrTimesheetsGetResponseDaysItem(
+                TimesheetsGetHrResponseDaysItem(
                     day: 1000000,
-                    hours: "hours",
+                    hours: "121.00",
                     type: .work
                 )
             ],
             workedDays: "workedDays",
             workedHours: "workedHours",
-            updatedAt: "updatedAt"
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrTimesheetsGet(
+        let response = try await client.hr.timesheetsGet(
             request: .init(
                 employeeId: "employeeId",
                 year: 1000000,
@@ -3142,7 +3142,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrTimesheetsGet2() async throws -> Void {
+    @Test func timesheetsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3167,7 +3167,7 @@ import Api
                   ],
                   "workedDays": "workedDays",
                   "workedHours": "workedHours",
-                  "updatedAt": "updatedAt"
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3177,19 +3177,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrTimesheetsGetResponse(
+        let expectedResponse = TimesheetsGetHrResponse(
             id: "x",
             employeeId: "x",
             employeeName: "employeeName",
             year: 1000000,
             month: 1000000,
             days: [
-                PostV1HrTimesheetsGetResponseDaysItem(
+                TimesheetsGetHrResponseDaysItem(
                     day: 1000000,
                     hours: "hours",
                     type: .work
                 ),
-                PostV1HrTimesheetsGetResponseDaysItem(
+                TimesheetsGetHrResponseDaysItem(
                     day: 1000000,
                     hours: "hours",
                     type: .work
@@ -3197,9 +3197,9 @@ import Api
             ],
             workedDays: "workedDays",
             workedHours: "workedHours",
-            updatedAt: "updatedAt"
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.hr.postV1HrTimesheetsGet(
+        let response = try await client.hr.timesheetsGet(
             request: .init(
                 employeeId: "x",
                 year: 1000000,
@@ -3210,7 +3210,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrTimesheetsList1() async throws -> Void {
+    @Test func timesheetsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3226,13 +3226,13 @@ import Api
                       "days": [
                         {
                           "day": 1000000,
-                          "hours": "hours",
+                          "hours": "121.00",
                           "type": "work"
                         }
                       ],
                       "workedDays": "workedDays",
                       "workedHours": "workedHours",
-                      "updatedAt": "updatedAt"
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -3244,28 +3244,28 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrTimesheetsListResponse(
+        let expectedResponse = TimesheetsListHrResponse(
             rows: [
-                PostV1HrTimesheetsListResponseRowsItem(
+                TimesheetsListHrResponseRowsItem(
                     id: "id",
                     employeeId: "employeeId",
                     employeeName: "employeeName",
                     year: 1000000,
                     month: 1000000,
                     days: [
-                        PostV1HrTimesheetsListResponseRowsItemDaysItem(
+                        TimesheetsListHrResponseRowsItemDaysItem(
                             day: 1000000,
-                            hours: "hours",
+                            hours: "121.00",
                             type: .work
                         )
                     ],
                     workedDays: "workedDays",
                     workedHours: "workedHours",
-                    updatedAt: "updatedAt"
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.hr.postV1HrTimesheetsList(
+        let response = try await client.hr.timesheetsList(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -3275,7 +3275,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrTimesheetsList2() async throws -> Void {
+    @Test func timesheetsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3302,7 +3302,7 @@ import Api
                       ],
                       "workedDays": "workedDays",
                       "workedHours": "workedHours",
-                      "updatedAt": "updatedAt"
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -3324,7 +3324,7 @@ import Api
                       ],
                       "workedDays": "workedDays",
                       "workedHours": "workedHours",
-                      "updatedAt": "updatedAt"
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -3336,21 +3336,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrTimesheetsListResponse(
+        let expectedResponse = TimesheetsListHrResponse(
             rows: [
-                PostV1HrTimesheetsListResponseRowsItem(
+                TimesheetsListHrResponseRowsItem(
                     id: "x",
                     employeeId: "x",
                     employeeName: "employeeName",
                     year: 1000000,
                     month: 1000000,
                     days: [
-                        PostV1HrTimesheetsListResponseRowsItemDaysItem(
+                        TimesheetsListHrResponseRowsItemDaysItem(
                             day: 1000000,
                             hours: "hours",
                             type: .work
                         ),
-                        PostV1HrTimesheetsListResponseRowsItemDaysItem(
+                        TimesheetsListHrResponseRowsItemDaysItem(
                             day: 1000000,
                             hours: "hours",
                             type: .work
@@ -3358,21 +3358,21 @@ import Api
                     ],
                     workedDays: "workedDays",
                     workedHours: "workedHours",
-                    updatedAt: "updatedAt"
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1HrTimesheetsListResponseRowsItem(
+                TimesheetsListHrResponseRowsItem(
                     id: "x",
                     employeeId: "x",
                     employeeName: "employeeName",
                     year: 1000000,
                     month: 1000000,
                     days: [
-                        PostV1HrTimesheetsListResponseRowsItemDaysItem(
+                        TimesheetsListHrResponseRowsItemDaysItem(
                             day: 1000000,
                             hours: "hours",
                             type: .work
                         ),
-                        PostV1HrTimesheetsListResponseRowsItemDaysItem(
+                        TimesheetsListHrResponseRowsItemDaysItem(
                             day: 1000000,
                             hours: "hours",
                             type: .work
@@ -3380,11 +3380,11 @@ import Api
                     ],
                     workedDays: "workedDays",
                     workedHours: "workedHours",
-                    updatedAt: "updatedAt"
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.hr.postV1HrTimesheetsList(
+        let response = try await client.hr.timesheetsList(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -3394,7 +3394,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrTimesheetsDelete1() async throws -> Void {
+    @Test func timesheetsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3410,17 +3410,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrTimesheetsDeleteResponse(
+        let expectedResponse = TimesheetsDeleteHrResponse(
             id: "id"
         )
-        let response = try await client.hr.postV1HrTimesheetsDelete(
+        let response = try await client.hr.timesheetsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1HrTimesheetsDelete2() async throws -> Void {
+    @Test func timesheetsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3436,10 +3436,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1HrTimesheetsDeleteResponse(
+        let expectedResponse = TimesheetsDeleteHrResponse(
             id: "x"
         )
-        let response = try await client.hr.postV1HrTimesheetsDelete(
+        let response = try await client.hr.timesheetsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

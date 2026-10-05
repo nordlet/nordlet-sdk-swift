@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("TransportClient Wire Tests") struct TransportClientWireTests {
-    @Test func postV1TransportWaybillsCreate1() async throws -> Void {
+    @Test func waybillsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13,9 +13,9 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
-                  "dispatchAt": "dispatchAt",
-                  "estimatedArrivalAt": "estimatedArrivalAt",
+                  "documentDate": "2026-07-01",
+                  "dispatchAt": "2026-07-01T09:30:00Z",
+                  "estimatedArrivalAt": "2026-07-01T09:30:00Z",
                   "consigneePartnerId": "consigneePartnerId",
                   "transporterPartnerId": "transporterPartnerId",
                   "vehiclePlate": "vehiclePlate",
@@ -28,8 +28,8 @@ import Api
                   "valueEur": "valueEur",
                   "saleInvoiceId": "saleInvoiceId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -50,14 +50,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1TransportWaybillsCreateResponse(
+        let expectedResponse = WaybillsCreateTransportResponse(
             id: "id",
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
-            dispatchAt: "dispatchAt",
-            estimatedArrivalAt: Nullable<String>.value("estimatedArrivalAt"),
+            documentDate: CalendarDate("2026-07-01")!,
+            dispatchAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            estimatedArrivalAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             consigneePartnerId: "consigneePartnerId",
             transporterPartnerId: Nullable<String>.value("transporterPartnerId"),
             vehiclePlate: Nullable<String>.value("vehiclePlate"),
@@ -70,10 +70,10 @@ import Api
             valueEur: Nullable<String>.value("valueEur"),
             saleInvoiceId: Nullable<String>.value("saleInvoiceId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1TransportWaybillsCreateResponseLinesItem(
+                WaybillsCreateTransportResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -84,7 +84,7 @@ import Api
                 )
             ]
         )
-        let response = try await client.transport.postV1TransportWaybillsCreate(
+        let response = try await client.transport.waybillsCreate(
             request: .init(
                 consigneePartnerId: "consigneePartnerId",
                 dispatchAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
@@ -96,7 +96,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1TransportWaybillsCreate2() async throws -> Void {
+    @Test func waybillsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -106,9 +106,9 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
-                  "dispatchAt": "dispatchAt",
-                  "estimatedArrivalAt": "estimatedArrivalAt",
+                  "documentDate": "2023-01-15",
+                  "dispatchAt": "2024-01-15T09:30:00Z",
+                  "estimatedArrivalAt": "2024-01-15T09:30:00Z",
                   "consigneePartnerId": "x",
                   "transporterPartnerId": "x",
                   "vehiclePlate": "vehiclePlate",
@@ -121,8 +121,8 @@ import Api
                   "valueEur": "valueEur",
                   "saleInvoiceId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -152,14 +152,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1TransportWaybillsCreateResponse(
+        let expectedResponse = WaybillsCreateTransportResponse(
             id: "x",
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
-            dispatchAt: "dispatchAt",
-            estimatedArrivalAt: Nullable<String>.value("estimatedArrivalAt"),
+            documentDate: CalendarDate("2023-01-15")!,
+            dispatchAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            estimatedArrivalAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             consigneePartnerId: "x",
             transporterPartnerId: Nullable<String>.value("x"),
             vehiclePlate: Nullable<String>.value("vehiclePlate"),
@@ -172,10 +172,10 @@ import Api
             valueEur: Nullable<String>.value("valueEur"),
             saleInvoiceId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1TransportWaybillsCreateResponseLinesItem(
+                WaybillsCreateTransportResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -184,7 +184,7 @@ import Api
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 ),
-                PostV1TransportWaybillsCreateResponseLinesItem(
+                WaybillsCreateTransportResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -195,7 +195,7 @@ import Api
                 )
             ]
         )
-        let response = try await client.transport.postV1TransportWaybillsCreate(
+        let response = try await client.transport.waybillsCreate(
             request: .init(
                 consigneePartnerId: "x",
                 dispatchAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
@@ -207,7 +207,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1TransportWaybillsUpdate1() async throws -> Void {
+    @Test func waybillsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -217,9 +217,9 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
-                  "dispatchAt": "dispatchAt",
-                  "estimatedArrivalAt": "estimatedArrivalAt",
+                  "documentDate": "2026-07-01",
+                  "dispatchAt": "2026-07-01T09:30:00Z",
+                  "estimatedArrivalAt": "2026-07-01T09:30:00Z",
                   "consigneePartnerId": "consigneePartnerId",
                   "transporterPartnerId": "transporterPartnerId",
                   "vehiclePlate": "vehiclePlate",
@@ -232,8 +232,8 @@ import Api
                   "valueEur": "valueEur",
                   "saleInvoiceId": "saleInvoiceId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -254,14 +254,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1TransportWaybillsUpdateResponse(
+        let expectedResponse = WaybillsUpdateTransportResponse(
             id: "id",
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
-            dispatchAt: "dispatchAt",
-            estimatedArrivalAt: Nullable<String>.value("estimatedArrivalAt"),
+            documentDate: CalendarDate("2026-07-01")!,
+            dispatchAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            estimatedArrivalAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             consigneePartnerId: "consigneePartnerId",
             transporterPartnerId: Nullable<String>.value("transporterPartnerId"),
             vehiclePlate: Nullable<String>.value("vehiclePlate"),
@@ -274,10 +274,10 @@ import Api
             valueEur: Nullable<String>.value("valueEur"),
             saleInvoiceId: Nullable<String>.value("saleInvoiceId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1TransportWaybillsUpdateResponseLinesItem(
+                WaybillsUpdateTransportResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -288,14 +288,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.transport.postV1TransportWaybillsUpdate(
+        let response = try await client.transport.waybillsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1TransportWaybillsUpdate2() async throws -> Void {
+    @Test func waybillsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -305,9 +305,9 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
-                  "dispatchAt": "dispatchAt",
-                  "estimatedArrivalAt": "estimatedArrivalAt",
+                  "documentDate": "2023-01-15",
+                  "dispatchAt": "2024-01-15T09:30:00Z",
+                  "estimatedArrivalAt": "2024-01-15T09:30:00Z",
                   "consigneePartnerId": "x",
                   "transporterPartnerId": "x",
                   "vehiclePlate": "vehiclePlate",
@@ -320,8 +320,8 @@ import Api
                   "valueEur": "valueEur",
                   "saleInvoiceId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -351,14 +351,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1TransportWaybillsUpdateResponse(
+        let expectedResponse = WaybillsUpdateTransportResponse(
             id: "x",
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
-            dispatchAt: "dispatchAt",
-            estimatedArrivalAt: Nullable<String>.value("estimatedArrivalAt"),
+            documentDate: CalendarDate("2023-01-15")!,
+            dispatchAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            estimatedArrivalAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             consigneePartnerId: "x",
             transporterPartnerId: Nullable<String>.value("x"),
             vehiclePlate: Nullable<String>.value("vehiclePlate"),
@@ -371,10 +371,10 @@ import Api
             valueEur: Nullable<String>.value("valueEur"),
             saleInvoiceId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1TransportWaybillsUpdateResponseLinesItem(
+                WaybillsUpdateTransportResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -383,7 +383,7 @@ import Api
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 ),
-                PostV1TransportWaybillsUpdateResponseLinesItem(
+                WaybillsUpdateTransportResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -394,14 +394,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.transport.postV1TransportWaybillsUpdate(
+        let response = try await client.transport.waybillsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1TransportWaybillsIssue1() async throws -> Void {
+    @Test func waybillsIssue1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -411,9 +411,9 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
-                  "dispatchAt": "dispatchAt",
-                  "estimatedArrivalAt": "estimatedArrivalAt",
+                  "documentDate": "2026-07-01",
+                  "dispatchAt": "2026-07-01T09:30:00Z",
+                  "estimatedArrivalAt": "2026-07-01T09:30:00Z",
                   "consigneePartnerId": "consigneePartnerId",
                   "transporterPartnerId": "transporterPartnerId",
                   "vehiclePlate": "vehiclePlate",
@@ -426,8 +426,8 @@ import Api
                   "valueEur": "valueEur",
                   "saleInvoiceId": "saleInvoiceId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -448,14 +448,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1TransportWaybillsIssueResponse(
+        let expectedResponse = WaybillsIssueTransportResponse(
             id: "id",
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
-            dispatchAt: "dispatchAt",
-            estimatedArrivalAt: Nullable<String>.value("estimatedArrivalAt"),
+            documentDate: CalendarDate("2026-07-01")!,
+            dispatchAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            estimatedArrivalAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             consigneePartnerId: "consigneePartnerId",
             transporterPartnerId: Nullable<String>.value("transporterPartnerId"),
             vehiclePlate: Nullable<String>.value("vehiclePlate"),
@@ -468,10 +468,10 @@ import Api
             valueEur: Nullable<String>.value("valueEur"),
             saleInvoiceId: Nullable<String>.value("saleInvoiceId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1TransportWaybillsIssueResponseLinesItem(
+                WaybillsIssueTransportResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -482,14 +482,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.transport.postV1TransportWaybillsIssue(
+        let response = try await client.transport.waybillsIssue(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1TransportWaybillsIssue2() async throws -> Void {
+    @Test func waybillsIssue2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -499,9 +499,9 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
-                  "dispatchAt": "dispatchAt",
-                  "estimatedArrivalAt": "estimatedArrivalAt",
+                  "documentDate": "2023-01-15",
+                  "dispatchAt": "2024-01-15T09:30:00Z",
+                  "estimatedArrivalAt": "2024-01-15T09:30:00Z",
                   "consigneePartnerId": "x",
                   "transporterPartnerId": "x",
                   "vehiclePlate": "vehiclePlate",
@@ -514,8 +514,8 @@ import Api
                   "valueEur": "valueEur",
                   "saleInvoiceId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -545,14 +545,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1TransportWaybillsIssueResponse(
+        let expectedResponse = WaybillsIssueTransportResponse(
             id: "x",
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
-            dispatchAt: "dispatchAt",
-            estimatedArrivalAt: Nullable<String>.value("estimatedArrivalAt"),
+            documentDate: CalendarDate("2023-01-15")!,
+            dispatchAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            estimatedArrivalAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             consigneePartnerId: "x",
             transporterPartnerId: Nullable<String>.value("x"),
             vehiclePlate: Nullable<String>.value("vehiclePlate"),
@@ -565,10 +565,10 @@ import Api
             valueEur: Nullable<String>.value("valueEur"),
             saleInvoiceId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1TransportWaybillsIssueResponseLinesItem(
+                WaybillsIssueTransportResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -577,7 +577,7 @@ import Api
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 ),
-                PostV1TransportWaybillsIssueResponseLinesItem(
+                WaybillsIssueTransportResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -588,14 +588,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.transport.postV1TransportWaybillsIssue(
+        let response = try await client.transport.waybillsIssue(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1TransportWaybillsCancel1() async throws -> Void {
+    @Test func waybillsCancel1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -605,9 +605,9 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
-                  "dispatchAt": "dispatchAt",
-                  "estimatedArrivalAt": "estimatedArrivalAt",
+                  "documentDate": "2026-07-01",
+                  "dispatchAt": "2026-07-01T09:30:00Z",
+                  "estimatedArrivalAt": "2026-07-01T09:30:00Z",
                   "consigneePartnerId": "consigneePartnerId",
                   "transporterPartnerId": "transporterPartnerId",
                   "vehiclePlate": "vehiclePlate",
@@ -620,8 +620,8 @@ import Api
                   "valueEur": "valueEur",
                   "saleInvoiceId": "saleInvoiceId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -631,14 +631,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1TransportWaybillsCancelResponse(
+        let expectedResponse = WaybillsCancelTransportResponse(
             id: "id",
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
-            dispatchAt: "dispatchAt",
-            estimatedArrivalAt: Nullable<String>.value("estimatedArrivalAt"),
+            documentDate: CalendarDate("2026-07-01")!,
+            dispatchAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            estimatedArrivalAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             consigneePartnerId: "consigneePartnerId",
             transporterPartnerId: Nullable<String>.value("transporterPartnerId"),
             vehiclePlate: Nullable<String>.value("vehiclePlate"),
@@ -651,17 +651,17 @@ import Api
             valueEur: Nullable<String>.value("valueEur"),
             saleInvoiceId: Nullable<String>.value("saleInvoiceId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.transport.postV1TransportWaybillsCancel(
+        let response = try await client.transport.waybillsCancel(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1TransportWaybillsCancel2() async throws -> Void {
+    @Test func waybillsCancel2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -671,9 +671,9 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
-                  "dispatchAt": "dispatchAt",
-                  "estimatedArrivalAt": "estimatedArrivalAt",
+                  "documentDate": "2023-01-15",
+                  "dispatchAt": "2024-01-15T09:30:00Z",
+                  "estimatedArrivalAt": "2024-01-15T09:30:00Z",
                   "consigneePartnerId": "x",
                   "transporterPartnerId": "x",
                   "vehiclePlate": "vehiclePlate",
@@ -686,8 +686,8 @@ import Api
                   "valueEur": "valueEur",
                   "saleInvoiceId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -697,14 +697,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1TransportWaybillsCancelResponse(
+        let expectedResponse = WaybillsCancelTransportResponse(
             id: "x",
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
-            dispatchAt: "dispatchAt",
-            estimatedArrivalAt: Nullable<String>.value("estimatedArrivalAt"),
+            documentDate: CalendarDate("2023-01-15")!,
+            dispatchAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            estimatedArrivalAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             consigneePartnerId: "x",
             transporterPartnerId: Nullable<String>.value("x"),
             vehiclePlate: Nullable<String>.value("vehiclePlate"),
@@ -717,17 +717,17 @@ import Api
             valueEur: Nullable<String>.value("valueEur"),
             saleInvoiceId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.transport.postV1TransportWaybillsCancel(
+        let response = try await client.transport.waybillsCancel(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1TransportWaybillsGet1() async throws -> Void {
+    @Test func waybillsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -737,9 +737,9 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
-                  "dispatchAt": "dispatchAt",
-                  "estimatedArrivalAt": "estimatedArrivalAt",
+                  "documentDate": "2026-07-01",
+                  "dispatchAt": "2026-07-01T09:30:00Z",
+                  "estimatedArrivalAt": "2026-07-01T09:30:00Z",
                   "consigneePartnerId": "consigneePartnerId",
                   "transporterPartnerId": "transporterPartnerId",
                   "vehiclePlate": "vehiclePlate",
@@ -752,8 +752,8 @@ import Api
                   "valueEur": "valueEur",
                   "saleInvoiceId": "saleInvoiceId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -774,14 +774,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1TransportWaybillsGetResponse(
+        let expectedResponse = WaybillsGetTransportResponse(
             id: "id",
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
-            dispatchAt: "dispatchAt",
-            estimatedArrivalAt: Nullable<String>.value("estimatedArrivalAt"),
+            documentDate: CalendarDate("2026-07-01")!,
+            dispatchAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            estimatedArrivalAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             consigneePartnerId: "consigneePartnerId",
             transporterPartnerId: Nullable<String>.value("transporterPartnerId"),
             vehiclePlate: Nullable<String>.value("vehiclePlate"),
@@ -794,10 +794,10 @@ import Api
             valueEur: Nullable<String>.value("valueEur"),
             saleInvoiceId: Nullable<String>.value("saleInvoiceId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1TransportWaybillsGetResponseLinesItem(
+                WaybillsGetTransportResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -808,14 +808,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.transport.postV1TransportWaybillsGet(
+        let response = try await client.transport.waybillsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1TransportWaybillsGet2() async throws -> Void {
+    @Test func waybillsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -825,9 +825,9 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
-                  "dispatchAt": "dispatchAt",
-                  "estimatedArrivalAt": "estimatedArrivalAt",
+                  "documentDate": "2023-01-15",
+                  "dispatchAt": "2024-01-15T09:30:00Z",
+                  "estimatedArrivalAt": "2024-01-15T09:30:00Z",
                   "consigneePartnerId": "x",
                   "transporterPartnerId": "x",
                   "vehiclePlate": "vehiclePlate",
@@ -840,8 +840,8 @@ import Api
                   "valueEur": "valueEur",
                   "saleInvoiceId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -871,14 +871,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1TransportWaybillsGetResponse(
+        let expectedResponse = WaybillsGetTransportResponse(
             id: "x",
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
-            dispatchAt: "dispatchAt",
-            estimatedArrivalAt: Nullable<String>.value("estimatedArrivalAt"),
+            documentDate: CalendarDate("2023-01-15")!,
+            dispatchAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            estimatedArrivalAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             consigneePartnerId: "x",
             transporterPartnerId: Nullable<String>.value("x"),
             vehiclePlate: Nullable<String>.value("vehiclePlate"),
@@ -891,10 +891,10 @@ import Api
             valueEur: Nullable<String>.value("valueEur"),
             saleInvoiceId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1TransportWaybillsGetResponseLinesItem(
+                WaybillsGetTransportResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -903,7 +903,7 @@ import Api
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 ),
-                PostV1TransportWaybillsGetResponseLinesItem(
+                WaybillsGetTransportResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -914,14 +914,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.transport.postV1TransportWaybillsGet(
+        let response = try await client.transport.waybillsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1TransportWaybillsList1() async throws -> Void {
+    @Test func waybillsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -933,9 +933,9 @@ import Api
                       "status": "draft",
                       "series": "series",
                       "fullNumber": "fullNumber",
-                      "documentDate": "documentDate",
-                      "dispatchAt": "dispatchAt",
-                      "estimatedArrivalAt": "estimatedArrivalAt",
+                      "documentDate": "2026-07-01",
+                      "dispatchAt": "2026-07-01T09:30:00Z",
+                      "estimatedArrivalAt": "2026-07-01T09:30:00Z",
                       "consigneePartnerId": "consigneePartnerId",
                       "transporterPartnerId": "transporterPartnerId",
                       "vehiclePlate": "vehiclePlate",
@@ -948,8 +948,9 @@ import Api
                       "valueEur": "valueEur",
                       "saleInvoiceId": "saleInvoiceId",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z",
+                      "consigneeName": "consigneeName"
                     }
                   ],
                   "page": 1000000,
@@ -967,16 +968,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1TransportWaybillsListResponse(
+        let expectedResponse = WaybillsListTransportResponse(
             rows: [
-                PostV1TransportWaybillsListResponseRowsItem(
+                WaybillsListTransportResponseRowsItem(
                     id: "id",
                     status: .draft,
                     series: "series",
                     fullNumber: Nullable<String>.value("fullNumber"),
-                    documentDate: "documentDate",
-                    dispatchAt: "dispatchAt",
-                    estimatedArrivalAt: Nullable<String>.value("estimatedArrivalAt"),
+                    documentDate: CalendarDate("2026-07-01")!,
+                    dispatchAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    estimatedArrivalAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     consigneePartnerId: "consigneePartnerId",
                     transporterPartnerId: Nullable<String>.value("transporterPartnerId"),
                     vehiclePlate: Nullable<String>.value("vehiclePlate"),
@@ -989,8 +990,9 @@ import Api
                     valueEur: Nullable<String>.value("valueEur"),
                     saleInvoiceId: Nullable<String>.value("saleInvoiceId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    consigneeName: Nullable<String>.value("consigneeName")
                 )
             ],
             page: 1000000,
@@ -1000,14 +1002,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.transport.postV1TransportWaybillsList(
+        let response = try await client.transport.waybillsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1TransportWaybillsList2() async throws -> Void {
+    @Test func waybillsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1019,9 +1021,9 @@ import Api
                       "status": "draft",
                       "series": "series",
                       "fullNumber": "fullNumber",
-                      "documentDate": "documentDate",
-                      "dispatchAt": "dispatchAt",
-                      "estimatedArrivalAt": "estimatedArrivalAt",
+                      "documentDate": "2023-01-15",
+                      "dispatchAt": "2024-01-15T09:30:00Z",
+                      "estimatedArrivalAt": "2024-01-15T09:30:00Z",
                       "consigneePartnerId": "x",
                       "transporterPartnerId": "x",
                       "vehiclePlate": "vehiclePlate",
@@ -1034,17 +1036,18 @@ import Api
                       "valueEur": "valueEur",
                       "saleInvoiceId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z",
+                      "consigneeName": "consigneeName"
                     },
                     {
                       "id": "x",
                       "status": "draft",
                       "series": "series",
                       "fullNumber": "fullNumber",
-                      "documentDate": "documentDate",
-                      "dispatchAt": "dispatchAt",
-                      "estimatedArrivalAt": "estimatedArrivalAt",
+                      "documentDate": "2023-01-15",
+                      "dispatchAt": "2024-01-15T09:30:00Z",
+                      "estimatedArrivalAt": "2024-01-15T09:30:00Z",
                       "consigneePartnerId": "x",
                       "transporterPartnerId": "x",
                       "vehiclePlate": "vehiclePlate",
@@ -1057,8 +1060,9 @@ import Api
                       "valueEur": "valueEur",
                       "saleInvoiceId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z",
+                      "consigneeName": "consigneeName"
                     }
                   ],
                   "page": 1000000,
@@ -1076,16 +1080,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1TransportWaybillsListResponse(
+        let expectedResponse = WaybillsListTransportResponse(
             rows: [
-                PostV1TransportWaybillsListResponseRowsItem(
+                WaybillsListTransportResponseRowsItem(
                     id: "x",
                     status: .draft,
                     series: "series",
                     fullNumber: Nullable<String>.value("fullNumber"),
-                    documentDate: "documentDate",
-                    dispatchAt: "dispatchAt",
-                    estimatedArrivalAt: Nullable<String>.value("estimatedArrivalAt"),
+                    documentDate: CalendarDate("2023-01-15")!,
+                    dispatchAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    estimatedArrivalAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     consigneePartnerId: "x",
                     transporterPartnerId: Nullable<String>.value("x"),
                     vehiclePlate: Nullable<String>.value("vehiclePlate"),
@@ -1098,17 +1102,18 @@ import Api
                     valueEur: Nullable<String>.value("valueEur"),
                     saleInvoiceId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    consigneeName: Nullable<String>.value("consigneeName")
                 ),
-                PostV1TransportWaybillsListResponseRowsItem(
+                WaybillsListTransportResponseRowsItem(
                     id: "x",
                     status: .draft,
                     series: "series",
                     fullNumber: Nullable<String>.value("fullNumber"),
-                    documentDate: "documentDate",
-                    dispatchAt: "dispatchAt",
-                    estimatedArrivalAt: Nullable<String>.value("estimatedArrivalAt"),
+                    documentDate: CalendarDate("2023-01-15")!,
+                    dispatchAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    estimatedArrivalAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     consigneePartnerId: "x",
                     transporterPartnerId: Nullable<String>.value("x"),
                     vehiclePlate: Nullable<String>.value("vehiclePlate"),
@@ -1121,8 +1126,9 @@ import Api
                     valueEur: Nullable<String>.value("valueEur"),
                     saleInvoiceId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    consigneeName: Nullable<String>.value("consigneeName")
                 )
             ],
             page: 1000000,
@@ -1132,7 +1138,7 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.transport.postV1TransportWaybillsList(
+        let response = try await client.transport.waybillsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

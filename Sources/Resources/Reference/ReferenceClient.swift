@@ -7,259 +7,259 @@ public final class ReferenceClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1ReferenceExchangeRatesSync(request: Requests.PostV1ReferenceExchangeRatesSyncRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceExchangeRatesSyncResponse {
+    public func exchangeRatesSync(request: Requests.ExchangeRatesSyncReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> ExchangeRatesSyncReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/exchange-rates/sync",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceExchangeRatesSyncResponse.self
+            responseType: ExchangeRatesSyncReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceExchangeRatesList(request: Requests.PostV1ReferenceExchangeRatesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceExchangeRatesListResponse {
+    public func exchangeRatesList(request: Requests.ExchangeRatesListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> ExchangeRatesListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/exchange-rates/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceExchangeRatesListResponse.self
+            responseType: ExchangeRatesListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceExchangeRatesSet(request: Requests.PostV1ReferenceExchangeRatesSetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceExchangeRatesSetResponse {
+    public func exchangeRatesSet(request: Requests.ExchangeRatesSetReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> ExchangeRatesSetReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/exchange-rates/set",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceExchangeRatesSetResponse.self
+            responseType: ExchangeRatesSetReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceExchangeRatesOverridesList(request: Requests.PostV1ReferenceExchangeRatesOverridesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceExchangeRatesOverridesListResponse {
+    public func exchangeRatesOverridesList(request: Requests.ExchangeRatesOverridesListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> ExchangeRatesOverridesListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/exchange-rates/overrides/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceExchangeRatesOverridesListResponse.self
+            responseType: ExchangeRatesOverridesListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceExchangeRatesOverridesDelete(request: Requests.PostV1ReferenceExchangeRatesOverridesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceExchangeRatesOverridesDeleteResponse {
+    public func exchangeRatesOverridesDelete(request: Requests.ExchangeRatesOverridesDeleteReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> ExchangeRatesOverridesDeleteReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/exchange-rates/overrides/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceExchangeRatesOverridesDeleteResponse.self
+            responseType: ExchangeRatesOverridesDeleteReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceCountriesList(request: Requests.PostV1ReferenceCountriesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceCountriesListResponse {
+    public func countriesList(request: Requests.CountriesListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> CountriesListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/countries/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceCountriesListResponse.self
+            responseType: CountriesListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceLtCountiesList(request: Requests.PostV1ReferenceLtCountiesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceLtCountiesListResponse {
+    public func ltCountiesList(request: Requests.LtCountiesListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> LtCountiesListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/lt/counties/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceLtCountiesListResponse.self
+            responseType: LtCountiesListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceLtMunicipalitiesList(request: Requests.PostV1ReferenceLtMunicipalitiesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceLtMunicipalitiesListResponse {
+    public func ltMunicipalitiesList(request: Requests.LtMunicipalitiesListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> LtMunicipalitiesListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/lt/municipalities/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceLtMunicipalitiesListResponse.self
+            responseType: LtMunicipalitiesListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceLtCitiesList(request: Requests.PostV1ReferenceLtCitiesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceLtCitiesListResponse {
+    public func ltCitiesList(request: Requests.LtCitiesListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> LtCitiesListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/lt/cities/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceLtCitiesListResponse.self
+            responseType: LtCitiesListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceBanksList(request: Requests.PostV1ReferenceBanksListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceBanksListResponse {
+    public func banksList(request: Requests.BanksListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> BanksListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/banks/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceBanksListResponse.self
+            responseType: BanksListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceBanksUpsert(request: Requests.PostV1ReferenceBanksUpsertRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceBanksUpsertResponse {
+    public func banksUpsert(request: Requests.BanksUpsertReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> BanksUpsertReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/banks/upsert",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceBanksUpsertResponse.self
+            responseType: BanksUpsertReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceLtRegionsList(request: Requests.PostV1ReferenceLtRegionsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceLtRegionsListResponse {
+    public func ltRegionsList(request: Requests.LtRegionsListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> LtRegionsListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/lt/regions/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceLtRegionsListResponse.self
+            responseType: LtRegionsListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceCurrenciesList(request: Requests.PostV1ReferenceCurrenciesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceCurrenciesListResponse {
+    public func currenciesList(request: Requests.CurrenciesListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> CurrenciesListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/currencies/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceCurrenciesListResponse.self
+            responseType: CurrenciesListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceVatClassifiersList(request: Requests.PostV1ReferenceVatClassifiersListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceVatClassifiersListResponse {
+    public func vatClassifiersList(request: Requests.VatClassifiersListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> VatClassifiersListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/vat-classifiers/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceVatClassifiersListResponse.self
+            responseType: VatClassifiersListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceVatClassifiersUpsert(request: Requests.PostV1ReferenceVatClassifiersUpsertRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceVatClassifiersUpsertResponse {
+    public func vatClassifiersUpsert(request: Requests.VatClassifiersUpsertReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> VatClassifiersUpsertReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/vat-classifiers/upsert",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceVatClassifiersUpsertResponse.self
+            responseType: VatClassifiersUpsertReferenceResponse.self
         )
     }
 
     /// Effective EU VAT rate mapping for this company: EC TEDB defaults, replaced per country by any company overrides. Verify the mapping fits the goods and services you sell before relying on it.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1ReferenceEuVatRatesList(request: Requests.PostV1ReferenceEuVatRatesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceEuVatRatesListResponse {
+    public func euVatRatesList(request: Requests.EuVatRatesListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> EuVatRatesListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/eu-vat-rates/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceEuVatRatesListResponse.self
+            responseType: EuVatRatesListReferenceResponse.self
         )
     }
 
     /// Replace the VAT rate mapping this company uses for one EU country. Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1ReferenceEuVatRatesSetOverrides(request: Requests.PostV1ReferenceEuVatRatesSetOverridesRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceEuVatRatesSetOverridesResponse {
+    public func euVatRatesSetOverrides(request: Requests.EuVatRatesSetOverridesReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> EuVatRatesSetOverridesReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/eu-vat-rates/set-overrides",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceEuVatRatesSetOverridesResponse.self
+            responseType: EuVatRatesSetOverridesReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceVatResolve(request: Requests.PostV1ReferenceVatResolveRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceVatResolveResponse {
+    public func vatResolve(request: Requests.VatResolveReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> VatResolveReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/vat/resolve",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceVatResolveResponse.self
+            responseType: VatResolveReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceCnCodesList(request: Requests.PostV1ReferenceCnCodesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceCnCodesListResponse {
+    public func cnCodesList(request: Requests.CnCodesListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> CnCodesListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/cn-codes/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceCnCodesListResponse.self
+            responseType: CnCodesListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceCnCodesUpsert(request: Requests.PostV1ReferenceCnCodesUpsertRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceCnCodesUpsertResponse {
+    public func cnCodesUpsert(request: Requests.CnCodesUpsertReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> CnCodesUpsertReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/cn-codes/upsert",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceCnCodesUpsertResponse.self
+            responseType: CnCodesUpsertReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceComplianceVersionsList(request: Requests.PostV1ReferenceComplianceVersionsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceComplianceVersionsListResponse {
+    public func complianceVersionsList(request: Requests.ComplianceVersionsListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> ComplianceVersionsListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/compliance-versions/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceComplianceVersionsListResponse.self
+            responseType: ComplianceVersionsListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceIntrastatThresholdsList(request: Requests.PostV1ReferenceIntrastatThresholdsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceIntrastatThresholdsListResponse {
+    public func intrastatThresholdsList(request: Requests.IntrastatThresholdsListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> IntrastatThresholdsListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/intrastat-thresholds/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceIntrastatThresholdsListResponse.self
+            responseType: IntrastatThresholdsListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceUnitsList(request: Requests.PostV1ReferenceUnitsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceUnitsListResponse {
+    public func unitsList(request: Requests.UnitsListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> UnitsListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/units/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceUnitsListResponse.self
+            responseType: UnitsListReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceSeriesCreate(request: Requests.PostV1ReferenceSeriesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceSeriesCreateResponse {
+    public func seriesCreate(request: Requests.SeriesCreateReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> SeriesCreateReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/series/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceSeriesCreateResponse.self
+            responseType: SeriesCreateReferenceResponse.self
         )
     }
 
-    public func postV1ReferenceSeriesList(request: Requests.PostV1ReferenceSeriesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReferenceSeriesListResponse {
+    public func seriesList(request: Requests.SeriesListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> SeriesListReferenceResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reference/series/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReferenceSeriesListResponse.self
+            responseType: SeriesListReferenceResponse.self
         )
     }
 }

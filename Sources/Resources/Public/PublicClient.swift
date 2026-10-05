@@ -7,17 +7,17 @@ public final class PublicClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1PublicIntegrationRequests(request: Requests.PostV1PublicIntegrationRequestsRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PublicIntegrationRequestsResponse {
+    public func integrationRequests(request: Requests.IntegrationRequestsPublicRequest, requestOptions: RequestOptions? = nil) async throws -> IntegrationRequestsPublicResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/public/integration-requests",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PublicIntegrationRequestsResponse.self
+            responseType: IntegrationRequestsPublicResponse.self
         )
     }
 
-    public func getV1PublicPayToken(token: String, requestOptions: RequestOptions? = nil) async throws -> Void {
+    public func pay(token: String, requestOptions: RequestOptions? = nil) async throws -> Void {
         return try await httpClient.performRequest(
             method: .get,
             path: "/v1/public/pay/\(token)",

@@ -7,106 +7,119 @@ public final class AssetsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1AssetsGroupsCreate(request: Requests.PostV1AssetsGroupsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AssetsGroupsCreateResponse {
+    public func groupsCreate(request: Requests.GroupsCreateAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> GroupsCreateAssetsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/assets/groups/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AssetsGroupsCreateResponse.self
+            responseType: GroupsCreateAssetsResponse.self
         )
     }
 
-    public func postV1AssetsGroupsList(request: Requests.PostV1AssetsGroupsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AssetsGroupsListResponse {
+    public func groupsList(request: Requests.GroupsListAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> GroupsListAssetsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/assets/groups/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AssetsGroupsListResponse.self
+            responseType: GroupsListAssetsResponse.self
         )
     }
 
-    public func postV1AssetsAssetsCreate(request: Requests.PostV1AssetsAssetsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AssetsAssetsCreateResponse {
+    public func assetsCreate(request: Requests.AssetsCreateAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> AssetsCreateAssetsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/assets/assets/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AssetsAssetsCreateResponse.self
+            responseType: AssetsCreateAssetsResponse.self
         )
     }
 
-    public func postV1AssetsAssetsUpdate(request: Requests.PostV1AssetsAssetsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AssetsAssetsUpdateResponse {
+    public func assetsUpdate(request: Requests.AssetsUpdateAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> AssetsUpdateAssetsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/assets/assets/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AssetsAssetsUpdateResponse.self
+            responseType: AssetsUpdateAssetsResponse.self
         )
     }
 
     /// Record the input VAT facts of a capital good that the annual VAT return needs for the adjustment of the deduction over the adjustment period (Article 187 of the VAT Directive, § 15a UStG): the input VAT on the acquisition, the date of first use, the share of use for deductible turnover at first use, whether it is land or a building (ten-year period instead of five), and every later year in which the share changed or the good was sold or withdrawn. Allowed also after depreciation has been posted.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1AssetsAssetsInputVat(request: Requests.PostV1AssetsAssetsInputVatRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AssetsAssetsInputVatResponse {
+    public func assetsInputVat(request: Requests.AssetsInputVatAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> AssetsInputVatAssetsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/assets/assets/input-vat",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AssetsAssetsInputVatResponse.self
+            responseType: AssetsInputVatAssetsResponse.self
         )
     }
 
-    public func postV1AssetsAssetsGet(request: Requests.PostV1AssetsAssetsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AssetsAssetsGetResponse {
+    public func assetsGet(request: Requests.AssetsGetAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> AssetsGetAssetsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/assets/assets/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AssetsAssetsGetResponse.self
+            responseType: AssetsGetAssetsResponse.self
         )
     }
 
-    public func postV1AssetsAssetsList(request: Requests.PostV1AssetsAssetsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AssetsAssetsListResponse {
+    public func assetsList(request: Requests.AssetsListAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> AssetsListAssetsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/assets/assets/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AssetsAssetsListResponse.self
+            responseType: AssetsListAssetsResponse.self
         )
     }
 
-    public func postV1AssetsAssetsModernize(request: Requests.PostV1AssetsAssetsModernizeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AssetsAssetsModernizeResponse {
+    public func assetsModernize(request: Requests.AssetsModernizeAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> AssetsModernizeAssetsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/assets/assets/modernize",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AssetsAssetsModernizeResponse.self
+            responseType: AssetsModernizeAssetsResponse.self
         )
     }
 
-    public func postV1AssetsDepreciationPreview(request: Requests.PostV1AssetsDepreciationPreviewRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AssetsDepreciationPreviewResponse {
+    /// Dispose of a fixed asset (sold, scrapped or written off). Removes its cost and accumulated depreciation, books the net book value as a disposal loss and the proceeds as a disposal gain (posting rules assets.disposalLoss, assets.disposalGain, assets.disposalProceeds), and stops its depreciation. Depreciation must be posted for every month before the disposal month.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func assetsDispose(request: Requests.AssetsDisposeAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> AssetsDisposeAssetsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/assets/assets/dispose",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: AssetsDisposeAssetsResponse.self
+        )
+    }
+
+    public func depreciationPreview(request: Requests.DepreciationPreviewAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> DepreciationPreviewAssetsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/assets/depreciation/preview",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AssetsDepreciationPreviewResponse.self
+            responseType: DepreciationPreviewAssetsResponse.self
         )
     }
 
-    public func postV1AssetsDepreciationPost(request: Requests.PostV1AssetsDepreciationPostRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AssetsDepreciationPostResponse {
+    public func depreciationPost(request: Requests.DepreciationPostAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> DepreciationPostAssetsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/assets/depreciation/post",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AssetsDepreciationPostResponse.self
+            responseType: DepreciationPostAssetsResponse.self
         )
     }
 }

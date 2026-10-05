@@ -7,312 +7,312 @@ public final class ReportsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1ReportsTrialBalance(request: Requests.PostV1ReportsTrialBalanceRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsTrialBalanceResponse {
+    public func trialBalance(request: Requests.TrialBalanceReportsRequest, requestOptions: RequestOptions? = nil) async throws -> TrialBalanceReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/trial-balance",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsTrialBalanceResponse.self
+            responseType: TrialBalanceReportsResponse.self
         )
     }
 
-    public func postV1ReportsSizeCategory(request: Requests.PostV1ReportsSizeCategoryRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsSizeCategoryResponse {
+    public func sizeCategory(request: Requests.SizeCategoryReportsRequest, requestOptions: RequestOptions? = nil) async throws -> SizeCategoryReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/size-category",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsSizeCategoryResponse.self
+            responseType: SizeCategoryReportsResponse.self
         )
     }
 
-    public func postV1ReportsFinancialStatements(request: Requests.PostV1ReportsFinancialStatementsRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsFinancialStatementsResponse {
+    public func financialStatements(request: Requests.FinancialStatementsReportsRequest, requestOptions: RequestOptions? = nil) async throws -> FinancialStatementsReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/financial-statements",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsFinancialStatementsResponse.self
+            responseType: FinancialStatementsReportsResponse.self
         )
     }
 
-    public func postV1ReportsGeneralJournal(request: Requests.PostV1ReportsGeneralJournalRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsGeneralJournalResponse {
+    public func generalJournal(request: Requests.GeneralJournalReportsRequest, requestOptions: RequestOptions? = nil) async throws -> GeneralJournalReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/general-journal",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsGeneralJournalResponse.self
+            responseType: GeneralJournalReportsResponse.self
         )
     }
 
-    public func postV1ReportsGlDetail(request: Requests.PostV1ReportsGlDetailRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsGlDetailResponse {
+    public func glDetail(request: Requests.GlDetailReportsRequest, requestOptions: RequestOptions? = nil) async throws -> GlDetailReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/gl-detail",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsGlDetailResponse.self
+            responseType: GlDetailReportsResponse.self
         )
     }
 
-    public func postV1ReportsPartnerBalances(request: Requests.PostV1ReportsPartnerBalancesRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsPartnerBalancesResponse {
+    public func partnerBalances(request: Requests.PartnerBalancesReportsRequest, requestOptions: RequestOptions? = nil) async throws -> PartnerBalancesReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/partner-balances",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsPartnerBalancesResponse.self
+            responseType: PartnerBalancesReportsResponse.self
         )
     }
 
-    public func postV1ReportsDebtAging(request: Requests.PostV1ReportsDebtAgingRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsDebtAgingResponse {
+    public func debtAging(request: Requests.DebtAgingReportsRequest, requestOptions: RequestOptions? = nil) async throws -> DebtAgingReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/debt-aging",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsDebtAgingResponse.self
+            responseType: DebtAgingReportsResponse.self
         )
     }
 
-    public func postV1ReportsMonthlySummary(request: Requests.PostV1ReportsMonthlySummaryRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsMonthlySummaryResponse {
+    public func monthlySummary(request: Requests.MonthlySummaryReportsRequest, requestOptions: RequestOptions? = nil) async throws -> MonthlySummaryReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/monthly-summary",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsMonthlySummaryResponse.self
+            responseType: MonthlySummaryReportsResponse.self
         )
     }
 
-    public func postV1ReportsStockBalance(request: Requests.PostV1ReportsStockBalanceRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsStockBalanceResponse {
+    public func stockBalance(request: Requests.StockBalanceReportsRequest, requestOptions: RequestOptions? = nil) async throws -> StockBalanceReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/stock-balance",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsStockBalanceResponse.self
+            responseType: StockBalanceReportsResponse.self
         )
     }
 
-    public func postV1ReportsStockMovement(request: Requests.PostV1ReportsStockMovementRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsStockMovementResponse {
+    public func stockMovement(request: Requests.StockMovementReportsRequest, requestOptions: RequestOptions? = nil) async throws -> StockMovementReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/stock-movement",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsStockMovementResponse.self
+            responseType: StockMovementReportsResponse.self
         )
     }
 
-    public func postV1ReportsVatSummary(request: Requests.PostV1ReportsVatSummaryRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsVatSummaryResponse {
+    public func vatSummary(request: Requests.VatSummaryReportsRequest, requestOptions: RequestOptions? = nil) async throws -> VatSummaryReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/vat-summary",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsVatSummaryResponse.self
+            responseType: VatSummaryReportsResponse.self
         )
     }
 
-    public func postV1ReportsCashFlow(request: Requests.PostV1ReportsCashFlowRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsCashFlowResponse {
+    public func cashFlow(request: Requests.CashFlowReportsRequest, requestOptions: RequestOptions? = nil) async throws -> CashFlowReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/cash-flow",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsCashFlowResponse.self
+            responseType: CashFlowReportsResponse.self
         )
     }
 
-    public func postV1ReportsStockAging(request: Requests.PostV1ReportsStockAgingRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsStockAgingResponse {
+    public func stockAging(request: Requests.StockAgingReportsRequest, requestOptions: RequestOptions? = nil) async throws -> StockAgingReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/stock-aging",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsStockAgingResponse.self
+            responseType: StockAgingReportsResponse.self
         )
     }
 
-    public func postV1ReportsStockShortage(request: Requests.PostV1ReportsStockShortageRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsStockShortageResponse {
+    public func stockShortage(request: Requests.StockShortageReportsRequest, requestOptions: RequestOptions? = nil) async throws -> StockShortageReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/stock-shortage",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsStockShortageResponse.self
+            responseType: StockShortageReportsResponse.self
         )
     }
 
     /// Export the ledger of one financial year as an SIE file (the Swedish standard accounting interchange format, specification 4B). The file carries the chart of accounts, the opening and closing balance of every balance sheet account and the turnover of every result account for the year and the year before it, and, when asked for, every posted voucher of the year with its lines. Cost centres travel as dimension 1 and projects as dimension 6. Services that build a Swedish annual report read this file.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1ReportsSie(request: Requests.PostV1ReportsSieRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsSieResponse {
+    public func sie(request: Requests.SieReportsRequest, requestOptions: RequestOptions? = nil) async throws -> SieReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/sie",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsSieResponse.self
+            responseType: SieReportsResponse.self
         )
     }
 
     /// Export the posted ledger of a period as a DATEV Buchungsstapel file (DATEV format, category 21, version 700). Every transaction becomes one or more bookings of an amount between an account and a contra account; a transaction with more than two lines is split into pairs whose totals match it. The file is semicolon separated and written in the Windows-1252 character set DATEV expects.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1ReportsDatev(request: Requests.PostV1ReportsDatevRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsDatevResponse {
+    public func datev(request: Requests.DatevReportsRequest, requestOptions: RequestOptions? = nil) async throws -> DatevReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/datev",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsDatevResponse.self
+            responseType: DatevReportsResponse.self
         )
     }
 
     /// Export the posted ledger of a period as a French FEC file (fichier des écritures comptables, order of 29 July 2013). One line per journal entry line, with the eighteen fields the order names, in their order, after a header line. Tab separated, UTF-8, comma as the decimal separator.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1ReportsFec(request: Requests.PostV1ReportsFecRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsFecResponse {
+    public func fec(request: Requests.FecReportsRequest, requestOptions: RequestOptions? = nil) async throws -> FecReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/fec",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsFecResponse.self
+            responseType: FecReportsResponse.self
         )
     }
 
-    public func postV1ReportsEuPurchases(request: Requests.PostV1ReportsEuPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsEuPurchasesResponse {
+    public func euPurchases(request: Requests.EuPurchasesReportsRequest, requestOptions: RequestOptions? = nil) async throws -> EuPurchasesReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/eu-purchases",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsEuPurchasesResponse.self
+            responseType: EuPurchasesReportsResponse.self
         )
     }
 
-    public func postV1ReportsVatDetail(request: Requests.PostV1ReportsVatDetailRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsVatDetailResponse {
+    public func vatDetail(request: Requests.VatDetailReportsRequest, requestOptions: RequestOptions? = nil) async throws -> VatDetailReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/vat-detail",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsVatDetailResponse.self
+            responseType: VatDetailReportsResponse.self
         )
     }
 
-    public func postV1ReportsPosSales(request: Requests.PostV1ReportsPosSalesRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsPosSalesResponse {
+    public func posSales(request: Requests.PosSalesReportsRequest, requestOptions: RequestOptions? = nil) async throws -> PosSalesReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/pos-sales",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsPosSalesResponse.self
+            responseType: PosSalesReportsResponse.self
         )
     }
 
-    public func postV1ReportsOnlineSales(request: Requests.PostV1ReportsOnlineSalesRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsOnlineSalesResponse {
+    public func onlineSales(request: Requests.OnlineSalesReportsRequest, requestOptions: RequestOptions? = nil) async throws -> OnlineSalesReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/online-sales",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsOnlineSalesResponse.self
+            responseType: OnlineSalesReportsResponse.self
         )
     }
 
-    public func postV1ReportsOss(request: Requests.PostV1ReportsOssRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsOssResponse {
+    public func oss(request: Requests.OssReportsRequest, requestOptions: RequestOptions? = nil) async throws -> OssReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/oss",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsOssResponse.self
+            responseType: OssReportsResponse.self
         )
     }
 
-    public func postV1ReportsAdvanceReconciliation(request: Requests.PostV1ReportsAdvanceReconciliationRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsAdvanceReconciliationResponse {
+    public func advanceReconciliation(request: Requests.AdvanceReconciliationReportsRequest, requestOptions: RequestOptions? = nil) async throws -> AdvanceReconciliationReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/advance-reconciliation",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsAdvanceReconciliationResponse.self
+            responseType: AdvanceReconciliationReportsResponse.self
         )
     }
 
-    public func postV1ReportsWriteOffActs(request: Requests.PostV1ReportsWriteOffActsRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsWriteOffActsResponse {
+    public func writeOffActs(request: Requests.WriteOffActsReportsRequest, requestOptions: RequestOptions? = nil) async throws -> WriteOffActsReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/write-off-acts",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsWriteOffActsResponse.self
+            responseType: WriteOffActsReportsResponse.self
         )
     }
 
-    public func postV1ReportsCostCenters(request: Requests.PostV1ReportsCostCentersRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsCostCentersResponse {
+    public func costCenters(request: Requests.CostCentersReportsRequest, requestOptions: RequestOptions? = nil) async throws -> CostCentersReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/cost-centers",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsCostCentersResponse.self
+            responseType: CostCentersReportsResponse.self
         )
     }
 
-    public func postV1ReportsCostCenterActivity(request: Requests.PostV1ReportsCostCenterActivityRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsCostCenterActivityResponse {
+    public func costCenterActivity(request: Requests.CostCenterActivityReportsRequest, requestOptions: RequestOptions? = nil) async throws -> CostCenterActivityReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/cost-center-activity",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsCostCenterActivityResponse.self
+            responseType: CostCenterActivityReportsResponse.self
         )
     }
 
-    public func postV1ReportsCostCenterItems(request: Requests.PostV1ReportsCostCenterItemsRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsCostCenterItemsResponse {
+    public func costCenterItems(request: Requests.CostCenterItemsReportsRequest, requestOptions: RequestOptions? = nil) async throws -> CostCenterItemsReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/cost-center-items",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsCostCenterItemsResponse.self
+            responseType: CostCenterItemsReportsResponse.self
         )
     }
 
-    public func postV1ReportsJobsCreate(request: Requests.PostV1ReportsJobsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsJobsCreateResponse {
+    public func jobsCreate(request: Requests.JobsCreateReportsRequest, requestOptions: RequestOptions? = nil) async throws -> JobsCreateReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/jobs/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsJobsCreateResponse.self
+            responseType: JobsCreateReportsResponse.self
         )
     }
 
-    public func postV1ReportsJobsGet(request: Requests.PostV1ReportsJobsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsJobsGetResponse {
+    public func jobsGet(request: Requests.JobsGetReportsRequest, requestOptions: RequestOptions? = nil) async throws -> JobsGetReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/jobs/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsJobsGetResponse.self
+            responseType: JobsGetReportsResponse.self
         )
     }
 
-    public func postV1ReportsJobsList(request: Requests.PostV1ReportsJobsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ReportsJobsListResponse {
+    public func jobsList(request: Requests.JobsListReportsRequest, requestOptions: RequestOptions? = nil) async throws -> JobsListReportsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/reports/jobs/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ReportsJobsListResponse.self
+            responseType: JobsListReportsResponse.self
         )
     }
 }

@@ -7,63 +7,63 @@ public final class BillingClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1BillingAccountGet(request: Requests.PostV1BillingAccountGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BillingAccountGetResponse {
+    public func accountGet(request: Requests.AccountGetBillingRequest, requestOptions: RequestOptions? = nil) async throws -> AccountGetBillingResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/billing/account/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BillingAccountGetResponse.self
+            responseType: AccountGetBillingResponse.self
         )
     }
 
-    public func postV1BillingAccountSetPlan(request: Requests.PostV1BillingAccountSetPlanRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BillingAccountSetPlanResponse {
+    public func accountSetPlan(request: Requests.AccountSetPlanBillingRequest, requestOptions: RequestOptions? = nil) async throws -> AccountSetPlanBillingResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/billing/account/set-plan",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BillingAccountSetPlanResponse.self
+            responseType: AccountSetPlanBillingResponse.self
         )
     }
 
-    public func postV1BillingTopupCreate(request: Requests.PostV1BillingTopupCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BillingTopupCreateResponse {
+    public func topupCreate(request: Requests.TopupCreateBillingRequest, requestOptions: RequestOptions? = nil) async throws -> TopupCreateBillingResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/billing/topup/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BillingTopupCreateResponse.self
+            responseType: TopupCreateBillingResponse.self
         )
     }
 
-    public func postV1BillingPortalCreate(request: Requests.PostV1BillingPortalCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BillingPortalCreateResponse {
+    public func portalCreate(request: Requests.PortalCreateBillingRequest, requestOptions: RequestOptions? = nil) async throws -> PortalCreateBillingResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/billing/portal/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BillingPortalCreateResponse.self
+            responseType: PortalCreateBillingResponse.self
         )
     }
 
-    public func postV1BillingTransactionsList(request: Requests.PostV1BillingTransactionsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BillingTransactionsListResponse {
+    public func transactionsList(request: Requests.TransactionsListBillingRequest, requestOptions: RequestOptions? = nil) async throws -> TransactionsListBillingResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/billing/transactions/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BillingTransactionsListResponse.self
+            responseType: TransactionsListBillingResponse.self
         )
     }
 
-    public func postV1BillingUsageList(request: Requests.PostV1BillingUsageListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BillingUsageListResponse {
+    public func usageList(request: Requests.UsageListBillingRequest, requestOptions: RequestOptions? = nil) async throws -> UsageListBillingResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/billing/usage/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BillingUsageListResponse.self
+            responseType: UsageListBillingResponse.self
         )
     }
 }

@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("SalesClient Wire Tests") struct SalesClientWireTests {
-    @Test func postV1SalesInvoicesCreate1() async throws -> Void {
+    @Test func invoicesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -17,8 +17,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -28,6 +28,8 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2026-07-01",
                   "agreementId": "agreementId",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -47,7 +49,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -56,10 +58,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2026-07-01T09:30:00Z",
+                  "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -79,12 +81,12 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2026-07-01",
+                      "recognitionEndDate": "2026-07-01",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": null,
+                          "expectedDate": "2026-07-01",
                           "percent": "percent"
                         }
                       ],
@@ -94,8 +96,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2026-07-01T09:30:00Z",
+                    "issueDate": "2026-07-01",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -105,7 +107,7 @@ import Api
                       "id": "id",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2026-07-01T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -114,7 +116,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2026-07-01T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -124,7 +126,7 @@ import Api
                       "importId": "importId",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2026-07-01T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -143,7 +145,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesCreateResponse(
+        let expectedResponse = InvoicesCreateSalesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .invoice,
@@ -152,8 +154,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -163,8 +165,10 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             agreementId: Nullable<String>.value("agreementId"),
-            vatScheme: Nullable<PostV1SalesInvoicesCreateResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesCreateSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -182,7 +186,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -191,12 +195,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesCreateResponseLinesItem(
+                InvoicesCreateSalesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -214,12 +218,12 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionMilestones: Nullable<[InvoicesCreateSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesCreateSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: .null,
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                             percent: "percent"
                         )
                     ]),
@@ -228,41 +232,41 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesCreateResponseVatEvidence>.value(PostV1SalesInvoicesCreateResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesCreateResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesCreateSalesResponseVatEvidence>.value(InvoicesCreateSalesResponseVatEvidence(
+                capturedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2026-07-01")!,
+                scheme: InvoicesCreateSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesCreateResponseVatEvidencePartner(
+                partner: InvoicesCreateSalesResponseVatEvidencePartner(
                     id: "id",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesCreateResponseVatEvidenceVies>.value(PostV1SalesInvoicesCreateResponseVatEvidenceVies(
+                vies: Nullable<InvoicesCreateSalesResponseVatEvidenceVies>.value(InvoicesCreateSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesCreateResponseVatEvidenceLocation(
+                location: InvoicesCreateSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesCreateResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesCreateResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesCreateSalesResponseVatEvidenceRateTable>.value(InvoicesCreateSalesResponseVatEvidenceRateTable(
                     importId: "importId",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesCreateResponseVatEvidenceRatesItem(
+                    InvoicesCreateSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: .null
@@ -270,11 +274,11 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesCreate(
+        let response = try await client.sales.invoicesCreate(
             request: .init(
                 partnerId: "partnerId",
                 lines: [
-                    PostV1SalesInvoicesCreateRequestLinesItem(
+                    InvoicesCreateSalesRequestLinesItem(
 
                     )
                 ]
@@ -284,7 +288,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesCreate2() async throws -> Void {
+    @Test func invoicesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -298,8 +302,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -309,6 +313,8 @@ import Api
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2023-01-15",
                   "agreementId": "x",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -328,7 +334,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -337,10 +343,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2024-01-15T09:30:00Z",
+                  "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -360,17 +366,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -396,17 +402,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -416,8 +422,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2024-01-15T09:30:00Z",
+                    "issueDate": "2023-01-15",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -427,7 +433,7 @@ import Api
                       "id": "x",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2024-01-15T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -436,7 +442,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2024-01-15T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -446,7 +452,7 @@ import Api
                       "importId": "x",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2024-01-15T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -470,7 +476,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesCreateResponse(
+        let expectedResponse = InvoicesCreateSalesResponse(
             id: "x",
             partnerId: "x",
             type: .invoice,
@@ -479,8 +485,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -490,8 +496,10 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             agreementId: Nullable<String>.value("x"),
-            vatScheme: Nullable<PostV1SalesInvoicesCreateResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesCreateSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -509,7 +517,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -518,12 +526,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesCreateResponseLinesItem(
+                InvoicesCreateSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -541,17 +549,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesCreateSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesCreateSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesCreateSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -559,7 +567,7 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 ),
-                PostV1SalesInvoicesCreateResponseLinesItem(
+                InvoicesCreateSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -577,17 +585,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesCreateSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesCreateSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesCreateResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesCreateSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -596,46 +604,46 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesCreateResponseVatEvidence>.value(PostV1SalesInvoicesCreateResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesCreateResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesCreateSalesResponseVatEvidence>.value(InvoicesCreateSalesResponseVatEvidence(
+                capturedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2023-01-15")!,
+                scheme: InvoicesCreateSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesCreateResponseVatEvidencePartner(
+                partner: InvoicesCreateSalesResponseVatEvidencePartner(
                     id: "x",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesCreateResponseVatEvidenceVies>.value(PostV1SalesInvoicesCreateResponseVatEvidenceVies(
+                vies: Nullable<InvoicesCreateSalesResponseVatEvidenceVies>.value(InvoicesCreateSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesCreateResponseVatEvidenceLocation(
+                location: InvoicesCreateSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesCreateResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesCreateResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesCreateSalesResponseVatEvidenceRateTable>.value(InvoicesCreateSalesResponseVatEvidenceRateTable(
                     importId: "x",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesCreateResponseVatEvidenceRatesItem(
+                    InvoicesCreateSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
                     ),
-                    PostV1SalesInvoicesCreateResponseVatEvidenceRatesItem(
+                    InvoicesCreateSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
@@ -643,14 +651,14 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesCreate(
+        let response = try await client.sales.invoicesCreate(
             request: .init(
                 partnerId: "x",
                 lines: [
-                    PostV1SalesInvoicesCreateRequestLinesItem(
+                    InvoicesCreateSalesRequestLinesItem(
 
                     ),
-                    PostV1SalesInvoicesCreateRequestLinesItem(
+                    InvoicesCreateSalesRequestLinesItem(
 
                     )
                 ]
@@ -660,7 +668,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesGet1() async throws -> Void {
+    @Test func invoicesGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -674,8 +682,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -685,6 +693,8 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2026-07-01",
                   "agreementId": "agreementId",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -704,7 +714,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -713,10 +723,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2026-07-01T09:30:00Z",
+                  "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -736,12 +746,12 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2026-07-01",
+                      "recognitionEndDate": "2026-07-01",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": null,
+                          "expectedDate": "2026-07-01",
                           "percent": "percent"
                         }
                       ],
@@ -751,8 +761,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2026-07-01T09:30:00Z",
+                    "issueDate": "2026-07-01",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -762,7 +772,7 @@ import Api
                       "id": "id",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2026-07-01T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -771,7 +781,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2026-07-01T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -781,7 +791,7 @@ import Api
                       "importId": "importId",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2026-07-01T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -800,7 +810,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesGetResponse(
+        let expectedResponse = InvoicesGetSalesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .invoice,
@@ -809,8 +819,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -820,8 +830,10 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             agreementId: Nullable<String>.value("agreementId"),
-            vatScheme: Nullable<PostV1SalesInvoicesGetResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesGetSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -839,7 +851,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -848,12 +860,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesGetResponseLinesItem(
+                InvoicesGetSalesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -871,12 +883,12 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionMilestones: Nullable<[InvoicesGetSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesGetSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: .null,
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                             percent: "percent"
                         )
                     ]),
@@ -885,41 +897,41 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesGetResponseVatEvidence>.value(PostV1SalesInvoicesGetResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesGetResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesGetSalesResponseVatEvidence>.value(InvoicesGetSalesResponseVatEvidence(
+                capturedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2026-07-01")!,
+                scheme: InvoicesGetSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesGetResponseVatEvidencePartner(
+                partner: InvoicesGetSalesResponseVatEvidencePartner(
                     id: "id",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesGetResponseVatEvidenceVies>.value(PostV1SalesInvoicesGetResponseVatEvidenceVies(
+                vies: Nullable<InvoicesGetSalesResponseVatEvidenceVies>.value(InvoicesGetSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesGetResponseVatEvidenceLocation(
+                location: InvoicesGetSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesGetResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesGetResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesGetSalesResponseVatEvidenceRateTable>.value(InvoicesGetSalesResponseVatEvidenceRateTable(
                     importId: "importId",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesGetResponseVatEvidenceRatesItem(
+                    InvoicesGetSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: .null
@@ -927,14 +939,14 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesGet(
+        let response = try await client.sales.invoicesGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesGet2() async throws -> Void {
+    @Test func invoicesGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -948,8 +960,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -959,6 +971,8 @@ import Api
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2023-01-15",
                   "agreementId": "x",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -978,7 +992,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -987,10 +1001,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2024-01-15T09:30:00Z",
+                  "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -1010,17 +1024,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -1046,17 +1060,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -1066,8 +1080,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2024-01-15T09:30:00Z",
+                    "issueDate": "2023-01-15",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -1077,7 +1091,7 @@ import Api
                       "id": "x",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2024-01-15T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -1086,7 +1100,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2024-01-15T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -1096,7 +1110,7 @@ import Api
                       "importId": "x",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2024-01-15T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -1120,7 +1134,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesGetResponse(
+        let expectedResponse = InvoicesGetSalesResponse(
             id: "x",
             partnerId: "x",
             type: .invoice,
@@ -1129,8 +1143,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -1140,8 +1154,10 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             agreementId: Nullable<String>.value("x"),
-            vatScheme: Nullable<PostV1SalesInvoicesGetResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesGetSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -1159,7 +1175,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -1168,12 +1184,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesGetResponseLinesItem(
+                InvoicesGetSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -1191,17 +1207,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesGetSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesGetSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesGetSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -1209,7 +1225,7 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 ),
-                PostV1SalesInvoicesGetResponseLinesItem(
+                InvoicesGetSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -1227,17 +1243,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesGetSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesGetSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesGetResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesGetSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -1246,46 +1262,46 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesGetResponseVatEvidence>.value(PostV1SalesInvoicesGetResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesGetResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesGetSalesResponseVatEvidence>.value(InvoicesGetSalesResponseVatEvidence(
+                capturedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2023-01-15")!,
+                scheme: InvoicesGetSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesGetResponseVatEvidencePartner(
+                partner: InvoicesGetSalesResponseVatEvidencePartner(
                     id: "x",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesGetResponseVatEvidenceVies>.value(PostV1SalesInvoicesGetResponseVatEvidenceVies(
+                vies: Nullable<InvoicesGetSalesResponseVatEvidenceVies>.value(InvoicesGetSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesGetResponseVatEvidenceLocation(
+                location: InvoicesGetSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesGetResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesGetResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesGetSalesResponseVatEvidenceRateTable>.value(InvoicesGetSalesResponseVatEvidenceRateTable(
                     importId: "x",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesGetResponseVatEvidenceRatesItem(
+                    InvoicesGetSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
                     ),
-                    PostV1SalesInvoicesGetResponseVatEvidenceRatesItem(
+                    InvoicesGetSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
@@ -1293,14 +1309,14 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesGet(
+        let response = try await client.sales.invoicesGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesPdf1() async throws -> Void {
+    @Test func invoicesPdf1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1318,19 +1334,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesPdfResponse(
+        let expectedResponse = InvoicesPdfSalesResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data"
         )
-        let response = try await client.sales.postV1SalesInvoicesPdf(
+        let response = try await client.sales.invoicesPdf(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesPdf2() async throws -> Void {
+    @Test func invoicesPdf2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1348,19 +1364,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesPdfResponse(
+        let expectedResponse = InvoicesPdfSalesResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data"
         )
-        let response = try await client.sales.postV1SalesInvoicesPdf(
+        let response = try await client.sales.invoicesPdf(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesSend1() async throws -> Void {
+    @Test func invoicesSend1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1377,18 +1393,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesSendResponse(
+        let expectedResponse = InvoicesSendSalesResponse(
             sent: true,
             to: "to"
         )
-        let response = try await client.sales.postV1SalesInvoicesSend(
+        let response = try await client.sales.invoicesSend(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesSend2() async throws -> Void {
+    @Test func invoicesSend2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1405,18 +1421,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesSendResponse(
+        let expectedResponse = InvoicesSendSalesResponse(
             sent: true,
             to: "to"
         )
-        let response = try await client.sales.postV1SalesInvoicesSend(
+        let response = try await client.sales.invoicesSend(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesPeppolXml1() async throws -> Void {
+    @Test func invoicesPeppolXml1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1436,21 +1452,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesPeppolXmlResponse(
+        let expectedResponse = InvoicesPeppolXmlSalesResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data",
             senderId: "senderId",
             receiverId: "receiverId"
         )
-        let response = try await client.sales.postV1SalesInvoicesPeppolXml(
+        let response = try await client.sales.invoicesPeppolXml(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesPeppolXml2() async throws -> Void {
+    @Test func invoicesPeppolXml2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1470,21 +1486,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesPeppolXmlResponse(
+        let expectedResponse = InvoicesPeppolXmlSalesResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data",
             senderId: "senderId",
             receiverId: "receiverId"
         )
-        let response = try await client.sales.postV1SalesInvoicesPeppolXml(
+        let response = try await client.sales.invoicesPeppolXml(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesPeppolSend1() async throws -> Void {
+    @Test func invoicesPeppolSend1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1503,20 +1519,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesPeppolSendResponse(
+        let expectedResponse = InvoicesPeppolSendSalesResponse(
             sent: true,
             messageId: "messageId",
             receiverId: "receiverId",
             fileId: "fileId"
         )
-        let response = try await client.sales.postV1SalesInvoicesPeppolSend(
+        let response = try await client.sales.invoicesPeppolSend(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesPeppolSend2() async throws -> Void {
+    @Test func invoicesPeppolSend2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1535,20 +1551,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesPeppolSendResponse(
+        let expectedResponse = InvoicesPeppolSendSalesResponse(
             sent: true,
             messageId: "messageId",
             receiverId: "receiverId",
             fileId: "x"
         )
-        let response = try await client.sales.postV1SalesInvoicesPeppolSend(
+        let response = try await client.sales.invoicesPeppolSend(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesEinvoiceXml1() async throws -> Void {
+    @Test func invoicesEinvoiceXml1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1571,7 +1587,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesEinvoiceXmlResponse(
+        let expectedResponse = InvoicesEinvoiceXmlSalesResponse(
             format: "format",
             system: "system",
             fileName: "fileName",
@@ -1581,14 +1597,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.sales.postV1SalesInvoicesEinvoiceXml(
+        let response = try await client.sales.invoicesEinvoiceXml(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesEinvoiceXml2() async throws -> Void {
+    @Test func invoicesEinvoiceXml2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1612,7 +1628,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesEinvoiceXmlResponse(
+        let expectedResponse = InvoicesEinvoiceXmlSalesResponse(
             format: "format",
             system: "system",
             fileName: "fileName",
@@ -1623,14 +1639,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.sales.postV1SalesInvoicesEinvoiceXml(
+        let response = try await client.sales.invoicesEinvoiceXml(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesEinvoiceSend1() async throws -> Void {
+    @Test func invoicesEinvoiceSend1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1657,7 +1673,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesEinvoiceSendResponse(
+        let expectedResponse = InvoicesEinvoiceSendSalesResponse(
             sent: true,
             system: "system",
             format: "format",
@@ -1671,14 +1687,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.sales.postV1SalesInvoicesEinvoiceSend(
+        let response = try await client.sales.invoicesEinvoiceSend(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesEinvoiceSend2() async throws -> Void {
+    @Test func invoicesEinvoiceSend2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1706,7 +1722,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesEinvoiceSendResponse(
+        let expectedResponse = InvoicesEinvoiceSendSalesResponse(
             sent: true,
             system: "system",
             format: "format",
@@ -1721,14 +1737,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.sales.postV1SalesInvoicesEinvoiceSend(
+        let response = try await client.sales.invoicesEinvoiceSend(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesEinvoiceStatus1() async throws -> Void {
+    @Test func invoicesEinvoiceStatus1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1749,7 +1765,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesEinvoiceStatusResponse(
+        let expectedResponse = InvoicesEinvoiceStatusSalesResponse(
             system: "system",
             transport: .bridge,
             messageId: "messageId",
@@ -1757,14 +1773,14 @@ import Api
             status: .sent,
             detail: Nullable<String>.value("detail")
         )
-        let response = try await client.sales.postV1SalesInvoicesEinvoiceStatus(
+        let response = try await client.sales.invoicesEinvoiceStatus(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesEinvoiceStatus2() async throws -> Void {
+    @Test func invoicesEinvoiceStatus2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1785,7 +1801,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesEinvoiceStatusResponse(
+        let expectedResponse = InvoicesEinvoiceStatusSalesResponse(
             system: "system",
             transport: .bridge,
             messageId: "messageId",
@@ -1793,14 +1809,14 @@ import Api
             status: .sent,
             detail: Nullable<String>.value("detail")
         )
-        let response = try await client.sales.postV1SalesInvoicesEinvoiceStatus(
+        let response = try await client.sales.invoicesEinvoiceStatus(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesUpdate1() async throws -> Void {
+    @Test func invoicesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1814,8 +1830,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -1825,6 +1841,8 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2026-07-01",
                   "agreementId": "agreementId",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -1844,7 +1862,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -1853,10 +1871,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2026-07-01T09:30:00Z",
+                  "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -1876,12 +1894,12 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2026-07-01",
+                      "recognitionEndDate": "2026-07-01",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": null,
+                          "expectedDate": "2026-07-01",
                           "percent": "percent"
                         }
                       ],
@@ -1891,8 +1909,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2026-07-01T09:30:00Z",
+                    "issueDate": "2026-07-01",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -1902,7 +1920,7 @@ import Api
                       "id": "id",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2026-07-01T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -1911,7 +1929,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2026-07-01T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -1921,7 +1939,7 @@ import Api
                       "importId": "importId",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2026-07-01T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -1940,7 +1958,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesUpdateResponse(
+        let expectedResponse = InvoicesUpdateSalesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .invoice,
@@ -1949,8 +1967,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -1960,8 +1978,10 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             agreementId: Nullable<String>.value("agreementId"),
-            vatScheme: Nullable<PostV1SalesInvoicesUpdateResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesUpdateSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -1979,7 +1999,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -1988,12 +2008,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesUpdateResponseLinesItem(
+                InvoicesUpdateSalesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -2011,12 +2031,12 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionMilestones: Nullable<[InvoicesUpdateSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesUpdateSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: .null,
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                             percent: "percent"
                         )
                     ]),
@@ -2025,41 +2045,41 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidence>.value(PostV1SalesInvoicesUpdateResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesUpdateResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesUpdateSalesResponseVatEvidence>.value(InvoicesUpdateSalesResponseVatEvidence(
+                capturedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2026-07-01")!,
+                scheme: InvoicesUpdateSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesUpdateResponseVatEvidencePartner(
+                partner: InvoicesUpdateSalesResponseVatEvidencePartner(
                     id: "id",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidenceVies>.value(PostV1SalesInvoicesUpdateResponseVatEvidenceVies(
+                vies: Nullable<InvoicesUpdateSalesResponseVatEvidenceVies>.value(InvoicesUpdateSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesUpdateResponseVatEvidenceLocation(
+                location: InvoicesUpdateSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesUpdateResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesUpdateSalesResponseVatEvidenceRateTable>.value(InvoicesUpdateSalesResponseVatEvidenceRateTable(
                     importId: "importId",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesUpdateResponseVatEvidenceRatesItem(
+                    InvoicesUpdateSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: .null
@@ -2067,14 +2087,14 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesUpdate(
+        let response = try await client.sales.invoicesUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesUpdate2() async throws -> Void {
+    @Test func invoicesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2088,8 +2108,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -2099,6 +2119,8 @@ import Api
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2023-01-15",
                   "agreementId": "x",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -2118,7 +2140,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -2127,10 +2149,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2024-01-15T09:30:00Z",
+                  "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -2150,17 +2172,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -2186,17 +2208,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -2206,8 +2228,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2024-01-15T09:30:00Z",
+                    "issueDate": "2023-01-15",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -2217,7 +2239,7 @@ import Api
                       "id": "x",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2024-01-15T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -2226,7 +2248,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2024-01-15T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -2236,7 +2258,7 @@ import Api
                       "importId": "x",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2024-01-15T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -2260,7 +2282,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesUpdateResponse(
+        let expectedResponse = InvoicesUpdateSalesResponse(
             id: "x",
             partnerId: "x",
             type: .invoice,
@@ -2269,8 +2291,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -2280,8 +2302,10 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             agreementId: Nullable<String>.value("x"),
-            vatScheme: Nullable<PostV1SalesInvoicesUpdateResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesUpdateSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -2299,7 +2323,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -2308,12 +2332,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesUpdateResponseLinesItem(
+                InvoicesUpdateSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -2331,17 +2355,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesUpdateSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesUpdateSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesUpdateSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -2349,7 +2373,7 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 ),
-                PostV1SalesInvoicesUpdateResponseLinesItem(
+                InvoicesUpdateSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -2367,17 +2391,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesUpdateSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesUpdateSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesUpdateSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -2386,46 +2410,46 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidence>.value(PostV1SalesInvoicesUpdateResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesUpdateResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesUpdateSalesResponseVatEvidence>.value(InvoicesUpdateSalesResponseVatEvidence(
+                capturedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2023-01-15")!,
+                scheme: InvoicesUpdateSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesUpdateResponseVatEvidencePartner(
+                partner: InvoicesUpdateSalesResponseVatEvidencePartner(
                     id: "x",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidenceVies>.value(PostV1SalesInvoicesUpdateResponseVatEvidenceVies(
+                vies: Nullable<InvoicesUpdateSalesResponseVatEvidenceVies>.value(InvoicesUpdateSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesUpdateResponseVatEvidenceLocation(
+                location: InvoicesUpdateSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesUpdateResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesUpdateResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesUpdateSalesResponseVatEvidenceRateTable>.value(InvoicesUpdateSalesResponseVatEvidenceRateTable(
                     importId: "x",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesUpdateResponseVatEvidenceRatesItem(
+                    InvoicesUpdateSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
                     ),
-                    PostV1SalesInvoicesUpdateResponseVatEvidenceRatesItem(
+                    InvoicesUpdateSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
@@ -2433,14 +2457,14 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesUpdate(
+        let response = try await client.sales.invoicesUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesDelete1() async throws -> Void {
+    @Test func invoicesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2456,17 +2480,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesDeleteResponse(
+        let expectedResponse = InvoicesDeleteSalesResponse(
             id: "id"
         )
-        let response = try await client.sales.postV1SalesInvoicesDelete(
+        let response = try await client.sales.invoicesDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesDelete2() async throws -> Void {
+    @Test func invoicesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2482,17 +2506,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesDeleteResponse(
+        let expectedResponse = InvoicesDeleteSalesResponse(
             id: "x"
         )
-        let response = try await client.sales.postV1SalesInvoicesDelete(
+        let response = try await client.sales.invoicesDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesIssue1() async throws -> Void {
+    @Test func invoicesIssue1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2506,8 +2530,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -2517,6 +2541,8 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2026-07-01",
                   "agreementId": "agreementId",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -2536,7 +2562,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -2545,10 +2571,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2026-07-01T09:30:00Z",
+                  "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -2568,12 +2594,12 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2026-07-01",
+                      "recognitionEndDate": "2026-07-01",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": null,
+                          "expectedDate": "2026-07-01",
                           "percent": "percent"
                         }
                       ],
@@ -2583,8 +2609,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2026-07-01T09:30:00Z",
+                    "issueDate": "2026-07-01",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -2594,7 +2620,7 @@ import Api
                       "id": "id",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2026-07-01T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -2603,7 +2629,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2026-07-01T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -2613,7 +2639,7 @@ import Api
                       "importId": "importId",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2026-07-01T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -2632,7 +2658,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesIssueResponse(
+        let expectedResponse = InvoicesIssueSalesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .invoice,
@@ -2641,8 +2667,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -2652,8 +2678,10 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             agreementId: Nullable<String>.value("agreementId"),
-            vatScheme: Nullable<PostV1SalesInvoicesIssueResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesIssueSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -2671,7 +2699,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -2680,12 +2708,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesIssueResponseLinesItem(
+                InvoicesIssueSalesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -2703,12 +2731,12 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionMilestones: Nullable<[InvoicesIssueSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesIssueSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: .null,
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                             percent: "percent"
                         )
                     ]),
@@ -2717,41 +2745,41 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesIssueResponseVatEvidence>.value(PostV1SalesInvoicesIssueResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesIssueResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesIssueSalesResponseVatEvidence>.value(InvoicesIssueSalesResponseVatEvidence(
+                capturedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2026-07-01")!,
+                scheme: InvoicesIssueSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesIssueResponseVatEvidencePartner(
+                partner: InvoicesIssueSalesResponseVatEvidencePartner(
                     id: "id",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesIssueResponseVatEvidenceVies>.value(PostV1SalesInvoicesIssueResponseVatEvidenceVies(
+                vies: Nullable<InvoicesIssueSalesResponseVatEvidenceVies>.value(InvoicesIssueSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesIssueResponseVatEvidenceLocation(
+                location: InvoicesIssueSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesIssueResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesIssueResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesIssueSalesResponseVatEvidenceRateTable>.value(InvoicesIssueSalesResponseVatEvidenceRateTable(
                     importId: "importId",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesIssueResponseVatEvidenceRatesItem(
+                    InvoicesIssueSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: .null
@@ -2759,14 +2787,14 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesIssue(
+        let response = try await client.sales.invoicesIssue(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesIssue2() async throws -> Void {
+    @Test func invoicesIssue2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2780,8 +2808,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -2791,6 +2819,8 @@ import Api
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2023-01-15",
                   "agreementId": "x",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -2810,7 +2840,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -2819,10 +2849,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2024-01-15T09:30:00Z",
+                  "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -2842,17 +2872,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -2878,17 +2908,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -2898,8 +2928,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2024-01-15T09:30:00Z",
+                    "issueDate": "2023-01-15",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -2909,7 +2939,7 @@ import Api
                       "id": "x",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2024-01-15T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -2918,7 +2948,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2024-01-15T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -2928,7 +2958,7 @@ import Api
                       "importId": "x",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2024-01-15T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -2952,7 +2982,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesIssueResponse(
+        let expectedResponse = InvoicesIssueSalesResponse(
             id: "x",
             partnerId: "x",
             type: .invoice,
@@ -2961,8 +2991,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -2972,8 +3002,10 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             agreementId: Nullable<String>.value("x"),
-            vatScheme: Nullable<PostV1SalesInvoicesIssueResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesIssueSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -2991,7 +3023,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -3000,12 +3032,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesIssueResponseLinesItem(
+                InvoicesIssueSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -3023,17 +3055,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesIssueSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesIssueSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesIssueSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -3041,7 +3073,7 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 ),
-                PostV1SalesInvoicesIssueResponseLinesItem(
+                InvoicesIssueSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -3059,17 +3091,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesIssueSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesIssueSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesIssueResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesIssueSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -3078,46 +3110,46 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesIssueResponseVatEvidence>.value(PostV1SalesInvoicesIssueResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesIssueResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesIssueSalesResponseVatEvidence>.value(InvoicesIssueSalesResponseVatEvidence(
+                capturedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2023-01-15")!,
+                scheme: InvoicesIssueSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesIssueResponseVatEvidencePartner(
+                partner: InvoicesIssueSalesResponseVatEvidencePartner(
                     id: "x",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesIssueResponseVatEvidenceVies>.value(PostV1SalesInvoicesIssueResponseVatEvidenceVies(
+                vies: Nullable<InvoicesIssueSalesResponseVatEvidenceVies>.value(InvoicesIssueSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesIssueResponseVatEvidenceLocation(
+                location: InvoicesIssueSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesIssueResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesIssueResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesIssueSalesResponseVatEvidenceRateTable>.value(InvoicesIssueSalesResponseVatEvidenceRateTable(
                     importId: "x",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesIssueResponseVatEvidenceRatesItem(
+                    InvoicesIssueSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
                     ),
-                    PostV1SalesInvoicesIssueResponseVatEvidenceRatesItem(
+                    InvoicesIssueSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
@@ -3125,14 +3157,14 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesIssue(
+        let response = try await client.sales.invoicesIssue(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesLock1() async throws -> Void {
+    @Test func invoicesLock1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3146,8 +3178,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -3157,6 +3189,8 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2026-07-01",
                   "agreementId": "agreementId",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -3176,7 +3210,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -3185,10 +3219,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2026-07-01T09:30:00Z",
+                  "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -3208,12 +3242,12 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2026-07-01",
+                      "recognitionEndDate": "2026-07-01",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": null,
+                          "expectedDate": "2026-07-01",
                           "percent": "percent"
                         }
                       ],
@@ -3223,8 +3257,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2026-07-01T09:30:00Z",
+                    "issueDate": "2026-07-01",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -3234,7 +3268,7 @@ import Api
                       "id": "id",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2026-07-01T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -3243,7 +3277,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2026-07-01T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -3253,7 +3287,7 @@ import Api
                       "importId": "importId",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2026-07-01T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -3272,7 +3306,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesLockResponse(
+        let expectedResponse = InvoicesLockSalesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .invoice,
@@ -3281,8 +3315,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -3292,8 +3326,10 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             agreementId: Nullable<String>.value("agreementId"),
-            vatScheme: Nullable<PostV1SalesInvoicesLockResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesLockSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -3311,7 +3347,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -3320,12 +3356,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesLockResponseLinesItem(
+                InvoicesLockSalesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -3343,12 +3379,12 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionMilestones: Nullable<[InvoicesLockSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesLockSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: .null,
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                             percent: "percent"
                         )
                     ]),
@@ -3357,41 +3393,41 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesLockResponseVatEvidence>.value(PostV1SalesInvoicesLockResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesLockResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesLockSalesResponseVatEvidence>.value(InvoicesLockSalesResponseVatEvidence(
+                capturedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2026-07-01")!,
+                scheme: InvoicesLockSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesLockResponseVatEvidencePartner(
+                partner: InvoicesLockSalesResponseVatEvidencePartner(
                     id: "id",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesLockResponseVatEvidenceVies>.value(PostV1SalesInvoicesLockResponseVatEvidenceVies(
+                vies: Nullable<InvoicesLockSalesResponseVatEvidenceVies>.value(InvoicesLockSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesLockResponseVatEvidenceLocation(
+                location: InvoicesLockSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesLockResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesLockResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesLockSalesResponseVatEvidenceRateTable>.value(InvoicesLockSalesResponseVatEvidenceRateTable(
                     importId: "importId",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesLockResponseVatEvidenceRatesItem(
+                    InvoicesLockSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: .null
@@ -3399,14 +3435,14 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesLock(
+        let response = try await client.sales.invoicesLock(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesLock2() async throws -> Void {
+    @Test func invoicesLock2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3420,8 +3456,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -3431,6 +3467,8 @@ import Api
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2023-01-15",
                   "agreementId": "x",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -3450,7 +3488,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -3459,10 +3497,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2024-01-15T09:30:00Z",
+                  "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -3482,17 +3520,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -3518,17 +3556,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -3538,8 +3576,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2024-01-15T09:30:00Z",
+                    "issueDate": "2023-01-15",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -3549,7 +3587,7 @@ import Api
                       "id": "x",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2024-01-15T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -3558,7 +3596,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2024-01-15T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -3568,7 +3606,7 @@ import Api
                       "importId": "x",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2024-01-15T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -3592,7 +3630,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesLockResponse(
+        let expectedResponse = InvoicesLockSalesResponse(
             id: "x",
             partnerId: "x",
             type: .invoice,
@@ -3601,8 +3639,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -3612,8 +3650,10 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             agreementId: Nullable<String>.value("x"),
-            vatScheme: Nullable<PostV1SalesInvoicesLockResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesLockSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -3631,7 +3671,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -3640,12 +3680,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesLockResponseLinesItem(
+                InvoicesLockSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -3663,17 +3703,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesLockSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesLockSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesLockSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -3681,7 +3721,7 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 ),
-                PostV1SalesInvoicesLockResponseLinesItem(
+                InvoicesLockSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -3699,17 +3739,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesLockSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesLockSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesLockResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesLockSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -3718,46 +3758,46 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesLockResponseVatEvidence>.value(PostV1SalesInvoicesLockResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesLockResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesLockSalesResponseVatEvidence>.value(InvoicesLockSalesResponseVatEvidence(
+                capturedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2023-01-15")!,
+                scheme: InvoicesLockSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesLockResponseVatEvidencePartner(
+                partner: InvoicesLockSalesResponseVatEvidencePartner(
                     id: "x",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesLockResponseVatEvidenceVies>.value(PostV1SalesInvoicesLockResponseVatEvidenceVies(
+                vies: Nullable<InvoicesLockSalesResponseVatEvidenceVies>.value(InvoicesLockSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesLockResponseVatEvidenceLocation(
+                location: InvoicesLockSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesLockResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesLockResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesLockSalesResponseVatEvidenceRateTable>.value(InvoicesLockSalesResponseVatEvidenceRateTable(
                     importId: "x",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesLockResponseVatEvidenceRatesItem(
+                    InvoicesLockSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
                     ),
-                    PostV1SalesInvoicesLockResponseVatEvidenceRatesItem(
+                    InvoicesLockSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
@@ -3765,14 +3805,14 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesLock(
+        let response = try await client.sales.invoicesLock(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesUnlock1() async throws -> Void {
+    @Test func invoicesUnlock1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3786,8 +3826,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -3797,6 +3837,8 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2026-07-01",
                   "agreementId": "agreementId",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -3816,7 +3858,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -3825,10 +3867,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2026-07-01T09:30:00Z",
+                  "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -3848,12 +3890,12 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2026-07-01",
+                      "recognitionEndDate": "2026-07-01",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": null,
+                          "expectedDate": "2026-07-01",
                           "percent": "percent"
                         }
                       ],
@@ -3863,8 +3905,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2026-07-01T09:30:00Z",
+                    "issueDate": "2026-07-01",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -3874,7 +3916,7 @@ import Api
                       "id": "id",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2026-07-01T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -3883,7 +3925,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2026-07-01T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -3893,7 +3935,7 @@ import Api
                       "importId": "importId",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2026-07-01T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -3912,7 +3954,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesUnlockResponse(
+        let expectedResponse = InvoicesUnlockSalesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .invoice,
@@ -3921,8 +3963,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -3932,8 +3974,10 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             agreementId: Nullable<String>.value("agreementId"),
-            vatScheme: Nullable<PostV1SalesInvoicesUnlockResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesUnlockSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -3951,7 +3995,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -3960,12 +4004,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesUnlockResponseLinesItem(
+                InvoicesUnlockSalesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -3983,12 +4027,12 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionMilestones: Nullable<[InvoicesUnlockSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesUnlockSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: .null,
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                             percent: "percent"
                         )
                     ]),
@@ -3997,41 +4041,41 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesUnlockResponseVatEvidence>.value(PostV1SalesInvoicesUnlockResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesUnlockResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesUnlockSalesResponseVatEvidence>.value(InvoicesUnlockSalesResponseVatEvidence(
+                capturedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2026-07-01")!,
+                scheme: InvoicesUnlockSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesUnlockResponseVatEvidencePartner(
+                partner: InvoicesUnlockSalesResponseVatEvidencePartner(
                     id: "id",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesUnlockResponseVatEvidenceVies>.value(PostV1SalesInvoicesUnlockResponseVatEvidenceVies(
+                vies: Nullable<InvoicesUnlockSalesResponseVatEvidenceVies>.value(InvoicesUnlockSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesUnlockResponseVatEvidenceLocation(
+                location: InvoicesUnlockSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesUnlockResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesUnlockResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesUnlockSalesResponseVatEvidenceRateTable>.value(InvoicesUnlockSalesResponseVatEvidenceRateTable(
                     importId: "importId",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesUnlockResponseVatEvidenceRatesItem(
+                    InvoicesUnlockSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: .null
@@ -4039,14 +4083,14 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesUnlock(
+        let response = try await client.sales.invoicesUnlock(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesUnlock2() async throws -> Void {
+    @Test func invoicesUnlock2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4060,8 +4104,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -4071,6 +4115,8 @@ import Api
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2023-01-15",
                   "agreementId": "x",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -4090,7 +4136,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -4099,10 +4145,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2024-01-15T09:30:00Z",
+                  "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -4122,17 +4168,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -4158,17 +4204,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -4178,8 +4224,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2024-01-15T09:30:00Z",
+                    "issueDate": "2023-01-15",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -4189,7 +4235,7 @@ import Api
                       "id": "x",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2024-01-15T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -4198,7 +4244,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2024-01-15T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -4208,7 +4254,7 @@ import Api
                       "importId": "x",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2024-01-15T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -4232,7 +4278,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesUnlockResponse(
+        let expectedResponse = InvoicesUnlockSalesResponse(
             id: "x",
             partnerId: "x",
             type: .invoice,
@@ -4241,8 +4287,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -4252,8 +4298,10 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             agreementId: Nullable<String>.value("x"),
-            vatScheme: Nullable<PostV1SalesInvoicesUnlockResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesUnlockSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -4271,7 +4319,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -4280,12 +4328,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesUnlockResponseLinesItem(
+                InvoicesUnlockSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -4303,17 +4351,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesUnlockSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesUnlockSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesUnlockSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -4321,7 +4369,7 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 ),
-                PostV1SalesInvoicesUnlockResponseLinesItem(
+                InvoicesUnlockSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -4339,17 +4387,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesUnlockSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesUnlockSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesUnlockResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesUnlockSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -4358,46 +4406,46 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesUnlockResponseVatEvidence>.value(PostV1SalesInvoicesUnlockResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesUnlockResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesUnlockSalesResponseVatEvidence>.value(InvoicesUnlockSalesResponseVatEvidence(
+                capturedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2023-01-15")!,
+                scheme: InvoicesUnlockSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesUnlockResponseVatEvidencePartner(
+                partner: InvoicesUnlockSalesResponseVatEvidencePartner(
                     id: "x",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesUnlockResponseVatEvidenceVies>.value(PostV1SalesInvoicesUnlockResponseVatEvidenceVies(
+                vies: Nullable<InvoicesUnlockSalesResponseVatEvidenceVies>.value(InvoicesUnlockSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesUnlockResponseVatEvidenceLocation(
+                location: InvoicesUnlockSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesUnlockResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesUnlockResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesUnlockSalesResponseVatEvidenceRateTable>.value(InvoicesUnlockSalesResponseVatEvidenceRateTable(
                     importId: "x",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesUnlockResponseVatEvidenceRatesItem(
+                    InvoicesUnlockSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
                     ),
-                    PostV1SalesInvoicesUnlockResponseVatEvidenceRatesItem(
+                    InvoicesUnlockSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
@@ -4405,14 +4453,14 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesUnlock(
+        let response = try await client.sales.invoicesUnlock(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesPaymentLink1() async throws -> Void {
+    @Test func invoicesPaymentLink1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4429,18 +4477,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesPaymentLinkResponse(
+        let expectedResponse = InvoicesPaymentLinkSalesResponse(
             url: Nullable<String>.value("url"),
-            source: Nullable<PostV1SalesInvoicesPaymentLinkResponseSource>.value(.template)
+            source: Nullable<InvoicesPaymentLinkSalesResponseSource>.value(.template)
         )
-        let response = try await client.sales.postV1SalesInvoicesPaymentLink(
+        let response = try await client.sales.invoicesPaymentLink(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesPaymentLink2() async throws -> Void {
+    @Test func invoicesPaymentLink2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4457,18 +4505,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesPaymentLinkResponse(
+        let expectedResponse = InvoicesPaymentLinkSalesResponse(
             url: Nullable<String>.value("url"),
-            source: Nullable<PostV1SalesInvoicesPaymentLinkResponseSource>.value(.template)
+            source: Nullable<InvoicesPaymentLinkSalesResponseSource>.value(.template)
         )
-        let response = try await client.sales.postV1SalesInvoicesPaymentLink(
+        let response = try await client.sales.invoicesPaymentLink(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesPaymentSettingsGet1() async throws -> Void {
+    @Test func invoicesPaymentSettingsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4484,17 +4532,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesPaymentSettingsGetResponse(
+        let expectedResponse = InvoicesPaymentSettingsGetSalesResponse(
             paymentLinkTemplate: Nullable<String>.value("paymentLinkTemplate")
         )
-        let response = try await client.sales.postV1SalesInvoicesPaymentSettingsGet(
+        let response = try await client.sales.invoicesPaymentSettingsGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesPaymentSettingsGet2() async throws -> Void {
+    @Test func invoicesPaymentSettingsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4510,17 +4558,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesPaymentSettingsGetResponse(
+        let expectedResponse = InvoicesPaymentSettingsGetSalesResponse(
             paymentLinkTemplate: Nullable<String>.value("paymentLinkTemplate")
         )
-        let response = try await client.sales.postV1SalesInvoicesPaymentSettingsGet(
+        let response = try await client.sales.invoicesPaymentSettingsGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesPaymentSettingsUpdate1() async throws -> Void {
+    @Test func invoicesPaymentSettingsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4536,17 +4584,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesPaymentSettingsUpdateResponse(
+        let expectedResponse = InvoicesPaymentSettingsUpdateSalesResponse(
             paymentLinkTemplate: Nullable<String>.value("paymentLinkTemplate")
         )
-        let response = try await client.sales.postV1SalesInvoicesPaymentSettingsUpdate(
+        let response = try await client.sales.invoicesPaymentSettingsUpdate(
             request: .init(paymentLinkTemplate: .null),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesPaymentSettingsUpdate2() async throws -> Void {
+    @Test func invoicesPaymentSettingsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4562,17 +4610,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesPaymentSettingsUpdateResponse(
+        let expectedResponse = InvoicesPaymentSettingsUpdateSalesResponse(
             paymentLinkTemplate: Nullable<String>.value("paymentLinkTemplate")
         )
-        let response = try await client.sales.postV1SalesInvoicesPaymentSettingsUpdate(
+        let response = try await client.sales.invoicesPaymentSettingsUpdate(
             request: .init(paymentLinkTemplate: .null),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRecognitionSchedulesList1() async throws -> Void {
+    @Test func recognitionSchedulesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4585,13 +4633,13 @@ import Api
                       "invoiceLineId": "invoiceLineId",
                       "method": "point_in_time",
                       "status": "pending",
-                      "scheduleDate": "scheduleDate",
+                      "scheduleDate": "2026-07-01",
                       "description": "description",
                       "amount": "amount",
                       "journalTransactionId": "journalTransactionId",
-                      "recognizedAt": "recognizedAt",
+                      "recognizedAt": "2026-07-01T09:30:00Z",
                       "sortOrder": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -4609,21 +4657,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionSchedulesListResponse(
+        let expectedResponse = RecognitionSchedulesListSalesResponse(
             rows: [
-                PostV1SalesRecognitionSchedulesListResponseRowsItem(
+                RecognitionSchedulesListSalesResponseRowsItem(
                     id: "id",
                     invoiceId: "invoiceId",
                     invoiceLineId: "invoiceLineId",
                     method: .pointInTime,
                     status: .pending,
-                    scheduleDate: Nullable<String>.value("scheduleDate"),
+                    scheduleDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     description: Nullable<String>.value("description"),
                     amount: "amount",
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
-                    recognizedAt: Nullable<String>.value("recognizedAt"),
+                    recognizedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     sortOrder: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -4633,14 +4681,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.sales.postV1SalesRecognitionSchedulesList(
+        let response = try await client.sales.recognitionSchedulesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRecognitionSchedulesList2() async throws -> Void {
+    @Test func recognitionSchedulesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4653,13 +4701,13 @@ import Api
                       "invoiceLineId": "x",
                       "method": "point_in_time",
                       "status": "pending",
-                      "scheduleDate": "scheduleDate",
+                      "scheduleDate": "2023-01-15",
                       "description": "description",
                       "amount": "amount",
                       "journalTransactionId": "x",
-                      "recognizedAt": "recognizedAt",
+                      "recognizedAt": "2024-01-15T09:30:00Z",
                       "sortOrder": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -4667,13 +4715,13 @@ import Api
                       "invoiceLineId": "x",
                       "method": "point_in_time",
                       "status": "pending",
-                      "scheduleDate": "scheduleDate",
+                      "scheduleDate": "2023-01-15",
                       "description": "description",
                       "amount": "amount",
                       "journalTransactionId": "x",
-                      "recognizedAt": "recognizedAt",
+                      "recognizedAt": "2024-01-15T09:30:00Z",
                       "sortOrder": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -4691,35 +4739,35 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionSchedulesListResponse(
+        let expectedResponse = RecognitionSchedulesListSalesResponse(
             rows: [
-                PostV1SalesRecognitionSchedulesListResponseRowsItem(
+                RecognitionSchedulesListSalesResponseRowsItem(
                     id: "x",
                     invoiceId: "x",
                     invoiceLineId: "x",
                     method: .pointInTime,
                     status: .pending,
-                    scheduleDate: Nullable<String>.value("scheduleDate"),
+                    scheduleDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     description: Nullable<String>.value("description"),
                     amount: "amount",
                     journalTransactionId: Nullable<String>.value("x"),
-                    recognizedAt: Nullable<String>.value("recognizedAt"),
+                    recognizedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     sortOrder: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1SalesRecognitionSchedulesListResponseRowsItem(
+                RecognitionSchedulesListSalesResponseRowsItem(
                     id: "x",
                     invoiceId: "x",
                     invoiceLineId: "x",
                     method: .pointInTime,
                     status: .pending,
-                    scheduleDate: Nullable<String>.value("scheduleDate"),
+                    scheduleDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     description: Nullable<String>.value("description"),
                     amount: "amount",
                     journalTransactionId: Nullable<String>.value("x"),
-                    recognizedAt: Nullable<String>.value("recognizedAt"),
+                    recognizedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     sortOrder: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -4729,14 +4777,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.sales.postV1SalesRecognitionSchedulesList(
+        let response = try await client.sales.recognitionSchedulesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesApplyAdvance1() async throws -> Void {
+    @Test func invoicesApplyAdvance1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4750,8 +4798,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -4761,6 +4809,8 @@ import Api
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2026-07-01",
                   "agreementId": "agreementId",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -4780,7 +4830,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -4789,10 +4839,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2026-07-01T09:30:00Z",
+                  "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -4812,12 +4862,12 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2026-07-01",
+                      "recognitionEndDate": "2026-07-01",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": null,
+                          "expectedDate": "2026-07-01",
                           "percent": "percent"
                         }
                       ],
@@ -4827,8 +4877,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2026-07-01T09:30:00Z",
+                    "issueDate": "2026-07-01",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -4838,7 +4888,7 @@ import Api
                       "id": "id",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2026-07-01T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -4847,7 +4897,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2026-07-01T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -4857,7 +4907,7 @@ import Api
                       "importId": "importId",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2026-07-01T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -4876,7 +4926,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesApplyAdvanceResponse(
+        let expectedResponse = InvoicesApplyAdvanceSalesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .invoice,
@@ -4885,8 +4935,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -4896,8 +4946,10 @@ import Api
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             agreementId: Nullable<String>.value("agreementId"),
-            vatScheme: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesApplyAdvanceSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -4915,7 +4967,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -4924,12 +4976,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesApplyAdvanceResponseLinesItem(
+                InvoicesApplyAdvanceSalesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -4947,12 +4999,12 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionMilestones: Nullable<[InvoicesApplyAdvanceSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesApplyAdvanceSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: .null,
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                             percent: "percent"
                         )
                     ]),
@@ -4961,41 +5013,41 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidence>.value(PostV1SalesInvoicesApplyAdvanceResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesApplyAdvanceSalesResponseVatEvidence>.value(InvoicesApplyAdvanceSalesResponseVatEvidence(
+                capturedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2026-07-01")!,
+                scheme: InvoicesApplyAdvanceSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesApplyAdvanceResponseVatEvidencePartner(
+                partner: InvoicesApplyAdvanceSalesResponseVatEvidencePartner(
                     id: "id",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceVies>.value(PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceVies(
+                vies: Nullable<InvoicesApplyAdvanceSalesResponseVatEvidenceVies>.value(InvoicesApplyAdvanceSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceLocation(
+                location: InvoicesApplyAdvanceSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesApplyAdvanceSalesResponseVatEvidenceRateTable>.value(InvoicesApplyAdvanceSalesResponseVatEvidenceRateTable(
                     importId: "importId",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRatesItem(
+                    InvoicesApplyAdvanceSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: .null
@@ -5003,7 +5055,7 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesApplyAdvance(
+        let response = try await client.sales.invoicesApplyAdvance(
             request: .init(
                 advanceId: "advanceId",
                 invoiceId: "invoiceId"
@@ -5013,7 +5065,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesApplyAdvance2() async throws -> Void {
+    @Test func invoicesApplyAdvance2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5027,8 +5079,8 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "issueDate": "issueDate",
-                  "dueDate": "dueDate",
+                  "issueDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
                   "currency": "currency",
                   "fxRate": "fxRate",
                   "netTotal": "netTotal",
@@ -5038,6 +5090,8 @@ import Api
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2023-01-15",
                   "agreementId": "x",
                   "vatScheme": "domestic",
                   "intrastatTransportMode": "intrastatTransportMode",
@@ -5057,7 +5111,7 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
-                  "lockedAt": "lockedAt",
+                  "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
                   "einvoiceSystem": "einvoiceSystem",
@@ -5066,10 +5120,10 @@ import Api
                   "einvoiceNumber": "einvoiceNumber",
                   "einvoiceStatus": "einvoiceStatus",
                   "einvoiceDetail": "einvoiceDetail",
-                  "einvoiceSentAt": "einvoiceSentAt",
-                  "einvoiceCheckedAt": "einvoiceCheckedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "einvoiceSentAt": "2024-01-15T09:30:00Z",
+                  "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -5089,17 +5143,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -5125,17 +5179,17 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000,
                       "recognitionMethod": "point_in_time",
-                      "recognitionStartDate": "recognitionStartDate",
-                      "recognitionEndDate": "recognitionEndDate",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
                       "recognitionMilestones": [
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         },
                         {
                           "description": "description",
-                          "expectedDate": "expectedDate",
+                          "expectedDate": "2023-01-15",
                           "percent": "percent"
                         }
                       ],
@@ -5145,8 +5199,8 @@ import Api
                     }
                   ],
                   "vatEvidence": {
-                    "capturedAt": "capturedAt",
-                    "issueDate": "issueDate",
+                    "capturedAt": "2024-01-15T09:30:00Z",
+                    "issueDate": "2023-01-15",
                     "scheme": {
                       "vatScheme": "vatScheme",
                       "vatCountryCode": "vatCountryCode",
@@ -5156,7 +5210,7 @@ import Api
                       "id": "x",
                       "vatCode": "vatCode",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt"
+                      "vatValidatedAt": "2024-01-15T09:30:00Z"
                     },
                     "vies": {
                       "valid": true,
@@ -5165,7 +5219,7 @@ import Api
                       "name": "name",
                       "address": "address",
                       "requestIdentifier": "requestIdentifier",
-                      "checkedAt": "checkedAt"
+                      "checkedAt": "2024-01-15T09:30:00Z"
                     },
                     "location": {
                       "billingCountryCode": "billingCountryCode",
@@ -5175,7 +5229,7 @@ import Api
                       "importId": "x",
                       "situationOn": "situationOn",
                       "trigger": "trigger",
-                      "startedAt": "startedAt"
+                      "startedAt": "2024-01-15T09:30:00Z"
                     },
                     "rates": [
                       {
@@ -5199,7 +5253,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesApplyAdvanceResponse(
+        let expectedResponse = InvoicesApplyAdvanceSalesResponse(
             id: "x",
             partnerId: "x",
             type: .invoice,
@@ -5208,8 +5262,8 @@ import Api
             series: Nullable<String>.value("series"),
             number: Nullable<Int64>.value(1000000),
             fullNumber: Nullable<String>.value("fullNumber"),
-            issueDate: Nullable<String>.value("issueDate"),
-            dueDate: Nullable<String>.value("dueDate"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             fxRate: Nullable<String>.value("fxRate"),
             netTotal: "netTotal",
@@ -5219,8 +5273,10 @@ import Api
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             agreementId: Nullable<String>.value("x"),
-            vatScheme: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatScheme>.value(.domestic),
+            vatScheme: Nullable<InvoicesApplyAdvanceSalesResponseVatScheme>.value(.domestic),
             intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
             intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -5238,7 +5294,7 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
-            lockedAt: Nullable<String>.value("lockedAt"),
+            lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -5247,12 +5303,12 @@ import Api
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
             einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-            einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-            einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesInvoicesApplyAdvanceResponseLinesItem(
+                InvoicesApplyAdvanceSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -5270,17 +5326,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesApplyAdvanceSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesApplyAdvanceSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesApplyAdvanceSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -5288,7 +5344,7 @@ import Api
                     allocatedNet: Nullable<String>.value("allocatedNet"),
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 ),
-                PostV1SalesInvoicesApplyAdvanceResponseLinesItem(
+                InvoicesApplyAdvanceSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -5306,17 +5362,17 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000,
                     recognitionMethod: .pointInTime,
-                    recognitionStartDate: Nullable<String>.value("recognitionStartDate"),
-                    recognitionEndDate: Nullable<String>.value("recognitionEndDate"),
-                    recognitionMilestones: Nullable<[PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem]>.value([
-                        PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem(
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesApplyAdvanceSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesApplyAdvanceSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         ),
-                        PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem(
+                        InvoicesApplyAdvanceSalesResponseLinesItemRecognitionMilestonesItem(
                             description: "description",
-                            expectedDate: Nullable<String>.value("expectedDate"),
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                             percent: "percent"
                         )
                     ]),
@@ -5325,46 +5381,46 @@ import Api
                     refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
                 )
             ],
-            vatEvidence: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidence>.value(PostV1SalesInvoicesApplyAdvanceResponseVatEvidence(
-                capturedAt: "capturedAt",
-                issueDate: "issueDate",
-                scheme: PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceScheme(
+            vatEvidence: Nullable<InvoicesApplyAdvanceSalesResponseVatEvidence>.value(InvoicesApplyAdvanceSalesResponseVatEvidence(
+                capturedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2023-01-15")!,
+                scheme: InvoicesApplyAdvanceSalesResponseVatEvidenceScheme(
                     vatScheme: Nullable<String>.value("vatScheme"),
                     vatCountryCode: Nullable<String>.value("vatCountryCode"),
                     deemedSupplier: true
                 ),
-                partner: PostV1SalesInvoicesApplyAdvanceResponseVatEvidencePartner(
+                partner: InvoicesApplyAdvanceSalesResponseVatEvidencePartner(
                     id: "x",
                     vatCode: Nullable<String>.value("vatCode"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt")
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                vies: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceVies>.value(PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceVies(
+                vies: Nullable<InvoicesApplyAdvanceSalesResponseVatEvidenceVies>.value(InvoicesApplyAdvanceSalesResponseVatEvidenceVies(
                     valid: true,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
                     name: Nullable<String>.value("name"),
                     address: Nullable<String>.value("address"),
                     requestIdentifier: Nullable<String>.value("requestIdentifier"),
-                    checkedAt: "checkedAt"
+                    checkedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
-                location: PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceLocation(
+                location: InvoicesApplyAdvanceSalesResponseVatEvidenceLocation(
                     billingCountryCode: Nullable<String>.value("billingCountryCode"),
                     source: Nullable<String>.value("source")
                 ),
-                rateTable: Nullable<PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRateTable>.value(PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRateTable(
+                rateTable: Nullable<InvoicesApplyAdvanceSalesResponseVatEvidenceRateTable>.value(InvoicesApplyAdvanceSalesResponseVatEvidenceRateTable(
                     importId: "x",
                     situationOn: "situationOn",
                     trigger: "trigger",
-                    startedAt: "startedAt"
+                    startedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )),
                 rates: [
-                    PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRatesItem(
+                    InvoicesApplyAdvanceSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
                     ),
-                    PostV1SalesInvoicesApplyAdvanceResponseVatEvidenceRatesItem(
+                    InvoicesApplyAdvanceSalesResponseVatEvidenceRatesItem(
                         ratePercent: "ratePercent",
                         country: "country",
                         category: Nullable<String>.value("category")
@@ -5372,7 +5428,7 @@ import Api
                 ]
             ))
         )
-        let response = try await client.sales.postV1SalesInvoicesApplyAdvance(
+        let response = try await client.sales.invoicesApplyAdvance(
             request: .init(
                 advanceId: "x",
                 invoiceId: "x"
@@ -5382,7 +5438,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesList1() async throws -> Void {
+    @Test func invoicesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5398,8 +5454,8 @@ import Api
                       "series": "series",
                       "number": 1000000,
                       "fullNumber": "fullNumber",
-                      "issueDate": "issueDate",
-                      "dueDate": "dueDate",
+                      "issueDate": "2026-07-01",
+                      "dueDate": "2026-07-01",
                       "currency": "currency",
                       "fxRate": "fxRate",
                       "netTotal": "netTotal",
@@ -5409,6 +5465,8 @@ import Api
                       "journalTransactionId": "journalTransactionId",
                       "appliedToInvoiceId": "appliedToInvoiceId",
                       "creditedInvoiceId": "creditedInvoiceId",
+                      "creditedInvoiceReference": "creditedInvoiceReference",
+                      "creditedInvoiceDate": "2026-07-01",
                       "agreementId": "agreementId",
                       "vatScheme": "domestic",
                       "intrastatTransportMode": "intrastatTransportMode",
@@ -5428,7 +5486,7 @@ import Api
                       "issuedByTitle": "issuedByTitle",
                       "receivedByName": "receivedByName",
                       "receivedByTitle": "receivedByTitle",
-                      "lockedAt": "lockedAt",
+                      "lockedAt": "2026-07-01T09:30:00Z",
                       "lockedBy": "lockedBy",
                       "payToken": "payToken",
                       "einvoiceSystem": "einvoiceSystem",
@@ -5437,10 +5495,11 @@ import Api
                       "einvoiceNumber": "einvoiceNumber",
                       "einvoiceStatus": "einvoiceStatus",
                       "einvoiceDetail": "einvoiceDetail",
-                      "einvoiceSentAt": "einvoiceSentAt",
-                      "einvoiceCheckedAt": "einvoiceCheckedAt",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "einvoiceSentAt": "2026-07-01T09:30:00Z",
+                      "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z",
+                      "partnerName": "partnerName"
                     }
                   ],
                   "page": 1000000,
@@ -5458,9 +5517,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesListResponse(
+        let expectedResponse = InvoicesListSalesResponse(
             rows: [
-                PostV1SalesInvoicesListResponseRowsItem(
+                InvoicesListSalesResponseRowsItem(
                     id: "id",
                     partnerId: "partnerId",
                     type: .invoice,
@@ -5469,8 +5528,8 @@ import Api
                     series: Nullable<String>.value("series"),
                     number: Nullable<Int64>.value(1000000),
                     fullNumber: Nullable<String>.value("fullNumber"),
-                    issueDate: Nullable<String>.value("issueDate"),
-                    dueDate: Nullable<String>.value("dueDate"),
+                    issueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     currency: "currency",
                     fxRate: Nullable<String>.value("fxRate"),
                     netTotal: "netTotal",
@@ -5480,8 +5539,10 @@ import Api
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
                     appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
                     creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+                    creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+                    creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     agreementId: Nullable<String>.value("agreementId"),
-                    vatScheme: Nullable<PostV1SalesInvoicesListResponseRowsItemVatScheme>.value(.domestic),
+                    vatScheme: Nullable<InvoicesListSalesResponseRowsItemVatScheme>.value(.domestic),
                     intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
                     intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
                     intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -5499,7 +5560,7 @@ import Api
                     issuedByTitle: Nullable<String>.value("issuedByTitle"),
                     receivedByName: Nullable<String>.value("receivedByName"),
                     receivedByTitle: Nullable<String>.value("receivedByTitle"),
-                    lockedAt: Nullable<String>.value("lockedAt"),
+                    lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     lockedBy: Nullable<String>.value("lockedBy"),
                     payToken: Nullable<String>.value("payToken"),
                     einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -5508,10 +5569,11 @@ import Api
                     einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
                     einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
                     einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-                    einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-                    einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    partnerName: Nullable<String>.value("partnerName")
                 )
             ],
             page: 1000000,
@@ -5521,14 +5583,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.sales.postV1SalesInvoicesList(
+        let response = try await client.sales.invoicesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesInvoicesList2() async throws -> Void {
+    @Test func invoicesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5544,8 +5606,8 @@ import Api
                       "series": "series",
                       "number": 1000000,
                       "fullNumber": "fullNumber",
-                      "issueDate": "issueDate",
-                      "dueDate": "dueDate",
+                      "issueDate": "2023-01-15",
+                      "dueDate": "2023-01-15",
                       "currency": "currency",
                       "fxRate": "fxRate",
                       "netTotal": "netTotal",
@@ -5555,6 +5617,8 @@ import Api
                       "journalTransactionId": "x",
                       "appliedToInvoiceId": "x",
                       "creditedInvoiceId": "x",
+                      "creditedInvoiceReference": "creditedInvoiceReference",
+                      "creditedInvoiceDate": "2023-01-15",
                       "agreementId": "x",
                       "vatScheme": "domestic",
                       "intrastatTransportMode": "intrastatTransportMode",
@@ -5574,7 +5638,7 @@ import Api
                       "issuedByTitle": "issuedByTitle",
                       "receivedByName": "receivedByName",
                       "receivedByTitle": "receivedByTitle",
-                      "lockedAt": "lockedAt",
+                      "lockedAt": "2024-01-15T09:30:00Z",
                       "lockedBy": "lockedBy",
                       "payToken": "payToken",
                       "einvoiceSystem": "einvoiceSystem",
@@ -5583,10 +5647,11 @@ import Api
                       "einvoiceNumber": "einvoiceNumber",
                       "einvoiceStatus": "einvoiceStatus",
                       "einvoiceDetail": "einvoiceDetail",
-                      "einvoiceSentAt": "einvoiceSentAt",
-                      "einvoiceCheckedAt": "einvoiceCheckedAt",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "einvoiceSentAt": "2024-01-15T09:30:00Z",
+                      "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z",
+                      "partnerName": "partnerName"
                     },
                     {
                       "id": "x",
@@ -5597,8 +5662,8 @@ import Api
                       "series": "series",
                       "number": 1000000,
                       "fullNumber": "fullNumber",
-                      "issueDate": "issueDate",
-                      "dueDate": "dueDate",
+                      "issueDate": "2023-01-15",
+                      "dueDate": "2023-01-15",
                       "currency": "currency",
                       "fxRate": "fxRate",
                       "netTotal": "netTotal",
@@ -5608,6 +5673,8 @@ import Api
                       "journalTransactionId": "x",
                       "appliedToInvoiceId": "x",
                       "creditedInvoiceId": "x",
+                      "creditedInvoiceReference": "creditedInvoiceReference",
+                      "creditedInvoiceDate": "2023-01-15",
                       "agreementId": "x",
                       "vatScheme": "domestic",
                       "intrastatTransportMode": "intrastatTransportMode",
@@ -5627,7 +5694,7 @@ import Api
                       "issuedByTitle": "issuedByTitle",
                       "receivedByName": "receivedByName",
                       "receivedByTitle": "receivedByTitle",
-                      "lockedAt": "lockedAt",
+                      "lockedAt": "2024-01-15T09:30:00Z",
                       "lockedBy": "lockedBy",
                       "payToken": "payToken",
                       "einvoiceSystem": "einvoiceSystem",
@@ -5636,10 +5703,11 @@ import Api
                       "einvoiceNumber": "einvoiceNumber",
                       "einvoiceStatus": "einvoiceStatus",
                       "einvoiceDetail": "einvoiceDetail",
-                      "einvoiceSentAt": "einvoiceSentAt",
-                      "einvoiceCheckedAt": "einvoiceCheckedAt",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "einvoiceSentAt": "2024-01-15T09:30:00Z",
+                      "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z",
+                      "partnerName": "partnerName"
                     }
                   ],
                   "page": 1000000,
@@ -5657,9 +5725,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesInvoicesListResponse(
+        let expectedResponse = InvoicesListSalesResponse(
             rows: [
-                PostV1SalesInvoicesListResponseRowsItem(
+                InvoicesListSalesResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     type: .invoice,
@@ -5668,8 +5736,8 @@ import Api
                     series: Nullable<String>.value("series"),
                     number: Nullable<Int64>.value(1000000),
                     fullNumber: Nullable<String>.value("fullNumber"),
-                    issueDate: Nullable<String>.value("issueDate"),
-                    dueDate: Nullable<String>.value("dueDate"),
+                    issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     currency: "currency",
                     fxRate: Nullable<String>.value("fxRate"),
                     netTotal: "netTotal",
@@ -5679,8 +5747,10 @@ import Api
                     journalTransactionId: Nullable<String>.value("x"),
                     appliedToInvoiceId: Nullable<String>.value("x"),
                     creditedInvoiceId: Nullable<String>.value("x"),
+                    creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+                    creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     agreementId: Nullable<String>.value("x"),
-                    vatScheme: Nullable<PostV1SalesInvoicesListResponseRowsItemVatScheme>.value(.domestic),
+                    vatScheme: Nullable<InvoicesListSalesResponseRowsItemVatScheme>.value(.domestic),
                     intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
                     intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
                     intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -5698,7 +5768,7 @@ import Api
                     issuedByTitle: Nullable<String>.value("issuedByTitle"),
                     receivedByName: Nullable<String>.value("receivedByName"),
                     receivedByTitle: Nullable<String>.value("receivedByTitle"),
-                    lockedAt: Nullable<String>.value("lockedAt"),
+                    lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     lockedBy: Nullable<String>.value("lockedBy"),
                     payToken: Nullable<String>.value("payToken"),
                     einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -5707,12 +5777,13 @@ import Api
                     einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
                     einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
                     einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-                    einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-                    einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    partnerName: Nullable<String>.value("partnerName")
                 ),
-                PostV1SalesInvoicesListResponseRowsItem(
+                InvoicesListSalesResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     type: .invoice,
@@ -5721,8 +5792,8 @@ import Api
                     series: Nullable<String>.value("series"),
                     number: Nullable<Int64>.value(1000000),
                     fullNumber: Nullable<String>.value("fullNumber"),
-                    issueDate: Nullable<String>.value("issueDate"),
-                    dueDate: Nullable<String>.value("dueDate"),
+                    issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     currency: "currency",
                     fxRate: Nullable<String>.value("fxRate"),
                     netTotal: "netTotal",
@@ -5732,8 +5803,10 @@ import Api
                     journalTransactionId: Nullable<String>.value("x"),
                     appliedToInvoiceId: Nullable<String>.value("x"),
                     creditedInvoiceId: Nullable<String>.value("x"),
+                    creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+                    creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     agreementId: Nullable<String>.value("x"),
-                    vatScheme: Nullable<PostV1SalesInvoicesListResponseRowsItemVatScheme>.value(.domestic),
+                    vatScheme: Nullable<InvoicesListSalesResponseRowsItemVatScheme>.value(.domestic),
                     intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
                     intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
                     intrastatRegion: Nullable<String>.value("intrastatRegion"),
@@ -5751,7 +5824,7 @@ import Api
                     issuedByTitle: Nullable<String>.value("issuedByTitle"),
                     receivedByName: Nullable<String>.value("receivedByName"),
                     receivedByTitle: Nullable<String>.value("receivedByTitle"),
-                    lockedAt: Nullable<String>.value("lockedAt"),
+                    lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     lockedBy: Nullable<String>.value("lockedBy"),
                     payToken: Nullable<String>.value("payToken"),
                     einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
@@ -5760,10 +5833,11 @@ import Api
                     einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
                     einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
                     einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
-                    einvoiceSentAt: Nullable<String>.value("einvoiceSentAt"),
-                    einvoiceCheckedAt: Nullable<String>.value("einvoiceCheckedAt"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    partnerName: Nullable<String>.value("partnerName")
                 )
             ],
             page: 1000000,
@@ -5773,14 +5847,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.sales.postV1SalesInvoicesList(
+        let response = try await client.sales.invoicesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsCreate1() async throws -> Void {
+    @Test func actsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5792,15 +5866,15 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
+                  "documentDate": "2026-07-01",
                   "saleInvoiceId": "saleInvoiceId",
                   "transferredByName": "transferredByName",
                   "transferredByTitle": "transferredByTitle",
                   "acceptedByName": "acceptedByName",
                   "acceptedByTitle": "acceptedByTitle",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -5822,24 +5896,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsCreateResponse(
+        let expectedResponse = ActsCreateSalesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .goods,
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
+            documentDate: CalendarDate("2026-07-01")!,
             saleInvoiceId: Nullable<String>.value("saleInvoiceId"),
             transferredByName: Nullable<String>.value("transferredByName"),
             transferredByTitle: Nullable<String>.value("transferredByTitle"),
             acceptedByName: Nullable<String>.value("acceptedByName"),
             acceptedByTitle: Nullable<String>.value("acceptedByTitle"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesActsCreateResponseLinesItem(
+                ActsCreateSalesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -5851,14 +5925,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.sales.postV1SalesActsCreate(
+        let response = try await client.sales.actsCreate(
             request: .init(partnerId: "partnerId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsCreate2() async throws -> Void {
+    @Test func actsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5870,15 +5944,15 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
+                  "documentDate": "2023-01-15",
                   "saleInvoiceId": "x",
                   "transferredByName": "transferredByName",
                   "transferredByTitle": "transferredByTitle",
                   "acceptedByName": "acceptedByName",
                   "acceptedByTitle": "acceptedByTitle",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -5910,24 +5984,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsCreateResponse(
+        let expectedResponse = ActsCreateSalesResponse(
             id: "x",
             partnerId: "x",
             type: .goods,
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
+            documentDate: CalendarDate("2023-01-15")!,
             saleInvoiceId: Nullable<String>.value("x"),
             transferredByName: Nullable<String>.value("transferredByName"),
             transferredByTitle: Nullable<String>.value("transferredByTitle"),
             acceptedByName: Nullable<String>.value("acceptedByName"),
             acceptedByTitle: Nullable<String>.value("acceptedByTitle"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesActsCreateResponseLinesItem(
+                ActsCreateSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -5937,7 +6011,7 @@ import Api
                     lineNet: Nullable<String>.value("lineNet"),
                     sortOrder: 1000000
                 ),
-                PostV1SalesActsCreateResponseLinesItem(
+                ActsCreateSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -5949,14 +6023,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.sales.postV1SalesActsCreate(
+        let response = try await client.sales.actsCreate(
             request: .init(partnerId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsUpdate1() async throws -> Void {
+    @Test func actsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5968,15 +6042,15 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
+                  "documentDate": "2026-07-01",
                   "saleInvoiceId": "saleInvoiceId",
                   "transferredByName": "transferredByName",
                   "transferredByTitle": "transferredByTitle",
                   "acceptedByName": "acceptedByName",
                   "acceptedByTitle": "acceptedByTitle",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -5998,24 +6072,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsUpdateResponse(
+        let expectedResponse = ActsUpdateSalesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .goods,
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
+            documentDate: CalendarDate("2026-07-01")!,
             saleInvoiceId: Nullable<String>.value("saleInvoiceId"),
             transferredByName: Nullable<String>.value("transferredByName"),
             transferredByTitle: Nullable<String>.value("transferredByTitle"),
             acceptedByName: Nullable<String>.value("acceptedByName"),
             acceptedByTitle: Nullable<String>.value("acceptedByTitle"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesActsUpdateResponseLinesItem(
+                ActsUpdateSalesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -6027,14 +6101,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.sales.postV1SalesActsUpdate(
+        let response = try await client.sales.actsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsUpdate2() async throws -> Void {
+    @Test func actsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6046,15 +6120,15 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
+                  "documentDate": "2023-01-15",
                   "saleInvoiceId": "x",
                   "transferredByName": "transferredByName",
                   "transferredByTitle": "transferredByTitle",
                   "acceptedByName": "acceptedByName",
                   "acceptedByTitle": "acceptedByTitle",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -6086,24 +6160,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsUpdateResponse(
+        let expectedResponse = ActsUpdateSalesResponse(
             id: "x",
             partnerId: "x",
             type: .goods,
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
+            documentDate: CalendarDate("2023-01-15")!,
             saleInvoiceId: Nullable<String>.value("x"),
             transferredByName: Nullable<String>.value("transferredByName"),
             transferredByTitle: Nullable<String>.value("transferredByTitle"),
             acceptedByName: Nullable<String>.value("acceptedByName"),
             acceptedByTitle: Nullable<String>.value("acceptedByTitle"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesActsUpdateResponseLinesItem(
+                ActsUpdateSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -6113,7 +6187,7 @@ import Api
                     lineNet: Nullable<String>.value("lineNet"),
                     sortOrder: 1000000
                 ),
-                PostV1SalesActsUpdateResponseLinesItem(
+                ActsUpdateSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -6125,14 +6199,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.sales.postV1SalesActsUpdate(
+        let response = try await client.sales.actsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsIssue1() async throws -> Void {
+    @Test func actsIssue1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6144,15 +6218,15 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
+                  "documentDate": "2026-07-01",
                   "saleInvoiceId": "saleInvoiceId",
                   "transferredByName": "transferredByName",
                   "transferredByTitle": "transferredByTitle",
                   "acceptedByName": "acceptedByName",
                   "acceptedByTitle": "acceptedByTitle",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -6174,24 +6248,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsIssueResponse(
+        let expectedResponse = ActsIssueSalesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .goods,
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
+            documentDate: CalendarDate("2026-07-01")!,
             saleInvoiceId: Nullable<String>.value("saleInvoiceId"),
             transferredByName: Nullable<String>.value("transferredByName"),
             transferredByTitle: Nullable<String>.value("transferredByTitle"),
             acceptedByName: Nullable<String>.value("acceptedByName"),
             acceptedByTitle: Nullable<String>.value("acceptedByTitle"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesActsIssueResponseLinesItem(
+                ActsIssueSalesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -6203,14 +6277,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.sales.postV1SalesActsIssue(
+        let response = try await client.sales.actsIssue(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsIssue2() async throws -> Void {
+    @Test func actsIssue2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6222,15 +6296,15 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
+                  "documentDate": "2023-01-15",
                   "saleInvoiceId": "x",
                   "transferredByName": "transferredByName",
                   "transferredByTitle": "transferredByTitle",
                   "acceptedByName": "acceptedByName",
                   "acceptedByTitle": "acceptedByTitle",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -6262,24 +6336,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsIssueResponse(
+        let expectedResponse = ActsIssueSalesResponse(
             id: "x",
             partnerId: "x",
             type: .goods,
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
+            documentDate: CalendarDate("2023-01-15")!,
             saleInvoiceId: Nullable<String>.value("x"),
             transferredByName: Nullable<String>.value("transferredByName"),
             transferredByTitle: Nullable<String>.value("transferredByTitle"),
             acceptedByName: Nullable<String>.value("acceptedByName"),
             acceptedByTitle: Nullable<String>.value("acceptedByTitle"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesActsIssueResponseLinesItem(
+                ActsIssueSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -6289,7 +6363,7 @@ import Api
                     lineNet: Nullable<String>.value("lineNet"),
                     sortOrder: 1000000
                 ),
-                PostV1SalesActsIssueResponseLinesItem(
+                ActsIssueSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -6301,14 +6375,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.sales.postV1SalesActsIssue(
+        let response = try await client.sales.actsIssue(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsCancel1() async throws -> Void {
+    @Test func actsCancel1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6320,15 +6394,15 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
+                  "documentDate": "2026-07-01",
                   "saleInvoiceId": "saleInvoiceId",
                   "transferredByName": "transferredByName",
                   "transferredByTitle": "transferredByTitle",
                   "acceptedByName": "acceptedByName",
                   "acceptedByTitle": "acceptedByTitle",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -6338,31 +6412,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsCancelResponse(
+        let expectedResponse = ActsCancelSalesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .goods,
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
+            documentDate: CalendarDate("2026-07-01")!,
             saleInvoiceId: Nullable<String>.value("saleInvoiceId"),
             transferredByName: Nullable<String>.value("transferredByName"),
             transferredByTitle: Nullable<String>.value("transferredByTitle"),
             acceptedByName: Nullable<String>.value("acceptedByName"),
             acceptedByTitle: Nullable<String>.value("acceptedByTitle"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.sales.postV1SalesActsCancel(
+        let response = try await client.sales.actsCancel(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsCancel2() async throws -> Void {
+    @Test func actsCancel2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6374,15 +6448,15 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
+                  "documentDate": "2023-01-15",
                   "saleInvoiceId": "x",
                   "transferredByName": "transferredByName",
                   "transferredByTitle": "transferredByTitle",
                   "acceptedByName": "acceptedByName",
                   "acceptedByTitle": "acceptedByTitle",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -6392,31 +6466,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsCancelResponse(
+        let expectedResponse = ActsCancelSalesResponse(
             id: "x",
             partnerId: "x",
             type: .goods,
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
+            documentDate: CalendarDate("2023-01-15")!,
             saleInvoiceId: Nullable<String>.value("x"),
             transferredByName: Nullable<String>.value("transferredByName"),
             transferredByTitle: Nullable<String>.value("transferredByTitle"),
             acceptedByName: Nullable<String>.value("acceptedByName"),
             acceptedByTitle: Nullable<String>.value("acceptedByTitle"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.sales.postV1SalesActsCancel(
+        let response = try await client.sales.actsCancel(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsGet1() async throws -> Void {
+    @Test func actsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6428,15 +6502,15 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
+                  "documentDate": "2026-07-01",
                   "saleInvoiceId": "saleInvoiceId",
                   "transferredByName": "transferredByName",
                   "transferredByTitle": "transferredByTitle",
                   "acceptedByName": "acceptedByName",
                   "acceptedByTitle": "acceptedByTitle",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -6458,24 +6532,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsGetResponse(
+        let expectedResponse = ActsGetSalesResponse(
             id: "id",
             partnerId: "partnerId",
             type: .goods,
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
+            documentDate: CalendarDate("2026-07-01")!,
             saleInvoiceId: Nullable<String>.value("saleInvoiceId"),
             transferredByName: Nullable<String>.value("transferredByName"),
             transferredByTitle: Nullable<String>.value("transferredByTitle"),
             acceptedByName: Nullable<String>.value("acceptedByName"),
             acceptedByTitle: Nullable<String>.value("acceptedByTitle"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesActsGetResponseLinesItem(
+                ActsGetSalesResponseLinesItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -6487,14 +6561,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.sales.postV1SalesActsGet(
+        let response = try await client.sales.actsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsGet2() async throws -> Void {
+    @Test func actsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6506,15 +6580,15 @@ import Api
                   "status": "draft",
                   "series": "series",
                   "fullNumber": "fullNumber",
-                  "documentDate": "documentDate",
+                  "documentDate": "2023-01-15",
                   "saleInvoiceId": "x",
                   "transferredByName": "transferredByName",
                   "transferredByTitle": "transferredByTitle",
                   "acceptedByName": "acceptedByName",
                   "acceptedByTitle": "acceptedByTitle",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -6546,24 +6620,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsGetResponse(
+        let expectedResponse = ActsGetSalesResponse(
             id: "x",
             partnerId: "x",
             type: .goods,
             status: .draft,
             series: "series",
             fullNumber: Nullable<String>.value("fullNumber"),
-            documentDate: "documentDate",
+            documentDate: CalendarDate("2023-01-15")!,
             saleInvoiceId: Nullable<String>.value("x"),
             transferredByName: Nullable<String>.value("transferredByName"),
             transferredByTitle: Nullable<String>.value("transferredByTitle"),
             acceptedByName: Nullable<String>.value("acceptedByName"),
             acceptedByTitle: Nullable<String>.value("acceptedByTitle"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1SalesActsGetResponseLinesItem(
+                ActsGetSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -6573,7 +6647,7 @@ import Api
                     lineNet: Nullable<String>.value("lineNet"),
                     sortOrder: 1000000
                 ),
-                PostV1SalesActsGetResponseLinesItem(
+                ActsGetSalesResponseLinesItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -6585,14 +6659,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.sales.postV1SalesActsGet(
+        let response = try await client.sales.actsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsList1() async throws -> Void {
+    @Test func actsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6606,15 +6680,15 @@ import Api
                       "status": "draft",
                       "series": "series",
                       "fullNumber": "fullNumber",
-                      "documentDate": "documentDate",
+                      "documentDate": "2026-07-01",
                       "saleInvoiceId": "saleInvoiceId",
                       "transferredByName": "transferredByName",
                       "transferredByTitle": "transferredByTitle",
                       "acceptedByName": "acceptedByName",
                       "acceptedByTitle": "acceptedByTitle",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -6632,24 +6706,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsListResponse(
+        let expectedResponse = ActsListSalesResponse(
             rows: [
-                PostV1SalesActsListResponseRowsItem(
+                ActsListSalesResponseRowsItem(
                     id: "id",
                     partnerId: "partnerId",
                     type: .goods,
                     status: .draft,
                     series: "series",
                     fullNumber: Nullable<String>.value("fullNumber"),
-                    documentDate: "documentDate",
+                    documentDate: CalendarDate("2026-07-01")!,
                     saleInvoiceId: Nullable<String>.value("saleInvoiceId"),
                     transferredByName: Nullable<String>.value("transferredByName"),
                     transferredByTitle: Nullable<String>.value("transferredByTitle"),
                     acceptedByName: Nullable<String>.value("acceptedByName"),
                     acceptedByTitle: Nullable<String>.value("acceptedByTitle"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -6659,14 +6733,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.sales.postV1SalesActsList(
+        let response = try await client.sales.actsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsList2() async throws -> Void {
+    @Test func actsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6680,15 +6754,15 @@ import Api
                       "status": "draft",
                       "series": "series",
                       "fullNumber": "fullNumber",
-                      "documentDate": "documentDate",
+                      "documentDate": "2023-01-15",
                       "saleInvoiceId": "x",
                       "transferredByName": "transferredByName",
                       "transferredByTitle": "transferredByTitle",
                       "acceptedByName": "acceptedByName",
                       "acceptedByTitle": "acceptedByTitle",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -6697,15 +6771,15 @@ import Api
                       "status": "draft",
                       "series": "series",
                       "fullNumber": "fullNumber",
-                      "documentDate": "documentDate",
+                      "documentDate": "2023-01-15",
                       "saleInvoiceId": "x",
                       "transferredByName": "transferredByName",
                       "transferredByTitle": "transferredByTitle",
                       "acceptedByName": "acceptedByName",
                       "acceptedByTitle": "acceptedByTitle",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -6723,41 +6797,41 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsListResponse(
+        let expectedResponse = ActsListSalesResponse(
             rows: [
-                PostV1SalesActsListResponseRowsItem(
+                ActsListSalesResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     type: .goods,
                     status: .draft,
                     series: "series",
                     fullNumber: Nullable<String>.value("fullNumber"),
-                    documentDate: "documentDate",
+                    documentDate: CalendarDate("2023-01-15")!,
                     saleInvoiceId: Nullable<String>.value("x"),
                     transferredByName: Nullable<String>.value("transferredByName"),
                     transferredByTitle: Nullable<String>.value("transferredByTitle"),
                     acceptedByName: Nullable<String>.value("acceptedByName"),
                     acceptedByTitle: Nullable<String>.value("acceptedByTitle"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1SalesActsListResponseRowsItem(
+                ActsListSalesResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     type: .goods,
                     status: .draft,
                     series: "series",
                     fullNumber: Nullable<String>.value("fullNumber"),
-                    documentDate: "documentDate",
+                    documentDate: CalendarDate("2023-01-15")!,
                     saleInvoiceId: Nullable<String>.value("x"),
                     transferredByName: Nullable<String>.value("transferredByName"),
                     transferredByTitle: Nullable<String>.value("transferredByTitle"),
                     acceptedByName: Nullable<String>.value("acceptedByName"),
                     acceptedByTitle: Nullable<String>.value("acceptedByTitle"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -6767,14 +6841,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.sales.postV1SalesActsList(
+        let response = try await client.sales.actsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsPdf1() async throws -> Void {
+    @Test func actsPdf1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6792,19 +6866,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsPdfResponse(
+        let expectedResponse = ActsPdfSalesResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data"
         )
-        let response = try await client.sales.postV1SalesActsPdf(
+        let response = try await client.sales.actsPdf(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesActsPdf2() async throws -> Void {
+    @Test func actsPdf2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6822,1399 +6896,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesActsPdfResponse(
+        let expectedResponse = ActsPdfSalesResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data"
         )
-        let response = try await client.sales.postV1SalesActsPdf(
+        let response = try await client.sales.actsPdf(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1OperationTypesCreate1() async throws -> Void {
+    @Test func recognitionCompute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "id": "id",
-                  "code": "code",
-                  "name": "name",
-                  "invoiceType": "invoice",
-                  "payerPartnerId": "payerPartnerId",
-                  "debitAccountCode": "debitAccountCode",
-                  "creditAccountCode": "creditAccountCode",
-                  "vatAccountCode": "vatAccountCode",
-                  "expenseAccountCode": "expenseAccountCode",
-                  "advanceAccountCode": "advanceAccountCode",
-                  "incomeAccountCode": "incomeAccountCode",
-                  "isPurchase": true,
-                  "isSale": true,
-                  "isWriteOff": true,
-                  "isInternalMovement": true,
-                  "isPurchaseReturn": true,
-                  "isSalesReturn": true,
-                  "isConsignment": true,
-                  "isProduction": true,
-                  "isAssetIn": true,
-                  "isAssetOut": true,
-                  "isCashRegisterSale": true,
-                  "includeInVatRegister": true,
-                  "includeInSaft": true,
-                  "isActive": true,
-                  "sortOrder": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OperationTypesCreateResponse(
-            id: "id",
-            code: "code",
-            name: "name",
-            invoiceType: Nullable<PostV1OperationTypesCreateResponseInvoiceType>.value(.invoice),
-            payerPartnerId: Nullable<String>.value("payerPartnerId"),
-            debitAccountCode: Nullable<String>.value("debitAccountCode"),
-            creditAccountCode: Nullable<String>.value("creditAccountCode"),
-            vatAccountCode: Nullable<String>.value("vatAccountCode"),
-            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
-            advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
-            incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
-            isPurchase: true,
-            isSale: true,
-            isWriteOff: true,
-            isInternalMovement: true,
-            isPurchaseReturn: true,
-            isSalesReturn: true,
-            isConsignment: true,
-            isProduction: true,
-            isAssetIn: true,
-            isAssetOut: true,
-            isCashRegisterSale: true,
-            includeInVatRegister: true,
-            includeInSaft: true,
-            isActive: true,
-            sortOrder: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.sales.postV1OperationTypesCreate(
-            request: .init(
-                code: "code",
-                name: "name"
-            ),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1OperationTypesCreate2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "code": "code",
-                  "name": "name",
-                  "invoiceType": "invoice",
-                  "payerPartnerId": "x",
-                  "debitAccountCode": "debitAccountCode",
-                  "creditAccountCode": "creditAccountCode",
-                  "vatAccountCode": "vatAccountCode",
-                  "expenseAccountCode": "expenseAccountCode",
-                  "advanceAccountCode": "advanceAccountCode",
-                  "incomeAccountCode": "incomeAccountCode",
-                  "isPurchase": true,
-                  "isSale": true,
-                  "isWriteOff": true,
-                  "isInternalMovement": true,
-                  "isPurchaseReturn": true,
-                  "isSalesReturn": true,
-                  "isConsignment": true,
-                  "isProduction": true,
-                  "isAssetIn": true,
-                  "isAssetOut": true,
-                  "isCashRegisterSale": true,
-                  "includeInVatRegister": true,
-                  "includeInSaft": true,
-                  "isActive": true,
-                  "sortOrder": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OperationTypesCreateResponse(
-            id: "x",
-            code: "code",
-            name: "name",
-            invoiceType: Nullable<PostV1OperationTypesCreateResponseInvoiceType>.value(.invoice),
-            payerPartnerId: Nullable<String>.value("x"),
-            debitAccountCode: Nullable<String>.value("debitAccountCode"),
-            creditAccountCode: Nullable<String>.value("creditAccountCode"),
-            vatAccountCode: Nullable<String>.value("vatAccountCode"),
-            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
-            advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
-            incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
-            isPurchase: true,
-            isSale: true,
-            isWriteOff: true,
-            isInternalMovement: true,
-            isPurchaseReturn: true,
-            isSalesReturn: true,
-            isConsignment: true,
-            isProduction: true,
-            isAssetIn: true,
-            isAssetOut: true,
-            isCashRegisterSale: true,
-            includeInVatRegister: true,
-            includeInSaft: true,
-            isActive: true,
-            sortOrder: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.sales.postV1OperationTypesCreate(
-            request: .init(
-                code: "x",
-                name: "x"
-            ),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1OperationTypesUpdate1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id",
-                  "code": "code",
-                  "name": "name",
-                  "invoiceType": "invoice",
-                  "payerPartnerId": "payerPartnerId",
-                  "debitAccountCode": "debitAccountCode",
-                  "creditAccountCode": "creditAccountCode",
-                  "vatAccountCode": "vatAccountCode",
-                  "expenseAccountCode": "expenseAccountCode",
-                  "advanceAccountCode": "advanceAccountCode",
-                  "incomeAccountCode": "incomeAccountCode",
-                  "isPurchase": true,
-                  "isSale": true,
-                  "isWriteOff": true,
-                  "isInternalMovement": true,
-                  "isPurchaseReturn": true,
-                  "isSalesReturn": true,
-                  "isConsignment": true,
-                  "isProduction": true,
-                  "isAssetIn": true,
-                  "isAssetOut": true,
-                  "isCashRegisterSale": true,
-                  "includeInVatRegister": true,
-                  "includeInSaft": true,
-                  "isActive": true,
-                  "sortOrder": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OperationTypesUpdateResponse(
-            id: "id",
-            code: "code",
-            name: "name",
-            invoiceType: Nullable<PostV1OperationTypesUpdateResponseInvoiceType>.value(.invoice),
-            payerPartnerId: Nullable<String>.value("payerPartnerId"),
-            debitAccountCode: Nullable<String>.value("debitAccountCode"),
-            creditAccountCode: Nullable<String>.value("creditAccountCode"),
-            vatAccountCode: Nullable<String>.value("vatAccountCode"),
-            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
-            advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
-            incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
-            isPurchase: true,
-            isSale: true,
-            isWriteOff: true,
-            isInternalMovement: true,
-            isPurchaseReturn: true,
-            isSalesReturn: true,
-            isConsignment: true,
-            isProduction: true,
-            isAssetIn: true,
-            isAssetOut: true,
-            isCashRegisterSale: true,
-            includeInVatRegister: true,
-            includeInSaft: true,
-            isActive: true,
-            sortOrder: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.sales.postV1OperationTypesUpdate(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1OperationTypesUpdate2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "code": "code",
-                  "name": "name",
-                  "invoiceType": "invoice",
-                  "payerPartnerId": "x",
-                  "debitAccountCode": "debitAccountCode",
-                  "creditAccountCode": "creditAccountCode",
-                  "vatAccountCode": "vatAccountCode",
-                  "expenseAccountCode": "expenseAccountCode",
-                  "advanceAccountCode": "advanceAccountCode",
-                  "incomeAccountCode": "incomeAccountCode",
-                  "isPurchase": true,
-                  "isSale": true,
-                  "isWriteOff": true,
-                  "isInternalMovement": true,
-                  "isPurchaseReturn": true,
-                  "isSalesReturn": true,
-                  "isConsignment": true,
-                  "isProduction": true,
-                  "isAssetIn": true,
-                  "isAssetOut": true,
-                  "isCashRegisterSale": true,
-                  "includeInVatRegister": true,
-                  "includeInSaft": true,
-                  "isActive": true,
-                  "sortOrder": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OperationTypesUpdateResponse(
-            id: "x",
-            code: "code",
-            name: "name",
-            invoiceType: Nullable<PostV1OperationTypesUpdateResponseInvoiceType>.value(.invoice),
-            payerPartnerId: Nullable<String>.value("x"),
-            debitAccountCode: Nullable<String>.value("debitAccountCode"),
-            creditAccountCode: Nullable<String>.value("creditAccountCode"),
-            vatAccountCode: Nullable<String>.value("vatAccountCode"),
-            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
-            advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
-            incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
-            isPurchase: true,
-            isSale: true,
-            isWriteOff: true,
-            isInternalMovement: true,
-            isPurchaseReturn: true,
-            isSalesReturn: true,
-            isConsignment: true,
-            isProduction: true,
-            isAssetIn: true,
-            isAssetOut: true,
-            isCashRegisterSale: true,
-            includeInVatRegister: true,
-            includeInSaft: true,
-            isActive: true,
-            sortOrder: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.sales.postV1OperationTypesUpdate(
-            request: .init(id: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1OperationTypesGet1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id",
-                  "code": "code",
-                  "name": "name",
-                  "invoiceType": "invoice",
-                  "payerPartnerId": "payerPartnerId",
-                  "debitAccountCode": "debitAccountCode",
-                  "creditAccountCode": "creditAccountCode",
-                  "vatAccountCode": "vatAccountCode",
-                  "expenseAccountCode": "expenseAccountCode",
-                  "advanceAccountCode": "advanceAccountCode",
-                  "incomeAccountCode": "incomeAccountCode",
-                  "isPurchase": true,
-                  "isSale": true,
-                  "isWriteOff": true,
-                  "isInternalMovement": true,
-                  "isPurchaseReturn": true,
-                  "isSalesReturn": true,
-                  "isConsignment": true,
-                  "isProduction": true,
-                  "isAssetIn": true,
-                  "isAssetOut": true,
-                  "isCashRegisterSale": true,
-                  "includeInVatRegister": true,
-                  "includeInSaft": true,
-                  "isActive": true,
-                  "sortOrder": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OperationTypesGetResponse(
-            id: "id",
-            code: "code",
-            name: "name",
-            invoiceType: Nullable<PostV1OperationTypesGetResponseInvoiceType>.value(.invoice),
-            payerPartnerId: Nullable<String>.value("payerPartnerId"),
-            debitAccountCode: Nullable<String>.value("debitAccountCode"),
-            creditAccountCode: Nullable<String>.value("creditAccountCode"),
-            vatAccountCode: Nullable<String>.value("vatAccountCode"),
-            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
-            advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
-            incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
-            isPurchase: true,
-            isSale: true,
-            isWriteOff: true,
-            isInternalMovement: true,
-            isPurchaseReturn: true,
-            isSalesReturn: true,
-            isConsignment: true,
-            isProduction: true,
-            isAssetIn: true,
-            isAssetOut: true,
-            isCashRegisterSale: true,
-            includeInVatRegister: true,
-            includeInSaft: true,
-            isActive: true,
-            sortOrder: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.sales.postV1OperationTypesGet(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1OperationTypesGet2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "code": "code",
-                  "name": "name",
-                  "invoiceType": "invoice",
-                  "payerPartnerId": "x",
-                  "debitAccountCode": "debitAccountCode",
-                  "creditAccountCode": "creditAccountCode",
-                  "vatAccountCode": "vatAccountCode",
-                  "expenseAccountCode": "expenseAccountCode",
-                  "advanceAccountCode": "advanceAccountCode",
-                  "incomeAccountCode": "incomeAccountCode",
-                  "isPurchase": true,
-                  "isSale": true,
-                  "isWriteOff": true,
-                  "isInternalMovement": true,
-                  "isPurchaseReturn": true,
-                  "isSalesReturn": true,
-                  "isConsignment": true,
-                  "isProduction": true,
-                  "isAssetIn": true,
-                  "isAssetOut": true,
-                  "isCashRegisterSale": true,
-                  "includeInVatRegister": true,
-                  "includeInSaft": true,
-                  "isActive": true,
-                  "sortOrder": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OperationTypesGetResponse(
-            id: "x",
-            code: "code",
-            name: "name",
-            invoiceType: Nullable<PostV1OperationTypesGetResponseInvoiceType>.value(.invoice),
-            payerPartnerId: Nullable<String>.value("x"),
-            debitAccountCode: Nullable<String>.value("debitAccountCode"),
-            creditAccountCode: Nullable<String>.value("creditAccountCode"),
-            vatAccountCode: Nullable<String>.value("vatAccountCode"),
-            expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
-            advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
-            incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
-            isPurchase: true,
-            isSale: true,
-            isWriteOff: true,
-            isInternalMovement: true,
-            isPurchaseReturn: true,
-            isSalesReturn: true,
-            isConsignment: true,
-            isProduction: true,
-            isAssetIn: true,
-            isAssetOut: true,
-            isCashRegisterSale: true,
-            includeInVatRegister: true,
-            includeInSaft: true,
-            isActive: true,
-            sortOrder: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.sales.postV1OperationTypesGet(
-            request: .init(id: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1OperationTypesDelete1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "deleted": true
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OperationTypesDeleteResponse(
-            deleted: true
-        )
-        let response = try await client.sales.postV1OperationTypesDelete(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1OperationTypesDelete2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "deleted": true
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OperationTypesDeleteResponse(
-            deleted: true
-        )
-        let response = try await client.sales.postV1OperationTypesDelete(
-            request: .init(id: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1OperationTypesList1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "id",
-                      "code": "code",
-                      "name": "name",
-                      "invoiceType": "invoice",
-                      "payerPartnerId": "payerPartnerId",
-                      "debitAccountCode": "debitAccountCode",
-                      "creditAccountCode": "creditAccountCode",
-                      "vatAccountCode": "vatAccountCode",
-                      "expenseAccountCode": "expenseAccountCode",
-                      "advanceAccountCode": "advanceAccountCode",
-                      "incomeAccountCode": "incomeAccountCode",
-                      "isPurchase": true,
-                      "isSale": true,
-                      "isWriteOff": true,
-                      "isInternalMovement": true,
-                      "isPurchaseReturn": true,
-                      "isSalesReturn": true,
-                      "isConsignment": true,
-                      "isProduction": true,
-                      "isAssetIn": true,
-                      "isAssetOut": true,
-                      "isCashRegisterSale": true,
-                      "includeInVatRegister": true,
-                      "includeInSaft": true,
-                      "isActive": true,
-                      "sortOrder": 1000000,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
-                    }
-                  ],
-                  "page": 1000000,
-                  "pageSize": 1000000,
-                  "total": 1000000,
-                  "totals": {
-                    "key": "value"
-                  }
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OperationTypesListResponse(
-            rows: [
-                PostV1OperationTypesListResponseRowsItem(
-                    id: "id",
-                    code: "code",
-                    name: "name",
-                    invoiceType: Nullable<PostV1OperationTypesListResponseRowsItemInvoiceType>.value(.invoice),
-                    payerPartnerId: Nullable<String>.value("payerPartnerId"),
-                    debitAccountCode: Nullable<String>.value("debitAccountCode"),
-                    creditAccountCode: Nullable<String>.value("creditAccountCode"),
-                    vatAccountCode: Nullable<String>.value("vatAccountCode"),
-                    expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
-                    advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
-                    incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
-                    isPurchase: true,
-                    isSale: true,
-                    isWriteOff: true,
-                    isInternalMovement: true,
-                    isPurchaseReturn: true,
-                    isSalesReturn: true,
-                    isConsignment: true,
-                    isProduction: true,
-                    isAssetIn: true,
-                    isAssetOut: true,
-                    isCashRegisterSale: true,
-                    includeInVatRegister: true,
-                    includeInSaft: true,
-                    isActive: true,
-                    sortOrder: 1000000,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
-                )
-            ],
-            page: 1000000,
-            pageSize: 1000000,
-            total: 1000000,
-            totals: Optional([
-                "key": "value"
-            ])
-        )
-        let response = try await client.sales.postV1OperationTypesList(
-            request: .init(),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1OperationTypesList2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "x",
-                      "code": "code",
-                      "name": "name",
-                      "invoiceType": "invoice",
-                      "payerPartnerId": "x",
-                      "debitAccountCode": "debitAccountCode",
-                      "creditAccountCode": "creditAccountCode",
-                      "vatAccountCode": "vatAccountCode",
-                      "expenseAccountCode": "expenseAccountCode",
-                      "advanceAccountCode": "advanceAccountCode",
-                      "incomeAccountCode": "incomeAccountCode",
-                      "isPurchase": true,
-                      "isSale": true,
-                      "isWriteOff": true,
-                      "isInternalMovement": true,
-                      "isPurchaseReturn": true,
-                      "isSalesReturn": true,
-                      "isConsignment": true,
-                      "isProduction": true,
-                      "isAssetIn": true,
-                      "isAssetOut": true,
-                      "isCashRegisterSale": true,
-                      "includeInVatRegister": true,
-                      "includeInSaft": true,
-                      "isActive": true,
-                      "sortOrder": 1000000,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
-                    },
-                    {
-                      "id": "x",
-                      "code": "code",
-                      "name": "name",
-                      "invoiceType": "invoice",
-                      "payerPartnerId": "x",
-                      "debitAccountCode": "debitAccountCode",
-                      "creditAccountCode": "creditAccountCode",
-                      "vatAccountCode": "vatAccountCode",
-                      "expenseAccountCode": "expenseAccountCode",
-                      "advanceAccountCode": "advanceAccountCode",
-                      "incomeAccountCode": "incomeAccountCode",
-                      "isPurchase": true,
-                      "isSale": true,
-                      "isWriteOff": true,
-                      "isInternalMovement": true,
-                      "isPurchaseReturn": true,
-                      "isSalesReturn": true,
-                      "isConsignment": true,
-                      "isProduction": true,
-                      "isAssetIn": true,
-                      "isAssetOut": true,
-                      "isCashRegisterSale": true,
-                      "includeInVatRegister": true,
-                      "includeInSaft": true,
-                      "isActive": true,
-                      "sortOrder": 1000000,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
-                    }
-                  ],
-                  "page": 1000000,
-                  "pageSize": 1000000,
-                  "total": 1000000,
-                  "totals": {
-                    "totals": "totals"
-                  }
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OperationTypesListResponse(
-            rows: [
-                PostV1OperationTypesListResponseRowsItem(
-                    id: "x",
-                    code: "code",
-                    name: "name",
-                    invoiceType: Nullable<PostV1OperationTypesListResponseRowsItemInvoiceType>.value(.invoice),
-                    payerPartnerId: Nullable<String>.value("x"),
-                    debitAccountCode: Nullable<String>.value("debitAccountCode"),
-                    creditAccountCode: Nullable<String>.value("creditAccountCode"),
-                    vatAccountCode: Nullable<String>.value("vatAccountCode"),
-                    expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
-                    advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
-                    incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
-                    isPurchase: true,
-                    isSale: true,
-                    isWriteOff: true,
-                    isInternalMovement: true,
-                    isPurchaseReturn: true,
-                    isSalesReturn: true,
-                    isConsignment: true,
-                    isProduction: true,
-                    isAssetIn: true,
-                    isAssetOut: true,
-                    isCashRegisterSale: true,
-                    includeInVatRegister: true,
-                    includeInSaft: true,
-                    isActive: true,
-                    sortOrder: 1000000,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
-                ),
-                PostV1OperationTypesListResponseRowsItem(
-                    id: "x",
-                    code: "code",
-                    name: "name",
-                    invoiceType: Nullable<PostV1OperationTypesListResponseRowsItemInvoiceType>.value(.invoice),
-                    payerPartnerId: Nullable<String>.value("x"),
-                    debitAccountCode: Nullable<String>.value("debitAccountCode"),
-                    creditAccountCode: Nullable<String>.value("creditAccountCode"),
-                    vatAccountCode: Nullable<String>.value("vatAccountCode"),
-                    expenseAccountCode: Nullable<String>.value("expenseAccountCode"),
-                    advanceAccountCode: Nullable<String>.value("advanceAccountCode"),
-                    incomeAccountCode: Nullable<String>.value("incomeAccountCode"),
-                    isPurchase: true,
-                    isSale: true,
-                    isWriteOff: true,
-                    isInternalMovement: true,
-                    isPurchaseReturn: true,
-                    isSalesReturn: true,
-                    isConsignment: true,
-                    isProduction: true,
-                    isAssetIn: true,
-                    isAssetOut: true,
-                    isCashRegisterSale: true,
-                    includeInVatRegister: true,
-                    includeInSaft: true,
-                    isActive: true,
-                    sortOrder: 1000000,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
-                )
-            ],
-            page: 1000000,
-            pageSize: 1000000,
-            total: 1000000,
-            totals: Optional([
-                "totals": "totals"
-            ])
-        )
-        let response = try await client.sales.postV1OperationTypesList(
-            request: .init(),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1DocumentSeriesCreate1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id",
-                  "documentType": "documentType",
-                  "prefix": "prefix",
-                  "name": "name",
-                  "label": "label",
-                  "operationTypeId": "operationTypeId",
-                  "numberLength": 1000000,
-                  "nextNumber": 1000000,
-                  "allocatedFrom": 1000000,
-                  "allocatedTo": 1000000,
-                  "warehouseId": "warehouseId",
-                  "printSeries": true,
-                  "isDefault": true,
-                  "isActive": true,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1DocumentSeriesCreateResponse(
-            id: "id",
-            documentType: "documentType",
-            prefix: "prefix",
-            name: Nullable<String>.value("name"),
-            label: Nullable<String>.value("label"),
-            operationTypeId: Nullable<String>.value("operationTypeId"),
-            numberLength: 1000000,
-            nextNumber: 1000000,
-            allocatedFrom: Nullable<Int64>.value(1000000),
-            allocatedTo: Nullable<Int64>.value(1000000),
-            warehouseId: Nullable<String>.value("warehouseId"),
-            printSeries: true,
-            isDefault: true,
-            isActive: true,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.sales.postV1DocumentSeriesCreate(
-            request: .init(prefix: "prefix"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1DocumentSeriesCreate2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "documentType": "documentType",
-                  "prefix": "prefix",
-                  "name": "name",
-                  "label": "label",
-                  "operationTypeId": "x",
-                  "numberLength": 1000000,
-                  "nextNumber": 1000000,
-                  "allocatedFrom": 1000000,
-                  "allocatedTo": 1000000,
-                  "warehouseId": "x",
-                  "printSeries": true,
-                  "isDefault": true,
-                  "isActive": true,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1DocumentSeriesCreateResponse(
-            id: "x",
-            documentType: "documentType",
-            prefix: "prefix",
-            name: Nullable<String>.value("name"),
-            label: Nullable<String>.value("label"),
-            operationTypeId: Nullable<String>.value("x"),
-            numberLength: 1000000,
-            nextNumber: 1000000,
-            allocatedFrom: Nullable<Int64>.value(1000000),
-            allocatedTo: Nullable<Int64>.value(1000000),
-            warehouseId: Nullable<String>.value("x"),
-            printSeries: true,
-            isDefault: true,
-            isActive: true,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.sales.postV1DocumentSeriesCreate(
-            request: .init(prefix: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1DocumentSeriesUpdate1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id",
-                  "documentType": "documentType",
-                  "prefix": "prefix",
-                  "name": "name",
-                  "label": "label",
-                  "operationTypeId": "operationTypeId",
-                  "numberLength": 1000000,
-                  "nextNumber": 1000000,
-                  "allocatedFrom": 1000000,
-                  "allocatedTo": 1000000,
-                  "warehouseId": "warehouseId",
-                  "printSeries": true,
-                  "isDefault": true,
-                  "isActive": true,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1DocumentSeriesUpdateResponse(
-            id: "id",
-            documentType: "documentType",
-            prefix: "prefix",
-            name: Nullable<String>.value("name"),
-            label: Nullable<String>.value("label"),
-            operationTypeId: Nullable<String>.value("operationTypeId"),
-            numberLength: 1000000,
-            nextNumber: 1000000,
-            allocatedFrom: Nullable<Int64>.value(1000000),
-            allocatedTo: Nullable<Int64>.value(1000000),
-            warehouseId: Nullable<String>.value("warehouseId"),
-            printSeries: true,
-            isDefault: true,
-            isActive: true,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.sales.postV1DocumentSeriesUpdate(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1DocumentSeriesUpdate2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "documentType": "documentType",
-                  "prefix": "prefix",
-                  "name": "name",
-                  "label": "label",
-                  "operationTypeId": "x",
-                  "numberLength": 1000000,
-                  "nextNumber": 1000000,
-                  "allocatedFrom": 1000000,
-                  "allocatedTo": 1000000,
-                  "warehouseId": "x",
-                  "printSeries": true,
-                  "isDefault": true,
-                  "isActive": true,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1DocumentSeriesUpdateResponse(
-            id: "x",
-            documentType: "documentType",
-            prefix: "prefix",
-            name: Nullable<String>.value("name"),
-            label: Nullable<String>.value("label"),
-            operationTypeId: Nullable<String>.value("x"),
-            numberLength: 1000000,
-            nextNumber: 1000000,
-            allocatedFrom: Nullable<Int64>.value(1000000),
-            allocatedTo: Nullable<Int64>.value(1000000),
-            warehouseId: Nullable<String>.value("x"),
-            printSeries: true,
-            isDefault: true,
-            isActive: true,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.sales.postV1DocumentSeriesUpdate(
-            request: .init(id: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1DocumentSeriesGet1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id",
-                  "documentType": "documentType",
-                  "prefix": "prefix",
-                  "name": "name",
-                  "label": "label",
-                  "operationTypeId": "operationTypeId",
-                  "numberLength": 1000000,
-                  "nextNumber": 1000000,
-                  "allocatedFrom": 1000000,
-                  "allocatedTo": 1000000,
-                  "warehouseId": "warehouseId",
-                  "printSeries": true,
-                  "isDefault": true,
-                  "isActive": true,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1DocumentSeriesGetResponse(
-            id: "id",
-            documentType: "documentType",
-            prefix: "prefix",
-            name: Nullable<String>.value("name"),
-            label: Nullable<String>.value("label"),
-            operationTypeId: Nullable<String>.value("operationTypeId"),
-            numberLength: 1000000,
-            nextNumber: 1000000,
-            allocatedFrom: Nullable<Int64>.value(1000000),
-            allocatedTo: Nullable<Int64>.value(1000000),
-            warehouseId: Nullable<String>.value("warehouseId"),
-            printSeries: true,
-            isDefault: true,
-            isActive: true,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.sales.postV1DocumentSeriesGet(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1DocumentSeriesGet2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "documentType": "documentType",
-                  "prefix": "prefix",
-                  "name": "name",
-                  "label": "label",
-                  "operationTypeId": "x",
-                  "numberLength": 1000000,
-                  "nextNumber": 1000000,
-                  "allocatedFrom": 1000000,
-                  "allocatedTo": 1000000,
-                  "warehouseId": "x",
-                  "printSeries": true,
-                  "isDefault": true,
-                  "isActive": true,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1DocumentSeriesGetResponse(
-            id: "x",
-            documentType: "documentType",
-            prefix: "prefix",
-            name: Nullable<String>.value("name"),
-            label: Nullable<String>.value("label"),
-            operationTypeId: Nullable<String>.value("x"),
-            numberLength: 1000000,
-            nextNumber: 1000000,
-            allocatedFrom: Nullable<Int64>.value(1000000),
-            allocatedTo: Nullable<Int64>.value(1000000),
-            warehouseId: Nullable<String>.value("x"),
-            printSeries: true,
-            isDefault: true,
-            isActive: true,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.sales.postV1DocumentSeriesGet(
-            request: .init(id: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1DocumentSeriesDelete1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "deleted": true
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1DocumentSeriesDeleteResponse(
-            deleted: true
-        )
-        let response = try await client.sales.postV1DocumentSeriesDelete(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1DocumentSeriesDelete2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "deleted": true
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1DocumentSeriesDeleteResponse(
-            deleted: true
-        )
-        let response = try await client.sales.postV1DocumentSeriesDelete(
-            request: .init(id: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1DocumentSeriesList1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "id",
-                      "documentType": "documentType",
-                      "prefix": "prefix",
-                      "name": "name",
-                      "label": "label",
-                      "operationTypeId": "operationTypeId",
-                      "numberLength": 1000000,
-                      "nextNumber": 1000000,
-                      "allocatedFrom": 1000000,
-                      "allocatedTo": 1000000,
-                      "warehouseId": "warehouseId",
-                      "printSeries": true,
-                      "isDefault": true,
-                      "isActive": true,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
-                    }
-                  ],
-                  "page": 1000000,
-                  "pageSize": 1000000,
-                  "total": 1000000,
-                  "totals": {
-                    "key": "value"
-                  }
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1DocumentSeriesListResponse(
-            rows: [
-                PostV1DocumentSeriesListResponseRowsItem(
-                    id: "id",
-                    documentType: "documentType",
-                    prefix: "prefix",
-                    name: Nullable<String>.value("name"),
-                    label: Nullable<String>.value("label"),
-                    operationTypeId: Nullable<String>.value("operationTypeId"),
-                    numberLength: 1000000,
-                    nextNumber: 1000000,
-                    allocatedFrom: Nullable<Int64>.value(1000000),
-                    allocatedTo: Nullable<Int64>.value(1000000),
-                    warehouseId: Nullable<String>.value("warehouseId"),
-                    printSeries: true,
-                    isDefault: true,
-                    isActive: true,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
-                )
-            ],
-            page: 1000000,
-            pageSize: 1000000,
-            total: 1000000,
-            totals: Optional([
-                "key": "value"
-            ])
-        )
-        let response = try await client.sales.postV1DocumentSeriesList(
-            request: .init(),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1DocumentSeriesList2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "x",
-                      "documentType": "documentType",
-                      "prefix": "prefix",
-                      "name": "name",
-                      "label": "label",
-                      "operationTypeId": "x",
-                      "numberLength": 1000000,
-                      "nextNumber": 1000000,
-                      "allocatedFrom": 1000000,
-                      "allocatedTo": 1000000,
-                      "warehouseId": "x",
-                      "printSeries": true,
-                      "isDefault": true,
-                      "isActive": true,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
-                    },
-                    {
-                      "id": "x",
-                      "documentType": "documentType",
-                      "prefix": "prefix",
-                      "name": "name",
-                      "label": "label",
-                      "operationTypeId": "x",
-                      "numberLength": 1000000,
-                      "nextNumber": 1000000,
-                      "allocatedFrom": 1000000,
-                      "allocatedTo": 1000000,
-                      "warehouseId": "x",
-                      "printSeries": true,
-                      "isDefault": true,
-                      "isActive": true,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
-                    }
-                  ],
-                  "page": 1000000,
-                  "pageSize": 1000000,
-                  "total": 1000000,
-                  "totals": {
-                    "totals": "totals"
-                  }
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1DocumentSeriesListResponse(
-            rows: [
-                PostV1DocumentSeriesListResponseRowsItem(
-                    id: "x",
-                    documentType: "documentType",
-                    prefix: "prefix",
-                    name: Nullable<String>.value("name"),
-                    label: Nullable<String>.value("label"),
-                    operationTypeId: Nullable<String>.value("x"),
-                    numberLength: 1000000,
-                    nextNumber: 1000000,
-                    allocatedFrom: Nullable<Int64>.value(1000000),
-                    allocatedTo: Nullable<Int64>.value(1000000),
-                    warehouseId: Nullable<String>.value("x"),
-                    printSeries: true,
-                    isDefault: true,
-                    isActive: true,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
-                ),
-                PostV1DocumentSeriesListResponseRowsItem(
-                    id: "x",
-                    documentType: "documentType",
-                    prefix: "prefix",
-                    name: Nullable<String>.value("name"),
-                    label: Nullable<String>.value("label"),
-                    operationTypeId: Nullable<String>.value("x"),
-                    numberLength: 1000000,
-                    nextNumber: 1000000,
-                    allocatedFrom: Nullable<Int64>.value(1000000),
-                    allocatedTo: Nullable<Int64>.value(1000000),
-                    warehouseId: Nullable<String>.value("x"),
-                    printSeries: true,
-                    isDefault: true,
-                    isActive: true,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
-                )
-            ],
-            page: 1000000,
-            pageSize: 1000000,
-            total: 1000000,
-            totals: Optional([
-                "totals": "totals"
-            ])
-        )
-        let response = try await client.sales.postV1DocumentSeriesList(
-            request: .init(),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1SalesRecognitionCompute1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "asOfDate": "asOfDate",
+                  "asOfDate": "2026-07-01",
                   "totalAmount": "totalAmount",
                   "rows": [
                     {
@@ -8223,7 +6923,7 @@ import Api
                       "invoiceFullNumber": "invoiceFullNumber",
                       "invoiceLineId": "invoiceLineId",
                       "lineDescription": "lineDescription",
-                      "scheduleDate": "scheduleDate",
+                      "scheduleDate": "2026-07-01",
                       "description": "description",
                       "amount": "amount"
                     }
@@ -8237,36 +6937,36 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionComputeResponse(
-            asOfDate: "asOfDate",
+        let expectedResponse = RecognitionComputeSalesResponse(
+            asOfDate: CalendarDate("2026-07-01")!,
             totalAmount: "totalAmount",
             rows: [
-                PostV1SalesRecognitionComputeResponseRowsItem(
+                RecognitionComputeSalesResponseRowsItem(
                     scheduleId: "scheduleId",
                     invoiceId: "invoiceId",
                     invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
                     invoiceLineId: "invoiceLineId",
                     lineDescription: "lineDescription",
-                    scheduleDate: Nullable<String>.value("scheduleDate"),
+                    scheduleDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     description: Nullable<String>.value("description"),
                     amount: "amount"
                 )
             ]
         )
-        let response = try await client.sales.postV1SalesRecognitionCompute(
+        let response = try await client.sales.recognitionCompute(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRecognitionCompute2() async throws -> Void {
+    @Test func recognitionCompute2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "asOfDate": "asOfDate",
+                  "asOfDate": "2023-01-15",
                   "totalAmount": "totalAmount",
                   "rows": [
                     {
@@ -8275,7 +6975,7 @@ import Api
                       "invoiceFullNumber": "invoiceFullNumber",
                       "invoiceLineId": "x",
                       "lineDescription": "lineDescription",
-                      "scheduleDate": "scheduleDate",
+                      "scheduleDate": "2023-01-15",
                       "description": "description",
                       "amount": "amount"
                     },
@@ -8285,7 +6985,7 @@ import Api
                       "invoiceFullNumber": "invoiceFullNumber",
                       "invoiceLineId": "x",
                       "lineDescription": "lineDescription",
-                      "scheduleDate": "scheduleDate",
+                      "scheduleDate": "2023-01-15",
                       "description": "description",
                       "amount": "amount"
                     }
@@ -8299,47 +6999,47 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionComputeResponse(
-            asOfDate: "asOfDate",
+        let expectedResponse = RecognitionComputeSalesResponse(
+            asOfDate: CalendarDate("2023-01-15")!,
             totalAmount: "totalAmount",
             rows: [
-                PostV1SalesRecognitionComputeResponseRowsItem(
+                RecognitionComputeSalesResponseRowsItem(
                     scheduleId: "x",
                     invoiceId: "x",
                     invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
                     invoiceLineId: "x",
                     lineDescription: "lineDescription",
-                    scheduleDate: Nullable<String>.value("scheduleDate"),
+                    scheduleDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     description: Nullable<String>.value("description"),
                     amount: "amount"
                 ),
-                PostV1SalesRecognitionComputeResponseRowsItem(
+                RecognitionComputeSalesResponseRowsItem(
                     scheduleId: "x",
                     invoiceId: "x",
                     invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
                     invoiceLineId: "x",
                     lineDescription: "lineDescription",
-                    scheduleDate: Nullable<String>.value("scheduleDate"),
+                    scheduleDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     description: Nullable<String>.value("description"),
                     amount: "amount"
                 )
             ]
         )
-        let response = try await client.sales.postV1SalesRecognitionCompute(
+        let response = try await client.sales.recognitionCompute(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRecognitionRun1() async throws -> Void {
+    @Test func recognitionRun1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "runId": "runId",
-                  "runDate": "runDate",
+                  "runDate": "2026-07-01",
                   "trigger": "manual",
                   "scheduleCount": 1000000,
                   "totalAmount": "totalAmount",
@@ -8353,29 +7053,29 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionRunResponse(
+        let expectedResponse = RecognitionRunSalesResponse(
             runId: "runId",
-            runDate: "runDate",
+            runDate: CalendarDate("2026-07-01")!,
             trigger: .manual,
             scheduleCount: 1000000,
             totalAmount: "totalAmount",
             journalTransactionId: "journalTransactionId"
         )
-        let response = try await client.sales.postV1SalesRecognitionRun(
+        let response = try await client.sales.recognitionRun(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRecognitionRun2() async throws -> Void {
+    @Test func recognitionRun2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "runId": "x",
-                  "runDate": "runDate",
+                  "runDate": "2023-01-15",
                   "trigger": "manual",
                   "scheduleCount": 1000000,
                   "totalAmount": "totalAmount",
@@ -8389,29 +7089,29 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionRunResponse(
+        let expectedResponse = RecognitionRunSalesResponse(
             runId: "x",
-            runDate: "runDate",
+            runDate: CalendarDate("2023-01-15")!,
             trigger: .manual,
             scheduleCount: 1000000,
             totalAmount: "totalAmount",
             journalTransactionId: "x"
         )
-        let response = try await client.sales.postV1SalesRecognitionRun(
+        let response = try await client.sales.recognitionRun(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRecognitionProgress1() async throws -> Void {
+    @Test func recognitionProgress1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "runId": "runId",
-                  "runDate": "runDate",
+                  "runDate": "2026-07-01",
                   "scheduleCount": 1000000,
                   "totalAmount": "totalAmount",
                   "journalTransactionId": "journalTransactionId"
@@ -8424,31 +7124,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionProgressResponse(
+        let expectedResponse = RecognitionProgressSalesResponse(
             runId: "runId",
-            runDate: "runDate",
+            runDate: CalendarDate("2026-07-01")!,
             scheduleCount: 1000000,
             totalAmount: "totalAmount",
             journalTransactionId: "journalTransactionId"
         )
-        let response = try await client.sales.postV1SalesRecognitionProgress(
+        let response = try await client.sales.recognitionProgress(
             request: .init(
                 invoiceLineId: "invoiceLineId",
-                percentComplete: "percentComplete"
+                percentComplete: "121.00"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRecognitionProgress2() async throws -> Void {
+    @Test func recognitionProgress2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "runId": "x",
-                  "runDate": "runDate",
+                  "runDate": "2023-01-15",
                   "scheduleCount": 1000000,
                   "totalAmount": "totalAmount",
                   "journalTransactionId": "x"
@@ -8461,14 +7161,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionProgressResponse(
+        let expectedResponse = RecognitionProgressSalesResponse(
             runId: "x",
-            runDate: "runDate",
+            runDate: CalendarDate("2023-01-15")!,
             scheduleCount: 1000000,
             totalAmount: "totalAmount",
             journalTransactionId: "x"
         )
-        let response = try await client.sales.postV1SalesRecognitionProgress(
+        let response = try await client.sales.recognitionProgress(
             request: .init(
                 invoiceLineId: "x",
                 percentComplete: "percentComplete"
@@ -8478,7 +7178,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRecognitionModify1() async throws -> Void {
+    @Test func recognitionModify1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8490,7 +7190,7 @@ import Api
                   "newPendingCount": 1000000,
                   "catchUpAmount": "catchUpAmount",
                   "journalTransactionId": "journalTransactionId",
-                  "newEndDate": "newEndDate"
+                  "newEndDate": "2026-07-01"
                 }
                 """#.utf8
             )
@@ -8500,16 +7200,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionModifyResponse(
+        let expectedResponse = RecognitionModifySalesResponse(
             invoiceLineId: "invoiceLineId",
             approach: .prospective,
             cancelledCount: 1000000,
             newPendingCount: 1000000,
             catchUpAmount: "catchUpAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
-            newEndDate: Nullable<String>.value("newEndDate")
+            newEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!)
         )
-        let response = try await client.sales.postV1SalesRecognitionModify(
+        let response = try await client.sales.recognitionModify(
             request: .init(
                 invoiceLineId: "invoiceLineId",
                 approach: .prospective
@@ -8519,7 +7219,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRecognitionModify2() async throws -> Void {
+    @Test func recognitionModify2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8531,7 +7231,7 @@ import Api
                   "newPendingCount": 1000000,
                   "catchUpAmount": "catchUpAmount",
                   "journalTransactionId": "x",
-                  "newEndDate": "newEndDate"
+                  "newEndDate": "2023-01-15"
                 }
                 """#.utf8
             )
@@ -8541,16 +7241,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionModifyResponse(
+        let expectedResponse = RecognitionModifySalesResponse(
             invoiceLineId: "x",
             approach: .prospective,
             cancelledCount: 1000000,
             newPendingCount: 1000000,
             catchUpAmount: "catchUpAmount",
             journalTransactionId: Nullable<String>.value("x"),
-            newEndDate: Nullable<String>.value("newEndDate")
+            newEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!)
         )
-        let response = try await client.sales.postV1SalesRecognitionModify(
+        let response = try await client.sales.recognitionModify(
             request: .init(
                 invoiceLineId: "x",
                 approach: .prospective
@@ -8560,7 +7260,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRecognitionRunsList1() async throws -> Void {
+    @Test func recognitionRunsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8569,12 +7269,12 @@ import Api
                   "rows": [
                     {
                       "id": "id",
-                      "runDate": "runDate",
+                      "runDate": "2026-07-01",
                       "trigger": "manual",
                       "scheduleCount": 1000000,
                       "totalAmount": "totalAmount",
                       "journalTransactionId": "journalTransactionId",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -8592,16 +7292,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionRunsListResponse(
+        let expectedResponse = RecognitionRunsListSalesResponse(
             rows: [
-                PostV1SalesRecognitionRunsListResponseRowsItem(
+                RecognitionRunsListSalesResponseRowsItem(
                     id: "id",
-                    runDate: "runDate",
+                    runDate: CalendarDate("2026-07-01")!,
                     trigger: .manual,
                     scheduleCount: 1000000,
                     totalAmount: "totalAmount",
                     journalTransactionId: "journalTransactionId",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -8611,14 +7311,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.sales.postV1SalesRecognitionRunsList(
+        let response = try await client.sales.recognitionRunsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRecognitionRunsList2() async throws -> Void {
+    @Test func recognitionRunsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8627,21 +7327,21 @@ import Api
                   "rows": [
                     {
                       "id": "x",
-                      "runDate": "runDate",
+                      "runDate": "2023-01-15",
                       "trigger": "manual",
                       "scheduleCount": 1000000,
                       "totalAmount": "totalAmount",
                       "journalTransactionId": "x",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
-                      "runDate": "runDate",
+                      "runDate": "2023-01-15",
                       "trigger": "manual",
                       "scheduleCount": 1000000,
                       "totalAmount": "totalAmount",
                       "journalTransactionId": "x",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -8659,25 +7359,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionRunsListResponse(
+        let expectedResponse = RecognitionRunsListSalesResponse(
             rows: [
-                PostV1SalesRecognitionRunsListResponseRowsItem(
+                RecognitionRunsListSalesResponseRowsItem(
                     id: "x",
-                    runDate: "runDate",
+                    runDate: CalendarDate("2023-01-15")!,
                     trigger: .manual,
                     scheduleCount: 1000000,
                     totalAmount: "totalAmount",
                     journalTransactionId: "x",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1SalesRecognitionRunsListResponseRowsItem(
+                RecognitionRunsListSalesResponseRowsItem(
                     id: "x",
-                    runDate: "runDate",
+                    runDate: CalendarDate("2023-01-15")!,
                     trigger: .manual,
                     scheduleCount: 1000000,
                     totalAmount: "totalAmount",
                     journalTransactionId: "x",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -8687,14 +7387,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.sales.postV1SalesRecognitionRunsList(
+        let response = try await client.sales.recognitionRunsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRecognitionSummary1() async throws -> Void {
+    @Test func recognitionSummary1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8708,15 +7408,15 @@ import Api
                       "lineDescription": "lineDescription",
                       "method": "point_in_time",
                       "deferredTotal": "deferredTotal",
-                      "recognizedToDate": "recognizedToDate",
+                      "recognizedToDate": "2026-07-01",
                       "remaining": "remaining",
                       "pendingCount": 1000000,
-                      "nextScheduleDate": "nextScheduleDate"
+                      "nextScheduleDate": "2026-07-01"
                     }
                   ],
                   "totals": {
                     "deferredTotal": "deferredTotal",
-                    "recognizedToDate": "recognizedToDate",
+                    "recognizedToDate": "2026-07-01",
                     "remaining": "remaining"
                   }
                 }
@@ -8728,35 +7428,35 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionSummaryResponse(
+        let expectedResponse = RecognitionSummarySalesResponse(
             rows: [
-                PostV1SalesRecognitionSummaryResponseRowsItem(
+                RecognitionSummarySalesResponseRowsItem(
                     invoiceId: "invoiceId",
                     invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
                     invoiceLineId: "invoiceLineId",
                     lineDescription: "lineDescription",
                     method: .pointInTime,
                     deferredTotal: "deferredTotal",
-                    recognizedToDate: "recognizedToDate",
+                    recognizedToDate: CalendarDate("2026-07-01")!,
                     remaining: "remaining",
                     pendingCount: 1000000,
-                    nextScheduleDate: Nullable<String>.value("nextScheduleDate")
+                    nextScheduleDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!)
                 )
             ],
-            totals: PostV1SalesRecognitionSummaryResponseTotals(
+            totals: RecognitionSummarySalesResponseTotals(
                 deferredTotal: "deferredTotal",
-                recognizedToDate: "recognizedToDate",
+                recognizedToDate: CalendarDate("2026-07-01")!,
                 remaining: "remaining"
             )
         )
-        let response = try await client.sales.postV1SalesRecognitionSummary(
+        let response = try await client.sales.recognitionSummary(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRecognitionSummary2() async throws -> Void {
+    @Test func recognitionSummary2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8770,10 +7470,10 @@ import Api
                       "lineDescription": "lineDescription",
                       "method": "point_in_time",
                       "deferredTotal": "deferredTotal",
-                      "recognizedToDate": "recognizedToDate",
+                      "recognizedToDate": "2023-01-15",
                       "remaining": "remaining",
                       "pendingCount": 1000000,
-                      "nextScheduleDate": "nextScheduleDate"
+                      "nextScheduleDate": "2023-01-15"
                     },
                     {
                       "invoiceId": "x",
@@ -8782,15 +7482,15 @@ import Api
                       "lineDescription": "lineDescription",
                       "method": "point_in_time",
                       "deferredTotal": "deferredTotal",
-                      "recognizedToDate": "recognizedToDate",
+                      "recognizedToDate": "2023-01-15",
                       "remaining": "remaining",
                       "pendingCount": 1000000,
-                      "nextScheduleDate": "nextScheduleDate"
+                      "nextScheduleDate": "2023-01-15"
                     }
                   ],
                   "totals": {
                     "deferredTotal": "deferredTotal",
-                    "recognizedToDate": "recognizedToDate",
+                    "recognizedToDate": "2023-01-15",
                     "remaining": "remaining"
                   }
                 }
@@ -8802,47 +7502,47 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRecognitionSummaryResponse(
+        let expectedResponse = RecognitionSummarySalesResponse(
             rows: [
-                PostV1SalesRecognitionSummaryResponseRowsItem(
+                RecognitionSummarySalesResponseRowsItem(
                     invoiceId: "x",
                     invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
                     invoiceLineId: "x",
                     lineDescription: "lineDescription",
                     method: .pointInTime,
                     deferredTotal: "deferredTotal",
-                    recognizedToDate: "recognizedToDate",
+                    recognizedToDate: CalendarDate("2023-01-15")!,
                     remaining: "remaining",
                     pendingCount: 1000000,
-                    nextScheduleDate: Nullable<String>.value("nextScheduleDate")
+                    nextScheduleDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!)
                 ),
-                PostV1SalesRecognitionSummaryResponseRowsItem(
+                RecognitionSummarySalesResponseRowsItem(
                     invoiceId: "x",
                     invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
                     invoiceLineId: "x",
                     lineDescription: "lineDescription",
                     method: .pointInTime,
                     deferredTotal: "deferredTotal",
-                    recognizedToDate: "recognizedToDate",
+                    recognizedToDate: CalendarDate("2023-01-15")!,
                     remaining: "remaining",
                     pendingCount: 1000000,
-                    nextScheduleDate: Nullable<String>.value("nextScheduleDate")
+                    nextScheduleDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!)
                 )
             ],
-            totals: PostV1SalesRecognitionSummaryResponseTotals(
+            totals: RecognitionSummarySalesResponseTotals(
                 deferredTotal: "deferredTotal",
-                recognizedToDate: "recognizedToDate",
+                recognizedToDate: CalendarDate("2023-01-15")!,
                 remaining: "remaining"
             )
         )
-        let response = try await client.sales.postV1SalesRecognitionSummary(
+        let response = try await client.sales.recognitionSummary(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRefundLiabilityList1() async throws -> Void {
+    @Test func refundLiabilityList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8857,8 +7557,8 @@ import Api
                       "consumed": "consumed",
                       "settlementRefunds": "settlementRefunds",
                       "remaining": "remaining",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -8876,9 +7576,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRefundLiabilityListResponse(
+        let expectedResponse = RefundLiabilityListSalesResponse(
             rows: [
-                PostV1SalesRefundLiabilityListResponseRowsItem(
+                RefundLiabilityListSalesResponseRowsItem(
                     id: "id",
                     invoiceId: "invoiceId",
                     invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
@@ -8886,8 +7586,8 @@ import Api
                     consumed: "consumed",
                     settlementRefunds: "settlementRefunds",
                     remaining: "remaining",
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -8897,14 +7597,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.sales.postV1SalesRefundLiabilityList(
+        let response = try await client.sales.refundLiabilityList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRefundLiabilityList2() async throws -> Void {
+    @Test func refundLiabilityList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8919,8 +7619,8 @@ import Api
                       "consumed": "consumed",
                       "settlementRefunds": "settlementRefunds",
                       "remaining": "remaining",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -8930,8 +7630,8 @@ import Api
                       "consumed": "consumed",
                       "settlementRefunds": "settlementRefunds",
                       "remaining": "remaining",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -8949,9 +7649,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRefundLiabilityListResponse(
+        let expectedResponse = RefundLiabilityListSalesResponse(
             rows: [
-                PostV1SalesRefundLiabilityListResponseRowsItem(
+                RefundLiabilityListSalesResponseRowsItem(
                     id: "x",
                     invoiceId: "x",
                     invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
@@ -8959,10 +7659,10 @@ import Api
                     consumed: "consumed",
                     settlementRefunds: "settlementRefunds",
                     remaining: "remaining",
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1SalesRefundLiabilityListResponseRowsItem(
+                RefundLiabilityListSalesResponseRowsItem(
                     id: "x",
                     invoiceId: "x",
                     invoiceFullNumber: Nullable<String>.value("invoiceFullNumber"),
@@ -8970,8 +7670,8 @@ import Api
                     consumed: "consumed",
                     settlementRefunds: "settlementRefunds",
                     remaining: "remaining",
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -8981,14 +7681,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.sales.postV1SalesRefundLiabilityList(
+        let response = try await client.sales.refundLiabilityList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRefundLiabilityTrueUp1() async throws -> Void {
+    @Test func refundLiabilityTrueUp1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9009,7 +7709,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRefundLiabilityTrueUpResponse(
+        let expectedResponse = RefundLiabilityTrueUpSalesResponse(
             invoiceId: "invoiceId",
             estimated: "estimated",
             consumed: "consumed",
@@ -9017,17 +7717,17 @@ import Api
             delta: "delta",
             journalTransactionId: "journalTransactionId"
         )
-        let response = try await client.sales.postV1SalesRefundLiabilityTrueUp(
+        let response = try await client.sales.refundLiabilityTrueUp(
             request: .init(
                 invoiceId: "invoiceId",
-                estimatedTotal: "estimatedTotal"
+                estimatedTotal: "121.0000"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1SalesRefundLiabilityTrueUp2() async throws -> Void {
+    @Test func refundLiabilityTrueUp2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9048,7 +7748,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1SalesRefundLiabilityTrueUpResponse(
+        let expectedResponse = RefundLiabilityTrueUpSalesResponse(
             invoiceId: "x",
             estimated: "estimated",
             consumed: "consumed",
@@ -9056,7 +7756,7 @@ import Api
             delta: "delta",
             journalTransactionId: "x"
         )
-        let response = try await client.sales.postV1SalesRefundLiabilityTrueUp(
+        let response = try await client.sales.refundLiabilityTrueUp(
             request: .init(
                 invoiceId: "x",
                 estimatedTotal: "estimatedTotal"

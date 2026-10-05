@@ -3,13 +3,13 @@ import Testing
 import Api
 
 @Suite("ReferenceClient Wire Tests") struct ReferenceClientWireTests {
-    @Test func postV1ReferenceExchangeRatesSync1() async throws -> Void {
+    @Test func exchangeRatesSync1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "date": "date",
+                  "date": "2026-07-01",
                   "imported": 1000000
                 }
                 """#.utf8
@@ -20,24 +20,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceExchangeRatesSyncResponse(
-            date: "date",
+        let expectedResponse = ExchangeRatesSyncReferenceResponse(
+            date: CalendarDate("2026-07-01")!,
             imported: 1000000
         )
-        let response = try await client.reference.postV1ReferenceExchangeRatesSync(
+        let response = try await client.reference.exchangeRatesSync(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceExchangeRatesSync2() async throws -> Void {
+    @Test func exchangeRatesSync2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "date": "date",
+                  "date": "2023-01-15",
                   "imported": 1000000
                 }
                 """#.utf8
@@ -48,18 +48,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceExchangeRatesSyncResponse(
-            date: "date",
+        let expectedResponse = ExchangeRatesSyncReferenceResponse(
+            date: CalendarDate("2023-01-15")!,
             imported: 1000000
         )
-        let response = try await client.reference.postV1ReferenceExchangeRatesSync(
+        let response = try await client.reference.exchangeRatesSync(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceExchangeRatesList1() async throws -> Void {
+    @Test func exchangeRatesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -68,7 +68,7 @@ import Api
                   "rows": [
                     {
                       "currencyCode": "currencyCode",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "rate": "rate"
                     }
                   ],
@@ -87,11 +87,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceExchangeRatesListResponse(
+        let expectedResponse = ExchangeRatesListReferenceResponse(
             rows: [
-                PostV1ReferenceExchangeRatesListResponseRowsItem(
+                ExchangeRatesListReferenceResponseRowsItem(
                     currencyCode: "currencyCode",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     rate: "rate"
                 )
             ],
@@ -102,14 +102,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.reference.postV1ReferenceExchangeRatesList(
+        let response = try await client.reference.exchangeRatesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceExchangeRatesList2() async throws -> Void {
+    @Test func exchangeRatesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -118,12 +118,12 @@ import Api
                   "rows": [
                     {
                       "currencyCode": "currencyCode",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "rate": "rate"
                     },
                     {
                       "currencyCode": "currencyCode",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "rate": "rate"
                     }
                   ],
@@ -142,16 +142,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceExchangeRatesListResponse(
+        let expectedResponse = ExchangeRatesListReferenceResponse(
             rows: [
-                PostV1ReferenceExchangeRatesListResponseRowsItem(
+                ExchangeRatesListReferenceResponseRowsItem(
                     currencyCode: "currencyCode",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     rate: "rate"
                 ),
-                PostV1ReferenceExchangeRatesListResponseRowsItem(
+                ExchangeRatesListReferenceResponseRowsItem(
                     currencyCode: "currencyCode",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     rate: "rate"
                 )
             ],
@@ -162,21 +162,21 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.reference.postV1ReferenceExchangeRatesList(
+        let response = try await client.reference.exchangeRatesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceExchangeRatesSet1() async throws -> Void {
+    @Test func exchangeRatesSet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "currencyCode": "currencyCode",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "rate": "rate"
                 }
                 """#.utf8
@@ -187,30 +187,30 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceExchangeRatesSetResponse(
+        let expectedResponse = ExchangeRatesSetReferenceResponse(
             currencyCode: "currencyCode",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             rate: "rate"
         )
-        let response = try await client.reference.postV1ReferenceExchangeRatesSet(
+        let response = try await client.reference.exchangeRatesSet(
             request: .init(
                 currency: "currency",
-                date: "date",
-                rate: "rate"
+                date: CalendarDate("2026-07-01")!,
+                rate: "121.00000000"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceExchangeRatesSet2() async throws -> Void {
+    @Test func exchangeRatesSet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "currencyCode": "currencyCode",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "rate": "rate"
                 }
                 """#.utf8
@@ -221,15 +221,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceExchangeRatesSetResponse(
+        let expectedResponse = ExchangeRatesSetReferenceResponse(
             currencyCode: "currencyCode",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             rate: "rate"
         )
-        let response = try await client.reference.postV1ReferenceExchangeRatesSet(
+        let response = try await client.reference.exchangeRatesSet(
             request: .init(
                 currency: "foo",
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 rate: "rate"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -237,7 +237,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceExchangeRatesOverridesList1() async throws -> Void {
+    @Test func exchangeRatesOverridesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -246,7 +246,7 @@ import Api
                   "rows": [
                     {
                       "currencyCode": "currencyCode",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "rate": "rate"
                     }
                   ],
@@ -265,11 +265,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceExchangeRatesOverridesListResponse(
+        let expectedResponse = ExchangeRatesOverridesListReferenceResponse(
             rows: [
-                PostV1ReferenceExchangeRatesOverridesListResponseRowsItem(
+                ExchangeRatesOverridesListReferenceResponseRowsItem(
                     currencyCode: "currencyCode",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     rate: "rate"
                 )
             ],
@@ -280,14 +280,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.reference.postV1ReferenceExchangeRatesOverridesList(
+        let response = try await client.reference.exchangeRatesOverridesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceExchangeRatesOverridesList2() async throws -> Void {
+    @Test func exchangeRatesOverridesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -296,12 +296,12 @@ import Api
                   "rows": [
                     {
                       "currencyCode": "currencyCode",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "rate": "rate"
                     },
                     {
                       "currencyCode": "currencyCode",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "rate": "rate"
                     }
                   ],
@@ -320,16 +320,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceExchangeRatesOverridesListResponse(
+        let expectedResponse = ExchangeRatesOverridesListReferenceResponse(
             rows: [
-                PostV1ReferenceExchangeRatesOverridesListResponseRowsItem(
+                ExchangeRatesOverridesListReferenceResponseRowsItem(
                     currencyCode: "currencyCode",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     rate: "rate"
                 ),
-                PostV1ReferenceExchangeRatesOverridesListResponseRowsItem(
+                ExchangeRatesOverridesListReferenceResponseRowsItem(
                     currencyCode: "currencyCode",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     rate: "rate"
                 )
             ],
@@ -340,14 +340,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.reference.postV1ReferenceExchangeRatesOverridesList(
+        let response = try await client.reference.exchangeRatesOverridesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceExchangeRatesOverridesDelete1() async throws -> Void {
+    @Test func exchangeRatesOverridesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -363,20 +363,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceExchangeRatesOverridesDeleteResponse(
+        let expectedResponse = ExchangeRatesOverridesDeleteReferenceResponse(
             deleted: true
         )
-        let response = try await client.reference.postV1ReferenceExchangeRatesOverridesDelete(
+        let response = try await client.reference.exchangeRatesOverridesDelete(
             request: .init(
                 currency: "currency",
-                date: "date"
+                date: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceExchangeRatesOverridesDelete2() async throws -> Void {
+    @Test func exchangeRatesOverridesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -392,20 +392,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceExchangeRatesOverridesDeleteResponse(
+        let expectedResponse = ExchangeRatesOverridesDeleteReferenceResponse(
             deleted: true
         )
-        let response = try await client.reference.postV1ReferenceExchangeRatesOverridesDelete(
+        let response = try await client.reference.exchangeRatesOverridesDelete(
             request: .init(
                 currency: "foo",
-                date: "date"
+                date: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceCountriesList1() async throws -> Void {
+    @Test func countriesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -430,9 +430,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceCountriesListResponse(
+        let expectedResponse = CountriesListReferenceResponse(
             rows: [
-                PostV1ReferenceCountriesListResponseRowsItem(
+                CountriesListReferenceResponseRowsItem(
                     code: "code",
                     isEu: true,
                     isEea: true,
@@ -442,14 +442,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceCountriesList(
+        let response = try await client.reference.countriesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceCountriesList2() async throws -> Void {
+    @Test func countriesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -482,9 +482,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceCountriesListResponse(
+        let expectedResponse = CountriesListReferenceResponse(
             rows: [
-                PostV1ReferenceCountriesListResponseRowsItem(
+                CountriesListReferenceResponseRowsItem(
                     code: "code",
                     isEu: true,
                     isEea: true,
@@ -492,7 +492,7 @@ import Api
                         "names": "names"
                     ]
                 ),
-                PostV1ReferenceCountriesListResponseRowsItem(
+                CountriesListReferenceResponseRowsItem(
                     code: "code",
                     isEu: true,
                     isEea: true,
@@ -502,14 +502,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceCountriesList(
+        let response = try await client.reference.countriesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceLtCountiesList1() async throws -> Void {
+    @Test func ltCountiesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -531,23 +531,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceLtCountiesListResponse(
+        let expectedResponse = LtCountiesListReferenceResponse(
             rows: [
-                PostV1ReferenceLtCountiesListResponseRowsItem(
+                LtCountiesListReferenceResponseRowsItem(
                     code: "code",
                     isoCode: "isoCode",
                     name: "name"
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceLtCountiesList(
+        let response = try await client.reference.ltCountiesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceLtCountiesList2() async throws -> Void {
+    @Test func ltCountiesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -574,28 +574,28 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceLtCountiesListResponse(
+        let expectedResponse = LtCountiesListReferenceResponse(
             rows: [
-                PostV1ReferenceLtCountiesListResponseRowsItem(
+                LtCountiesListReferenceResponseRowsItem(
                     code: "code",
                     isoCode: "isoCode",
                     name: "name"
                 ),
-                PostV1ReferenceLtCountiesListResponseRowsItem(
+                LtCountiesListReferenceResponseRowsItem(
                     code: "code",
                     isoCode: "isoCode",
                     name: "name"
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceLtCountiesList(
+        let response = try await client.reference.ltCountiesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceLtMunicipalitiesList1() async throws -> Void {
+    @Test func ltMunicipalitiesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -617,23 +617,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceLtMunicipalitiesListResponse(
+        let expectedResponse = LtMunicipalitiesListReferenceResponse(
             rows: [
-                PostV1ReferenceLtMunicipalitiesListResponseRowsItem(
+                LtMunicipalitiesListReferenceResponseRowsItem(
                     code: "code",
                     name: "name",
                     countyCode: "countyCode"
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceLtMunicipalitiesList(
+        let response = try await client.reference.ltMunicipalitiesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceLtMunicipalitiesList2() async throws -> Void {
+    @Test func ltMunicipalitiesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -660,28 +660,28 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceLtMunicipalitiesListResponse(
+        let expectedResponse = LtMunicipalitiesListReferenceResponse(
             rows: [
-                PostV1ReferenceLtMunicipalitiesListResponseRowsItem(
+                LtMunicipalitiesListReferenceResponseRowsItem(
                     code: "code",
                     name: "name",
                     countyCode: "countyCode"
                 ),
-                PostV1ReferenceLtMunicipalitiesListResponseRowsItem(
+                LtMunicipalitiesListReferenceResponseRowsItem(
                     code: "code",
                     name: "name",
                     countyCode: "countyCode"
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceLtMunicipalitiesList(
+        let response = try await client.reference.ltMunicipalitiesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceLtCitiesList1() async throws -> Void {
+    @Test func ltCitiesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -702,22 +702,22 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceLtCitiesListResponse(
+        let expectedResponse = LtCitiesListReferenceResponse(
             rows: [
-                PostV1ReferenceLtCitiesListResponseRowsItem(
+                LtCitiesListReferenceResponseRowsItem(
                     name: "name",
                     municipalityCode: "municipalityCode"
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceLtCitiesList(
+        let response = try await client.reference.ltCitiesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceLtCitiesList2() async throws -> Void {
+    @Test func ltCitiesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -742,26 +742,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceLtCitiesListResponse(
+        let expectedResponse = LtCitiesListReferenceResponse(
             rows: [
-                PostV1ReferenceLtCitiesListResponseRowsItem(
+                LtCitiesListReferenceResponseRowsItem(
                     name: "name",
                     municipalityCode: "municipalityCode"
                 ),
-                PostV1ReferenceLtCitiesListResponseRowsItem(
+                LtCitiesListReferenceResponseRowsItem(
                     name: "name",
                     municipalityCode: "municipalityCode"
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceLtCitiesList(
+        let response = try await client.reference.ltCitiesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceBanksList1() async throws -> Void {
+    @Test func banksList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -792,9 +792,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceBanksListResponse(
+        let expectedResponse = BanksListReferenceResponse(
             rows: [
-                PostV1ReferenceBanksListResponseRowsItem(
+                BanksListReferenceResponseRowsItem(
                     id: "id",
                     countryCode: "countryCode",
                     name: "name",
@@ -810,14 +810,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.reference.postV1ReferenceBanksList(
+        let response = try await client.reference.banksList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceBanksList2() async throws -> Void {
+    @Test func banksList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -856,9 +856,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceBanksListResponse(
+        let expectedResponse = BanksListReferenceResponse(
             rows: [
-                PostV1ReferenceBanksListResponseRowsItem(
+                BanksListReferenceResponseRowsItem(
                     id: "x",
                     countryCode: "countryCode",
                     name: "name",
@@ -866,7 +866,7 @@ import Api
                     bankCode: Nullable<String>.value("bankCode"),
                     isActive: true
                 ),
-                PostV1ReferenceBanksListResponseRowsItem(
+                BanksListReferenceResponseRowsItem(
                     id: "x",
                     countryCode: "countryCode",
                     name: "name",
@@ -882,14 +882,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.reference.postV1ReferenceBanksList(
+        let response = try await client.reference.banksList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceBanksUpsert1() async throws -> Void {
+    @Test func banksUpsert1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -910,7 +910,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceBanksUpsertResponse(
+        let expectedResponse = BanksUpsertReferenceResponse(
             id: "id",
             countryCode: "countryCode",
             name: "name",
@@ -918,7 +918,7 @@ import Api
             bankCode: Nullable<String>.value("bankCode"),
             isActive: true
         )
-        let response = try await client.reference.postV1ReferenceBanksUpsert(
+        let response = try await client.reference.banksUpsert(
             request: .init(
                 countryCode: "countryCode",
                 name: "name",
@@ -929,7 +929,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceBanksUpsert2() async throws -> Void {
+    @Test func banksUpsert2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -950,7 +950,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceBanksUpsertResponse(
+        let expectedResponse = BanksUpsertReferenceResponse(
             id: "x",
             countryCode: "countryCode",
             name: "name",
@@ -958,7 +958,7 @@ import Api
             bankCode: Nullable<String>.value("bankCode"),
             isActive: true
         )
-        let response = try await client.reference.postV1ReferenceBanksUpsert(
+        let response = try await client.reference.banksUpsert(
             request: .init(
                 countryCode: "xy",
                 name: "x",
@@ -969,7 +969,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceLtRegionsList1() async throws -> Void {
+    @Test func ltRegionsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -991,23 +991,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceLtRegionsListResponse(
+        let expectedResponse = LtRegionsListReferenceResponse(
             rows: [
-                PostV1ReferenceLtRegionsListResponseRowsItem(
+                LtRegionsListReferenceResponseRowsItem(
                     code: "code",
                     isoCode: "isoCode",
                     name: "name"
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceLtRegionsList(
+        let response = try await client.reference.ltRegionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceLtRegionsList2() async throws -> Void {
+    @Test func ltRegionsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1034,28 +1034,28 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceLtRegionsListResponse(
+        let expectedResponse = LtRegionsListReferenceResponse(
             rows: [
-                PostV1ReferenceLtRegionsListResponseRowsItem(
+                LtRegionsListReferenceResponseRowsItem(
                     code: "code",
                     isoCode: "isoCode",
                     name: "name"
                 ),
-                PostV1ReferenceLtRegionsListResponseRowsItem(
+                LtRegionsListReferenceResponseRowsItem(
                     code: "code",
                     isoCode: "isoCode",
                     name: "name"
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceLtRegionsList(
+        let response = try await client.reference.ltRegionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceCurrenciesList1() async throws -> Void {
+    @Test func currenciesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1083,9 +1083,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceCurrenciesListResponse(
+        let expectedResponse = CurrenciesListReferenceResponse(
             rows: [
-                PostV1ReferenceCurrenciesListResponseRowsItem(
+                CurrenciesListReferenceResponseRowsItem(
                     code: "code",
                     name: "name",
                     minorUnits: 1000000
@@ -1098,14 +1098,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.reference.postV1ReferenceCurrenciesList(
+        let response = try await client.reference.currenciesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceCurrenciesList2() async throws -> Void {
+    @Test func currenciesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1138,14 +1138,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceCurrenciesListResponse(
+        let expectedResponse = CurrenciesListReferenceResponse(
             rows: [
-                PostV1ReferenceCurrenciesListResponseRowsItem(
+                CurrenciesListReferenceResponseRowsItem(
                     code: "code",
                     name: "name",
                     minorUnits: 1000000
                 ),
-                PostV1ReferenceCurrenciesListResponseRowsItem(
+                CurrenciesListReferenceResponseRowsItem(
                     code: "code",
                     name: "name",
                     minorUnits: 1000000
@@ -1158,14 +1158,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.reference.postV1ReferenceCurrenciesList(
+        let response = try await client.reference.currenciesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceVatClassifiersList1() async throws -> Void {
+    @Test func vatClassifiersList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1194,9 +1194,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceVatClassifiersListResponse(
+        let expectedResponse = VatClassifiersListReferenceResponse(
             rows: [
-                PostV1ReferenceVatClassifiersListResponseRowsItem(
+                VatClassifiersListReferenceResponseRowsItem(
                     code: "code",
                     countryCode: "countryCode",
                     name: "name",
@@ -1210,14 +1210,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.reference.postV1ReferenceVatClassifiersList(
+        let response = try await client.reference.vatClassifiersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceVatClassifiersList2() async throws -> Void {
+    @Test func vatClassifiersList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1252,15 +1252,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceVatClassifiersListResponse(
+        let expectedResponse = VatClassifiersListReferenceResponse(
             rows: [
-                PostV1ReferenceVatClassifiersListResponseRowsItem(
+                VatClassifiersListReferenceResponseRowsItem(
                     code: "code",
                     countryCode: "countryCode",
                     name: "name",
                     ratePercent: Nullable<String>.value("ratePercent")
                 ),
-                PostV1ReferenceVatClassifiersListResponseRowsItem(
+                VatClassifiersListReferenceResponseRowsItem(
                     code: "code",
                     countryCode: "countryCode",
                     name: "name",
@@ -1274,14 +1274,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.reference.postV1ReferenceVatClassifiersList(
+        let response = try await client.reference.vatClassifiersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceVatClassifiersUpsert1() async throws -> Void {
+    @Test func vatClassifiersUpsert1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1297,12 +1297,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceVatClassifiersUpsertResponse(
+        let expectedResponse = VatClassifiersUpsertReferenceResponse(
             upserted: 1000000
         )
-        let response = try await client.reference.postV1ReferenceVatClassifiersUpsert(
+        let response = try await client.reference.vatClassifiersUpsert(
             request: .init(rows: [
-                PostV1ReferenceVatClassifiersUpsertRequestRowsItem(
+                VatClassifiersUpsertReferenceRequestRowsItem(
                     code: "code",
                     name: "name"
                 )
@@ -1312,7 +1312,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceVatClassifiersUpsert2() async throws -> Void {
+    @Test func vatClassifiersUpsert2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1328,16 +1328,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceVatClassifiersUpsertResponse(
+        let expectedResponse = VatClassifiersUpsertReferenceResponse(
             upserted: 1000000
         )
-        let response = try await client.reference.postV1ReferenceVatClassifiersUpsert(
+        let response = try await client.reference.vatClassifiersUpsert(
             request: .init(rows: [
-                PostV1ReferenceVatClassifiersUpsertRequestRowsItem(
+                VatClassifiersUpsertReferenceRequestRowsItem(
                     code: "x",
                     name: "x"
                 ),
-                PostV1ReferenceVatClassifiersUpsertRequestRowsItem(
+                VatClassifiersUpsertReferenceRequestRowsItem(
                     code: "x",
                     name: "x"
                 )
@@ -1347,7 +1347,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceEuVatRatesList1() async throws -> Void {
+    @Test func euVatRatesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1373,10 +1373,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceEuVatRatesListResponse(
+        let expectedResponse = EuVatRatesListReferenceResponse(
             notice: "notice",
             rows: [
-                PostV1ReferenceEuVatRatesListResponseRowsItem(
+                EuVatRatesListReferenceResponseRowsItem(
                     countryCode: "countryCode",
                     category: .standard,
                     ratePercent: "ratePercent",
@@ -1386,14 +1386,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceEuVatRatesList(
+        let response = try await client.reference.euVatRatesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceEuVatRatesList2() async throws -> Void {
+    @Test func euVatRatesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1427,10 +1427,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceEuVatRatesListResponse(
+        let expectedResponse = EuVatRatesListReferenceResponse(
             notice: "notice",
             rows: [
-                PostV1ReferenceEuVatRatesListResponseRowsItem(
+                EuVatRatesListReferenceResponseRowsItem(
                     countryCode: "countryCode",
                     category: .standard,
                     ratePercent: "ratePercent",
@@ -1438,7 +1438,7 @@ import Api
                     validTo: Nullable<String>.value("validTo"),
                     source: .default
                 ),
-                PostV1ReferenceEuVatRatesListResponseRowsItem(
+                EuVatRatesListReferenceResponseRowsItem(
                     countryCode: "countryCode",
                     category: .standard,
                     ratePercent: "ratePercent",
@@ -1448,14 +1448,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceEuVatRatesList(
+        let response = try await client.reference.euVatRatesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceEuVatRatesSetOverrides1() async throws -> Void {
+    @Test func euVatRatesSetOverrides1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1479,24 +1479,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceEuVatRatesSetOverridesResponse(
+        let expectedResponse = EuVatRatesSetOverridesReferenceResponse(
             countryCode: "countryCode",
             source: .default,
             notice: "notice",
             rows: [
-                PostV1ReferenceEuVatRatesSetOverridesResponseRowsItem(
+                EuVatRatesSetOverridesReferenceResponseRowsItem(
                     category: .standard,
                     ratePercent: "ratePercent"
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceEuVatRatesSetOverrides(
+        let response = try await client.reference.euVatRatesSetOverrides(
             request: .init(
                 countryCode: "countryCode",
                 rates: [
-                    PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem(
+                    EuVatRatesSetOverridesReferenceRequestRatesItem(
                         category: .standard,
-                        ratePercent: "ratePercent"
+                        ratePercent: "121.00"
                     )
                 ]
             ),
@@ -1505,7 +1505,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceEuVatRatesSetOverrides2() async throws -> Void {
+    @Test func euVatRatesSetOverrides2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1533,30 +1533,30 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceEuVatRatesSetOverridesResponse(
+        let expectedResponse = EuVatRatesSetOverridesReferenceResponse(
             countryCode: "countryCode",
             source: .default,
             notice: "notice",
             rows: [
-                PostV1ReferenceEuVatRatesSetOverridesResponseRowsItem(
+                EuVatRatesSetOverridesReferenceResponseRowsItem(
                     category: .standard,
                     ratePercent: "ratePercent"
                 ),
-                PostV1ReferenceEuVatRatesSetOverridesResponseRowsItem(
+                EuVatRatesSetOverridesReferenceResponseRowsItem(
                     category: .standard,
                     ratePercent: "ratePercent"
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceEuVatRatesSetOverrides(
+        let response = try await client.reference.euVatRatesSetOverrides(
             request: .init(
                 countryCode: "xy",
                 rates: [
-                    PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem(
+                    EuVatRatesSetOverridesReferenceRequestRatesItem(
                         category: .standard,
                         ratePercent: "ratePercent"
                     ),
-                    PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem(
+                    EuVatRatesSetOverridesReferenceRequestRatesItem(
                         category: .standard,
                         ratePercent: "ratePercent"
                     )
@@ -1567,7 +1567,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceVatResolve1() async throws -> Void {
+    @Test func vatResolve1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1597,14 +1597,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceVatResolveResponse(
+        let expectedResponse = VatResolveReferenceResponse(
             scheme: .domestic,
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             reverseCharge: true,
             deemedSupplier: true,
             zeroRated: true,
             rates: [
-                PostV1ReferenceVatResolveResponseRatesItem(
+                VatResolveReferenceResponseRatesItem(
                     category: .standard,
                     ratePercent: "ratePercent"
                 )
@@ -1614,14 +1614,14 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.reference.postV1ReferenceVatResolve(
+        let response = try await client.reference.vatResolve(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceVatResolve2() async throws -> Void {
+    @Test func vatResolve2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1656,18 +1656,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceVatResolveResponse(
+        let expectedResponse = VatResolveReferenceResponse(
             scheme: .domestic,
             vatCountryCode: Nullable<String>.value("vatCountryCode"),
             reverseCharge: true,
             deemedSupplier: true,
             zeroRated: true,
             rates: [
-                PostV1ReferenceVatResolveResponseRatesItem(
+                VatResolveReferenceResponseRatesItem(
                     category: .standard,
                     ratePercent: "ratePercent"
                 ),
-                PostV1ReferenceVatResolveResponseRatesItem(
+                VatResolveReferenceResponseRatesItem(
                     category: .standard,
                     ratePercent: "ratePercent"
                 )
@@ -1678,14 +1678,14 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.reference.postV1ReferenceVatResolve(
+        let response = try await client.reference.vatResolve(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceCnCodesList1() async throws -> Void {
+    @Test func cnCodesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1714,9 +1714,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceCnCodesListResponse(
+        let expectedResponse = CnCodesListReferenceResponse(
             rows: [
-                PostV1ReferenceCnCodesListResponseRowsItem(
+                CnCodesListReferenceResponseRowsItem(
                     code: "code",
                     name: "name",
                     nameLt: Nullable<String>.value("nameLt"),
@@ -1730,14 +1730,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.reference.postV1ReferenceCnCodesList(
+        let response = try await client.reference.cnCodesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceCnCodesList2() async throws -> Void {
+    @Test func cnCodesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1772,15 +1772,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceCnCodesListResponse(
+        let expectedResponse = CnCodesListReferenceResponse(
             rows: [
-                PostV1ReferenceCnCodesListResponseRowsItem(
+                CnCodesListReferenceResponseRowsItem(
                     code: "code",
                     name: "name",
                     nameLt: Nullable<String>.value("nameLt"),
                     supplementaryUnit: Nullable<String>.value("supplementaryUnit")
                 ),
-                PostV1ReferenceCnCodesListResponseRowsItem(
+                CnCodesListReferenceResponseRowsItem(
                     code: "code",
                     name: "name",
                     nameLt: Nullable<String>.value("nameLt"),
@@ -1794,14 +1794,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.reference.postV1ReferenceCnCodesList(
+        let response = try await client.reference.cnCodesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceCnCodesUpsert1() async throws -> Void {
+    @Test func cnCodesUpsert1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1817,12 +1817,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceCnCodesUpsertResponse(
+        let expectedResponse = CnCodesUpsertReferenceResponse(
             upserted: 1000000
         )
-        let response = try await client.reference.postV1ReferenceCnCodesUpsert(
+        let response = try await client.reference.cnCodesUpsert(
             request: .init(rows: [
-                PostV1ReferenceCnCodesUpsertRequestRowsItem(
+                CnCodesUpsertReferenceRequestRowsItem(
                     code: "code",
                     name: "name"
                 )
@@ -1832,7 +1832,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceCnCodesUpsert2() async throws -> Void {
+    @Test func cnCodesUpsert2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1848,16 +1848,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceCnCodesUpsertResponse(
+        let expectedResponse = CnCodesUpsertReferenceResponse(
             upserted: 1000000
         )
-        let response = try await client.reference.postV1ReferenceCnCodesUpsert(
+        let response = try await client.reference.cnCodesUpsert(
             request: .init(rows: [
-                PostV1ReferenceCnCodesUpsertRequestRowsItem(
+                CnCodesUpsertReferenceRequestRowsItem(
                     code: "code",
                     name: "x"
                 ),
-                PostV1ReferenceCnCodesUpsertRequestRowsItem(
+                CnCodesUpsertReferenceRequestRowsItem(
                     code: "code",
                     name: "x"
                 )
@@ -1867,7 +1867,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceComplianceVersionsList1() async throws -> Void {
+    @Test func complianceVersionsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1894,9 +1894,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceComplianceVersionsListResponse(
+        let expectedResponse = ComplianceVersionsListReferenceResponse(
             rows: [
-                PostV1ReferenceComplianceVersionsListResponseRowsItem(
+                ComplianceVersionsListReferenceResponseRowsItem(
                     country: "country",
                     system: "system",
                     artifact: "artifact",
@@ -1908,14 +1908,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceComplianceVersionsList(
+        let response = try await client.reference.complianceVersionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceComplianceVersionsList2() async throws -> Void {
+    @Test func complianceVersionsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1952,9 +1952,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceComplianceVersionsListResponse(
+        let expectedResponse = ComplianceVersionsListReferenceResponse(
             rows: [
-                PostV1ReferenceComplianceVersionsListResponseRowsItem(
+                ComplianceVersionsListReferenceResponseRowsItem(
                     country: "country",
                     system: "system",
                     artifact: "artifact",
@@ -1964,7 +1964,7 @@ import Api
                     resource: Optional("resource"),
                     notes: Optional("notes")
                 ),
-                PostV1ReferenceComplianceVersionsListResponseRowsItem(
+                ComplianceVersionsListReferenceResponseRowsItem(
                     country: "country",
                     system: "system",
                     artifact: "artifact",
@@ -1976,14 +1976,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceComplianceVersionsList(
+        let response = try await client.reference.complianceVersionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceIntrastatThresholdsList1() async throws -> Void {
+    @Test func intrastatThresholdsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2007,9 +2007,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceIntrastatThresholdsListResponse(
+        let expectedResponse = IntrastatThresholdsListReferenceResponse(
             rows: [
-                PostV1ReferenceIntrastatThresholdsListResponseRowsItem(
+                IntrastatThresholdsListReferenceResponseRowsItem(
                     year: 1000000,
                     arrivalsReporting: "arrivalsReporting",
                     dispatchesReporting: "dispatchesReporting",
@@ -2018,14 +2018,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceIntrastatThresholdsList(
+        let response = try await client.reference.intrastatThresholdsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceIntrastatThresholdsList2() async throws -> Void {
+    @Test func intrastatThresholdsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2056,16 +2056,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceIntrastatThresholdsListResponse(
+        let expectedResponse = IntrastatThresholdsListReferenceResponse(
             rows: [
-                PostV1ReferenceIntrastatThresholdsListResponseRowsItem(
+                IntrastatThresholdsListReferenceResponseRowsItem(
                     year: 1000000,
                     arrivalsReporting: "arrivalsReporting",
                     dispatchesReporting: "dispatchesReporting",
                     arrivalsStatistical: "arrivalsStatistical",
                     dispatchesStatistical: "dispatchesStatistical"
                 ),
-                PostV1ReferenceIntrastatThresholdsListResponseRowsItem(
+                IntrastatThresholdsListReferenceResponseRowsItem(
                     year: 1000000,
                     arrivalsReporting: "arrivalsReporting",
                     dispatchesReporting: "dispatchesReporting",
@@ -2074,14 +2074,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reference.postV1ReferenceIntrastatThresholdsList(
+        let response = try await client.reference.intrastatThresholdsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceUnitsList1() async throws -> Void {
+    @Test func unitsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2109,9 +2109,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceUnitsListResponse(
+        let expectedResponse = UnitsListReferenceResponse(
             rows: [
-                PostV1ReferenceUnitsListResponseRowsItem(
+                UnitsListReferenceResponseRowsItem(
                     code: "code",
                     nameLt: "nameLt",
                     nameEn: "nameEn"
@@ -2124,14 +2124,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.reference.postV1ReferenceUnitsList(
+        let response = try await client.reference.unitsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceUnitsList2() async throws -> Void {
+    @Test func unitsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2164,14 +2164,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceUnitsListResponse(
+        let expectedResponse = UnitsListReferenceResponse(
             rows: [
-                PostV1ReferenceUnitsListResponseRowsItem(
+                UnitsListReferenceResponseRowsItem(
                     code: "code",
                     nameLt: "nameLt",
                     nameEn: "nameEn"
                 ),
-                PostV1ReferenceUnitsListResponseRowsItem(
+                UnitsListReferenceResponseRowsItem(
                     code: "code",
                     nameLt: "nameLt",
                     nameEn: "nameEn"
@@ -2184,14 +2184,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.reference.postV1ReferenceUnitsList(
+        let response = try await client.reference.unitsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceSeriesCreate1() async throws -> Void {
+    @Test func seriesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2202,7 +2202,7 @@ import Api
                   "prefix": "prefix",
                   "year": 1000000,
                   "nextNumber": 1000000,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2212,15 +2212,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceSeriesCreateResponse(
+        let expectedResponse = SeriesCreateReferenceResponse(
             id: "id",
             documentType: "documentType",
             prefix: "prefix",
             year: 1000000,
             nextNumber: 1000000,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.reference.postV1ReferenceSeriesCreate(
+        let response = try await client.reference.seriesCreate(
             request: .init(
                 documentType: "documentType",
                 year: 1000000
@@ -2230,7 +2230,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceSeriesCreate2() async throws -> Void {
+    @Test func seriesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2241,7 +2241,7 @@ import Api
                   "prefix": "prefix",
                   "year": 1000000,
                   "nextNumber": 1000000,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2251,15 +2251,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceSeriesCreateResponse(
+        let expectedResponse = SeriesCreateReferenceResponse(
             id: "x",
             documentType: "documentType",
             prefix: "prefix",
             year: 1000000,
             nextNumber: 1000000,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.reference.postV1ReferenceSeriesCreate(
+        let response = try await client.reference.seriesCreate(
             request: .init(
                 documentType: "x",
                 year: 1000000
@@ -2269,7 +2269,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceSeriesList1() async throws -> Void {
+    @Test func seriesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2282,7 +2282,7 @@ import Api
                       "prefix": "prefix",
                       "year": 1000000,
                       "nextNumber": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -2300,15 +2300,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceSeriesListResponse(
+        let expectedResponse = SeriesListReferenceResponse(
             rows: [
-                PostV1ReferenceSeriesListResponseRowsItem(
+                SeriesListReferenceResponseRowsItem(
                     id: "id",
                     documentType: "documentType",
                     prefix: "prefix",
                     year: 1000000,
                     nextNumber: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -2318,14 +2318,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.reference.postV1ReferenceSeriesList(
+        let response = try await client.reference.seriesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReferenceSeriesList2() async throws -> Void {
+    @Test func seriesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2338,7 +2338,7 @@ import Api
                       "prefix": "prefix",
                       "year": 1000000,
                       "nextNumber": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -2346,7 +2346,7 @@ import Api
                       "prefix": "prefix",
                       "year": 1000000,
                       "nextNumber": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -2364,23 +2364,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReferenceSeriesListResponse(
+        let expectedResponse = SeriesListReferenceResponse(
             rows: [
-                PostV1ReferenceSeriesListResponseRowsItem(
+                SeriesListReferenceResponseRowsItem(
                     id: "x",
                     documentType: "documentType",
                     prefix: "prefix",
                     year: 1000000,
                     nextNumber: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1ReferenceSeriesListResponseRowsItem(
+                SeriesListReferenceResponseRowsItem(
                     id: "x",
                     documentType: "documentType",
                     prefix: "prefix",
                     year: 1000000,
                     nextNumber: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -2390,7 +2390,7 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.reference.postV1ReferenceSeriesList(
+        let response = try await client.reference.seriesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

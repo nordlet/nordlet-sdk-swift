@@ -7,63 +7,63 @@ public final class PosClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1PosDevicesCreate(request: Requests.PostV1PosDevicesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PosDevicesCreateResponse {
+    public func devicesCreate(request: Requests.DevicesCreatePosRequest, requestOptions: RequestOptions? = nil) async throws -> DevicesCreatePosResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/pos/devices/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PosDevicesCreateResponse.self
+            responseType: DevicesCreatePosResponse.self
         )
     }
 
-    public func postV1PosDevicesUpdate(request: Requests.PostV1PosDevicesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PosDevicesUpdateResponse {
+    public func devicesUpdate(request: Requests.DevicesUpdatePosRequest, requestOptions: RequestOptions? = nil) async throws -> DevicesUpdatePosResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/pos/devices/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PosDevicesUpdateResponse.self
+            responseType: DevicesUpdatePosResponse.self
         )
     }
 
-    public func postV1PosDevicesList(request: Requests.PostV1PosDevicesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PosDevicesListResponse {
+    public func devicesList(request: Requests.DevicesListPosRequest, requestOptions: RequestOptions? = nil) async throws -> DevicesListPosResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/pos/devices/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PosDevicesListResponse.self
+            responseType: DevicesListPosResponse.self
         )
     }
 
-    public func postV1PosReportsCreate(request: Requests.PostV1PosReportsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PosReportsCreateResponse {
+    public func reportsCreate(request: Requests.ReportsCreatePosRequest, requestOptions: RequestOptions? = nil) async throws -> ReportsCreatePosResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/pos/reports/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PosReportsCreateResponse.self
+            responseType: ReportsCreatePosResponse.self
         )
     }
 
-    public func postV1PosReportsGet(request: Requests.PostV1PosReportsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PosReportsGetResponse {
+    public func reportsGet(request: Requests.ReportsGetPosRequest, requestOptions: RequestOptions? = nil) async throws -> ReportsGetPosResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/pos/reports/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PosReportsGetResponse.self
+            responseType: ReportsGetPosResponse.self
         )
     }
 
-    public func postV1PosReportsList(request: Requests.PostV1PosReportsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PosReportsListResponse {
+    public func reportsList(request: Requests.ReportsListPosRequest, requestOptions: RequestOptions? = nil) async throws -> ReportsListPosResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/pos/reports/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PosReportsListResponse.self
+            responseType: ReportsListPosResponse.self
         )
     }
 }

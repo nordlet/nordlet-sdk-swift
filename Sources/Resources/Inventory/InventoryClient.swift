@@ -7,213 +7,213 @@ public final class InventoryClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1InventorySettingsGet(request: Requests.PostV1InventorySettingsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventorySettingsGetResponse {
+    public func settingsGet(request: Requests.SettingsGetInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> SettingsGetInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/settings/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventorySettingsGetResponse.self
+            responseType: SettingsGetInventoryResponse.self
         )
     }
 
-    public func postV1InventorySettingsUpdate(request: Requests.PostV1InventorySettingsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventorySettingsUpdateResponse {
+    public func settingsUpdate(request: Requests.SettingsUpdateInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> SettingsUpdateInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/settings/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventorySettingsUpdateResponse.self
+            responseType: SettingsUpdateInventoryResponse.self
         )
     }
 
-    public func postV1InventoryWarehousesCreate(request: Requests.PostV1InventoryWarehousesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryWarehousesCreateResponse {
+    public func warehousesCreate(request: Requests.WarehousesCreateInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> WarehousesCreateInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/warehouses/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryWarehousesCreateResponse.self
+            responseType: WarehousesCreateInventoryResponse.self
         )
     }
 
-    public func postV1InventoryWarehousesList(request: Requests.PostV1InventoryWarehousesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryWarehousesListResponse {
+    public func warehousesList(request: Requests.WarehousesListInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> WarehousesListInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/warehouses/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryWarehousesListResponse.self
+            responseType: WarehousesListInventoryResponse.self
         )
     }
 
-    public func postV1InventoryStockReceive(request: Requests.PostV1InventoryStockReceiveRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryStockReceiveResponse {
+    public func stockReceive(request: Requests.StockReceiveInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> StockReceiveInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/stock/receive",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryStockReceiveResponse.self
+            responseType: StockReceiveInventoryResponse.self
         )
     }
 
-    public func postV1InventoryStockWriteOff(request: Requests.PostV1InventoryStockWriteOffRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryStockWriteOffResponse {
+    public func stockWriteOff(request: Requests.StockWriteOffInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> StockWriteOffInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/stock/write-off",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryStockWriteOffResponse.self
+            responseType: StockWriteOffInventoryResponse.self
         )
     }
 
-    public func postV1InventoryStockTransfer(request: Requests.PostV1InventoryStockTransferRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryStockTransferResponse {
+    public func stockTransfer(request: Requests.StockTransferInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> StockTransferInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/stock/transfer",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryStockTransferResponse.self
+            responseType: StockTransferInventoryResponse.self
         )
     }
 
-    public func postV1InventoryStockTake(request: Requests.PostV1InventoryStockTakeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryStockTakeResponse {
+    public func stockTake(request: Requests.StockTakeInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> StockTakeInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/stock/take",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryStockTakeResponse.self
+            responseType: StockTakeInventoryResponse.self
         )
     }
 
-    public func postV1InventoryStockLevels(request: Requests.PostV1InventoryStockLevelsRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryStockLevelsResponse {
+    public func stockLevels(request: Requests.StockLevelsInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> StockLevelsInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/stock/levels",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryStockLevelsResponse.self
+            responseType: StockLevelsInventoryResponse.self
         )
     }
 
-    public func postV1InventoryStockMovementsList(request: Requests.PostV1InventoryStockMovementsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryStockMovementsListResponse {
+    public func stockMovementsList(request: Requests.StockMovementsListInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> StockMovementsListInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/stock/movements/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryStockMovementsListResponse.self
+            responseType: StockMovementsListInventoryResponse.self
         )
     }
 
-    public func postV1InventoryLotsList(request: Requests.PostV1InventoryLotsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryLotsListResponse {
+    public func lotsList(request: Requests.LotsListInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> LotsListInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/lots/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryLotsListResponse.self
+            responseType: LotsListInventoryResponse.self
         )
     }
 
-    public func postV1InventoryLotsGet(request: Requests.PostV1InventoryLotsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryLotsGetResponse {
+    public func lotsGet(request: Requests.LotsGetInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> LotsGetInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/lots/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryLotsGetResponse.self
+            responseType: LotsGetInventoryResponse.self
         )
     }
 
-    public func postV1InventoryLotsUpdate(request: Requests.PostV1InventoryLotsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryLotsUpdateResponse {
+    public func lotsUpdate(request: Requests.LotsUpdateInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> LotsUpdateInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/lots/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryLotsUpdateResponse.self
+            responseType: LotsUpdateInventoryResponse.self
         )
     }
 
-    public func postV1InventoryLandedCostsCreate(request: Requests.PostV1InventoryLandedCostsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryLandedCostsCreateResponse {
+    public func landedCostsCreate(request: Requests.LandedCostsCreateInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> LandedCostsCreateInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/landed-costs/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryLandedCostsCreateResponse.self
+            responseType: LandedCostsCreateInventoryResponse.self
         )
     }
 
-    public func postV1InventoryLandedCostsGet(request: Requests.PostV1InventoryLandedCostsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryLandedCostsGetResponse {
+    public func landedCostsGet(request: Requests.LandedCostsGetInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> LandedCostsGetInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/landed-costs/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryLandedCostsGetResponse.self
+            responseType: LandedCostsGetInventoryResponse.self
         )
     }
 
-    public func postV1InventoryLandedCostsList(request: Requests.PostV1InventoryLandedCostsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryLandedCostsListResponse {
+    public func landedCostsList(request: Requests.LandedCostsListInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> LandedCostsListInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/landed-costs/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryLandedCostsListResponse.self
+            responseType: LandedCostsListInventoryResponse.self
         )
     }
 
-    public func postV1InventoryReorderRulesCreate(request: Requests.PostV1InventoryReorderRulesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryReorderRulesCreateResponse {
+    public func reorderRulesCreate(request: Requests.ReorderRulesCreateInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> ReorderRulesCreateInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/reorder-rules/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryReorderRulesCreateResponse.self
+            responseType: ReorderRulesCreateInventoryResponse.self
         )
     }
 
-    public func postV1InventoryReorderRulesUpdate(request: Requests.PostV1InventoryReorderRulesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryReorderRulesUpdateResponse {
+    public func reorderRulesUpdate(request: Requests.ReorderRulesUpdateInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> ReorderRulesUpdateInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/reorder-rules/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryReorderRulesUpdateResponse.self
+            responseType: ReorderRulesUpdateInventoryResponse.self
         )
     }
 
-    public func postV1InventoryReorderRulesDelete(request: Requests.PostV1InventoryReorderRulesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryReorderRulesDeleteResponse {
+    public func reorderRulesDelete(request: Requests.ReorderRulesDeleteInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> ReorderRulesDeleteInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/reorder-rules/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryReorderRulesDeleteResponse.self
+            responseType: ReorderRulesDeleteInventoryResponse.self
         )
     }
 
-    public func postV1InventoryReorderRulesList(request: Requests.PostV1InventoryReorderRulesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryReorderRulesListResponse {
+    public func reorderRulesList(request: Requests.ReorderRulesListInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> ReorderRulesListInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/reorder-rules/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryReorderRulesListResponse.self
+            responseType: ReorderRulesListInventoryResponse.self
         )
     }
 
-    public func postV1InventoryReorderRulesCheck(request: Requests.PostV1InventoryReorderRulesCheckRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1InventoryReorderRulesCheckResponse {
+    public func reorderRulesCheck(request: Requests.ReorderRulesCheckInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> ReorderRulesCheckInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inventory/reorder-rules/check",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1InventoryReorderRulesCheckResponse.self
+            responseType: ReorderRulesCheckInventoryResponse.self
         )
     }
 }

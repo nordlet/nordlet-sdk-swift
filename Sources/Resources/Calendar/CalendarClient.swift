@@ -7,76 +7,79 @@ public final class CalendarClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1CalendarList(request: Requests.PostV1CalendarListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CalendarListResponse {
+    public func list(request: Requests.ListCalendarRequest, requestOptions: RequestOptions? = nil) async throws -> ListCalendarResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/calendar/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CalendarListResponse.self
+            responseType: ListCalendarResponse.self
         )
     }
 
-    public func postV1CalendarGet(request: Requests.PostV1CalendarGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CalendarGetResponse {
+    public func get(request: Requests.GetCalendarRequest, requestOptions: RequestOptions? = nil) async throws -> GetCalendarResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/calendar/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CalendarGetResponse.self
+            responseType: GetCalendarResponse.self
         )
     }
 
-    public func generateTheFilingForADeadlineAndSendItToTheAdministration(request: Requests.PostV1CalendarSubmitRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CalendarSubmitResponse {
+    /// With amend: true the return is filed again as a correction of the one already submitted or accepted for the period; only returns whose format has a correction mark accept it.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func submit(request: Requests.SubmitCalendarRequest, requestOptions: RequestOptions? = nil) async throws -> SubmitCalendarResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/calendar/submit",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CalendarSubmitResponse.self
+            responseType: SubmitCalendarResponse.self
         )
     }
 
     /// Builds the file of a deadline whose format Nordlet produces but whose administration takes it only through the company's own account or program. Nothing is sent and no filing is recorded.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func generateTheFileOfADeadlineForTheCompanyToSendItself(request: Requests.PostV1CalendarDownloadRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CalendarDownloadResponse {
+    public func download(request: Requests.DownloadCalendarRequest, requestOptions: RequestOptions? = nil) async throws -> DownloadCalendarResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/calendar/download",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CalendarDownloadResponse.self
+            responseType: DownloadCalendarResponse.self
         )
     }
 
-    public func postV1CalendarCreate(request: Requests.PostV1CalendarCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CalendarCreateResponse {
+    public func create(request: Requests.CreateCalendarRequest, requestOptions: RequestOptions? = nil) async throws -> CreateCalendarResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/calendar/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CalendarCreateResponse.self
+            responseType: CreateCalendarResponse.self
         )
     }
 
-    public func postV1CalendarUpdate(request: Requests.PostV1CalendarUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CalendarUpdateResponse {
+    public func update(request: Requests.UpdateCalendarRequest, requestOptions: RequestOptions? = nil) async throws -> UpdateCalendarResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/calendar/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CalendarUpdateResponse.self
+            responseType: UpdateCalendarResponse.self
         )
     }
 
-    public func postV1CalendarDelete(request: Requests.PostV1CalendarDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CalendarDeleteResponse {
+    public func delete(request: Requests.DeleteCalendarRequest, requestOptions: RequestOptions? = nil) async throws -> DeleteCalendarResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/calendar/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CalendarDeleteResponse.self
+            responseType: DeleteCalendarResponse.self
         )
     }
 }

@@ -7,432 +7,445 @@ public final class BankClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1BankAccountsCreate(request: Requests.PostV1BankAccountsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankAccountsCreateResponse {
+    public func accountsCreate(request: Requests.AccountsCreateBankRequest, requestOptions: RequestOptions? = nil) async throws -> AccountsCreateBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/accounts/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankAccountsCreateResponse.self
+            responseType: AccountsCreateBankResponse.self
         )
     }
 
-    public func postV1BankAccountsList(request: Requests.PostV1BankAccountsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankAccountsListResponse {
+    public func accountsList(request: Requests.AccountsListBankRequest, requestOptions: RequestOptions? = nil) async throws -> AccountsListBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/accounts/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankAccountsListResponse.self
+            responseType: AccountsListBankResponse.self
         )
     }
 
-    public func postV1BankAccountsUpdate(request: Requests.PostV1BankAccountsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankAccountsUpdateResponse {
+    public func accountsUpdate(request: Requests.AccountsUpdateBankRequest, requestOptions: RequestOptions? = nil) async throws -> AccountsUpdateBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/accounts/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankAccountsUpdateResponse.self
+            responseType: AccountsUpdateBankResponse.self
         )
     }
 
-    public func postV1BankTransactionsImport(request: Requests.PostV1BankTransactionsImportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankTransactionsImportResponse {
+    public func transactionsImport(request: Requests.TransactionsImportBankRequest, requestOptions: RequestOptions? = nil) async throws -> TransactionsImportBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/transactions/import",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankTransactionsImportResponse.self
+            responseType: TransactionsImportBankResponse.self
         )
     }
 
-    public func postV1BankStatementsImport(request: Requests.PostV1BankStatementsImportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankStatementsImportResponse {
+    public func statementsImport(request: Requests.StatementsImportBankRequest, requestOptions: RequestOptions? = nil) async throws -> StatementsImportBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/statements/import",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankStatementsImportResponse.self
+            responseType: StatementsImportBankResponse.self
         )
     }
 
-    public func postV1BankTransactionsList(request: Requests.PostV1BankTransactionsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankTransactionsListResponse {
+    public func transactionsList(request: Requests.TransactionsListBankRequest, requestOptions: RequestOptions? = nil) async throws -> TransactionsListBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/transactions/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankTransactionsListResponse.self
+            responseType: TransactionsListBankResponse.self
         )
     }
 
-    public func postV1BankTransactionsMatch(request: Requests.PostV1BankTransactionsMatchRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankTransactionsMatchResponse {
+    public func transactionsMatch(request: Requests.TransactionsMatchBankRequest, requestOptions: RequestOptions? = nil) async throws -> TransactionsMatchBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/transactions/match",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankTransactionsMatchResponse.self
+            responseType: TransactionsMatchBankResponse.self
         )
     }
 
-    public func postV1BankTransactionsRecord(request: Requests.PostV1BankTransactionsRecordRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankTransactionsRecordResponse {
+    /// Undo a match. A payment matched to an invoice, or a line posted by an import template, gets a reversing journal transaction dated date (default: today) and the invoice paid amount and payment status are restored; a line linked to a payment-provider settlement is only unlinked. The line returns to status new.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func transactionsUnmatch(request: Requests.TransactionsUnmatchBankRequest, requestOptions: RequestOptions? = nil) async throws -> TransactionsUnmatchBankResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/transactions/unmatch",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: TransactionsUnmatchBankResponse.self
+        )
+    }
+
+    public func transactionsRecord(request: Requests.TransactionsRecordBankRequest, requestOptions: RequestOptions? = nil) async throws -> TransactionsRecordBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/transactions/record",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankTransactionsRecordResponse.self
+            responseType: TransactionsRecordBankResponse.self
         )
     }
 
-    public func postV1BankPaymentsExport(request: Requests.PostV1BankPaymentsExportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankPaymentsExportResponse {
+    public func paymentsExport(request: Requests.PaymentsExportBankRequest, requestOptions: RequestOptions? = nil) async throws -> PaymentsExportBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/payments/export",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankPaymentsExportResponse.self
+            responseType: PaymentsExportBankResponse.self
         )
     }
 
-    public func createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList(request: Requests.PostV1BankImportTemplatesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankImportTemplatesCreateResponse {
+    public func importTemplatesCreate(request: Requests.ImportTemplatesCreateBankRequest, requestOptions: RequestOptions? = nil) async throws -> ImportTemplatesCreateBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/import-templates/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankImportTemplatesCreateResponse.self
+            responseType: ImportTemplatesCreateBankResponse.self
         )
     }
 
-    public func postV1BankImportTemplatesUpdate(request: Requests.PostV1BankImportTemplatesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankImportTemplatesUpdateResponse {
+    public func importTemplatesUpdate(request: Requests.ImportTemplatesUpdateBankRequest, requestOptions: RequestOptions? = nil) async throws -> ImportTemplatesUpdateBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/import-templates/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankImportTemplatesUpdateResponse.self
+            responseType: ImportTemplatesUpdateBankResponse.self
         )
     }
 
-    public func postV1BankImportTemplatesDelete(request: Requests.PostV1BankImportTemplatesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankImportTemplatesDeleteResponse {
+    public func importTemplatesDelete(request: Requests.ImportTemplatesDeleteBankRequest, requestOptions: RequestOptions? = nil) async throws -> ImportTemplatesDeleteBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/import-templates/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankImportTemplatesDeleteResponse.self
+            responseType: ImportTemplatesDeleteBankResponse.self
         )
     }
 
-    public func postV1BankImportTemplatesGet(request: Requests.PostV1BankImportTemplatesGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankImportTemplatesGetResponse {
+    public func importTemplatesGet(request: Requests.ImportTemplatesGetBankRequest, requestOptions: RequestOptions? = nil) async throws -> ImportTemplatesGetBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/import-templates/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankImportTemplatesGetResponse.self
+            responseType: ImportTemplatesGetBankResponse.self
         )
     }
 
-    public func postV1BankImportTemplatesList(request: Requests.PostV1BankImportTemplatesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankImportTemplatesListResponse {
+    public func importTemplatesList(request: Requests.ImportTemplatesListBankRequest, requestOptions: RequestOptions? = nil) async throws -> ImportTemplatesListBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/import-templates/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankImportTemplatesListResponse.self
+            responseType: ImportTemplatesListBankResponse.self
         )
     }
 
-    public func postV1BankMatchRulesCreate(request: Requests.PostV1BankMatchRulesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMatchRulesCreateResponse {
+    public func matchRulesCreate(request: Requests.MatchRulesCreateBankRequest, requestOptions: RequestOptions? = nil) async throws -> MatchRulesCreateBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/match-rules/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankMatchRulesCreateResponse.self
+            responseType: MatchRulesCreateBankResponse.self
         )
     }
 
-    public func postV1BankMatchRulesUpdate(request: Requests.PostV1BankMatchRulesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMatchRulesUpdateResponse {
+    public func matchRulesUpdate(request: Requests.MatchRulesUpdateBankRequest, requestOptions: RequestOptions? = nil) async throws -> MatchRulesUpdateBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/match-rules/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankMatchRulesUpdateResponse.self
+            responseType: MatchRulesUpdateBankResponse.self
         )
     }
 
-    public func postV1BankMatchRulesDelete(request: Requests.PostV1BankMatchRulesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMatchRulesDeleteResponse {
+    public func matchRulesDelete(request: Requests.MatchRulesDeleteBankRequest, requestOptions: RequestOptions? = nil) async throws -> MatchRulesDeleteBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/match-rules/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankMatchRulesDeleteResponse.self
+            responseType: MatchRulesDeleteBankResponse.self
         )
     }
 
-    public func postV1BankMatchRulesList(request: Requests.PostV1BankMatchRulesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMatchRulesListResponse {
+    public func matchRulesList(request: Requests.MatchRulesListBankRequest, requestOptions: RequestOptions? = nil) async throws -> MatchRulesListBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/match-rules/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankMatchRulesListResponse.self
+            responseType: MatchRulesListBankResponse.self
         )
     }
 
-    public func postV1BankMandatesCreate(request: Requests.PostV1BankMandatesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMandatesCreateResponse {
+    public func mandatesCreate(request: Requests.MandatesCreateBankRequest, requestOptions: RequestOptions? = nil) async throws -> MandatesCreateBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/mandates/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankMandatesCreateResponse.self
+            responseType: MandatesCreateBankResponse.self
         )
     }
 
-    public func postV1BankMandatesUpdate(request: Requests.PostV1BankMandatesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMandatesUpdateResponse {
+    public func mandatesUpdate(request: Requests.MandatesUpdateBankRequest, requestOptions: RequestOptions? = nil) async throws -> MandatesUpdateBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/mandates/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankMandatesUpdateResponse.self
+            responseType: MandatesUpdateBankResponse.self
         )
     }
 
-    public func postV1BankMandatesCancel(request: Requests.PostV1BankMandatesCancelRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMandatesCancelResponse {
+    public func mandatesCancel(request: Requests.MandatesCancelBankRequest, requestOptions: RequestOptions? = nil) async throws -> MandatesCancelBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/mandates/cancel",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankMandatesCancelResponse.self
+            responseType: MandatesCancelBankResponse.self
         )
     }
 
-    public func postV1BankMandatesGet(request: Requests.PostV1BankMandatesGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMandatesGetResponse {
+    public func mandatesGet(request: Requests.MandatesGetBankRequest, requestOptions: RequestOptions? = nil) async throws -> MandatesGetBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/mandates/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankMandatesGetResponse.self
+            responseType: MandatesGetBankResponse.self
         )
     }
 
-    public func postV1BankMandatesList(request: Requests.PostV1BankMandatesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankMandatesListResponse {
+    public func mandatesList(request: Requests.MandatesListBankRequest, requestOptions: RequestOptions? = nil) async throws -> MandatesListBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/mandates/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankMandatesListResponse.self
+            responseType: MandatesListBankResponse.self
         )
     }
 
-    public func postV1BankDirectDebitsExport(request: Requests.PostV1BankDirectDebitsExportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankDirectDebitsExportResponse {
+    public func directDebitsExport(request: Requests.DirectDebitsExportBankRequest, requestOptions: RequestOptions? = nil) async throws -> DirectDebitsExportBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/direct-debits/export",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankDirectDebitsExportResponse.self
+            responseType: DirectDebitsExportBankResponse.self
         )
     }
 
-    public func postV1BankTransactionsSuggestMatches(request: Requests.PostV1BankTransactionsSuggestMatchesRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankTransactionsSuggestMatchesResponse {
+    public func transactionsSuggestMatches(request: Requests.TransactionsSuggestMatchesBankRequest, requestOptions: RequestOptions? = nil) async throws -> TransactionsSuggestMatchesBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/transactions/suggest-matches",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankTransactionsSuggestMatchesResponse.self
+            responseType: TransactionsSuggestMatchesBankResponse.self
         )
     }
 
-    public func postV1BankSettlementsImport(request: Requests.PostV1BankSettlementsImportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankSettlementsImportResponse {
+    public func settlementsImport(request: Requests.SettlementsImportBankRequest, requestOptions: RequestOptions? = nil) async throws -> SettlementsImportBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/settlements/import",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankSettlementsImportResponse.self
+            responseType: SettlementsImportBankResponse.self
         )
     }
 
-    public func postV1BankSettlementsList(request: Requests.PostV1BankSettlementsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankSettlementsListResponse {
+    public func settlementsList(request: Requests.SettlementsListBankRequest, requestOptions: RequestOptions? = nil) async throws -> SettlementsListBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/settlements/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankSettlementsListResponse.self
+            responseType: SettlementsListBankResponse.self
         )
     }
 
-    public func postV1BankSettlementsGet(request: Requests.PostV1BankSettlementsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankSettlementsGetResponse {
+    public func settlementsGet(request: Requests.SettlementsGetBankRequest, requestOptions: RequestOptions? = nil) async throws -> SettlementsGetBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/settlements/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankSettlementsGetResponse.self
+            responseType: SettlementsGetBankResponse.self
         )
     }
 
-    public func postV1BankSettlementsMatch(request: Requests.PostV1BankSettlementsMatchRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankSettlementsMatchResponse {
+    public func settlementsMatch(request: Requests.SettlementsMatchBankRequest, requestOptions: RequestOptions? = nil) async throws -> SettlementsMatchBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/settlements/match",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankSettlementsMatchResponse.self
+            responseType: SettlementsMatchBankResponse.self
         )
     }
 
     /// A line with its own rate or amount is split with that value when the batch is posted. A line without one falls back to the commissionPercent given to the posting call, and without that the amount goes to the suspense account. Send both fields as null to clear the line back to the fallback.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func setWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmount(request: Requests.PostV1BankSettlementsCommissionRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankSettlementsCommissionResponse {
+    public func settlementsCommission(request: Requests.SettlementsCommissionBankRequest, requestOptions: RequestOptions? = nil) async throws -> SettlementsCommissionBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/settlements/commission",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankSettlementsCommissionResponse.self
+            responseType: SettlementsCommissionBankResponse.self
         )
     }
 
     /// Attach the incoming bank-statement line that carries this payout to the settlement batch.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1BankSettlementsLink(request: Requests.PostV1BankSettlementsLinkRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankSettlementsLinkResponse {
+    public func settlementsLink(request: Requests.SettlementsLinkBankRequest, requestOptions: RequestOptions? = nil) async throws -> SettlementsLinkBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/settlements/link",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankSettlementsLinkResponse.self
+            responseType: SettlementsLinkBankResponse.self
         )
     }
 
     /// Detach the bank-statement line from the settlement batch and return the line to unmatched.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1BankSettlementsUnlink(request: Requests.PostV1BankSettlementsUnlinkRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankSettlementsUnlinkResponse {
+    public func settlementsUnlink(request: Requests.SettlementsUnlinkBankRequest, requestOptions: RequestOptions? = nil) async throws -> SettlementsUnlinkBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/settlements/unlink",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankSettlementsUnlinkResponse.self
+            responseType: SettlementsUnlinkBankResponse.self
         )
     }
 
-    public func postV1BankSettlementsPost(request: Requests.PostV1BankSettlementsPostRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankSettlementsPostResponse {
+    public func settlementsPost(request: Requests.SettlementsPostBankRequest, requestOptions: RequestOptions? = nil) async throws -> SettlementsPostBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/settlements/post",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankSettlementsPostResponse.self
+            responseType: SettlementsPostBankResponse.self
         )
     }
 
-    public func listThePsd2BanksAspsPsAvailableToConnect(request: Requests.PostV1BankFeedsBanksListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsBanksListResponse {
+    public func feedsBanksList(request: Requests.FeedsBanksListBankRequest, requestOptions: RequestOptions? = nil) async throws -> FeedsBanksListBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/feeds/banks/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankFeedsBanksListResponse.self
+            responseType: FeedsBanksListBankResponse.self
         )
     }
 
-    public func beginBankAuthorizationRedirectTheUserToTheReturnedUrl(request: Requests.PostV1BankFeedsConnectionsStartRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsConnectionsStartResponse {
+    public func feedsConnectionsStart(request: Requests.FeedsConnectionsStartBankRequest, requestOptions: RequestOptions? = nil) async throws -> FeedsConnectionsStartBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/feeds/connections/start",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankFeedsConnectionsStartResponse.self
+            responseType: FeedsConnectionsStartBankResponse.self
         )
     }
 
-    public func exchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposes(request: Requests.PostV1BankFeedsConnectionsCompleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsConnectionsCompleteResponse {
+    public func feedsConnectionsComplete(request: Requests.FeedsConnectionsCompleteBankRequest, requestOptions: RequestOptions? = nil) async throws -> FeedsConnectionsCompleteBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/feeds/connections/complete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankFeedsConnectionsCompleteResponse.self
+            responseType: FeedsConnectionsCompleteBankResponse.self
         )
     }
 
-    public func postV1BankFeedsConnectionsGet(request: Requests.PostV1BankFeedsConnectionsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsConnectionsGetResponse {
+    public func feedsConnectionsGet(request: Requests.FeedsConnectionsGetBankRequest, requestOptions: RequestOptions? = nil) async throws -> FeedsConnectionsGetBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/feeds/connections/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankFeedsConnectionsGetResponse.self
+            responseType: FeedsConnectionsGetBankResponse.self
         )
     }
 
-    public func postV1BankFeedsConnectionsList(request: Requests.PostV1BankFeedsConnectionsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsConnectionsListResponse {
+    public func feedsConnectionsList(request: Requests.FeedsConnectionsListBankRequest, requestOptions: RequestOptions? = nil) async throws -> FeedsConnectionsListBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/feeds/connections/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankFeedsConnectionsListResponse.self
+            responseType: FeedsConnectionsListBankResponse.self
         )
     }
 
-    public func revokeTheConsentAtTheBankAndDropTheStoredConnection(request: Requests.PostV1BankFeedsConnectionsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsConnectionsDeleteResponse {
+    public func feedsConnectionsDelete(request: Requests.FeedsConnectionsDeleteBankRequest, requestOptions: RequestOptions? = nil) async throws -> FeedsConnectionsDeleteBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/feeds/connections/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankFeedsConnectionsDeleteResponse.self
+            responseType: FeedsConnectionsDeleteBankResponse.self
         )
     }
 
-    public func pointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSynced(request: Requests.PostV1BankFeedsAccountsLinkRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsAccountsLinkResponse {
+    public func feedsAccountsLink(request: Requests.FeedsAccountsLinkBankRequest, requestOptions: RequestOptions? = nil) async throws -> FeedsAccountsLinkBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/feeds/accounts/link",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankFeedsAccountsLinkResponse.self
+            responseType: FeedsAccountsLinkBankResponse.self
         )
     }
 
-    public func chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically(request: Requests.PostV1BankFeedsAccountsConfigureRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsAccountsConfigureResponse {
+    public func feedsAccountsConfigure(request: Requests.FeedsAccountsConfigureBankRequest, requestOptions: RequestOptions? = nil) async throws -> FeedsAccountsConfigureBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/feeds/accounts/configure",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankFeedsAccountsConfigureResponse.self
+            responseType: FeedsAccountsConfigureBankResponse.self
         )
     }
 
-    public func pullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSynced(request: Requests.PostV1BankFeedsSyncRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1BankFeedsSyncResponse {
+    public func feedsSync(request: Requests.FeedsSyncBankRequest, requestOptions: RequestOptions? = nil) async throws -> FeedsSyncBankResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/bank/feeds/sync",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1BankFeedsSyncResponse.self
+            responseType: FeedsSyncBankResponse.self
         )
     }
 }

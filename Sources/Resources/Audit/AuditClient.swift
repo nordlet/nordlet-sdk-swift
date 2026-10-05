@@ -7,13 +7,13 @@ public final class AuditClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1AuditList(request: Requests.PostV1AuditListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AuditListResponse {
+    public func list(request: Requests.ListAuditRequest, requestOptions: RequestOptions? = nil) async throws -> ListAuditResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/audit/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AuditListResponse.self
+            responseType: ListAuditResponse.self
         )
     }
 }

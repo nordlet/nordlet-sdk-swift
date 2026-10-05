@@ -7,539 +7,386 @@ public final class PartnersClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1PartnersAddressesCreate(request: Requests.PostV1PartnersAddressesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersAddressesCreateResponse {
+    public func addressesCreate(request: Requests.AddressesCreatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> AddressesCreatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/addresses/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersAddressesCreateResponse.self
+            responseType: AddressesCreatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersAddressesUpdate(request: Requests.PostV1PartnersAddressesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersAddressesUpdateResponse {
+    public func addressesUpdate(request: Requests.AddressesUpdatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> AddressesUpdatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/addresses/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersAddressesUpdateResponse.self
+            responseType: AddressesUpdatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersAddressesDelete(request: Requests.PostV1PartnersAddressesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersAddressesDeleteResponse {
+    public func addressesDelete(request: Requests.AddressesDeletePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> AddressesDeletePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/addresses/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersAddressesDeleteResponse.self
+            responseType: AddressesDeletePartnersResponse.self
         )
     }
 
-    public func postV1PartnersAddressesList(request: Requests.PostV1PartnersAddressesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersAddressesListResponse {
+    public func addressesList(request: Requests.AddressesListPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> AddressesListPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/addresses/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersAddressesListResponse.self
+            responseType: AddressesListPartnersResponse.self
         )
     }
 
-    public func postV1PartnersContactsCreate(request: Requests.PostV1PartnersContactsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersContactsCreateResponse {
+    public func contactsCreate(request: Requests.ContactsCreatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> ContactsCreatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/contacts/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersContactsCreateResponse.self
+            responseType: ContactsCreatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersContactsUpdate(request: Requests.PostV1PartnersContactsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersContactsUpdateResponse {
+    public func contactsUpdate(request: Requests.ContactsUpdatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> ContactsUpdatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/contacts/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersContactsUpdateResponse.self
+            responseType: ContactsUpdatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersContactsDelete(request: Requests.PostV1PartnersContactsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersContactsDeleteResponse {
+    public func contactsDelete(request: Requests.ContactsDeletePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> ContactsDeletePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/contacts/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersContactsDeleteResponse.self
+            responseType: ContactsDeletePartnersResponse.self
         )
     }
 
-    public func postV1PartnersContactsList(request: Requests.PostV1PartnersContactsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersContactsListResponse {
+    public func contactsList(request: Requests.ContactsListPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> ContactsListPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/contacts/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersContactsListResponse.self
+            responseType: ContactsListPartnersResponse.self
         )
     }
 
-    public func postV1PartnersBankAccountsCreate(request: Requests.PostV1PartnersBankAccountsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersBankAccountsCreateResponse {
+    public func bankAccountsCreate(request: Requests.BankAccountsCreatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> BankAccountsCreatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/bank-accounts/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersBankAccountsCreateResponse.self
+            responseType: BankAccountsCreatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersBankAccountsUpdate(request: Requests.PostV1PartnersBankAccountsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersBankAccountsUpdateResponse {
+    public func bankAccountsUpdate(request: Requests.BankAccountsUpdatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> BankAccountsUpdatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/bank-accounts/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersBankAccountsUpdateResponse.self
+            responseType: BankAccountsUpdatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersBankAccountsDelete(request: Requests.PostV1PartnersBankAccountsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersBankAccountsDeleteResponse {
+    public func bankAccountsDelete(request: Requests.BankAccountsDeletePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> BankAccountsDeletePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/bank-accounts/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersBankAccountsDeleteResponse.self
+            responseType: BankAccountsDeletePartnersResponse.self
         )
     }
 
-    public func postV1PartnersBankAccountsList(request: Requests.PostV1PartnersBankAccountsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersBankAccountsListResponse {
+    public func bankAccountsList(request: Requests.BankAccountsListPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> BankAccountsListPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/bank-accounts/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersBankAccountsListResponse.self
+            responseType: BankAccountsListPartnersResponse.self
         )
     }
 
-    public func postV1PartnersFilesList(request: Requests.PostV1PartnersFilesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersFilesListResponse {
+    public func filesList(request: Requests.FilesListPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> FilesListPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/files/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersFilesListResponse.self
+            responseType: FilesListPartnersResponse.self
         )
     }
 
-    public func remindersTheOvernightDebtReminderJobWouldSendTodayForThisCompany(request: Requests.PostV1PartnersDebtRemindersPreviewRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersDebtRemindersPreviewResponse {
+    public func debtRemindersPreview(request: Requests.DebtRemindersPreviewPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> DebtRemindersPreviewPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/debt-reminders/preview",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersDebtRemindersPreviewResponse.self
+            responseType: DebtRemindersPreviewPartnersResponse.self
         )
     }
 
-    public func postV1PartnersDebtRemindersList(request: Requests.PostV1PartnersDebtRemindersListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersDebtRemindersListResponse {
+    public func debtRemindersList(request: Requests.DebtRemindersListPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> DebtRemindersListPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/debt-reminders/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersDebtRemindersListResponse.self
+            responseType: DebtRemindersListPartnersResponse.self
         )
     }
 
-    public func postV1PartnersValidateVat(request: Requests.PostV1PartnersValidateVatRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersValidateVatResponse {
+    public func validateVat(request: Requests.ValidateVatPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> ValidateVatPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/validate-vat",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersValidateVatResponse.self
+            responseType: ValidateVatPartnersResponse.self
         )
     }
 
-    public func postV1PartnersVatReviewsList(request: Requests.PostV1PartnersVatReviewsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersVatReviewsListResponse {
+    public func vatReviewsList(request: Requests.VatReviewsListPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> VatReviewsListPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/vat-reviews/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersVatReviewsListResponse.self
+            responseType: VatReviewsListPartnersResponse.self
         )
     }
 
-    public func postV1PartnersVatReviewsResolve(request: Requests.PostV1PartnersVatReviewsResolveRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersVatReviewsResolveResponse {
+    public func vatReviewsResolve(request: Requests.VatReviewsResolvePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> VatReviewsResolvePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/vat-reviews/resolve",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersVatReviewsResolveResponse.self
+            responseType: VatReviewsResolvePartnersResponse.self
         )
     }
 
-    public func postV1PartnersCreate(request: Requests.PostV1PartnersCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersCreateResponse {
+    public func create(request: Requests.CreatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> CreatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersCreateResponse.self
+            responseType: CreatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersFindOrCreate(request: Requests.PostV1PartnersFindOrCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersFindOrCreateResponse {
+    public func findOrCreate(request: Requests.FindOrCreatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> FindOrCreatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/find-or-create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersFindOrCreateResponse.self
+            responseType: FindOrCreatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersGet(request: Requests.PostV1PartnersGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersGetResponse {
+    public func get(request: Requests.GetPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> GetPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersGetResponse.self
+            responseType: GetPartnersResponse.self
         )
     }
 
-    public func postV1PartnersUpdate(request: Requests.PostV1PartnersUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersUpdateResponse {
+    public func update(request: Requests.UpdatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> UpdatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersUpdateResponse.self
+            responseType: UpdatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersDelete(request: Requests.PostV1PartnersDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersDeleteResponse {
+    public func delete(request: Requests.DeletePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> DeletePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersDeleteResponse.self
+            responseType: DeletePartnersResponse.self
         )
     }
 
     /// Removes birth date, self-employment certificate number, email, phone, address, notes, contacts, addresses and bank accounts, then hides the partner. The name, code and VAT number stay because issued invoices must keep identifying the counterparty for the statutory retention period.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func blankAPartnersPersonalDataAndHideTheRecord(request: Requests.PostV1PartnersAnonymizeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersAnonymizeResponse {
+    public func anonymize(request: Requests.AnonymizePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> AnonymizePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/anonymize",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersAnonymizeResponse.self
+            responseType: AnonymizePartnersResponse.self
         )
     }
 
-    public func postV1PartnersList(request: Requests.PostV1PartnersListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersListResponse {
+    public func list(request: Requests.ListPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> ListPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersListResponse.self
+            responseType: ListPartnersResponse.self
         )
     }
 
-    public func postV1PartnersGroupsCreate(request: Requests.PostV1PartnersGroupsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersGroupsCreateResponse {
+    public func groupsCreate(request: Requests.GroupsCreatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> GroupsCreatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/groups/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersGroupsCreateResponse.self
+            responseType: GroupsCreatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersGroupsUpdate(request: Requests.PostV1PartnersGroupsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersGroupsUpdateResponse {
+    public func groupsUpdate(request: Requests.GroupsUpdatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> GroupsUpdatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/groups/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersGroupsUpdateResponse.self
+            responseType: GroupsUpdatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersGroupsDelete(request: Requests.PostV1PartnersGroupsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersGroupsDeleteResponse {
+    public func groupsDelete(request: Requests.GroupsDeletePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> GroupsDeletePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/groups/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersGroupsDeleteResponse.self
+            responseType: GroupsDeletePartnersResponse.self
         )
     }
 
-    public func postV1PartnersGroupsList(request: Requests.PostV1PartnersGroupsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersGroupsListResponse {
+    public func groupsList(request: Requests.GroupsListPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> GroupsListPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/groups/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersGroupsListResponse.self
+            responseType: GroupsListPartnersResponse.self
         )
     }
 
-    public func postV1PartnersStatusesCreate(request: Requests.PostV1PartnersStatusesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersStatusesCreateResponse {
+    public func statusesCreate(request: Requests.StatusesCreatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> StatusesCreatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/statuses/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersStatusesCreateResponse.self
+            responseType: StatusesCreatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersStatusesUpdate(request: Requests.PostV1PartnersStatusesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersStatusesUpdateResponse {
+    public func statusesUpdate(request: Requests.StatusesUpdatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> StatusesUpdatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/statuses/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersStatusesUpdateResponse.self
+            responseType: StatusesUpdatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersStatusesDelete(request: Requests.PostV1PartnersStatusesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersStatusesDeleteResponse {
+    public func statusesDelete(request: Requests.StatusesDeletePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> StatusesDeletePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/statuses/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersStatusesDeleteResponse.self
+            responseType: StatusesDeletePartnersResponse.self
         )
     }
 
-    public func postV1PartnersStatusesList(request: Requests.PostV1PartnersStatusesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersStatusesListResponse {
+    public func statusesList(request: Requests.StatusesListPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> StatusesListPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/statuses/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersStatusesListResponse.self
+            responseType: StatusesListPartnersResponse.self
         )
     }
 
-    public func postV1PartnersInquiriesCreate(request: Requests.PostV1PartnersInquiriesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersInquiriesCreateResponse {
+    public func inquiriesCreate(request: Requests.InquiriesCreatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> InquiriesCreatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/inquiries/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersInquiriesCreateResponse.self
+            responseType: InquiriesCreatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersInquiriesUpdate(request: Requests.PostV1PartnersInquiriesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersInquiriesUpdateResponse {
+    public func inquiriesUpdate(request: Requests.InquiriesUpdatePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> InquiriesUpdatePartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/inquiries/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersInquiriesUpdateResponse.self
+            responseType: InquiriesUpdatePartnersResponse.self
         )
     }
 
-    public func postV1PartnersInquiriesGet(request: Requests.PostV1PartnersInquiriesGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersInquiriesGetResponse {
+    public func inquiriesGet(request: Requests.InquiriesGetPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> InquiriesGetPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/inquiries/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersInquiriesGetResponse.self
+            responseType: InquiriesGetPartnersResponse.self
         )
     }
 
-    public func postV1PartnersInquiriesList(request: Requests.PostV1PartnersInquiriesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersInquiriesListResponse {
+    public func inquiriesList(request: Requests.InquiriesListPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> InquiriesListPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/inquiries/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersInquiriesListResponse.self
+            responseType: InquiriesListPartnersResponse.self
         )
     }
 
-    public func postV1PartnersCreditCheck(request: Requests.PostV1PartnersCreditCheckRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1PartnersCreditCheckResponse {
+    public func creditCheck(request: Requests.CreditCheckPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> CreditCheckPartnersResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/partners/credit-check",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1PartnersCreditCheckResponse.self
-        )
-    }
-
-    public func postV1LeadsCreate(request: Requests.PostV1LeadsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsCreateResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/create",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsCreateResponse.self
-        )
-    }
-
-    public func postV1LeadsGet(request: Requests.PostV1LeadsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsGetResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/get",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsGetResponse.self
-        )
-    }
-
-    public func postV1LeadsUpdate(request: Requests.PostV1LeadsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsUpdateResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/update",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsUpdateResponse.self
-        )
-    }
-
-    public func postV1LeadsDelete(request: Requests.PostV1LeadsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsDeleteResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/delete",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsDeleteResponse.self
-        )
-    }
-
-    public func postV1LeadsList(request: Requests.PostV1LeadsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsListResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/list",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsListResponse.self
-        )
-    }
-
-    public func postV1LeadsNotesCreate(request: Requests.PostV1LeadsNotesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsNotesCreateResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/notes/create",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsNotesCreateResponse.self
-        )
-    }
-
-    public func postV1LeadsNotesDelete(request: Requests.PostV1LeadsNotesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsNotesDeleteResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/notes/delete",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsNotesDeleteResponse.self
-        )
-    }
-
-    public func postV1LeadsNotesList(request: Requests.PostV1LeadsNotesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsNotesListResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/notes/list",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsNotesListResponse.self
-        )
-    }
-
-    public func postV1LeadsFilesList(request: Requests.PostV1LeadsFilesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsFilesListResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/files/list",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsFilesListResponse.self
-        )
-    }
-
-    public func postV1LeadsSourcesCreate(request: Requests.PostV1LeadsSourcesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsSourcesCreateResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/sources/create",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsSourcesCreateResponse.self
-        )
-    }
-
-    public func postV1LeadsSourcesUpdate(request: Requests.PostV1LeadsSourcesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsSourcesUpdateResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/sources/update",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsSourcesUpdateResponse.self
-        )
-    }
-
-    public func postV1LeadsSourcesDelete(request: Requests.PostV1LeadsSourcesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsSourcesDeleteResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/sources/delete",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsSourcesDeleteResponse.self
-        )
-    }
-
-    public func postV1LeadsSourcesList(request: Requests.PostV1LeadsSourcesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsSourcesListResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/sources/list",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsSourcesListResponse.self
-        )
-    }
-
-    public func postV1LeadsSourcesOptions(request: Requests.PostV1LeadsSourcesOptionsRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsSourcesOptionsResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/sources/options",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsSourcesOptionsResponse.self
-        )
-    }
-
-    /// Create a customer partner from the lead, move the lead files to the partner, copy the lead notes into the partner notes and mark the lead as converted.
-    ///
-    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1LeadsConvert(request: Requests.PostV1LeadsConvertRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1LeadsConvertResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/leads/convert",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1LeadsConvertResponse.self
+            responseType: CreditCheckPartnersResponse.self
         )
     }
 }

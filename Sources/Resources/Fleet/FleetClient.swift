@@ -7,83 +7,83 @@ public final class FleetClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1FleetVehiclesCreate(request: Requests.PostV1FleetVehiclesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1FleetVehiclesCreateResponse {
+    public func vehiclesCreate(request: Requests.VehiclesCreateFleetRequest, requestOptions: RequestOptions? = nil) async throws -> VehiclesCreateFleetResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/fleet/vehicles/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1FleetVehiclesCreateResponse.self
+            responseType: VehiclesCreateFleetResponse.self
         )
     }
 
-    public func postV1FleetVehiclesUpdate(request: Requests.PostV1FleetVehiclesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1FleetVehiclesUpdateResponse {
+    public func vehiclesUpdate(request: Requests.VehiclesUpdateFleetRequest, requestOptions: RequestOptions? = nil) async throws -> VehiclesUpdateFleetResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/fleet/vehicles/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1FleetVehiclesUpdateResponse.self
+            responseType: VehiclesUpdateFleetResponse.self
         )
     }
 
-    public func postV1FleetVehiclesGet(request: Requests.PostV1FleetVehiclesGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1FleetVehiclesGetResponse {
+    public func vehiclesGet(request: Requests.VehiclesGetFleetRequest, requestOptions: RequestOptions? = nil) async throws -> VehiclesGetFleetResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/fleet/vehicles/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1FleetVehiclesGetResponse.self
+            responseType: VehiclesGetFleetResponse.self
         )
     }
 
-    public func postV1FleetVehiclesList(request: Requests.PostV1FleetVehiclesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1FleetVehiclesListResponse {
+    public func vehiclesList(request: Requests.VehiclesListFleetRequest, requestOptions: RequestOptions? = nil) async throws -> VehiclesListFleetResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/fleet/vehicles/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1FleetVehiclesListResponse.self
+            responseType: VehiclesListFleetResponse.self
         )
     }
 
-    public func postV1FleetAssignmentsCreate(request: Requests.PostV1FleetAssignmentsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1FleetAssignmentsCreateResponse {
+    public func assignmentsCreate(request: Requests.AssignmentsCreateFleetRequest, requestOptions: RequestOptions? = nil) async throws -> AssignmentsCreateFleetResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/fleet/assignments/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1FleetAssignmentsCreateResponse.self
+            responseType: AssignmentsCreateFleetResponse.self
         )
     }
 
-    public func postV1FleetAssignmentsEnd(request: Requests.PostV1FleetAssignmentsEndRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1FleetAssignmentsEndResponse {
+    public func assignmentsEnd(request: Requests.AssignmentsEndFleetRequest, requestOptions: RequestOptions? = nil) async throws -> AssignmentsEndFleetResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/fleet/assignments/end",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1FleetAssignmentsEndResponse.self
+            responseType: AssignmentsEndFleetResponse.self
         )
     }
 
-    public func postV1FleetAssignmentsList(request: Requests.PostV1FleetAssignmentsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1FleetAssignmentsListResponse {
+    public func assignmentsList(request: Requests.AssignmentsListFleetRequest, requestOptions: RequestOptions? = nil) async throws -> AssignmentsListFleetResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/fleet/assignments/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1FleetAssignmentsListResponse.self
+            responseType: AssignmentsListFleetResponse.self
         )
     }
 
-    public func postV1FleetNaturaPreview(request: Requests.PostV1FleetNaturaPreviewRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1FleetNaturaPreviewResponse {
+    public func naturaPreview(request: Requests.NaturaPreviewFleetRequest, requestOptions: RequestOptions? = nil) async throws -> NaturaPreviewFleetResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/fleet/natura/preview",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1FleetNaturaPreviewResponse.self
+            responseType: NaturaPreviewFleetResponse.self
         )
     }
 }

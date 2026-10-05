@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("BankClient Wire Tests") struct BankClientWireTests {
-    @Test func postV1BankAccountsCreate1() async throws -> Void {
+    @Test func accountsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -15,7 +15,7 @@ import Api
                   "currency": "currency",
                   "accountCode": "accountCode",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -25,23 +25,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankAccountsCreateResponse(
+        let expectedResponse = AccountsCreateBankResponse(
             id: "id",
             name: "name",
             iban: Nullable<String>.value("iban"),
             currency: "currency",
             accountCode: "accountCode",
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankAccountsCreate(
+        let response = try await client.bank.accountsCreate(
             request: .init(name: "name"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankAccountsCreate2() async throws -> Void {
+    @Test func accountsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -53,7 +53,7 @@ import Api
                   "currency": "currency",
                   "accountCode": "accountCode",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -63,23 +63,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankAccountsCreateResponse(
+        let expectedResponse = AccountsCreateBankResponse(
             id: "x",
             name: "name",
             iban: Nullable<String>.value("iban"),
             currency: "currency",
             accountCode: "accountCode",
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankAccountsCreate(
+        let response = try await client.bank.accountsCreate(
             request: .init(name: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankAccountsList1() async throws -> Void {
+    @Test func accountsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -93,7 +93,7 @@ import Api
                       "currency": "currency",
                       "accountCode": "accountCode",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -111,16 +111,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankAccountsListResponse(
+        let expectedResponse = AccountsListBankResponse(
             rows: [
-                PostV1BankAccountsListResponseRowsItem(
+                AccountsListBankResponseRowsItem(
                     id: "id",
                     name: "name",
                     iban: Nullable<String>.value("iban"),
                     currency: "currency",
                     accountCode: "accountCode",
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -130,14 +130,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.bank.postV1BankAccountsList(
+        let response = try await client.bank.accountsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankAccountsList2() async throws -> Void {
+    @Test func accountsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -151,7 +151,7 @@ import Api
                       "currency": "currency",
                       "accountCode": "accountCode",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -160,7 +160,7 @@ import Api
                       "currency": "currency",
                       "accountCode": "accountCode",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -178,25 +178,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankAccountsListResponse(
+        let expectedResponse = AccountsListBankResponse(
             rows: [
-                PostV1BankAccountsListResponseRowsItem(
+                AccountsListBankResponseRowsItem(
                     id: "x",
                     name: "name",
                     iban: Nullable<String>.value("iban"),
                     currency: "currency",
                     accountCode: "accountCode",
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1BankAccountsListResponseRowsItem(
+                AccountsListBankResponseRowsItem(
                     id: "x",
                     name: "name",
                     iban: Nullable<String>.value("iban"),
                     currency: "currency",
                     accountCode: "accountCode",
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -206,14 +206,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.bank.postV1BankAccountsList(
+        let response = try await client.bank.accountsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankAccountsUpdate1() async throws -> Void {
+    @Test func accountsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -225,7 +225,7 @@ import Api
                   "currency": "currency",
                   "accountCode": "accountCode",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -235,23 +235,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankAccountsUpdateResponse(
+        let expectedResponse = AccountsUpdateBankResponse(
             id: "id",
             name: "name",
             iban: Nullable<String>.value("iban"),
             currency: "currency",
             accountCode: "accountCode",
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankAccountsUpdate(
+        let response = try await client.bank.accountsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankAccountsUpdate2() async throws -> Void {
+    @Test func accountsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -263,7 +263,7 @@ import Api
                   "currency": "currency",
                   "accountCode": "accountCode",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -273,23 +273,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankAccountsUpdateResponse(
+        let expectedResponse = AccountsUpdateBankResponse(
             id: "x",
             name: "name",
             iban: Nullable<String>.value("iban"),
             currency: "currency",
             accountCode: "accountCode",
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankAccountsUpdate(
+        let response = try await client.bank.accountsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankTransactionsImport1() async throws -> Void {
+    @Test func transactionsImport1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -306,17 +306,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankTransactionsImportResponse(
+        let expectedResponse = TransactionsImportBankResponse(
             imported: 1000000,
             skipped: 1000000
         )
-        let response = try await client.bank.postV1BankTransactionsImport(
+        let response = try await client.bank.transactionsImport(
             request: .init(
                 bankAccountId: "bankAccountId",
                 transactions: [
-                    PostV1BankTransactionsImportRequestTransactionsItem(
-                        date: "date",
-                        amount: "amount"
+                    TransactionsImportBankRequestTransactionsItem(
+                        date: CalendarDate("2026-07-01")!,
+                        amount: "-121.0000"
                     )
                 ]
             ),
@@ -325,7 +325,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankTransactionsImport2() async throws -> Void {
+    @Test func transactionsImport2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -342,20 +342,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankTransactionsImportResponse(
+        let expectedResponse = TransactionsImportBankResponse(
             imported: 1000000,
             skipped: 1000000
         )
-        let response = try await client.bank.postV1BankTransactionsImport(
+        let response = try await client.bank.transactionsImport(
             request: .init(
                 bankAccountId: "x",
                 transactions: [
-                    PostV1BankTransactionsImportRequestTransactionsItem(
-                        date: "date",
+                    TransactionsImportBankRequestTransactionsItem(
+                        date: CalendarDate("2023-01-15")!,
                         amount: "amount"
                     ),
-                    PostV1BankTransactionsImportRequestTransactionsItem(
-                        date: "date",
+                    TransactionsImportBankRequestTransactionsItem(
+                        date: CalendarDate("2023-01-15")!,
                         amount: "amount"
                     )
                 ]
@@ -365,7 +365,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankStatementsImport1() async throws -> Void {
+    @Test func statementsImport1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -389,8 +389,8 @@ import Api
                     {
                       "statementId": "statementId",
                       "iban": "iban",
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2026-07-01",
+                      "toDate": "2026-07-01",
                       "openingBalance": "openingBalance",
                       "closingBalance": "closingBalance",
                       "transactionCount": 1000000
@@ -405,7 +405,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankStatementsImportResponse(
+        let expectedResponse = StatementsImportBankResponse(
             imported: 1000000,
             skipped: 1000000,
             posted: 1000000,
@@ -421,18 +421,18 @@ import Api
                 "warnings"
             ],
             statements: [
-                PostV1BankStatementsImportResponseStatementsItem(
+                StatementsImportBankResponseStatementsItem(
                     statementId: Nullable<String>.value("statementId"),
                     iban: Nullable<String>.value("iban"),
-                    fromDate: Nullable<String>.value("fromDate"),
-                    toDate: Nullable<String>.value("toDate"),
+                    fromDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    toDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     openingBalance: Nullable<String>.value("openingBalance"),
                     closingBalance: Nullable<String>.value("closingBalance"),
                     transactionCount: 1000000
                 )
             ]
         )
-        let response = try await client.bank.postV1BankStatementsImport(
+        let response = try await client.bank.statementsImport(
             request: .init(
                 bankAccountId: "bankAccountId",
                 content: "content"
@@ -442,7 +442,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankStatementsImport2() async throws -> Void {
+    @Test func statementsImport2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -467,8 +467,8 @@ import Api
                     {
                       "statementId": "statementId",
                       "iban": "iban",
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2023-01-15",
+                      "toDate": "2023-01-15",
                       "openingBalance": "openingBalance",
                       "closingBalance": "closingBalance",
                       "transactionCount": 1000000
@@ -476,8 +476,8 @@ import Api
                     {
                       "statementId": "statementId",
                       "iban": "iban",
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2023-01-15",
+                      "toDate": "2023-01-15",
                       "openingBalance": "openingBalance",
                       "closingBalance": "closingBalance",
                       "transactionCount": 1000000
@@ -492,7 +492,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankStatementsImportResponse(
+        let expectedResponse = StatementsImportBankResponse(
             imported: 1000000,
             skipped: 1000000,
             posted: 1000000,
@@ -509,27 +509,27 @@ import Api
                 "warnings"
             ],
             statements: [
-                PostV1BankStatementsImportResponseStatementsItem(
+                StatementsImportBankResponseStatementsItem(
                     statementId: Nullable<String>.value("statementId"),
                     iban: Nullable<String>.value("iban"),
-                    fromDate: Nullable<String>.value("fromDate"),
-                    toDate: Nullable<String>.value("toDate"),
+                    fromDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    toDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     openingBalance: Nullable<String>.value("openingBalance"),
                     closingBalance: Nullable<String>.value("closingBalance"),
                     transactionCount: 1000000
                 ),
-                PostV1BankStatementsImportResponseStatementsItem(
+                StatementsImportBankResponseStatementsItem(
                     statementId: Nullable<String>.value("statementId"),
                     iban: Nullable<String>.value("iban"),
-                    fromDate: Nullable<String>.value("fromDate"),
-                    toDate: Nullable<String>.value("toDate"),
+                    fromDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    toDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     openingBalance: Nullable<String>.value("openingBalance"),
                     closingBalance: Nullable<String>.value("closingBalance"),
                     transactionCount: 1000000
                 )
             ]
         )
-        let response = try await client.bank.postV1BankStatementsImport(
+        let response = try await client.bank.statementsImport(
             request: .init(
                 bankAccountId: "x",
                 content: "x"
@@ -539,7 +539,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankTransactionsList1() async throws -> Void {
+    @Test func transactionsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -549,7 +549,7 @@ import Api
                     {
                       "id": "id",
                       "bankAccountId": "bankAccountId",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "amount": "amount",
                       "currency": "currency",
                       "counterpartyName": "counterpartyName",
@@ -560,7 +560,7 @@ import Api
                       "matchedDocumentType": "matchedDocumentType",
                       "matchedDocumentId": "matchedDocumentId",
                       "journalTransactionId": "journalTransactionId",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -578,12 +578,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankTransactionsListResponse(
+        let expectedResponse = TransactionsListBankResponse(
             rows: [
-                PostV1BankTransactionsListResponseRowsItem(
+                TransactionsListBankResponseRowsItem(
                     id: "id",
                     bankAccountId: "bankAccountId",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     amount: "amount",
                     currency: "currency",
                     counterpartyName: Nullable<String>.value("counterpartyName"),
@@ -594,7 +594,7 @@ import Api
                     matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
                     matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -604,14 +604,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.bank.postV1BankTransactionsList(
+        let response = try await client.bank.transactionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankTransactionsList2() async throws -> Void {
+    @Test func transactionsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -621,7 +621,7 @@ import Api
                     {
                       "id": "x",
                       "bankAccountId": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "amount": "amount",
                       "currency": "currency",
                       "counterpartyName": "counterpartyName",
@@ -632,12 +632,12 @@ import Api
                       "matchedDocumentType": "matchedDocumentType",
                       "matchedDocumentId": "x",
                       "journalTransactionId": "x",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "bankAccountId": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "amount": "amount",
                       "currency": "currency",
                       "counterpartyName": "counterpartyName",
@@ -648,7 +648,7 @@ import Api
                       "matchedDocumentType": "matchedDocumentType",
                       "matchedDocumentId": "x",
                       "journalTransactionId": "x",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -666,12 +666,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankTransactionsListResponse(
+        let expectedResponse = TransactionsListBankResponse(
             rows: [
-                PostV1BankTransactionsListResponseRowsItem(
+                TransactionsListBankResponseRowsItem(
                     id: "x",
                     bankAccountId: "x",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     amount: "amount",
                     currency: "currency",
                     counterpartyName: Nullable<String>.value("counterpartyName"),
@@ -682,12 +682,12 @@ import Api
                     matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
                     matchedDocumentId: Nullable<String>.value("x"),
                     journalTransactionId: Nullable<String>.value("x"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1BankTransactionsListResponseRowsItem(
+                TransactionsListBankResponseRowsItem(
                     id: "x",
                     bankAccountId: "x",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     amount: "amount",
                     currency: "currency",
                     counterpartyName: Nullable<String>.value("counterpartyName"),
@@ -698,7 +698,7 @@ import Api
                     matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
                     matchedDocumentId: Nullable<String>.value("x"),
                     journalTransactionId: Nullable<String>.value("x"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -708,14 +708,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.bank.postV1BankTransactionsList(
+        let response = try await client.bank.transactionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankTransactionsMatch1() async throws -> Void {
+    @Test func transactionsMatch1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -723,7 +723,7 @@ import Api
                 {
                   "id": "id",
                   "bankAccountId": "bankAccountId",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "amount": "amount",
                   "currency": "currency",
                   "counterpartyName": "counterpartyName",
@@ -734,7 +734,7 @@ import Api
                   "matchedDocumentType": "matchedDocumentType",
                   "matchedDocumentId": "matchedDocumentId",
                   "journalTransactionId": "journalTransactionId",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -744,10 +744,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankTransactionsMatchResponse(
+        let expectedResponse = TransactionsMatchBankResponse(
             id: "id",
             bankAccountId: "bankAccountId",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             amount: "amount",
             currency: "currency",
             counterpartyName: Nullable<String>.value("counterpartyName"),
@@ -758,9 +758,9 @@ import Api
             matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
             matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankTransactionsMatch(
+        let response = try await client.bank.transactionsMatch(
             request: .init(
                 transactionId: "transactionId",
                 documentType: .saleInvoice,
@@ -771,7 +771,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankTransactionsMatch2() async throws -> Void {
+    @Test func transactionsMatch2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -779,7 +779,7 @@ import Api
                 {
                   "id": "x",
                   "bankAccountId": "x",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "amount": "amount",
                   "currency": "currency",
                   "counterpartyName": "counterpartyName",
@@ -790,7 +790,7 @@ import Api
                   "matchedDocumentType": "matchedDocumentType",
                   "matchedDocumentId": "x",
                   "journalTransactionId": "x",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -800,10 +800,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankTransactionsMatchResponse(
+        let expectedResponse = TransactionsMatchBankResponse(
             id: "x",
             bankAccountId: "x",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             amount: "amount",
             currency: "currency",
             counterpartyName: Nullable<String>.value("counterpartyName"),
@@ -814,9 +814,9 @@ import Api
             matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
             matchedDocumentId: Nullable<String>.value("x"),
             journalTransactionId: Nullable<String>.value("x"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankTransactionsMatch(
+        let response = try await client.bank.transactionsMatch(
             request: .init(
                 transactionId: "x",
                 documentType: .saleInvoice,
@@ -827,7 +827,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankTransactionsRecord1() async throws -> Void {
+    @Test func transactionsUnmatch1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -835,7 +835,7 @@ import Api
                 {
                   "id": "id",
                   "bankAccountId": "bankAccountId",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "amount": "amount",
                   "currency": "currency",
                   "counterpartyName": "counterpartyName",
@@ -846,7 +846,7 @@ import Api
                   "matchedDocumentType": "matchedDocumentType",
                   "matchedDocumentId": "matchedDocumentId",
                   "journalTransactionId": "journalTransactionId",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -856,10 +856,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankTransactionsRecordResponse(
+        let expectedResponse = TransactionsUnmatchBankResponse(
             id: "id",
             bankAccountId: "bankAccountId",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             amount: "amount",
             currency: "currency",
             counterpartyName: Nullable<String>.value("counterpartyName"),
@@ -870,22 +870,16 @@ import Api
             matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
             matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankTransactionsRecord(
-            request: .init(
-                bankAccountId: "bankAccountId",
-                date: "date",
-                amount: "amount",
-                documentType: .saleInvoice,
-                documentId: "documentId"
-            ),
+        let response = try await client.bank.transactionsUnmatch(
+            request: .init(transactionId: "transactionId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankTransactionsRecord2() async throws -> Void {
+    @Test func transactionsUnmatch2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -893,7 +887,7 @@ import Api
                 {
                   "id": "x",
                   "bankAccountId": "x",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "amount": "amount",
                   "currency": "currency",
                   "counterpartyName": "counterpartyName",
@@ -904,7 +898,7 @@ import Api
                   "matchedDocumentType": "matchedDocumentType",
                   "matchedDocumentId": "x",
                   "journalTransactionId": "x",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -914,10 +908,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankTransactionsRecordResponse(
+        let expectedResponse = TransactionsUnmatchBankResponse(
             id: "x",
             bankAccountId: "x",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             amount: "amount",
             currency: "currency",
             counterpartyName: Nullable<String>.value("counterpartyName"),
@@ -928,12 +922,122 @@ import Api
             matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
             matchedDocumentId: Nullable<String>.value("x"),
             journalTransactionId: Nullable<String>.value("x"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankTransactionsRecord(
+        let response = try await client.bank.transactionsUnmatch(
+            request: .init(transactionId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func transactionsRecord1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "bankAccountId": "bankAccountId",
+                  "date": "2026-07-01",
+                  "amount": "amount",
+                  "currency": "currency",
+                  "counterpartyName": "counterpartyName",
+                  "counterpartyIban": "counterpartyIban",
+                  "description": "description",
+                  "externalId": "externalId",
+                  "status": "new",
+                  "matchedDocumentType": "matchedDocumentType",
+                  "matchedDocumentId": "matchedDocumentId",
+                  "journalTransactionId": "journalTransactionId",
+                  "createdAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TransactionsRecordBankResponse(
+            id: "id",
+            bankAccountId: "bankAccountId",
+            date: CalendarDate("2026-07-01")!,
+            amount: "amount",
+            currency: "currency",
+            counterpartyName: Nullable<String>.value("counterpartyName"),
+            counterpartyIban: Nullable<String>.value("counterpartyIban"),
+            description: Nullable<String>.value("description"),
+            externalId: Nullable<String>.value("externalId"),
+            status: .new,
+            matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+            matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.transactionsRecord(
+            request: .init(
+                bankAccountId: "bankAccountId",
+                date: CalendarDate("2026-07-01")!,
+                amount: "121.0000",
+                documentType: .saleInvoice,
+                documentId: "documentId"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func transactionsRecord2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "bankAccountId": "x",
+                  "date": "2023-01-15",
+                  "amount": "amount",
+                  "currency": "currency",
+                  "counterpartyName": "counterpartyName",
+                  "counterpartyIban": "counterpartyIban",
+                  "description": "description",
+                  "externalId": "externalId",
+                  "status": "new",
+                  "matchedDocumentType": "matchedDocumentType",
+                  "matchedDocumentId": "x",
+                  "journalTransactionId": "x",
+                  "createdAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TransactionsRecordBankResponse(
+            id: "x",
+            bankAccountId: "x",
+            date: CalendarDate("2023-01-15")!,
+            amount: "amount",
+            currency: "currency",
+            counterpartyName: Nullable<String>.value("counterpartyName"),
+            counterpartyIban: Nullable<String>.value("counterpartyIban"),
+            description: Nullable<String>.value("description"),
+            externalId: Nullable<String>.value("externalId"),
+            status: .new,
+            matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+            matchedDocumentId: Nullable<String>.value("x"),
+            journalTransactionId: Nullable<String>.value("x"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.transactionsRecord(
             request: .init(
                 bankAccountId: "x",
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 amount: "amount",
                 documentType: .saleInvoice,
                 documentId: "x"
@@ -943,7 +1047,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankPaymentsExport1() async throws -> Void {
+    @Test func paymentsExport1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -963,14 +1067,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankPaymentsExportResponse(
+        let expectedResponse = PaymentsExportBankResponse(
             messageId: "messageId",
             fileName: "fileName",
             transactionCount: 1000000,
             controlSum: "controlSum",
             xml: "xml"
         )
-        let response = try await client.bank.postV1BankPaymentsExport(
+        let response = try await client.bank.paymentsExport(
             request: .init(
                 bankAccountId: "bankAccountId",
                 purchaseInvoiceIds: [
@@ -982,7 +1086,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankPaymentsExport2() async throws -> Void {
+    @Test func paymentsExport2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1002,14 +1106,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankPaymentsExportResponse(
+        let expectedResponse = PaymentsExportBankResponse(
             messageId: "messageId",
             fileName: "fileName",
             transactionCount: 1000000,
             controlSum: "controlSum",
             xml: "xml"
         )
-        let response = try await client.bank.postV1BankPaymentsExport(
+        let response = try await client.bank.paymentsExport(
             request: .init(
                 bankAccountId: "x",
                 purchaseInvoiceIds: [
@@ -1022,7 +1126,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList1() async throws -> Void {
+    @Test func importTemplatesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1052,8 +1156,8 @@ import Api
                   "lenderMetaField": "lenderMetaField",
                   "partialRefundLabel": "partialRefundLabel",
                   "fullRefundLabel": "fullRefundLabel",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1063,12 +1167,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankImportTemplatesCreateResponse(
+        let expectedResponse = ImportTemplatesCreateBankResponse(
             id: "id",
             name: "name",
             type: .stripe,
             fields: [
-                PostV1BankImportTemplatesCreateResponseFieldsItem(
+                ImportTemplatesCreateBankResponseFieldsItem(
                     name: "name",
                     accountCode: Nullable<String>.value("accountCode"),
                     createPartner: true
@@ -1088,10 +1192,10 @@ import Api
             lenderMetaField: Nullable<String>.value("lenderMetaField"),
             partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
             fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList(
+        let response = try await client.bank.importTemplatesCreate(
             request: .init(
                 name: "name",
                 type: .stripe
@@ -1101,7 +1205,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList2() async throws -> Void {
+    @Test func importTemplatesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1137,8 +1241,8 @@ import Api
                   "lenderMetaField": "lenderMetaField",
                   "partialRefundLabel": "partialRefundLabel",
                   "fullRefundLabel": "fullRefundLabel",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1148,17 +1252,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankImportTemplatesCreateResponse(
+        let expectedResponse = ImportTemplatesCreateBankResponse(
             id: "x",
             name: "name",
             type: .stripe,
             fields: [
-                PostV1BankImportTemplatesCreateResponseFieldsItem(
+                ImportTemplatesCreateBankResponseFieldsItem(
                     name: "name",
                     accountCode: Nullable<String>.value("accountCode"),
                     createPartner: true
                 ),
-                PostV1BankImportTemplatesCreateResponseFieldsItem(
+                ImportTemplatesCreateBankResponseFieldsItem(
                     name: "name",
                     accountCode: Nullable<String>.value("accountCode"),
                     createPartner: true
@@ -1179,10 +1283,10 @@ import Api
             lenderMetaField: Nullable<String>.value("lenderMetaField"),
             partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
             fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList(
+        let response = try await client.bank.importTemplatesCreate(
             request: .init(
                 name: "x",
                 type: .stripe
@@ -1192,7 +1296,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankImportTemplatesUpdate1() async throws -> Void {
+    @Test func importTemplatesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1222,8 +1326,8 @@ import Api
                   "lenderMetaField": "lenderMetaField",
                   "partialRefundLabel": "partialRefundLabel",
                   "fullRefundLabel": "fullRefundLabel",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1233,12 +1337,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankImportTemplatesUpdateResponse(
+        let expectedResponse = ImportTemplatesUpdateBankResponse(
             id: "id",
             name: "name",
             type: .stripe,
             fields: [
-                PostV1BankImportTemplatesUpdateResponseFieldsItem(
+                ImportTemplatesUpdateBankResponseFieldsItem(
                     name: "name",
                     accountCode: Nullable<String>.value("accountCode"),
                     createPartner: true
@@ -1258,17 +1362,17 @@ import Api
             lenderMetaField: Nullable<String>.value("lenderMetaField"),
             partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
             fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankImportTemplatesUpdate(
+        let response = try await client.bank.importTemplatesUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankImportTemplatesUpdate2() async throws -> Void {
+    @Test func importTemplatesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1304,8 +1408,8 @@ import Api
                   "lenderMetaField": "lenderMetaField",
                   "partialRefundLabel": "partialRefundLabel",
                   "fullRefundLabel": "fullRefundLabel",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1315,17 +1419,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankImportTemplatesUpdateResponse(
+        let expectedResponse = ImportTemplatesUpdateBankResponse(
             id: "x",
             name: "name",
             type: .stripe,
             fields: [
-                PostV1BankImportTemplatesUpdateResponseFieldsItem(
+                ImportTemplatesUpdateBankResponseFieldsItem(
                     name: "name",
                     accountCode: Nullable<String>.value("accountCode"),
                     createPartner: true
                 ),
-                PostV1BankImportTemplatesUpdateResponseFieldsItem(
+                ImportTemplatesUpdateBankResponseFieldsItem(
                     name: "name",
                     accountCode: Nullable<String>.value("accountCode"),
                     createPartner: true
@@ -1346,17 +1450,17 @@ import Api
             lenderMetaField: Nullable<String>.value("lenderMetaField"),
             partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
             fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankImportTemplatesUpdate(
+        let response = try await client.bank.importTemplatesUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankImportTemplatesDelete1() async throws -> Void {
+    @Test func importTemplatesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1373,18 +1477,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankImportTemplatesDeleteResponse(
+        let expectedResponse = ImportTemplatesDeleteBankResponse(
             id: "id",
             deleted: true
         )
-        let response = try await client.bank.postV1BankImportTemplatesDelete(
+        let response = try await client.bank.importTemplatesDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankImportTemplatesDelete2() async throws -> Void {
+    @Test func importTemplatesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1401,18 +1505,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankImportTemplatesDeleteResponse(
+        let expectedResponse = ImportTemplatesDeleteBankResponse(
             id: "x",
             deleted: true
         )
-        let response = try await client.bank.postV1BankImportTemplatesDelete(
+        let response = try await client.bank.importTemplatesDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankImportTemplatesGet1() async throws -> Void {
+    @Test func importTemplatesGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1442,8 +1546,8 @@ import Api
                   "lenderMetaField": "lenderMetaField",
                   "partialRefundLabel": "partialRefundLabel",
                   "fullRefundLabel": "fullRefundLabel",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1453,12 +1557,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankImportTemplatesGetResponse(
+        let expectedResponse = ImportTemplatesGetBankResponse(
             id: "id",
             name: "name",
             type: .stripe,
             fields: [
-                PostV1BankImportTemplatesGetResponseFieldsItem(
+                ImportTemplatesGetBankResponseFieldsItem(
                     name: "name",
                     accountCode: Nullable<String>.value("accountCode"),
                     createPartner: true
@@ -1478,17 +1582,17 @@ import Api
             lenderMetaField: Nullable<String>.value("lenderMetaField"),
             partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
             fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankImportTemplatesGet(
+        let response = try await client.bank.importTemplatesGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankImportTemplatesGet2() async throws -> Void {
+    @Test func importTemplatesGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1524,8 +1628,8 @@ import Api
                   "lenderMetaField": "lenderMetaField",
                   "partialRefundLabel": "partialRefundLabel",
                   "fullRefundLabel": "fullRefundLabel",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1535,17 +1639,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankImportTemplatesGetResponse(
+        let expectedResponse = ImportTemplatesGetBankResponse(
             id: "x",
             name: "name",
             type: .stripe,
             fields: [
-                PostV1BankImportTemplatesGetResponseFieldsItem(
+                ImportTemplatesGetBankResponseFieldsItem(
                     name: "name",
                     accountCode: Nullable<String>.value("accountCode"),
                     createPartner: true
                 ),
-                PostV1BankImportTemplatesGetResponseFieldsItem(
+                ImportTemplatesGetBankResponseFieldsItem(
                     name: "name",
                     accountCode: Nullable<String>.value("accountCode"),
                     createPartner: true
@@ -1566,17 +1670,17 @@ import Api
             lenderMetaField: Nullable<String>.value("lenderMetaField"),
             partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
             fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankImportTemplatesGet(
+        let response = try await client.bank.importTemplatesGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankImportTemplatesList1() async throws -> Void {
+    @Test func importTemplatesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1608,8 +1712,8 @@ import Api
                       "lenderMetaField": "lenderMetaField",
                       "partialRefundLabel": "partialRefundLabel",
                       "fullRefundLabel": "fullRefundLabel",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1627,14 +1731,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankImportTemplatesListResponse(
+        let expectedResponse = ImportTemplatesListBankResponse(
             rows: [
-                PostV1BankImportTemplatesListResponseRowsItem(
+                ImportTemplatesListBankResponseRowsItem(
                     id: "id",
                     name: "name",
                     type: .stripe,
                     fields: [
-                        PostV1BankImportTemplatesListResponseRowsItemFieldsItem(
+                        ImportTemplatesListBankResponseRowsItemFieldsItem(
                             name: "name",
                             accountCode: .null,
                             createPartner: true
@@ -1654,8 +1758,8 @@ import Api
                     lenderMetaField: Nullable<String>.value("lenderMetaField"),
                     partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
                     fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1665,14 +1769,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.bank.postV1BankImportTemplatesList(
+        let response = try await client.bank.importTemplatesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankImportTemplatesList2() async throws -> Void {
+    @Test func importTemplatesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1710,8 +1814,8 @@ import Api
                       "lenderMetaField": "lenderMetaField",
                       "partialRefundLabel": "partialRefundLabel",
                       "fullRefundLabel": "fullRefundLabel",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1744,8 +1848,8 @@ import Api
                       "lenderMetaField": "lenderMetaField",
                       "partialRefundLabel": "partialRefundLabel",
                       "fullRefundLabel": "fullRefundLabel",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1763,19 +1867,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankImportTemplatesListResponse(
+        let expectedResponse = ImportTemplatesListBankResponse(
             rows: [
-                PostV1BankImportTemplatesListResponseRowsItem(
+                ImportTemplatesListBankResponseRowsItem(
                     id: "x",
                     name: "name",
                     type: .stripe,
                     fields: [
-                        PostV1BankImportTemplatesListResponseRowsItemFieldsItem(
+                        ImportTemplatesListBankResponseRowsItemFieldsItem(
                             name: "name",
                             accountCode: Nullable<String>.value("accountCode"),
                             createPartner: true
                         ),
-                        PostV1BankImportTemplatesListResponseRowsItemFieldsItem(
+                        ImportTemplatesListBankResponseRowsItemFieldsItem(
                             name: "name",
                             accountCode: Nullable<String>.value("accountCode"),
                             createPartner: true
@@ -1796,20 +1900,20 @@ import Api
                     lenderMetaField: Nullable<String>.value("lenderMetaField"),
                     partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
                     fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1BankImportTemplatesListResponseRowsItem(
+                ImportTemplatesListBankResponseRowsItem(
                     id: "x",
                     name: "name",
                     type: .stripe,
                     fields: [
-                        PostV1BankImportTemplatesListResponseRowsItemFieldsItem(
+                        ImportTemplatesListBankResponseRowsItemFieldsItem(
                             name: "name",
                             accountCode: Nullable<String>.value("accountCode"),
                             createPartner: true
                         ),
-                        PostV1BankImportTemplatesListResponseRowsItemFieldsItem(
+                        ImportTemplatesListBankResponseRowsItemFieldsItem(
                             name: "name",
                             accountCode: Nullable<String>.value("accountCode"),
                             createPartner: true
@@ -1830,8 +1934,8 @@ import Api
                     lenderMetaField: Nullable<String>.value("lenderMetaField"),
                     partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
                     fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1841,14 +1945,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.bank.postV1BankImportTemplatesList(
+        let response = try await client.bank.importTemplatesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMatchRulesCreate1() async throws -> Void {
+    @Test func matchRulesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1862,7 +1966,7 @@ import Api
                   "bankAccountId": "bankAccountId",
                   "dateWindowDays": 1000000,
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1872,7 +1976,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMatchRulesCreateResponse(
+        let expectedResponse = MatchRulesCreateBankResponse(
             id: "id",
             name: "name",
             provider: "provider",
@@ -1881,9 +1985,9 @@ import Api
             bankAccountId: Nullable<String>.value("bankAccountId"),
             dateWindowDays: 1000000,
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankMatchRulesCreate(
+        let response = try await client.bank.matchRulesCreate(
             request: .init(
                 name: "name",
                 pattern: "pattern"
@@ -1893,7 +1997,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMatchRulesCreate2() async throws -> Void {
+    @Test func matchRulesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1907,7 +2011,7 @@ import Api
                   "bankAccountId": "x",
                   "dateWindowDays": 1000000,
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1917,7 +2021,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMatchRulesCreateResponse(
+        let expectedResponse = MatchRulesCreateBankResponse(
             id: "x",
             name: "name",
             provider: "provider",
@@ -1926,9 +2030,9 @@ import Api
             bankAccountId: Nullable<String>.value("x"),
             dateWindowDays: 1000000,
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankMatchRulesCreate(
+        let response = try await client.bank.matchRulesCreate(
             request: .init(
                 name: "x",
                 pattern: "xy"
@@ -1938,7 +2042,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMatchRulesUpdate1() async throws -> Void {
+    @Test func matchRulesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1952,7 +2056,7 @@ import Api
                   "bankAccountId": "bankAccountId",
                   "dateWindowDays": 1000000,
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1962,7 +2066,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMatchRulesUpdateResponse(
+        let expectedResponse = MatchRulesUpdateBankResponse(
             id: "id",
             name: "name",
             provider: "provider",
@@ -1971,16 +2075,16 @@ import Api
             bankAccountId: Nullable<String>.value("bankAccountId"),
             dateWindowDays: 1000000,
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankMatchRulesUpdate(
+        let response = try await client.bank.matchRulesUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMatchRulesUpdate2() async throws -> Void {
+    @Test func matchRulesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1994,7 +2098,7 @@ import Api
                   "bankAccountId": "x",
                   "dateWindowDays": 1000000,
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2004,7 +2108,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMatchRulesUpdateResponse(
+        let expectedResponse = MatchRulesUpdateBankResponse(
             id: "x",
             name: "name",
             provider: "provider",
@@ -2013,16 +2117,16 @@ import Api
             bankAccountId: Nullable<String>.value("x"),
             dateWindowDays: 1000000,
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankMatchRulesUpdate(
+        let response = try await client.bank.matchRulesUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMatchRulesDelete1() async throws -> Void {
+    @Test func matchRulesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2038,17 +2142,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMatchRulesDeleteResponse(
+        let expectedResponse = MatchRulesDeleteBankResponse(
             id: "id"
         )
-        let response = try await client.bank.postV1BankMatchRulesDelete(
+        let response = try await client.bank.matchRulesDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMatchRulesDelete2() async throws -> Void {
+    @Test func matchRulesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2064,17 +2168,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMatchRulesDeleteResponse(
+        let expectedResponse = MatchRulesDeleteBankResponse(
             id: "x"
         )
-        let response = try await client.bank.postV1BankMatchRulesDelete(
+        let response = try await client.bank.matchRulesDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMatchRulesList1() async throws -> Void {
+    @Test func matchRulesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2090,7 +2194,7 @@ import Api
                       "bankAccountId": "bankAccountId",
                       "dateWindowDays": 1000000,
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -2102,9 +2206,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMatchRulesListResponse(
+        let expectedResponse = MatchRulesListBankResponse(
             rows: [
-                PostV1BankMatchRulesListResponseRowsItem(
+                MatchRulesListBankResponseRowsItem(
                     id: "id",
                     name: "name",
                     provider: "provider",
@@ -2113,18 +2217,18 @@ import Api
                     bankAccountId: Nullable<String>.value("bankAccountId"),
                     dateWindowDays: 1000000,
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.bank.postV1BankMatchRulesList(
+        let response = try await client.bank.matchRulesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMatchRulesList2() async throws -> Void {
+    @Test func matchRulesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2140,7 +2244,7 @@ import Api
                       "bankAccountId": "x",
                       "dateWindowDays": 1000000,
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -2151,7 +2255,7 @@ import Api
                       "bankAccountId": "x",
                       "dateWindowDays": 1000000,
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -2163,9 +2267,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMatchRulesListResponse(
+        let expectedResponse = MatchRulesListBankResponse(
             rows: [
-                PostV1BankMatchRulesListResponseRowsItem(
+                MatchRulesListBankResponseRowsItem(
                     id: "x",
                     name: "name",
                     provider: "provider",
@@ -2174,9 +2278,9 @@ import Api
                     bankAccountId: Nullable<String>.value("x"),
                     dateWindowDays: 1000000,
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1BankMatchRulesListResponseRowsItem(
+                MatchRulesListBankResponseRowsItem(
                     id: "x",
                     name: "name",
                     provider: "provider",
@@ -2185,18 +2289,18 @@ import Api
                     bankAccountId: Nullable<String>.value("x"),
                     dateWindowDays: 1000000,
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.bank.postV1BankMatchRulesList(
+        let response = try await client.bank.matchRulesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMandatesCreate1() async throws -> Void {
+    @Test func mandatesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2211,13 +2315,13 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
-                  "signatureDate": "signatureDate",
+                  "signatureDate": "2026-07-01",
                   "collectionsCount": 1000000,
-                  "lastCollectionDate": "lastCollectionDate",
+                  "lastCollectionDate": "2026-07-01",
                   "expiresOn": "expiresOn",
-                  "cancelledAt": "cancelledAt",
+                  "cancelledAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2227,7 +2331,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMandatesCreateResponse(
+        let expectedResponse = MandatesCreateBankResponse(
             id: "id",
             partnerId: "partnerId",
             reference: "reference",
@@ -2237,26 +2341,26 @@ import Api
             debtorName: "debtorName",
             iban: "iban",
             bic: Nullable<String>.value("bic"),
-            signatureDate: "signatureDate",
+            signatureDate: CalendarDate("2026-07-01")!,
             collectionsCount: 1000000,
-            lastCollectionDate: Nullable<String>.value("lastCollectionDate"),
+            lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             expiresOn: "expiresOn",
-            cancelledAt: Nullable<String>.value("cancelledAt"),
+            cancelledAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankMandatesCreate(
+        let response = try await client.bank.mandatesCreate(
             request: .init(
                 partnerId: "partnerId",
                 iban: "iban",
-                signatureDate: "signatureDate"
+                signatureDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMandatesCreate2() async throws -> Void {
+    @Test func mandatesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2271,13 +2375,13 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
-                  "signatureDate": "signatureDate",
+                  "signatureDate": "2023-01-15",
                   "collectionsCount": 1000000,
-                  "lastCollectionDate": "lastCollectionDate",
+                  "lastCollectionDate": "2023-01-15",
                   "expiresOn": "expiresOn",
-                  "cancelledAt": "cancelledAt",
+                  "cancelledAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2287,7 +2391,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMandatesCreateResponse(
+        let expectedResponse = MandatesCreateBankResponse(
             id: "x",
             partnerId: "x",
             reference: "reference",
@@ -2297,26 +2401,26 @@ import Api
             debtorName: "debtorName",
             iban: "iban",
             bic: Nullable<String>.value("bic"),
-            signatureDate: "signatureDate",
+            signatureDate: CalendarDate("2023-01-15")!,
             collectionsCount: 1000000,
-            lastCollectionDate: Nullable<String>.value("lastCollectionDate"),
+            lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             expiresOn: "expiresOn",
-            cancelledAt: Nullable<String>.value("cancelledAt"),
+            cancelledAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankMandatesCreate(
+        let response = try await client.bank.mandatesCreate(
             request: .init(
                 partnerId: "x",
                 iban: "blackcurrant...",
-                signatureDate: "signatureDate"
+                signatureDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMandatesUpdate1() async throws -> Void {
+    @Test func mandatesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2331,13 +2435,13 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
-                  "signatureDate": "signatureDate",
+                  "signatureDate": "2026-07-01",
                   "collectionsCount": 1000000,
-                  "lastCollectionDate": "lastCollectionDate",
+                  "lastCollectionDate": "2026-07-01",
                   "expiresOn": "expiresOn",
-                  "cancelledAt": "cancelledAt",
+                  "cancelledAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2347,7 +2451,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMandatesUpdateResponse(
+        let expectedResponse = MandatesUpdateBankResponse(
             id: "id",
             partnerId: "partnerId",
             reference: "reference",
@@ -2357,22 +2461,22 @@ import Api
             debtorName: "debtorName",
             iban: "iban",
             bic: Nullable<String>.value("bic"),
-            signatureDate: "signatureDate",
+            signatureDate: CalendarDate("2026-07-01")!,
             collectionsCount: 1000000,
-            lastCollectionDate: Nullable<String>.value("lastCollectionDate"),
+            lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             expiresOn: "expiresOn",
-            cancelledAt: Nullable<String>.value("cancelledAt"),
+            cancelledAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankMandatesUpdate(
+        let response = try await client.bank.mandatesUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMandatesUpdate2() async throws -> Void {
+    @Test func mandatesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2387,13 +2491,13 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
-                  "signatureDate": "signatureDate",
+                  "signatureDate": "2023-01-15",
                   "collectionsCount": 1000000,
-                  "lastCollectionDate": "lastCollectionDate",
+                  "lastCollectionDate": "2023-01-15",
                   "expiresOn": "expiresOn",
-                  "cancelledAt": "cancelledAt",
+                  "cancelledAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2403,7 +2507,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMandatesUpdateResponse(
+        let expectedResponse = MandatesUpdateBankResponse(
             id: "x",
             partnerId: "x",
             reference: "reference",
@@ -2413,22 +2517,22 @@ import Api
             debtorName: "debtorName",
             iban: "iban",
             bic: Nullable<String>.value("bic"),
-            signatureDate: "signatureDate",
+            signatureDate: CalendarDate("2023-01-15")!,
             collectionsCount: 1000000,
-            lastCollectionDate: Nullable<String>.value("lastCollectionDate"),
+            lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             expiresOn: "expiresOn",
-            cancelledAt: Nullable<String>.value("cancelledAt"),
+            cancelledAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankMandatesUpdate(
+        let response = try await client.bank.mandatesUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMandatesCancel1() async throws -> Void {
+    @Test func mandatesCancel1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2443,13 +2547,13 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
-                  "signatureDate": "signatureDate",
+                  "signatureDate": "2026-07-01",
                   "collectionsCount": 1000000,
-                  "lastCollectionDate": "lastCollectionDate",
+                  "lastCollectionDate": "2026-07-01",
                   "expiresOn": "expiresOn",
-                  "cancelledAt": "cancelledAt",
+                  "cancelledAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2459,7 +2563,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMandatesCancelResponse(
+        let expectedResponse = MandatesCancelBankResponse(
             id: "id",
             partnerId: "partnerId",
             reference: "reference",
@@ -2469,22 +2573,22 @@ import Api
             debtorName: "debtorName",
             iban: "iban",
             bic: Nullable<String>.value("bic"),
-            signatureDate: "signatureDate",
+            signatureDate: CalendarDate("2026-07-01")!,
             collectionsCount: 1000000,
-            lastCollectionDate: Nullable<String>.value("lastCollectionDate"),
+            lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             expiresOn: "expiresOn",
-            cancelledAt: Nullable<String>.value("cancelledAt"),
+            cancelledAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankMandatesCancel(
+        let response = try await client.bank.mandatesCancel(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMandatesCancel2() async throws -> Void {
+    @Test func mandatesCancel2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2499,13 +2603,13 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
-                  "signatureDate": "signatureDate",
+                  "signatureDate": "2023-01-15",
                   "collectionsCount": 1000000,
-                  "lastCollectionDate": "lastCollectionDate",
+                  "lastCollectionDate": "2023-01-15",
                   "expiresOn": "expiresOn",
-                  "cancelledAt": "cancelledAt",
+                  "cancelledAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2515,7 +2619,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMandatesCancelResponse(
+        let expectedResponse = MandatesCancelBankResponse(
             id: "x",
             partnerId: "x",
             reference: "reference",
@@ -2525,22 +2629,22 @@ import Api
             debtorName: "debtorName",
             iban: "iban",
             bic: Nullable<String>.value("bic"),
-            signatureDate: "signatureDate",
+            signatureDate: CalendarDate("2023-01-15")!,
             collectionsCount: 1000000,
-            lastCollectionDate: Nullable<String>.value("lastCollectionDate"),
+            lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             expiresOn: "expiresOn",
-            cancelledAt: Nullable<String>.value("cancelledAt"),
+            cancelledAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankMandatesCancel(
+        let response = try await client.bank.mandatesCancel(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMandatesGet1() async throws -> Void {
+    @Test func mandatesGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2555,13 +2659,13 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
-                  "signatureDate": "signatureDate",
+                  "signatureDate": "2026-07-01",
                   "collectionsCount": 1000000,
-                  "lastCollectionDate": "lastCollectionDate",
+                  "lastCollectionDate": "2026-07-01",
                   "expiresOn": "expiresOn",
-                  "cancelledAt": "cancelledAt",
+                  "cancelledAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2571,7 +2675,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMandatesGetResponse(
+        let expectedResponse = MandatesGetBankResponse(
             id: "id",
             partnerId: "partnerId",
             reference: "reference",
@@ -2581,22 +2685,22 @@ import Api
             debtorName: "debtorName",
             iban: "iban",
             bic: Nullable<String>.value("bic"),
-            signatureDate: "signatureDate",
+            signatureDate: CalendarDate("2026-07-01")!,
             collectionsCount: 1000000,
-            lastCollectionDate: Nullable<String>.value("lastCollectionDate"),
+            lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             expiresOn: "expiresOn",
-            cancelledAt: Nullable<String>.value("cancelledAt"),
+            cancelledAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankMandatesGet(
+        let response = try await client.bank.mandatesGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMandatesGet2() async throws -> Void {
+    @Test func mandatesGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2611,13 +2715,13 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
-                  "signatureDate": "signatureDate",
+                  "signatureDate": "2023-01-15",
                   "collectionsCount": 1000000,
-                  "lastCollectionDate": "lastCollectionDate",
+                  "lastCollectionDate": "2023-01-15",
                   "expiresOn": "expiresOn",
-                  "cancelledAt": "cancelledAt",
+                  "cancelledAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2627,7 +2731,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMandatesGetResponse(
+        let expectedResponse = MandatesGetBankResponse(
             id: "x",
             partnerId: "x",
             reference: "reference",
@@ -2637,22 +2741,22 @@ import Api
             debtorName: "debtorName",
             iban: "iban",
             bic: Nullable<String>.value("bic"),
-            signatureDate: "signatureDate",
+            signatureDate: CalendarDate("2023-01-15")!,
             collectionsCount: 1000000,
-            lastCollectionDate: Nullable<String>.value("lastCollectionDate"),
+            lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             expiresOn: "expiresOn",
-            cancelledAt: Nullable<String>.value("cancelledAt"),
+            cancelledAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankMandatesGet(
+        let response = try await client.bank.mandatesGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMandatesList1() async throws -> Void {
+    @Test func mandatesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2669,13 +2773,13 @@ import Api
                       "debtorName": "debtorName",
                       "iban": "iban",
                       "bic": "bic",
-                      "signatureDate": "signatureDate",
+                      "signatureDate": "2026-07-01",
                       "collectionsCount": 1000000,
-                      "lastCollectionDate": "lastCollectionDate",
+                      "lastCollectionDate": "2026-07-01",
                       "expiresOn": "expiresOn",
-                      "cancelledAt": "cancelledAt",
+                      "cancelledAt": "2026-07-01T09:30:00Z",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -2693,9 +2797,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMandatesListResponse(
+        let expectedResponse = MandatesListBankResponse(
             rows: [
-                PostV1BankMandatesListResponseRowsItem(
+                MandatesListBankResponseRowsItem(
                     id: "id",
                     partnerId: "partnerId",
                     reference: "reference",
@@ -2705,13 +2809,13 @@ import Api
                     debtorName: "debtorName",
                     iban: "iban",
                     bic: Nullable<String>.value("bic"),
-                    signatureDate: "signatureDate",
+                    signatureDate: CalendarDate("2026-07-01")!,
                     collectionsCount: 1000000,
-                    lastCollectionDate: Nullable<String>.value("lastCollectionDate"),
+                    lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     expiresOn: "expiresOn",
-                    cancelledAt: Nullable<String>.value("cancelledAt"),
+                    cancelledAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -2721,14 +2825,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.bank.postV1BankMandatesList(
+        let response = try await client.bank.mandatesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankMandatesList2() async throws -> Void {
+    @Test func mandatesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2745,13 +2849,13 @@ import Api
                       "debtorName": "debtorName",
                       "iban": "iban",
                       "bic": "bic",
-                      "signatureDate": "signatureDate",
+                      "signatureDate": "2023-01-15",
                       "collectionsCount": 1000000,
-                      "lastCollectionDate": "lastCollectionDate",
+                      "lastCollectionDate": "2023-01-15",
                       "expiresOn": "expiresOn",
-                      "cancelledAt": "cancelledAt",
+                      "cancelledAt": "2024-01-15T09:30:00Z",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -2763,13 +2867,13 @@ import Api
                       "debtorName": "debtorName",
                       "iban": "iban",
                       "bic": "bic",
-                      "signatureDate": "signatureDate",
+                      "signatureDate": "2023-01-15",
                       "collectionsCount": 1000000,
-                      "lastCollectionDate": "lastCollectionDate",
+                      "lastCollectionDate": "2023-01-15",
                       "expiresOn": "expiresOn",
-                      "cancelledAt": "cancelledAt",
+                      "cancelledAt": "2024-01-15T09:30:00Z",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -2787,9 +2891,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankMandatesListResponse(
+        let expectedResponse = MandatesListBankResponse(
             rows: [
-                PostV1BankMandatesListResponseRowsItem(
+                MandatesListBankResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     reference: "reference",
@@ -2799,15 +2903,15 @@ import Api
                     debtorName: "debtorName",
                     iban: "iban",
                     bic: Nullable<String>.value("bic"),
-                    signatureDate: "signatureDate",
+                    signatureDate: CalendarDate("2023-01-15")!,
                     collectionsCount: 1000000,
-                    lastCollectionDate: Nullable<String>.value("lastCollectionDate"),
+                    lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     expiresOn: "expiresOn",
-                    cancelledAt: Nullable<String>.value("cancelledAt"),
+                    cancelledAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1BankMandatesListResponseRowsItem(
+                MandatesListBankResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     reference: "reference",
@@ -2817,13 +2921,13 @@ import Api
                     debtorName: "debtorName",
                     iban: "iban",
                     bic: Nullable<String>.value("bic"),
-                    signatureDate: "signatureDate",
+                    signatureDate: CalendarDate("2023-01-15")!,
                     collectionsCount: 1000000,
-                    lastCollectionDate: Nullable<String>.value("lastCollectionDate"),
+                    lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     expiresOn: "expiresOn",
-                    cancelledAt: Nullable<String>.value("cancelledAt"),
+                    cancelledAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -2833,14 +2937,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.bank.postV1BankMandatesList(
+        let response = try await client.bank.mandatesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankDirectDebitsExport1() async throws -> Void {
+    @Test func directDebitsExport1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2860,14 +2964,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankDirectDebitsExportResponse(
+        let expectedResponse = DirectDebitsExportBankResponse(
             messageId: "messageId",
             fileName: "fileName",
             transactionCount: 1000000,
             controlSum: "controlSum",
             xml: "xml"
         )
-        let response = try await client.bank.postV1BankDirectDebitsExport(
+        let response = try await client.bank.directDebitsExport(
             request: .init(
                 bankAccountId: "bankAccountId",
                 saleInvoiceIds: [
@@ -2879,7 +2983,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankDirectDebitsExport2() async throws -> Void {
+    @Test func directDebitsExport2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2899,14 +3003,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankDirectDebitsExportResponse(
+        let expectedResponse = DirectDebitsExportBankResponse(
             messageId: "messageId",
             fileName: "fileName",
             transactionCount: 1000000,
             controlSum: "controlSum",
             xml: "xml"
         )
-        let response = try await client.bank.postV1BankDirectDebitsExport(
+        let response = try await client.bank.directDebitsExport(
             request: .init(
                 bankAccountId: "x",
                 saleInvoiceIds: [
@@ -2919,7 +3023,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankTransactionsSuggestMatches1() async throws -> Void {
+    @Test func transactionsSuggestMatches1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2931,6 +3035,7 @@ import Api
                       "documentId": "documentId",
                       "number": "number",
                       "partnerName": "partnerName",
+                      "currency": "currency",
                       "grossTotal": "grossTotal",
                       "remaining": "remaining",
                       "score": 1000000,
@@ -2948,13 +3053,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankTransactionsSuggestMatchesResponse(
+        let expectedResponse = TransactionsSuggestMatchesBankResponse(
             suggestions: [
-                PostV1BankTransactionsSuggestMatchesResponseSuggestionsItem(
+                TransactionsSuggestMatchesBankResponseSuggestionsItem(
                     documentType: .saleInvoice,
                     documentId: "documentId",
                     number: "number",
                     partnerName: "partnerName",
+                    currency: "currency",
                     grossTotal: "grossTotal",
                     remaining: "remaining",
                     score: 1000000,
@@ -2964,14 +3070,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.bank.postV1BankTransactionsSuggestMatches(
+        let response = try await client.bank.transactionsSuggestMatches(
             request: .init(transactionId: "transactionId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankTransactionsSuggestMatches2() async throws -> Void {
+    @Test func transactionsSuggestMatches2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2983,6 +3089,7 @@ import Api
                       "documentId": "x",
                       "number": "number",
                       "partnerName": "partnerName",
+                      "currency": "currency",
                       "grossTotal": "grossTotal",
                       "remaining": "remaining",
                       "score": 1000000,
@@ -2996,6 +3103,7 @@ import Api
                       "documentId": "x",
                       "number": "number",
                       "partnerName": "partnerName",
+                      "currency": "currency",
                       "grossTotal": "grossTotal",
                       "remaining": "remaining",
                       "score": 1000000,
@@ -3014,13 +3122,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankTransactionsSuggestMatchesResponse(
+        let expectedResponse = TransactionsSuggestMatchesBankResponse(
             suggestions: [
-                PostV1BankTransactionsSuggestMatchesResponseSuggestionsItem(
+                TransactionsSuggestMatchesBankResponseSuggestionsItem(
                     documentType: .saleInvoice,
                     documentId: "x",
                     number: "number",
                     partnerName: "partnerName",
+                    currency: "currency",
                     grossTotal: "grossTotal",
                     remaining: "remaining",
                     score: 1000000,
@@ -3029,11 +3138,12 @@ import Api
                         "reasons"
                     ]
                 ),
-                PostV1BankTransactionsSuggestMatchesResponseSuggestionsItem(
+                TransactionsSuggestMatchesBankResponseSuggestionsItem(
                     documentType: .saleInvoice,
                     documentId: "x",
                     number: "number",
                     partnerName: "partnerName",
+                    currency: "currency",
                     grossTotal: "grossTotal",
                     remaining: "remaining",
                     score: 1000000,
@@ -3044,14 +3154,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.bank.postV1BankTransactionsSuggestMatches(
+        let response = try await client.bank.transactionsSuggestMatches(
             request: .init(transactionId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsImport1() async throws -> Void {
+    @Test func settlementsImport1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3070,7 +3180,7 @@ import Api
                       "bankAccountId": "bankAccountId",
                       "provider": "provider",
                       "payoutId": "payoutId",
-                      "payoutDate": "payoutDate",
+                      "payoutDate": "2026-07-01",
                       "currency": "currency",
                       "grossTotal": "grossTotal",
                       "feeTotal": "feeTotal",
@@ -3082,8 +3192,8 @@ import Api
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -3095,7 +3205,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsImportResponse(
+        let expectedResponse = SettlementsImportBankResponse(
             format: .payoutReconciliation,
             imported: 1000000,
             updated: 1000000,
@@ -3104,12 +3214,12 @@ import Api
             skippedPayoutRows: 1000000,
             skippedNotSettled: 1000000,
             batches: [
-                PostV1BankSettlementsImportResponseBatchesItem(
+                SettlementsImportBankResponseBatchesItem(
                     id: "id",
                     bankAccountId: "bankAccountId",
                     provider: "provider",
                     payoutId: "payoutId",
-                    payoutDate: Nullable<String>.value("payoutDate"),
+                    payoutDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     currency: "currency",
                     grossTotal: "grossTotal",
                     feeTotal: "feeTotal",
@@ -3121,12 +3231,12 @@ import Api
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.bank.postV1BankSettlementsImport(
+        let response = try await client.bank.settlementsImport(
             request: .init(
                 bankAccountId: "bankAccountId",
                 content: "content"
@@ -3136,7 +3246,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsImport2() async throws -> Void {
+    @Test func settlementsImport2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3155,7 +3265,7 @@ import Api
                       "bankAccountId": "x",
                       "provider": "provider",
                       "payoutId": "payoutId",
-                      "payoutDate": "payoutDate",
+                      "payoutDate": "2023-01-15",
                       "currency": "currency",
                       "grossTotal": "grossTotal",
                       "feeTotal": "feeTotal",
@@ -3167,15 +3277,15 @@ import Api
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "bankAccountId": "x",
                       "provider": "provider",
                       "payoutId": "payoutId",
-                      "payoutDate": "payoutDate",
+                      "payoutDate": "2023-01-15",
                       "currency": "currency",
                       "grossTotal": "grossTotal",
                       "feeTotal": "feeTotal",
@@ -3187,8 +3297,8 @@ import Api
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -3200,7 +3310,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsImportResponse(
+        let expectedResponse = SettlementsImportBankResponse(
             format: .payoutReconciliation,
             imported: 1000000,
             updated: 1000000,
@@ -3209,12 +3319,12 @@ import Api
             skippedPayoutRows: 1000000,
             skippedNotSettled: 1000000,
             batches: [
-                PostV1BankSettlementsImportResponseBatchesItem(
+                SettlementsImportBankResponseBatchesItem(
                     id: "x",
                     bankAccountId: "x",
                     provider: "provider",
                     payoutId: "payoutId",
-                    payoutDate: Nullable<String>.value("payoutDate"),
+                    payoutDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     currency: "currency",
                     grossTotal: "grossTotal",
                     feeTotal: "feeTotal",
@@ -3226,15 +3336,15 @@ import Api
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1BankSettlementsImportResponseBatchesItem(
+                SettlementsImportBankResponseBatchesItem(
                     id: "x",
                     bankAccountId: "x",
                     provider: "provider",
                     payoutId: "payoutId",
-                    payoutDate: Nullable<String>.value("payoutDate"),
+                    payoutDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     currency: "currency",
                     grossTotal: "grossTotal",
                     feeTotal: "feeTotal",
@@ -3246,12 +3356,12 @@ import Api
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.bank.postV1BankSettlementsImport(
+        let response = try await client.bank.settlementsImport(
             request: .init(
                 bankAccountId: "x",
                 content: "x"
@@ -3261,7 +3371,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsList1() async throws -> Void {
+    @Test func settlementsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3273,7 +3383,7 @@ import Api
                       "bankAccountId": "bankAccountId",
                       "provider": "provider",
                       "payoutId": "payoutId",
-                      "payoutDate": "payoutDate",
+                      "payoutDate": "2026-07-01",
                       "currency": "currency",
                       "grossTotal": "grossTotal",
                       "feeTotal": "feeTotal",
@@ -3285,8 +3395,8 @@ import Api
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -3304,14 +3414,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsListResponse(
+        let expectedResponse = SettlementsListBankResponse(
             rows: [
-                PostV1BankSettlementsListResponseRowsItem(
+                SettlementsListBankResponseRowsItem(
                     id: "id",
                     bankAccountId: "bankAccountId",
                     provider: "provider",
                     payoutId: "payoutId",
-                    payoutDate: Nullable<String>.value("payoutDate"),
+                    payoutDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     currency: "currency",
                     grossTotal: "grossTotal",
                     feeTotal: "feeTotal",
@@ -3323,8 +3433,8 @@ import Api
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -3334,14 +3444,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.bank.postV1BankSettlementsList(
+        let response = try await client.bank.settlementsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsList2() async throws -> Void {
+    @Test func settlementsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3353,7 +3463,7 @@ import Api
                       "bankAccountId": "x",
                       "provider": "provider",
                       "payoutId": "payoutId",
-                      "payoutDate": "payoutDate",
+                      "payoutDate": "2023-01-15",
                       "currency": "currency",
                       "grossTotal": "grossTotal",
                       "feeTotal": "feeTotal",
@@ -3365,15 +3475,15 @@ import Api
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "bankAccountId": "x",
                       "provider": "provider",
                       "payoutId": "payoutId",
-                      "payoutDate": "payoutDate",
+                      "payoutDate": "2023-01-15",
                       "currency": "currency",
                       "grossTotal": "grossTotal",
                       "feeTotal": "feeTotal",
@@ -3385,8 +3495,8 @@ import Api
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -3404,14 +3514,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsListResponse(
+        let expectedResponse = SettlementsListBankResponse(
             rows: [
-                PostV1BankSettlementsListResponseRowsItem(
+                SettlementsListBankResponseRowsItem(
                     id: "x",
                     bankAccountId: "x",
                     provider: "provider",
                     payoutId: "payoutId",
-                    payoutDate: Nullable<String>.value("payoutDate"),
+                    payoutDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     currency: "currency",
                     grossTotal: "grossTotal",
                     feeTotal: "feeTotal",
@@ -3423,15 +3533,15 @@ import Api
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1BankSettlementsListResponseRowsItem(
+                SettlementsListBankResponseRowsItem(
                     id: "x",
                     bankAccountId: "x",
                     provider: "provider",
                     payoutId: "payoutId",
-                    payoutDate: Nullable<String>.value("payoutDate"),
+                    payoutDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     currency: "currency",
                     grossTotal: "grossTotal",
                     feeTotal: "feeTotal",
@@ -3443,8 +3553,8 @@ import Api
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -3454,14 +3564,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.bank.postV1BankSettlementsList(
+        let response = try await client.bank.settlementsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsGet1() async throws -> Void {
+    @Test func settlementsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3471,7 +3581,7 @@ import Api
                   "bankAccountId": "bankAccountId",
                   "provider": "provider",
                   "payoutId": "payoutId",
-                  "payoutDate": "payoutDate",
+                  "payoutDate": "2026-07-01",
                   "currency": "currency",
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
@@ -3483,14 +3593,14 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
                       "externalId": "externalId",
                       "category": "category",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "gross": "gross",
                       "fee": "fee",
                       "net": "net",
@@ -3513,12 +3623,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsGetResponse(
+        let expectedResponse = SettlementsGetBankResponse(
             id: "id",
             bankAccountId: "bankAccountId",
             provider: "provider",
             payoutId: "payoutId",
-            payoutDate: Nullable<String>.value("payoutDate"),
+            payoutDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
@@ -3530,14 +3640,14 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1BankSettlementsGetResponseLinesItem(
+                SettlementsGetBankResponseLinesItem(
                     id: "id",
                     externalId: "externalId",
                     category: "category",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     gross: "gross",
                     fee: "fee",
                     net: "net",
@@ -3552,14 +3662,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.bank.postV1BankSettlementsGet(
+        let response = try await client.bank.settlementsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsGet2() async throws -> Void {
+    @Test func settlementsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3569,7 +3679,7 @@ import Api
                   "bankAccountId": "x",
                   "provider": "provider",
                   "payoutId": "payoutId",
-                  "payoutDate": "payoutDate",
+                  "payoutDate": "2023-01-15",
                   "currency": "currency",
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
@@ -3581,14 +3691,14 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
                       "externalId": "externalId",
                       "category": "category",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "gross": "gross",
                       "fee": "fee",
                       "net": "net",
@@ -3605,7 +3715,7 @@ import Api
                       "id": "x",
                       "externalId": "externalId",
                       "category": "category",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "gross": "gross",
                       "fee": "fee",
                       "net": "net",
@@ -3628,12 +3738,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsGetResponse(
+        let expectedResponse = SettlementsGetBankResponse(
             id: "x",
             bankAccountId: "x",
             provider: "provider",
             payoutId: "payoutId",
-            payoutDate: Nullable<String>.value("payoutDate"),
+            payoutDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
@@ -3645,14 +3755,14 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1BankSettlementsGetResponseLinesItem(
+                SettlementsGetBankResponseLinesItem(
                     id: "x",
                     externalId: "externalId",
                     category: "category",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     gross: "gross",
                     fee: "fee",
                     net: "net",
@@ -3665,11 +3775,11 @@ import Api
                     matchedInvoiceId: Nullable<String>.value("x"),
                     matchStatus: .unmatched
                 ),
-                PostV1BankSettlementsGetResponseLinesItem(
+                SettlementsGetBankResponseLinesItem(
                     id: "x",
                     externalId: "externalId",
                     category: "category",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     gross: "gross",
                     fee: "fee",
                     net: "net",
@@ -3684,14 +3794,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.bank.postV1BankSettlementsGet(
+        let response = try await client.bank.settlementsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsMatch1() async throws -> Void {
+    @Test func settlementsMatch1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3700,7 +3810,7 @@ import Api
                   "id": "id",
                   "externalId": "externalId",
                   "category": "category",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "gross": "gross",
                   "fee": "fee",
                   "net": "net",
@@ -3721,11 +3831,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsMatchResponse(
+        let expectedResponse = SettlementsMatchBankResponse(
             id: "id",
             externalId: "externalId",
             category: "category",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             gross: "gross",
             fee: "fee",
             net: "net",
@@ -3738,7 +3848,7 @@ import Api
             matchedInvoiceId: Nullable<String>.value("matchedInvoiceId"),
             matchStatus: .unmatched
         )
-        let response = try await client.bank.postV1BankSettlementsMatch(
+        let response = try await client.bank.settlementsMatch(
             request: .init(
                 lineId: "lineId",
                 invoiceId: .null
@@ -3748,7 +3858,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsMatch2() async throws -> Void {
+    @Test func settlementsMatch2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3757,7 +3867,7 @@ import Api
                   "id": "x",
                   "externalId": "externalId",
                   "category": "category",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "gross": "gross",
                   "fee": "fee",
                   "net": "net",
@@ -3778,11 +3888,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsMatchResponse(
+        let expectedResponse = SettlementsMatchBankResponse(
             id: "x",
             externalId: "externalId",
             category: "category",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             gross: "gross",
             fee: "fee",
             net: "net",
@@ -3795,7 +3905,7 @@ import Api
             matchedInvoiceId: Nullable<String>.value("x"),
             matchStatus: .unmatched
         )
-        let response = try await client.bank.postV1BankSettlementsMatch(
+        let response = try await client.bank.settlementsMatch(
             request: .init(
                 lineId: "x",
                 invoiceId: .null
@@ -3805,7 +3915,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func setWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmount1() async throws -> Void {
+    @Test func settlementsCommission1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3814,7 +3924,7 @@ import Api
                   "id": "id",
                   "externalId": "externalId",
                   "category": "category",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "gross": "gross",
                   "fee": "fee",
                   "net": "net",
@@ -3835,11 +3945,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsCommissionResponse(
+        let expectedResponse = SettlementsCommissionBankResponse(
             id: "id",
             externalId: "externalId",
             category: "category",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             gross: "gross",
             fee: "fee",
             net: "net",
@@ -3852,14 +3962,14 @@ import Api
             matchedInvoiceId: Nullable<String>.value("matchedInvoiceId"),
             matchStatus: .unmatched
         )
-        let response = try await client.bank.setWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmount(
+        let response = try await client.bank.settlementsCommission(
             request: .init(lineId: "lineId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func setWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmount2() async throws -> Void {
+    @Test func settlementsCommission2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3868,7 +3978,7 @@ import Api
                   "id": "x",
                   "externalId": "externalId",
                   "category": "category",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "gross": "gross",
                   "fee": "fee",
                   "net": "net",
@@ -3889,11 +3999,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsCommissionResponse(
+        let expectedResponse = SettlementsCommissionBankResponse(
             id: "x",
             externalId: "externalId",
             category: "category",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             gross: "gross",
             fee: "fee",
             net: "net",
@@ -3906,14 +4016,14 @@ import Api
             matchedInvoiceId: Nullable<String>.value("x"),
             matchStatus: .unmatched
         )
-        let response = try await client.bank.setWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmount(
+        let response = try await client.bank.settlementsCommission(
             request: .init(lineId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsLink1() async throws -> Void {
+    @Test func settlementsLink1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3923,7 +4033,7 @@ import Api
                   "bankAccountId": "bankAccountId",
                   "provider": "provider",
                   "payoutId": "payoutId",
-                  "payoutDate": "payoutDate",
+                  "payoutDate": "2026-07-01",
                   "currency": "currency",
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
@@ -3935,8 +4045,8 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3946,12 +4056,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsLinkResponse(
+        let expectedResponse = SettlementsLinkBankResponse(
             id: "id",
             bankAccountId: "bankAccountId",
             provider: "provider",
             payoutId: "payoutId",
-            payoutDate: Nullable<String>.value("payoutDate"),
+            payoutDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
@@ -3963,10 +4073,10 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankSettlementsLink(
+        let response = try await client.bank.settlementsLink(
             request: .init(
                 id: "id",
                 bankTransactionId: "bankTransactionId"
@@ -3976,7 +4086,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsLink2() async throws -> Void {
+    @Test func settlementsLink2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3986,7 +4096,7 @@ import Api
                   "bankAccountId": "x",
                   "provider": "provider",
                   "payoutId": "payoutId",
-                  "payoutDate": "payoutDate",
+                  "payoutDate": "2023-01-15",
                   "currency": "currency",
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
@@ -3998,8 +4108,8 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4009,12 +4119,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsLinkResponse(
+        let expectedResponse = SettlementsLinkBankResponse(
             id: "x",
             bankAccountId: "x",
             provider: "provider",
             payoutId: "payoutId",
-            payoutDate: Nullable<String>.value("payoutDate"),
+            payoutDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
@@ -4026,10 +4136,10 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankSettlementsLink(
+        let response = try await client.bank.settlementsLink(
             request: .init(
                 id: "x",
                 bankTransactionId: "x"
@@ -4039,7 +4149,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsUnlink1() async throws -> Void {
+    @Test func settlementsUnlink1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4049,7 +4159,7 @@ import Api
                   "bankAccountId": "bankAccountId",
                   "provider": "provider",
                   "payoutId": "payoutId",
-                  "payoutDate": "payoutDate",
+                  "payoutDate": "2026-07-01",
                   "currency": "currency",
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
@@ -4061,8 +4171,8 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4072,12 +4182,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsUnlinkResponse(
+        let expectedResponse = SettlementsUnlinkBankResponse(
             id: "id",
             bankAccountId: "bankAccountId",
             provider: "provider",
             payoutId: "payoutId",
-            payoutDate: Nullable<String>.value("payoutDate"),
+            payoutDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
@@ -4089,17 +4199,17 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankSettlementsUnlink(
+        let response = try await client.bank.settlementsUnlink(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsUnlink2() async throws -> Void {
+    @Test func settlementsUnlink2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4109,7 +4219,7 @@ import Api
                   "bankAccountId": "x",
                   "provider": "provider",
                   "payoutId": "payoutId",
-                  "payoutDate": "payoutDate",
+                  "payoutDate": "2023-01-15",
                   "currency": "currency",
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
@@ -4121,8 +4231,8 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4132,12 +4242,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsUnlinkResponse(
+        let expectedResponse = SettlementsUnlinkBankResponse(
             id: "x",
             bankAccountId: "x",
             provider: "provider",
             payoutId: "payoutId",
-            payoutDate: Nullable<String>.value("payoutDate"),
+            payoutDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
@@ -4149,17 +4259,17 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.postV1BankSettlementsUnlink(
+        let response = try await client.bank.settlementsUnlink(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsPost1() async throws -> Void {
+    @Test func settlementsPost1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4169,7 +4279,7 @@ import Api
                   "bankAccountId": "bankAccountId",
                   "provider": "provider",
                   "payoutId": "payoutId",
-                  "payoutDate": "payoutDate",
+                  "payoutDate": "2026-07-01",
                   "currency": "currency",
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
@@ -4181,8 +4291,8 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "warnings": [
                     "warnings"
                   ],
@@ -4204,12 +4314,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsPostResponse(
+        let expectedResponse = SettlementsPostBankResponse(
             id: "id",
             bankAccountId: "bankAccountId",
             provider: "provider",
             payoutId: "payoutId",
-            payoutDate: Nullable<String>.value("payoutDate"),
+            payoutDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             currency: "currency",
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
@@ -4221,12 +4331,12 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             warnings: [
                 "warnings"
             ],
-            summary: PostV1BankSettlementsPostResponseSummary(
+            summary: SettlementsPostBankResponseSummary(
                 receivableApplied: "receivableApplied",
                 commissionAmount: "commissionAmount",
                 sellerAmount: "sellerAmount",
@@ -4236,14 +4346,14 @@ import Api
                 exchangeDifference: "exchangeDifference"
             )
         )
-        let response = try await client.bank.postV1BankSettlementsPost(
+        let response = try await client.bank.settlementsPost(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankSettlementsPost2() async throws -> Void {
+    @Test func settlementsPost2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4253,7 +4363,7 @@ import Api
                   "bankAccountId": "x",
                   "provider": "provider",
                   "payoutId": "payoutId",
-                  "payoutDate": "payoutDate",
+                  "payoutDate": "2023-01-15",
                   "currency": "currency",
                   "grossTotal": "grossTotal",
                   "feeTotal": "feeTotal",
@@ -4265,8 +4375,8 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "warnings": [
                     "warnings",
                     "warnings"
@@ -4289,12 +4399,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankSettlementsPostResponse(
+        let expectedResponse = SettlementsPostBankResponse(
             id: "x",
             bankAccountId: "x",
             provider: "provider",
             payoutId: "payoutId",
-            payoutDate: Nullable<String>.value("payoutDate"),
+            payoutDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             currency: "currency",
             grossTotal: "grossTotal",
             feeTotal: "feeTotal",
@@ -4306,13 +4416,13 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             warnings: [
                 "warnings",
                 "warnings"
             ],
-            summary: PostV1BankSettlementsPostResponseSummary(
+            summary: SettlementsPostBankResponseSummary(
                 receivableApplied: "receivableApplied",
                 commissionAmount: "commissionAmount",
                 sellerAmount: "sellerAmount",
@@ -4322,14 +4432,14 @@ import Api
                 exchangeDifference: "exchangeDifference"
             )
         )
-        let response = try await client.bank.postV1BankSettlementsPost(
+        let response = try await client.bank.settlementsPost(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func listThePsd2BanksAspsPsAvailableToConnect1() async throws -> Void {
+    @Test func feedsBanksList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4356,10 +4466,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsBanksListResponse(
+        let expectedResponse = FeedsBanksListBankResponse(
             provider: "provider",
             banks: [
-                PostV1BankFeedsBanksListResponseBanksItem(
+                FeedsBanksListBankResponseBanksItem(
                     name: "name",
                     country: "country",
                     logoUrl: Nullable<String>.value("logoUrl"),
@@ -4370,14 +4480,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.bank.listThePsd2BanksAspsPsAvailableToConnect(
+        let response = try await client.bank.feedsBanksList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func listThePsd2BanksAspsPsAvailableToConnect2() async throws -> Void {
+    @Test func feedsBanksList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4415,10 +4525,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsBanksListResponse(
+        let expectedResponse = FeedsBanksListBankResponse(
             provider: "provider",
             banks: [
-                PostV1BankFeedsBanksListResponseBanksItem(
+                FeedsBanksListBankResponseBanksItem(
                     name: "name",
                     country: "country",
                     logoUrl: Nullable<String>.value("logoUrl"),
@@ -4428,7 +4538,7 @@ import Api
                     ],
                     maxConsentDays: Nullable<Int64>.value(1000000)
                 ),
-                PostV1BankFeedsBanksListResponseBanksItem(
+                FeedsBanksListBankResponseBanksItem(
                     name: "name",
                     country: "country",
                     logoUrl: Nullable<String>.value("logoUrl"),
@@ -4440,14 +4550,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.bank.listThePsd2BanksAspsPsAvailableToConnect(
+        let response = try await client.bank.feedsBanksList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func beginBankAuthorizationRedirectTheUserToTheReturnedUrl1() async throws -> Void {
+    @Test func feedsConnectionsStart1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4456,7 +4566,7 @@ import Api
                   "connectionId": "connectionId",
                   "reference": "reference",
                   "url": "url",
-                  "expiresAt": "expiresAt"
+                  "expiresAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4466,13 +4576,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsConnectionsStartResponse(
+        let expectedResponse = FeedsConnectionsStartBankResponse(
             connectionId: "connectionId",
             reference: "reference",
             url: "url",
-            expiresAt: "expiresAt"
+            expiresAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.beginBankAuthorizationRedirectTheUserToTheReturnedUrl(
+        let response = try await client.bank.feedsConnectionsStart(
             request: .init(
                 aspspName: "aspspName",
                 aspspCountry: "aspspCountry"
@@ -4482,7 +4592,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func beginBankAuthorizationRedirectTheUserToTheReturnedUrl2() async throws -> Void {
+    @Test func feedsConnectionsStart2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4491,7 +4601,7 @@ import Api
                   "connectionId": "x",
                   "reference": "reference",
                   "url": "url",
-                  "expiresAt": "expiresAt"
+                  "expiresAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4501,13 +4611,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsConnectionsStartResponse(
+        let expectedResponse = FeedsConnectionsStartBankResponse(
             connectionId: "x",
             reference: "reference",
             url: "url",
-            expiresAt: "expiresAt"
+            expiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.bank.beginBankAuthorizationRedirectTheUserToTheReturnedUrl(
+        let response = try await client.bank.feedsConnectionsStart(
             request: .init(
                 aspspName: "x",
                 aspspCountry: "xy"
@@ -4517,7 +4627,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func exchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposes1() async throws -> Void {
+    @Test func feedsConnectionsComplete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4530,11 +4640,11 @@ import Api
                   "psuType": "business",
                   "status": "pending",
                   "reference": "reference",
-                  "consentExpiresAt": "consentExpiresAt",
-                  "lastSyncedAt": "lastSyncedAt",
+                  "consentExpiresAt": "2026-07-01T09:30:00Z",
+                  "lastSyncedAt": "2026-07-01T09:30:00Z",
                   "error": "error",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "accounts": [
                     {
                       "id": "id",
@@ -4548,7 +4658,7 @@ import Api
                       "name": "name",
                       "product": "product",
                       "syncFrom": "syncFrom",
-                      "lastSyncedAt": "lastSyncedAt"
+                      "lastSyncedAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -4560,7 +4670,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsConnectionsCompleteResponse(
+        let expectedResponse = FeedsConnectionsCompleteBankResponse(
             id: "id",
             provider: "provider",
             aspspName: "aspspName",
@@ -4568,13 +4678,13 @@ import Api
             psuType: .business,
             status: .pending,
             reference: "reference",
-            consentExpiresAt: Nullable<String>.value("consentExpiresAt"),
-            lastSyncedAt: Nullable<String>.value("lastSyncedAt"),
+            consentExpiresAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lastSyncedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             error: Nullable<String>.value("error"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             accounts: [
-                PostV1BankFeedsConnectionsCompleteResponseAccountsItem(
+                FeedsConnectionsCompleteBankResponseAccountsItem(
                     id: "id",
                     connectionId: "connectionId",
                     bankAccountId: Nullable<String>.value("bankAccountId"),
@@ -4586,11 +4696,11 @@ import Api
                     name: Nullable<String>.value("name"),
                     product: Nullable<String>.value("product"),
                     syncFrom: Nullable<String>.value("syncFrom"),
-                    lastSyncedAt: Nullable<String>.value("lastSyncedAt")
+                    lastSyncedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 )
             ]
         )
-        let response = try await client.bank.exchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposes(
+        let response = try await client.bank.feedsConnectionsComplete(
             request: .init(
                 reference: "reference",
                 code: "code"
@@ -4600,7 +4710,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func exchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposes2() async throws -> Void {
+    @Test func feedsConnectionsComplete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4613,11 +4723,11 @@ import Api
                   "psuType": "business",
                   "status": "pending",
                   "reference": "reference",
-                  "consentExpiresAt": "consentExpiresAt",
-                  "lastSyncedAt": "lastSyncedAt",
+                  "consentExpiresAt": "2024-01-15T09:30:00Z",
+                  "lastSyncedAt": "2024-01-15T09:30:00Z",
                   "error": "error",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "accounts": [
                     {
                       "id": "x",
@@ -4631,7 +4741,7 @@ import Api
                       "name": "name",
                       "product": "product",
                       "syncFrom": "syncFrom",
-                      "lastSyncedAt": "lastSyncedAt"
+                      "lastSyncedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -4645,7 +4755,7 @@ import Api
                       "name": "name",
                       "product": "product",
                       "syncFrom": "syncFrom",
-                      "lastSyncedAt": "lastSyncedAt"
+                      "lastSyncedAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -4657,7 +4767,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsConnectionsCompleteResponse(
+        let expectedResponse = FeedsConnectionsCompleteBankResponse(
             id: "x",
             provider: "provider",
             aspspName: "aspspName",
@@ -4665,13 +4775,13 @@ import Api
             psuType: .business,
             status: .pending,
             reference: "reference",
-            consentExpiresAt: Nullable<String>.value("consentExpiresAt"),
-            lastSyncedAt: Nullable<String>.value("lastSyncedAt"),
+            consentExpiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lastSyncedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             error: Nullable<String>.value("error"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             accounts: [
-                PostV1BankFeedsConnectionsCompleteResponseAccountsItem(
+                FeedsConnectionsCompleteBankResponseAccountsItem(
                     id: "x",
                     connectionId: "x",
                     bankAccountId: Nullable<String>.value("x"),
@@ -4683,9 +4793,9 @@ import Api
                     name: Nullable<String>.value("name"),
                     product: Nullable<String>.value("product"),
                     syncFrom: Nullable<String>.value("syncFrom"),
-                    lastSyncedAt: Nullable<String>.value("lastSyncedAt")
+                    lastSyncedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                PostV1BankFeedsConnectionsCompleteResponseAccountsItem(
+                FeedsConnectionsCompleteBankResponseAccountsItem(
                     id: "x",
                     connectionId: "x",
                     bankAccountId: Nullable<String>.value("x"),
@@ -4697,11 +4807,11 @@ import Api
                     name: Nullable<String>.value("name"),
                     product: Nullable<String>.value("product"),
                     syncFrom: Nullable<String>.value("syncFrom"),
-                    lastSyncedAt: Nullable<String>.value("lastSyncedAt")
+                    lastSyncedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 )
             ]
         )
-        let response = try await client.bank.exchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposes(
+        let response = try await client.bank.feedsConnectionsComplete(
             request: .init(
                 reference: "x",
                 code: "x"
@@ -4711,7 +4821,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankFeedsConnectionsGet1() async throws -> Void {
+    @Test func feedsConnectionsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4724,11 +4834,11 @@ import Api
                   "psuType": "business",
                   "status": "pending",
                   "reference": "reference",
-                  "consentExpiresAt": "consentExpiresAt",
-                  "lastSyncedAt": "lastSyncedAt",
+                  "consentExpiresAt": "2026-07-01T09:30:00Z",
+                  "lastSyncedAt": "2026-07-01T09:30:00Z",
                   "error": "error",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "accounts": [
                     {
                       "id": "id",
@@ -4742,7 +4852,7 @@ import Api
                       "name": "name",
                       "product": "product",
                       "syncFrom": "syncFrom",
-                      "lastSyncedAt": "lastSyncedAt"
+                      "lastSyncedAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -4754,7 +4864,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsConnectionsGetResponse(
+        let expectedResponse = FeedsConnectionsGetBankResponse(
             id: "id",
             provider: "provider",
             aspspName: "aspspName",
@@ -4762,13 +4872,13 @@ import Api
             psuType: .business,
             status: .pending,
             reference: "reference",
-            consentExpiresAt: Nullable<String>.value("consentExpiresAt"),
-            lastSyncedAt: Nullable<String>.value("lastSyncedAt"),
+            consentExpiresAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lastSyncedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             error: Nullable<String>.value("error"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             accounts: [
-                PostV1BankFeedsConnectionsGetResponseAccountsItem(
+                FeedsConnectionsGetBankResponseAccountsItem(
                     id: "id",
                     connectionId: "connectionId",
                     bankAccountId: Nullable<String>.value("bankAccountId"),
@@ -4780,18 +4890,18 @@ import Api
                     name: Nullable<String>.value("name"),
                     product: Nullable<String>.value("product"),
                     syncFrom: Nullable<String>.value("syncFrom"),
-                    lastSyncedAt: Nullable<String>.value("lastSyncedAt")
+                    lastSyncedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 )
             ]
         )
-        let response = try await client.bank.postV1BankFeedsConnectionsGet(
+        let response = try await client.bank.feedsConnectionsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankFeedsConnectionsGet2() async throws -> Void {
+    @Test func feedsConnectionsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4804,11 +4914,11 @@ import Api
                   "psuType": "business",
                   "status": "pending",
                   "reference": "reference",
-                  "consentExpiresAt": "consentExpiresAt",
-                  "lastSyncedAt": "lastSyncedAt",
+                  "consentExpiresAt": "2024-01-15T09:30:00Z",
+                  "lastSyncedAt": "2024-01-15T09:30:00Z",
                   "error": "error",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "accounts": [
                     {
                       "id": "x",
@@ -4822,7 +4932,7 @@ import Api
                       "name": "name",
                       "product": "product",
                       "syncFrom": "syncFrom",
-                      "lastSyncedAt": "lastSyncedAt"
+                      "lastSyncedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -4836,7 +4946,7 @@ import Api
                       "name": "name",
                       "product": "product",
                       "syncFrom": "syncFrom",
-                      "lastSyncedAt": "lastSyncedAt"
+                      "lastSyncedAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -4848,7 +4958,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsConnectionsGetResponse(
+        let expectedResponse = FeedsConnectionsGetBankResponse(
             id: "x",
             provider: "provider",
             aspspName: "aspspName",
@@ -4856,13 +4966,13 @@ import Api
             psuType: .business,
             status: .pending,
             reference: "reference",
-            consentExpiresAt: Nullable<String>.value("consentExpiresAt"),
-            lastSyncedAt: Nullable<String>.value("lastSyncedAt"),
+            consentExpiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lastSyncedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             error: Nullable<String>.value("error"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             accounts: [
-                PostV1BankFeedsConnectionsGetResponseAccountsItem(
+                FeedsConnectionsGetBankResponseAccountsItem(
                     id: "x",
                     connectionId: "x",
                     bankAccountId: Nullable<String>.value("x"),
@@ -4874,9 +4984,9 @@ import Api
                     name: Nullable<String>.value("name"),
                     product: Nullable<String>.value("product"),
                     syncFrom: Nullable<String>.value("syncFrom"),
-                    lastSyncedAt: Nullable<String>.value("lastSyncedAt")
+                    lastSyncedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                PostV1BankFeedsConnectionsGetResponseAccountsItem(
+                FeedsConnectionsGetBankResponseAccountsItem(
                     id: "x",
                     connectionId: "x",
                     bankAccountId: Nullable<String>.value("x"),
@@ -4888,18 +4998,18 @@ import Api
                     name: Nullable<String>.value("name"),
                     product: Nullable<String>.value("product"),
                     syncFrom: Nullable<String>.value("syncFrom"),
-                    lastSyncedAt: Nullable<String>.value("lastSyncedAt")
+                    lastSyncedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 )
             ]
         )
-        let response = try await client.bank.postV1BankFeedsConnectionsGet(
+        let response = try await client.bank.feedsConnectionsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankFeedsConnectionsList1() async throws -> Void {
+    @Test func feedsConnectionsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4914,11 +5024,11 @@ import Api
                       "psuType": "business",
                       "status": "pending",
                       "reference": "reference",
-                      "consentExpiresAt": "consentExpiresAt",
-                      "lastSyncedAt": "lastSyncedAt",
+                      "consentExpiresAt": "2026-07-01T09:30:00Z",
+                      "lastSyncedAt": "2026-07-01T09:30:00Z",
                       "error": "error",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -4936,9 +5046,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsConnectionsListResponse(
+        let expectedResponse = FeedsConnectionsListBankResponse(
             rows: [
-                PostV1BankFeedsConnectionsListResponseRowsItem(
+                FeedsConnectionsListBankResponseRowsItem(
                     id: "id",
                     provider: "provider",
                     aspspName: "aspspName",
@@ -4946,11 +5056,11 @@ import Api
                     psuType: .business,
                     status: .pending,
                     reference: "reference",
-                    consentExpiresAt: Nullable<String>.value("consentExpiresAt"),
-                    lastSyncedAt: Nullable<String>.value("lastSyncedAt"),
+                    consentExpiresAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    lastSyncedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     error: Nullable<String>.value("error"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -4960,14 +5070,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.bank.postV1BankFeedsConnectionsList(
+        let response = try await client.bank.feedsConnectionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BankFeedsConnectionsList2() async throws -> Void {
+    @Test func feedsConnectionsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4982,11 +5092,11 @@ import Api
                       "psuType": "business",
                       "status": "pending",
                       "reference": "reference",
-                      "consentExpiresAt": "consentExpiresAt",
-                      "lastSyncedAt": "lastSyncedAt",
+                      "consentExpiresAt": "2024-01-15T09:30:00Z",
+                      "lastSyncedAt": "2024-01-15T09:30:00Z",
                       "error": "error",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -4996,11 +5106,11 @@ import Api
                       "psuType": "business",
                       "status": "pending",
                       "reference": "reference",
-                      "consentExpiresAt": "consentExpiresAt",
-                      "lastSyncedAt": "lastSyncedAt",
+                      "consentExpiresAt": "2024-01-15T09:30:00Z",
+                      "lastSyncedAt": "2024-01-15T09:30:00Z",
                       "error": "error",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -5018,9 +5128,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsConnectionsListResponse(
+        let expectedResponse = FeedsConnectionsListBankResponse(
             rows: [
-                PostV1BankFeedsConnectionsListResponseRowsItem(
+                FeedsConnectionsListBankResponseRowsItem(
                     id: "x",
                     provider: "provider",
                     aspspName: "aspspName",
@@ -5028,13 +5138,13 @@ import Api
                     psuType: .business,
                     status: .pending,
                     reference: "reference",
-                    consentExpiresAt: Nullable<String>.value("consentExpiresAt"),
-                    lastSyncedAt: Nullable<String>.value("lastSyncedAt"),
+                    consentExpiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    lastSyncedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     error: Nullable<String>.value("error"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1BankFeedsConnectionsListResponseRowsItem(
+                FeedsConnectionsListBankResponseRowsItem(
                     id: "x",
                     provider: "provider",
                     aspspName: "aspspName",
@@ -5042,11 +5152,11 @@ import Api
                     psuType: .business,
                     status: .pending,
                     reference: "reference",
-                    consentExpiresAt: Nullable<String>.value("consentExpiresAt"),
-                    lastSyncedAt: Nullable<String>.value("lastSyncedAt"),
+                    consentExpiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    lastSyncedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     error: Nullable<String>.value("error"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -5056,14 +5166,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.bank.postV1BankFeedsConnectionsList(
+        let response = try await client.bank.feedsConnectionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func revokeTheConsentAtTheBankAndDropTheStoredConnection1() async throws -> Void {
+    @Test func feedsConnectionsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5079,17 +5189,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsConnectionsDeleteResponse(
+        let expectedResponse = FeedsConnectionsDeleteBankResponse(
             deleted: true
         )
-        let response = try await client.bank.revokeTheConsentAtTheBankAndDropTheStoredConnection(
+        let response = try await client.bank.feedsConnectionsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func revokeTheConsentAtTheBankAndDropTheStoredConnection2() async throws -> Void {
+    @Test func feedsConnectionsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5105,17 +5215,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsConnectionsDeleteResponse(
+        let expectedResponse = FeedsConnectionsDeleteBankResponse(
             deleted: true
         )
-        let response = try await client.bank.revokeTheConsentAtTheBankAndDropTheStoredConnection(
+        let response = try await client.bank.feedsConnectionsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func pointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSynced1() async throws -> Void {
+    @Test func feedsAccountsLink1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5132,7 +5242,7 @@ import Api
                   "name": "name",
                   "product": "product",
                   "syncFrom": "syncFrom",
-                  "lastSyncedAt": "lastSyncedAt"
+                  "lastSyncedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -5142,7 +5252,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsAccountsLinkResponse(
+        let expectedResponse = FeedsAccountsLinkBankResponse(
             id: "id",
             connectionId: "connectionId",
             bankAccountId: Nullable<String>.value("bankAccountId"),
@@ -5154,16 +5264,16 @@ import Api
             name: Nullable<String>.value("name"),
             product: Nullable<String>.value("product"),
             syncFrom: Nullable<String>.value("syncFrom"),
-            lastSyncedAt: Nullable<String>.value("lastSyncedAt")
+            lastSyncedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.bank.pointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSynced(
+        let response = try await client.bank.feedsAccountsLink(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func pointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSynced2() async throws -> Void {
+    @Test func feedsAccountsLink2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5180,7 +5290,7 @@ import Api
                   "name": "name",
                   "product": "product",
                   "syncFrom": "syncFrom",
-                  "lastSyncedAt": "lastSyncedAt"
+                  "lastSyncedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -5190,7 +5300,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsAccountsLinkResponse(
+        let expectedResponse = FeedsAccountsLinkBankResponse(
             id: "x",
             connectionId: "x",
             bankAccountId: Nullable<String>.value("x"),
@@ -5202,16 +5312,16 @@ import Api
             name: Nullable<String>.value("name"),
             product: Nullable<String>.value("product"),
             syncFrom: Nullable<String>.value("syncFrom"),
-            lastSyncedAt: Nullable<String>.value("lastSyncedAt")
+            lastSyncedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.bank.pointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSynced(
+        let response = try await client.bank.feedsAccountsLink(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically1() async throws -> Void {
+    @Test func feedsAccountsConfigure1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5228,7 +5338,7 @@ import Api
                   "name": "name",
                   "product": "product",
                   "syncFrom": "syncFrom",
-                  "lastSyncedAt": "lastSyncedAt"
+                  "lastSyncedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -5238,7 +5348,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsAccountsConfigureResponse(
+        let expectedResponse = FeedsAccountsConfigureBankResponse(
             id: "id",
             connectionId: "connectionId",
             bankAccountId: Nullable<String>.value("bankAccountId"),
@@ -5250,16 +5360,16 @@ import Api
             name: Nullable<String>.value("name"),
             product: Nullable<String>.value("product"),
             syncFrom: Nullable<String>.value("syncFrom"),
-            lastSyncedAt: Nullable<String>.value("lastSyncedAt")
+            lastSyncedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.bank.chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically(
+        let response = try await client.bank.feedsAccountsConfigure(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically2() async throws -> Void {
+    @Test func feedsAccountsConfigure2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5276,7 +5386,7 @@ import Api
                   "name": "name",
                   "product": "product",
                   "syncFrom": "syncFrom",
-                  "lastSyncedAt": "lastSyncedAt"
+                  "lastSyncedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -5286,7 +5396,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsAccountsConfigureResponse(
+        let expectedResponse = FeedsAccountsConfigureBankResponse(
             id: "x",
             connectionId: "x",
             bankAccountId: Nullable<String>.value("x"),
@@ -5298,16 +5408,16 @@ import Api
             name: Nullable<String>.value("name"),
             product: Nullable<String>.value("product"),
             syncFrom: Nullable<String>.value("syncFrom"),
-            lastSyncedAt: Nullable<String>.value("lastSyncedAt")
+            lastSyncedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.bank.chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically(
+        let response = try await client.bank.feedsAccountsConfigure(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func pullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSynced1() async throws -> Void {
+    @Test func feedsSync1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5340,7 +5450,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsSyncResponse(
+        let expectedResponse = FeedsSyncBankResponse(
             connectionId: "connectionId",
             imported: 1000000,
             skipped: 1000000,
@@ -5353,21 +5463,21 @@ import Api
                 "warnings"
             ],
             accounts: [
-                PostV1BankFeedsSyncResponseAccountsItem(
+                FeedsSyncBankResponseAccountsItem(
                     feedAccountId: "feedAccountId",
                     imported: 1000000,
                     fetched: 1000000
                 )
             ]
         )
-        let response = try await client.bank.pullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSynced(
+        let response = try await client.bank.feedsSync(
             request: .init(connectionId: "connectionId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func pullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSynced2() async throws -> Void {
+    @Test func feedsSync2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5406,7 +5516,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BankFeedsSyncResponse(
+        let expectedResponse = FeedsSyncBankResponse(
             connectionId: "x",
             imported: 1000000,
             skipped: 1000000,
@@ -5420,19 +5530,19 @@ import Api
                 "warnings"
             ],
             accounts: [
-                PostV1BankFeedsSyncResponseAccountsItem(
+                FeedsSyncBankResponseAccountsItem(
                     feedAccountId: "x",
                     imported: 1000000,
                     fetched: 1000000
                 ),
-                PostV1BankFeedsSyncResponseAccountsItem(
+                FeedsSyncBankResponseAccountsItem(
                     feedAccountId: "x",
                     imported: 1000000,
                     fetched: 1000000
                 )
             ]
         )
-        let response = try await client.bank.pullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSynced(
+        let response = try await client.bank.feedsSync(
             request: .init(connectionId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("PublicClient Wire Tests") struct PublicClientWireTests {
-    @Test func postV1PublicIntegrationRequests1() async throws -> Void {
+    @Test func integrationRequests1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -19,10 +19,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PublicIntegrationRequestsResponse(
+        let expectedResponse = IntegrationRequestsPublicResponse(
             received: true
         )
-        let response = try await client.public.postV1PublicIntegrationRequests(
+        let response = try await client.public.integrationRequests(
             request: .init(
                 integration: "integration",
                 name: "name",
@@ -33,7 +33,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PublicIntegrationRequests2() async throws -> Void {
+    @Test func integrationRequests2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -49,10 +49,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PublicIntegrationRequestsResponse(
+        let expectedResponse = IntegrationRequestsPublicResponse(
             received: true
         )
-        let response = try await client.public.postV1PublicIntegrationRequests(
+        let response = try await client.public.integrationRequests(
             request: .init(
                 integration: "x",
                 name: "x",

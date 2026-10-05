@@ -7,386 +7,386 @@ public final class AccountClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1AccountLoginLinkRequest(request: Requests.PostV1AccountLoginLinkRequestRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountLoginLinkRequestResponse {
+    public func loginLinkRequest(request: Requests.LoginLinkRequestAccountRequest, requestOptions: RequestOptions? = nil) async throws -> LoginLinkRequestAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/login-link/request",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountLoginLinkRequestResponse.self
+            responseType: LoginLinkRequestAccountResponse.self
         )
     }
 
-    public func postV1AccountLoginLinkConsume(request: Requests.PostV1AccountLoginLinkConsumeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountLoginLinkConsumeResponse {
+    public func loginLinkConsume(request: Requests.LoginLinkConsumeAccountRequest, requestOptions: RequestOptions? = nil) async throws -> LoginLinkConsumeAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/login-link/consume",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountLoginLinkConsumeResponse.self
+            responseType: LoginLinkConsumeAccountResponse.self
         )
     }
 
-    public func postV1AccountLogout(request: Requests.PostV1AccountLogoutRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountLogoutResponse {
+    public func logout(request: Requests.LogoutAccountRequest, requestOptions: RequestOptions? = nil) async throws -> LogoutAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/logout",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountLogoutResponse.self
+            responseType: LogoutAccountResponse.self
         )
     }
 
-    public func postV1AccountMe(request: Requests.PostV1AccountMeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountMeResponse {
+    public func me(request: Requests.MeAccountRequest, requestOptions: RequestOptions? = nil) async throws -> MeAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/me",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountMeResponse.self
+            responseType: MeAccountResponse.self
         )
     }
 
-    public func postV1AccountMembersList(request: Requests.PostV1AccountMembersListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountMembersListResponse {
+    public func membersList(request: Requests.MembersListAccountRequest, requestOptions: RequestOptions? = nil) async throws -> MembersListAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/members/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountMembersListResponse.self
+            responseType: MembersListAccountResponse.self
         )
     }
 
-    public func postV1AccountMembersSetRole(request: Requests.PostV1AccountMembersSetRoleRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountMembersSetRoleResponse {
+    public func membersSetRole(request: Requests.MembersSetRoleAccountRequest, requestOptions: RequestOptions? = nil) async throws -> MembersSetRoleAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/members/set-role",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountMembersSetRoleResponse.self
+            responseType: MembersSetRoleAccountResponse.self
         )
     }
 
-    public func postV1AccountMembersTransferOwnership(request: Requests.PostV1AccountMembersTransferOwnershipRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountMembersTransferOwnershipResponse {
+    public func membersTransferOwnership(request: Requests.MembersTransferOwnershipAccountRequest, requestOptions: RequestOptions? = nil) async throws -> MembersTransferOwnershipAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/members/transfer-ownership",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountMembersTransferOwnershipResponse.self
+            responseType: MembersTransferOwnershipAccountResponse.self
         )
     }
 
-    public func postV1AccountMembersRemove(request: Requests.PostV1AccountMembersRemoveRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountMembersRemoveResponse {
+    public func membersRemove(request: Requests.MembersRemoveAccountRequest, requestOptions: RequestOptions? = nil) async throws -> MembersRemoveAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/members/remove",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountMembersRemoveResponse.self
+            responseType: MembersRemoveAccountResponse.self
         )
     }
 
-    public func postV1AccountInvitesCreate(request: Requests.PostV1AccountInvitesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountInvitesCreateResponse {
+    public func invitesCreate(request: Requests.InvitesCreateAccountRequest, requestOptions: RequestOptions? = nil) async throws -> InvitesCreateAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/invites/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountInvitesCreateResponse.self
+            responseType: InvitesCreateAccountResponse.self
         )
     }
 
-    public func postV1AccountInvitesList(request: Requests.PostV1AccountInvitesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountInvitesListResponse {
+    public func invitesList(request: Requests.InvitesListAccountRequest, requestOptions: RequestOptions? = nil) async throws -> InvitesListAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/invites/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountInvitesListResponse.self
+            responseType: InvitesListAccountResponse.self
         )
     }
 
-    public func postV1AccountInvitesRevoke(request: Requests.PostV1AccountInvitesRevokeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountInvitesRevokeResponse {
+    public func invitesRevoke(request: Requests.InvitesRevokeAccountRequest, requestOptions: RequestOptions? = nil) async throws -> InvitesRevokeAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/invites/revoke",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountInvitesRevokeResponse.self
+            responseType: InvitesRevokeAccountResponse.self
         )
     }
 
-    public func postV1AccountInvitesGet(request: Requests.PostV1AccountInvitesGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountInvitesGetResponse {
+    public func invitesGet(request: Requests.InvitesGetAccountRequest, requestOptions: RequestOptions? = nil) async throws -> InvitesGetAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/invites/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountInvitesGetResponse.self
+            responseType: InvitesGetAccountResponse.self
         )
     }
 
-    public func postV1AccountInvitesAccept(request: Requests.PostV1AccountInvitesAcceptRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountInvitesAcceptResponse {
+    public func invitesAccept(request: Requests.InvitesAcceptAccountRequest, requestOptions: RequestOptions? = nil) async throws -> InvitesAcceptAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/invites/accept",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountInvitesAcceptResponse.self
+            responseType: InvitesAcceptAccountResponse.self
         )
     }
 
-    public func postV1AccountLocaleSet(request: Requests.PostV1AccountLocaleSetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountLocaleSetResponse {
+    public func localeSet(request: Requests.LocaleSetAccountRequest, requestOptions: RequestOptions? = nil) async throws -> LocaleSetAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/locale/set",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountLocaleSetResponse.self
+            responseType: LocaleSetAccountResponse.self
         )
     }
 
-    public func postV1AccountCompaniesCreate(request: Requests.PostV1AccountCompaniesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountCompaniesCreateResponse {
+    public func companiesCreate(request: Requests.CompaniesCreateAccountRequest, requestOptions: RequestOptions? = nil) async throws -> CompaniesCreateAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/companies/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountCompaniesCreateResponse.self
+            responseType: CompaniesCreateAccountResponse.self
         )
     }
 
-    public func postV1AccountCompaniesSelect(request: Requests.PostV1AccountCompaniesSelectRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountCompaniesSelectResponse {
+    public func companiesSelect(request: Requests.CompaniesSelectAccountRequest, requestOptions: RequestOptions? = nil) async throws -> CompaniesSelectAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/companies/select",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountCompaniesSelectResponse.self
+            responseType: CompaniesSelectAccountResponse.self
         )
     }
 
-    public func postV1AccountCompaniesProfile(request: Requests.PostV1AccountCompaniesProfileRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountCompaniesProfileResponse {
+    public func companiesProfile(request: Requests.CompaniesProfileAccountRequest, requestOptions: RequestOptions? = nil) async throws -> CompaniesProfileAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/companies/profile",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountCompaniesProfileResponse.self
+            responseType: CompaniesProfileAccountResponse.self
         )
     }
 
-    public func postV1AccountCompaniesUpdate(request: Requests.PostV1AccountCompaniesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountCompaniesUpdateResponse {
+    public func companiesUpdate(request: Requests.CompaniesUpdateAccountRequest, requestOptions: RequestOptions? = nil) async throws -> CompaniesUpdateAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/companies/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountCompaniesUpdateResponse.self
+            responseType: CompaniesUpdateAccountResponse.self
         )
     }
 
-    public func postV1AccountCompaniesArchive(request: Requests.PostV1AccountCompaniesArchiveRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountCompaniesArchiveResponse {
+    public func companiesArchive(request: Requests.CompaniesArchiveAccountRequest, requestOptions: RequestOptions? = nil) async throws -> CompaniesArchiveAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/companies/archive",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountCompaniesArchiveResponse.self
+            responseType: CompaniesArchiveAccountResponse.self
         )
     }
 
-    public func postV1AccountCompaniesDelete(request: Requests.PostV1AccountCompaniesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountCompaniesDeleteResponse {
+    public func companiesDelete(request: Requests.CompaniesDeleteAccountRequest, requestOptions: RequestOptions? = nil) async throws -> CompaniesDeleteAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/companies/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountCompaniesDeleteResponse.self
+            responseType: CompaniesDeleteAccountResponse.self
         )
     }
 
-    public func postV1AccountCompaniesActivate(request: Requests.PostV1AccountCompaniesActivateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountCompaniesActivateResponse {
+    public func companiesActivate(request: Requests.CompaniesActivateAccountRequest, requestOptions: RequestOptions? = nil) async throws -> CompaniesActivateAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/companies/activate",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountCompaniesActivateResponse.self
+            responseType: CompaniesActivateAccountResponse.self
         )
     }
 
-    public func postV1AccountApiKeysCreate(request: Requests.PostV1AccountApiKeysCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountApiKeysCreateResponse {
+    public func apiKeysCreate(request: Requests.ApiKeysCreateAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ApiKeysCreateAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/api-keys/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountApiKeysCreateResponse.self
+            responseType: ApiKeysCreateAccountResponse.self
         )
     }
 
-    public func postV1AccountApiKeysList(request: Requests.PostV1AccountApiKeysListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountApiKeysListResponse {
+    public func apiKeysList(request: Requests.ApiKeysListAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ApiKeysListAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/api-keys/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountApiKeysListResponse.self
+            responseType: ApiKeysListAccountResponse.self
         )
     }
 
-    public func issueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlap(request: Requests.PostV1AccountApiKeysRotateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountApiKeysRotateResponse {
+    public func apiKeysRotate(request: Requests.ApiKeysRotateAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ApiKeysRotateAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/api-keys/rotate",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountApiKeysRotateResponse.self
+            responseType: ApiKeysRotateAccountResponse.self
         )
     }
 
-    public func postV1AccountApiKeysRevoke(request: Requests.PostV1AccountApiKeysRevokeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountApiKeysRevokeResponse {
+    public func apiKeysRevoke(request: Requests.ApiKeysRevokeAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ApiKeysRevokeAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/api-keys/revoke",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountApiKeysRevokeResponse.self
+            responseType: ApiKeysRevokeAccountResponse.self
         )
     }
 
-    public func postV1AccountConsentAccept(request: Requests.PostV1AccountConsentAcceptRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountConsentAcceptResponse {
+    public func consentAccept(request: Requests.ConsentAcceptAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ConsentAcceptAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/consent/accept",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountConsentAcceptResponse.self
+            responseType: ConsentAcceptAccountResponse.self
         )
     }
 
-    public func postV1AccountProfileUpdate(request: Requests.PostV1AccountProfileUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountProfileUpdateResponse {
+    public func profileUpdate(request: Requests.ProfileUpdateAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ProfileUpdateAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/profile/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountProfileUpdateResponse.self
+            responseType: ProfileUpdateAccountResponse.self
         )
     }
 
-    public func postV1AccountEmailChangeRequest(request: Requests.PostV1AccountEmailChangeRequestRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountEmailChangeRequestResponse {
+    public func emailChangeRequest(request: Requests.EmailChangeRequestAccountRequest, requestOptions: RequestOptions? = nil) async throws -> EmailChangeRequestAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/email/change-request",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountEmailChangeRequestResponse.self
+            responseType: EmailChangeRequestAccountResponse.self
         )
     }
 
-    public func postV1AccountSessionsList(request: Requests.PostV1AccountSessionsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountSessionsListResponse {
+    public func sessionsList(request: Requests.SessionsListAccountRequest, requestOptions: RequestOptions? = nil) async throws -> SessionsListAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/sessions/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountSessionsListResponse.self
+            responseType: SessionsListAccountResponse.self
         )
     }
 
-    public func postV1AccountSessionsRevoke(request: Requests.PostV1AccountSessionsRevokeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountSessionsRevokeResponse {
+    public func sessionsRevoke(request: Requests.SessionsRevokeAccountRequest, requestOptions: RequestOptions? = nil) async throws -> SessionsRevokeAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/sessions/revoke",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountSessionsRevokeResponse.self
+            responseType: SessionsRevokeAccountResponse.self
         )
     }
 
-    public func postV1AccountSessionsRevokeOthers(request: Requests.PostV1AccountSessionsRevokeOthersRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountSessionsRevokeOthersResponse {
+    public func sessionsRevokeOthers(request: Requests.SessionsRevokeOthersAccountRequest, requestOptions: RequestOptions? = nil) async throws -> SessionsRevokeOthersAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/sessions/revoke-others",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountSessionsRevokeOthersResponse.self
+            responseType: SessionsRevokeOthersAccountResponse.self
         )
     }
 
-    public func downloadEverythingNordletStoresAboutTheSignedInUser(request: Requests.PostV1AccountExportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountExportResponse {
+    public func export(request: Requests.ExportAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ExportAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/export",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountExportResponse.self
+            responseType: ExportAccountResponse.self
         )
     }
 
     /// Removes the user: sessions, sign-in links, memberships and pending invitations are deleted at once; the email and name are replaced by an anonymous placeholder immediately and the remaining row is removed after 30 days. Refused while the user still owns or pays for a company that is not deleted.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func deleteTheSignedInUserAccount(request: Requests.PostV1AccountDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountDeleteResponse {
+    public func delete(request: Requests.DeleteAccountRequest, requestOptions: RequestOptions? = nil) async throws -> DeleteAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountDeleteResponse.self
+            responseType: DeleteAccountResponse.self
         )
     }
 
-    public func postV1AccountReferralGet(request: Requests.PostV1AccountReferralGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountReferralGetResponse {
+    public func referralGet(request: Requests.ReferralGetAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ReferralGetAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/referral/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountReferralGetResponse.self
+            responseType: ReferralGetAccountResponse.self
         )
     }
 
-    public func postV1AccountReferralConvert(request: Requests.PostV1AccountReferralConvertRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountReferralConvertResponse {
+    public func referralConvert(request: Requests.ReferralConvertAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ReferralConvertAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/referral/convert",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountReferralConvertResponse.self
+            responseType: ReferralConvertAccountResponse.self
         )
     }
 
-    public func postV1AccountTableSettingsGet(request: Requests.PostV1AccountTableSettingsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountTableSettingsGetResponse {
+    public func tableSettingsGet(request: Requests.TableSettingsGetAccountRequest, requestOptions: RequestOptions? = nil) async throws -> TableSettingsGetAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/table-settings/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountTableSettingsGetResponse.self
+            responseType: TableSettingsGetAccountResponse.self
         )
     }
 
-    public func postV1AccountTableSettingsSet(request: Requests.PostV1AccountTableSettingsSetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountTableSettingsSetResponse {
+    public func tableSettingsSet(request: Requests.TableSettingsSetAccountRequest, requestOptions: RequestOptions? = nil) async throws -> TableSettingsSetAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/table-settings/set",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountTableSettingsSetResponse.self
+            responseType: TableSettingsSetAccountResponse.self
         )
     }
 
-    public func postV1AccountTableSettingsList(request: Requests.PostV1AccountTableSettingsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AccountTableSettingsListResponse {
+    public func tableSettingsList(request: Requests.TableSettingsListAccountRequest, requestOptions: RequestOptions? = nil) async throws -> TableSettingsListAccountResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/account/table-settings/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AccountTableSettingsListResponse.self
+            responseType: TableSettingsListAccountResponse.self
         )
     }
 }

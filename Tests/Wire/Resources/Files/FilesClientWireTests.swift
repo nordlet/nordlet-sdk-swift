@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("FilesClient Wire Tests") struct FilesClientWireTests {
-    @Test func postV1FilesUpload1() async throws -> Void {
+    @Test func upload1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -17,7 +17,7 @@ import Api
                   "sizeBytes": 1000000,
                   "sha256": "sha256",
                   "storageKey": "storageKey",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -27,7 +27,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FilesUploadResponse(
+        let expectedResponse = UploadFilesResponse(
             id: "id",
             entity: "entity",
             entityId: Nullable<String>.value("entityId"),
@@ -36,9 +36,9 @@ import Api
             sizeBytes: 1000000,
             sha256: "sha256",
             storageKey: "storageKey",
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.files.postV1FilesUpload(
+        let response = try await client.files.upload(
             request: .init(
                 entity: "entity",
                 fileName: "fileName",
@@ -50,7 +50,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FilesUpload2() async throws -> Void {
+    @Test func upload2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -64,7 +64,7 @@ import Api
                   "sizeBytes": 1000000,
                   "sha256": "sha256",
                   "storageKey": "storageKey",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -74,7 +74,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FilesUploadResponse(
+        let expectedResponse = UploadFilesResponse(
             id: "x",
             entity: "entity",
             entityId: Nullable<String>.value("entityId"),
@@ -83,9 +83,9 @@ import Api
             sizeBytes: 1000000,
             sha256: "sha256",
             storageKey: "storageKey",
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.files.postV1FilesUpload(
+        let response = try await client.files.upload(
             request: .init(
                 entity: "x",
                 fileName: "x",
@@ -97,7 +97,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FilesGet1() async throws -> Void {
+    @Test func get1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -111,7 +111,7 @@ import Api
                   "sizeBytes": 1000000,
                   "sha256": "sha256",
                   "storageKey": "storageKey",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "content": "content"
                 }
                 """#.utf8
@@ -122,7 +122,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FilesGetResponse(
+        let expectedResponse = GetFilesResponse(
             id: "id",
             entity: "entity",
             entityId: Nullable<String>.value("entityId"),
@@ -131,17 +131,17 @@ import Api
             sizeBytes: 1000000,
             sha256: "sha256",
             storageKey: "storageKey",
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             content: "content"
         )
-        let response = try await client.files.postV1FilesGet(
+        let response = try await client.files.get(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FilesGet2() async throws -> Void {
+    @Test func get2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -155,7 +155,7 @@ import Api
                   "sizeBytes": 1000000,
                   "sha256": "sha256",
                   "storageKey": "storageKey",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "content": "content"
                 }
                 """#.utf8
@@ -166,7 +166,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FilesGetResponse(
+        let expectedResponse = GetFilesResponse(
             id: "x",
             entity: "entity",
             entityId: Nullable<String>.value("entityId"),
@@ -175,17 +175,17 @@ import Api
             sizeBytes: 1000000,
             sha256: "sha256",
             storageKey: "storageKey",
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             content: "content"
         )
-        let response = try await client.files.postV1FilesGet(
+        let response = try await client.files.get(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FilesList1() async throws -> Void {
+    @Test func list1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -201,7 +201,7 @@ import Api
                       "sizeBytes": 1000000,
                       "sha256": "sha256",
                       "storageKey": "storageKey",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -219,9 +219,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FilesListResponse(
+        let expectedResponse = ListFilesResponse(
             rows: [
-                PostV1FilesListResponseRowsItem(
+                ListFilesResponseRowsItem(
                     id: "id",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
@@ -230,7 +230,7 @@ import Api
                     sizeBytes: 1000000,
                     sha256: "sha256",
                     storageKey: "storageKey",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -240,14 +240,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.files.postV1FilesList(
+        let response = try await client.files.list(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FilesList2() async throws -> Void {
+    @Test func list2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -263,7 +263,7 @@ import Api
                       "sizeBytes": 1000000,
                       "sha256": "sha256",
                       "storageKey": "storageKey",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -274,7 +274,7 @@ import Api
                       "sizeBytes": 1000000,
                       "sha256": "sha256",
                       "storageKey": "storageKey",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -292,9 +292,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FilesListResponse(
+        let expectedResponse = ListFilesResponse(
             rows: [
-                PostV1FilesListResponseRowsItem(
+                ListFilesResponseRowsItem(
                     id: "x",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
@@ -303,9 +303,9 @@ import Api
                     sizeBytes: 1000000,
                     sha256: "sha256",
                     storageKey: "storageKey",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1FilesListResponseRowsItem(
+                ListFilesResponseRowsItem(
                     id: "x",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
@@ -314,7 +314,7 @@ import Api
                     sizeBytes: 1000000,
                     sha256: "sha256",
                     storageKey: "storageKey",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -324,14 +324,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.files.postV1FilesList(
+        let response = try await client.files.list(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FilesDelete1() async throws -> Void {
+    @Test func delete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -347,17 +347,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FilesDeleteResponse(
+        let expectedResponse = DeleteFilesResponse(
             deleted: true
         )
-        let response = try await client.files.postV1FilesDelete(
+        let response = try await client.files.delete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FilesDelete2() async throws -> Void {
+    @Test func delete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -373,10 +373,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FilesDeleteResponse(
+        let expectedResponse = DeleteFilesResponse(
             deleted: true
         )
-        let response = try await client.files.postV1FilesDelete(
+        let response = try await client.files.delete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

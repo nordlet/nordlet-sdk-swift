@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("AgreementsClient Wire Tests") struct AgreementsClientWireTests {
-    @Test func postV1AgreementsTypesCreate1() async throws -> Void {
+    @Test func typesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -21,12 +21,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsTypesCreateResponse(
+        let expectedResponse = TypesCreateAgreementsResponse(
             id: "id",
             code: "code",
             name: "name"
         )
-        let response = try await client.agreements.postV1AgreementsTypesCreate(
+        let response = try await client.agreements.typesCreate(
             request: .init(
                 code: "code",
                 name: "name"
@@ -36,7 +36,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsTypesCreate2() async throws -> Void {
+    @Test func typesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -54,12 +54,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsTypesCreateResponse(
+        let expectedResponse = TypesCreateAgreementsResponse(
             id: "x",
             code: "code",
             name: "name"
         )
-        let response = try await client.agreements.postV1AgreementsTypesCreate(
+        let response = try await client.agreements.typesCreate(
             request: .init(
                 code: "x",
                 name: "x"
@@ -69,7 +69,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsTypesList1() async throws -> Void {
+    @Test func typesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -97,9 +97,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsTypesListResponse(
+        let expectedResponse = TypesListAgreementsResponse(
             rows: [
-                PostV1AgreementsTypesListResponseRowsItem(
+                TypesListAgreementsResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name"
@@ -112,14 +112,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.agreements.postV1AgreementsTypesList(
+        let response = try await client.agreements.typesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsTypesList2() async throws -> Void {
+    @Test func typesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -152,14 +152,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsTypesListResponse(
+        let expectedResponse = TypesListAgreementsResponse(
             rows: [
-                PostV1AgreementsTypesListResponseRowsItem(
+                TypesListAgreementsResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name"
                 ),
-                PostV1AgreementsTypesListResponseRowsItem(
+                TypesListAgreementsResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name"
@@ -172,14 +172,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.agreements.postV1AgreementsTypesList(
+        let response = try await client.agreements.typesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsCreate1() async throws -> Void {
+    @Test func agreementsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -193,8 +193,8 @@ import Api
                   "bankAccountId": "bankAccountId",
                   "number": "number",
                   "name": "name",
-                  "startDate": "startDate",
-                  "endDate": "endDate",
+                  "startDate": "2026-07-01",
+                  "endDate": "2026-07-01",
                   "autoRenew": true,
                   "value": "value",
                   "billingPeriod": "monthly",
@@ -202,7 +202,7 @@ import Api
                   "status": "draft",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "items": [
                     {
                       "id": "id",
@@ -222,7 +222,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsCreateResponse(
+        let expectedResponse = AgreementsCreateAgreementsResponse(
             id: "id",
             typeId: Nullable<String>.value("typeId"),
             kind: .customer,
@@ -231,18 +231,18 @@ import Api
             bankAccountId: Nullable<String>.value("bankAccountId"),
             number: "number",
             name: Nullable<String>.value("name"),
-            startDate: "startDate",
-            endDate: Nullable<String>.value("endDate"),
+            startDate: CalendarDate("2026-07-01")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             autoRenew: true,
             value: Nullable<String>.value("value"),
-            billingPeriod: Nullable<PostV1AgreementsAgreementsCreateResponseBillingPeriod>.value(.monthly),
+            billingPeriod: Nullable<AgreementsCreateAgreementsResponseBillingPeriod>.value(.monthly),
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             items: [
-                PostV1AgreementsAgreementsCreateResponseItemsItem(
+                AgreementsCreateAgreementsResponseItemsItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -252,17 +252,17 @@ import Api
                 )
             ]
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsCreate(
+        let response = try await client.agreements.agreementsCreate(
             request: .init(
                 number: "number",
-                startDate: "startDate"
+                startDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsCreate2() async throws -> Void {
+    @Test func agreementsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -276,8 +276,8 @@ import Api
                   "bankAccountId": "x",
                   "number": "number",
                   "name": "name",
-                  "startDate": "startDate",
-                  "endDate": "endDate",
+                  "startDate": "2023-01-15",
+                  "endDate": "2023-01-15",
                   "autoRenew": true,
                   "value": "value",
                   "billingPeriod": "monthly",
@@ -285,7 +285,7 @@ import Api
                   "status": "draft",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "items": [
                     {
                       "id": "x",
@@ -313,7 +313,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsCreateResponse(
+        let expectedResponse = AgreementsCreateAgreementsResponse(
             id: "x",
             typeId: Nullable<String>.value("x"),
             kind: .customer,
@@ -322,18 +322,18 @@ import Api
             bankAccountId: Nullable<String>.value("x"),
             number: "number",
             name: Nullable<String>.value("name"),
-            startDate: "startDate",
-            endDate: Nullable<String>.value("endDate"),
+            startDate: CalendarDate("2023-01-15")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             autoRenew: true,
             value: Nullable<String>.value("value"),
-            billingPeriod: Nullable<PostV1AgreementsAgreementsCreateResponseBillingPeriod>.value(.monthly),
+            billingPeriod: Nullable<AgreementsCreateAgreementsResponseBillingPeriod>.value(.monthly),
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             items: [
-                PostV1AgreementsAgreementsCreateResponseItemsItem(
+                AgreementsCreateAgreementsResponseItemsItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -341,7 +341,7 @@ import Api
                     unitPrice: Nullable<String>.value("unitPrice"),
                     vatRatePercent: Nullable<String>.value("vatRatePercent")
                 ),
-                PostV1AgreementsAgreementsCreateResponseItemsItem(
+                AgreementsCreateAgreementsResponseItemsItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -351,17 +351,17 @@ import Api
                 )
             ]
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsCreate(
+        let response = try await client.agreements.agreementsCreate(
             request: .init(
                 number: "x",
-                startDate: "startDate"
+                startDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsGet1() async throws -> Void {
+    @Test func agreementsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -375,8 +375,8 @@ import Api
                   "bankAccountId": "bankAccountId",
                   "number": "number",
                   "name": "name",
-                  "startDate": "startDate",
-                  "endDate": "endDate",
+                  "startDate": "2026-07-01",
+                  "endDate": "2026-07-01",
                   "autoRenew": true,
                   "value": "value",
                   "billingPeriod": "monthly",
@@ -384,7 +384,7 @@ import Api
                   "status": "draft",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "items": [
                     {
                       "id": "id",
@@ -404,7 +404,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsGetResponse(
+        let expectedResponse = AgreementsGetAgreementsResponse(
             id: "id",
             typeId: Nullable<String>.value("typeId"),
             kind: .customer,
@@ -413,18 +413,18 @@ import Api
             bankAccountId: Nullable<String>.value("bankAccountId"),
             number: "number",
             name: Nullable<String>.value("name"),
-            startDate: "startDate",
-            endDate: Nullable<String>.value("endDate"),
+            startDate: CalendarDate("2026-07-01")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             autoRenew: true,
             value: Nullable<String>.value("value"),
-            billingPeriod: Nullable<PostV1AgreementsAgreementsGetResponseBillingPeriod>.value(.monthly),
+            billingPeriod: Nullable<AgreementsGetAgreementsResponseBillingPeriod>.value(.monthly),
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             items: [
-                PostV1AgreementsAgreementsGetResponseItemsItem(
+                AgreementsGetAgreementsResponseItemsItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -434,14 +434,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsGet(
+        let response = try await client.agreements.agreementsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsGet2() async throws -> Void {
+    @Test func agreementsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -455,8 +455,8 @@ import Api
                   "bankAccountId": "x",
                   "number": "number",
                   "name": "name",
-                  "startDate": "startDate",
-                  "endDate": "endDate",
+                  "startDate": "2023-01-15",
+                  "endDate": "2023-01-15",
                   "autoRenew": true,
                   "value": "value",
                   "billingPeriod": "monthly",
@@ -464,7 +464,7 @@ import Api
                   "status": "draft",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "items": [
                     {
                       "id": "x",
@@ -492,7 +492,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsGetResponse(
+        let expectedResponse = AgreementsGetAgreementsResponse(
             id: "x",
             typeId: Nullable<String>.value("x"),
             kind: .customer,
@@ -501,18 +501,18 @@ import Api
             bankAccountId: Nullable<String>.value("x"),
             number: "number",
             name: Nullable<String>.value("name"),
-            startDate: "startDate",
-            endDate: Nullable<String>.value("endDate"),
+            startDate: CalendarDate("2023-01-15")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             autoRenew: true,
             value: Nullable<String>.value("value"),
-            billingPeriod: Nullable<PostV1AgreementsAgreementsGetResponseBillingPeriod>.value(.monthly),
+            billingPeriod: Nullable<AgreementsGetAgreementsResponseBillingPeriod>.value(.monthly),
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             items: [
-                PostV1AgreementsAgreementsGetResponseItemsItem(
+                AgreementsGetAgreementsResponseItemsItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -520,7 +520,7 @@ import Api
                     unitPrice: Nullable<String>.value("unitPrice"),
                     vatRatePercent: Nullable<String>.value("vatRatePercent")
                 ),
-                PostV1AgreementsAgreementsGetResponseItemsItem(
+                AgreementsGetAgreementsResponseItemsItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -530,14 +530,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsGet(
+        let response = try await client.agreements.agreementsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsUpdate1() async throws -> Void {
+    @Test func agreementsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -551,8 +551,8 @@ import Api
                   "bankAccountId": "bankAccountId",
                   "number": "number",
                   "name": "name",
-                  "startDate": "startDate",
-                  "endDate": "endDate",
+                  "startDate": "2026-07-01",
+                  "endDate": "2026-07-01",
                   "autoRenew": true,
                   "value": "value",
                   "billingPeriod": "monthly",
@@ -560,7 +560,7 @@ import Api
                   "status": "draft",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "items": [
                     {
                       "id": "id",
@@ -580,7 +580,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsUpdateResponse(
+        let expectedResponse = AgreementsUpdateAgreementsResponse(
             id: "id",
             typeId: Nullable<String>.value("typeId"),
             kind: .customer,
@@ -589,18 +589,18 @@ import Api
             bankAccountId: Nullable<String>.value("bankAccountId"),
             number: "number",
             name: Nullable<String>.value("name"),
-            startDate: "startDate",
-            endDate: Nullable<String>.value("endDate"),
+            startDate: CalendarDate("2026-07-01")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             autoRenew: true,
             value: Nullable<String>.value("value"),
-            billingPeriod: Nullable<PostV1AgreementsAgreementsUpdateResponseBillingPeriod>.value(.monthly),
+            billingPeriod: Nullable<AgreementsUpdateAgreementsResponseBillingPeriod>.value(.monthly),
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             items: [
-                PostV1AgreementsAgreementsUpdateResponseItemsItem(
+                AgreementsUpdateAgreementsResponseItemsItem(
                     id: "id",
                     itemId: Nullable<String>.value("itemId"),
                     description: "description",
@@ -610,14 +610,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsUpdate(
+        let response = try await client.agreements.agreementsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsUpdate2() async throws -> Void {
+    @Test func agreementsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -631,8 +631,8 @@ import Api
                   "bankAccountId": "x",
                   "number": "number",
                   "name": "name",
-                  "startDate": "startDate",
-                  "endDate": "endDate",
+                  "startDate": "2023-01-15",
+                  "endDate": "2023-01-15",
                   "autoRenew": true,
                   "value": "value",
                   "billingPeriod": "monthly",
@@ -640,7 +640,7 @@ import Api
                   "status": "draft",
                   "notes": "notes",
                   "documentRef": "documentRef",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "items": [
                     {
                       "id": "x",
@@ -668,7 +668,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsUpdateResponse(
+        let expectedResponse = AgreementsUpdateAgreementsResponse(
             id: "x",
             typeId: Nullable<String>.value("x"),
             kind: .customer,
@@ -677,18 +677,18 @@ import Api
             bankAccountId: Nullable<String>.value("x"),
             number: "number",
             name: Nullable<String>.value("name"),
-            startDate: "startDate",
-            endDate: Nullable<String>.value("endDate"),
+            startDate: CalendarDate("2023-01-15")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             autoRenew: true,
             value: Nullable<String>.value("value"),
-            billingPeriod: Nullable<PostV1AgreementsAgreementsUpdateResponseBillingPeriod>.value(.monthly),
+            billingPeriod: Nullable<AgreementsUpdateAgreementsResponseBillingPeriod>.value(.monthly),
             currency: "currency",
             status: .draft,
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             items: [
-                PostV1AgreementsAgreementsUpdateResponseItemsItem(
+                AgreementsUpdateAgreementsResponseItemsItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -696,7 +696,7 @@ import Api
                     unitPrice: Nullable<String>.value("unitPrice"),
                     vatRatePercent: Nullable<String>.value("vatRatePercent")
                 ),
-                PostV1AgreementsAgreementsUpdateResponseItemsItem(
+                AgreementsUpdateAgreementsResponseItemsItem(
                     id: "x",
                     itemId: Nullable<String>.value("x"),
                     description: "description",
@@ -706,14 +706,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsUpdate(
+        let response = try await client.agreements.agreementsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsDelete1() async throws -> Void {
+    @Test func agreementsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -729,17 +729,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsDeleteResponse(
+        let expectedResponse = AgreementsDeleteAgreementsResponse(
             id: "id"
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsDelete(
+        let response = try await client.agreements.agreementsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsDelete2() async throws -> Void {
+    @Test func agreementsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -755,17 +755,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsDeleteResponse(
+        let expectedResponse = AgreementsDeleteAgreementsResponse(
             id: "x"
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsDelete(
+        let response = try await client.agreements.agreementsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsList1() async throws -> Void {
+    @Test func agreementsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -781,8 +781,8 @@ import Api
                       "bankAccountId": "bankAccountId",
                       "number": "number",
                       "name": "name",
-                      "startDate": "startDate",
-                      "endDate": "endDate",
+                      "startDate": "2026-07-01",
+                      "endDate": "2026-07-01",
                       "autoRenew": true,
                       "value": "value",
                       "billingPeriod": "monthly",
@@ -790,7 +790,8 @@ import Api
                       "status": "draft",
                       "notes": "notes",
                       "documentRef": "documentRef",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "partnerName": "partnerName"
                     }
                   ],
                   "page": 1000000,
@@ -808,9 +809,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsListResponse(
+        let expectedResponse = AgreementsListAgreementsResponse(
             rows: [
-                PostV1AgreementsAgreementsListResponseRowsItem(
+                AgreementsListAgreementsResponseRowsItem(
                     id: "id",
                     typeId: Nullable<String>.value("typeId"),
                     kind: .customer,
@@ -819,16 +820,17 @@ import Api
                     bankAccountId: Nullable<String>.value("bankAccountId"),
                     number: "number",
                     name: Nullable<String>.value("name"),
-                    startDate: "startDate",
-                    endDate: Nullable<String>.value("endDate"),
+                    startDate: CalendarDate("2026-07-01")!,
+                    endDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     autoRenew: true,
                     value: Nullable<String>.value("value"),
-                    billingPeriod: Nullable<PostV1AgreementsAgreementsListResponseRowsItemBillingPeriod>.value(.monthly),
+                    billingPeriod: Nullable<AgreementsListAgreementsResponseRowsItemBillingPeriod>.value(.monthly),
                     currency: "currency",
                     status: .draft,
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    partnerName: Nullable<String>.value("partnerName")
                 )
             ],
             page: 1000000,
@@ -838,14 +840,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsList(
+        let response = try await client.agreements.agreementsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsList2() async throws -> Void {
+    @Test func agreementsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -861,8 +863,8 @@ import Api
                       "bankAccountId": "x",
                       "number": "number",
                       "name": "name",
-                      "startDate": "startDate",
-                      "endDate": "endDate",
+                      "startDate": "2023-01-15",
+                      "endDate": "2023-01-15",
                       "autoRenew": true,
                       "value": "value",
                       "billingPeriod": "monthly",
@@ -870,7 +872,8 @@ import Api
                       "status": "draft",
                       "notes": "notes",
                       "documentRef": "documentRef",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "partnerName": "partnerName"
                     },
                     {
                       "id": "x",
@@ -881,8 +884,8 @@ import Api
                       "bankAccountId": "x",
                       "number": "number",
                       "name": "name",
-                      "startDate": "startDate",
-                      "endDate": "endDate",
+                      "startDate": "2023-01-15",
+                      "endDate": "2023-01-15",
                       "autoRenew": true,
                       "value": "value",
                       "billingPeriod": "monthly",
@@ -890,7 +893,8 @@ import Api
                       "status": "draft",
                       "notes": "notes",
                       "documentRef": "documentRef",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "partnerName": "partnerName"
                     }
                   ],
                   "page": 1000000,
@@ -908,9 +912,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsListResponse(
+        let expectedResponse = AgreementsListAgreementsResponse(
             rows: [
-                PostV1AgreementsAgreementsListResponseRowsItem(
+                AgreementsListAgreementsResponseRowsItem(
                     id: "x",
                     typeId: Nullable<String>.value("x"),
                     kind: .customer,
@@ -919,18 +923,19 @@ import Api
                     bankAccountId: Nullable<String>.value("x"),
                     number: "number",
                     name: Nullable<String>.value("name"),
-                    startDate: "startDate",
-                    endDate: Nullable<String>.value("endDate"),
+                    startDate: CalendarDate("2023-01-15")!,
+                    endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     autoRenew: true,
                     value: Nullable<String>.value("value"),
-                    billingPeriod: Nullable<PostV1AgreementsAgreementsListResponseRowsItemBillingPeriod>.value(.monthly),
+                    billingPeriod: Nullable<AgreementsListAgreementsResponseRowsItemBillingPeriod>.value(.monthly),
                     currency: "currency",
                     status: .draft,
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    partnerName: Nullable<String>.value("partnerName")
                 ),
-                PostV1AgreementsAgreementsListResponseRowsItem(
+                AgreementsListAgreementsResponseRowsItem(
                     id: "x",
                     typeId: Nullable<String>.value("x"),
                     kind: .customer,
@@ -939,16 +944,17 @@ import Api
                     bankAccountId: Nullable<String>.value("x"),
                     number: "number",
                     name: Nullable<String>.value("name"),
-                    startDate: "startDate",
-                    endDate: Nullable<String>.value("endDate"),
+                    startDate: CalendarDate("2023-01-15")!,
+                    endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     autoRenew: true,
                     value: Nullable<String>.value("value"),
-                    billingPeriod: Nullable<PostV1AgreementsAgreementsListResponseRowsItemBillingPeriod>.value(.monthly),
+                    billingPeriod: Nullable<AgreementsListAgreementsResponseRowsItemBillingPeriod>.value(.monthly),
                     currency: "currency",
                     status: .draft,
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    partnerName: Nullable<String>.value("partnerName")
                 )
             ],
             page: 1000000,
@@ -958,14 +964,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsList(
+        let response = try await client.agreements.agreementsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsGenerateInvoice1() async throws -> Void {
+    @Test func agreementsGenerateInvoice1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -974,7 +980,7 @@ import Api
                   "invoiceId": "invoiceId",
                   "periodStart": "periodStart",
                   "periodEnd": "periodEnd",
-                  "renewedEndDate": "renewedEndDate"
+                  "renewedEndDate": "2026-07-01"
                 }
                 """#.utf8
             )
@@ -984,20 +990,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsGenerateInvoiceResponse(
+        let expectedResponse = AgreementsGenerateInvoiceAgreementsResponse(
             invoiceId: "invoiceId",
             periodStart: "periodStart",
             periodEnd: "periodEnd",
-            renewedEndDate: Nullable<String>.value("renewedEndDate")
+            renewedEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!)
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsGenerateInvoice(
+        let response = try await client.agreements.agreementsGenerateInvoice(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsGenerateInvoice2() async throws -> Void {
+    @Test func agreementsGenerateInvoice2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1006,7 +1012,7 @@ import Api
                   "invoiceId": "x",
                   "periodStart": "periodStart",
                   "periodEnd": "periodEnd",
-                  "renewedEndDate": "renewedEndDate"
+                  "renewedEndDate": "2023-01-15"
                 }
                 """#.utf8
             )
@@ -1016,20 +1022,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsGenerateInvoiceResponse(
+        let expectedResponse = AgreementsGenerateInvoiceAgreementsResponse(
             invoiceId: "x",
             periodStart: "periodStart",
             periodEnd: "periodEnd",
-            renewedEndDate: Nullable<String>.value("renewedEndDate")
+            renewedEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!)
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsGenerateInvoice(
+        let response = try await client.agreements.agreementsGenerateInvoice(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsBillingRun1() async throws -> Void {
+    @Test func agreementsBillingRun1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1061,9 +1067,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsBillingRunResponse(
+        let expectedResponse = AgreementsBillingRunAgreementsResponse(
             generated: [
-                PostV1AgreementsAgreementsBillingRunResponseGeneratedItem(
+                AgreementsBillingRunAgreementsResponseGeneratedItem(
                     agreementId: "agreementId",
                     invoiceId: "invoiceId",
                     periodStart: "periodStart",
@@ -1074,20 +1080,20 @@ import Api
                 "expired"
             ],
             errors: [
-                PostV1AgreementsAgreementsBillingRunResponseErrorsItem(
+                AgreementsBillingRunAgreementsResponseErrorsItem(
                     agreementId: "agreementId",
                     message: "message"
                 )
             ]
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsBillingRun(
+        let response = try await client.agreements.agreementsBillingRun(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsAgreementsBillingRun2() async throws -> Void {
+    @Test func agreementsBillingRun2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1130,15 +1136,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsAgreementsBillingRunResponse(
+        let expectedResponse = AgreementsBillingRunAgreementsResponse(
             generated: [
-                PostV1AgreementsAgreementsBillingRunResponseGeneratedItem(
+                AgreementsBillingRunAgreementsResponseGeneratedItem(
                     agreementId: "x",
                     invoiceId: "x",
                     periodStart: "periodStart",
                     periodEnd: "periodEnd"
                 ),
-                PostV1AgreementsAgreementsBillingRunResponseGeneratedItem(
+                AgreementsBillingRunAgreementsResponseGeneratedItem(
                     agreementId: "x",
                     invoiceId: "x",
                     periodStart: "periodStart",
@@ -1150,24 +1156,24 @@ import Api
                 "expired"
             ],
             errors: [
-                PostV1AgreementsAgreementsBillingRunResponseErrorsItem(
+                AgreementsBillingRunAgreementsResponseErrorsItem(
                     agreementId: "x",
                     message: "message"
                 ),
-                PostV1AgreementsAgreementsBillingRunResponseErrorsItem(
+                AgreementsBillingRunAgreementsResponseErrorsItem(
                     agreementId: "x",
                     message: "message"
                 )
             ]
         )
-        let response = try await client.agreements.postV1AgreementsAgreementsBillingRun(
+        let response = try await client.agreements.agreementsBillingRun(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsInsurancePoliciesCreate1() async throws -> Void {
+    @Test func insurancePoliciesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1177,12 +1183,12 @@ import Api
                   "insurerPartnerId": "insurerPartnerId",
                   "policyNumber": "policyNumber",
                   "insuredObject": "insuredObject",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "premium": "premium",
                   "currency": "currency",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1192,31 +1198,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsInsurancePoliciesCreateResponse(
+        let expectedResponse = InsurancePoliciesCreateAgreementsResponse(
             id: "id",
             insurerPartnerId: Nullable<String>.value("insurerPartnerId"),
             policyNumber: "policyNumber",
             insuredObject: "insuredObject",
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             premium: Nullable<String>.value("premium"),
             currency: "currency",
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.agreements.postV1AgreementsInsurancePoliciesCreate(
+        let response = try await client.agreements.insurancePoliciesCreate(
             request: .init(
                 policyNumber: "policyNumber",
                 insuredObject: "insuredObject",
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsInsurancePoliciesCreate2() async throws -> Void {
+    @Test func insurancePoliciesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1226,12 +1232,12 @@ import Api
                   "insurerPartnerId": "x",
                   "policyNumber": "policyNumber",
                   "insuredObject": "insuredObject",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "premium": "premium",
                   "currency": "currency",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1241,31 +1247,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsInsurancePoliciesCreateResponse(
+        let expectedResponse = InsurancePoliciesCreateAgreementsResponse(
             id: "x",
             insurerPartnerId: Nullable<String>.value("x"),
             policyNumber: "policyNumber",
             insuredObject: "insuredObject",
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             premium: Nullable<String>.value("premium"),
             currency: "currency",
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.agreements.postV1AgreementsInsurancePoliciesCreate(
+        let response = try await client.agreements.insurancePoliciesCreate(
             request: .init(
                 policyNumber: "x",
                 insuredObject: "x",
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsInsurancePoliciesList1() async throws -> Void {
+    @Test func insurancePoliciesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1277,12 +1283,12 @@ import Api
                       "insurerPartnerId": "insurerPartnerId",
                       "policyNumber": "policyNumber",
                       "insuredObject": "insuredObject",
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2026-07-01",
+                      "toDate": "2026-07-01",
                       "premium": "premium",
                       "currency": "currency",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1300,19 +1306,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsInsurancePoliciesListResponse(
+        let expectedResponse = InsurancePoliciesListAgreementsResponse(
             rows: [
-                PostV1AgreementsInsurancePoliciesListResponseRowsItem(
+                InsurancePoliciesListAgreementsResponseRowsItem(
                     id: "id",
                     insurerPartnerId: Nullable<String>.value("insurerPartnerId"),
                     policyNumber: "policyNumber",
                     insuredObject: "insuredObject",
-                    fromDate: "fromDate",
-                    toDate: "toDate",
+                    fromDate: CalendarDate("2026-07-01")!,
+                    toDate: CalendarDate("2026-07-01")!,
                     premium: Nullable<String>.value("premium"),
                     currency: "currency",
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1322,14 +1328,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.agreements.postV1AgreementsInsurancePoliciesList(
+        let response = try await client.agreements.insurancePoliciesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsInsurancePoliciesList2() async throws -> Void {
+    @Test func insurancePoliciesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1341,24 +1347,24 @@ import Api
                       "insurerPartnerId": "x",
                       "policyNumber": "policyNumber",
                       "insuredObject": "insuredObject",
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2023-01-15",
+                      "toDate": "2023-01-15",
                       "premium": "premium",
                       "currency": "currency",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "insurerPartnerId": "x",
                       "policyNumber": "policyNumber",
                       "insuredObject": "insuredObject",
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2023-01-15",
+                      "toDate": "2023-01-15",
                       "premium": "premium",
                       "currency": "currency",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1376,31 +1382,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsInsurancePoliciesListResponse(
+        let expectedResponse = InsurancePoliciesListAgreementsResponse(
             rows: [
-                PostV1AgreementsInsurancePoliciesListResponseRowsItem(
+                InsurancePoliciesListAgreementsResponseRowsItem(
                     id: "x",
                     insurerPartnerId: Nullable<String>.value("x"),
                     policyNumber: "policyNumber",
                     insuredObject: "insuredObject",
-                    fromDate: "fromDate",
-                    toDate: "toDate",
+                    fromDate: CalendarDate("2023-01-15")!,
+                    toDate: CalendarDate("2023-01-15")!,
                     premium: Nullable<String>.value("premium"),
                     currency: "currency",
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1AgreementsInsurancePoliciesListResponseRowsItem(
+                InsurancePoliciesListAgreementsResponseRowsItem(
                     id: "x",
                     insurerPartnerId: Nullable<String>.value("x"),
                     policyNumber: "policyNumber",
                     insuredObject: "insuredObject",
-                    fromDate: "fromDate",
-                    toDate: "toDate",
+                    fromDate: CalendarDate("2023-01-15")!,
+                    toDate: CalendarDate("2023-01-15")!,
                     premium: Nullable<String>.value("premium"),
                     currency: "currency",
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1410,14 +1416,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.agreements.postV1AgreementsInsurancePoliciesList(
+        let response = try await client.agreements.insurancePoliciesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsInsurancePoliciesDelete1() async throws -> Void {
+    @Test func insurancePoliciesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1433,17 +1439,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsInsurancePoliciesDeleteResponse(
+        let expectedResponse = InsurancePoliciesDeleteAgreementsResponse(
             id: "id"
         )
-        let response = try await client.agreements.postV1AgreementsInsurancePoliciesDelete(
+        let response = try await client.agreements.insurancePoliciesDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AgreementsInsurancePoliciesDelete2() async throws -> Void {
+    @Test func insurancePoliciesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1459,10 +1465,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AgreementsInsurancePoliciesDeleteResponse(
+        let expectedResponse = InsurancePoliciesDeleteAgreementsResponse(
             id: "x"
         )
-        let response = try await client.agreements.postV1AgreementsInsurancePoliciesDelete(
+        let response = try await client.agreements.insurancePoliciesDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

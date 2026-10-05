@@ -7,63 +7,63 @@ public final class TransportClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1TransportWaybillsCreate(request: Requests.PostV1TransportWaybillsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1TransportWaybillsCreateResponse {
+    public func waybillsCreate(request: Requests.WaybillsCreateTransportRequest, requestOptions: RequestOptions? = nil) async throws -> WaybillsCreateTransportResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/transport/waybills/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1TransportWaybillsCreateResponse.self
+            responseType: WaybillsCreateTransportResponse.self
         )
     }
 
-    public func postV1TransportWaybillsUpdate(request: Requests.PostV1TransportWaybillsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1TransportWaybillsUpdateResponse {
+    public func waybillsUpdate(request: Requests.WaybillsUpdateTransportRequest, requestOptions: RequestOptions? = nil) async throws -> WaybillsUpdateTransportResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/transport/waybills/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1TransportWaybillsUpdateResponse.self
+            responseType: WaybillsUpdateTransportResponse.self
         )
     }
 
-    public func postV1TransportWaybillsIssue(request: Requests.PostV1TransportWaybillsIssueRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1TransportWaybillsIssueResponse {
+    public func waybillsIssue(request: Requests.WaybillsIssueTransportRequest, requestOptions: RequestOptions? = nil) async throws -> WaybillsIssueTransportResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/transport/waybills/issue",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1TransportWaybillsIssueResponse.self
+            responseType: WaybillsIssueTransportResponse.self
         )
     }
 
-    public func postV1TransportWaybillsCancel(request: Requests.PostV1TransportWaybillsCancelRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1TransportWaybillsCancelResponse {
+    public func waybillsCancel(request: Requests.WaybillsCancelTransportRequest, requestOptions: RequestOptions? = nil) async throws -> WaybillsCancelTransportResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/transport/waybills/cancel",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1TransportWaybillsCancelResponse.self
+            responseType: WaybillsCancelTransportResponse.self
         )
     }
 
-    public func postV1TransportWaybillsGet(request: Requests.PostV1TransportWaybillsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1TransportWaybillsGetResponse {
+    public func waybillsGet(request: Requests.WaybillsGetTransportRequest, requestOptions: RequestOptions? = nil) async throws -> WaybillsGetTransportResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/transport/waybills/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1TransportWaybillsGetResponse.self
+            responseType: WaybillsGetTransportResponse.self
         )
     }
 
-    public func postV1TransportWaybillsList(request: Requests.PostV1TransportWaybillsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1TransportWaybillsListResponse {
+    public func waybillsList(request: Requests.WaybillsListTransportRequest, requestOptions: RequestOptions? = nil) async throws -> WaybillsListTransportResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/transport/waybills/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1TransportWaybillsListResponse.self
+            responseType: WaybillsListTransportResponse.self
         )
     }
 }

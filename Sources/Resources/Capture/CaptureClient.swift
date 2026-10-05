@@ -7,103 +7,103 @@ public final class CaptureClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1CaptureSettingsGet(request: Requests.PostV1CaptureSettingsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureSettingsGetResponse {
+    public func settingsGet(request: Requests.SettingsGetCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> SettingsGetCaptureResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/capture/settings/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CaptureSettingsGetResponse.self
+            responseType: SettingsGetCaptureResponse.self
         )
     }
 
-    public func postV1CaptureSettingsUpdate(request: Requests.PostV1CaptureSettingsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureSettingsUpdateResponse {
+    public func settingsUpdate(request: Requests.SettingsUpdateCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> SettingsUpdateCaptureResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/capture/settings/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CaptureSettingsUpdateResponse.self
+            responseType: SettingsUpdateCaptureResponse.self
         )
     }
 
-    public func postV1CaptureSettingsRegenerateIntake(request: Requests.PostV1CaptureSettingsRegenerateIntakeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureSettingsRegenerateIntakeResponse {
+    public func settingsRegenerateIntake(request: Requests.SettingsRegenerateIntakeCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> SettingsRegenerateIntakeCaptureResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/capture/settings/regenerate-intake",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CaptureSettingsRegenerateIntakeResponse.self
+            responseType: SettingsRegenerateIntakeCaptureResponse.self
         )
     }
 
-    public func receiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJson(request: Requests.PostV1CaptureInboundEmailRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureInboundEmailResponse {
+    public func inboundEmail(request: Requests.InboundEmailCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> InboundEmailCaptureResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/capture/inbound-email",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CaptureInboundEmailResponse.self
+            responseType: InboundEmailCaptureResponse.self
         )
     }
 
-    public func readAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraft(request: Requests.PostV1CaptureDocumentsUploadRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureDocumentsUploadResponse {
+    public func documentsUpload(request: Requests.DocumentsUploadCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> DocumentsUploadCaptureResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/capture/documents/upload",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CaptureDocumentsUploadResponse.self
+            responseType: DocumentsUploadCaptureResponse.self
         )
     }
 
-    public func reReadAStoredCaptureReplacingThePreviousDraft(request: Requests.PostV1CaptureDocumentsExtractRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureDocumentsExtractResponse {
+    public func documentsExtract(request: Requests.DocumentsExtractCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> DocumentsExtractCaptureResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/capture/documents/extract",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CaptureDocumentsExtractResponse.self
+            responseType: DocumentsExtractCaptureResponse.self
         )
     }
 
-    public func postV1CaptureDocumentsGet(request: Requests.PostV1CaptureDocumentsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureDocumentsGetResponse {
+    public func documentsGet(request: Requests.DocumentsGetCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> DocumentsGetCaptureResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/capture/documents/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CaptureDocumentsGetResponse.self
+            responseType: DocumentsGetCaptureResponse.self
         )
     }
 
-    public func postV1CaptureDocumentsList(request: Requests.PostV1CaptureDocumentsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureDocumentsListResponse {
+    public func documentsList(request: Requests.DocumentsListCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> DocumentsListCaptureResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/capture/documents/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CaptureDocumentsListResponse.self
+            responseType: DocumentsListCaptureResponse.self
         )
     }
 
-    public func postV1CaptureDocumentsDelete(request: Requests.PostV1CaptureDocumentsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureDocumentsDeleteResponse {
+    public func documentsDelete(request: Requests.DocumentsDeleteCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> DocumentsDeleteCaptureResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/capture/documents/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CaptureDocumentsDeleteResponse.self
+            responseType: DocumentsDeleteCaptureResponse.self
         )
     }
 
-    public func saveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocument(request: Requests.PostV1CaptureDocumentsConfirmRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CaptureDocumentsConfirmResponse {
+    public func documentsConfirm(request: Requests.DocumentsConfirmCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> DocumentsConfirmCaptureResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/capture/documents/confirm",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CaptureDocumentsConfirmResponse.self
+            responseType: DocumentsConfirmCaptureResponse.self
         )
     }
 }

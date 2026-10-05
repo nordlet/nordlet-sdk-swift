@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("LedgerClient Wire Tests") struct LedgerClientWireTests {
-    @Test func postV1LedgerAccountsList1() async throws -> Void {
+    @Test func accountsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -18,7 +18,7 @@ import Api
                       "type": "asset",
                       "parentId": "parentId",
                       "isPostable": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -36,17 +36,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerAccountsListResponse(
+        let expectedResponse = AccountsListLedgerResponse(
             rows: [
-                PostV1LedgerAccountsListResponseRowsItem(
+                AccountsListLedgerResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
-                    translations: Nullable<[String: Nullable<PostV1LedgerAccountsListResponseRowsItemTranslationsValue>]>.value([:]),
+                    translations: Nullable<[String: Nullable<AccountsListLedgerResponseRowsItemTranslationsValue>]>.value([:]),
                     type: .asset,
                     parentId: Nullable<String>.value("parentId"),
                     isPostable: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -56,14 +56,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.ledger.postV1LedgerAccountsList(
+        let response = try await client.ledger.accountsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerAccountsList2() async throws -> Void {
+    @Test func accountsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -82,7 +82,7 @@ import Api
                       "type": "asset",
                       "parentId": "x",
                       "isPostable": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -96,7 +96,7 @@ import Api
                       "type": "asset",
                       "parentId": "x",
                       "isPostable": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -114,35 +114,35 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerAccountsListResponse(
+        let expectedResponse = AccountsListLedgerResponse(
             rows: [
-                PostV1LedgerAccountsListResponseRowsItem(
+                AccountsListLedgerResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
-                    translations: Nullable<[String: Nullable<PostV1LedgerAccountsListResponseRowsItemTranslationsValue>]>.value([
-                        "translations": Nullable<PostV1LedgerAccountsListResponseRowsItemTranslationsValue>.value(PostV1LedgerAccountsListResponseRowsItemTranslationsValue(
+                    translations: Nullable<[String: Nullable<AccountsListLedgerResponseRowsItemTranslationsValue>]>.value([
+                        "translations": Nullable<AccountsListLedgerResponseRowsItemTranslationsValue>.value(AccountsListLedgerResponseRowsItemTranslationsValue(
                             name: "x"
                         ))
                     ]),
                     type: .asset,
                     parentId: Nullable<String>.value("x"),
                     isPostable: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1LedgerAccountsListResponseRowsItem(
+                AccountsListLedgerResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
-                    translations: Nullable<[String: Nullable<PostV1LedgerAccountsListResponseRowsItemTranslationsValue>]>.value([
-                        "translations": Nullable<PostV1LedgerAccountsListResponseRowsItemTranslationsValue>.value(PostV1LedgerAccountsListResponseRowsItemTranslationsValue(
+                    translations: Nullable<[String: Nullable<AccountsListLedgerResponseRowsItemTranslationsValue>]>.value([
+                        "translations": Nullable<AccountsListLedgerResponseRowsItemTranslationsValue>.value(AccountsListLedgerResponseRowsItemTranslationsValue(
                             name: "x"
                         ))
                     ]),
                     type: .asset,
                     parentId: Nullable<String>.value("x"),
                     isPostable: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -152,14 +152,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.ledger.postV1LedgerAccountsList(
+        let response = try await client.ledger.accountsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerAccountsCreate1() async throws -> Void {
+    @Test func accountsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -176,7 +176,7 @@ import Api
                   "type": "asset",
                   "parentId": "parentId",
                   "isPostable": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -186,21 +186,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerAccountsCreateResponse(
+        let expectedResponse = AccountsCreateLedgerResponse(
             id: "id",
             code: "code",
             name: "name",
-            translations: Nullable<[String: Nullable<PostV1LedgerAccountsCreateResponseTranslationsValue>]>.value([
-                "key": Nullable<PostV1LedgerAccountsCreateResponseTranslationsValue>.value(PostV1LedgerAccountsCreateResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<AccountsCreateLedgerResponseTranslationsValue>]>.value([
+                "key": Nullable<AccountsCreateLedgerResponseTranslationsValue>.value(AccountsCreateLedgerResponseTranslationsValue(
                     name: "name"
                 ))
             ]),
             type: .asset,
             parentId: Nullable<String>.value("parentId"),
             isPostable: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerAccountsCreate(
+        let response = try await client.ledger.accountsCreate(
             request: .init(
                 code: "code",
                 name: "name",
@@ -211,7 +211,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerAccountsCreate2() async throws -> Void {
+    @Test func accountsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -228,7 +228,7 @@ import Api
                   "type": "asset",
                   "parentId": "x",
                   "isPostable": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -238,21 +238,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerAccountsCreateResponse(
+        let expectedResponse = AccountsCreateLedgerResponse(
             id: "x",
             code: "code",
             name: "name",
-            translations: Nullable<[String: Nullable<PostV1LedgerAccountsCreateResponseTranslationsValue>]>.value([
-                "translations": Nullable<PostV1LedgerAccountsCreateResponseTranslationsValue>.value(PostV1LedgerAccountsCreateResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<AccountsCreateLedgerResponseTranslationsValue>]>.value([
+                "translations": Nullable<AccountsCreateLedgerResponseTranslationsValue>.value(AccountsCreateLedgerResponseTranslationsValue(
                     name: "x"
                 ))
             ]),
             type: .asset,
             parentId: Nullable<String>.value("x"),
             isPostable: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerAccountsCreate(
+        let response = try await client.ledger.accountsCreate(
             request: .init(
                 code: "x",
                 name: "x",
@@ -263,7 +263,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerAccountsUpdate1() async throws -> Void {
+    @Test func accountsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -280,7 +280,7 @@ import Api
                   "type": "asset",
                   "parentId": "parentId",
                   "isPostable": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -290,28 +290,28 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerAccountsUpdateResponse(
+        let expectedResponse = AccountsUpdateLedgerResponse(
             id: "id",
             code: "code",
             name: "name",
-            translations: Nullable<[String: Nullable<PostV1LedgerAccountsUpdateResponseTranslationsValue>]>.value([
-                "key": Nullable<PostV1LedgerAccountsUpdateResponseTranslationsValue>.value(PostV1LedgerAccountsUpdateResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<AccountsUpdateLedgerResponseTranslationsValue>]>.value([
+                "key": Nullable<AccountsUpdateLedgerResponseTranslationsValue>.value(AccountsUpdateLedgerResponseTranslationsValue(
                     name: "name"
                 ))
             ]),
             type: .asset,
             parentId: Nullable<String>.value("parentId"),
             isPostable: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerAccountsUpdate(
+        let response = try await client.ledger.accountsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerAccountsUpdate2() async throws -> Void {
+    @Test func accountsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -328,7 +328,7 @@ import Api
                   "type": "asset",
                   "parentId": "x",
                   "isPostable": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -338,28 +338,28 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerAccountsUpdateResponse(
+        let expectedResponse = AccountsUpdateLedgerResponse(
             id: "x",
             code: "code",
             name: "name",
-            translations: Nullable<[String: Nullable<PostV1LedgerAccountsUpdateResponseTranslationsValue>]>.value([
-                "translations": Nullable<PostV1LedgerAccountsUpdateResponseTranslationsValue>.value(PostV1LedgerAccountsUpdateResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<AccountsUpdateLedgerResponseTranslationsValue>]>.value([
+                "translations": Nullable<AccountsUpdateLedgerResponseTranslationsValue>.value(AccountsUpdateLedgerResponseTranslationsValue(
                     name: "x"
                 ))
             ]),
             type: .asset,
             parentId: Nullable<String>.value("x"),
             isPostable: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerAccountsUpdate(
+        let response = try await client.ledger.accountsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerAccountsApplyTemplate1() async throws -> Void {
+    @Test func accountsApplyTemplate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -375,17 +375,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerAccountsApplyTemplateResponse(
+        let expectedResponse = AccountsApplyTemplateLedgerResponse(
             accounts: 1000000
         )
-        let response = try await client.ledger.postV1LedgerAccountsApplyTemplate(
+        let response = try await client.ledger.accountsApplyTemplate(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerAccountsApplyTemplate2() async throws -> Void {
+    @Test func accountsApplyTemplate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -401,45 +401,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerAccountsApplyTemplateResponse(
+        let expectedResponse = AccountsApplyTemplateLedgerResponse(
             accounts: 1000000
         )
-        let response = try await client.ledger.postV1LedgerAccountsApplyTemplate(
+        let response = try await client.ledger.accountsApplyTemplate(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func moveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountry1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "chartTemplate": "chartTemplate",
-                  "accounts": 1000000
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LedgerAccountsSwitchChartResponse(
-            chartTemplate: "chartTemplate",
-            accounts: 1000000
-        )
-        let response = try await client.ledger.moveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountry(
-            request: .init(),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func moveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountry2() async throws -> Void {
+    @Test func accountsSwitchChart1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -456,18 +428,46 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerAccountsSwitchChartResponse(
+        let expectedResponse = AccountsSwitchChartLedgerResponse(
             chartTemplate: "chartTemplate",
             accounts: 1000000
         )
-        let response = try await client.ledger.moveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountry(
+        let response = try await client.ledger.accountsSwitchChart(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerPeriodsList1() async throws -> Void {
+    @Test func accountsSwitchChart2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "chartTemplate": "chartTemplate",
+                  "accounts": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AccountsSwitchChartLedgerResponse(
+            chartTemplate: "chartTemplate",
+            accounts: 1000000
+        )
+        let response = try await client.ledger.accountsSwitchChart(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func periodsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -496,9 +496,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerPeriodsListResponse(
+        let expectedResponse = PeriodsListLedgerResponse(
             rows: [
-                PostV1LedgerPeriodsListResponseRowsItem(
+                PeriodsListLedgerResponseRowsItem(
                     id: "id",
                     year: 1000000,
                     month: 1000000,
@@ -512,14 +512,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.ledger.postV1LedgerPeriodsList(
+        let response = try await client.ledger.periodsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerPeriodsList2() async throws -> Void {
+    @Test func periodsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -554,15 +554,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerPeriodsListResponse(
+        let expectedResponse = PeriodsListLedgerResponse(
             rows: [
-                PostV1LedgerPeriodsListResponseRowsItem(
+                PeriodsListLedgerResponseRowsItem(
                     id: "x",
                     year: 1000000,
                     month: 1000000,
                     status: .open
                 ),
-                PostV1LedgerPeriodsListResponseRowsItem(
+                PeriodsListLedgerResponseRowsItem(
                     id: "x",
                     year: 1000000,
                     month: 1000000,
@@ -576,14 +576,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.ledger.postV1LedgerPeriodsList(
+        let response = try await client.ledger.periodsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerPeriodsLock1() async throws -> Void {
+    @Test func periodsLock1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -602,13 +602,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerPeriodsLockResponse(
+        let expectedResponse = PeriodsLockLedgerResponse(
             id: "id",
             year: 1000000,
             month: 1000000,
             status: .open
         )
-        let response = try await client.ledger.postV1LedgerPeriodsLock(
+        let response = try await client.ledger.periodsLock(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -618,7 +618,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerPeriodsLock2() async throws -> Void {
+    @Test func periodsLock2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -637,13 +637,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerPeriodsLockResponse(
+        let expectedResponse = PeriodsLockLedgerResponse(
             id: "x",
             year: 1000000,
             month: 1000000,
             status: .open
         )
-        let response = try await client.ledger.postV1LedgerPeriodsLock(
+        let response = try await client.ledger.periodsLock(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -653,7 +653,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerPeriodsUnlock1() async throws -> Void {
+    @Test func periodsUnlock1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -672,13 +672,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerPeriodsUnlockResponse(
+        let expectedResponse = PeriodsUnlockLedgerResponse(
             id: "id",
             year: 1000000,
             month: 1000000,
             status: .open
         )
-        let response = try await client.ledger.postV1LedgerPeriodsUnlock(
+        let response = try await client.ledger.periodsUnlock(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -688,7 +688,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerPeriodsUnlock2() async throws -> Void {
+    @Test func periodsUnlock2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -707,13 +707,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerPeriodsUnlockResponse(
+        let expectedResponse = PeriodsUnlockLedgerResponse(
             id: "x",
             year: 1000000,
             month: 1000000,
             status: .open
         )
-        let response = try await client.ledger.postV1LedgerPeriodsUnlock(
+        let response = try await client.ledger.periodsUnlock(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -723,7 +723,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerJournalTransactionsList1() async throws -> Void {
+    @Test func journalTransactionsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -732,14 +732,14 @@ import Api
                   "rows": [
                     {
                       "id": "id",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "description": "description",
                       "documentType": "documentType",
                       "documentId": "documentId",
                       "partnerId": "partnerId",
                       "status": "draft",
-                      "createdAt": "createdAt",
-                      "postedAt": "postedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "postedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -757,18 +757,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerJournalTransactionsListResponse(
+        let expectedResponse = JournalTransactionsListLedgerResponse(
             rows: [
-                PostV1LedgerJournalTransactionsListResponseRowsItem(
+                JournalTransactionsListLedgerResponseRowsItem(
                     id: "id",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     description: Nullable<String>.value("description"),
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("documentId"),
                     partnerId: Nullable<String>.value("partnerId"),
                     status: .draft,
-                    createdAt: "createdAt",
-                    postedAt: Nullable<String>.value("postedAt")
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    postedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 )
             ],
             page: 1000000,
@@ -778,14 +778,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.ledger.postV1LedgerJournalTransactionsList(
+        let response = try await client.ledger.journalTransactionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerJournalTransactionsList2() async throws -> Void {
+    @Test func journalTransactionsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -794,25 +794,25 @@ import Api
                   "rows": [
                     {
                       "id": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "description": "description",
                       "documentType": "documentType",
                       "documentId": "x",
                       "partnerId": "x",
                       "status": "draft",
-                      "createdAt": "createdAt",
-                      "postedAt": "postedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "postedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "description": "description",
                       "documentType": "documentType",
                       "documentId": "x",
                       "partnerId": "x",
                       "status": "draft",
-                      "createdAt": "createdAt",
-                      "postedAt": "postedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "postedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -830,29 +830,29 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerJournalTransactionsListResponse(
+        let expectedResponse = JournalTransactionsListLedgerResponse(
             rows: [
-                PostV1LedgerJournalTransactionsListResponseRowsItem(
+                JournalTransactionsListLedgerResponseRowsItem(
                     id: "x",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     description: Nullable<String>.value("description"),
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("x"),
                     partnerId: Nullable<String>.value("x"),
                     status: .draft,
-                    createdAt: "createdAt",
-                    postedAt: Nullable<String>.value("postedAt")
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    postedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                PostV1LedgerJournalTransactionsListResponseRowsItem(
+                JournalTransactionsListLedgerResponseRowsItem(
                     id: "x",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     description: Nullable<String>.value("description"),
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("x"),
                     partnerId: Nullable<String>.value("x"),
                     status: .draft,
-                    createdAt: "createdAt",
-                    postedAt: Nullable<String>.value("postedAt")
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    postedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 )
             ],
             page: 1000000,
@@ -862,14 +862,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.ledger.postV1LedgerJournalTransactionsList(
+        let response = try await client.ledger.journalTransactionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCentersCreate1() async throws -> Void {
+    @Test func costCentersCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -881,7 +881,7 @@ import Api
                   "groupId": "groupId",
                   "groupName": "groupName",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -891,16 +891,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCentersCreateResponse(
+        let expectedResponse = CostCentersCreateLedgerResponse(
             id: "id",
             code: "code",
             name: "name",
             groupId: Nullable<String>.value("groupId"),
             groupName: Nullable<String>.value("groupName"),
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerCostCentersCreate(
+        let response = try await client.ledger.costCentersCreate(
             request: .init(
                 code: "code",
                 name: "name"
@@ -910,7 +910,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCentersCreate2() async throws -> Void {
+    @Test func costCentersCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -922,7 +922,7 @@ import Api
                   "groupId": "x",
                   "groupName": "groupName",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -932,16 +932,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCentersCreateResponse(
+        let expectedResponse = CostCentersCreateLedgerResponse(
             id: "x",
             code: "code",
             name: "name",
             groupId: Nullable<String>.value("x"),
             groupName: Nullable<String>.value("groupName"),
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerCostCentersCreate(
+        let response = try await client.ledger.costCentersCreate(
             request: .init(
                 code: "x",
                 name: "x"
@@ -951,7 +951,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCentersUpdate1() async throws -> Void {
+    @Test func costCentersUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -963,7 +963,7 @@ import Api
                   "groupId": "groupId",
                   "groupName": "groupName",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -973,23 +973,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCentersUpdateResponse(
+        let expectedResponse = CostCentersUpdateLedgerResponse(
             id: "id",
             code: "code",
             name: "name",
             groupId: Nullable<String>.value("groupId"),
             groupName: Nullable<String>.value("groupName"),
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerCostCentersUpdate(
+        let response = try await client.ledger.costCentersUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCentersUpdate2() async throws -> Void {
+    @Test func costCentersUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1001,7 +1001,7 @@ import Api
                   "groupId": "x",
                   "groupName": "groupName",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1011,23 +1011,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCentersUpdateResponse(
+        let expectedResponse = CostCentersUpdateLedgerResponse(
             id: "x",
             code: "code",
             name: "name",
             groupId: Nullable<String>.value("x"),
             groupName: Nullable<String>.value("groupName"),
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerCostCentersUpdate(
+        let response = try await client.ledger.costCentersUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCentersList1() async throws -> Void {
+    @Test func costCentersList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1041,7 +1041,7 @@ import Api
                       "groupId": "groupId",
                       "groupName": "groupName",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1059,16 +1059,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCentersListResponse(
+        let expectedResponse = CostCentersListLedgerResponse(
             rows: [
-                PostV1LedgerCostCentersListResponseRowsItem(
+                CostCentersListLedgerResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
                     groupId: Nullable<String>.value("groupId"),
                     groupName: Nullable<String>.value("groupName"),
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1078,14 +1078,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.ledger.postV1LedgerCostCentersList(
+        let response = try await client.ledger.costCentersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCentersList2() async throws -> Void {
+    @Test func costCentersList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1099,7 +1099,7 @@ import Api
                       "groupId": "x",
                       "groupName": "groupName",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1108,7 +1108,7 @@ import Api
                       "groupId": "x",
                       "groupName": "groupName",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1126,25 +1126,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCentersListResponse(
+        let expectedResponse = CostCentersListLedgerResponse(
             rows: [
-                PostV1LedgerCostCentersListResponseRowsItem(
+                CostCentersListLedgerResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     groupId: Nullable<String>.value("x"),
                     groupName: Nullable<String>.value("groupName"),
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1LedgerCostCentersListResponseRowsItem(
+                CostCentersListLedgerResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     groupId: Nullable<String>.value("x"),
                     groupName: Nullable<String>.value("groupName"),
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1154,14 +1154,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.ledger.postV1LedgerCostCentersList(
+        let response = try await client.ledger.costCentersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCenterGroupsCreate1() async throws -> Void {
+    @Test func costCenterGroupsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1170,7 +1170,7 @@ import Api
                   "id": "id",
                   "code": "code",
                   "name": "name",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1180,13 +1180,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCenterGroupsCreateResponse(
+        let expectedResponse = CostCenterGroupsCreateLedgerResponse(
             id: "id",
             code: "code",
             name: "name",
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerCostCenterGroupsCreate(
+        let response = try await client.ledger.costCenterGroupsCreate(
             request: .init(
                 code: "code",
                 name: "name"
@@ -1196,7 +1196,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCenterGroupsCreate2() async throws -> Void {
+    @Test func costCenterGroupsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1205,7 +1205,7 @@ import Api
                   "id": "x",
                   "code": "code",
                   "name": "name",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1215,13 +1215,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCenterGroupsCreateResponse(
+        let expectedResponse = CostCenterGroupsCreateLedgerResponse(
             id: "x",
             code: "code",
             name: "name",
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerCostCenterGroupsCreate(
+        let response = try await client.ledger.costCenterGroupsCreate(
             request: .init(
                 code: "x",
                 name: "x"
@@ -1231,7 +1231,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCenterGroupsUpdate1() async throws -> Void {
+    @Test func costCenterGroupsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1240,7 +1240,7 @@ import Api
                   "id": "id",
                   "code": "code",
                   "name": "name",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1250,20 +1250,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCenterGroupsUpdateResponse(
+        let expectedResponse = CostCenterGroupsUpdateLedgerResponse(
             id: "id",
             code: "code",
             name: "name",
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerCostCenterGroupsUpdate(
+        let response = try await client.ledger.costCenterGroupsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCenterGroupsUpdate2() async throws -> Void {
+    @Test func costCenterGroupsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1272,7 +1272,7 @@ import Api
                   "id": "x",
                   "code": "code",
                   "name": "name",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1282,20 +1282,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCenterGroupsUpdateResponse(
+        let expectedResponse = CostCenterGroupsUpdateLedgerResponse(
             id: "x",
             code: "code",
             name: "name",
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerCostCenterGroupsUpdate(
+        let response = try await client.ledger.costCenterGroupsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCenterGroupsDelete1() async throws -> Void {
+    @Test func costCenterGroupsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1311,17 +1311,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCenterGroupsDeleteResponse(
+        let expectedResponse = CostCenterGroupsDeleteLedgerResponse(
             deleted: true
         )
-        let response = try await client.ledger.postV1LedgerCostCenterGroupsDelete(
+        let response = try await client.ledger.costCenterGroupsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCenterGroupsDelete2() async throws -> Void {
+    @Test func costCenterGroupsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1337,17 +1337,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCenterGroupsDeleteResponse(
+        let expectedResponse = CostCenterGroupsDeleteLedgerResponse(
             deleted: true
         )
-        let response = try await client.ledger.postV1LedgerCostCenterGroupsDelete(
+        let response = try await client.ledger.costCenterGroupsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCenterGroupsList1() async throws -> Void {
+    @Test func costCenterGroupsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1358,7 +1358,7 @@ import Api
                       "id": "id",
                       "code": "code",
                       "name": "name",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1376,13 +1376,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCenterGroupsListResponse(
+        let expectedResponse = CostCenterGroupsListLedgerResponse(
             rows: [
-                PostV1LedgerCostCenterGroupsListResponseRowsItem(
+                CostCenterGroupsListLedgerResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1392,14 +1392,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.ledger.postV1LedgerCostCenterGroupsList(
+        let response = try await client.ledger.costCenterGroupsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerCostCenterGroupsList2() async throws -> Void {
+    @Test func costCenterGroupsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1410,13 +1410,13 @@ import Api
                       "id": "x",
                       "code": "code",
                       "name": "name",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "code": "code",
                       "name": "name",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1434,19 +1434,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerCostCenterGroupsListResponse(
+        let expectedResponse = CostCenterGroupsListLedgerResponse(
             rows: [
-                PostV1LedgerCostCenterGroupsListResponseRowsItem(
+                CostCenterGroupsListLedgerResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1LedgerCostCenterGroupsListResponseRowsItem(
+                CostCenterGroupsListLedgerResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1456,14 +1456,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.ledger.postV1LedgerCostCenterGroupsList(
+        let response = try await client.ledger.costCenterGroupsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerPostingRulesList1() async throws -> Void {
+    @Test func postingRulesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1487,9 +1487,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerPostingRulesListResponse(
+        let expectedResponse = PostingRulesListLedgerResponse(
             rows: [
-                PostV1LedgerPostingRulesListResponseRowsItem(
+                PostingRulesListLedgerResponseRowsItem(
                     key: "key",
                     description: "description",
                     defaultCode: "defaultCode",
@@ -1498,14 +1498,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.ledger.postV1LedgerPostingRulesList(
+        let response = try await client.ledger.postingRulesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerPostingRulesList2() async throws -> Void {
+    @Test func postingRulesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1536,16 +1536,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerPostingRulesListResponse(
+        let expectedResponse = PostingRulesListLedgerResponse(
             rows: [
-                PostV1LedgerPostingRulesListResponseRowsItem(
+                PostingRulesListLedgerResponseRowsItem(
                     key: "key",
                     description: "description",
                     defaultCode: "defaultCode",
                     accountCode: "accountCode",
                     overridden: true
                 ),
-                PostV1LedgerPostingRulesListResponseRowsItem(
+                PostingRulesListLedgerResponseRowsItem(
                     key: "key",
                     description: "description",
                     defaultCode: "defaultCode",
@@ -1554,14 +1554,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.ledger.postV1LedgerPostingRulesList(
+        let response = try await client.ledger.postingRulesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerPostingRulesUpdate1() async throws -> Void {
+    @Test func postingRulesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1585,9 +1585,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerPostingRulesUpdateResponse(
+        let expectedResponse = PostingRulesUpdateLedgerResponse(
             rows: [
-                PostV1LedgerPostingRulesUpdateResponseRowsItem(
+                PostingRulesUpdateLedgerResponseRowsItem(
                     key: "key",
                     description: "description",
                     defaultCode: "defaultCode",
@@ -1596,9 +1596,9 @@ import Api
                 )
             ]
         )
-        let response = try await client.ledger.postV1LedgerPostingRulesUpdate(
+        let response = try await client.ledger.postingRulesUpdate(
             request: .init(rules: [
-                PostV1LedgerPostingRulesUpdateRequestRulesItem(
+                PostingRulesUpdateLedgerRequestRulesItem(
                     key: .salesReceivable,
                     accountCode: .null
                 )
@@ -1608,7 +1608,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerPostingRulesUpdate2() async throws -> Void {
+    @Test func postingRulesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1639,16 +1639,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerPostingRulesUpdateResponse(
+        let expectedResponse = PostingRulesUpdateLedgerResponse(
             rows: [
-                PostV1LedgerPostingRulesUpdateResponseRowsItem(
+                PostingRulesUpdateLedgerResponseRowsItem(
                     key: "key",
                     description: "description",
                     defaultCode: "defaultCode",
                     accountCode: "accountCode",
                     overridden: true
                 ),
-                PostV1LedgerPostingRulesUpdateResponseRowsItem(
+                PostingRulesUpdateLedgerResponseRowsItem(
                     key: "key",
                     description: "description",
                     defaultCode: "defaultCode",
@@ -1657,13 +1657,13 @@ import Api
                 )
             ]
         )
-        let response = try await client.ledger.postV1LedgerPostingRulesUpdate(
+        let response = try await client.ledger.postingRulesUpdate(
             request: .init(rules: [
-                PostV1LedgerPostingRulesUpdateRequestRulesItem(
+                PostingRulesUpdateLedgerRequestRulesItem(
                     key: .salesReceivable,
                     accountCode: .null
                 ),
-                PostV1LedgerPostingRulesUpdateRequestRulesItem(
+                PostingRulesUpdateLedgerRequestRulesItem(
                     key: .salesReceivable,
                     accountCode: .null
                 )
@@ -1673,7 +1673,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerOwnersCreate1() async throws -> Void {
+    @Test func ownersCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1686,7 +1686,7 @@ import Api
                   "sharesQuantity": "sharesQuantity",
                   "sharesAmount": "sharesAmount",
                   "sharesType": "sharesType",
-                  "sharesAcquisitionDate": "sharesAcquisitionDate",
+                  "sharesAcquisitionDate": "2026-07-01",
                   "withholdingTaxPercent": "withholdingTaxPercent",
                   "partnerLiability": "general",
                   "specialBalanceRequired": true,
@@ -1697,7 +1697,7 @@ import Api
                     "postalCode": "postalCode",
                     "countryCode": "countryCode"
                   },
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1707,7 +1707,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerOwnersCreateResponse(
+        let expectedResponse = OwnersCreateLedgerResponse(
             id: "id",
             name: "name",
             code: Nullable<String>.value("code"),
@@ -1715,27 +1715,27 @@ import Api
             sharesQuantity: Nullable<String>.value("sharesQuantity"),
             sharesAmount: Nullable<String>.value("sharesAmount"),
             sharesType: Nullable<String>.value("sharesType"),
-            sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+            sharesAcquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
-            partnerLiability: Nullable<PostV1LedgerOwnersCreateResponsePartnerLiability>.value(.general),
+            partnerLiability: Nullable<OwnersCreateLedgerResponsePartnerLiability>.value(.general),
             specialBalanceRequired: Nullable<Bool>.value(true),
             supplementaryBalanceRequired: Nullable<Bool>.value(true),
-            address: Nullable<PostV1LedgerOwnersCreateResponseAddress>.value(PostV1LedgerOwnersCreateResponseAddress(
+            address: Nullable<OwnersCreateLedgerResponseAddress>.value(OwnersCreateLedgerResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("countryCode")
             )),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerOwnersCreate(
+        let response = try await client.ledger.ownersCreate(
             request: .init(name: "name"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerOwnersCreate2() async throws -> Void {
+    @Test func ownersCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1748,7 +1748,7 @@ import Api
                   "sharesQuantity": "sharesQuantity",
                   "sharesAmount": "sharesAmount",
                   "sharesType": "sharesType",
-                  "sharesAcquisitionDate": "sharesAcquisitionDate",
+                  "sharesAcquisitionDate": "2023-01-15",
                   "withholdingTaxPercent": "withholdingTaxPercent",
                   "partnerLiability": "general",
                   "specialBalanceRequired": true,
@@ -1759,7 +1759,7 @@ import Api
                     "postalCode": "postalCode",
                     "countryCode": "xy"
                   },
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1769,7 +1769,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerOwnersCreateResponse(
+        let expectedResponse = OwnersCreateLedgerResponse(
             id: "x",
             name: "name",
             code: Nullable<String>.value("code"),
@@ -1777,27 +1777,27 @@ import Api
             sharesQuantity: Nullable<String>.value("sharesQuantity"),
             sharesAmount: Nullable<String>.value("sharesAmount"),
             sharesType: Nullable<String>.value("sharesType"),
-            sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+            sharesAcquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
-            partnerLiability: Nullable<PostV1LedgerOwnersCreateResponsePartnerLiability>.value(.general),
+            partnerLiability: Nullable<OwnersCreateLedgerResponsePartnerLiability>.value(.general),
             specialBalanceRequired: Nullable<Bool>.value(true),
             supplementaryBalanceRequired: Nullable<Bool>.value(true),
-            address: Nullable<PostV1LedgerOwnersCreateResponseAddress>.value(PostV1LedgerOwnersCreateResponseAddress(
+            address: Nullable<OwnersCreateLedgerResponseAddress>.value(OwnersCreateLedgerResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("xy")
             )),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerOwnersCreate(
+        let response = try await client.ledger.ownersCreate(
             request: .init(name: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerOwnersUpdate1() async throws -> Void {
+    @Test func ownersUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1810,7 +1810,7 @@ import Api
                   "sharesQuantity": "sharesQuantity",
                   "sharesAmount": "sharesAmount",
                   "sharesType": "sharesType",
-                  "sharesAcquisitionDate": "sharesAcquisitionDate",
+                  "sharesAcquisitionDate": "2026-07-01",
                   "withholdingTaxPercent": "withholdingTaxPercent",
                   "partnerLiability": "general",
                   "specialBalanceRequired": true,
@@ -1821,7 +1821,7 @@ import Api
                     "postalCode": "postalCode",
                     "countryCode": "countryCode"
                   },
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1831,7 +1831,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerOwnersUpdateResponse(
+        let expectedResponse = OwnersUpdateLedgerResponse(
             id: "id",
             name: "name",
             code: Nullable<String>.value("code"),
@@ -1839,27 +1839,27 @@ import Api
             sharesQuantity: Nullable<String>.value("sharesQuantity"),
             sharesAmount: Nullable<String>.value("sharesAmount"),
             sharesType: Nullable<String>.value("sharesType"),
-            sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+            sharesAcquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
-            partnerLiability: Nullable<PostV1LedgerOwnersUpdateResponsePartnerLiability>.value(.general),
+            partnerLiability: Nullable<OwnersUpdateLedgerResponsePartnerLiability>.value(.general),
             specialBalanceRequired: Nullable<Bool>.value(true),
             supplementaryBalanceRequired: Nullable<Bool>.value(true),
-            address: Nullable<PostV1LedgerOwnersUpdateResponseAddress>.value(PostV1LedgerOwnersUpdateResponseAddress(
+            address: Nullable<OwnersUpdateLedgerResponseAddress>.value(OwnersUpdateLedgerResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("countryCode")
             )),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerOwnersUpdate(
+        let response = try await client.ledger.ownersUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerOwnersUpdate2() async throws -> Void {
+    @Test func ownersUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1872,7 +1872,7 @@ import Api
                   "sharesQuantity": "sharesQuantity",
                   "sharesAmount": "sharesAmount",
                   "sharesType": "sharesType",
-                  "sharesAcquisitionDate": "sharesAcquisitionDate",
+                  "sharesAcquisitionDate": "2023-01-15",
                   "withholdingTaxPercent": "withholdingTaxPercent",
                   "partnerLiability": "general",
                   "specialBalanceRequired": true,
@@ -1883,7 +1883,7 @@ import Api
                     "postalCode": "postalCode",
                     "countryCode": "xy"
                   },
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1893,7 +1893,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerOwnersUpdateResponse(
+        let expectedResponse = OwnersUpdateLedgerResponse(
             id: "x",
             name: "name",
             code: Nullable<String>.value("code"),
@@ -1901,27 +1901,27 @@ import Api
             sharesQuantity: Nullable<String>.value("sharesQuantity"),
             sharesAmount: Nullable<String>.value("sharesAmount"),
             sharesType: Nullable<String>.value("sharesType"),
-            sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+            sharesAcquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
-            partnerLiability: Nullable<PostV1LedgerOwnersUpdateResponsePartnerLiability>.value(.general),
+            partnerLiability: Nullable<OwnersUpdateLedgerResponsePartnerLiability>.value(.general),
             specialBalanceRequired: Nullable<Bool>.value(true),
             supplementaryBalanceRequired: Nullable<Bool>.value(true),
-            address: Nullable<PostV1LedgerOwnersUpdateResponseAddress>.value(PostV1LedgerOwnersUpdateResponseAddress(
+            address: Nullable<OwnersUpdateLedgerResponseAddress>.value(OwnersUpdateLedgerResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("xy")
             )),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.ledger.postV1LedgerOwnersUpdate(
+        let response = try await client.ledger.ownersUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerOwnersDelete1() async throws -> Void {
+    @Test func ownersDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1938,18 +1938,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerOwnersDeleteResponse(
+        let expectedResponse = OwnersDeleteLedgerResponse(
             id: "id",
             deleted: true
         )
-        let response = try await client.ledger.postV1LedgerOwnersDelete(
+        let response = try await client.ledger.ownersDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerOwnersDelete2() async throws -> Void {
+    @Test func ownersDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1966,18 +1966,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerOwnersDeleteResponse(
+        let expectedResponse = OwnersDeleteLedgerResponse(
             id: "x",
             deleted: true
         )
-        let response = try await client.ledger.postV1LedgerOwnersDelete(
+        let response = try await client.ledger.ownersDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerOwnersList1() async throws -> Void {
+    @Test func ownersList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1992,13 +1992,13 @@ import Api
                       "sharesQuantity": "sharesQuantity",
                       "sharesAmount": "sharesAmount",
                       "sharesType": "sharesType",
-                      "sharesAcquisitionDate": "sharesAcquisitionDate",
+                      "sharesAcquisitionDate": "2026-07-01",
                       "withholdingTaxPercent": "withholdingTaxPercent",
                       "partnerLiability": "general",
                       "specialBalanceRequired": true,
                       "supplementaryBalanceRequired": true,
                       "address": {},
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -2016,9 +2016,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerOwnersListResponse(
+        let expectedResponse = OwnersListLedgerResponse(
             rows: [
-                PostV1LedgerOwnersListResponseRowsItem(
+                OwnersListLedgerResponseRowsItem(
                     id: "id",
                     name: "name",
                     code: Nullable<String>.value("code"),
@@ -2026,15 +2026,15 @@ import Api
                     sharesQuantity: Nullable<String>.value("sharesQuantity"),
                     sharesAmount: Nullable<String>.value("sharesAmount"),
                     sharesType: Nullable<String>.value("sharesType"),
-                    sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+                    sharesAcquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
-                    partnerLiability: Nullable<PostV1LedgerOwnersListResponseRowsItemPartnerLiability>.value(.general),
+                    partnerLiability: Nullable<OwnersListLedgerResponseRowsItemPartnerLiability>.value(.general),
                     specialBalanceRequired: Nullable<Bool>.value(true),
                     supplementaryBalanceRequired: Nullable<Bool>.value(true),
-                    address: Nullable<PostV1LedgerOwnersListResponseRowsItemAddress>.value(PostV1LedgerOwnersListResponseRowsItemAddress(
+                    address: Nullable<OwnersListLedgerResponseRowsItemAddress>.value(OwnersListLedgerResponseRowsItemAddress(
 
                     )),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -2044,14 +2044,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.ledger.postV1LedgerOwnersList(
+        let response = try await client.ledger.ownersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerOwnersList2() async throws -> Void {
+    @Test func ownersList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2066,7 +2066,7 @@ import Api
                       "sharesQuantity": "sharesQuantity",
                       "sharesAmount": "sharesAmount",
                       "sharesType": "sharesType",
-                      "sharesAcquisitionDate": "sharesAcquisitionDate",
+                      "sharesAcquisitionDate": "2023-01-15",
                       "withholdingTaxPercent": "withholdingTaxPercent",
                       "partnerLiability": "general",
                       "specialBalanceRequired": true,
@@ -2077,7 +2077,7 @@ import Api
                         "postalCode": "postalCode",
                         "countryCode": "xy"
                       },
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -2087,7 +2087,7 @@ import Api
                       "sharesQuantity": "sharesQuantity",
                       "sharesAmount": "sharesAmount",
                       "sharesType": "sharesType",
-                      "sharesAcquisitionDate": "sharesAcquisitionDate",
+                      "sharesAcquisitionDate": "2023-01-15",
                       "withholdingTaxPercent": "withholdingTaxPercent",
                       "partnerLiability": "general",
                       "specialBalanceRequired": true,
@@ -2098,7 +2098,7 @@ import Api
                         "postalCode": "postalCode",
                         "countryCode": "xy"
                       },
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -2116,9 +2116,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerOwnersListResponse(
+        let expectedResponse = OwnersListLedgerResponse(
             rows: [
-                PostV1LedgerOwnersListResponseRowsItem(
+                OwnersListLedgerResponseRowsItem(
                     id: "x",
                     name: "name",
                     code: Nullable<String>.value("code"),
@@ -2126,20 +2126,20 @@ import Api
                     sharesQuantity: Nullable<String>.value("sharesQuantity"),
                     sharesAmount: Nullable<String>.value("sharesAmount"),
                     sharesType: Nullable<String>.value("sharesType"),
-                    sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+                    sharesAcquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
-                    partnerLiability: Nullable<PostV1LedgerOwnersListResponseRowsItemPartnerLiability>.value(.general),
+                    partnerLiability: Nullable<OwnersListLedgerResponseRowsItemPartnerLiability>.value(.general),
                     specialBalanceRequired: Nullable<Bool>.value(true),
                     supplementaryBalanceRequired: Nullable<Bool>.value(true),
-                    address: Nullable<PostV1LedgerOwnersListResponseRowsItemAddress>.value(PostV1LedgerOwnersListResponseRowsItemAddress(
+                    address: Nullable<OwnersListLedgerResponseRowsItemAddress>.value(OwnersListLedgerResponseRowsItemAddress(
                         street: Optional("street"),
                         city: Optional("city"),
                         postalCode: Optional("postalCode"),
                         countryCode: Optional("xy")
                     )),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1LedgerOwnersListResponseRowsItem(
+                OwnersListLedgerResponseRowsItem(
                     id: "x",
                     name: "name",
                     code: Nullable<String>.value("code"),
@@ -2147,18 +2147,18 @@ import Api
                     sharesQuantity: Nullable<String>.value("sharesQuantity"),
                     sharesAmount: Nullable<String>.value("sharesAmount"),
                     sharesType: Nullable<String>.value("sharesType"),
-                    sharesAcquisitionDate: Nullable<String>.value("sharesAcquisitionDate"),
+                    sharesAcquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     withholdingTaxPercent: Nullable<String>.value("withholdingTaxPercent"),
-                    partnerLiability: Nullable<PostV1LedgerOwnersListResponseRowsItemPartnerLiability>.value(.general),
+                    partnerLiability: Nullable<OwnersListLedgerResponseRowsItemPartnerLiability>.value(.general),
                     specialBalanceRequired: Nullable<Bool>.value(true),
                     supplementaryBalanceRequired: Nullable<Bool>.value(true),
-                    address: Nullable<PostV1LedgerOwnersListResponseRowsItemAddress>.value(PostV1LedgerOwnersListResponseRowsItemAddress(
+                    address: Nullable<OwnersListLedgerResponseRowsItemAddress>.value(OwnersListLedgerResponseRowsItemAddress(
                         street: Optional("street"),
                         city: Optional("city"),
                         postalCode: Optional("postalCode"),
                         countryCode: Optional("xy")
                     )),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -2168,28 +2168,28 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.ledger.postV1LedgerOwnersList(
+        let response = try await client.ledger.ownersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerJournalTransactionsGet1() async throws -> Void {
+    @Test func journalTransactionsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "id": "id",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "description": "description",
                   "documentType": "documentType",
                   "documentId": "documentId",
                   "partnerId": "partnerId",
                   "status": "draft",
-                  "createdAt": "createdAt",
-                  "postedAt": "postedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "postedAt": "2026-07-01T09:30:00Z",
                   "entries": [
                     {
                       "id": "id",
@@ -2212,18 +2212,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerJournalTransactionsGetResponse(
+        let expectedResponse = JournalTransactionsGetLedgerResponse(
             id: "id",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             description: Nullable<String>.value("description"),
             documentType: Nullable<String>.value("documentType"),
             documentId: Nullable<String>.value("documentId"),
             partnerId: Nullable<String>.value("partnerId"),
             status: .draft,
-            createdAt: "createdAt",
-            postedAt: Nullable<String>.value("postedAt"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            postedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             entries: [
-                PostV1LedgerJournalTransactionsGetResponseEntriesItem(
+                JournalTransactionsGetLedgerResponseEntriesItem(
                     id: "id",
                     accountId: "accountId",
                     accountCode: "accountCode",
@@ -2236,28 +2236,28 @@ import Api
                 )
             ]
         )
-        let response = try await client.ledger.postV1LedgerJournalTransactionsGet(
+        let response = try await client.ledger.journalTransactionsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerJournalTransactionsGet2() async throws -> Void {
+    @Test func journalTransactionsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "id": "x",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "description": "description",
                   "documentType": "documentType",
                   "documentId": "x",
                   "partnerId": "x",
                   "status": "draft",
-                  "createdAt": "createdAt",
-                  "postedAt": "postedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "postedAt": "2024-01-15T09:30:00Z",
                   "entries": [
                     {
                       "id": "x",
@@ -2291,18 +2291,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerJournalTransactionsGetResponse(
+        let expectedResponse = JournalTransactionsGetLedgerResponse(
             id: "x",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             description: Nullable<String>.value("description"),
             documentType: Nullable<String>.value("documentType"),
             documentId: Nullable<String>.value("x"),
             partnerId: Nullable<String>.value("x"),
             status: .draft,
-            createdAt: "createdAt",
-            postedAt: Nullable<String>.value("postedAt"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            postedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             entries: [
-                PostV1LedgerJournalTransactionsGetResponseEntriesItem(
+                JournalTransactionsGetLedgerResponseEntriesItem(
                     id: "x",
                     accountId: "x",
                     accountCode: "accountCode",
@@ -2313,7 +2313,7 @@ import Api
                     credit: "credit",
                     description: Nullable<String>.value("description")
                 ),
-                PostV1LedgerJournalTransactionsGetResponseEntriesItem(
+                JournalTransactionsGetLedgerResponseEntriesItem(
                     id: "x",
                     accountId: "x",
                     accountCode: "accountCode",
@@ -2326,28 +2326,28 @@ import Api
                 )
             ]
         )
-        let response = try await client.ledger.postV1LedgerJournalTransactionsGet(
+        let response = try await client.ledger.journalTransactionsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerJournalTransactionsCreate1() async throws -> Void {
+    @Test func journalTransactionsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "id": "id",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "description": "description",
                   "documentType": "documentType",
                   "documentId": "documentId",
                   "partnerId": "partnerId",
                   "status": "draft",
-                  "createdAt": "createdAt",
-                  "postedAt": "postedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "postedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2357,22 +2357,22 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerJournalTransactionsCreateResponse(
+        let expectedResponse = JournalTransactionsCreateLedgerResponse(
             id: "id",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             description: Nullable<String>.value("description"),
             documentType: Nullable<String>.value("documentType"),
             documentId: Nullable<String>.value("documentId"),
             partnerId: Nullable<String>.value("partnerId"),
             status: .draft,
-            createdAt: "createdAt",
-            postedAt: Nullable<String>.value("postedAt")
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            postedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.ledger.postV1LedgerJournalTransactionsCreate(
+        let response = try await client.ledger.journalTransactionsCreate(
             request: .init(
-                date: "date",
+                date: CalendarDate("2026-07-01")!,
                 entries: [
-                    PostV1LedgerJournalTransactionsCreateRequestEntriesItem(
+                    JournalTransactionsCreateLedgerRequestEntriesItem(
                         accountCode: "accountCode"
                     )
                 ]
@@ -2382,21 +2382,21 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1LedgerJournalTransactionsCreate2() async throws -> Void {
+    @Test func journalTransactionsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "id": "x",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "description": "description",
                   "documentType": "documentType",
                   "documentId": "x",
                   "partnerId": "x",
                   "status": "draft",
-                  "createdAt": "createdAt",
-                  "postedAt": "postedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "postedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2406,25 +2406,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerJournalTransactionsCreateResponse(
+        let expectedResponse = JournalTransactionsCreateLedgerResponse(
             id: "x",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             description: Nullable<String>.value("description"),
             documentType: Nullable<String>.value("documentType"),
             documentId: Nullable<String>.value("x"),
             partnerId: Nullable<String>.value("x"),
             status: .draft,
-            createdAt: "createdAt",
-            postedAt: Nullable<String>.value("postedAt")
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            postedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.ledger.postV1LedgerJournalTransactionsCreate(
+        let response = try await client.ledger.journalTransactionsCreate(
             request: .init(
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 entries: [
-                    PostV1LedgerJournalTransactionsCreateRequestEntriesItem(
+                    JournalTransactionsCreateLedgerRequestEntriesItem(
                         accountCode: "x"
                     ),
-                    PostV1LedgerJournalTransactionsCreateRequestEntriesItem(
+                    JournalTransactionsCreateLedgerRequestEntriesItem(
                         accountCode: "x"
                     )
                 ]
@@ -2434,7 +2434,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func nationalStatementLayoutsAvailableToTheCompany1() async throws -> Void {
+    @Test func statementRowsSchemes1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2464,15 +2464,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerStatementRowsSchemesResponse(
+        let expectedResponse = StatementRowsSchemesLedgerResponse(
             rows: [
-                PostV1LedgerStatementRowsSchemesResponseRowsItem(
+                StatementRowsSchemesLedgerResponseRowsItem(
                     key: "key",
                     country: "country",
                     title: "title",
                     source: "source",
                     rows: [
-                        PostV1LedgerStatementRowsSchemesResponseRowsItemRowsItem(
+                        StatementRowsSchemesLedgerResponseRowsItemRowsItem(
                             code: "code",
                             label: "label",
                             statement: .balanceSheet
@@ -2481,14 +2481,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.ledger.nationalStatementLayoutsAvailableToTheCompany(
+        let response = try await client.ledger.statementRowsSchemes(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func nationalStatementLayoutsAvailableToTheCompany2() async throws -> Void {
+    @Test func statementRowsSchemes2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2541,38 +2541,38 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerStatementRowsSchemesResponse(
+        let expectedResponse = StatementRowsSchemesLedgerResponse(
             rows: [
-                PostV1LedgerStatementRowsSchemesResponseRowsItem(
+                StatementRowsSchemesLedgerResponseRowsItem(
                     key: "key",
                     country: "country",
                     title: "title",
                     source: "source",
                     rows: [
-                        PostV1LedgerStatementRowsSchemesResponseRowsItemRowsItem(
+                        StatementRowsSchemesLedgerResponseRowsItemRowsItem(
                             code: "code",
                             label: "label",
                             statement: .balanceSheet
                         ),
-                        PostV1LedgerStatementRowsSchemesResponseRowsItemRowsItem(
+                        StatementRowsSchemesLedgerResponseRowsItemRowsItem(
                             code: "code",
                             label: "label",
                             statement: .balanceSheet
                         )
                     ]
                 ),
-                PostV1LedgerStatementRowsSchemesResponseRowsItem(
+                StatementRowsSchemesLedgerResponseRowsItem(
                     key: "key",
                     country: "country",
                     title: "title",
                     source: "source",
                     rows: [
-                        PostV1LedgerStatementRowsSchemesResponseRowsItemRowsItem(
+                        StatementRowsSchemesLedgerResponseRowsItemRowsItem(
                             code: "code",
                             label: "label",
                             statement: .balanceSheet
                         ),
-                        PostV1LedgerStatementRowsSchemesResponseRowsItemRowsItem(
+                        StatementRowsSchemesLedgerResponseRowsItemRowsItem(
                             code: "code",
                             label: "label",
                             statement: .balanceSheet
@@ -2581,14 +2581,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.ledger.nationalStatementLayoutsAvailableToTheCompany(
+        let response = try await client.ledger.statementRowsSchemes(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func accountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriod1() async throws -> Void {
+    @Test func statementRowsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2607,8 +2607,8 @@ import Api
                       }
                     ]
                   },
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "accounts": [
                     {
                       "code": "code",
@@ -2639,34 +2639,34 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerStatementRowsListResponse(
-            scheme: PostV1LedgerStatementRowsListResponseScheme(
+        let expectedResponse = StatementRowsListLedgerResponse(
+            scheme: StatementRowsListLedgerResponseScheme(
                 key: "key",
                 country: "country",
                 title: "title",
                 source: "source",
                 rows: [
-                    PostV1LedgerStatementRowsListResponseSchemeRowsItem(
+                    StatementRowsListLedgerResponseSchemeRowsItem(
                         code: "code",
                         label: "label",
                         statement: .balanceSheet
                     )
                 ]
             ),
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             accounts: [
-                PostV1LedgerStatementRowsListResponseAccountsItem(
+                StatementRowsListLedgerResponseAccountsItem(
                     code: "code",
                     name: "name",
                     type: "type",
                     rowCode: Nullable<String>.value("rowCode"),
-                    source: Nullable<PostV1LedgerStatementRowsListResponseAccountsItemSource>.value(.mapping),
+                    source: Nullable<StatementRowsListLedgerResponseAccountsItemSource>.value(.mapping),
                     amount: "amount"
                 )
             ],
             rows: [
-                PostV1LedgerStatementRowsListResponseRowsItem(
+                StatementRowsListLedgerResponseRowsItem(
                     code: "code",
                     label: "label",
                     statement: .balanceSheet,
@@ -2677,14 +2677,14 @@ import Api
                 "unmapped"
             ]
         )
-        let response = try await client.ledger.accountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriod(
+        let response = try await client.ledger.statementRowsList(
             request: .init(scheme: "scheme"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func accountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriod2() async throws -> Void {
+    @Test func statementRowsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2708,8 +2708,8 @@ import Api
                       }
                     ]
                   },
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "accounts": [
                     {
                       "code": "code",
@@ -2755,53 +2755,53 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerStatementRowsListResponse(
-            scheme: PostV1LedgerStatementRowsListResponseScheme(
+        let expectedResponse = StatementRowsListLedgerResponse(
+            scheme: StatementRowsListLedgerResponseScheme(
                 key: "key",
                 country: "country",
                 title: "title",
                 source: "source",
                 rows: [
-                    PostV1LedgerStatementRowsListResponseSchemeRowsItem(
+                    StatementRowsListLedgerResponseSchemeRowsItem(
                         code: "code",
                         label: "label",
                         statement: .balanceSheet
                     ),
-                    PostV1LedgerStatementRowsListResponseSchemeRowsItem(
+                    StatementRowsListLedgerResponseSchemeRowsItem(
                         code: "code",
                         label: "label",
                         statement: .balanceSheet
                     )
                 ]
             ),
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             accounts: [
-                PostV1LedgerStatementRowsListResponseAccountsItem(
+                StatementRowsListLedgerResponseAccountsItem(
                     code: "code",
                     name: "name",
                     type: "type",
                     rowCode: Nullable<String>.value("rowCode"),
-                    source: Nullable<PostV1LedgerStatementRowsListResponseAccountsItemSource>.value(.mapping),
+                    source: Nullable<StatementRowsListLedgerResponseAccountsItemSource>.value(.mapping),
                     amount: "amount"
                 ),
-                PostV1LedgerStatementRowsListResponseAccountsItem(
+                StatementRowsListLedgerResponseAccountsItem(
                     code: "code",
                     name: "name",
                     type: "type",
                     rowCode: Nullable<String>.value("rowCode"),
-                    source: Nullable<PostV1LedgerStatementRowsListResponseAccountsItemSource>.value(.mapping),
+                    source: Nullable<StatementRowsListLedgerResponseAccountsItemSource>.value(.mapping),
                     amount: "amount"
                 )
             ],
             rows: [
-                PostV1LedgerStatementRowsListResponseRowsItem(
+                StatementRowsListLedgerResponseRowsItem(
                     code: "code",
                     label: "label",
                     statement: .balanceSheet,
                     amount: "amount"
                 ),
-                PostV1LedgerStatementRowsListResponseRowsItem(
+                StatementRowsListLedgerResponseRowsItem(
                     code: "code",
                     label: "label",
                     statement: .balanceSheet,
@@ -2813,14 +2813,14 @@ import Api
                 "unmapped"
             ]
         )
-        let response = try await client.ledger.accountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriod(
+        let response = try await client.ledger.statementRowsList(
             request: .init(scheme: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func mapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayout1() async throws -> Void {
+    @Test func statementRowsSet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2838,12 +2838,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerStatementRowsSetResponse(
+        let expectedResponse = StatementRowsSetLedgerResponse(
             scheme: "scheme",
             accountCode: "accountCode",
             rowCode: Nullable<String>.value("rowCode")
         )
-        let response = try await client.ledger.mapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayout(
+        let response = try await client.ledger.statementRowsSet(
             request: .init(
                 scheme: "scheme",
                 accountCode: "accountCode",
@@ -2854,7 +2854,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func mapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayout2() async throws -> Void {
+    @Test func statementRowsSet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2872,373 +2872,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1LedgerStatementRowsSetResponse(
+        let expectedResponse = StatementRowsSetLedgerResponse(
             scheme: "scheme",
             accountCode: "accountCode",
             rowCode: Nullable<String>.value("rowCode")
         )
-        let response = try await client.ledger.mapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayout(
+        let response = try await client.ledger.statementRowsSet(
             request: .init(
                 scheme: "x",
                 accountCode: "x",
                 rowCode: .null
             ),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func officersOfTheCompany1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "id",
-                      "name": "name",
-                      "role": "director",
-                      "personalCode": "personalCode",
-                      "birthDate": "birthDate",
-                      "appointedOn": "appointedOn",
-                      "powerNotary": "powerNotary",
-                      "resignedOn": "resignedOn",
-                      "signsAccounts": true
-                    }
-                  ]
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OfficersListResponse(
-            rows: [
-                PostV1OfficersListResponseRowsItem(
-                    id: "id",
-                    name: "name",
-                    role: .director,
-                    personalCode: Nullable<String>.value("personalCode"),
-                    birthDate: Nullable<String>.value("birthDate"),
-                    appointedOn: Nullable<String>.value("appointedOn"),
-                    powerNotary: Nullable<String>.value("powerNotary"),
-                    resignedOn: Nullable<String>.value("resignedOn"),
-                    signsAccounts: true
-                )
-            ]
-        )
-        let response = try await client.ledger.officersOfTheCompany(
-            request: .init(),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func officersOfTheCompany2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "x",
-                      "name": "name",
-                      "role": "director",
-                      "personalCode": "personalCode",
-                      "birthDate": "birthDate",
-                      "appointedOn": "appointedOn",
-                      "powerNotary": "powerNotary",
-                      "resignedOn": "resignedOn",
-                      "signsAccounts": true
-                    },
-                    {
-                      "id": "x",
-                      "name": "name",
-                      "role": "director",
-                      "personalCode": "personalCode",
-                      "birthDate": "birthDate",
-                      "appointedOn": "appointedOn",
-                      "powerNotary": "powerNotary",
-                      "resignedOn": "resignedOn",
-                      "signsAccounts": true
-                    }
-                  ]
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OfficersListResponse(
-            rows: [
-                PostV1OfficersListResponseRowsItem(
-                    id: "x",
-                    name: "name",
-                    role: .director,
-                    personalCode: Nullable<String>.value("personalCode"),
-                    birthDate: Nullable<String>.value("birthDate"),
-                    appointedOn: Nullable<String>.value("appointedOn"),
-                    powerNotary: Nullable<String>.value("powerNotary"),
-                    resignedOn: Nullable<String>.value("resignedOn"),
-                    signsAccounts: true
-                ),
-                PostV1OfficersListResponseRowsItem(
-                    id: "x",
-                    name: "name",
-                    role: .director,
-                    personalCode: Nullable<String>.value("personalCode"),
-                    birthDate: Nullable<String>.value("birthDate"),
-                    appointedOn: Nullable<String>.value("appointedOn"),
-                    powerNotary: Nullable<String>.value("powerNotary"),
-                    resignedOn: Nullable<String>.value("resignedOn"),
-                    signsAccounts: true
-                )
-            ]
-        )
-        let response = try await client.ledger.officersOfTheCompany(
-            request: .init(),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func recordAnOfficerOfTheCompany1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id",
-                  "name": "name",
-                  "role": "director",
-                  "personalCode": "personalCode",
-                  "birthDate": "birthDate",
-                  "appointedOn": "appointedOn",
-                  "powerNotary": "powerNotary",
-                  "resignedOn": "resignedOn",
-                  "signsAccounts": true
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OfficersCreateResponse(
-            id: "id",
-            name: "name",
-            role: .director,
-            personalCode: Nullable<String>.value("personalCode"),
-            birthDate: Nullable<String>.value("birthDate"),
-            appointedOn: Nullable<String>.value("appointedOn"),
-            powerNotary: Nullable<String>.value("powerNotary"),
-            resignedOn: Nullable<String>.value("resignedOn"),
-            signsAccounts: true
-        )
-        let response = try await client.ledger.recordAnOfficerOfTheCompany(
-            request: .init(
-                name: "name",
-                role: .director
-            ),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func recordAnOfficerOfTheCompany2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "name": "name",
-                  "role": "director",
-                  "personalCode": "personalCode",
-                  "birthDate": "birthDate",
-                  "appointedOn": "appointedOn",
-                  "powerNotary": "powerNotary",
-                  "resignedOn": "resignedOn",
-                  "signsAccounts": true
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OfficersCreateResponse(
-            id: "x",
-            name: "name",
-            role: .director,
-            personalCode: Nullable<String>.value("personalCode"),
-            birthDate: Nullable<String>.value("birthDate"),
-            appointedOn: Nullable<String>.value("appointedOn"),
-            powerNotary: Nullable<String>.value("powerNotary"),
-            resignedOn: Nullable<String>.value("resignedOn"),
-            signsAccounts: true
-        )
-        let response = try await client.ledger.recordAnOfficerOfTheCompany(
-            request: .init(
-                name: "x",
-                role: .director
-            ),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func changeARecordedOfficer1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id",
-                  "name": "name",
-                  "role": "director",
-                  "personalCode": "personalCode",
-                  "birthDate": "birthDate",
-                  "appointedOn": "appointedOn",
-                  "powerNotary": "powerNotary",
-                  "resignedOn": "resignedOn",
-                  "signsAccounts": true
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OfficersUpdateResponse(
-            id: "id",
-            name: "name",
-            role: .director,
-            personalCode: Nullable<String>.value("personalCode"),
-            birthDate: Nullable<String>.value("birthDate"),
-            appointedOn: Nullable<String>.value("appointedOn"),
-            powerNotary: Nullable<String>.value("powerNotary"),
-            resignedOn: Nullable<String>.value("resignedOn"),
-            signsAccounts: true
-        )
-        let response = try await client.ledger.changeARecordedOfficer(
-            request: .init(
-                id: "id",
-                name: "name",
-                role: .director
-            ),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func changeARecordedOfficer2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "name": "name",
-                  "role": "director",
-                  "personalCode": "personalCode",
-                  "birthDate": "birthDate",
-                  "appointedOn": "appointedOn",
-                  "powerNotary": "powerNotary",
-                  "resignedOn": "resignedOn",
-                  "signsAccounts": true
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OfficersUpdateResponse(
-            id: "x",
-            name: "name",
-            role: .director,
-            personalCode: Nullable<String>.value("personalCode"),
-            birthDate: Nullable<String>.value("birthDate"),
-            appointedOn: Nullable<String>.value("appointedOn"),
-            powerNotary: Nullable<String>.value("powerNotary"),
-            resignedOn: Nullable<String>.value("resignedOn"),
-            signsAccounts: true
-        )
-        let response = try await client.ledger.changeARecordedOfficer(
-            request: .init(
-                id: "x",
-                name: "x",
-                role: .director
-            ),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func removeARecordedOfficer1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OfficersDeleteResponse(
-            id: "id"
-        )
-        let response = try await client.ledger.removeARecordedOfficer(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func removeARecordedOfficer2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1OfficersDeleteResponse(
-            id: "x"
-        )
-        let response = try await client.ledger.removeARecordedOfficer(
-            request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

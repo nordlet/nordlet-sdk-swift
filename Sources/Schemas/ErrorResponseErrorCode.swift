@@ -9,5 +9,6 @@ public enum ErrorResponseErrorCode: String, Codable, Hashable, CaseIterable, Sen
     case idempotencyKeyReuse = "idempotency_key_reuse"
     case idempotencyInProgress = "idempotency_in_progress"
     case rateLimited = "rate_limited"
+    case paymentRequired = "payment_required"
     case `internal`
 }

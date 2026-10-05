@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("CalendarClient Wire Tests") struct CalendarClientWireTests {
-    @Test func postV1CalendarList1() async throws -> Void {
+    @Test func list1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -17,7 +17,7 @@ import Api
                       "ruleKey": "ruleKey",
                       "period": "period",
                       "title": "title",
-                      "dueDate": "dueDate",
+                      "dueDate": "2026-07-01",
                       "notes": "notes",
                       "done": true,
                       "href": "href",
@@ -35,23 +35,60 @@ import Api
                         "ruleKey": null,
                         "period": null,
                         "documentKey": null,
+                        "amendment": 1000000,
                         "origin": "origin",
                         "transportSystem": null,
-                        "submittedAt": null,
-                        "acceptedAt": null,
-                        "rejectedAt": null,
-                        "checkedAt": null,
-                        "nextCheckAt": null,
+                        "environment": null,
+                        "submittedAt": "2026-07-01T09:30:00Z",
+                        "acceptedAt": "2026-07-01T09:30:00Z",
+                        "rejectedAt": "2026-07-01T09:30:00Z",
+                        "checkedAt": "2026-07-01T09:30:00Z",
+                        "nextCheckAt": "2026-07-01T09:30:00Z",
                         "attempts": 1000000,
                         "deliveryError": null,
                         "sentSha256": null,
                         "certificateFingerprint": null,
                         "submittedByActorType": null,
                         "submittedByActorId": null,
-                        "createdAt": "createdAt",
-                        "updatedAt": "updatedAt"
+                        "createdAt": "2026-07-01T09:30:00Z",
+                        "updatedAt": "2026-07-01T09:30:00Z"
                       },
+                      "submissions": [
+                        {
+                          "id": "id",
+                          "obligation": "obligation",
+                          "periodYear": 1000000,
+                          "periodMonth": null,
+                          "variant": null,
+                          "status": "generated",
+                          "fileName": "fileName",
+                          "fileId": null,
+                          "externalRef": null,
+                          "message": null,
+                          "ruleKey": null,
+                          "period": null,
+                          "documentKey": null,
+                          "amendment": 1000000,
+                          "origin": "origin",
+                          "transportSystem": null,
+                          "environment": null,
+                          "submittedAt": "2026-07-01T09:30:00Z",
+                          "acceptedAt": "2026-07-01T09:30:00Z",
+                          "rejectedAt": "2026-07-01T09:30:00Z",
+                          "checkedAt": "2026-07-01T09:30:00Z",
+                          "nextCheckAt": "2026-07-01T09:30:00Z",
+                          "attempts": 1000000,
+                          "deliveryError": null,
+                          "sentSha256": null,
+                          "certificateFingerprint": null,
+                          "submittedByActorType": null,
+                          "submittedByActorId": null,
+                          "createdAt": "2026-07-01T09:30:00Z",
+                          "updatedAt": "2026-07-01T09:30:00Z"
+                        }
+                      ],
                       "canSubmit": true,
+                      "canAmend": true,
                       "canDownload": true,
                       "automated": true
                     }
@@ -65,20 +102,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarListResponse(
+        let expectedResponse = ListCalendarResponse(
             rows: [
-                PostV1CalendarListResponseRowsItem(
+                ListCalendarResponseRowsItem(
                     key: "key",
                     id: Nullable<String>.value("id"),
                     kind: .custom,
                     ruleKey: Nullable<String>.value("ruleKey"),
                     period: Nullable<String>.value("period"),
                     title: "title",
-                    dueDate: "dueDate",
+                    dueDate: CalendarDate("2026-07-01")!,
                     notes: Nullable<String>.value("notes"),
                     done: true,
                     href: Nullable<String>.value("href"),
-                    submission: Nullable<PostV1CalendarListResponseRowsItemSubmission>.value(PostV1CalendarListResponseRowsItemSubmission(
+                    submission: Nullable<ListCalendarResponseRowsItemSubmission>.value(ListCalendarResponseRowsItemSubmission(
                         id: "id",
                         obligation: "obligation",
                         periodYear: 1000000,
@@ -92,36 +129,73 @@ import Api
                         ruleKey: .null,
                         period: .null,
                         documentKey: .null,
+                        amendment: 1000000,
                         origin: "origin",
                         transportSystem: .null,
-                        submittedAt: .null,
-                        acceptedAt: .null,
-                        rejectedAt: .null,
-                        checkedAt: .null,
-                        nextCheckAt: .null,
+                        environment: .null,
+                        submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                        acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                        rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                        checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                        nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                         attempts: 1000000,
                         deliveryError: .null,
                         sentSha256: .null,
                         certificateFingerprint: .null,
                         submittedByActorType: .null,
                         submittedByActorId: .null,
-                        createdAt: "createdAt",
-                        updatedAt: "updatedAt"
+                        createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                        updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                     )),
+                    submissions: [
+                        ListCalendarResponseRowsItemSubmissionsItem(
+                            id: "id",
+                            obligation: "obligation",
+                            periodYear: 1000000,
+                            periodMonth: .null,
+                            variant: .null,
+                            status: .generated,
+                            fileName: "fileName",
+                            fileId: .null,
+                            externalRef: .null,
+                            message: .null,
+                            ruleKey: .null,
+                            period: .null,
+                            documentKey: .null,
+                            amendment: 1000000,
+                            origin: "origin",
+                            transportSystem: .null,
+                            environment: .null,
+                            submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                            acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                            rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                            checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                            nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                            attempts: 1000000,
+                            deliveryError: .null,
+                            sentSha256: .null,
+                            certificateFingerprint: .null,
+                            submittedByActorType: .null,
+                            submittedByActorId: .null,
+                            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                        )
+                    ],
                     canSubmit: true,
+                    canAmend: true,
                     canDownload: true,
                     automated: true
                 )
             ]
         )
-        let response = try await client.calendar.postV1CalendarList(
+        let response = try await client.calendar.list(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CalendarList2() async throws -> Void {
+    @Test func list2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -135,7 +209,7 @@ import Api
                       "ruleKey": "ruleKey",
                       "period": "period",
                       "title": "title",
-                      "dueDate": "dueDate",
+                      "dueDate": "2023-01-15",
                       "notes": "notes",
                       "done": true,
                       "href": "href",
@@ -153,23 +227,92 @@ import Api
                         "ruleKey": "ruleKey",
                         "period": "period",
                         "documentKey": "documentKey",
+                        "amendment": 1000000,
                         "origin": "origin",
                         "transportSystem": "transportSystem",
-                        "submittedAt": "submittedAt",
-                        "acceptedAt": "acceptedAt",
-                        "rejectedAt": "rejectedAt",
-                        "checkedAt": "checkedAt",
-                        "nextCheckAt": "nextCheckAt",
+                        "environment": "test",
+                        "submittedAt": "2024-01-15T09:30:00Z",
+                        "acceptedAt": "2024-01-15T09:30:00Z",
+                        "rejectedAt": "2024-01-15T09:30:00Z",
+                        "checkedAt": "2024-01-15T09:30:00Z",
+                        "nextCheckAt": "2024-01-15T09:30:00Z",
                         "attempts": 1000000,
                         "deliveryError": "deliveryError",
                         "sentSha256": "sentSha256",
                         "certificateFingerprint": "certificateFingerprint",
                         "submittedByActorType": "submittedByActorType",
                         "submittedByActorId": "submittedByActorId",
-                        "createdAt": "createdAt",
-                        "updatedAt": "updatedAt"
+                        "createdAt": "2024-01-15T09:30:00Z",
+                        "updatedAt": "2024-01-15T09:30:00Z"
                       },
+                      "submissions": [
+                        {
+                          "id": "x",
+                          "obligation": "obligation",
+                          "periodYear": 1000000,
+                          "periodMonth": 1000000,
+                          "variant": "variant",
+                          "status": "generated",
+                          "fileName": "fileName",
+                          "fileId": "x",
+                          "externalRef": "externalRef",
+                          "message": "message",
+                          "ruleKey": "ruleKey",
+                          "period": "period",
+                          "documentKey": "documentKey",
+                          "amendment": 1000000,
+                          "origin": "origin",
+                          "transportSystem": "transportSystem",
+                          "environment": "test",
+                          "submittedAt": "2024-01-15T09:30:00Z",
+                          "acceptedAt": "2024-01-15T09:30:00Z",
+                          "rejectedAt": "2024-01-15T09:30:00Z",
+                          "checkedAt": "2024-01-15T09:30:00Z",
+                          "nextCheckAt": "2024-01-15T09:30:00Z",
+                          "attempts": 1000000,
+                          "deliveryError": "deliveryError",
+                          "sentSha256": "sentSha256",
+                          "certificateFingerprint": "certificateFingerprint",
+                          "submittedByActorType": "submittedByActorType",
+                          "submittedByActorId": "submittedByActorId",
+                          "createdAt": "2024-01-15T09:30:00Z",
+                          "updatedAt": "2024-01-15T09:30:00Z"
+                        },
+                        {
+                          "id": "x",
+                          "obligation": "obligation",
+                          "periodYear": 1000000,
+                          "periodMonth": 1000000,
+                          "variant": "variant",
+                          "status": "generated",
+                          "fileName": "fileName",
+                          "fileId": "x",
+                          "externalRef": "externalRef",
+                          "message": "message",
+                          "ruleKey": "ruleKey",
+                          "period": "period",
+                          "documentKey": "documentKey",
+                          "amendment": 1000000,
+                          "origin": "origin",
+                          "transportSystem": "transportSystem",
+                          "environment": "test",
+                          "submittedAt": "2024-01-15T09:30:00Z",
+                          "acceptedAt": "2024-01-15T09:30:00Z",
+                          "rejectedAt": "2024-01-15T09:30:00Z",
+                          "checkedAt": "2024-01-15T09:30:00Z",
+                          "nextCheckAt": "2024-01-15T09:30:00Z",
+                          "attempts": 1000000,
+                          "deliveryError": "deliveryError",
+                          "sentSha256": "sentSha256",
+                          "certificateFingerprint": "certificateFingerprint",
+                          "submittedByActorType": "submittedByActorType",
+                          "submittedByActorId": "submittedByActorId",
+                          "createdAt": "2024-01-15T09:30:00Z",
+                          "updatedAt": "2024-01-15T09:30:00Z"
+                        }
+                      ],
                       "canSubmit": true,
+                      "canAmend": true,
                       "canDownload": true,
                       "automated": true
                     },
@@ -180,7 +323,7 @@ import Api
                       "ruleKey": "ruleKey",
                       "period": "period",
                       "title": "title",
-                      "dueDate": "dueDate",
+                      "dueDate": "2023-01-15",
                       "notes": "notes",
                       "done": true,
                       "href": "href",
@@ -198,23 +341,92 @@ import Api
                         "ruleKey": "ruleKey",
                         "period": "period",
                         "documentKey": "documentKey",
+                        "amendment": 1000000,
                         "origin": "origin",
                         "transportSystem": "transportSystem",
-                        "submittedAt": "submittedAt",
-                        "acceptedAt": "acceptedAt",
-                        "rejectedAt": "rejectedAt",
-                        "checkedAt": "checkedAt",
-                        "nextCheckAt": "nextCheckAt",
+                        "environment": "test",
+                        "submittedAt": "2024-01-15T09:30:00Z",
+                        "acceptedAt": "2024-01-15T09:30:00Z",
+                        "rejectedAt": "2024-01-15T09:30:00Z",
+                        "checkedAt": "2024-01-15T09:30:00Z",
+                        "nextCheckAt": "2024-01-15T09:30:00Z",
                         "attempts": 1000000,
                         "deliveryError": "deliveryError",
                         "sentSha256": "sentSha256",
                         "certificateFingerprint": "certificateFingerprint",
                         "submittedByActorType": "submittedByActorType",
                         "submittedByActorId": "submittedByActorId",
-                        "createdAt": "createdAt",
-                        "updatedAt": "updatedAt"
+                        "createdAt": "2024-01-15T09:30:00Z",
+                        "updatedAt": "2024-01-15T09:30:00Z"
                       },
+                      "submissions": [
+                        {
+                          "id": "x",
+                          "obligation": "obligation",
+                          "periodYear": 1000000,
+                          "periodMonth": 1000000,
+                          "variant": "variant",
+                          "status": "generated",
+                          "fileName": "fileName",
+                          "fileId": "x",
+                          "externalRef": "externalRef",
+                          "message": "message",
+                          "ruleKey": "ruleKey",
+                          "period": "period",
+                          "documentKey": "documentKey",
+                          "amendment": 1000000,
+                          "origin": "origin",
+                          "transportSystem": "transportSystem",
+                          "environment": "test",
+                          "submittedAt": "2024-01-15T09:30:00Z",
+                          "acceptedAt": "2024-01-15T09:30:00Z",
+                          "rejectedAt": "2024-01-15T09:30:00Z",
+                          "checkedAt": "2024-01-15T09:30:00Z",
+                          "nextCheckAt": "2024-01-15T09:30:00Z",
+                          "attempts": 1000000,
+                          "deliveryError": "deliveryError",
+                          "sentSha256": "sentSha256",
+                          "certificateFingerprint": "certificateFingerprint",
+                          "submittedByActorType": "submittedByActorType",
+                          "submittedByActorId": "submittedByActorId",
+                          "createdAt": "2024-01-15T09:30:00Z",
+                          "updatedAt": "2024-01-15T09:30:00Z"
+                        },
+                        {
+                          "id": "x",
+                          "obligation": "obligation",
+                          "periodYear": 1000000,
+                          "periodMonth": 1000000,
+                          "variant": "variant",
+                          "status": "generated",
+                          "fileName": "fileName",
+                          "fileId": "x",
+                          "externalRef": "externalRef",
+                          "message": "message",
+                          "ruleKey": "ruleKey",
+                          "period": "period",
+                          "documentKey": "documentKey",
+                          "amendment": 1000000,
+                          "origin": "origin",
+                          "transportSystem": "transportSystem",
+                          "environment": "test",
+                          "submittedAt": "2024-01-15T09:30:00Z",
+                          "acceptedAt": "2024-01-15T09:30:00Z",
+                          "rejectedAt": "2024-01-15T09:30:00Z",
+                          "checkedAt": "2024-01-15T09:30:00Z",
+                          "nextCheckAt": "2024-01-15T09:30:00Z",
+                          "attempts": 1000000,
+                          "deliveryError": "deliveryError",
+                          "sentSha256": "sentSha256",
+                          "certificateFingerprint": "certificateFingerprint",
+                          "submittedByActorType": "submittedByActorType",
+                          "submittedByActorId": "submittedByActorId",
+                          "createdAt": "2024-01-15T09:30:00Z",
+                          "updatedAt": "2024-01-15T09:30:00Z"
+                        }
+                      ],
                       "canSubmit": true,
+                      "canAmend": true,
                       "canDownload": true,
                       "automated": true
                     }
@@ -228,20 +440,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarListResponse(
+        let expectedResponse = ListCalendarResponse(
             rows: [
-                PostV1CalendarListResponseRowsItem(
+                ListCalendarResponseRowsItem(
                     key: "x",
                     id: Nullable<String>.value("x"),
                     kind: .custom,
                     ruleKey: Nullable<String>.value("ruleKey"),
                     period: Nullable<String>.value("period"),
                     title: "title",
-                    dueDate: "dueDate",
+                    dueDate: CalendarDate("2023-01-15")!,
                     notes: Nullable<String>.value("notes"),
                     done: true,
                     href: Nullable<String>.value("href"),
-                    submission: Nullable<PostV1CalendarListResponseRowsItemSubmission>.value(PostV1CalendarListResponseRowsItemSubmission(
+                    submission: Nullable<ListCalendarResponseRowsItemSubmission>.value(ListCalendarResponseRowsItemSubmission(
                         id: "x",
                         obligation: "obligation",
                         periodYear: 1000000,
@@ -255,38 +467,107 @@ import Api
                         ruleKey: Nullable<String>.value("ruleKey"),
                         period: Nullable<String>.value("period"),
                         documentKey: Nullable<String>.value("documentKey"),
+                        amendment: 1000000,
                         origin: "origin",
                         transportSystem: Nullable<String>.value("transportSystem"),
-                        submittedAt: Nullable<String>.value("submittedAt"),
-                        acceptedAt: Nullable<String>.value("acceptedAt"),
-                        rejectedAt: Nullable<String>.value("rejectedAt"),
-                        checkedAt: Nullable<String>.value("checkedAt"),
-                        nextCheckAt: Nullable<String>.value("nextCheckAt"),
+                        environment: Nullable<ListCalendarResponseRowsItemSubmissionEnvironment>.value(.test),
+                        submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                        acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                        rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                        checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                        nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                         attempts: 1000000,
                         deliveryError: Nullable<String>.value("deliveryError"),
                         sentSha256: Nullable<String>.value("sentSha256"),
                         certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                         submittedByActorType: Nullable<String>.value("submittedByActorType"),
                         submittedByActorId: Nullable<String>.value("submittedByActorId"),
-                        createdAt: "createdAt",
-                        updatedAt: "updatedAt"
+                        createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                        updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                     )),
+                    submissions: [
+                        ListCalendarResponseRowsItemSubmissionsItem(
+                            id: "x",
+                            obligation: "obligation",
+                            periodYear: 1000000,
+                            periodMonth: Nullable<Int64>.value(1000000),
+                            variant: Nullable<String>.value("variant"),
+                            status: .generated,
+                            fileName: "fileName",
+                            fileId: Nullable<String>.value("x"),
+                            externalRef: Nullable<String>.value("externalRef"),
+                            message: Nullable<String>.value("message"),
+                            ruleKey: Nullable<String>.value("ruleKey"),
+                            period: Nullable<String>.value("period"),
+                            documentKey: Nullable<String>.value("documentKey"),
+                            amendment: 1000000,
+                            origin: "origin",
+                            transportSystem: Nullable<String>.value("transportSystem"),
+                            environment: Nullable<ListCalendarResponseRowsItemSubmissionsItemEnvironment>.value(.test),
+                            submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            attempts: 1000000,
+                            deliveryError: Nullable<String>.value("deliveryError"),
+                            sentSha256: Nullable<String>.value("sentSha256"),
+                            certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+                            submittedByActorType: Nullable<String>.value("submittedByActorType"),
+                            submittedByActorId: Nullable<String>.value("submittedByActorId"),
+                            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                        ),
+                        ListCalendarResponseRowsItemSubmissionsItem(
+                            id: "x",
+                            obligation: "obligation",
+                            periodYear: 1000000,
+                            periodMonth: Nullable<Int64>.value(1000000),
+                            variant: Nullable<String>.value("variant"),
+                            status: .generated,
+                            fileName: "fileName",
+                            fileId: Nullable<String>.value("x"),
+                            externalRef: Nullable<String>.value("externalRef"),
+                            message: Nullable<String>.value("message"),
+                            ruleKey: Nullable<String>.value("ruleKey"),
+                            period: Nullable<String>.value("period"),
+                            documentKey: Nullable<String>.value("documentKey"),
+                            amendment: 1000000,
+                            origin: "origin",
+                            transportSystem: Nullable<String>.value("transportSystem"),
+                            environment: Nullable<ListCalendarResponseRowsItemSubmissionsItemEnvironment>.value(.test),
+                            submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            attempts: 1000000,
+                            deliveryError: Nullable<String>.value("deliveryError"),
+                            sentSha256: Nullable<String>.value("sentSha256"),
+                            certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+                            submittedByActorType: Nullable<String>.value("submittedByActorType"),
+                            submittedByActorId: Nullable<String>.value("submittedByActorId"),
+                            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                        )
+                    ],
                     canSubmit: true,
+                    canAmend: true,
                     canDownload: true,
                     automated: true
                 ),
-                PostV1CalendarListResponseRowsItem(
+                ListCalendarResponseRowsItem(
                     key: "x",
                     id: Nullable<String>.value("x"),
                     kind: .custom,
                     ruleKey: Nullable<String>.value("ruleKey"),
                     period: Nullable<String>.value("period"),
                     title: "title",
-                    dueDate: "dueDate",
+                    dueDate: CalendarDate("2023-01-15")!,
                     notes: Nullable<String>.value("notes"),
                     done: true,
                     href: Nullable<String>.value("href"),
-                    submission: Nullable<PostV1CalendarListResponseRowsItemSubmission>.value(PostV1CalendarListResponseRowsItemSubmission(
+                    submission: Nullable<ListCalendarResponseRowsItemSubmission>.value(ListCalendarResponseRowsItemSubmission(
                         id: "x",
                         obligation: "obligation",
                         periodYear: 1000000,
@@ -300,36 +581,105 @@ import Api
                         ruleKey: Nullable<String>.value("ruleKey"),
                         period: Nullable<String>.value("period"),
                         documentKey: Nullable<String>.value("documentKey"),
+                        amendment: 1000000,
                         origin: "origin",
                         transportSystem: Nullable<String>.value("transportSystem"),
-                        submittedAt: Nullable<String>.value("submittedAt"),
-                        acceptedAt: Nullable<String>.value("acceptedAt"),
-                        rejectedAt: Nullable<String>.value("rejectedAt"),
-                        checkedAt: Nullable<String>.value("checkedAt"),
-                        nextCheckAt: Nullable<String>.value("nextCheckAt"),
+                        environment: Nullable<ListCalendarResponseRowsItemSubmissionEnvironment>.value(.test),
+                        submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                        acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                        rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                        checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                        nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                         attempts: 1000000,
                         deliveryError: Nullable<String>.value("deliveryError"),
                         sentSha256: Nullable<String>.value("sentSha256"),
                         certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                         submittedByActorType: Nullable<String>.value("submittedByActorType"),
                         submittedByActorId: Nullable<String>.value("submittedByActorId"),
-                        createdAt: "createdAt",
-                        updatedAt: "updatedAt"
+                        createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                        updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                     )),
+                    submissions: [
+                        ListCalendarResponseRowsItemSubmissionsItem(
+                            id: "x",
+                            obligation: "obligation",
+                            periodYear: 1000000,
+                            periodMonth: Nullable<Int64>.value(1000000),
+                            variant: Nullable<String>.value("variant"),
+                            status: .generated,
+                            fileName: "fileName",
+                            fileId: Nullable<String>.value("x"),
+                            externalRef: Nullable<String>.value("externalRef"),
+                            message: Nullable<String>.value("message"),
+                            ruleKey: Nullable<String>.value("ruleKey"),
+                            period: Nullable<String>.value("period"),
+                            documentKey: Nullable<String>.value("documentKey"),
+                            amendment: 1000000,
+                            origin: "origin",
+                            transportSystem: Nullable<String>.value("transportSystem"),
+                            environment: Nullable<ListCalendarResponseRowsItemSubmissionsItemEnvironment>.value(.test),
+                            submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            attempts: 1000000,
+                            deliveryError: Nullable<String>.value("deliveryError"),
+                            sentSha256: Nullable<String>.value("sentSha256"),
+                            certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+                            submittedByActorType: Nullable<String>.value("submittedByActorType"),
+                            submittedByActorId: Nullable<String>.value("submittedByActorId"),
+                            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                        ),
+                        ListCalendarResponseRowsItemSubmissionsItem(
+                            id: "x",
+                            obligation: "obligation",
+                            periodYear: 1000000,
+                            periodMonth: Nullable<Int64>.value(1000000),
+                            variant: Nullable<String>.value("variant"),
+                            status: .generated,
+                            fileName: "fileName",
+                            fileId: Nullable<String>.value("x"),
+                            externalRef: Nullable<String>.value("externalRef"),
+                            message: Nullable<String>.value("message"),
+                            ruleKey: Nullable<String>.value("ruleKey"),
+                            period: Nullable<String>.value("period"),
+                            documentKey: Nullable<String>.value("documentKey"),
+                            amendment: 1000000,
+                            origin: "origin",
+                            transportSystem: Nullable<String>.value("transportSystem"),
+                            environment: Nullable<ListCalendarResponseRowsItemSubmissionsItemEnvironment>.value(.test),
+                            submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                            attempts: 1000000,
+                            deliveryError: Nullable<String>.value("deliveryError"),
+                            sentSha256: Nullable<String>.value("sentSha256"),
+                            certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+                            submittedByActorType: Nullable<String>.value("submittedByActorType"),
+                            submittedByActorId: Nullable<String>.value("submittedByActorId"),
+                            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                        )
+                    ],
                     canSubmit: true,
+                    canAmend: true,
                     canDownload: true,
                     automated: true
                 )
             ]
         )
-        let response = try await client.calendar.postV1CalendarList(
+        let response = try await client.calendar.list(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CalendarGet1() async throws -> Void {
+    @Test func get1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -341,7 +691,7 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "title": "title",
-                  "dueDate": "dueDate",
+                  "dueDate": "2026-07-01",
                   "notes": "notes",
                   "done": true,
                   "href": "href",
@@ -359,23 +709,60 @@ import Api
                     "ruleKey": "ruleKey",
                     "period": "period",
                     "documentKey": "documentKey",
+                    "amendment": 1000000,
                     "origin": "origin",
                     "transportSystem": "transportSystem",
-                    "submittedAt": "submittedAt",
-                    "acceptedAt": "acceptedAt",
-                    "rejectedAt": "rejectedAt",
-                    "checkedAt": "checkedAt",
-                    "nextCheckAt": "nextCheckAt",
+                    "environment": "test",
+                    "submittedAt": "2026-07-01T09:30:00Z",
+                    "acceptedAt": "2026-07-01T09:30:00Z",
+                    "rejectedAt": "2026-07-01T09:30:00Z",
+                    "checkedAt": "2026-07-01T09:30:00Z",
+                    "nextCheckAt": "2026-07-01T09:30:00Z",
                     "attempts": 1000000,
                     "deliveryError": "deliveryError",
                     "sentSha256": "sentSha256",
                     "certificateFingerprint": "certificateFingerprint",
                     "submittedByActorType": "submittedByActorType",
                     "submittedByActorId": "submittedByActorId",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt"
+                    "createdAt": "2026-07-01T09:30:00Z",
+                    "updatedAt": "2026-07-01T09:30:00Z"
                   },
+                  "submissions": [
+                    {
+                      "id": "id",
+                      "obligation": "obligation",
+                      "periodYear": 1000000,
+                      "periodMonth": 1000000,
+                      "variant": "variant",
+                      "status": "generated",
+                      "fileName": "fileName",
+                      "fileId": "fileId",
+                      "externalRef": "externalRef",
+                      "message": "message",
+                      "ruleKey": "ruleKey",
+                      "period": "period",
+                      "documentKey": "documentKey",
+                      "amendment": 1000000,
+                      "origin": "origin",
+                      "transportSystem": "transportSystem",
+                      "environment": "test",
+                      "submittedAt": "2026-07-01T09:30:00Z",
+                      "acceptedAt": "2026-07-01T09:30:00Z",
+                      "rejectedAt": "2026-07-01T09:30:00Z",
+                      "checkedAt": "2026-07-01T09:30:00Z",
+                      "nextCheckAt": "2026-07-01T09:30:00Z",
+                      "attempts": 1000000,
+                      "deliveryError": "deliveryError",
+                      "sentSha256": "sentSha256",
+                      "certificateFingerprint": "certificateFingerprint",
+                      "submittedByActorType": "submittedByActorType",
+                      "submittedByActorId": "submittedByActorId",
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
                   "canSubmit": true,
+                  "canAmend": true,
                   "canDownload": true,
                   "automated": true
                 }
@@ -387,18 +774,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarGetResponse(
+        let expectedResponse = GetCalendarResponse(
             key: "key",
             id: Nullable<String>.value("id"),
             kind: .custom,
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             title: "title",
-            dueDate: "dueDate",
+            dueDate: CalendarDate("2026-07-01")!,
             notes: Nullable<String>.value("notes"),
             done: true,
             href: Nullable<String>.value("href"),
-            submission: Nullable<PostV1CalendarGetResponseSubmission>.value(PostV1CalendarGetResponseSubmission(
+            submission: Nullable<GetCalendarResponseSubmission>.value(GetCalendarResponseSubmission(
                 id: "id",
                 obligation: "obligation",
                 periodYear: 1000000,
@@ -412,34 +799,71 @@ import Api
                 ruleKey: Nullable<String>.value("ruleKey"),
                 period: Nullable<String>.value("period"),
                 documentKey: Nullable<String>.value("documentKey"),
+                amendment: 1000000,
                 origin: "origin",
                 transportSystem: Nullable<String>.value("transportSystem"),
-                submittedAt: Nullable<String>.value("submittedAt"),
-                acceptedAt: Nullable<String>.value("acceptedAt"),
-                rejectedAt: Nullable<String>.value("rejectedAt"),
-                checkedAt: Nullable<String>.value("checkedAt"),
-                nextCheckAt: Nullable<String>.value("nextCheckAt"),
+                environment: Nullable<GetCalendarResponseSubmissionEnvironment>.value(.test),
+                submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                 attempts: 1000000,
                 deliveryError: Nullable<String>.value("deliveryError"),
                 sentSha256: Nullable<String>.value("sentSha256"),
                 certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                 submittedByActorType: Nullable<String>.value("submittedByActorType"),
                 submittedByActorId: Nullable<String>.value("submittedByActorId"),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt"
+                createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
             )),
+            submissions: [
+                GetCalendarResponseSubmissionsItem(
+                    id: "id",
+                    obligation: "obligation",
+                    periodYear: 1000000,
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    variant: Nullable<String>.value("variant"),
+                    status: .generated,
+                    fileName: "fileName",
+                    fileId: Nullable<String>.value("fileId"),
+                    externalRef: Nullable<String>.value("externalRef"),
+                    message: Nullable<String>.value("message"),
+                    ruleKey: Nullable<String>.value("ruleKey"),
+                    period: Nullable<String>.value("period"),
+                    documentKey: Nullable<String>.value("documentKey"),
+                    amendment: 1000000,
+                    origin: "origin",
+                    transportSystem: Nullable<String>.value("transportSystem"),
+                    environment: Nullable<GetCalendarResponseSubmissionsItemEnvironment>.value(.test),
+                    submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    attempts: 1000000,
+                    deliveryError: Nullable<String>.value("deliveryError"),
+                    sentSha256: Nullable<String>.value("sentSha256"),
+                    certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+                    submittedByActorType: Nullable<String>.value("submittedByActorType"),
+                    submittedByActorId: Nullable<String>.value("submittedByActorId"),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
             canSubmit: true,
+            canAmend: true,
             canDownload: true,
             automated: true
         )
-        let response = try await client.calendar.postV1CalendarGet(
+        let response = try await client.calendar.get(
             request: .init(key: "key"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CalendarGet2() async throws -> Void {
+    @Test func get2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -451,7 +875,7 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "title": "title",
-                  "dueDate": "dueDate",
+                  "dueDate": "2023-01-15",
                   "notes": "notes",
                   "done": true,
                   "href": "href",
@@ -469,23 +893,92 @@ import Api
                     "ruleKey": "ruleKey",
                     "period": "period",
                     "documentKey": "documentKey",
+                    "amendment": 1000000,
                     "origin": "origin",
                     "transportSystem": "transportSystem",
-                    "submittedAt": "submittedAt",
-                    "acceptedAt": "acceptedAt",
-                    "rejectedAt": "rejectedAt",
-                    "checkedAt": "checkedAt",
-                    "nextCheckAt": "nextCheckAt",
+                    "environment": "test",
+                    "submittedAt": "2024-01-15T09:30:00Z",
+                    "acceptedAt": "2024-01-15T09:30:00Z",
+                    "rejectedAt": "2024-01-15T09:30:00Z",
+                    "checkedAt": "2024-01-15T09:30:00Z",
+                    "nextCheckAt": "2024-01-15T09:30:00Z",
                     "attempts": 1000000,
                     "deliveryError": "deliveryError",
                     "sentSha256": "sentSha256",
                     "certificateFingerprint": "certificateFingerprint",
                     "submittedByActorType": "submittedByActorType",
                     "submittedByActorId": "submittedByActorId",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt"
+                    "createdAt": "2024-01-15T09:30:00Z",
+                    "updatedAt": "2024-01-15T09:30:00Z"
                   },
+                  "submissions": [
+                    {
+                      "id": "x",
+                      "obligation": "obligation",
+                      "periodYear": 1000000,
+                      "periodMonth": 1000000,
+                      "variant": "variant",
+                      "status": "generated",
+                      "fileName": "fileName",
+                      "fileId": "x",
+                      "externalRef": "externalRef",
+                      "message": "message",
+                      "ruleKey": "ruleKey",
+                      "period": "period",
+                      "documentKey": "documentKey",
+                      "amendment": 1000000,
+                      "origin": "origin",
+                      "transportSystem": "transportSystem",
+                      "environment": "test",
+                      "submittedAt": "2024-01-15T09:30:00Z",
+                      "acceptedAt": "2024-01-15T09:30:00Z",
+                      "rejectedAt": "2024-01-15T09:30:00Z",
+                      "checkedAt": "2024-01-15T09:30:00Z",
+                      "nextCheckAt": "2024-01-15T09:30:00Z",
+                      "attempts": 1000000,
+                      "deliveryError": "deliveryError",
+                      "sentSha256": "sentSha256",
+                      "certificateFingerprint": "certificateFingerprint",
+                      "submittedByActorType": "submittedByActorType",
+                      "submittedByActorId": "submittedByActorId",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "obligation": "obligation",
+                      "periodYear": 1000000,
+                      "periodMonth": 1000000,
+                      "variant": "variant",
+                      "status": "generated",
+                      "fileName": "fileName",
+                      "fileId": "x",
+                      "externalRef": "externalRef",
+                      "message": "message",
+                      "ruleKey": "ruleKey",
+                      "period": "period",
+                      "documentKey": "documentKey",
+                      "amendment": 1000000,
+                      "origin": "origin",
+                      "transportSystem": "transportSystem",
+                      "environment": "test",
+                      "submittedAt": "2024-01-15T09:30:00Z",
+                      "acceptedAt": "2024-01-15T09:30:00Z",
+                      "rejectedAt": "2024-01-15T09:30:00Z",
+                      "checkedAt": "2024-01-15T09:30:00Z",
+                      "nextCheckAt": "2024-01-15T09:30:00Z",
+                      "attempts": 1000000,
+                      "deliveryError": "deliveryError",
+                      "sentSha256": "sentSha256",
+                      "certificateFingerprint": "certificateFingerprint",
+                      "submittedByActorType": "submittedByActorType",
+                      "submittedByActorId": "submittedByActorId",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
                   "canSubmit": true,
+                  "canAmend": true,
                   "canDownload": true,
                   "automated": true
                 }
@@ -497,18 +990,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarGetResponse(
+        let expectedResponse = GetCalendarResponse(
             key: "x",
             id: Nullable<String>.value("x"),
             kind: .custom,
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             title: "title",
-            dueDate: "dueDate",
+            dueDate: CalendarDate("2023-01-15")!,
             notes: Nullable<String>.value("notes"),
             done: true,
             href: Nullable<String>.value("href"),
-            submission: Nullable<PostV1CalendarGetResponseSubmission>.value(PostV1CalendarGetResponseSubmission(
+            submission: Nullable<GetCalendarResponseSubmission>.value(GetCalendarResponseSubmission(
                 id: "x",
                 obligation: "obligation",
                 periodYear: 1000000,
@@ -522,34 +1015,103 @@ import Api
                 ruleKey: Nullable<String>.value("ruleKey"),
                 period: Nullable<String>.value("period"),
                 documentKey: Nullable<String>.value("documentKey"),
+                amendment: 1000000,
                 origin: "origin",
                 transportSystem: Nullable<String>.value("transportSystem"),
-                submittedAt: Nullable<String>.value("submittedAt"),
-                acceptedAt: Nullable<String>.value("acceptedAt"),
-                rejectedAt: Nullable<String>.value("rejectedAt"),
-                checkedAt: Nullable<String>.value("checkedAt"),
-                nextCheckAt: Nullable<String>.value("nextCheckAt"),
+                environment: Nullable<GetCalendarResponseSubmissionEnvironment>.value(.test),
+                submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                 attempts: 1000000,
                 deliveryError: Nullable<String>.value("deliveryError"),
                 sentSha256: Nullable<String>.value("sentSha256"),
                 certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                 submittedByActorType: Nullable<String>.value("submittedByActorType"),
                 submittedByActorId: Nullable<String>.value("submittedByActorId"),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt"
+                createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
             )),
+            submissions: [
+                GetCalendarResponseSubmissionsItem(
+                    id: "x",
+                    obligation: "obligation",
+                    periodYear: 1000000,
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    variant: Nullable<String>.value("variant"),
+                    status: .generated,
+                    fileName: "fileName",
+                    fileId: Nullable<String>.value("x"),
+                    externalRef: Nullable<String>.value("externalRef"),
+                    message: Nullable<String>.value("message"),
+                    ruleKey: Nullable<String>.value("ruleKey"),
+                    period: Nullable<String>.value("period"),
+                    documentKey: Nullable<String>.value("documentKey"),
+                    amendment: 1000000,
+                    origin: "origin",
+                    transportSystem: Nullable<String>.value("transportSystem"),
+                    environment: Nullable<GetCalendarResponseSubmissionsItemEnvironment>.value(.test),
+                    submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    attempts: 1000000,
+                    deliveryError: Nullable<String>.value("deliveryError"),
+                    sentSha256: Nullable<String>.value("sentSha256"),
+                    certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+                    submittedByActorType: Nullable<String>.value("submittedByActorType"),
+                    submittedByActorId: Nullable<String>.value("submittedByActorId"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                GetCalendarResponseSubmissionsItem(
+                    id: "x",
+                    obligation: "obligation",
+                    periodYear: 1000000,
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    variant: Nullable<String>.value("variant"),
+                    status: .generated,
+                    fileName: "fileName",
+                    fileId: Nullable<String>.value("x"),
+                    externalRef: Nullable<String>.value("externalRef"),
+                    message: Nullable<String>.value("message"),
+                    ruleKey: Nullable<String>.value("ruleKey"),
+                    period: Nullable<String>.value("period"),
+                    documentKey: Nullable<String>.value("documentKey"),
+                    amendment: 1000000,
+                    origin: "origin",
+                    transportSystem: Nullable<String>.value("transportSystem"),
+                    environment: Nullable<GetCalendarResponseSubmissionsItemEnvironment>.value(.test),
+                    submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    attempts: 1000000,
+                    deliveryError: Nullable<String>.value("deliveryError"),
+                    sentSha256: Nullable<String>.value("sentSha256"),
+                    certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+                    submittedByActorType: Nullable<String>.value("submittedByActorType"),
+                    submittedByActorId: Nullable<String>.value("submittedByActorId"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
             canSubmit: true,
+            canAmend: true,
             canDownload: true,
             automated: true
         )
-        let response = try await client.calendar.postV1CalendarGet(
+        let response = try await client.calendar.get(
             request: .init(key: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func generateTheFilingForADeadlineAndSendItToTheAdministration1() async throws -> Void {
+    @Test func submit1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -568,21 +1130,23 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "documentKey": "documentKey",
+                  "amendment": 1000000,
                   "origin": "origin",
                   "transportSystem": "transportSystem",
-                  "submittedAt": "submittedAt",
-                  "acceptedAt": "acceptedAt",
-                  "rejectedAt": "rejectedAt",
-                  "checkedAt": "checkedAt",
-                  "nextCheckAt": "nextCheckAt",
+                  "environment": "test",
+                  "submittedAt": "2026-07-01T09:30:00Z",
+                  "acceptedAt": "2026-07-01T09:30:00Z",
+                  "rejectedAt": "2026-07-01T09:30:00Z",
+                  "checkedAt": "2026-07-01T09:30:00Z",
+                  "nextCheckAt": "2026-07-01T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
                   "submittedByActorId": "submittedByActorId",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -592,7 +1156,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarSubmitResponse(
+        let expectedResponse = SubmitCalendarResponse(
             id: "id",
             obligation: "obligation",
             periodYear: 1000000,
@@ -606,30 +1170,32 @@ import Api
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
+            amendment: 1000000,
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
-            submittedAt: Nullable<String>.value("submittedAt"),
-            acceptedAt: Nullable<String>.value("acceptedAt"),
-            rejectedAt: Nullable<String>.value("rejectedAt"),
-            checkedAt: Nullable<String>.value("checkedAt"),
-            nextCheckAt: Nullable<String>.value("nextCheckAt"),
+            environment: Nullable<SubmitCalendarResponseEnvironment>.value(.test),
+            submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
             submittedByActorId: Nullable<String>.value("submittedByActorId"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.calendar.generateTheFilingForADeadlineAndSendItToTheAdministration(
+        let response = try await client.calendar.submit(
             request: .init(key: "key"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func generateTheFilingForADeadlineAndSendItToTheAdministration2() async throws -> Void {
+    @Test func submit2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -648,21 +1214,23 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "documentKey": "documentKey",
+                  "amendment": 1000000,
                   "origin": "origin",
                   "transportSystem": "transportSystem",
-                  "submittedAt": "submittedAt",
-                  "acceptedAt": "acceptedAt",
-                  "rejectedAt": "rejectedAt",
-                  "checkedAt": "checkedAt",
-                  "nextCheckAt": "nextCheckAt",
+                  "environment": "test",
+                  "submittedAt": "2024-01-15T09:30:00Z",
+                  "acceptedAt": "2024-01-15T09:30:00Z",
+                  "rejectedAt": "2024-01-15T09:30:00Z",
+                  "checkedAt": "2024-01-15T09:30:00Z",
+                  "nextCheckAt": "2024-01-15T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
                   "submittedByActorId": "submittedByActorId",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -672,7 +1240,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarSubmitResponse(
+        let expectedResponse = SubmitCalendarResponse(
             id: "x",
             obligation: "obligation",
             periodYear: 1000000,
@@ -686,30 +1254,32 @@ import Api
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
+            amendment: 1000000,
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
-            submittedAt: Nullable<String>.value("submittedAt"),
-            acceptedAt: Nullable<String>.value("acceptedAt"),
-            rejectedAt: Nullable<String>.value("rejectedAt"),
-            checkedAt: Nullable<String>.value("checkedAt"),
-            nextCheckAt: Nullable<String>.value("nextCheckAt"),
+            environment: Nullable<SubmitCalendarResponseEnvironment>.value(.test),
+            submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
             submittedByActorId: Nullable<String>.value("submittedByActorId"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.calendar.generateTheFilingForADeadlineAndSendItToTheAdministration(
+        let response = try await client.calendar.submit(
             request: .init(key: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func generateTheFileOfADeadlineForTheCompanyToSendItself1() async throws -> Void {
+    @Test func download1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -732,7 +1302,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarDownloadResponse(
+        let expectedResponse = DownloadCalendarResponse(
             key: "key",
             fileName: "fileName",
             mimeType: "mimeType",
@@ -742,14 +1312,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.calendar.generateTheFileOfADeadlineForTheCompanyToSendItself(
+        let response = try await client.calendar.download(
             request: .init(key: "key"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func generateTheFileOfADeadlineForTheCompanyToSendItself2() async throws -> Void {
+    @Test func download2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -773,7 +1343,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarDownloadResponse(
+        let expectedResponse = DownloadCalendarResponse(
             key: "key",
             fileName: "fileName",
             mimeType: "mimeType",
@@ -784,14 +1354,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.calendar.generateTheFileOfADeadlineForTheCompanyToSendItself(
+        let response = try await client.calendar.download(
             request: .init(key: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CalendarCreate1() async throws -> Void {
+    @Test func create1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -803,7 +1373,7 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "title": "title",
-                  "dueDate": "dueDate",
+                  "dueDate": "2026-07-01",
                   "notes": "notes",
                   "done": true,
                   "href": "href",
@@ -821,23 +1391,60 @@ import Api
                     "ruleKey": "ruleKey",
                     "period": "period",
                     "documentKey": "documentKey",
+                    "amendment": 1000000,
                     "origin": "origin",
                     "transportSystem": "transportSystem",
-                    "submittedAt": "submittedAt",
-                    "acceptedAt": "acceptedAt",
-                    "rejectedAt": "rejectedAt",
-                    "checkedAt": "checkedAt",
-                    "nextCheckAt": "nextCheckAt",
+                    "environment": "test",
+                    "submittedAt": "2026-07-01T09:30:00Z",
+                    "acceptedAt": "2026-07-01T09:30:00Z",
+                    "rejectedAt": "2026-07-01T09:30:00Z",
+                    "checkedAt": "2026-07-01T09:30:00Z",
+                    "nextCheckAt": "2026-07-01T09:30:00Z",
                     "attempts": 1000000,
                     "deliveryError": "deliveryError",
                     "sentSha256": "sentSha256",
                     "certificateFingerprint": "certificateFingerprint",
                     "submittedByActorType": "submittedByActorType",
                     "submittedByActorId": "submittedByActorId",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt"
+                    "createdAt": "2026-07-01T09:30:00Z",
+                    "updatedAt": "2026-07-01T09:30:00Z"
                   },
+                  "submissions": [
+                    {
+                      "id": "id",
+                      "obligation": "obligation",
+                      "periodYear": 1000000,
+                      "periodMonth": 1000000,
+                      "variant": "variant",
+                      "status": "generated",
+                      "fileName": "fileName",
+                      "fileId": "fileId",
+                      "externalRef": "externalRef",
+                      "message": "message",
+                      "ruleKey": "ruleKey",
+                      "period": "period",
+                      "documentKey": "documentKey",
+                      "amendment": 1000000,
+                      "origin": "origin",
+                      "transportSystem": "transportSystem",
+                      "environment": "test",
+                      "submittedAt": "2026-07-01T09:30:00Z",
+                      "acceptedAt": "2026-07-01T09:30:00Z",
+                      "rejectedAt": "2026-07-01T09:30:00Z",
+                      "checkedAt": "2026-07-01T09:30:00Z",
+                      "nextCheckAt": "2026-07-01T09:30:00Z",
+                      "attempts": 1000000,
+                      "deliveryError": "deliveryError",
+                      "sentSha256": "sentSha256",
+                      "certificateFingerprint": "certificateFingerprint",
+                      "submittedByActorType": "submittedByActorType",
+                      "submittedByActorId": "submittedByActorId",
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
                   "canSubmit": true,
+                  "canAmend": true,
                   "canDownload": true,
                   "automated": true
                 }
@@ -849,18 +1456,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarCreateResponse(
+        let expectedResponse = CreateCalendarResponse(
             key: "key",
             id: Nullable<String>.value("id"),
             kind: .custom,
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             title: "title",
-            dueDate: "dueDate",
+            dueDate: CalendarDate("2026-07-01")!,
             notes: Nullable<String>.value("notes"),
             done: true,
             href: Nullable<String>.value("href"),
-            submission: Nullable<PostV1CalendarCreateResponseSubmission>.value(PostV1CalendarCreateResponseSubmission(
+            submission: Nullable<CreateCalendarResponseSubmission>.value(CreateCalendarResponseSubmission(
                 id: "id",
                 obligation: "obligation",
                 periodYear: 1000000,
@@ -874,37 +1481,74 @@ import Api
                 ruleKey: Nullable<String>.value("ruleKey"),
                 period: Nullable<String>.value("period"),
                 documentKey: Nullable<String>.value("documentKey"),
+                amendment: 1000000,
                 origin: "origin",
                 transportSystem: Nullable<String>.value("transportSystem"),
-                submittedAt: Nullable<String>.value("submittedAt"),
-                acceptedAt: Nullable<String>.value("acceptedAt"),
-                rejectedAt: Nullable<String>.value("rejectedAt"),
-                checkedAt: Nullable<String>.value("checkedAt"),
-                nextCheckAt: Nullable<String>.value("nextCheckAt"),
+                environment: Nullable<CreateCalendarResponseSubmissionEnvironment>.value(.test),
+                submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                 attempts: 1000000,
                 deliveryError: Nullable<String>.value("deliveryError"),
                 sentSha256: Nullable<String>.value("sentSha256"),
                 certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                 submittedByActorType: Nullable<String>.value("submittedByActorType"),
                 submittedByActorId: Nullable<String>.value("submittedByActorId"),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt"
+                createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
             )),
+            submissions: [
+                CreateCalendarResponseSubmissionsItem(
+                    id: "id",
+                    obligation: "obligation",
+                    periodYear: 1000000,
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    variant: Nullable<String>.value("variant"),
+                    status: .generated,
+                    fileName: "fileName",
+                    fileId: Nullable<String>.value("fileId"),
+                    externalRef: Nullable<String>.value("externalRef"),
+                    message: Nullable<String>.value("message"),
+                    ruleKey: Nullable<String>.value("ruleKey"),
+                    period: Nullable<String>.value("period"),
+                    documentKey: Nullable<String>.value("documentKey"),
+                    amendment: 1000000,
+                    origin: "origin",
+                    transportSystem: Nullable<String>.value("transportSystem"),
+                    environment: Nullable<CreateCalendarResponseSubmissionsItemEnvironment>.value(.test),
+                    submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    attempts: 1000000,
+                    deliveryError: Nullable<String>.value("deliveryError"),
+                    sentSha256: Nullable<String>.value("sentSha256"),
+                    certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+                    submittedByActorType: Nullable<String>.value("submittedByActorType"),
+                    submittedByActorId: Nullable<String>.value("submittedByActorId"),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
             canSubmit: true,
+            canAmend: true,
             canDownload: true,
             automated: true
         )
-        let response = try await client.calendar.postV1CalendarCreate(
+        let response = try await client.calendar.create(
             request: .init(
                 title: "title",
-                dueDate: "dueDate"
+                dueDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CalendarCreate2() async throws -> Void {
+    @Test func create2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -916,7 +1560,7 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "title": "title",
-                  "dueDate": "dueDate",
+                  "dueDate": "2023-01-15",
                   "notes": "notes",
                   "done": true,
                   "href": "href",
@@ -934,23 +1578,92 @@ import Api
                     "ruleKey": "ruleKey",
                     "period": "period",
                     "documentKey": "documentKey",
+                    "amendment": 1000000,
                     "origin": "origin",
                     "transportSystem": "transportSystem",
-                    "submittedAt": "submittedAt",
-                    "acceptedAt": "acceptedAt",
-                    "rejectedAt": "rejectedAt",
-                    "checkedAt": "checkedAt",
-                    "nextCheckAt": "nextCheckAt",
+                    "environment": "test",
+                    "submittedAt": "2024-01-15T09:30:00Z",
+                    "acceptedAt": "2024-01-15T09:30:00Z",
+                    "rejectedAt": "2024-01-15T09:30:00Z",
+                    "checkedAt": "2024-01-15T09:30:00Z",
+                    "nextCheckAt": "2024-01-15T09:30:00Z",
                     "attempts": 1000000,
                     "deliveryError": "deliveryError",
                     "sentSha256": "sentSha256",
                     "certificateFingerprint": "certificateFingerprint",
                     "submittedByActorType": "submittedByActorType",
                     "submittedByActorId": "submittedByActorId",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt"
+                    "createdAt": "2024-01-15T09:30:00Z",
+                    "updatedAt": "2024-01-15T09:30:00Z"
                   },
+                  "submissions": [
+                    {
+                      "id": "x",
+                      "obligation": "obligation",
+                      "periodYear": 1000000,
+                      "periodMonth": 1000000,
+                      "variant": "variant",
+                      "status": "generated",
+                      "fileName": "fileName",
+                      "fileId": "x",
+                      "externalRef": "externalRef",
+                      "message": "message",
+                      "ruleKey": "ruleKey",
+                      "period": "period",
+                      "documentKey": "documentKey",
+                      "amendment": 1000000,
+                      "origin": "origin",
+                      "transportSystem": "transportSystem",
+                      "environment": "test",
+                      "submittedAt": "2024-01-15T09:30:00Z",
+                      "acceptedAt": "2024-01-15T09:30:00Z",
+                      "rejectedAt": "2024-01-15T09:30:00Z",
+                      "checkedAt": "2024-01-15T09:30:00Z",
+                      "nextCheckAt": "2024-01-15T09:30:00Z",
+                      "attempts": 1000000,
+                      "deliveryError": "deliveryError",
+                      "sentSha256": "sentSha256",
+                      "certificateFingerprint": "certificateFingerprint",
+                      "submittedByActorType": "submittedByActorType",
+                      "submittedByActorId": "submittedByActorId",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "obligation": "obligation",
+                      "periodYear": 1000000,
+                      "periodMonth": 1000000,
+                      "variant": "variant",
+                      "status": "generated",
+                      "fileName": "fileName",
+                      "fileId": "x",
+                      "externalRef": "externalRef",
+                      "message": "message",
+                      "ruleKey": "ruleKey",
+                      "period": "period",
+                      "documentKey": "documentKey",
+                      "amendment": 1000000,
+                      "origin": "origin",
+                      "transportSystem": "transportSystem",
+                      "environment": "test",
+                      "submittedAt": "2024-01-15T09:30:00Z",
+                      "acceptedAt": "2024-01-15T09:30:00Z",
+                      "rejectedAt": "2024-01-15T09:30:00Z",
+                      "checkedAt": "2024-01-15T09:30:00Z",
+                      "nextCheckAt": "2024-01-15T09:30:00Z",
+                      "attempts": 1000000,
+                      "deliveryError": "deliveryError",
+                      "sentSha256": "sentSha256",
+                      "certificateFingerprint": "certificateFingerprint",
+                      "submittedByActorType": "submittedByActorType",
+                      "submittedByActorId": "submittedByActorId",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
                   "canSubmit": true,
+                  "canAmend": true,
                   "canDownload": true,
                   "automated": true
                 }
@@ -962,18 +1675,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarCreateResponse(
+        let expectedResponse = CreateCalendarResponse(
             key: "x",
             id: Nullable<String>.value("x"),
             kind: .custom,
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             title: "title",
-            dueDate: "dueDate",
+            dueDate: CalendarDate("2023-01-15")!,
             notes: Nullable<String>.value("notes"),
             done: true,
             href: Nullable<String>.value("href"),
-            submission: Nullable<PostV1CalendarCreateResponseSubmission>.value(PostV1CalendarCreateResponseSubmission(
+            submission: Nullable<CreateCalendarResponseSubmission>.value(CreateCalendarResponseSubmission(
                 id: "x",
                 obligation: "obligation",
                 periodYear: 1000000,
@@ -987,37 +1700,106 @@ import Api
                 ruleKey: Nullable<String>.value("ruleKey"),
                 period: Nullable<String>.value("period"),
                 documentKey: Nullable<String>.value("documentKey"),
+                amendment: 1000000,
                 origin: "origin",
                 transportSystem: Nullable<String>.value("transportSystem"),
-                submittedAt: Nullable<String>.value("submittedAt"),
-                acceptedAt: Nullable<String>.value("acceptedAt"),
-                rejectedAt: Nullable<String>.value("rejectedAt"),
-                checkedAt: Nullable<String>.value("checkedAt"),
-                nextCheckAt: Nullable<String>.value("nextCheckAt"),
+                environment: Nullable<CreateCalendarResponseSubmissionEnvironment>.value(.test),
+                submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                 attempts: 1000000,
                 deliveryError: Nullable<String>.value("deliveryError"),
                 sentSha256: Nullable<String>.value("sentSha256"),
                 certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                 submittedByActorType: Nullable<String>.value("submittedByActorType"),
                 submittedByActorId: Nullable<String>.value("submittedByActorId"),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt"
+                createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
             )),
+            submissions: [
+                CreateCalendarResponseSubmissionsItem(
+                    id: "x",
+                    obligation: "obligation",
+                    periodYear: 1000000,
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    variant: Nullable<String>.value("variant"),
+                    status: .generated,
+                    fileName: "fileName",
+                    fileId: Nullable<String>.value("x"),
+                    externalRef: Nullable<String>.value("externalRef"),
+                    message: Nullable<String>.value("message"),
+                    ruleKey: Nullable<String>.value("ruleKey"),
+                    period: Nullable<String>.value("period"),
+                    documentKey: Nullable<String>.value("documentKey"),
+                    amendment: 1000000,
+                    origin: "origin",
+                    transportSystem: Nullable<String>.value("transportSystem"),
+                    environment: Nullable<CreateCalendarResponseSubmissionsItemEnvironment>.value(.test),
+                    submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    attempts: 1000000,
+                    deliveryError: Nullable<String>.value("deliveryError"),
+                    sentSha256: Nullable<String>.value("sentSha256"),
+                    certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+                    submittedByActorType: Nullable<String>.value("submittedByActorType"),
+                    submittedByActorId: Nullable<String>.value("submittedByActorId"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                CreateCalendarResponseSubmissionsItem(
+                    id: "x",
+                    obligation: "obligation",
+                    periodYear: 1000000,
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    variant: Nullable<String>.value("variant"),
+                    status: .generated,
+                    fileName: "fileName",
+                    fileId: Nullable<String>.value("x"),
+                    externalRef: Nullable<String>.value("externalRef"),
+                    message: Nullable<String>.value("message"),
+                    ruleKey: Nullable<String>.value("ruleKey"),
+                    period: Nullable<String>.value("period"),
+                    documentKey: Nullable<String>.value("documentKey"),
+                    amendment: 1000000,
+                    origin: "origin",
+                    transportSystem: Nullable<String>.value("transportSystem"),
+                    environment: Nullable<CreateCalendarResponseSubmissionsItemEnvironment>.value(.test),
+                    submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    attempts: 1000000,
+                    deliveryError: Nullable<String>.value("deliveryError"),
+                    sentSha256: Nullable<String>.value("sentSha256"),
+                    certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+                    submittedByActorType: Nullable<String>.value("submittedByActorType"),
+                    submittedByActorId: Nullable<String>.value("submittedByActorId"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
             canSubmit: true,
+            canAmend: true,
             canDownload: true,
             automated: true
         )
-        let response = try await client.calendar.postV1CalendarCreate(
+        let response = try await client.calendar.create(
             request: .init(
                 title: "x",
-                dueDate: "dueDate"
+                dueDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CalendarUpdate1() async throws -> Void {
+    @Test func update1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1029,7 +1811,7 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "title": "title",
-                  "dueDate": "dueDate",
+                  "dueDate": "2026-07-01",
                   "notes": "notes",
                   "done": true,
                   "href": "href",
@@ -1047,23 +1829,60 @@ import Api
                     "ruleKey": "ruleKey",
                     "period": "period",
                     "documentKey": "documentKey",
+                    "amendment": 1000000,
                     "origin": "origin",
                     "transportSystem": "transportSystem",
-                    "submittedAt": "submittedAt",
-                    "acceptedAt": "acceptedAt",
-                    "rejectedAt": "rejectedAt",
-                    "checkedAt": "checkedAt",
-                    "nextCheckAt": "nextCheckAt",
+                    "environment": "test",
+                    "submittedAt": "2026-07-01T09:30:00Z",
+                    "acceptedAt": "2026-07-01T09:30:00Z",
+                    "rejectedAt": "2026-07-01T09:30:00Z",
+                    "checkedAt": "2026-07-01T09:30:00Z",
+                    "nextCheckAt": "2026-07-01T09:30:00Z",
                     "attempts": 1000000,
                     "deliveryError": "deliveryError",
                     "sentSha256": "sentSha256",
                     "certificateFingerprint": "certificateFingerprint",
                     "submittedByActorType": "submittedByActorType",
                     "submittedByActorId": "submittedByActorId",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt"
+                    "createdAt": "2026-07-01T09:30:00Z",
+                    "updatedAt": "2026-07-01T09:30:00Z"
                   },
+                  "submissions": [
+                    {
+                      "id": "id",
+                      "obligation": "obligation",
+                      "periodYear": 1000000,
+                      "periodMonth": 1000000,
+                      "variant": "variant",
+                      "status": "generated",
+                      "fileName": "fileName",
+                      "fileId": "fileId",
+                      "externalRef": "externalRef",
+                      "message": "message",
+                      "ruleKey": "ruleKey",
+                      "period": "period",
+                      "documentKey": "documentKey",
+                      "amendment": 1000000,
+                      "origin": "origin",
+                      "transportSystem": "transportSystem",
+                      "environment": "test",
+                      "submittedAt": "2026-07-01T09:30:00Z",
+                      "acceptedAt": "2026-07-01T09:30:00Z",
+                      "rejectedAt": "2026-07-01T09:30:00Z",
+                      "checkedAt": "2026-07-01T09:30:00Z",
+                      "nextCheckAt": "2026-07-01T09:30:00Z",
+                      "attempts": 1000000,
+                      "deliveryError": "deliveryError",
+                      "sentSha256": "sentSha256",
+                      "certificateFingerprint": "certificateFingerprint",
+                      "submittedByActorType": "submittedByActorType",
+                      "submittedByActorId": "submittedByActorId",
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
                   "canSubmit": true,
+                  "canAmend": true,
                   "canDownload": true,
                   "automated": true
                 }
@@ -1075,18 +1894,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarUpdateResponse(
+        let expectedResponse = UpdateCalendarResponse(
             key: "key",
             id: Nullable<String>.value("id"),
             kind: .custom,
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             title: "title",
-            dueDate: "dueDate",
+            dueDate: CalendarDate("2026-07-01")!,
             notes: Nullable<String>.value("notes"),
             done: true,
             href: Nullable<String>.value("href"),
-            submission: Nullable<PostV1CalendarUpdateResponseSubmission>.value(PostV1CalendarUpdateResponseSubmission(
+            submission: Nullable<UpdateCalendarResponseSubmission>.value(UpdateCalendarResponseSubmission(
                 id: "id",
                 obligation: "obligation",
                 periodYear: 1000000,
@@ -1100,34 +1919,71 @@ import Api
                 ruleKey: Nullable<String>.value("ruleKey"),
                 period: Nullable<String>.value("period"),
                 documentKey: Nullable<String>.value("documentKey"),
+                amendment: 1000000,
                 origin: "origin",
                 transportSystem: Nullable<String>.value("transportSystem"),
-                submittedAt: Nullable<String>.value("submittedAt"),
-                acceptedAt: Nullable<String>.value("acceptedAt"),
-                rejectedAt: Nullable<String>.value("rejectedAt"),
-                checkedAt: Nullable<String>.value("checkedAt"),
-                nextCheckAt: Nullable<String>.value("nextCheckAt"),
+                environment: Nullable<UpdateCalendarResponseSubmissionEnvironment>.value(.test),
+                submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                 attempts: 1000000,
                 deliveryError: Nullable<String>.value("deliveryError"),
                 sentSha256: Nullable<String>.value("sentSha256"),
                 certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                 submittedByActorType: Nullable<String>.value("submittedByActorType"),
                 submittedByActorId: Nullable<String>.value("submittedByActorId"),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt"
+                createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
             )),
+            submissions: [
+                UpdateCalendarResponseSubmissionsItem(
+                    id: "id",
+                    obligation: "obligation",
+                    periodYear: 1000000,
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    variant: Nullable<String>.value("variant"),
+                    status: .generated,
+                    fileName: "fileName",
+                    fileId: Nullable<String>.value("fileId"),
+                    externalRef: Nullable<String>.value("externalRef"),
+                    message: Nullable<String>.value("message"),
+                    ruleKey: Nullable<String>.value("ruleKey"),
+                    period: Nullable<String>.value("period"),
+                    documentKey: Nullable<String>.value("documentKey"),
+                    amendment: 1000000,
+                    origin: "origin",
+                    transportSystem: Nullable<String>.value("transportSystem"),
+                    environment: Nullable<UpdateCalendarResponseSubmissionsItemEnvironment>.value(.test),
+                    submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    attempts: 1000000,
+                    deliveryError: Nullable<String>.value("deliveryError"),
+                    sentSha256: Nullable<String>.value("sentSha256"),
+                    certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+                    submittedByActorType: Nullable<String>.value("submittedByActorType"),
+                    submittedByActorId: Nullable<String>.value("submittedByActorId"),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
             canSubmit: true,
+            canAmend: true,
             canDownload: true,
             automated: true
         )
-        let response = try await client.calendar.postV1CalendarUpdate(
+        let response = try await client.calendar.update(
             request: .init(key: "key"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CalendarUpdate2() async throws -> Void {
+    @Test func update2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1139,7 +1995,7 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "title": "title",
-                  "dueDate": "dueDate",
+                  "dueDate": "2023-01-15",
                   "notes": "notes",
                   "done": true,
                   "href": "href",
@@ -1157,23 +2013,92 @@ import Api
                     "ruleKey": "ruleKey",
                     "period": "period",
                     "documentKey": "documentKey",
+                    "amendment": 1000000,
                     "origin": "origin",
                     "transportSystem": "transportSystem",
-                    "submittedAt": "submittedAt",
-                    "acceptedAt": "acceptedAt",
-                    "rejectedAt": "rejectedAt",
-                    "checkedAt": "checkedAt",
-                    "nextCheckAt": "nextCheckAt",
+                    "environment": "test",
+                    "submittedAt": "2024-01-15T09:30:00Z",
+                    "acceptedAt": "2024-01-15T09:30:00Z",
+                    "rejectedAt": "2024-01-15T09:30:00Z",
+                    "checkedAt": "2024-01-15T09:30:00Z",
+                    "nextCheckAt": "2024-01-15T09:30:00Z",
                     "attempts": 1000000,
                     "deliveryError": "deliveryError",
                     "sentSha256": "sentSha256",
                     "certificateFingerprint": "certificateFingerprint",
                     "submittedByActorType": "submittedByActorType",
                     "submittedByActorId": "submittedByActorId",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt"
+                    "createdAt": "2024-01-15T09:30:00Z",
+                    "updatedAt": "2024-01-15T09:30:00Z"
                   },
+                  "submissions": [
+                    {
+                      "id": "x",
+                      "obligation": "obligation",
+                      "periodYear": 1000000,
+                      "periodMonth": 1000000,
+                      "variant": "variant",
+                      "status": "generated",
+                      "fileName": "fileName",
+                      "fileId": "x",
+                      "externalRef": "externalRef",
+                      "message": "message",
+                      "ruleKey": "ruleKey",
+                      "period": "period",
+                      "documentKey": "documentKey",
+                      "amendment": 1000000,
+                      "origin": "origin",
+                      "transportSystem": "transportSystem",
+                      "environment": "test",
+                      "submittedAt": "2024-01-15T09:30:00Z",
+                      "acceptedAt": "2024-01-15T09:30:00Z",
+                      "rejectedAt": "2024-01-15T09:30:00Z",
+                      "checkedAt": "2024-01-15T09:30:00Z",
+                      "nextCheckAt": "2024-01-15T09:30:00Z",
+                      "attempts": 1000000,
+                      "deliveryError": "deliveryError",
+                      "sentSha256": "sentSha256",
+                      "certificateFingerprint": "certificateFingerprint",
+                      "submittedByActorType": "submittedByActorType",
+                      "submittedByActorId": "submittedByActorId",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "obligation": "obligation",
+                      "periodYear": 1000000,
+                      "periodMonth": 1000000,
+                      "variant": "variant",
+                      "status": "generated",
+                      "fileName": "fileName",
+                      "fileId": "x",
+                      "externalRef": "externalRef",
+                      "message": "message",
+                      "ruleKey": "ruleKey",
+                      "period": "period",
+                      "documentKey": "documentKey",
+                      "amendment": 1000000,
+                      "origin": "origin",
+                      "transportSystem": "transportSystem",
+                      "environment": "test",
+                      "submittedAt": "2024-01-15T09:30:00Z",
+                      "acceptedAt": "2024-01-15T09:30:00Z",
+                      "rejectedAt": "2024-01-15T09:30:00Z",
+                      "checkedAt": "2024-01-15T09:30:00Z",
+                      "nextCheckAt": "2024-01-15T09:30:00Z",
+                      "attempts": 1000000,
+                      "deliveryError": "deliveryError",
+                      "sentSha256": "sentSha256",
+                      "certificateFingerprint": "certificateFingerprint",
+                      "submittedByActorType": "submittedByActorType",
+                      "submittedByActorId": "submittedByActorId",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
                   "canSubmit": true,
+                  "canAmend": true,
                   "canDownload": true,
                   "automated": true
                 }
@@ -1185,18 +2110,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarUpdateResponse(
+        let expectedResponse = UpdateCalendarResponse(
             key: "x",
             id: Nullable<String>.value("x"),
             kind: .custom,
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             title: "title",
-            dueDate: "dueDate",
+            dueDate: CalendarDate("2023-01-15")!,
             notes: Nullable<String>.value("notes"),
             done: true,
             href: Nullable<String>.value("href"),
-            submission: Nullable<PostV1CalendarUpdateResponseSubmission>.value(PostV1CalendarUpdateResponseSubmission(
+            submission: Nullable<UpdateCalendarResponseSubmission>.value(UpdateCalendarResponseSubmission(
                 id: "x",
                 obligation: "obligation",
                 periodYear: 1000000,
@@ -1210,34 +2135,103 @@ import Api
                 ruleKey: Nullable<String>.value("ruleKey"),
                 period: Nullable<String>.value("period"),
                 documentKey: Nullable<String>.value("documentKey"),
+                amendment: 1000000,
                 origin: "origin",
                 transportSystem: Nullable<String>.value("transportSystem"),
-                submittedAt: Nullable<String>.value("submittedAt"),
-                acceptedAt: Nullable<String>.value("acceptedAt"),
-                rejectedAt: Nullable<String>.value("rejectedAt"),
-                checkedAt: Nullable<String>.value("checkedAt"),
-                nextCheckAt: Nullable<String>.value("nextCheckAt"),
+                environment: Nullable<UpdateCalendarResponseSubmissionEnvironment>.value(.test),
+                submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                 attempts: 1000000,
                 deliveryError: Nullable<String>.value("deliveryError"),
                 sentSha256: Nullable<String>.value("sentSha256"),
                 certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                 submittedByActorType: Nullable<String>.value("submittedByActorType"),
                 submittedByActorId: Nullable<String>.value("submittedByActorId"),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt"
+                createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
             )),
+            submissions: [
+                UpdateCalendarResponseSubmissionsItem(
+                    id: "x",
+                    obligation: "obligation",
+                    periodYear: 1000000,
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    variant: Nullable<String>.value("variant"),
+                    status: .generated,
+                    fileName: "fileName",
+                    fileId: Nullable<String>.value("x"),
+                    externalRef: Nullable<String>.value("externalRef"),
+                    message: Nullable<String>.value("message"),
+                    ruleKey: Nullable<String>.value("ruleKey"),
+                    period: Nullable<String>.value("period"),
+                    documentKey: Nullable<String>.value("documentKey"),
+                    amendment: 1000000,
+                    origin: "origin",
+                    transportSystem: Nullable<String>.value("transportSystem"),
+                    environment: Nullable<UpdateCalendarResponseSubmissionsItemEnvironment>.value(.test),
+                    submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    attempts: 1000000,
+                    deliveryError: Nullable<String>.value("deliveryError"),
+                    sentSha256: Nullable<String>.value("sentSha256"),
+                    certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+                    submittedByActorType: Nullable<String>.value("submittedByActorType"),
+                    submittedByActorId: Nullable<String>.value("submittedByActorId"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                UpdateCalendarResponseSubmissionsItem(
+                    id: "x",
+                    obligation: "obligation",
+                    periodYear: 1000000,
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    variant: Nullable<String>.value("variant"),
+                    status: .generated,
+                    fileName: "fileName",
+                    fileId: Nullable<String>.value("x"),
+                    externalRef: Nullable<String>.value("externalRef"),
+                    message: Nullable<String>.value("message"),
+                    ruleKey: Nullable<String>.value("ruleKey"),
+                    period: Nullable<String>.value("period"),
+                    documentKey: Nullable<String>.value("documentKey"),
+                    amendment: 1000000,
+                    origin: "origin",
+                    transportSystem: Nullable<String>.value("transportSystem"),
+                    environment: Nullable<UpdateCalendarResponseSubmissionsItemEnvironment>.value(.test),
+                    submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    attempts: 1000000,
+                    deliveryError: Nullable<String>.value("deliveryError"),
+                    sentSha256: Nullable<String>.value("sentSha256"),
+                    certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+                    submittedByActorType: Nullable<String>.value("submittedByActorType"),
+                    submittedByActorId: Nullable<String>.value("submittedByActorId"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
             canSubmit: true,
+            canAmend: true,
             canDownload: true,
             automated: true
         )
-        let response = try await client.calendar.postV1CalendarUpdate(
+        let response = try await client.calendar.update(
             request: .init(key: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CalendarDelete1() async throws -> Void {
+    @Test func delete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1253,17 +2247,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarDeleteResponse(
+        let expectedResponse = DeleteCalendarResponse(
             key: "key"
         )
-        let response = try await client.calendar.postV1CalendarDelete(
+        let response = try await client.calendar.delete(
             request: .init(key: "key"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CalendarDelete2() async throws -> Void {
+    @Test func delete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1279,10 +2273,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CalendarDeleteResponse(
+        let expectedResponse = DeleteCalendarResponse(
             key: "x"
         )
-        let response = try await client.calendar.postV1CalendarDelete(
+        let response = try await client.calendar.delete(
             request: .init(key: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

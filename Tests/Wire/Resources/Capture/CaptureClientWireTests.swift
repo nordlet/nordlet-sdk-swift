@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("CaptureClient Wire Tests") struct CaptureClientWireTests {
-    @Test func postV1CaptureSettingsGet1() async throws -> Void {
+    @Test func settingsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -22,20 +22,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureSettingsGetResponse(
+        let expectedResponse = SettingsGetCaptureResponse(
             intakeEnabled: true,
             captureAutoExtract: true,
             intakeAddress: Nullable<String>.value("intakeAddress"),
             ocrConfigured: true
         )
-        let response = try await client.capture.postV1CaptureSettingsGet(
+        let response = try await client.capture.settingsGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CaptureSettingsGet2() async throws -> Void {
+    @Test func settingsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -54,20 +54,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureSettingsGetResponse(
+        let expectedResponse = SettingsGetCaptureResponse(
             intakeEnabled: true,
             captureAutoExtract: true,
             intakeAddress: Nullable<String>.value("intakeAddress"),
             ocrConfigured: true
         )
-        let response = try await client.capture.postV1CaptureSettingsGet(
+        let response = try await client.capture.settingsGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CaptureSettingsUpdate1() async throws -> Void {
+    @Test func settingsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -86,20 +86,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureSettingsUpdateResponse(
+        let expectedResponse = SettingsUpdateCaptureResponse(
             intakeEnabled: true,
             captureAutoExtract: true,
             intakeAddress: Nullable<String>.value("intakeAddress"),
             ocrConfigured: true
         )
-        let response = try await client.capture.postV1CaptureSettingsUpdate(
+        let response = try await client.capture.settingsUpdate(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CaptureSettingsUpdate2() async throws -> Void {
+    @Test func settingsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -118,20 +118,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureSettingsUpdateResponse(
+        let expectedResponse = SettingsUpdateCaptureResponse(
             intakeEnabled: true,
             captureAutoExtract: true,
             intakeAddress: Nullable<String>.value("intakeAddress"),
             ocrConfigured: true
         )
-        let response = try await client.capture.postV1CaptureSettingsUpdate(
+        let response = try await client.capture.settingsUpdate(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CaptureSettingsRegenerateIntake1() async throws -> Void {
+    @Test func settingsRegenerateIntake1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -150,20 +150,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureSettingsRegenerateIntakeResponse(
+        let expectedResponse = SettingsRegenerateIntakeCaptureResponse(
             intakeEnabled: true,
             captureAutoExtract: true,
             intakeAddress: Nullable<String>.value("intakeAddress"),
             ocrConfigured: true
         )
-        let response = try await client.capture.postV1CaptureSettingsRegenerateIntake(
+        let response = try await client.capture.settingsRegenerateIntake(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CaptureSettingsRegenerateIntake2() async throws -> Void {
+    @Test func settingsRegenerateIntake2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -182,20 +182,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureSettingsRegenerateIntakeResponse(
+        let expectedResponse = SettingsRegenerateIntakeCaptureResponse(
             intakeEnabled: true,
             captureAutoExtract: true,
             intakeAddress: Nullable<String>.value("intakeAddress"),
             ocrConfigured: true
         )
-        let response = try await client.capture.postV1CaptureSettingsRegenerateIntake(
+        let response = try await client.capture.settingsRegenerateIntake(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func receiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJson1() async throws -> Void {
+    @Test func inboundEmail1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -215,21 +215,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureInboundEmailResponse(
+        let expectedResponse = InboundEmailCaptureResponse(
             accepted: 1000000,
             skipped: 1000000,
             captureIds: [
                 "captureIds"
             ]
         )
-        let response = try await client.capture.receiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJson(
+        let response = try await client.capture.inboundEmail(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func receiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJson2() async throws -> Void {
+    @Test func inboundEmail2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -250,7 +250,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureInboundEmailResponse(
+        let expectedResponse = InboundEmailCaptureResponse(
             accepted: 1000000,
             skipped: 1000000,
             captureIds: [
@@ -258,14 +258,14 @@ import Api
                 "captureIds"
             ]
         )
-        let response = try await client.capture.receiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJson(
+        let response = try await client.capture.inboundEmail(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func readAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraft1() async throws -> Void {
+    @Test func documentsUpload1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -289,8 +289,8 @@ import Api
                       "iban": "iban"
                     },
                     "documentNumber": "documentNumber",
-                    "documentDate": "documentDate",
-                    "dueDate": "dueDate",
+                    "documentDate": "2026-07-01",
+                    "dueDate": "2026-07-01",
                     "currency": "currency",
                     "netTotal": "netTotal",
                     "vatTotal": "vatTotal",
@@ -312,8 +312,8 @@ import Api
                   "matchedPartnerId": "matchedPartnerId",
                   "purchaseInvoiceId": "purchaseInvoiceId",
                   "error": "error",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "rawText": "rawText"
                 }
                 """#.utf8
@@ -324,7 +324,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureDocumentsUploadResponse(
+        let expectedResponse = DocumentsUploadCaptureResponse(
             id: "id",
             fileId: "fileId",
             fileName: "fileName",
@@ -334,8 +334,8 @@ import Api
             provider: Nullable<String>.value("provider"),
             model: Nullable<String>.value("model"),
             pagesProcessed: Nullable<Int64>.value(1000000),
-            extraction: Nullable<PostV1CaptureDocumentsUploadResponseExtraction>.value(PostV1CaptureDocumentsUploadResponseExtraction(
-                supplier: PostV1CaptureDocumentsUploadResponseExtractionSupplier(
+            extraction: Nullable<DocumentsUploadCaptureResponseExtraction>.value(DocumentsUploadCaptureResponseExtraction(
+                supplier: DocumentsUploadCaptureResponseExtractionSupplier(
                     name: Nullable<String>.value("name"),
                     code: Nullable<String>.value("code"),
                     vatCode: Nullable<String>.value("vatCode"),
@@ -343,15 +343,15 @@ import Api
                     iban: Nullable<String>.value("iban")
                 ),
                 documentNumber: Nullable<String>.value("documentNumber"),
-                documentDate: Nullable<String>.value("documentDate"),
-                dueDate: Nullable<String>.value("dueDate"),
+                documentDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                 currency: Nullable<String>.value("currency"),
                 netTotal: Nullable<String>.value("netTotal"),
                 vatTotal: Nullable<String>.value("vatTotal"),
                 grossTotal: Nullable<String>.value("grossTotal"),
                 notes: Nullable<String>.value("notes"),
                 lines: [
-                    PostV1CaptureDocumentsUploadResponseExtractionLinesItem(
+                    DocumentsUploadCaptureResponseExtractionLinesItem(
                         description: "description",
                         quantity: "quantity",
                         unit: .null,
@@ -366,11 +366,11 @@ import Api
             matchedPartnerId: Nullable<String>.value("matchedPartnerId"),
             purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
             error: Nullable<String>.value("error"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             rawText: Nullable<String>.value("rawText")
         )
-        let response = try await client.capture.readAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraft(
+        let response = try await client.capture.documentsUpload(
             request: .init(
                 fileName: "fileName",
                 mimeType: "mimeType",
@@ -381,7 +381,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func readAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraft2() async throws -> Void {
+    @Test func documentsUpload2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -405,8 +405,8 @@ import Api
                       "iban": "iban"
                     },
                     "documentNumber": "documentNumber",
-                    "documentDate": "documentDate",
-                    "dueDate": "dueDate",
+                    "documentDate": "2023-01-15",
+                    "dueDate": "2023-01-15",
                     "currency": "currency",
                     "netTotal": "netTotal",
                     "vatTotal": "vatTotal",
@@ -438,8 +438,8 @@ import Api
                   "matchedPartnerId": "x",
                   "purchaseInvoiceId": "x",
                   "error": "error",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "rawText": "rawText"
                 }
                 """#.utf8
@@ -450,7 +450,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureDocumentsUploadResponse(
+        let expectedResponse = DocumentsUploadCaptureResponse(
             id: "x",
             fileId: "x",
             fileName: "fileName",
@@ -460,8 +460,8 @@ import Api
             provider: Nullable<String>.value("provider"),
             model: Nullable<String>.value("model"),
             pagesProcessed: Nullable<Int64>.value(1000000),
-            extraction: Nullable<PostV1CaptureDocumentsUploadResponseExtraction>.value(PostV1CaptureDocumentsUploadResponseExtraction(
-                supplier: PostV1CaptureDocumentsUploadResponseExtractionSupplier(
+            extraction: Nullable<DocumentsUploadCaptureResponseExtraction>.value(DocumentsUploadCaptureResponseExtraction(
+                supplier: DocumentsUploadCaptureResponseExtractionSupplier(
                     name: Nullable<String>.value("name"),
                     code: Nullable<String>.value("code"),
                     vatCode: Nullable<String>.value("vatCode"),
@@ -469,15 +469,15 @@ import Api
                     iban: Nullable<String>.value("iban")
                 ),
                 documentNumber: Nullable<String>.value("documentNumber"),
-                documentDate: Nullable<String>.value("documentDate"),
-                dueDate: Nullable<String>.value("dueDate"),
+                documentDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                 currency: Nullable<String>.value("currency"),
                 netTotal: Nullable<String>.value("netTotal"),
                 vatTotal: Nullable<String>.value("vatTotal"),
                 grossTotal: Nullable<String>.value("grossTotal"),
                 notes: Nullable<String>.value("notes"),
                 lines: [
-                    PostV1CaptureDocumentsUploadResponseExtractionLinesItem(
+                    DocumentsUploadCaptureResponseExtractionLinesItem(
                         description: "description",
                         quantity: "quantity",
                         unit: Nullable<String>.value("unit"),
@@ -487,7 +487,7 @@ import Api
                         lineVat: Nullable<String>.value("lineVat"),
                         lineGross: Nullable<String>.value("lineGross")
                     ),
-                    PostV1CaptureDocumentsUploadResponseExtractionLinesItem(
+                    DocumentsUploadCaptureResponseExtractionLinesItem(
                         description: "description",
                         quantity: "quantity",
                         unit: Nullable<String>.value("unit"),
@@ -502,11 +502,11 @@ import Api
             matchedPartnerId: Nullable<String>.value("x"),
             purchaseInvoiceId: Nullable<String>.value("x"),
             error: Nullable<String>.value("error"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             rawText: Nullable<String>.value("rawText")
         )
-        let response = try await client.capture.readAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraft(
+        let response = try await client.capture.documentsUpload(
             request: .init(
                 fileName: "x",
                 mimeType: "x",
@@ -517,7 +517,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func reReadAStoredCaptureReplacingThePreviousDraft1() async throws -> Void {
+    @Test func documentsExtract1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -541,8 +541,8 @@ import Api
                       "iban": "iban"
                     },
                     "documentNumber": "documentNumber",
-                    "documentDate": "documentDate",
-                    "dueDate": "dueDate",
+                    "documentDate": "2026-07-01",
+                    "dueDate": "2026-07-01",
                     "currency": "currency",
                     "netTotal": "netTotal",
                     "vatTotal": "vatTotal",
@@ -564,8 +564,8 @@ import Api
                   "matchedPartnerId": "matchedPartnerId",
                   "purchaseInvoiceId": "purchaseInvoiceId",
                   "error": "error",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "rawText": "rawText"
                 }
                 """#.utf8
@@ -576,7 +576,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureDocumentsExtractResponse(
+        let expectedResponse = DocumentsExtractCaptureResponse(
             id: "id",
             fileId: "fileId",
             fileName: "fileName",
@@ -586,8 +586,8 @@ import Api
             provider: Nullable<String>.value("provider"),
             model: Nullable<String>.value("model"),
             pagesProcessed: Nullable<Int64>.value(1000000),
-            extraction: Nullable<PostV1CaptureDocumentsExtractResponseExtraction>.value(PostV1CaptureDocumentsExtractResponseExtraction(
-                supplier: PostV1CaptureDocumentsExtractResponseExtractionSupplier(
+            extraction: Nullable<DocumentsExtractCaptureResponseExtraction>.value(DocumentsExtractCaptureResponseExtraction(
+                supplier: DocumentsExtractCaptureResponseExtractionSupplier(
                     name: Nullable<String>.value("name"),
                     code: Nullable<String>.value("code"),
                     vatCode: Nullable<String>.value("vatCode"),
@@ -595,15 +595,15 @@ import Api
                     iban: Nullable<String>.value("iban")
                 ),
                 documentNumber: Nullable<String>.value("documentNumber"),
-                documentDate: Nullable<String>.value("documentDate"),
-                dueDate: Nullable<String>.value("dueDate"),
+                documentDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                 currency: Nullable<String>.value("currency"),
                 netTotal: Nullable<String>.value("netTotal"),
                 vatTotal: Nullable<String>.value("vatTotal"),
                 grossTotal: Nullable<String>.value("grossTotal"),
                 notes: Nullable<String>.value("notes"),
                 lines: [
-                    PostV1CaptureDocumentsExtractResponseExtractionLinesItem(
+                    DocumentsExtractCaptureResponseExtractionLinesItem(
                         description: "description",
                         quantity: "quantity",
                         unit: .null,
@@ -618,18 +618,18 @@ import Api
             matchedPartnerId: Nullable<String>.value("matchedPartnerId"),
             purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
             error: Nullable<String>.value("error"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             rawText: Nullable<String>.value("rawText")
         )
-        let response = try await client.capture.reReadAStoredCaptureReplacingThePreviousDraft(
+        let response = try await client.capture.documentsExtract(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func reReadAStoredCaptureReplacingThePreviousDraft2() async throws -> Void {
+    @Test func documentsExtract2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -653,8 +653,8 @@ import Api
                       "iban": "iban"
                     },
                     "documentNumber": "documentNumber",
-                    "documentDate": "documentDate",
-                    "dueDate": "dueDate",
+                    "documentDate": "2023-01-15",
+                    "dueDate": "2023-01-15",
                     "currency": "currency",
                     "netTotal": "netTotal",
                     "vatTotal": "vatTotal",
@@ -686,8 +686,8 @@ import Api
                   "matchedPartnerId": "x",
                   "purchaseInvoiceId": "x",
                   "error": "error",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "rawText": "rawText"
                 }
                 """#.utf8
@@ -698,7 +698,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureDocumentsExtractResponse(
+        let expectedResponse = DocumentsExtractCaptureResponse(
             id: "x",
             fileId: "x",
             fileName: "fileName",
@@ -708,8 +708,8 @@ import Api
             provider: Nullable<String>.value("provider"),
             model: Nullable<String>.value("model"),
             pagesProcessed: Nullable<Int64>.value(1000000),
-            extraction: Nullable<PostV1CaptureDocumentsExtractResponseExtraction>.value(PostV1CaptureDocumentsExtractResponseExtraction(
-                supplier: PostV1CaptureDocumentsExtractResponseExtractionSupplier(
+            extraction: Nullable<DocumentsExtractCaptureResponseExtraction>.value(DocumentsExtractCaptureResponseExtraction(
+                supplier: DocumentsExtractCaptureResponseExtractionSupplier(
                     name: Nullable<String>.value("name"),
                     code: Nullable<String>.value("code"),
                     vatCode: Nullable<String>.value("vatCode"),
@@ -717,15 +717,15 @@ import Api
                     iban: Nullable<String>.value("iban")
                 ),
                 documentNumber: Nullable<String>.value("documentNumber"),
-                documentDate: Nullable<String>.value("documentDate"),
-                dueDate: Nullable<String>.value("dueDate"),
+                documentDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                 currency: Nullable<String>.value("currency"),
                 netTotal: Nullable<String>.value("netTotal"),
                 vatTotal: Nullable<String>.value("vatTotal"),
                 grossTotal: Nullable<String>.value("grossTotal"),
                 notes: Nullable<String>.value("notes"),
                 lines: [
-                    PostV1CaptureDocumentsExtractResponseExtractionLinesItem(
+                    DocumentsExtractCaptureResponseExtractionLinesItem(
                         description: "description",
                         quantity: "quantity",
                         unit: Nullable<String>.value("unit"),
@@ -735,7 +735,7 @@ import Api
                         lineVat: Nullable<String>.value("lineVat"),
                         lineGross: Nullable<String>.value("lineGross")
                     ),
-                    PostV1CaptureDocumentsExtractResponseExtractionLinesItem(
+                    DocumentsExtractCaptureResponseExtractionLinesItem(
                         description: "description",
                         quantity: "quantity",
                         unit: Nullable<String>.value("unit"),
@@ -750,18 +750,18 @@ import Api
             matchedPartnerId: Nullable<String>.value("x"),
             purchaseInvoiceId: Nullable<String>.value("x"),
             error: Nullable<String>.value("error"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             rawText: Nullable<String>.value("rawText")
         )
-        let response = try await client.capture.reReadAStoredCaptureReplacingThePreviousDraft(
+        let response = try await client.capture.documentsExtract(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CaptureDocumentsGet1() async throws -> Void {
+    @Test func documentsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -785,8 +785,8 @@ import Api
                       "iban": "iban"
                     },
                     "documentNumber": "documentNumber",
-                    "documentDate": "documentDate",
-                    "dueDate": "dueDate",
+                    "documentDate": "2026-07-01",
+                    "dueDate": "2026-07-01",
                     "currency": "currency",
                     "netTotal": "netTotal",
                     "vatTotal": "vatTotal",
@@ -808,8 +808,8 @@ import Api
                   "matchedPartnerId": "matchedPartnerId",
                   "purchaseInvoiceId": "purchaseInvoiceId",
                   "error": "error",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "rawText": "rawText"
                 }
                 """#.utf8
@@ -820,7 +820,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureDocumentsGetResponse(
+        let expectedResponse = DocumentsGetCaptureResponse(
             id: "id",
             fileId: "fileId",
             fileName: "fileName",
@@ -830,8 +830,8 @@ import Api
             provider: Nullable<String>.value("provider"),
             model: Nullable<String>.value("model"),
             pagesProcessed: Nullable<Int64>.value(1000000),
-            extraction: Nullable<PostV1CaptureDocumentsGetResponseExtraction>.value(PostV1CaptureDocumentsGetResponseExtraction(
-                supplier: PostV1CaptureDocumentsGetResponseExtractionSupplier(
+            extraction: Nullable<DocumentsGetCaptureResponseExtraction>.value(DocumentsGetCaptureResponseExtraction(
+                supplier: DocumentsGetCaptureResponseExtractionSupplier(
                     name: Nullable<String>.value("name"),
                     code: Nullable<String>.value("code"),
                     vatCode: Nullable<String>.value("vatCode"),
@@ -839,15 +839,15 @@ import Api
                     iban: Nullable<String>.value("iban")
                 ),
                 documentNumber: Nullable<String>.value("documentNumber"),
-                documentDate: Nullable<String>.value("documentDate"),
-                dueDate: Nullable<String>.value("dueDate"),
+                documentDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                 currency: Nullable<String>.value("currency"),
                 netTotal: Nullable<String>.value("netTotal"),
                 vatTotal: Nullable<String>.value("vatTotal"),
                 grossTotal: Nullable<String>.value("grossTotal"),
                 notes: Nullable<String>.value("notes"),
                 lines: [
-                    PostV1CaptureDocumentsGetResponseExtractionLinesItem(
+                    DocumentsGetCaptureResponseExtractionLinesItem(
                         description: "description",
                         quantity: "quantity",
                         unit: .null,
@@ -862,18 +862,18 @@ import Api
             matchedPartnerId: Nullable<String>.value("matchedPartnerId"),
             purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
             error: Nullable<String>.value("error"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             rawText: Nullable<String>.value("rawText")
         )
-        let response = try await client.capture.postV1CaptureDocumentsGet(
+        let response = try await client.capture.documentsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CaptureDocumentsGet2() async throws -> Void {
+    @Test func documentsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -897,8 +897,8 @@ import Api
                       "iban": "iban"
                     },
                     "documentNumber": "documentNumber",
-                    "documentDate": "documentDate",
-                    "dueDate": "dueDate",
+                    "documentDate": "2023-01-15",
+                    "dueDate": "2023-01-15",
                     "currency": "currency",
                     "netTotal": "netTotal",
                     "vatTotal": "vatTotal",
@@ -930,8 +930,8 @@ import Api
                   "matchedPartnerId": "x",
                   "purchaseInvoiceId": "x",
                   "error": "error",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "rawText": "rawText"
                 }
                 """#.utf8
@@ -942,7 +942,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureDocumentsGetResponse(
+        let expectedResponse = DocumentsGetCaptureResponse(
             id: "x",
             fileId: "x",
             fileName: "fileName",
@@ -952,8 +952,8 @@ import Api
             provider: Nullable<String>.value("provider"),
             model: Nullable<String>.value("model"),
             pagesProcessed: Nullable<Int64>.value(1000000),
-            extraction: Nullable<PostV1CaptureDocumentsGetResponseExtraction>.value(PostV1CaptureDocumentsGetResponseExtraction(
-                supplier: PostV1CaptureDocumentsGetResponseExtractionSupplier(
+            extraction: Nullable<DocumentsGetCaptureResponseExtraction>.value(DocumentsGetCaptureResponseExtraction(
+                supplier: DocumentsGetCaptureResponseExtractionSupplier(
                     name: Nullable<String>.value("name"),
                     code: Nullable<String>.value("code"),
                     vatCode: Nullable<String>.value("vatCode"),
@@ -961,15 +961,15 @@ import Api
                     iban: Nullable<String>.value("iban")
                 ),
                 documentNumber: Nullable<String>.value("documentNumber"),
-                documentDate: Nullable<String>.value("documentDate"),
-                dueDate: Nullable<String>.value("dueDate"),
+                documentDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                 currency: Nullable<String>.value("currency"),
                 netTotal: Nullable<String>.value("netTotal"),
                 vatTotal: Nullable<String>.value("vatTotal"),
                 grossTotal: Nullable<String>.value("grossTotal"),
                 notes: Nullable<String>.value("notes"),
                 lines: [
-                    PostV1CaptureDocumentsGetResponseExtractionLinesItem(
+                    DocumentsGetCaptureResponseExtractionLinesItem(
                         description: "description",
                         quantity: "quantity",
                         unit: Nullable<String>.value("unit"),
@@ -979,7 +979,7 @@ import Api
                         lineVat: Nullable<String>.value("lineVat"),
                         lineGross: Nullable<String>.value("lineGross")
                     ),
-                    PostV1CaptureDocumentsGetResponseExtractionLinesItem(
+                    DocumentsGetCaptureResponseExtractionLinesItem(
                         description: "description",
                         quantity: "quantity",
                         unit: Nullable<String>.value("unit"),
@@ -994,18 +994,18 @@ import Api
             matchedPartnerId: Nullable<String>.value("x"),
             purchaseInvoiceId: Nullable<String>.value("x"),
             error: Nullable<String>.value("error"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             rawText: Nullable<String>.value("rawText")
         )
-        let response = try await client.capture.postV1CaptureDocumentsGet(
+        let response = try await client.capture.documentsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CaptureDocumentsList1() async throws -> Void {
+    @Test func documentsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1031,8 +1031,8 @@ import Api
                           "iban": null
                         },
                         "documentNumber": null,
-                        "documentDate": null,
-                        "dueDate": null,
+                        "documentDate": "2026-07-01",
+                        "dueDate": "2026-07-01",
                         "currency": null,
                         "netTotal": null,
                         "vatTotal": null,
@@ -1054,8 +1054,8 @@ import Api
                       "matchedPartnerId": "matchedPartnerId",
                       "purchaseInvoiceId": "purchaseInvoiceId",
                       "error": "error",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1073,9 +1073,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureDocumentsListResponse(
+        let expectedResponse = DocumentsListCaptureResponse(
             rows: [
-                PostV1CaptureDocumentsListResponseRowsItem(
+                DocumentsListCaptureResponseRowsItem(
                     id: "id",
                     fileId: "fileId",
                     fileName: "fileName",
@@ -1085,8 +1085,8 @@ import Api
                     provider: Nullable<String>.value("provider"),
                     model: Nullable<String>.value("model"),
                     pagesProcessed: Nullable<Int64>.value(1000000),
-                    extraction: Nullable<PostV1CaptureDocumentsListResponseRowsItemExtraction>.value(PostV1CaptureDocumentsListResponseRowsItemExtraction(
-                        supplier: PostV1CaptureDocumentsListResponseRowsItemExtractionSupplier(
+                    extraction: Nullable<DocumentsListCaptureResponseRowsItemExtraction>.value(DocumentsListCaptureResponseRowsItemExtraction(
+                        supplier: DocumentsListCaptureResponseRowsItemExtractionSupplier(
                             name: .null,
                             code: .null,
                             vatCode: .null,
@@ -1094,15 +1094,15 @@ import Api
                             iban: .null
                         ),
                         documentNumber: .null,
-                        documentDate: .null,
-                        dueDate: .null,
+                        documentDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                        dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                         currency: .null,
                         netTotal: .null,
                         vatTotal: .null,
                         grossTotal: .null,
                         notes: .null,
                         lines: [
-                            PostV1CaptureDocumentsListResponseRowsItemExtractionLinesItem(
+                            DocumentsListCaptureResponseRowsItemExtractionLinesItem(
                                 description: "description",
                                 quantity: "quantity",
                                 unit: .null,
@@ -1117,8 +1117,8 @@ import Api
                     matchedPartnerId: Nullable<String>.value("matchedPartnerId"),
                     purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
                     error: Nullable<String>.value("error"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1128,14 +1128,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.capture.postV1CaptureDocumentsList(
+        let response = try await client.capture.documentsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CaptureDocumentsList2() async throws -> Void {
+    @Test func documentsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1161,8 +1161,8 @@ import Api
                           "iban": "iban"
                         },
                         "documentNumber": "documentNumber",
-                        "documentDate": "documentDate",
-                        "dueDate": "dueDate",
+                        "documentDate": "2023-01-15",
+                        "dueDate": "2023-01-15",
                         "currency": "currency",
                         "netTotal": "netTotal",
                         "vatTotal": "vatTotal",
@@ -1194,8 +1194,8 @@ import Api
                       "matchedPartnerId": "x",
                       "purchaseInvoiceId": "x",
                       "error": "error",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1216,8 +1216,8 @@ import Api
                           "iban": "iban"
                         },
                         "documentNumber": "documentNumber",
-                        "documentDate": "documentDate",
-                        "dueDate": "dueDate",
+                        "documentDate": "2023-01-15",
+                        "dueDate": "2023-01-15",
                         "currency": "currency",
                         "netTotal": "netTotal",
                         "vatTotal": "vatTotal",
@@ -1249,8 +1249,8 @@ import Api
                       "matchedPartnerId": "x",
                       "purchaseInvoiceId": "x",
                       "error": "error",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1268,9 +1268,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureDocumentsListResponse(
+        let expectedResponse = DocumentsListCaptureResponse(
             rows: [
-                PostV1CaptureDocumentsListResponseRowsItem(
+                DocumentsListCaptureResponseRowsItem(
                     id: "x",
                     fileId: "x",
                     fileName: "fileName",
@@ -1280,8 +1280,8 @@ import Api
                     provider: Nullable<String>.value("provider"),
                     model: Nullable<String>.value("model"),
                     pagesProcessed: Nullable<Int64>.value(1000000),
-                    extraction: Nullable<PostV1CaptureDocumentsListResponseRowsItemExtraction>.value(PostV1CaptureDocumentsListResponseRowsItemExtraction(
-                        supplier: PostV1CaptureDocumentsListResponseRowsItemExtractionSupplier(
+                    extraction: Nullable<DocumentsListCaptureResponseRowsItemExtraction>.value(DocumentsListCaptureResponseRowsItemExtraction(
+                        supplier: DocumentsListCaptureResponseRowsItemExtractionSupplier(
                             name: Nullable<String>.value("name"),
                             code: Nullable<String>.value("code"),
                             vatCode: Nullable<String>.value("vatCode"),
@@ -1289,15 +1289,15 @@ import Api
                             iban: Nullable<String>.value("iban")
                         ),
                         documentNumber: Nullable<String>.value("documentNumber"),
-                        documentDate: Nullable<String>.value("documentDate"),
-                        dueDate: Nullable<String>.value("dueDate"),
+                        documentDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                        dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                         currency: Nullable<String>.value("currency"),
                         netTotal: Nullable<String>.value("netTotal"),
                         vatTotal: Nullable<String>.value("vatTotal"),
                         grossTotal: Nullable<String>.value("grossTotal"),
                         notes: Nullable<String>.value("notes"),
                         lines: [
-                            PostV1CaptureDocumentsListResponseRowsItemExtractionLinesItem(
+                            DocumentsListCaptureResponseRowsItemExtractionLinesItem(
                                 description: "description",
                                 quantity: "quantity",
                                 unit: Nullable<String>.value("unit"),
@@ -1307,7 +1307,7 @@ import Api
                                 lineVat: Nullable<String>.value("lineVat"),
                                 lineGross: Nullable<String>.value("lineGross")
                             ),
-                            PostV1CaptureDocumentsListResponseRowsItemExtractionLinesItem(
+                            DocumentsListCaptureResponseRowsItemExtractionLinesItem(
                                 description: "description",
                                 quantity: "quantity",
                                 unit: Nullable<String>.value("unit"),
@@ -1322,10 +1322,10 @@ import Api
                     matchedPartnerId: Nullable<String>.value("x"),
                     purchaseInvoiceId: Nullable<String>.value("x"),
                     error: Nullable<String>.value("error"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1CaptureDocumentsListResponseRowsItem(
+                DocumentsListCaptureResponseRowsItem(
                     id: "x",
                     fileId: "x",
                     fileName: "fileName",
@@ -1335,8 +1335,8 @@ import Api
                     provider: Nullable<String>.value("provider"),
                     model: Nullable<String>.value("model"),
                     pagesProcessed: Nullable<Int64>.value(1000000),
-                    extraction: Nullable<PostV1CaptureDocumentsListResponseRowsItemExtraction>.value(PostV1CaptureDocumentsListResponseRowsItemExtraction(
-                        supplier: PostV1CaptureDocumentsListResponseRowsItemExtractionSupplier(
+                    extraction: Nullable<DocumentsListCaptureResponseRowsItemExtraction>.value(DocumentsListCaptureResponseRowsItemExtraction(
+                        supplier: DocumentsListCaptureResponseRowsItemExtractionSupplier(
                             name: Nullable<String>.value("name"),
                             code: Nullable<String>.value("code"),
                             vatCode: Nullable<String>.value("vatCode"),
@@ -1344,15 +1344,15 @@ import Api
                             iban: Nullable<String>.value("iban")
                         ),
                         documentNumber: Nullable<String>.value("documentNumber"),
-                        documentDate: Nullable<String>.value("documentDate"),
-                        dueDate: Nullable<String>.value("dueDate"),
+                        documentDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                        dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                         currency: Nullable<String>.value("currency"),
                         netTotal: Nullable<String>.value("netTotal"),
                         vatTotal: Nullable<String>.value("vatTotal"),
                         grossTotal: Nullable<String>.value("grossTotal"),
                         notes: Nullable<String>.value("notes"),
                         lines: [
-                            PostV1CaptureDocumentsListResponseRowsItemExtractionLinesItem(
+                            DocumentsListCaptureResponseRowsItemExtractionLinesItem(
                                 description: "description",
                                 quantity: "quantity",
                                 unit: Nullable<String>.value("unit"),
@@ -1362,7 +1362,7 @@ import Api
                                 lineVat: Nullable<String>.value("lineVat"),
                                 lineGross: Nullable<String>.value("lineGross")
                             ),
-                            PostV1CaptureDocumentsListResponseRowsItemExtractionLinesItem(
+                            DocumentsListCaptureResponseRowsItemExtractionLinesItem(
                                 description: "description",
                                 quantity: "quantity",
                                 unit: Nullable<String>.value("unit"),
@@ -1377,8 +1377,8 @@ import Api
                     matchedPartnerId: Nullable<String>.value("x"),
                     purchaseInvoiceId: Nullable<String>.value("x"),
                     error: Nullable<String>.value("error"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1388,14 +1388,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.capture.postV1CaptureDocumentsList(
+        let response = try await client.capture.documentsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CaptureDocumentsDelete1() async throws -> Void {
+    @Test func documentsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1411,17 +1411,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureDocumentsDeleteResponse(
+        let expectedResponse = DocumentsDeleteCaptureResponse(
             deleted: true
         )
-        let response = try await client.capture.postV1CaptureDocumentsDelete(
+        let response = try await client.capture.documentsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CaptureDocumentsDelete2() async throws -> Void {
+    @Test func documentsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1437,17 +1437,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureDocumentsDeleteResponse(
+        let expectedResponse = DocumentsDeleteCaptureResponse(
             deleted: true
         )
-        let response = try await client.capture.postV1CaptureDocumentsDelete(
+        let response = try await client.capture.documentsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func saveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocument1() async throws -> Void {
+    @Test func documentsConfirm1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1472,8 +1472,8 @@ import Api
                         "iban": null
                       },
                       "documentNumber": "documentNumber",
-                      "documentDate": "documentDate",
-                      "dueDate": "dueDate",
+                      "documentDate": "2026-07-01",
+                      "dueDate": "2026-07-01",
                       "currency": "currency",
                       "netTotal": "netTotal",
                       "vatTotal": "vatTotal",
@@ -1495,8 +1495,8 @@ import Api
                     "matchedPartnerId": "matchedPartnerId",
                     "purchaseInvoiceId": "purchaseInvoiceId",
                     "error": "error",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt"
+                    "createdAt": "2026-07-01T09:30:00Z",
+                    "updatedAt": "2026-07-01T09:30:00Z"
                   },
                   "invoice": {
                     "id": "id",
@@ -1505,9 +1505,9 @@ import Api
                     "status": "draft",
                     "paymentStatus": "unpaid",
                     "documentNumber": "documentNumber",
-                    "documentDate": "documentDate",
-                    "dueDate": "dueDate",
-                    "registrationDate": "registrationDate",
+                    "documentDate": "2026-07-01",
+                    "dueDate": "2026-07-01",
+                    "registrationDate": "2026-07-01",
                     "currency": "currency",
                     "netTotal": "netTotal",
                     "vatTotal": "vatTotal",
@@ -1524,8 +1524,8 @@ import Api
                     "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                     "einvoiceNumber": "einvoiceNumber",
                     "documentRef": "documentRef",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt",
+                    "createdAt": "2026-07-01T09:30:00Z",
+                    "updatedAt": "2026-07-01T09:30:00Z",
                     "lines": [
                       {
                         "id": "id",
@@ -1556,8 +1556,8 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureDocumentsConfirmResponse(
-            capture: PostV1CaptureDocumentsConfirmResponseCapture(
+        let expectedResponse = DocumentsConfirmCaptureResponse(
+            capture: DocumentsConfirmCaptureResponseCapture(
                 id: "id",
                 fileId: "fileId",
                 fileName: "fileName",
@@ -1567,8 +1567,8 @@ import Api
                 provider: Nullable<String>.value("provider"),
                 model: Nullable<String>.value("model"),
                 pagesProcessed: Nullable<Int64>.value(1000000),
-                extraction: Nullable<PostV1CaptureDocumentsConfirmResponseCaptureExtraction>.value(PostV1CaptureDocumentsConfirmResponseCaptureExtraction(
-                    supplier: PostV1CaptureDocumentsConfirmResponseCaptureExtractionSupplier(
+                extraction: Nullable<DocumentsConfirmCaptureResponseCaptureExtraction>.value(DocumentsConfirmCaptureResponseCaptureExtraction(
+                    supplier: DocumentsConfirmCaptureResponseCaptureExtractionSupplier(
                         name: .null,
                         code: .null,
                         vatCode: .null,
@@ -1576,15 +1576,15 @@ import Api
                         iban: .null
                     ),
                     documentNumber: Nullable<String>.value("documentNumber"),
-                    documentDate: Nullable<String>.value("documentDate"),
-                    dueDate: Nullable<String>.value("dueDate"),
+                    documentDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     currency: Nullable<String>.value("currency"),
                     netTotal: Nullable<String>.value("netTotal"),
                     vatTotal: Nullable<String>.value("vatTotal"),
                     grossTotal: Nullable<String>.value("grossTotal"),
                     notes: Nullable<String>.value("notes"),
                     lines: [
-                        PostV1CaptureDocumentsConfirmResponseCaptureExtractionLinesItem(
+                        DocumentsConfirmCaptureResponseCaptureExtractionLinesItem(
                             description: "description",
                             quantity: "quantity",
                             unit: .null,
@@ -1599,19 +1599,19 @@ import Api
                 matchedPartnerId: Nullable<String>.value("matchedPartnerId"),
                 purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
                 error: Nullable<String>.value("error"),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt"
+                createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
             ),
-            invoice: PostV1CaptureDocumentsConfirmResponseInvoice(
+            invoice: DocumentsConfirmCaptureResponseInvoice(
                 id: "id",
                 partnerId: "partnerId",
                 type: .invoice,
                 status: .draft,
                 paymentStatus: .unpaid,
                 documentNumber: "documentNumber",
-                documentDate: "documentDate",
-                dueDate: Nullable<String>.value("dueDate"),
-                registrationDate: Nullable<String>.value("registrationDate"),
+                documentDate: CalendarDate("2026-07-01")!,
+                dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                registrationDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                 currency: "currency",
                 netTotal: "netTotal",
                 vatTotal: "vatTotal",
@@ -1628,10 +1628,10 @@ import Api
                 intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
                 einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
                 documentRef: Nullable<String>.value("documentRef"),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt",
+                createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                 lines: [
-                    PostV1CaptureDocumentsConfirmResponseInvoiceLinesItem(
+                    DocumentsConfirmCaptureResponseInvoiceLinesItem(
                         id: "id",
                         itemId: .null,
                         description: "description",
@@ -1652,13 +1652,13 @@ import Api
                 ]
             )
         )
-        let response = try await client.capture.saveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocument(
+        let response = try await client.capture.documentsConfirm(
             request: .init(
                 id: "id",
                 documentNumber: "documentNumber",
-                documentDate: "documentDate",
+                documentDate: CalendarDate("2026-07-01")!,
                 lines: [
-                    PostV1CaptureDocumentsConfirmRequestLinesItem(
+                    DocumentsConfirmCaptureRequestLinesItem(
 
                     )
                 ]
@@ -1668,7 +1668,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func saveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocument2() async throws -> Void {
+    @Test func documentsConfirm2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1693,8 +1693,8 @@ import Api
                         "iban": "iban"
                       },
                       "documentNumber": "documentNumber",
-                      "documentDate": "documentDate",
-                      "dueDate": "dueDate",
+                      "documentDate": "2023-01-15",
+                      "dueDate": "2023-01-15",
                       "currency": "currency",
                       "netTotal": "netTotal",
                       "vatTotal": "vatTotal",
@@ -1726,8 +1726,8 @@ import Api
                     "matchedPartnerId": "x",
                     "purchaseInvoiceId": "x",
                     "error": "error",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt"
+                    "createdAt": "2024-01-15T09:30:00Z",
+                    "updatedAt": "2024-01-15T09:30:00Z"
                   },
                   "invoice": {
                     "id": "x",
@@ -1736,9 +1736,9 @@ import Api
                     "status": "draft",
                     "paymentStatus": "unpaid",
                     "documentNumber": "documentNumber",
-                    "documentDate": "documentDate",
-                    "dueDate": "dueDate",
-                    "registrationDate": "registrationDate",
+                    "documentDate": "2023-01-15",
+                    "dueDate": "2023-01-15",
+                    "registrationDate": "2023-01-15",
                     "currency": "currency",
                     "netTotal": "netTotal",
                     "vatTotal": "vatTotal",
@@ -1755,8 +1755,8 @@ import Api
                     "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                     "einvoiceNumber": "einvoiceNumber",
                     "documentRef": "documentRef",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt",
+                    "createdAt": "2024-01-15T09:30:00Z",
+                    "updatedAt": "2024-01-15T09:30:00Z",
                     "lines": [
                       {
                         "id": "x",
@@ -1805,8 +1805,8 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CaptureDocumentsConfirmResponse(
-            capture: PostV1CaptureDocumentsConfirmResponseCapture(
+        let expectedResponse = DocumentsConfirmCaptureResponse(
+            capture: DocumentsConfirmCaptureResponseCapture(
                 id: "x",
                 fileId: "x",
                 fileName: "fileName",
@@ -1816,8 +1816,8 @@ import Api
                 provider: Nullable<String>.value("provider"),
                 model: Nullable<String>.value("model"),
                 pagesProcessed: Nullable<Int64>.value(1000000),
-                extraction: Nullable<PostV1CaptureDocumentsConfirmResponseCaptureExtraction>.value(PostV1CaptureDocumentsConfirmResponseCaptureExtraction(
-                    supplier: PostV1CaptureDocumentsConfirmResponseCaptureExtractionSupplier(
+                extraction: Nullable<DocumentsConfirmCaptureResponseCaptureExtraction>.value(DocumentsConfirmCaptureResponseCaptureExtraction(
+                    supplier: DocumentsConfirmCaptureResponseCaptureExtractionSupplier(
                         name: Nullable<String>.value("name"),
                         code: Nullable<String>.value("code"),
                         vatCode: Nullable<String>.value("vatCode"),
@@ -1825,15 +1825,15 @@ import Api
                         iban: Nullable<String>.value("iban")
                     ),
                     documentNumber: Nullable<String>.value("documentNumber"),
-                    documentDate: Nullable<String>.value("documentDate"),
-                    dueDate: Nullable<String>.value("dueDate"),
+                    documentDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     currency: Nullable<String>.value("currency"),
                     netTotal: Nullable<String>.value("netTotal"),
                     vatTotal: Nullable<String>.value("vatTotal"),
                     grossTotal: Nullable<String>.value("grossTotal"),
                     notes: Nullable<String>.value("notes"),
                     lines: [
-                        PostV1CaptureDocumentsConfirmResponseCaptureExtractionLinesItem(
+                        DocumentsConfirmCaptureResponseCaptureExtractionLinesItem(
                             description: "description",
                             quantity: "quantity",
                             unit: Nullable<String>.value("unit"),
@@ -1843,7 +1843,7 @@ import Api
                             lineVat: Nullable<String>.value("lineVat"),
                             lineGross: Nullable<String>.value("lineGross")
                         ),
-                        PostV1CaptureDocumentsConfirmResponseCaptureExtractionLinesItem(
+                        DocumentsConfirmCaptureResponseCaptureExtractionLinesItem(
                             description: "description",
                             quantity: "quantity",
                             unit: Nullable<String>.value("unit"),
@@ -1858,19 +1858,19 @@ import Api
                 matchedPartnerId: Nullable<String>.value("x"),
                 purchaseInvoiceId: Nullable<String>.value("x"),
                 error: Nullable<String>.value("error"),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt"
+                createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
             ),
-            invoice: PostV1CaptureDocumentsConfirmResponseInvoice(
+            invoice: DocumentsConfirmCaptureResponseInvoice(
                 id: "x",
                 partnerId: "x",
                 type: .invoice,
                 status: .draft,
                 paymentStatus: .unpaid,
                 documentNumber: "documentNumber",
-                documentDate: "documentDate",
-                dueDate: Nullable<String>.value("dueDate"),
-                registrationDate: Nullable<String>.value("registrationDate"),
+                documentDate: CalendarDate("2023-01-15")!,
+                dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                registrationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                 currency: "currency",
                 netTotal: "netTotal",
                 vatTotal: "vatTotal",
@@ -1887,10 +1887,10 @@ import Api
                 intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
                 einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
                 documentRef: Nullable<String>.value("documentRef"),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt",
+                createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                 lines: [
-                    PostV1CaptureDocumentsConfirmResponseInvoiceLinesItem(
+                    DocumentsConfirmCaptureResponseInvoiceLinesItem(
                         id: "x",
                         itemId: Nullable<String>.value("x"),
                         description: "description",
@@ -1908,7 +1908,7 @@ import Api
                         lineGross: "lineGross",
                         sortOrder: 1000000
                     ),
-                    PostV1CaptureDocumentsConfirmResponseInvoiceLinesItem(
+                    DocumentsConfirmCaptureResponseInvoiceLinesItem(
                         id: "x",
                         itemId: Nullable<String>.value("x"),
                         description: "description",
@@ -1929,16 +1929,16 @@ import Api
                 ]
             )
         )
-        let response = try await client.capture.saveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocument(
+        let response = try await client.capture.documentsConfirm(
             request: .init(
                 id: "x",
                 documentNumber: "x",
-                documentDate: "documentDate",
+                documentDate: CalendarDate("2023-01-15")!,
                 lines: [
-                    PostV1CaptureDocumentsConfirmRequestLinesItem(
+                    DocumentsConfirmCaptureRequestLinesItem(
 
                     ),
-                    PostV1CaptureDocumentsConfirmRequestLinesItem(
+                    DocumentsConfirmCaptureRequestLinesItem(
 
                     )
                 ]

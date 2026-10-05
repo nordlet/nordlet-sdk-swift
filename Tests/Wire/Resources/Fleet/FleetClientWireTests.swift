@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("FleetClient Wire Tests") struct FleetClientWireTests {
-    @Test func postV1FleetVehiclesCreate1() async throws -> Void {
+    @Test func vehiclesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -16,7 +16,7 @@ import Api
                   "year": 1000000,
                   "vin": "vin",
                   "fuelType": "fuelType",
-                  "acquisitionDate": "acquisitionDate",
+                  "acquisitionDate": "2026-07-01",
                   "marketValue": "marketValue",
                   "fixedAssetId": "fixedAssetId",
                   "technicalInspectionDue": "technicalInspectionDue",
@@ -33,11 +33,11 @@ import Api
                     "id": "id",
                     "employeeId": "employeeId",
                     "employeeName": "employeeName",
-                    "fromDate": "fromDate",
+                    "fromDate": "2026-07-01",
                     "privateUse": true,
                     "employerPaysFuel": true
                   },
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -47,7 +47,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetVehiclesCreateResponse(
+        let expectedResponse = VehiclesCreateFleetResponse(
             id: "id",
             plateNumber: "plateNumber",
             make: "make",
@@ -55,30 +55,30 @@ import Api
             year: Nullable<Int64>.value(1000000),
             vin: Nullable<String>.value("vin"),
             fuelType: Nullable<String>.value("fuelType"),
-            acquisitionDate: Nullable<String>.value("acquisitionDate"),
+            acquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             marketValue: "marketValue",
             fixedAssetId: Nullable<String>.value("fixedAssetId"),
             technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1FleetVehiclesCreateResponseDocumentsItem]>.value([
-                PostV1FleetVehiclesCreateResponseDocumentsItem(
+            documents: Nullable<[VehiclesCreateFleetResponseDocumentsItem]>.value([
+                VehiclesCreateFleetResponseDocumentsItem(
                     name: "name",
                     ref: "ref"
                 )
             ]),
-            currentAssignment: Nullable<PostV1FleetVehiclesCreateResponseCurrentAssignment>.value(PostV1FleetVehiclesCreateResponseCurrentAssignment(
+            currentAssignment: Nullable<VehiclesCreateFleetResponseCurrentAssignment>.value(VehiclesCreateFleetResponseCurrentAssignment(
                 id: "id",
                 employeeId: "employeeId",
                 employeeName: "employeeName",
-                fromDate: "fromDate",
+                fromDate: CalendarDate("2026-07-01")!,
                 privateUse: true,
                 employerPaysFuel: true
             )),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.fleet.postV1FleetVehiclesCreate(
+        let response = try await client.fleet.vehiclesCreate(
             request: .init(
                 plateNumber: "plateNumber",
                 make: "make",
@@ -89,7 +89,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetVehiclesCreate2() async throws -> Void {
+    @Test func vehiclesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -102,7 +102,7 @@ import Api
                   "year": 1000000,
                   "vin": "vin",
                   "fuelType": "fuelType",
-                  "acquisitionDate": "acquisitionDate",
+                  "acquisitionDate": "2023-01-15",
                   "marketValue": "marketValue",
                   "fixedAssetId": "x",
                   "technicalInspectionDue": "technicalInspectionDue",
@@ -123,11 +123,11 @@ import Api
                     "id": "x",
                     "employeeId": "x",
                     "employeeName": "employeeName",
-                    "fromDate": "fromDate",
+                    "fromDate": "2023-01-15",
                     "privateUse": true,
                     "employerPaysFuel": true
                   },
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -137,7 +137,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetVehiclesCreateResponse(
+        let expectedResponse = VehiclesCreateFleetResponse(
             id: "x",
             plateNumber: "plateNumber",
             make: "make",
@@ -145,34 +145,34 @@ import Api
             year: Nullable<Int64>.value(1000000),
             vin: Nullable<String>.value("vin"),
             fuelType: Nullable<String>.value("fuelType"),
-            acquisitionDate: Nullable<String>.value("acquisitionDate"),
+            acquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             marketValue: "marketValue",
             fixedAssetId: Nullable<String>.value("x"),
             technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1FleetVehiclesCreateResponseDocumentsItem]>.value([
-                PostV1FleetVehiclesCreateResponseDocumentsItem(
+            documents: Nullable<[VehiclesCreateFleetResponseDocumentsItem]>.value([
+                VehiclesCreateFleetResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 ),
-                PostV1FleetVehiclesCreateResponseDocumentsItem(
+                VehiclesCreateFleetResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 )
             ]),
-            currentAssignment: Nullable<PostV1FleetVehiclesCreateResponseCurrentAssignment>.value(PostV1FleetVehiclesCreateResponseCurrentAssignment(
+            currentAssignment: Nullable<VehiclesCreateFleetResponseCurrentAssignment>.value(VehiclesCreateFleetResponseCurrentAssignment(
                 id: "x",
                 employeeId: "x",
                 employeeName: "employeeName",
-                fromDate: "fromDate",
+                fromDate: CalendarDate("2023-01-15")!,
                 privateUse: true,
                 employerPaysFuel: true
             )),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.fleet.postV1FleetVehiclesCreate(
+        let response = try await client.fleet.vehiclesCreate(
             request: .init(
                 plateNumber: "x",
                 make: "x",
@@ -183,7 +183,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetVehiclesUpdate1() async throws -> Void {
+    @Test func vehiclesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -196,7 +196,7 @@ import Api
                   "year": 1000000,
                   "vin": "vin",
                   "fuelType": "fuelType",
-                  "acquisitionDate": "acquisitionDate",
+                  "acquisitionDate": "2026-07-01",
                   "marketValue": "marketValue",
                   "fixedAssetId": "fixedAssetId",
                   "technicalInspectionDue": "technicalInspectionDue",
@@ -213,11 +213,11 @@ import Api
                     "id": "id",
                     "employeeId": "employeeId",
                     "employeeName": "employeeName",
-                    "fromDate": "fromDate",
+                    "fromDate": "2026-07-01",
                     "privateUse": true,
                     "employerPaysFuel": true
                   },
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -227,7 +227,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetVehiclesUpdateResponse(
+        let expectedResponse = VehiclesUpdateFleetResponse(
             id: "id",
             plateNumber: "plateNumber",
             make: "make",
@@ -235,37 +235,37 @@ import Api
             year: Nullable<Int64>.value(1000000),
             vin: Nullable<String>.value("vin"),
             fuelType: Nullable<String>.value("fuelType"),
-            acquisitionDate: Nullable<String>.value("acquisitionDate"),
+            acquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             marketValue: "marketValue",
             fixedAssetId: Nullable<String>.value("fixedAssetId"),
             technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1FleetVehiclesUpdateResponseDocumentsItem]>.value([
-                PostV1FleetVehiclesUpdateResponseDocumentsItem(
+            documents: Nullable<[VehiclesUpdateFleetResponseDocumentsItem]>.value([
+                VehiclesUpdateFleetResponseDocumentsItem(
                     name: "name",
                     ref: "ref"
                 )
             ]),
-            currentAssignment: Nullable<PostV1FleetVehiclesUpdateResponseCurrentAssignment>.value(PostV1FleetVehiclesUpdateResponseCurrentAssignment(
+            currentAssignment: Nullable<VehiclesUpdateFleetResponseCurrentAssignment>.value(VehiclesUpdateFleetResponseCurrentAssignment(
                 id: "id",
                 employeeId: "employeeId",
                 employeeName: "employeeName",
-                fromDate: "fromDate",
+                fromDate: CalendarDate("2026-07-01")!,
                 privateUse: true,
                 employerPaysFuel: true
             )),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.fleet.postV1FleetVehiclesUpdate(
+        let response = try await client.fleet.vehiclesUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetVehiclesUpdate2() async throws -> Void {
+    @Test func vehiclesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -278,7 +278,7 @@ import Api
                   "year": 1000000,
                   "vin": "vin",
                   "fuelType": "fuelType",
-                  "acquisitionDate": "acquisitionDate",
+                  "acquisitionDate": "2023-01-15",
                   "marketValue": "marketValue",
                   "fixedAssetId": "x",
                   "technicalInspectionDue": "technicalInspectionDue",
@@ -299,11 +299,11 @@ import Api
                     "id": "x",
                     "employeeId": "x",
                     "employeeName": "employeeName",
-                    "fromDate": "fromDate",
+                    "fromDate": "2023-01-15",
                     "privateUse": true,
                     "employerPaysFuel": true
                   },
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -313,7 +313,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetVehiclesUpdateResponse(
+        let expectedResponse = VehiclesUpdateFleetResponse(
             id: "x",
             plateNumber: "plateNumber",
             make: "make",
@@ -321,41 +321,41 @@ import Api
             year: Nullable<Int64>.value(1000000),
             vin: Nullable<String>.value("vin"),
             fuelType: Nullable<String>.value("fuelType"),
-            acquisitionDate: Nullable<String>.value("acquisitionDate"),
+            acquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             marketValue: "marketValue",
             fixedAssetId: Nullable<String>.value("x"),
             technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1FleetVehiclesUpdateResponseDocumentsItem]>.value([
-                PostV1FleetVehiclesUpdateResponseDocumentsItem(
+            documents: Nullable<[VehiclesUpdateFleetResponseDocumentsItem]>.value([
+                VehiclesUpdateFleetResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 ),
-                PostV1FleetVehiclesUpdateResponseDocumentsItem(
+                VehiclesUpdateFleetResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 )
             ]),
-            currentAssignment: Nullable<PostV1FleetVehiclesUpdateResponseCurrentAssignment>.value(PostV1FleetVehiclesUpdateResponseCurrentAssignment(
+            currentAssignment: Nullable<VehiclesUpdateFleetResponseCurrentAssignment>.value(VehiclesUpdateFleetResponseCurrentAssignment(
                 id: "x",
                 employeeId: "x",
                 employeeName: "employeeName",
-                fromDate: "fromDate",
+                fromDate: CalendarDate("2023-01-15")!,
                 privateUse: true,
                 employerPaysFuel: true
             )),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.fleet.postV1FleetVehiclesUpdate(
+        let response = try await client.fleet.vehiclesUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetVehiclesGet1() async throws -> Void {
+    @Test func vehiclesGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -368,7 +368,7 @@ import Api
                   "year": 1000000,
                   "vin": "vin",
                   "fuelType": "fuelType",
-                  "acquisitionDate": "acquisitionDate",
+                  "acquisitionDate": "2026-07-01",
                   "marketValue": "marketValue",
                   "fixedAssetId": "fixedAssetId",
                   "technicalInspectionDue": "technicalInspectionDue",
@@ -385,11 +385,11 @@ import Api
                     "id": "id",
                     "employeeId": "employeeId",
                     "employeeName": "employeeName",
-                    "fromDate": "fromDate",
+                    "fromDate": "2026-07-01",
                     "privateUse": true,
                     "employerPaysFuel": true
                   },
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -399,7 +399,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetVehiclesGetResponse(
+        let expectedResponse = VehiclesGetFleetResponse(
             id: "id",
             plateNumber: "plateNumber",
             make: "make",
@@ -407,37 +407,37 @@ import Api
             year: Nullable<Int64>.value(1000000),
             vin: Nullable<String>.value("vin"),
             fuelType: Nullable<String>.value("fuelType"),
-            acquisitionDate: Nullable<String>.value("acquisitionDate"),
+            acquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             marketValue: "marketValue",
             fixedAssetId: Nullable<String>.value("fixedAssetId"),
             technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1FleetVehiclesGetResponseDocumentsItem]>.value([
-                PostV1FleetVehiclesGetResponseDocumentsItem(
+            documents: Nullable<[VehiclesGetFleetResponseDocumentsItem]>.value([
+                VehiclesGetFleetResponseDocumentsItem(
                     name: "name",
                     ref: "ref"
                 )
             ]),
-            currentAssignment: Nullable<PostV1FleetVehiclesGetResponseCurrentAssignment>.value(PostV1FleetVehiclesGetResponseCurrentAssignment(
+            currentAssignment: Nullable<VehiclesGetFleetResponseCurrentAssignment>.value(VehiclesGetFleetResponseCurrentAssignment(
                 id: "id",
                 employeeId: "employeeId",
                 employeeName: "employeeName",
-                fromDate: "fromDate",
+                fromDate: CalendarDate("2026-07-01")!,
                 privateUse: true,
                 employerPaysFuel: true
             )),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.fleet.postV1FleetVehiclesGet(
+        let response = try await client.fleet.vehiclesGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetVehiclesGet2() async throws -> Void {
+    @Test func vehiclesGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -450,7 +450,7 @@ import Api
                   "year": 1000000,
                   "vin": "vin",
                   "fuelType": "fuelType",
-                  "acquisitionDate": "acquisitionDate",
+                  "acquisitionDate": "2023-01-15",
                   "marketValue": "marketValue",
                   "fixedAssetId": "x",
                   "technicalInspectionDue": "technicalInspectionDue",
@@ -471,11 +471,11 @@ import Api
                     "id": "x",
                     "employeeId": "x",
                     "employeeName": "employeeName",
-                    "fromDate": "fromDate",
+                    "fromDate": "2023-01-15",
                     "privateUse": true,
                     "employerPaysFuel": true
                   },
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -485,7 +485,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetVehiclesGetResponse(
+        let expectedResponse = VehiclesGetFleetResponse(
             id: "x",
             plateNumber: "plateNumber",
             make: "make",
@@ -493,41 +493,41 @@ import Api
             year: Nullable<Int64>.value(1000000),
             vin: Nullable<String>.value("vin"),
             fuelType: Nullable<String>.value("fuelType"),
-            acquisitionDate: Nullable<String>.value("acquisitionDate"),
+            acquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             marketValue: "marketValue",
             fixedAssetId: Nullable<String>.value("x"),
             technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1FleetVehiclesGetResponseDocumentsItem]>.value([
-                PostV1FleetVehiclesGetResponseDocumentsItem(
+            documents: Nullable<[VehiclesGetFleetResponseDocumentsItem]>.value([
+                VehiclesGetFleetResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 ),
-                PostV1FleetVehiclesGetResponseDocumentsItem(
+                VehiclesGetFleetResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 )
             ]),
-            currentAssignment: Nullable<PostV1FleetVehiclesGetResponseCurrentAssignment>.value(PostV1FleetVehiclesGetResponseCurrentAssignment(
+            currentAssignment: Nullable<VehiclesGetFleetResponseCurrentAssignment>.value(VehiclesGetFleetResponseCurrentAssignment(
                 id: "x",
                 employeeId: "x",
                 employeeName: "employeeName",
-                fromDate: "fromDate",
+                fromDate: CalendarDate("2023-01-15")!,
                 privateUse: true,
                 employerPaysFuel: true
             )),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.fleet.postV1FleetVehiclesGet(
+        let response = try await client.fleet.vehiclesGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetVehiclesList1() async throws -> Void {
+    @Test func vehiclesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -542,7 +542,7 @@ import Api
                       "year": 1000000,
                       "vin": "vin",
                       "fuelType": "fuelType",
-                      "acquisitionDate": "acquisitionDate",
+                      "acquisitionDate": "2026-07-01",
                       "marketValue": "marketValue",
                       "fixedAssetId": "fixedAssetId",
                       "technicalInspectionDue": "technicalInspectionDue",
@@ -559,11 +559,11 @@ import Api
                         "id": "id",
                         "employeeId": "employeeId",
                         "employeeName": "employeeName",
-                        "fromDate": "fromDate",
+                        "fromDate": "2026-07-01",
                         "privateUse": true,
                         "employerPaysFuel": true
                       },
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -581,9 +581,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetVehiclesListResponse(
+        let expectedResponse = VehiclesListFleetResponse(
             rows: [
-                PostV1FleetVehiclesListResponseRowsItem(
+                VehiclesListFleetResponseRowsItem(
                     id: "id",
                     plateNumber: "plateNumber",
                     make: "make",
@@ -591,28 +591,28 @@ import Api
                     year: Nullable<Int64>.value(1000000),
                     vin: Nullable<String>.value("vin"),
                     fuelType: Nullable<String>.value("fuelType"),
-                    acquisitionDate: Nullable<String>.value("acquisitionDate"),
+                    acquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     marketValue: "marketValue",
                     fixedAssetId: Nullable<String>.value("fixedAssetId"),
                     technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
                     insuranceDue: Nullable<String>.value("insuranceDue"),
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    documents: Nullable<[PostV1FleetVehiclesListResponseRowsItemDocumentsItem]>.value([
-                        PostV1FleetVehiclesListResponseRowsItemDocumentsItem(
+                    documents: Nullable<[VehiclesListFleetResponseRowsItemDocumentsItem]>.value([
+                        VehiclesListFleetResponseRowsItemDocumentsItem(
                             name: "name",
                             ref: "ref"
                         )
                     ]),
-                    currentAssignment: Nullable<PostV1FleetVehiclesListResponseRowsItemCurrentAssignment>.value(PostV1FleetVehiclesListResponseRowsItemCurrentAssignment(
+                    currentAssignment: Nullable<VehiclesListFleetResponseRowsItemCurrentAssignment>.value(VehiclesListFleetResponseRowsItemCurrentAssignment(
                         id: "id",
                         employeeId: "employeeId",
                         employeeName: "employeeName",
-                        fromDate: "fromDate",
+                        fromDate: CalendarDate("2026-07-01")!,
                         privateUse: true,
                         employerPaysFuel: true
                     )),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -622,14 +622,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.fleet.postV1FleetVehiclesList(
+        let response = try await client.fleet.vehiclesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetVehiclesList2() async throws -> Void {
+    @Test func vehiclesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -644,7 +644,7 @@ import Api
                       "year": 1000000,
                       "vin": "vin",
                       "fuelType": "fuelType",
-                      "acquisitionDate": "acquisitionDate",
+                      "acquisitionDate": "2023-01-15",
                       "marketValue": "marketValue",
                       "fixedAssetId": "x",
                       "technicalInspectionDue": "technicalInspectionDue",
@@ -665,11 +665,11 @@ import Api
                         "id": "x",
                         "employeeId": "x",
                         "employeeName": "employeeName",
-                        "fromDate": "fromDate",
+                        "fromDate": "2023-01-15",
                         "privateUse": true,
                         "employerPaysFuel": true
                       },
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -679,7 +679,7 @@ import Api
                       "year": 1000000,
                       "vin": "vin",
                       "fuelType": "fuelType",
-                      "acquisitionDate": "acquisitionDate",
+                      "acquisitionDate": "2023-01-15",
                       "marketValue": "marketValue",
                       "fixedAssetId": "x",
                       "technicalInspectionDue": "technicalInspectionDue",
@@ -700,11 +700,11 @@ import Api
                         "id": "x",
                         "employeeId": "x",
                         "employeeName": "employeeName",
-                        "fromDate": "fromDate",
+                        "fromDate": "2023-01-15",
                         "privateUse": true,
                         "employerPaysFuel": true
                       },
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -722,9 +722,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetVehiclesListResponse(
+        let expectedResponse = VehiclesListFleetResponse(
             rows: [
-                PostV1FleetVehiclesListResponseRowsItem(
+                VehiclesListFleetResponseRowsItem(
                     id: "x",
                     plateNumber: "plateNumber",
                     make: "make",
@@ -732,34 +732,34 @@ import Api
                     year: Nullable<Int64>.value(1000000),
                     vin: Nullable<String>.value("vin"),
                     fuelType: Nullable<String>.value("fuelType"),
-                    acquisitionDate: Nullable<String>.value("acquisitionDate"),
+                    acquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     marketValue: "marketValue",
                     fixedAssetId: Nullable<String>.value("x"),
                     technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
                     insuranceDue: Nullable<String>.value("insuranceDue"),
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    documents: Nullable<[PostV1FleetVehiclesListResponseRowsItemDocumentsItem]>.value([
-                        PostV1FleetVehiclesListResponseRowsItemDocumentsItem(
+                    documents: Nullable<[VehiclesListFleetResponseRowsItemDocumentsItem]>.value([
+                        VehiclesListFleetResponseRowsItemDocumentsItem(
                             name: "x",
                             ref: "x"
                         ),
-                        PostV1FleetVehiclesListResponseRowsItemDocumentsItem(
+                        VehiclesListFleetResponseRowsItemDocumentsItem(
                             name: "x",
                             ref: "x"
                         )
                     ]),
-                    currentAssignment: Nullable<PostV1FleetVehiclesListResponseRowsItemCurrentAssignment>.value(PostV1FleetVehiclesListResponseRowsItemCurrentAssignment(
+                    currentAssignment: Nullable<VehiclesListFleetResponseRowsItemCurrentAssignment>.value(VehiclesListFleetResponseRowsItemCurrentAssignment(
                         id: "x",
                         employeeId: "x",
                         employeeName: "employeeName",
-                        fromDate: "fromDate",
+                        fromDate: CalendarDate("2023-01-15")!,
                         privateUse: true,
                         employerPaysFuel: true
                     )),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1FleetVehiclesListResponseRowsItem(
+                VehiclesListFleetResponseRowsItem(
                     id: "x",
                     plateNumber: "plateNumber",
                     make: "make",
@@ -767,32 +767,32 @@ import Api
                     year: Nullable<Int64>.value(1000000),
                     vin: Nullable<String>.value("vin"),
                     fuelType: Nullable<String>.value("fuelType"),
-                    acquisitionDate: Nullable<String>.value("acquisitionDate"),
+                    acquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     marketValue: "marketValue",
                     fixedAssetId: Nullable<String>.value("x"),
                     technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
                     insuranceDue: Nullable<String>.value("insuranceDue"),
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    documents: Nullable<[PostV1FleetVehiclesListResponseRowsItemDocumentsItem]>.value([
-                        PostV1FleetVehiclesListResponseRowsItemDocumentsItem(
+                    documents: Nullable<[VehiclesListFleetResponseRowsItemDocumentsItem]>.value([
+                        VehiclesListFleetResponseRowsItemDocumentsItem(
                             name: "x",
                             ref: "x"
                         ),
-                        PostV1FleetVehiclesListResponseRowsItemDocumentsItem(
+                        VehiclesListFleetResponseRowsItemDocumentsItem(
                             name: "x",
                             ref: "x"
                         )
                     ]),
-                    currentAssignment: Nullable<PostV1FleetVehiclesListResponseRowsItemCurrentAssignment>.value(PostV1FleetVehiclesListResponseRowsItemCurrentAssignment(
+                    currentAssignment: Nullable<VehiclesListFleetResponseRowsItemCurrentAssignment>.value(VehiclesListFleetResponseRowsItemCurrentAssignment(
                         id: "x",
                         employeeId: "x",
                         employeeName: "employeeName",
-                        fromDate: "fromDate",
+                        fromDate: CalendarDate("2023-01-15")!,
                         privateUse: true,
                         employerPaysFuel: true
                     )),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -802,14 +802,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.fleet.postV1FleetVehiclesList(
+        let response = try await client.fleet.vehiclesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetAssignmentsCreate1() async throws -> Void {
+    @Test func assignmentsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -820,12 +820,12 @@ import Api
                   "plateNumber": "plateNumber",
                   "employeeId": "employeeId",
                   "employeeName": "employeeName",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "privateUse": true,
                   "employerPaysFuel": true,
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -835,31 +835,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetAssignmentsCreateResponse(
+        let expectedResponse = AssignmentsCreateFleetResponse(
             id: "id",
             vehicleId: "vehicleId",
             plateNumber: "plateNumber",
             employeeId: "employeeId",
             employeeName: "employeeName",
-            fromDate: "fromDate",
-            toDate: Nullable<String>.value("toDate"),
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             privateUse: true,
             employerPaysFuel: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.fleet.postV1FleetAssignmentsCreate(
+        let response = try await client.fleet.assignmentsCreate(
             request: .init(
                 vehicleId: "vehicleId",
                 employeeId: "employeeId",
-                fromDate: "fromDate"
+                fromDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetAssignmentsCreate2() async throws -> Void {
+    @Test func assignmentsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -870,12 +870,12 @@ import Api
                   "plateNumber": "plateNumber",
                   "employeeId": "x",
                   "employeeName": "employeeName",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "privateUse": true,
                   "employerPaysFuel": true,
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -885,31 +885,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetAssignmentsCreateResponse(
+        let expectedResponse = AssignmentsCreateFleetResponse(
             id: "x",
             vehicleId: "x",
             plateNumber: "plateNumber",
             employeeId: "x",
             employeeName: "employeeName",
-            fromDate: "fromDate",
-            toDate: Nullable<String>.value("toDate"),
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             privateUse: true,
             employerPaysFuel: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.fleet.postV1FleetAssignmentsCreate(
+        let response = try await client.fleet.assignmentsCreate(
             request: .init(
                 vehicleId: "x",
                 employeeId: "x",
-                fromDate: "fromDate"
+                fromDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetAssignmentsEnd1() async throws -> Void {
+    @Test func assignmentsEnd1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -920,12 +920,12 @@ import Api
                   "plateNumber": "plateNumber",
                   "employeeId": "employeeId",
                   "employeeName": "employeeName",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "privateUse": true,
                   "employerPaysFuel": true,
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -935,30 +935,30 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetAssignmentsEndResponse(
+        let expectedResponse = AssignmentsEndFleetResponse(
             id: "id",
             vehicleId: "vehicleId",
             plateNumber: "plateNumber",
             employeeId: "employeeId",
             employeeName: "employeeName",
-            fromDate: "fromDate",
-            toDate: Nullable<String>.value("toDate"),
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             privateUse: true,
             employerPaysFuel: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.fleet.postV1FleetAssignmentsEnd(
+        let response = try await client.fleet.assignmentsEnd(
             request: .init(
                 id: "id",
-                toDate: "toDate"
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetAssignmentsEnd2() async throws -> Void {
+    @Test func assignmentsEnd2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -969,12 +969,12 @@ import Api
                   "plateNumber": "plateNumber",
                   "employeeId": "x",
                   "employeeName": "employeeName",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "privateUse": true,
                   "employerPaysFuel": true,
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -984,30 +984,30 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetAssignmentsEndResponse(
+        let expectedResponse = AssignmentsEndFleetResponse(
             id: "x",
             vehicleId: "x",
             plateNumber: "plateNumber",
             employeeId: "x",
             employeeName: "employeeName",
-            fromDate: "fromDate",
-            toDate: Nullable<String>.value("toDate"),
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             privateUse: true,
             employerPaysFuel: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.fleet.postV1FleetAssignmentsEnd(
+        let response = try await client.fleet.assignmentsEnd(
             request: .init(
                 id: "x",
-                toDate: "toDate"
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetAssignmentsList1() async throws -> Void {
+    @Test func assignmentsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1020,12 +1020,12 @@ import Api
                       "plateNumber": "plateNumber",
                       "employeeId": "employeeId",
                       "employeeName": "employeeName",
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2026-07-01",
+                      "toDate": "2026-07-01",
                       "privateUse": true,
                       "employerPaysFuel": true,
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1043,20 +1043,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetAssignmentsListResponse(
+        let expectedResponse = AssignmentsListFleetResponse(
             rows: [
-                PostV1FleetAssignmentsListResponseRowsItem(
+                AssignmentsListFleetResponseRowsItem(
                     id: "id",
                     vehicleId: "vehicleId",
                     plateNumber: "plateNumber",
                     employeeId: "employeeId",
                     employeeName: "employeeName",
-                    fromDate: "fromDate",
-                    toDate: Nullable<String>.value("toDate"),
+                    fromDate: CalendarDate("2026-07-01")!,
+                    toDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     privateUse: true,
                     employerPaysFuel: true,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1066,14 +1066,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.fleet.postV1FleetAssignmentsList(
+        let response = try await client.fleet.assignmentsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetAssignmentsList2() async throws -> Void {
+    @Test func assignmentsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1086,12 +1086,12 @@ import Api
                       "plateNumber": "plateNumber",
                       "employeeId": "x",
                       "employeeName": "employeeName",
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2023-01-15",
+                      "toDate": "2023-01-15",
                       "privateUse": true,
                       "employerPaysFuel": true,
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1099,12 +1099,12 @@ import Api
                       "plateNumber": "plateNumber",
                       "employeeId": "x",
                       "employeeName": "employeeName",
-                      "fromDate": "fromDate",
-                      "toDate": "toDate",
+                      "fromDate": "2023-01-15",
+                      "toDate": "2023-01-15",
                       "privateUse": true,
                       "employerPaysFuel": true,
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1122,33 +1122,33 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetAssignmentsListResponse(
+        let expectedResponse = AssignmentsListFleetResponse(
             rows: [
-                PostV1FleetAssignmentsListResponseRowsItem(
+                AssignmentsListFleetResponseRowsItem(
                     id: "x",
                     vehicleId: "x",
                     plateNumber: "plateNumber",
                     employeeId: "x",
                     employeeName: "employeeName",
-                    fromDate: "fromDate",
-                    toDate: Nullable<String>.value("toDate"),
+                    fromDate: CalendarDate("2023-01-15")!,
+                    toDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     privateUse: true,
                     employerPaysFuel: true,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1FleetAssignmentsListResponseRowsItem(
+                AssignmentsListFleetResponseRowsItem(
                     id: "x",
                     vehicleId: "x",
                     plateNumber: "plateNumber",
                     employeeId: "x",
                     employeeName: "employeeName",
-                    fromDate: "fromDate",
-                    toDate: Nullable<String>.value("toDate"),
+                    fromDate: CalendarDate("2023-01-15")!,
+                    toDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     privateUse: true,
                     employerPaysFuel: true,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1158,14 +1158,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.fleet.postV1FleetAssignmentsList(
+        let response = try await client.fleet.assignmentsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetNaturaPreview1() async throws -> Void {
+    @Test func naturaPreview1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1195,9 +1195,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetNaturaPreviewResponse(
+        let expectedResponse = NaturaPreviewFleetResponse(
             rows: [
-                PostV1FleetNaturaPreviewResponseRowsItem(
+                NaturaPreviewFleetResponseRowsItem(
                     employeeId: "employeeId",
                     employeeName: "employeeName",
                     vehicleId: "vehicleId",
@@ -1212,7 +1212,7 @@ import Api
             ],
             total: "total"
         )
-        let response = try await client.fleet.postV1FleetNaturaPreview(
+        let response = try await client.fleet.naturaPreview(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -1222,7 +1222,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1FleetNaturaPreview2() async throws -> Void {
+    @Test func naturaPreview2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1264,9 +1264,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1FleetNaturaPreviewResponse(
+        let expectedResponse = NaturaPreviewFleetResponse(
             rows: [
-                PostV1FleetNaturaPreviewResponseRowsItem(
+                NaturaPreviewFleetResponseRowsItem(
                     employeeId: "x",
                     employeeName: "employeeName",
                     vehicleId: "x",
@@ -1278,7 +1278,7 @@ import Api
                     ratePercent: "ratePercent",
                     amount: "amount"
                 ),
-                PostV1FleetNaturaPreviewResponseRowsItem(
+                NaturaPreviewFleetResponseRowsItem(
                     employeeId: "x",
                     employeeName: "employeeName",
                     vehicleId: "x",
@@ -1293,7 +1293,7 @@ import Api
             ],
             total: "total"
         )
-        let response = try await client.fleet.postV1FleetNaturaPreview(
+        let response = try await client.fleet.naturaPreview(
             request: .init(
                 year: 1000000,
                 month: 1000000

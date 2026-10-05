@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("AssetsClient Wire Tests") struct AssetsClientWireTests {
-    @Test func postV1AssetsGroupsCreate1() async throws -> Void {
+    @Test func groupsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -16,7 +16,7 @@ import Api
                   "depreciationAccountCode": "depreciationAccountCode",
                   "expenseAccountCode": "expenseAccountCode",
                   "id": "id",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -26,7 +26,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsGroupsCreateResponse(
+        let expectedResponse = GroupsCreateAssetsResponse(
             code: "code",
             name: "name",
             defaultUsefulLifeMonths: Nullable<Int64>.value(1000000),
@@ -34,9 +34,9 @@ import Api
             depreciationAccountCode: "depreciationAccountCode",
             expenseAccountCode: "expenseAccountCode",
             id: "id",
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.assets.postV1AssetsGroupsCreate(
+        let response = try await client.assets.groupsCreate(
             request: .init(
                 code: "code",
                 name: "name",
@@ -48,7 +48,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsGroupsCreate2() async throws -> Void {
+    @Test func groupsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -61,7 +61,7 @@ import Api
                   "depreciationAccountCode": "x",
                   "expenseAccountCode": "expenseAccountCode",
                   "id": "x",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -71,7 +71,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsGroupsCreateResponse(
+        let expectedResponse = GroupsCreateAssetsResponse(
             code: "x",
             name: "x",
             defaultUsefulLifeMonths: Nullable<Int64>.value(1000000),
@@ -79,9 +79,9 @@ import Api
             depreciationAccountCode: "x",
             expenseAccountCode: "expenseAccountCode",
             id: "x",
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.assets.postV1AssetsGroupsCreate(
+        let response = try await client.assets.groupsCreate(
             request: .init(
                 code: "x",
                 name: "x",
@@ -93,7 +93,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsGroupsList1() async throws -> Void {
+    @Test func groupsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -108,7 +108,7 @@ import Api
                       "depreciationAccountCode": "depreciationAccountCode",
                       "expenseAccountCode": "expenseAccountCode",
                       "id": "id",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -126,9 +126,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsGroupsListResponse(
+        let expectedResponse = GroupsListAssetsResponse(
             rows: [
-                PostV1AssetsGroupsListResponseRowsItem(
+                GroupsListAssetsResponseRowsItem(
                     code: "code",
                     name: "name",
                     defaultUsefulLifeMonths: Nullable<Int64>.value(1000000),
@@ -136,7 +136,7 @@ import Api
                     depreciationAccountCode: "depreciationAccountCode",
                     expenseAccountCode: "expenseAccountCode",
                     id: "id",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -146,14 +146,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.assets.postV1AssetsGroupsList(
+        let response = try await client.assets.groupsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsGroupsList2() async throws -> Void {
+    @Test func groupsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -168,7 +168,7 @@ import Api
                       "depreciationAccountCode": "x",
                       "expenseAccountCode": "expenseAccountCode",
                       "id": "x",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "code": "x",
@@ -178,7 +178,7 @@ import Api
                       "depreciationAccountCode": "x",
                       "expenseAccountCode": "expenseAccountCode",
                       "id": "x",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -196,9 +196,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsGroupsListResponse(
+        let expectedResponse = GroupsListAssetsResponse(
             rows: [
-                PostV1AssetsGroupsListResponseRowsItem(
+                GroupsListAssetsResponseRowsItem(
                     code: "x",
                     name: "x",
                     defaultUsefulLifeMonths: Nullable<Int64>.value(1000000),
@@ -206,9 +206,9 @@ import Api
                     depreciationAccountCode: "x",
                     expenseAccountCode: "expenseAccountCode",
                     id: "x",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1AssetsGroupsListResponseRowsItem(
+                GroupsListAssetsResponseRowsItem(
                     code: "x",
                     name: "x",
                     defaultUsefulLifeMonths: Nullable<Int64>.value(1000000),
@@ -216,7 +216,7 @@ import Api
                     depreciationAccountCode: "x",
                     expenseAccountCode: "expenseAccountCode",
                     id: "x",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -226,14 +226,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.assets.postV1AssetsGroupsList(
+        let response = try await client.assets.groupsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsAssetsCreate1() async throws -> Void {
+    @Test func assetsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -243,8 +243,8 @@ import Api
                   "groupId": "groupId",
                   "code": "code",
                   "name": "name",
-                  "acquisitionDate": "acquisitionDate",
-                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionDate": "2026-07-01",
+                  "depreciationStartDate": "2026-07-01",
                   "acquisitionCost": "acquisitionCost",
                   "salvageValue": "salvageValue",
                   "usefulLifeMonths": 1000000,
@@ -262,17 +262,21 @@ import Api
                     }
                   ],
                   "inputVatAmount": "inputVatAmount",
-                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatFirstUseDate": "2026-07-01",
                   "inputVatDeductiblePercent": "inputVatDeductiblePercent",
                   "inputVatRealEstate": true,
                   "inputVatUseChanges": [
                     {
                       "year": 1000000,
-                      "percent": "percent",
+                      "percent": "121.00",
                       "reason": "use_change"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "disposalDate": "2026-07-01",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -282,13 +286,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsAssetsCreateResponse(
+        let expectedResponse = AssetsCreateAssetsResponse(
             id: "id",
             groupId: "groupId",
             code: "code",
             name: "name",
-            acquisitionDate: "acquisitionDate",
-            depreciationStartDate: "depreciationStartDate",
+            acquisitionDate: CalendarDate("2026-07-01")!,
+            depreciationStartDate: CalendarDate("2026-07-01")!,
             acquisitionCost: "acquisitionCost",
             salvageValue: "salvageValue",
             usefulLifeMonths: 1000000,
@@ -299,39 +303,43 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1AssetsAssetsCreateResponseDocumentsItem]>.value([
-                PostV1AssetsAssetsCreateResponseDocumentsItem(
+            documents: Nullable<[AssetsCreateAssetsResponseDocumentsItem]>.value([
+                AssetsCreateAssetsResponseDocumentsItem(
                     name: "name",
                     ref: "ref"
                 )
             ]),
             inputVatAmount: Nullable<String>.value("inputVatAmount"),
-            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
             inputVatRealEstate: true,
             inputVatUseChanges: [
-                PostV1AssetsAssetsCreateResponseInputVatUseChangesItem(
+                AssetsCreateAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
-                    percent: "percent",
+                    percent: "121.00",
                     reason: .useChange
                 )
             ],
-            createdAt: "createdAt"
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            disposalReason: Nullable<AssetsCreateAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.assets.postV1AssetsAssetsCreate(
+        let response = try await client.assets.assetsCreate(
             request: .init(
                 groupId: "groupId",
                 code: "code",
                 name: "name",
-                acquisitionDate: "acquisitionDate",
-                acquisitionCost: "acquisitionCost"
+                acquisitionDate: CalendarDate("2026-07-01")!,
+                acquisitionCost: "121.0000"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsAssetsCreate2() async throws -> Void {
+    @Test func assetsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -341,8 +349,8 @@ import Api
                   "groupId": "x",
                   "code": "code",
                   "name": "name",
-                  "acquisitionDate": "acquisitionDate",
-                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionDate": "2023-01-15",
+                  "depreciationStartDate": "2023-01-15",
                   "acquisitionCost": "acquisitionCost",
                   "salvageValue": "salvageValue",
                   "usefulLifeMonths": 1000000,
@@ -364,7 +372,7 @@ import Api
                     }
                   ],
                   "inputVatAmount": "inputVatAmount",
-                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatFirstUseDate": "2023-01-15",
                   "inputVatDeductiblePercent": "inputVatDeductiblePercent",
                   "inputVatRealEstate": true,
                   "inputVatUseChanges": [
@@ -379,7 +387,11 @@ import Api
                       "reason": "use_change"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "disposalDate": "2023-01-15",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -389,13 +401,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsAssetsCreateResponse(
+        let expectedResponse = AssetsCreateAssetsResponse(
             id: "x",
             groupId: "x",
             code: "code",
             name: "name",
-            acquisitionDate: "acquisitionDate",
-            depreciationStartDate: "depreciationStartDate",
+            acquisitionDate: CalendarDate("2023-01-15")!,
+            depreciationStartDate: CalendarDate("2023-01-15")!,
             acquisitionCost: "acquisitionCost",
             salvageValue: "salvageValue",
             usefulLifeMonths: 1000000,
@@ -406,40 +418,44 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1AssetsAssetsCreateResponseDocumentsItem]>.value([
-                PostV1AssetsAssetsCreateResponseDocumentsItem(
+            documents: Nullable<[AssetsCreateAssetsResponseDocumentsItem]>.value([
+                AssetsCreateAssetsResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 ),
-                PostV1AssetsAssetsCreateResponseDocumentsItem(
+                AssetsCreateAssetsResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 )
             ]),
             inputVatAmount: Nullable<String>.value("inputVatAmount"),
-            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
             inputVatRealEstate: true,
             inputVatUseChanges: [
-                PostV1AssetsAssetsCreateResponseInputVatUseChangesItem(
+                AssetsCreateAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
                     percent: "percent",
                     reason: .useChange
                 ),
-                PostV1AssetsAssetsCreateResponseInputVatUseChangesItem(
+                AssetsCreateAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
                     percent: "percent",
                     reason: .useChange
                 )
             ],
-            createdAt: "createdAt"
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            disposalReason: Nullable<AssetsCreateAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.assets.postV1AssetsAssetsCreate(
+        let response = try await client.assets.assetsCreate(
             request: .init(
                 groupId: "x",
                 code: "x",
                 name: "x",
-                acquisitionDate: "acquisitionDate",
+                acquisitionDate: CalendarDate("2023-01-15")!,
                 acquisitionCost: "acquisitionCost"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -447,7 +463,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsAssetsUpdate1() async throws -> Void {
+    @Test func assetsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -457,8 +473,8 @@ import Api
                   "groupId": "groupId",
                   "code": "code",
                   "name": "name",
-                  "acquisitionDate": "acquisitionDate",
-                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionDate": "2026-07-01",
+                  "depreciationStartDate": "2026-07-01",
                   "acquisitionCost": "acquisitionCost",
                   "salvageValue": "salvageValue",
                   "usefulLifeMonths": 1000000,
@@ -476,17 +492,21 @@ import Api
                     }
                   ],
                   "inputVatAmount": "inputVatAmount",
-                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatFirstUseDate": "2026-07-01",
                   "inputVatDeductiblePercent": "inputVatDeductiblePercent",
                   "inputVatRealEstate": true,
                   "inputVatUseChanges": [
                     {
                       "year": 1000000,
-                      "percent": "percent",
+                      "percent": "121.00",
                       "reason": "use_change"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "disposalDate": "2026-07-01",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -496,13 +516,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsAssetsUpdateResponse(
+        let expectedResponse = AssetsUpdateAssetsResponse(
             id: "id",
             groupId: "groupId",
             code: "code",
             name: "name",
-            acquisitionDate: "acquisitionDate",
-            depreciationStartDate: "depreciationStartDate",
+            acquisitionDate: CalendarDate("2026-07-01")!,
+            depreciationStartDate: CalendarDate("2026-07-01")!,
             acquisitionCost: "acquisitionCost",
             salvageValue: "salvageValue",
             usefulLifeMonths: 1000000,
@@ -513,33 +533,37 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1AssetsAssetsUpdateResponseDocumentsItem]>.value([
-                PostV1AssetsAssetsUpdateResponseDocumentsItem(
+            documents: Nullable<[AssetsUpdateAssetsResponseDocumentsItem]>.value([
+                AssetsUpdateAssetsResponseDocumentsItem(
                     name: "name",
                     ref: "ref"
                 )
             ]),
             inputVatAmount: Nullable<String>.value("inputVatAmount"),
-            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
             inputVatRealEstate: true,
             inputVatUseChanges: [
-                PostV1AssetsAssetsUpdateResponseInputVatUseChangesItem(
+                AssetsUpdateAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
-                    percent: "percent",
+                    percent: "121.00",
                     reason: .useChange
                 )
             ],
-            createdAt: "createdAt"
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            disposalReason: Nullable<AssetsUpdateAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.assets.postV1AssetsAssetsUpdate(
+        let response = try await client.assets.assetsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsAssetsUpdate2() async throws -> Void {
+    @Test func assetsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -549,8 +573,8 @@ import Api
                   "groupId": "x",
                   "code": "code",
                   "name": "name",
-                  "acquisitionDate": "acquisitionDate",
-                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionDate": "2023-01-15",
+                  "depreciationStartDate": "2023-01-15",
                   "acquisitionCost": "acquisitionCost",
                   "salvageValue": "salvageValue",
                   "usefulLifeMonths": 1000000,
@@ -572,7 +596,7 @@ import Api
                     }
                   ],
                   "inputVatAmount": "inputVatAmount",
-                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatFirstUseDate": "2023-01-15",
                   "inputVatDeductiblePercent": "inputVatDeductiblePercent",
                   "inputVatRealEstate": true,
                   "inputVatUseChanges": [
@@ -587,7 +611,11 @@ import Api
                       "reason": "use_change"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "disposalDate": "2023-01-15",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -597,13 +625,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsAssetsUpdateResponse(
+        let expectedResponse = AssetsUpdateAssetsResponse(
             id: "x",
             groupId: "x",
             code: "code",
             name: "name",
-            acquisitionDate: "acquisitionDate",
-            depreciationStartDate: "depreciationStartDate",
+            acquisitionDate: CalendarDate("2023-01-15")!,
+            depreciationStartDate: CalendarDate("2023-01-15")!,
             acquisitionCost: "acquisitionCost",
             salvageValue: "salvageValue",
             usefulLifeMonths: 1000000,
@@ -614,42 +642,46 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1AssetsAssetsUpdateResponseDocumentsItem]>.value([
-                PostV1AssetsAssetsUpdateResponseDocumentsItem(
+            documents: Nullable<[AssetsUpdateAssetsResponseDocumentsItem]>.value([
+                AssetsUpdateAssetsResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 ),
-                PostV1AssetsAssetsUpdateResponseDocumentsItem(
+                AssetsUpdateAssetsResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 )
             ]),
             inputVatAmount: Nullable<String>.value("inputVatAmount"),
-            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
             inputVatRealEstate: true,
             inputVatUseChanges: [
-                PostV1AssetsAssetsUpdateResponseInputVatUseChangesItem(
+                AssetsUpdateAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
                     percent: "percent",
                     reason: .useChange
                 ),
-                PostV1AssetsAssetsUpdateResponseInputVatUseChangesItem(
+                AssetsUpdateAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
                     percent: "percent",
                     reason: .useChange
                 )
             ],
-            createdAt: "createdAt"
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            disposalReason: Nullable<AssetsUpdateAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.assets.postV1AssetsAssetsUpdate(
+        let response = try await client.assets.assetsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsAssetsInputVat1() async throws -> Void {
+    @Test func assetsInputVat1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -659,8 +691,8 @@ import Api
                   "groupId": "groupId",
                   "code": "code",
                   "name": "name",
-                  "acquisitionDate": "acquisitionDate",
-                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionDate": "2026-07-01",
+                  "depreciationStartDate": "2026-07-01",
                   "acquisitionCost": "acquisitionCost",
                   "salvageValue": "salvageValue",
                   "usefulLifeMonths": 1000000,
@@ -678,17 +710,21 @@ import Api
                     }
                   ],
                   "inputVatAmount": "inputVatAmount",
-                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatFirstUseDate": "2026-07-01",
                   "inputVatDeductiblePercent": "inputVatDeductiblePercent",
                   "inputVatRealEstate": true,
                   "inputVatUseChanges": [
                     {
                       "year": 1000000,
-                      "percent": "percent",
+                      "percent": "121.00",
                       "reason": "use_change"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "disposalDate": "2026-07-01",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -698,13 +734,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsAssetsInputVatResponse(
+        let expectedResponse = AssetsInputVatAssetsResponse(
             id: "id",
             groupId: "groupId",
             code: "code",
             name: "name",
-            acquisitionDate: "acquisitionDate",
-            depreciationStartDate: "depreciationStartDate",
+            acquisitionDate: CalendarDate("2026-07-01")!,
+            depreciationStartDate: CalendarDate("2026-07-01")!,
             acquisitionCost: "acquisitionCost",
             salvageValue: "salvageValue",
             usefulLifeMonths: 1000000,
@@ -715,26 +751,30 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1AssetsAssetsInputVatResponseDocumentsItem]>.value([
-                PostV1AssetsAssetsInputVatResponseDocumentsItem(
+            documents: Nullable<[AssetsInputVatAssetsResponseDocumentsItem]>.value([
+                AssetsInputVatAssetsResponseDocumentsItem(
                     name: "name",
                     ref: "ref"
                 )
             ]),
             inputVatAmount: Nullable<String>.value("inputVatAmount"),
-            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
             inputVatRealEstate: true,
             inputVatUseChanges: [
-                PostV1AssetsAssetsInputVatResponseInputVatUseChangesItem(
+                AssetsInputVatAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
-                    percent: "percent",
+                    percent: "121.00",
                     reason: .useChange
                 )
             ],
-            createdAt: "createdAt"
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            disposalReason: Nullable<AssetsInputVatAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.assets.postV1AssetsAssetsInputVat(
+        let response = try await client.assets.assetsInputVat(
             request: .init(
                 id: "id",
                 inputVatAmount: .null,
@@ -742,9 +782,9 @@ import Api
                 inputVatDeductiblePercent: .null,
                 inputVatRealEstate: true,
                 inputVatUseChanges: [
-                    PostV1AssetsAssetsInputVatRequestInputVatUseChangesItem(
+                    AssetsInputVatAssetsRequestInputVatUseChangesItem(
                         year: 1000000,
-                        percent: "percent",
+                        percent: "121.00",
                         reason: .useChange
                     )
                 ]
@@ -754,7 +794,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsAssetsInputVat2() async throws -> Void {
+    @Test func assetsInputVat2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -764,8 +804,8 @@ import Api
                   "groupId": "x",
                   "code": "code",
                   "name": "name",
-                  "acquisitionDate": "acquisitionDate",
-                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionDate": "2023-01-15",
+                  "depreciationStartDate": "2023-01-15",
                   "acquisitionCost": "acquisitionCost",
                   "salvageValue": "salvageValue",
                   "usefulLifeMonths": 1000000,
@@ -787,7 +827,7 @@ import Api
                     }
                   ],
                   "inputVatAmount": "inputVatAmount",
-                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatFirstUseDate": "2023-01-15",
                   "inputVatDeductiblePercent": "inputVatDeductiblePercent",
                   "inputVatRealEstate": true,
                   "inputVatUseChanges": [
@@ -802,7 +842,11 @@ import Api
                       "reason": "use_change"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "disposalDate": "2023-01-15",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -812,13 +856,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsAssetsInputVatResponse(
+        let expectedResponse = AssetsInputVatAssetsResponse(
             id: "x",
             groupId: "x",
             code: "code",
             name: "name",
-            acquisitionDate: "acquisitionDate",
-            depreciationStartDate: "depreciationStartDate",
+            acquisitionDate: CalendarDate("2023-01-15")!,
+            depreciationStartDate: CalendarDate("2023-01-15")!,
             acquisitionCost: "acquisitionCost",
             salvageValue: "salvageValue",
             usefulLifeMonths: 1000000,
@@ -829,35 +873,39 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1AssetsAssetsInputVatResponseDocumentsItem]>.value([
-                PostV1AssetsAssetsInputVatResponseDocumentsItem(
+            documents: Nullable<[AssetsInputVatAssetsResponseDocumentsItem]>.value([
+                AssetsInputVatAssetsResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 ),
-                PostV1AssetsAssetsInputVatResponseDocumentsItem(
+                AssetsInputVatAssetsResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 )
             ]),
             inputVatAmount: Nullable<String>.value("inputVatAmount"),
-            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
             inputVatRealEstate: true,
             inputVatUseChanges: [
-                PostV1AssetsAssetsInputVatResponseInputVatUseChangesItem(
+                AssetsInputVatAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
                     percent: "percent",
                     reason: .useChange
                 ),
-                PostV1AssetsAssetsInputVatResponseInputVatUseChangesItem(
+                AssetsInputVatAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
                     percent: "percent",
                     reason: .useChange
                 )
             ],
-            createdAt: "createdAt"
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            disposalReason: Nullable<AssetsInputVatAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.assets.postV1AssetsAssetsInputVat(
+        let response = try await client.assets.assetsInputVat(
             request: .init(
                 id: "x",
                 inputVatAmount: .null,
@@ -865,12 +913,12 @@ import Api
                 inputVatDeductiblePercent: .null,
                 inputVatRealEstate: true,
                 inputVatUseChanges: [
-                    PostV1AssetsAssetsInputVatRequestInputVatUseChangesItem(
+                    AssetsInputVatAssetsRequestInputVatUseChangesItem(
                         year: 1000000,
                         percent: "percent",
                         reason: .useChange
                     ),
-                    PostV1AssetsAssetsInputVatRequestInputVatUseChangesItem(
+                    AssetsInputVatAssetsRequestInputVatUseChangesItem(
                         year: 1000000,
                         percent: "percent",
                         reason: .useChange
@@ -882,7 +930,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsAssetsGet1() async throws -> Void {
+    @Test func assetsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -892,8 +940,8 @@ import Api
                   "groupId": "groupId",
                   "code": "code",
                   "name": "name",
-                  "acquisitionDate": "acquisitionDate",
-                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionDate": "2026-07-01",
+                  "depreciationStartDate": "2026-07-01",
                   "acquisitionCost": "acquisitionCost",
                   "salvageValue": "salvageValue",
                   "usefulLifeMonths": 1000000,
@@ -911,17 +959,21 @@ import Api
                     }
                   ],
                   "inputVatAmount": "inputVatAmount",
-                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatFirstUseDate": "2026-07-01",
                   "inputVatDeductiblePercent": "inputVatDeductiblePercent",
                   "inputVatRealEstate": true,
                   "inputVatUseChanges": [
                     {
                       "year": 1000000,
-                      "percent": "percent",
+                      "percent": "121.00",
                       "reason": "use_change"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "disposalDate": "2026-07-01",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -931,13 +983,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsAssetsGetResponse(
+        let expectedResponse = AssetsGetAssetsResponse(
             id: "id",
             groupId: "groupId",
             code: "code",
             name: "name",
-            acquisitionDate: "acquisitionDate",
-            depreciationStartDate: "depreciationStartDate",
+            acquisitionDate: CalendarDate("2026-07-01")!,
+            depreciationStartDate: CalendarDate("2026-07-01")!,
             acquisitionCost: "acquisitionCost",
             salvageValue: "salvageValue",
             usefulLifeMonths: 1000000,
@@ -948,33 +1000,37 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1AssetsAssetsGetResponseDocumentsItem]>.value([
-                PostV1AssetsAssetsGetResponseDocumentsItem(
+            documents: Nullable<[AssetsGetAssetsResponseDocumentsItem]>.value([
+                AssetsGetAssetsResponseDocumentsItem(
                     name: "name",
                     ref: "ref"
                 )
             ]),
             inputVatAmount: Nullable<String>.value("inputVatAmount"),
-            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
             inputVatRealEstate: true,
             inputVatUseChanges: [
-                PostV1AssetsAssetsGetResponseInputVatUseChangesItem(
+                AssetsGetAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
-                    percent: "percent",
+                    percent: "121.00",
                     reason: .useChange
                 )
             ],
-            createdAt: "createdAt"
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            disposalReason: Nullable<AssetsGetAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.assets.postV1AssetsAssetsGet(
+        let response = try await client.assets.assetsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsAssetsGet2() async throws -> Void {
+    @Test func assetsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -984,8 +1040,8 @@ import Api
                   "groupId": "x",
                   "code": "code",
                   "name": "name",
-                  "acquisitionDate": "acquisitionDate",
-                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionDate": "2023-01-15",
+                  "depreciationStartDate": "2023-01-15",
                   "acquisitionCost": "acquisitionCost",
                   "salvageValue": "salvageValue",
                   "usefulLifeMonths": 1000000,
@@ -1007,7 +1063,7 @@ import Api
                     }
                   ],
                   "inputVatAmount": "inputVatAmount",
-                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatFirstUseDate": "2023-01-15",
                   "inputVatDeductiblePercent": "inputVatDeductiblePercent",
                   "inputVatRealEstate": true,
                   "inputVatUseChanges": [
@@ -1022,7 +1078,11 @@ import Api
                       "reason": "use_change"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "disposalDate": "2023-01-15",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1032,13 +1092,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsAssetsGetResponse(
+        let expectedResponse = AssetsGetAssetsResponse(
             id: "x",
             groupId: "x",
             code: "code",
             name: "name",
-            acquisitionDate: "acquisitionDate",
-            depreciationStartDate: "depreciationStartDate",
+            acquisitionDate: CalendarDate("2023-01-15")!,
+            depreciationStartDate: CalendarDate("2023-01-15")!,
             acquisitionCost: "acquisitionCost",
             salvageValue: "salvageValue",
             usefulLifeMonths: 1000000,
@@ -1049,42 +1109,46 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1AssetsAssetsGetResponseDocumentsItem]>.value([
-                PostV1AssetsAssetsGetResponseDocumentsItem(
+            documents: Nullable<[AssetsGetAssetsResponseDocumentsItem]>.value([
+                AssetsGetAssetsResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 ),
-                PostV1AssetsAssetsGetResponseDocumentsItem(
+                AssetsGetAssetsResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 )
             ]),
             inputVatAmount: Nullable<String>.value("inputVatAmount"),
-            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
             inputVatRealEstate: true,
             inputVatUseChanges: [
-                PostV1AssetsAssetsGetResponseInputVatUseChangesItem(
+                AssetsGetAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
                     percent: "percent",
                     reason: .useChange
                 ),
-                PostV1AssetsAssetsGetResponseInputVatUseChangesItem(
+                AssetsGetAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
                     percent: "percent",
                     reason: .useChange
                 )
             ],
-            createdAt: "createdAt"
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            disposalReason: Nullable<AssetsGetAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.assets.postV1AssetsAssetsGet(
+        let response = try await client.assets.assetsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsAssetsList1() async throws -> Void {
+    @Test func assetsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1096,8 +1160,8 @@ import Api
                       "groupId": "groupId",
                       "code": "code",
                       "name": "name",
-                      "acquisitionDate": "acquisitionDate",
-                      "depreciationStartDate": "depreciationStartDate",
+                      "acquisitionDate": "2026-07-01",
+                      "depreciationStartDate": "2026-07-01",
                       "acquisitionCost": "acquisitionCost",
                       "salvageValue": "salvageValue",
                       "usefulLifeMonths": 1000000,
@@ -1115,17 +1179,21 @@ import Api
                         }
                       ],
                       "inputVatAmount": "inputVatAmount",
-                      "inputVatFirstUseDate": "inputVatFirstUseDate",
+                      "inputVatFirstUseDate": "2026-07-01",
                       "inputVatDeductiblePercent": "inputVatDeductiblePercent",
                       "inputVatRealEstate": true,
                       "inputVatUseChanges": [
                         {
                           "year": 1000000,
-                          "percent": "percent",
+                          "percent": "121.00",
                           "reason": "use_change"
                         }
                       ],
-                      "createdAt": "createdAt"
+                      "disposalDate": "2026-07-01",
+                      "disposalReason": "sold",
+                      "disposalProceeds": "disposalProceeds",
+                      "disposalJournalTransactionId": "disposalJournalTransactionId",
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1143,15 +1211,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsAssetsListResponse(
+        let expectedResponse = AssetsListAssetsResponse(
             rows: [
-                PostV1AssetsAssetsListResponseRowsItem(
+                AssetsListAssetsResponseRowsItem(
                     id: "id",
                     groupId: "groupId",
                     code: "code",
                     name: "name",
-                    acquisitionDate: "acquisitionDate",
-                    depreciationStartDate: "depreciationStartDate",
+                    acquisitionDate: CalendarDate("2026-07-01")!,
+                    depreciationStartDate: CalendarDate("2026-07-01")!,
                     acquisitionCost: "acquisitionCost",
                     salvageValue: "salvageValue",
                     usefulLifeMonths: 1000000,
@@ -1162,24 +1230,28 @@ import Api
                     totalLifeMonths: 1000000,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    documents: Nullable<[PostV1AssetsAssetsListResponseRowsItemDocumentsItem]>.value([
-                        PostV1AssetsAssetsListResponseRowsItemDocumentsItem(
+                    documents: Nullable<[AssetsListAssetsResponseRowsItemDocumentsItem]>.value([
+                        AssetsListAssetsResponseRowsItemDocumentsItem(
                             name: "name",
                             ref: "ref"
                         )
                     ]),
                     inputVatAmount: Nullable<String>.value("inputVatAmount"),
-                    inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+                    inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
                     inputVatRealEstate: true,
                     inputVatUseChanges: [
-                        PostV1AssetsAssetsListResponseRowsItemInputVatUseChangesItem(
+                        AssetsListAssetsResponseRowsItemInputVatUseChangesItem(
                             year: 1000000,
-                            percent: "percent",
+                            percent: "121.00",
                             reason: .useChange
                         )
                     ],
-                    createdAt: "createdAt"
+                    disposalDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    disposalReason: Nullable<AssetsListAssetsResponseRowsItemDisposalReason>.value(.sold),
+                    disposalProceeds: Nullable<String>.value("disposalProceeds"),
+                    disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1189,14 +1261,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.assets.postV1AssetsAssetsList(
+        let response = try await client.assets.assetsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsAssetsList2() async throws -> Void {
+    @Test func assetsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1208,8 +1280,8 @@ import Api
                       "groupId": "x",
                       "code": "code",
                       "name": "name",
-                      "acquisitionDate": "acquisitionDate",
-                      "depreciationStartDate": "depreciationStartDate",
+                      "acquisitionDate": "2023-01-15",
+                      "depreciationStartDate": "2023-01-15",
                       "acquisitionCost": "acquisitionCost",
                       "salvageValue": "salvageValue",
                       "usefulLifeMonths": 1000000,
@@ -1231,7 +1303,7 @@ import Api
                         }
                       ],
                       "inputVatAmount": "inputVatAmount",
-                      "inputVatFirstUseDate": "inputVatFirstUseDate",
+                      "inputVatFirstUseDate": "2023-01-15",
                       "inputVatDeductiblePercent": "inputVatDeductiblePercent",
                       "inputVatRealEstate": true,
                       "inputVatUseChanges": [
@@ -1246,15 +1318,19 @@ import Api
                           "reason": "use_change"
                         }
                       ],
-                      "createdAt": "createdAt"
+                      "disposalDate": "2023-01-15",
+                      "disposalReason": "sold",
+                      "disposalProceeds": "disposalProceeds",
+                      "disposalJournalTransactionId": "disposalJournalTransactionId",
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "groupId": "x",
                       "code": "code",
                       "name": "name",
-                      "acquisitionDate": "acquisitionDate",
-                      "depreciationStartDate": "depreciationStartDate",
+                      "acquisitionDate": "2023-01-15",
+                      "depreciationStartDate": "2023-01-15",
                       "acquisitionCost": "acquisitionCost",
                       "salvageValue": "salvageValue",
                       "usefulLifeMonths": 1000000,
@@ -1276,7 +1352,7 @@ import Api
                         }
                       ],
                       "inputVatAmount": "inputVatAmount",
-                      "inputVatFirstUseDate": "inputVatFirstUseDate",
+                      "inputVatFirstUseDate": "2023-01-15",
                       "inputVatDeductiblePercent": "inputVatDeductiblePercent",
                       "inputVatRealEstate": true,
                       "inputVatUseChanges": [
@@ -1291,7 +1367,11 @@ import Api
                           "reason": "use_change"
                         }
                       ],
-                      "createdAt": "createdAt"
+                      "disposalDate": "2023-01-15",
+                      "disposalReason": "sold",
+                      "disposalProceeds": "disposalProceeds",
+                      "disposalJournalTransactionId": "disposalJournalTransactionId",
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1309,15 +1389,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsAssetsListResponse(
+        let expectedResponse = AssetsListAssetsResponse(
             rows: [
-                PostV1AssetsAssetsListResponseRowsItem(
+                AssetsListAssetsResponseRowsItem(
                     id: "x",
                     groupId: "x",
                     code: "code",
                     name: "name",
-                    acquisitionDate: "acquisitionDate",
-                    depreciationStartDate: "depreciationStartDate",
+                    acquisitionDate: CalendarDate("2023-01-15")!,
+                    depreciationStartDate: CalendarDate("2023-01-15")!,
                     acquisitionCost: "acquisitionCost",
                     salvageValue: "salvageValue",
                     usefulLifeMonths: 1000000,
@@ -1328,41 +1408,45 @@ import Api
                     totalLifeMonths: 1000000,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    documents: Nullable<[PostV1AssetsAssetsListResponseRowsItemDocumentsItem]>.value([
-                        PostV1AssetsAssetsListResponseRowsItemDocumentsItem(
+                    documents: Nullable<[AssetsListAssetsResponseRowsItemDocumentsItem]>.value([
+                        AssetsListAssetsResponseRowsItemDocumentsItem(
                             name: "x",
                             ref: "x"
                         ),
-                        PostV1AssetsAssetsListResponseRowsItemDocumentsItem(
+                        AssetsListAssetsResponseRowsItemDocumentsItem(
                             name: "x",
                             ref: "x"
                         )
                     ]),
                     inputVatAmount: Nullable<String>.value("inputVatAmount"),
-                    inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+                    inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
                     inputVatRealEstate: true,
                     inputVatUseChanges: [
-                        PostV1AssetsAssetsListResponseRowsItemInputVatUseChangesItem(
+                        AssetsListAssetsResponseRowsItemInputVatUseChangesItem(
                             year: 1000000,
                             percent: "percent",
                             reason: .useChange
                         ),
-                        PostV1AssetsAssetsListResponseRowsItemInputVatUseChangesItem(
+                        AssetsListAssetsResponseRowsItemInputVatUseChangesItem(
                             year: 1000000,
                             percent: "percent",
                             reason: .useChange
                         )
                     ],
-                    createdAt: "createdAt"
+                    disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    disposalReason: Nullable<AssetsListAssetsResponseRowsItemDisposalReason>.value(.sold),
+                    disposalProceeds: Nullable<String>.value("disposalProceeds"),
+                    disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1AssetsAssetsListResponseRowsItem(
+                AssetsListAssetsResponseRowsItem(
                     id: "x",
                     groupId: "x",
                     code: "code",
                     name: "name",
-                    acquisitionDate: "acquisitionDate",
-                    depreciationStartDate: "depreciationStartDate",
+                    acquisitionDate: CalendarDate("2023-01-15")!,
+                    depreciationStartDate: CalendarDate("2023-01-15")!,
                     acquisitionCost: "acquisitionCost",
                     salvageValue: "salvageValue",
                     usefulLifeMonths: 1000000,
@@ -1373,33 +1457,37 @@ import Api
                     totalLifeMonths: 1000000,
                     status: .active,
                     notes: Nullable<String>.value("notes"),
-                    documents: Nullable<[PostV1AssetsAssetsListResponseRowsItemDocumentsItem]>.value([
-                        PostV1AssetsAssetsListResponseRowsItemDocumentsItem(
+                    documents: Nullable<[AssetsListAssetsResponseRowsItemDocumentsItem]>.value([
+                        AssetsListAssetsResponseRowsItemDocumentsItem(
                             name: "x",
                             ref: "x"
                         ),
-                        PostV1AssetsAssetsListResponseRowsItemDocumentsItem(
+                        AssetsListAssetsResponseRowsItemDocumentsItem(
                             name: "x",
                             ref: "x"
                         )
                     ]),
                     inputVatAmount: Nullable<String>.value("inputVatAmount"),
-                    inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+                    inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
                     inputVatRealEstate: true,
                     inputVatUseChanges: [
-                        PostV1AssetsAssetsListResponseRowsItemInputVatUseChangesItem(
+                        AssetsListAssetsResponseRowsItemInputVatUseChangesItem(
                             year: 1000000,
                             percent: "percent",
                             reason: .useChange
                         ),
-                        PostV1AssetsAssetsListResponseRowsItemInputVatUseChangesItem(
+                        AssetsListAssetsResponseRowsItemInputVatUseChangesItem(
                             year: 1000000,
                             percent: "percent",
                             reason: .useChange
                         )
                     ],
-                    createdAt: "createdAt"
+                    disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    disposalReason: Nullable<AssetsListAssetsResponseRowsItemDisposalReason>.value(.sold),
+                    disposalProceeds: Nullable<String>.value("disposalProceeds"),
+                    disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1409,14 +1497,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.assets.postV1AssetsAssetsList(
+        let response = try await client.assets.assetsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsAssetsModernize1() async throws -> Void {
+    @Test func assetsModernize1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1426,8 +1514,8 @@ import Api
                   "groupId": "groupId",
                   "code": "code",
                   "name": "name",
-                  "acquisitionDate": "acquisitionDate",
-                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionDate": "2026-07-01",
+                  "depreciationStartDate": "2026-07-01",
                   "acquisitionCost": "acquisitionCost",
                   "salvageValue": "salvageValue",
                   "usefulLifeMonths": 1000000,
@@ -1445,17 +1533,21 @@ import Api
                     }
                   ],
                   "inputVatAmount": "inputVatAmount",
-                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatFirstUseDate": "2026-07-01",
                   "inputVatDeductiblePercent": "inputVatDeductiblePercent",
                   "inputVatRealEstate": true,
                   "inputVatUseChanges": [
                     {
                       "year": 1000000,
-                      "percent": "percent",
+                      "percent": "121.00",
                       "reason": "use_change"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "disposalDate": "2026-07-01",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1465,13 +1557,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsAssetsModernizeResponse(
+        let expectedResponse = AssetsModernizeAssetsResponse(
             id: "id",
             groupId: "groupId",
             code: "code",
             name: "name",
-            acquisitionDate: "acquisitionDate",
-            depreciationStartDate: "depreciationStartDate",
+            acquisitionDate: CalendarDate("2026-07-01")!,
+            depreciationStartDate: CalendarDate("2026-07-01")!,
             acquisitionCost: "acquisitionCost",
             salvageValue: "salvageValue",
             usefulLifeMonths: 1000000,
@@ -1482,37 +1574,41 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1AssetsAssetsModernizeResponseDocumentsItem]>.value([
-                PostV1AssetsAssetsModernizeResponseDocumentsItem(
+            documents: Nullable<[AssetsModernizeAssetsResponseDocumentsItem]>.value([
+                AssetsModernizeAssetsResponseDocumentsItem(
                     name: "name",
                     ref: "ref"
                 )
             ]),
             inputVatAmount: Nullable<String>.value("inputVatAmount"),
-            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
             inputVatRealEstate: true,
             inputVatUseChanges: [
-                PostV1AssetsAssetsModernizeResponseInputVatUseChangesItem(
+                AssetsModernizeAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
-                    percent: "percent",
+                    percent: "121.00",
                     reason: .useChange
                 )
             ],
-            createdAt: "createdAt"
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            disposalReason: Nullable<AssetsModernizeAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.assets.postV1AssetsAssetsModernize(
+        let response = try await client.assets.assetsModernize(
             request: .init(
                 id: "id",
-                date: "date",
-                amount: "amount"
+                date: CalendarDate("2026-07-01")!,
+                amount: "121.0000"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsAssetsModernize2() async throws -> Void {
+    @Test func assetsModernize2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1522,8 +1618,8 @@ import Api
                   "groupId": "x",
                   "code": "code",
                   "name": "name",
-                  "acquisitionDate": "acquisitionDate",
-                  "depreciationStartDate": "depreciationStartDate",
+                  "acquisitionDate": "2023-01-15",
+                  "depreciationStartDate": "2023-01-15",
                   "acquisitionCost": "acquisitionCost",
                   "salvageValue": "salvageValue",
                   "usefulLifeMonths": 1000000,
@@ -1545,7 +1641,7 @@ import Api
                     }
                   ],
                   "inputVatAmount": "inputVatAmount",
-                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatFirstUseDate": "2023-01-15",
                   "inputVatDeductiblePercent": "inputVatDeductiblePercent",
                   "inputVatRealEstate": true,
                   "inputVatUseChanges": [
@@ -1560,7 +1656,11 @@ import Api
                       "reason": "use_change"
                     }
                   ],
-                  "createdAt": "createdAt"
+                  "disposalDate": "2023-01-15",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1570,13 +1670,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsAssetsModernizeResponse(
+        let expectedResponse = AssetsModernizeAssetsResponse(
             id: "x",
             groupId: "x",
             code: "code",
             name: "name",
-            acquisitionDate: "acquisitionDate",
-            depreciationStartDate: "depreciationStartDate",
+            acquisitionDate: CalendarDate("2023-01-15")!,
+            depreciationStartDate: CalendarDate("2023-01-15")!,
             acquisitionCost: "acquisitionCost",
             salvageValue: "salvageValue",
             usefulLifeMonths: 1000000,
@@ -1587,38 +1687,42 @@ import Api
             totalLifeMonths: 1000000,
             status: .active,
             notes: Nullable<String>.value("notes"),
-            documents: Nullable<[PostV1AssetsAssetsModernizeResponseDocumentsItem]>.value([
-                PostV1AssetsAssetsModernizeResponseDocumentsItem(
+            documents: Nullable<[AssetsModernizeAssetsResponseDocumentsItem]>.value([
+                AssetsModernizeAssetsResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 ),
-                PostV1AssetsAssetsModernizeResponseDocumentsItem(
+                AssetsModernizeAssetsResponseDocumentsItem(
                     name: "x",
                     ref: "x"
                 )
             ]),
             inputVatAmount: Nullable<String>.value("inputVatAmount"),
-            inputVatFirstUseDate: Nullable<String>.value("inputVatFirstUseDate"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
             inputVatRealEstate: true,
             inputVatUseChanges: [
-                PostV1AssetsAssetsModernizeResponseInputVatUseChangesItem(
+                AssetsModernizeAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
                     percent: "percent",
                     reason: .useChange
                 ),
-                PostV1AssetsAssetsModernizeResponseInputVatUseChangesItem(
+                AssetsModernizeAssetsResponseInputVatUseChangesItem(
                     year: 1000000,
                     percent: "percent",
                     reason: .useChange
                 )
             ],
-            createdAt: "createdAt"
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            disposalReason: Nullable<AssetsModernizeAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.assets.postV1AssetsAssetsModernize(
+        let response = try await client.assets.assetsModernize(
             request: .init(
                 id: "x",
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 amount: "amount"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -1626,7 +1730,233 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsDepreciationPreview1() async throws -> Void {
+    @Test func assetsDispose1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "groupId": "groupId",
+                  "code": "code",
+                  "name": "name",
+                  "acquisitionDate": "2026-07-01",
+                  "depreciationStartDate": "2026-07-01",
+                  "acquisitionCost": "acquisitionCost",
+                  "salvageValue": "salvageValue",
+                  "usefulLifeMonths": 1000000,
+                  "totalCost": "totalCost",
+                  "accumulatedDepreciation": "accumulatedDepreciation",
+                  "netBookValue": "netBookValue",
+                  "depreciatedMonths": 1000000,
+                  "totalLifeMonths": 1000000,
+                  "status": "active",
+                  "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "name",
+                      "ref": "ref"
+                    }
+                  ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "2026-07-01",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "121.00",
+                      "reason": "use_change"
+                    }
+                  ],
+                  "disposalDate": "2026-07-01",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "createdAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AssetsDisposeAssetsResponse(
+            id: "id",
+            groupId: "groupId",
+            code: "code",
+            name: "name",
+            acquisitionDate: CalendarDate("2026-07-01")!,
+            depreciationStartDate: CalendarDate("2026-07-01")!,
+            acquisitionCost: "acquisitionCost",
+            salvageValue: "salvageValue",
+            usefulLifeMonths: 1000000,
+            totalCost: "totalCost",
+            accumulatedDepreciation: "accumulatedDepreciation",
+            netBookValue: "netBookValue",
+            depreciatedMonths: 1000000,
+            totalLifeMonths: 1000000,
+            status: .active,
+            notes: Nullable<String>.value("notes"),
+            documents: Nullable<[AssetsDisposeAssetsResponseDocumentsItem]>.value([
+                AssetsDisposeAssetsResponseDocumentsItem(
+                    name: "name",
+                    ref: "ref"
+                )
+            ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                AssetsDisposeAssetsResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "121.00",
+                    reason: .useChange
+                )
+            ],
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            disposalReason: Nullable<AssetsDisposeAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.assets.assetsDispose(
+            request: .init(
+                id: "id",
+                date: CalendarDate("2026-07-01")!,
+                reason: .sold
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func assetsDispose2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "groupId": "x",
+                  "code": "code",
+                  "name": "name",
+                  "acquisitionDate": "2023-01-15",
+                  "depreciationStartDate": "2023-01-15",
+                  "acquisitionCost": "acquisitionCost",
+                  "salvageValue": "salvageValue",
+                  "usefulLifeMonths": 1000000,
+                  "totalCost": "totalCost",
+                  "accumulatedDepreciation": "accumulatedDepreciation",
+                  "netBookValue": "netBookValue",
+                  "depreciatedMonths": 1000000,
+                  "totalLifeMonths": 1000000,
+                  "status": "active",
+                  "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "2023-01-15",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    },
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    }
+                  ],
+                  "disposalDate": "2023-01-15",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "createdAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AssetsDisposeAssetsResponse(
+            id: "x",
+            groupId: "x",
+            code: "code",
+            name: "name",
+            acquisitionDate: CalendarDate("2023-01-15")!,
+            depreciationStartDate: CalendarDate("2023-01-15")!,
+            acquisitionCost: "acquisitionCost",
+            salvageValue: "salvageValue",
+            usefulLifeMonths: 1000000,
+            totalCost: "totalCost",
+            accumulatedDepreciation: "accumulatedDepreciation",
+            netBookValue: "netBookValue",
+            depreciatedMonths: 1000000,
+            totalLifeMonths: 1000000,
+            status: .active,
+            notes: Nullable<String>.value("notes"),
+            documents: Nullable<[AssetsDisposeAssetsResponseDocumentsItem]>.value([
+                AssetsDisposeAssetsResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                ),
+                AssetsDisposeAssetsResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                )
+            ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                AssetsDisposeAssetsResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                ),
+                AssetsDisposeAssetsResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                )
+            ],
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            disposalReason: Nullable<AssetsDisposeAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.assets.assetsDispose(
+            request: .init(
+                id: "x",
+                date: CalendarDate("2023-01-15")!,
+                reason: .sold
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func depreciationPreview1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1638,7 +1968,10 @@ import Api
                       "code": "code",
                       "name": "name",
                       "amount": "amount",
-                      "alreadyPosted": true
+                      "alreadyPosted": true,
+                      "months": [
+                        "months"
+                      ]
                     }
                   ],
                   "total": "total"
@@ -1651,19 +1984,22 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsDepreciationPreviewResponse(
+        let expectedResponse = DepreciationPreviewAssetsResponse(
             rows: [
-                PostV1AssetsDepreciationPreviewResponseRowsItem(
+                DepreciationPreviewAssetsResponseRowsItem(
                     assetId: "assetId",
                     code: "code",
                     name: "name",
                     amount: "amount",
-                    alreadyPosted: true
+                    alreadyPosted: true,
+                    months: [
+                        "months"
+                    ]
                 )
             ],
             total: "total"
         )
-        let response = try await client.assets.postV1AssetsDepreciationPreview(
+        let response = try await client.assets.depreciationPreview(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -1673,7 +2009,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsDepreciationPreview2() async throws -> Void {
+    @Test func depreciationPreview2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1685,14 +2021,22 @@ import Api
                       "code": "code",
                       "name": "name",
                       "amount": "amount",
-                      "alreadyPosted": true
+                      "alreadyPosted": true,
+                      "months": [
+                        "months",
+                        "months"
+                      ]
                     },
                     {
                       "assetId": "x",
                       "code": "code",
                       "name": "name",
                       "amount": "amount",
-                      "alreadyPosted": true
+                      "alreadyPosted": true,
+                      "months": [
+                        "months",
+                        "months"
+                      ]
                     }
                   ],
                   "total": "total"
@@ -1705,26 +2049,34 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsDepreciationPreviewResponse(
+        let expectedResponse = DepreciationPreviewAssetsResponse(
             rows: [
-                PostV1AssetsDepreciationPreviewResponseRowsItem(
+                DepreciationPreviewAssetsResponseRowsItem(
                     assetId: "x",
                     code: "code",
                     name: "name",
                     amount: "amount",
-                    alreadyPosted: true
+                    alreadyPosted: true,
+                    months: [
+                        "months",
+                        "months"
+                    ]
                 ),
-                PostV1AssetsDepreciationPreviewResponseRowsItem(
+                DepreciationPreviewAssetsResponseRowsItem(
                     assetId: "x",
                     code: "code",
                     name: "name",
                     amount: "amount",
-                    alreadyPosted: true
+                    alreadyPosted: true,
+                    months: [
+                        "months",
+                        "months"
+                    ]
                 )
             ],
             total: "total"
         )
-        let response = try await client.assets.postV1AssetsDepreciationPreview(
+        let response = try await client.assets.depreciationPreview(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -1734,7 +2086,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsDepreciationPost1() async throws -> Void {
+    @Test func depreciationPost1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1753,13 +2105,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsDepreciationPostResponse(
+        let expectedResponse = DepreciationPostAssetsResponse(
             posted: 1000000,
             skipped: 1000000,
             total: "total",
             journalTransactionId: Nullable<String>.value("journalTransactionId")
         )
-        let response = try await client.assets.postV1AssetsDepreciationPost(
+        let response = try await client.assets.depreciationPost(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -1769,7 +2121,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AssetsDepreciationPost2() async throws -> Void {
+    @Test func depreciationPost2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1788,13 +2140,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AssetsDepreciationPostResponse(
+        let expectedResponse = DepreciationPostAssetsResponse(
             posted: 1000000,
             skipped: 1000000,
             total: "total",
             journalTransactionId: Nullable<String>.value("x")
         )
-        let response = try await client.assets.postV1AssetsDepreciationPost(
+        let response = try await client.assets.depreciationPost(
             request: .init(
                 year: 1000000,
                 month: 1000000

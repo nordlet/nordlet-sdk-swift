@@ -7,465 +7,365 @@ public final class SalesClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1SalesInvoicesCreate(request: Requests.PostV1SalesInvoicesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesCreateResponse {
+    public func invoicesCreate(request: Requests.InvoicesCreateSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesCreateSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesCreateResponse.self
+            responseType: InvoicesCreateSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesGet(request: Requests.PostV1SalesInvoicesGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesGetResponse {
+    public func invoicesGet(request: Requests.InvoicesGetSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesGetSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesGetResponse.self
+            responseType: InvoicesGetSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesPdf(request: Requests.PostV1SalesInvoicesPdfRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesPdfResponse {
+    public func invoicesPdf(request: Requests.InvoicesPdfSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesPdfSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/pdf",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesPdfResponse.self
+            responseType: InvoicesPdfSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesSend(request: Requests.PostV1SalesInvoicesSendRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesSendResponse {
+    public func invoicesSend(request: Requests.InvoicesSendSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesSendSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/send",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesSendResponse.self
+            responseType: InvoicesSendSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesPeppolXml(request: Requests.PostV1SalesInvoicesPeppolXmlRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesPeppolXmlResponse {
+    public func invoicesPeppolXml(request: Requests.InvoicesPeppolXmlSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesPeppolXmlSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/peppol-xml",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesPeppolXmlResponse.self
+            responseType: InvoicesPeppolXmlSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesPeppolSend(request: Requests.PostV1SalesInvoicesPeppolSendRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesPeppolSendResponse {
+    public func invoicesPeppolSend(request: Requests.InvoicesPeppolSendSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesPeppolSendSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/peppol-send",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesPeppolSendResponse.self
+            responseType: InvoicesPeppolSendSalesResponse.self
         )
     }
 
     /// Render an issued invoice as the national e-invoicing payload for the company country: FatturaPA (IT), KSeF FA(3) (PL) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is flagged, never invented.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1SalesInvoicesEinvoiceXml(request: Requests.PostV1SalesInvoicesEinvoiceXmlRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesEinvoiceXmlResponse {
+    public func invoicesEinvoiceXml(request: Requests.InvoicesEinvoiceXmlSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesEinvoiceXmlSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/einvoice-xml",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesEinvoiceXmlResponse.self
+            responseType: InvoicesEinvoiceXmlSalesResponse.self
         )
     }
 
     /// Build the national e-invoicing payload and deliver it over the transport configured for the country gateway in compliance settings. With transport=direct the request talks to the tax authority itself - SdICoop over 2-way TLS for Italy, a KSeF session for Poland, ANAF SPV OAuth for Romania - and returns the national number as soon as the channel assigns one. With transport=bridge the payload goes to the configured bridge endpoint (an accredited intermediary or connector) instead.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1SalesInvoicesEinvoiceSend(request: Requests.PostV1SalesInvoicesEinvoiceSendRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesEinvoiceSendResponse {
+    public func invoicesEinvoiceSend(request: Requests.InvoicesEinvoiceSendSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesEinvoiceSendSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/einvoice-send",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesEinvoiceSendResponse.self
+            responseType: InvoicesEinvoiceSendSalesResponse.self
         )
     }
 
     /// Ask the national e-invoicing channel what happened to an invoice that was already sent, and store the answer. Italy, Poland and Romania return the outcome only on request - none of them calls back - so this is the way the national number and any rejection reason reach the invoice.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1SalesInvoicesEinvoiceStatus(request: Requests.PostV1SalesInvoicesEinvoiceStatusRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesEinvoiceStatusResponse {
+    public func invoicesEinvoiceStatus(request: Requests.InvoicesEinvoiceStatusSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesEinvoiceStatusSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/einvoice-status",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesEinvoiceStatusResponse.self
+            responseType: InvoicesEinvoiceStatusSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesUpdate(request: Requests.PostV1SalesInvoicesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesUpdateResponse {
+    public func invoicesUpdate(request: Requests.InvoicesUpdateSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesUpdateSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesUpdateResponse.self
+            responseType: InvoicesUpdateSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesDelete(request: Requests.PostV1SalesInvoicesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesDeleteResponse {
+    public func invoicesDelete(request: Requests.InvoicesDeleteSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesDeleteSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesDeleteResponse.self
+            responseType: InvoicesDeleteSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesIssue(request: Requests.PostV1SalesInvoicesIssueRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesIssueResponse {
+    public func invoicesIssue(request: Requests.InvoicesIssueSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesIssueSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/issue",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesIssueResponse.self
+            responseType: InvoicesIssueSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesLock(request: Requests.PostV1SalesInvoicesLockRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesLockResponse {
+    public func invoicesLock(request: Requests.InvoicesLockSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesLockSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/lock",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesLockResponse.self
+            responseType: InvoicesLockSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesUnlock(request: Requests.PostV1SalesInvoicesUnlockRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesUnlockResponse {
+    public func invoicesUnlock(request: Requests.InvoicesUnlockSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesUnlockSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/unlock",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesUnlockResponse.self
+            responseType: InvoicesUnlockSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesPaymentLink(request: Requests.PostV1SalesInvoicesPaymentLinkRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesPaymentLinkResponse {
+    public func invoicesPaymentLink(request: Requests.InvoicesPaymentLinkSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesPaymentLinkSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/payment-link",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesPaymentLinkResponse.self
+            responseType: InvoicesPaymentLinkSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesPaymentSettingsGet(request: Requests.PostV1SalesInvoicesPaymentSettingsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesPaymentSettingsGetResponse {
+    public func invoicesPaymentSettingsGet(request: Requests.InvoicesPaymentSettingsGetSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesPaymentSettingsGetSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/payment-settings/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesPaymentSettingsGetResponse.self
+            responseType: InvoicesPaymentSettingsGetSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesPaymentSettingsUpdate(request: Requests.PostV1SalesInvoicesPaymentSettingsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesPaymentSettingsUpdateResponse {
+    public func invoicesPaymentSettingsUpdate(request: Requests.InvoicesPaymentSettingsUpdateSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesPaymentSettingsUpdateSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/payment-settings/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesPaymentSettingsUpdateResponse.self
+            responseType: InvoicesPaymentSettingsUpdateSalesResponse.self
         )
     }
 
-    public func postV1SalesRecognitionSchedulesList(request: Requests.PostV1SalesRecognitionSchedulesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionSchedulesListResponse {
+    public func recognitionSchedulesList(request: Requests.RecognitionSchedulesListSalesRequest, requestOptions: RequestOptions? = nil) async throws -> RecognitionSchedulesListSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/recognition-schedules/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesRecognitionSchedulesListResponse.self
+            responseType: RecognitionSchedulesListSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesApplyAdvance(request: Requests.PostV1SalesInvoicesApplyAdvanceRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesApplyAdvanceResponse {
+    public func invoicesApplyAdvance(request: Requests.InvoicesApplyAdvanceSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesApplyAdvanceSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/apply-advance",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesApplyAdvanceResponse.self
+            responseType: InvoicesApplyAdvanceSalesResponse.self
         )
     }
 
-    public func postV1SalesInvoicesList(request: Requests.PostV1SalesInvoicesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesInvoicesListResponse {
+    public func invoicesList(request: Requests.InvoicesListSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesListSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/invoices/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesInvoicesListResponse.self
+            responseType: InvoicesListSalesResponse.self
         )
     }
 
-    public func postV1SalesActsCreate(request: Requests.PostV1SalesActsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesActsCreateResponse {
+    public func actsCreate(request: Requests.ActsCreateSalesRequest, requestOptions: RequestOptions? = nil) async throws -> ActsCreateSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/acts/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesActsCreateResponse.self
+            responseType: ActsCreateSalesResponse.self
         )
     }
 
-    public func postV1SalesActsUpdate(request: Requests.PostV1SalesActsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesActsUpdateResponse {
+    public func actsUpdate(request: Requests.ActsUpdateSalesRequest, requestOptions: RequestOptions? = nil) async throws -> ActsUpdateSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/acts/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesActsUpdateResponse.self
+            responseType: ActsUpdateSalesResponse.self
         )
     }
 
-    public func postV1SalesActsIssue(request: Requests.PostV1SalesActsIssueRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesActsIssueResponse {
+    public func actsIssue(request: Requests.ActsIssueSalesRequest, requestOptions: RequestOptions? = nil) async throws -> ActsIssueSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/acts/issue",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesActsIssueResponse.self
+            responseType: ActsIssueSalesResponse.self
         )
     }
 
-    public func postV1SalesActsCancel(request: Requests.PostV1SalesActsCancelRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesActsCancelResponse {
+    public func actsCancel(request: Requests.ActsCancelSalesRequest, requestOptions: RequestOptions? = nil) async throws -> ActsCancelSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/acts/cancel",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesActsCancelResponse.self
+            responseType: ActsCancelSalesResponse.self
         )
     }
 
-    public func postV1SalesActsGet(request: Requests.PostV1SalesActsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesActsGetResponse {
+    public func actsGet(request: Requests.ActsGetSalesRequest, requestOptions: RequestOptions? = nil) async throws -> ActsGetSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/acts/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesActsGetResponse.self
+            responseType: ActsGetSalesResponse.self
         )
     }
 
-    public func postV1SalesActsList(request: Requests.PostV1SalesActsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesActsListResponse {
+    public func actsList(request: Requests.ActsListSalesRequest, requestOptions: RequestOptions? = nil) async throws -> ActsListSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/acts/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesActsListResponse.self
+            responseType: ActsListSalesResponse.self
         )
     }
 
-    public func postV1SalesActsPdf(request: Requests.PostV1SalesActsPdfRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesActsPdfResponse {
+    public func actsPdf(request: Requests.ActsPdfSalesRequest, requestOptions: RequestOptions? = nil) async throws -> ActsPdfSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/acts/pdf",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesActsPdfResponse.self
+            responseType: ActsPdfSalesResponse.self
         )
     }
 
-    public func postV1OperationTypesCreate(request: Requests.PostV1OperationTypesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1OperationTypesCreateResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/operation-types/create",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1OperationTypesCreateResponse.self
-        )
-    }
-
-    public func postV1OperationTypesUpdate(request: Requests.PostV1OperationTypesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1OperationTypesUpdateResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/operation-types/update",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1OperationTypesUpdateResponse.self
-        )
-    }
-
-    public func postV1OperationTypesGet(request: Requests.PostV1OperationTypesGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1OperationTypesGetResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/operation-types/get",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1OperationTypesGetResponse.self
-        )
-    }
-
-    public func postV1OperationTypesDelete(request: Requests.PostV1OperationTypesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1OperationTypesDeleteResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/operation-types/delete",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1OperationTypesDeleteResponse.self
-        )
-    }
-
-    public func postV1OperationTypesList(request: Requests.PostV1OperationTypesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1OperationTypesListResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/operation-types/list",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1OperationTypesListResponse.self
-        )
-    }
-
-    public func postV1DocumentSeriesCreate(request: Requests.PostV1DocumentSeriesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DocumentSeriesCreateResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/document-series/create",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1DocumentSeriesCreateResponse.self
-        )
-    }
-
-    public func postV1DocumentSeriesUpdate(request: Requests.PostV1DocumentSeriesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DocumentSeriesUpdateResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/document-series/update",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1DocumentSeriesUpdateResponse.self
-        )
-    }
-
-    public func postV1DocumentSeriesGet(request: Requests.PostV1DocumentSeriesGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DocumentSeriesGetResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/document-series/get",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1DocumentSeriesGetResponse.self
-        )
-    }
-
-    public func postV1DocumentSeriesDelete(request: Requests.PostV1DocumentSeriesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DocumentSeriesDeleteResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/document-series/delete",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1DocumentSeriesDeleteResponse.self
-        )
-    }
-
-    public func postV1DocumentSeriesList(request: Requests.PostV1DocumentSeriesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1DocumentSeriesListResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/document-series/list",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: PostV1DocumentSeriesListResponse.self
-        )
-    }
-
-    public func postV1SalesRecognitionCompute(request: Requests.PostV1SalesRecognitionComputeRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionComputeResponse {
+    public func recognitionCompute(request: Requests.RecognitionComputeSalesRequest, requestOptions: RequestOptions? = nil) async throws -> RecognitionComputeSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/recognition/compute",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesRecognitionComputeResponse.self
+            responseType: RecognitionComputeSalesResponse.self
         )
     }
 
-    public func postV1SalesRecognitionRun(request: Requests.PostV1SalesRecognitionRunRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionRunResponse {
+    public func recognitionRun(request: Requests.RecognitionRunSalesRequest, requestOptions: RequestOptions? = nil) async throws -> RecognitionRunSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/recognition/run",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesRecognitionRunResponse.self
+            responseType: RecognitionRunSalesResponse.self
         )
     }
 
-    public func postV1SalesRecognitionProgress(request: Requests.PostV1SalesRecognitionProgressRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionProgressResponse {
+    public func recognitionProgress(request: Requests.RecognitionProgressSalesRequest, requestOptions: RequestOptions? = nil) async throws -> RecognitionProgressSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/recognition/progress",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesRecognitionProgressResponse.self
+            responseType: RecognitionProgressSalesResponse.self
         )
     }
 
     /// Apply an IFRS 15 contract modification to a deferred invoice line. Prospective: cancel the pending schedule and respread the unrecognized remainder over the new terms. Cumulative catch-up (ratable only): recompute revenue as if the new terms applied from the start and post the difference immediately.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func postV1SalesRecognitionModify(request: Requests.PostV1SalesRecognitionModifyRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionModifyResponse {
+    public func recognitionModify(request: Requests.RecognitionModifySalesRequest, requestOptions: RequestOptions? = nil) async throws -> RecognitionModifySalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/recognition/modify",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesRecognitionModifyResponse.self
+            responseType: RecognitionModifySalesResponse.self
         )
     }
 
-    public func postV1SalesRecognitionRunsList(request: Requests.PostV1SalesRecognitionRunsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionRunsListResponse {
+    public func recognitionRunsList(request: Requests.RecognitionRunsListSalesRequest, requestOptions: RequestOptions? = nil) async throws -> RecognitionRunsListSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/recognition/runs/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesRecognitionRunsListResponse.self
+            responseType: RecognitionRunsListSalesResponse.self
         )
     }
 
-    public func postV1SalesRecognitionSummary(request: Requests.PostV1SalesRecognitionSummaryRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRecognitionSummaryResponse {
+    public func recognitionSummary(request: Requests.RecognitionSummarySalesRequest, requestOptions: RequestOptions? = nil) async throws -> RecognitionSummarySalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/recognition/summary",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesRecognitionSummaryResponse.self
+            responseType: RecognitionSummarySalesResponse.self
         )
     }
 
-    public func postV1SalesRefundLiabilityList(request: Requests.PostV1SalesRefundLiabilityListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRefundLiabilityListResponse {
+    public func refundLiabilityList(request: Requests.RefundLiabilityListSalesRequest, requestOptions: RequestOptions? = nil) async throws -> RefundLiabilityListSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/refund-liability/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesRefundLiabilityListResponse.self
+            responseType: RefundLiabilityListSalesResponse.self
         )
     }
 
-    public func postV1SalesRefundLiabilityTrueUp(request: Requests.PostV1SalesRefundLiabilityTrueUpRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1SalesRefundLiabilityTrueUpResponse {
+    public func refundLiabilityTrueUp(request: Requests.RefundLiabilityTrueUpSalesRequest, requestOptions: RequestOptions? = nil) async throws -> RefundLiabilityTrueUpSalesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/sales/refund-liability/true-up",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1SalesRefundLiabilityTrueUpResponse.self
+            responseType: RefundLiabilityTrueUpSalesResponse.self
         )
     }
 }

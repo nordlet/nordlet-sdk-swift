@@ -3,14 +3,14 @@ import Testing
 import Api
 
 @Suite("ReportsClient Wire Tests") struct ReportsClientWireTests {
-    @Test func postV1ReportsTrialBalance1() async throws -> Void {
+    @Test func trialBalance1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "accountId": "accountId",
@@ -36,11 +36,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsTrialBalanceResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = TrialBalanceReportsResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1ReportsTrialBalanceResponseRowsItem(
+                TrialBalanceReportsResponseRowsItem(
                     accountId: "accountId",
                     code: "code",
                     name: "name",
@@ -51,29 +51,29 @@ import Api
                     closing: "closing"
                 )
             ],
-            totals: PostV1ReportsTrialBalanceResponseTotals(
+            totals: TrialBalanceReportsResponseTotals(
                 debit: "debit",
                 credit: "credit"
             )
         )
-        let response = try await client.reports.postV1ReportsTrialBalance(
+        let response = try await client.reports.trialBalance(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsTrialBalance2() async throws -> Void {
+    @Test func trialBalance2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "accountId": "x",
@@ -109,11 +109,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsTrialBalanceResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = TrialBalanceReportsResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1ReportsTrialBalanceResponseRowsItem(
+                TrialBalanceReportsResponseRowsItem(
                     accountId: "x",
                     code: "code",
                     name: "name",
@@ -123,7 +123,7 @@ import Api
                     credit: "credit",
                     closing: "closing"
                 ),
-                PostV1ReportsTrialBalanceResponseRowsItem(
+                TrialBalanceReportsResponseRowsItem(
                     accountId: "x",
                     code: "code",
                     name: "name",
@@ -134,22 +134,22 @@ import Api
                     closing: "closing"
                 )
             ],
-            totals: PostV1ReportsTrialBalanceResponseTotals(
+            totals: TrialBalanceReportsResponseTotals(
                 debit: "debit",
                 credit: "credit"
             )
         )
-        let response = try await client.reports.postV1ReportsTrialBalance(
+        let response = try await client.reports.trialBalance(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsSizeCategory1() async throws -> Void {
+    @Test func sizeCategory1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -178,30 +178,30 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsSizeCategoryResponse(
+        let expectedResponse = SizeCategoryReportsResponse(
             year: 1000000,
-            criteria: PostV1ReportsSizeCategoryResponseCriteria(
+            criteria: SizeCategoryReportsResponseCriteria(
                 totalAssets: 1.1,
                 netTurnover: 1.1,
                 avgEmployees: 1000000
             ),
             category: .micro,
             thresholds: [
-                "key": PostV1ReportsSizeCategoryResponseThresholdsValue(
+                "key": SizeCategoryReportsResponseThresholdsValue(
                     totalAssets: 1.1,
                     netTurnover: 1.1,
                     employees: 1.1
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsSizeCategory(
+        let response = try await client.reports.sizeCategory(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsSizeCategory2() async throws -> Void {
+    @Test func sizeCategory2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -230,30 +230,30 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsSizeCategoryResponse(
+        let expectedResponse = SizeCategoryReportsResponse(
             year: 1000000,
-            criteria: PostV1ReportsSizeCategoryResponseCriteria(
+            criteria: SizeCategoryReportsResponseCriteria(
                 totalAssets: 1.1,
                 netTurnover: 1.1,
                 avgEmployees: 1000000
             ),
             category: .micro,
             thresholds: [
-                "thresholds": PostV1ReportsSizeCategoryResponseThresholdsValue(
+                "thresholds": SizeCategoryReportsResponseThresholdsValue(
                     totalAssets: 1.1,
                     netTurnover: 1.1,
                     employees: 1.1
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsSizeCategory(
+        let response = try await client.reports.sizeCategory(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsFinancialStatements1() async throws -> Void {
+    @Test func financialStatements1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -276,8 +276,8 @@ import Api
                     "balanced": true
                   },
                   "profitLoss": {
-                    "fromDate": "fromDate",
-                    "toDate": "toDate",
+                    "fromDate": "2026-07-01",
+                    "toDate": "2026-07-01",
                     "revenue": "revenue",
                     "expenses": "expenses",
                     "netResult": "netResult"
@@ -352,14 +352,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsFinancialStatementsResponse(
+        let expectedResponse = FinancialStatementsReportsResponse(
             category: .micro,
             layout: "layout",
             requiredStatements: [
                 "requiredStatements"
             ],
             asOf: "asOf",
-            balanceSheet: PostV1ReportsFinancialStatementsResponseBalanceSheet(
+            balanceSheet: FinancialStatementsReportsResponseBalanceSheet(
                 nonCurrentAssets: "nonCurrentAssets",
                 currentAssets: "currentAssets",
                 totalAssets: "totalAssets",
@@ -369,29 +369,29 @@ import Api
                 totalEquityAndLiabilities: "totalEquityAndLiabilities",
                 balanced: true
             ),
-            profitLoss: PostV1ReportsFinancialStatementsResponseProfitLoss(
-                fromDate: "fromDate",
-                toDate: "toDate",
+            profitLoss: FinancialStatementsReportsResponseProfitLoss(
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!,
                 revenue: "revenue",
                 expenses: "expenses",
                 netResult: "netResult"
             ),
-            balanceSheetDetail: Optional(PostV1ReportsFinancialStatementsResponseBalanceSheetDetail(
-                nonCurrentAssets: PostV1ReportsFinancialStatementsResponseBalanceSheetDetailNonCurrentAssets(
+            balanceSheetDetail: Optional(FinancialStatementsReportsResponseBalanceSheetDetail(
+                nonCurrentAssets: FinancialStatementsReportsResponseBalanceSheetDetailNonCurrentAssets(
                     intangible: "intangible",
                     tangible: "tangible",
                     financial: "financial",
                     other: "other",
                     total: "total"
                 ),
-                currentAssets: PostV1ReportsFinancialStatementsResponseBalanceSheetDetailCurrentAssets(
+                currentAssets: FinancialStatementsReportsResponseBalanceSheetDetailCurrentAssets(
                     inventories: "inventories",
                     receivables: "receivables",
                     otherCurrent: "otherCurrent",
                     cash: "cash",
                     total: "total"
                 ),
-                equity: PostV1ReportsFinancialStatementsResponseBalanceSheetDetailEquity(
+                equity: FinancialStatementsReportsResponseBalanceSheetDetailEquity(
                     capital: "capital",
                     reserves: "reserves",
                     retainedEarnings: "retainedEarnings",
@@ -399,14 +399,14 @@ import Api
                     periodResult: "periodResult",
                     total: "total"
                 ),
-                liabilities: PostV1ReportsFinancialStatementsResponseBalanceSheetDetailLiabilities(
+                liabilities: FinancialStatementsReportsResponseBalanceSheetDetailLiabilities(
                     nonCurrent: "nonCurrent",
                     current: "current",
                     other: "other",
                     total: "total"
                 )
             )),
-            profitLossDetail: Optional(PostV1ReportsFinancialStatementsResponseProfitLossDetail(
+            profitLossDetail: Optional(FinancialStatementsReportsResponseProfitLossDetail(
                 salesRevenue: "salesRevenue",
                 costOfSales: "costOfSales",
                 grossProfit: "grossProfit",
@@ -420,7 +420,7 @@ import Api
                 netProfit: "netProfit"
             )),
             equityChanges: Optional([
-                PostV1ReportsFinancialStatementsResponseEquityChangesItem(
+                FinancialStatementsReportsResponseEquityChangesItem(
                     code: "code",
                     name: "name",
                     opening: "opening",
@@ -429,7 +429,7 @@ import Api
                     closing: "closing"
                 )
             ]),
-            cashFlow: Optional(PostV1ReportsFinancialStatementsResponseCashFlow(
+            cashFlow: Optional(FinancialStatementsReportsResponseCashFlow(
                 openingCash: "openingCash",
                 operating: "operating",
                 investing: "investing",
@@ -438,17 +438,17 @@ import Api
                 closingCash: "closingCash"
             ))
         )
-        let response = try await client.reports.postV1ReportsFinancialStatements(
+        let response = try await client.reports.financialStatements(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsFinancialStatements2() async throws -> Void {
+    @Test func financialStatements2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -472,8 +472,8 @@ import Api
                     "balanced": true
                   },
                   "profitLoss": {
-                    "fromDate": "fromDate",
-                    "toDate": "toDate",
+                    "fromDate": "2023-01-15",
+                    "toDate": "2023-01-15",
                     "revenue": "revenue",
                     "expenses": "expenses",
                     "netResult": "netResult"
@@ -556,7 +556,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsFinancialStatementsResponse(
+        let expectedResponse = FinancialStatementsReportsResponse(
             category: .micro,
             layout: "layout",
             requiredStatements: [
@@ -564,7 +564,7 @@ import Api
                 "requiredStatements"
             ],
             asOf: "asOf",
-            balanceSheet: PostV1ReportsFinancialStatementsResponseBalanceSheet(
+            balanceSheet: FinancialStatementsReportsResponseBalanceSheet(
                 nonCurrentAssets: "nonCurrentAssets",
                 currentAssets: "currentAssets",
                 totalAssets: "totalAssets",
@@ -574,29 +574,29 @@ import Api
                 totalEquityAndLiabilities: "totalEquityAndLiabilities",
                 balanced: true
             ),
-            profitLoss: PostV1ReportsFinancialStatementsResponseProfitLoss(
-                fromDate: "fromDate",
-                toDate: "toDate",
+            profitLoss: FinancialStatementsReportsResponseProfitLoss(
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!,
                 revenue: "revenue",
                 expenses: "expenses",
                 netResult: "netResult"
             ),
-            balanceSheetDetail: Optional(PostV1ReportsFinancialStatementsResponseBalanceSheetDetail(
-                nonCurrentAssets: PostV1ReportsFinancialStatementsResponseBalanceSheetDetailNonCurrentAssets(
+            balanceSheetDetail: Optional(FinancialStatementsReportsResponseBalanceSheetDetail(
+                nonCurrentAssets: FinancialStatementsReportsResponseBalanceSheetDetailNonCurrentAssets(
                     intangible: "intangible",
                     tangible: "tangible",
                     financial: "financial",
                     other: "other",
                     total: "total"
                 ),
-                currentAssets: PostV1ReportsFinancialStatementsResponseBalanceSheetDetailCurrentAssets(
+                currentAssets: FinancialStatementsReportsResponseBalanceSheetDetailCurrentAssets(
                     inventories: "inventories",
                     receivables: "receivables",
                     otherCurrent: "otherCurrent",
                     cash: "cash",
                     total: "total"
                 ),
-                equity: PostV1ReportsFinancialStatementsResponseBalanceSheetDetailEquity(
+                equity: FinancialStatementsReportsResponseBalanceSheetDetailEquity(
                     capital: "capital",
                     reserves: "reserves",
                     retainedEarnings: "retainedEarnings",
@@ -604,14 +604,14 @@ import Api
                     periodResult: "periodResult",
                     total: "total"
                 ),
-                liabilities: PostV1ReportsFinancialStatementsResponseBalanceSheetDetailLiabilities(
+                liabilities: FinancialStatementsReportsResponseBalanceSheetDetailLiabilities(
                     nonCurrent: "nonCurrent",
                     current: "current",
                     other: "other",
                     total: "total"
                 )
             )),
-            profitLossDetail: Optional(PostV1ReportsFinancialStatementsResponseProfitLossDetail(
+            profitLossDetail: Optional(FinancialStatementsReportsResponseProfitLossDetail(
                 salesRevenue: "salesRevenue",
                 costOfSales: "costOfSales",
                 grossProfit: "grossProfit",
@@ -625,7 +625,7 @@ import Api
                 netProfit: "netProfit"
             )),
             equityChanges: Optional([
-                PostV1ReportsFinancialStatementsResponseEquityChangesItem(
+                FinancialStatementsReportsResponseEquityChangesItem(
                     code: "code",
                     name: "name",
                     opening: "opening",
@@ -633,7 +633,7 @@ import Api
                     decrease: "decrease",
                     closing: "closing"
                 ),
-                PostV1ReportsFinancialStatementsResponseEquityChangesItem(
+                FinancialStatementsReportsResponseEquityChangesItem(
                     code: "code",
                     name: "name",
                     opening: "opening",
@@ -642,7 +642,7 @@ import Api
                     closing: "closing"
                 )
             ]),
-            cashFlow: Optional(PostV1ReportsFinancialStatementsResponseCashFlow(
+            cashFlow: Optional(FinancialStatementsReportsResponseCashFlow(
                 openingCash: "openingCash",
                 operating: "operating",
                 investing: "investing",
@@ -651,17 +651,17 @@ import Api
                 closingCash: "closingCash"
             ))
         )
-        let response = try await client.reports.postV1ReportsFinancialStatements(
+        let response = try await client.reports.financialStatements(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsGeneralJournal1() async throws -> Void {
+    @Test func generalJournal1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -673,7 +673,7 @@ import Api
                   "rows": [
                     {
                       "id": "id",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "description": "description",
                       "documentType": "documentType",
                       "documentId": "documentId",
@@ -696,19 +696,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsGeneralJournalResponse(
+        let expectedResponse = GeneralJournalReportsResponse(
             total: 1000000,
             page: 1000000,
             pageSize: 1000000,
             rows: [
-                PostV1ReportsGeneralJournalResponseRowsItem(
+                GeneralJournalReportsResponseRowsItem(
                     id: "id",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     description: Nullable<String>.value("description"),
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("documentId"),
                     entries: [
-                        PostV1ReportsGeneralJournalResponseRowsItemEntriesItem(
+                        GeneralJournalReportsResponseRowsItemEntriesItem(
                             accountCode: "accountCode",
                             accountName: "accountName",
                             debit: "debit",
@@ -718,17 +718,17 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsGeneralJournal(
+        let response = try await client.reports.generalJournal(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsGeneralJournal2() async throws -> Void {
+    @Test func generalJournal2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -740,7 +740,7 @@ import Api
                   "rows": [
                     {
                       "id": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "description": "description",
                       "documentType": "documentType",
                       "documentId": "x",
@@ -761,7 +761,7 @@ import Api
                     },
                     {
                       "id": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "description": "description",
                       "documentType": "documentType",
                       "documentId": "x",
@@ -790,25 +790,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsGeneralJournalResponse(
+        let expectedResponse = GeneralJournalReportsResponse(
             total: 1000000,
             page: 1000000,
             pageSize: 1000000,
             rows: [
-                PostV1ReportsGeneralJournalResponseRowsItem(
+                GeneralJournalReportsResponseRowsItem(
                     id: "x",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     description: Nullable<String>.value("description"),
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("x"),
                     entries: [
-                        PostV1ReportsGeneralJournalResponseRowsItemEntriesItem(
+                        GeneralJournalReportsResponseRowsItemEntriesItem(
                             accountCode: "accountCode",
                             accountName: "accountName",
                             debit: "debit",
                             credit: "credit"
                         ),
-                        PostV1ReportsGeneralJournalResponseRowsItemEntriesItem(
+                        GeneralJournalReportsResponseRowsItemEntriesItem(
                             accountCode: "accountCode",
                             accountName: "accountName",
                             debit: "debit",
@@ -816,20 +816,20 @@ import Api
                         )
                     ]
                 ),
-                PostV1ReportsGeneralJournalResponseRowsItem(
+                GeneralJournalReportsResponseRowsItem(
                     id: "x",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     description: Nullable<String>.value("description"),
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("x"),
                     entries: [
-                        PostV1ReportsGeneralJournalResponseRowsItemEntriesItem(
+                        GeneralJournalReportsResponseRowsItemEntriesItem(
                             accountCode: "accountCode",
                             accountName: "accountName",
                             debit: "debit",
                             credit: "credit"
                         ),
-                        PostV1ReportsGeneralJournalResponseRowsItemEntriesItem(
+                        GeneralJournalReportsResponseRowsItemEntriesItem(
                             accountCode: "accountCode",
                             accountName: "accountName",
                             debit: "debit",
@@ -839,17 +839,17 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsGeneralJournal(
+        let response = try await client.reports.generalJournal(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsGlDetail1() async throws -> Void {
+    @Test func glDetail1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -864,7 +864,7 @@ import Api
                   "closing": "closing",
                   "rows": [
                     {
-                      "date": "date",
+                      "date": "2026-07-01",
                       "description": "description",
                       "documentType": "documentType",
                       "documentId": "documentId",
@@ -883,8 +883,8 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsGlDetailResponse(
-            account: PostV1ReportsGlDetailResponseAccount(
+        let expectedResponse = GlDetailReportsResponse(
+            account: GlDetailReportsResponseAccount(
                 code: "code",
                 name: "name",
                 type: "type"
@@ -892,8 +892,8 @@ import Api
             opening: "opening",
             closing: "closing",
             rows: [
-                PostV1ReportsGlDetailResponseRowsItem(
-                    date: "date",
+                GlDetailReportsResponseRowsItem(
+                    date: CalendarDate("2026-07-01")!,
                     description: Nullable<String>.value("description"),
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("documentId"),
@@ -904,18 +904,18 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsGlDetail(
+        let response = try await client.reports.glDetail(
             request: .init(
                 accountCode: "accountCode",
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsGlDetail2() async throws -> Void {
+    @Test func glDetail2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -930,7 +930,7 @@ import Api
                   "closing": "closing",
                   "rows": [
                     {
-                      "date": "date",
+                      "date": "2023-01-15",
                       "description": "description",
                       "documentType": "documentType",
                       "documentId": "x",
@@ -940,7 +940,7 @@ import Api
                       "balance": "balance"
                     },
                     {
-                      "date": "date",
+                      "date": "2023-01-15",
                       "description": "description",
                       "documentType": "documentType",
                       "documentId": "x",
@@ -959,8 +959,8 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsGlDetailResponse(
-            account: PostV1ReportsGlDetailResponseAccount(
+        let expectedResponse = GlDetailReportsResponse(
+            account: GlDetailReportsResponseAccount(
                 code: "code",
                 name: "name",
                 type: "type"
@@ -968,8 +968,8 @@ import Api
             opening: "opening",
             closing: "closing",
             rows: [
-                PostV1ReportsGlDetailResponseRowsItem(
-                    date: "date",
+                GlDetailReportsResponseRowsItem(
+                    date: CalendarDate("2023-01-15")!,
                     description: Nullable<String>.value("description"),
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("x"),
@@ -978,8 +978,8 @@ import Api
                     credit: "credit",
                     balance: "balance"
                 ),
-                PostV1ReportsGlDetailResponseRowsItem(
-                    date: "date",
+                GlDetailReportsResponseRowsItem(
+                    date: CalendarDate("2023-01-15")!,
                     description: Nullable<String>.value("description"),
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("x"),
@@ -990,18 +990,18 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsGlDetail(
+        let response = try await client.reports.glDetail(
             request: .init(
                 accountCode: "x",
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsPartnerBalances1() async throws -> Void {
+    @Test func partnerBalances1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1025,9 +1025,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsPartnerBalancesResponse(
+        let expectedResponse = PartnerBalancesReportsResponse(
             rows: [
-                PostV1ReportsPartnerBalancesResponseRowsItem(
+                PartnerBalancesReportsResponseRowsItem(
                     partnerId: "partnerId",
                     partnerName: "partnerName",
                     receivable: "receivable",
@@ -1036,14 +1036,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsPartnerBalances(
+        let response = try await client.reports.partnerBalances(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsPartnerBalances2() async throws -> Void {
+    @Test func partnerBalances2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1074,16 +1074,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsPartnerBalancesResponse(
+        let expectedResponse = PartnerBalancesReportsResponse(
             rows: [
-                PostV1ReportsPartnerBalancesResponseRowsItem(
+                PartnerBalancesReportsResponseRowsItem(
                     partnerId: "x",
                     partnerName: "partnerName",
                     receivable: "receivable",
                     payable: "payable",
                     net: "net"
                 ),
-                PostV1ReportsPartnerBalancesResponseRowsItem(
+                PartnerBalancesReportsResponseRowsItem(
                     partnerId: "x",
                     partnerName: "partnerName",
                     receivable: "receivable",
@@ -1092,14 +1092,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsPartnerBalances(
+        let response = try await client.reports.partnerBalances(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsDebtAging1() async throws -> Void {
+    @Test func debtAging1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1128,11 +1128,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsDebtAgingResponse(
+        let expectedResponse = DebtAgingReportsResponse(
             asOf: "asOf",
             side: "side",
             rows: [
-                PostV1ReportsDebtAgingResponseRowsItem(
+                DebtAgingReportsResponseRowsItem(
                     partnerId: "partnerId",
                     partnerName: "partnerName",
                     current: "current",
@@ -1144,14 +1144,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsDebtAging(
+        let response = try await client.reports.debtAging(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsDebtAging2() async throws -> Void {
+    @Test func debtAging2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1190,11 +1190,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsDebtAgingResponse(
+        let expectedResponse = DebtAgingReportsResponse(
             asOf: "asOf",
             side: "side",
             rows: [
-                PostV1ReportsDebtAgingResponseRowsItem(
+                DebtAgingReportsResponseRowsItem(
                     partnerId: "x",
                     partnerName: "partnerName",
                     current: "current",
@@ -1204,7 +1204,7 @@ import Api
                     over90: "over90",
                     total: "total"
                 ),
-                PostV1ReportsDebtAgingResponseRowsItem(
+                DebtAgingReportsResponseRowsItem(
                     partnerId: "x",
                     partnerName: "partnerName",
                     current: "current",
@@ -1216,14 +1216,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsDebtAging(
+        let response = try await client.reports.debtAging(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsMonthlySummary1() async throws -> Void {
+    @Test func monthlySummary1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1249,9 +1249,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsMonthlySummaryResponse(
+        let expectedResponse = MonthlySummaryReportsResponse(
             rows: [
-                PostV1ReportsMonthlySummaryResponseRowsItem(
+                MonthlySummaryReportsResponseRowsItem(
                     year: 1000000,
                     month: 1000000,
                     receivables: "receivables",
@@ -1262,14 +1262,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsMonthlySummary(
+        let response = try await client.reports.monthlySummary(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsMonthlySummary2() async throws -> Void {
+    @Test func monthlySummary2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1304,9 +1304,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsMonthlySummaryResponse(
+        let expectedResponse = MonthlySummaryReportsResponse(
             rows: [
-                PostV1ReportsMonthlySummaryResponseRowsItem(
+                MonthlySummaryReportsResponseRowsItem(
                     year: 1000000,
                     month: 1000000,
                     receivables: "receivables",
@@ -1315,7 +1315,7 @@ import Api
                     expenses: "expenses",
                     netResult: "netResult"
                 ),
-                PostV1ReportsMonthlySummaryResponseRowsItem(
+                MonthlySummaryReportsResponseRowsItem(
                     year: 1000000,
                     month: 1000000,
                     receivables: "receivables",
@@ -1326,14 +1326,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsMonthlySummary(
+        let response = try await client.reports.monthlySummary(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsStockBalance1() async throws -> Void {
+    @Test func stockBalance1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1359,10 +1359,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsStockBalanceResponse(
+        let expectedResponse = StockBalanceReportsResponse(
             asOf: "asOf",
             rows: [
-                PostV1ReportsStockBalanceResponseRowsItem(
+                StockBalanceReportsResponseRowsItem(
                     itemId: "itemId",
                     itemName: "itemName",
                     warehouseId: "warehouseId",
@@ -1372,14 +1372,14 @@ import Api
             ],
             totalValue: "totalValue"
         )
-        let response = try await client.reports.postV1ReportsStockBalance(
-            request: .init(asOf: "asOf"),
+        let response = try await client.reports.stockBalance(
+            request: .init(asOf: CalendarDate("2026-07-01")!),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsStockBalance2() async throws -> Void {
+    @Test func stockBalance2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1412,17 +1412,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsStockBalanceResponse(
+        let expectedResponse = StockBalanceReportsResponse(
             asOf: "asOf",
             rows: [
-                PostV1ReportsStockBalanceResponseRowsItem(
+                StockBalanceReportsResponseRowsItem(
                     itemId: "x",
                     itemName: "itemName",
                     warehouseId: "x",
                     quantity: "quantity",
                     value: "value"
                 ),
-                PostV1ReportsStockBalanceResponseRowsItem(
+                StockBalanceReportsResponseRowsItem(
                     itemId: "x",
                     itemName: "itemName",
                     warehouseId: "x",
@@ -1432,21 +1432,21 @@ import Api
             ],
             totalValue: "totalValue"
         )
-        let response = try await client.reports.postV1ReportsStockBalance(
-            request: .init(asOf: "asOf"),
+        let response = try await client.reports.stockBalance(
+            request: .init(asOf: CalendarDate("2023-01-15")!),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsStockMovement1() async throws -> Void {
+    @Test func stockMovement1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "itemId": "itemId",
@@ -1470,11 +1470,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsStockMovementResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = StockMovementReportsResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1ReportsStockMovementResponseRowsItem(
+                StockMovementReportsResponseRowsItem(
                     itemId: "itemId",
                     itemName: "itemName",
                     openingQty: "openingQty",
@@ -1488,24 +1488,24 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsStockMovement(
+        let response = try await client.reports.stockMovement(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsStockMovement2() async throws -> Void {
+    @Test func stockMovement2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "itemId": "x",
@@ -1541,11 +1541,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsStockMovementResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = StockMovementReportsResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1ReportsStockMovementResponseRowsItem(
+                StockMovementReportsResponseRowsItem(
                     itemId: "x",
                     itemName: "itemName",
                     openingQty: "openingQty",
@@ -1557,7 +1557,7 @@ import Api
                     closingQty: "closingQty",
                     closingValue: "closingValue"
                 ),
-                PostV1ReportsStockMovementResponseRowsItem(
+                StockMovementReportsResponseRowsItem(
                     itemId: "x",
                     itemName: "itemName",
                     openingQty: "openingQty",
@@ -1571,25 +1571,25 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsStockMovement(
+        let response = try await client.reports.stockMovement(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsVatSummary1() async throws -> Void {
+    @Test func vatSummary1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "side": "side",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "vatRatePercent": "vatRatePercent",
@@ -1613,12 +1613,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsVatSummaryResponse(
+        let expectedResponse = VatSummaryReportsResponse(
             side: "side",
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1ReportsVatSummaryResponseRowsItem(
+                VatSummaryReportsResponseRowsItem(
                     vatRatePercent: "vatRatePercent",
                     net: "net",
                     vat: "vat",
@@ -1626,31 +1626,31 @@ import Api
                     documents: 1000000
                 )
             ],
-            totals: PostV1ReportsVatSummaryResponseTotals(
+            totals: VatSummaryReportsResponseTotals(
                 net: "net",
                 vat: "vat",
                 gross: "gross"
             )
         )
-        let response = try await client.reports.postV1ReportsVatSummary(
+        let response = try await client.reports.vatSummary(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsVatSummary2() async throws -> Void {
+    @Test func vatSummary2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "side": "side",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "vatRatePercent": "vatRatePercent",
@@ -1681,19 +1681,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsVatSummaryResponse(
+        let expectedResponse = VatSummaryReportsResponse(
             side: "side",
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1ReportsVatSummaryResponseRowsItem(
+                VatSummaryReportsResponseRowsItem(
                     vatRatePercent: "vatRatePercent",
                     net: "net",
                     vat: "vat",
                     gross: "gross",
                     documents: 1000000
                 ),
-                PostV1ReportsVatSummaryResponseRowsItem(
+                VatSummaryReportsResponseRowsItem(
                     vatRatePercent: "vatRatePercent",
                     net: "net",
                     vat: "vat",
@@ -1701,30 +1701,30 @@ import Api
                     documents: 1000000
                 )
             ],
-            totals: PostV1ReportsVatSummaryResponseTotals(
+            totals: VatSummaryReportsResponseTotals(
                 net: "net",
                 vat: "vat",
                 gross: "gross"
             )
         )
-        let response = try await client.reports.postV1ReportsVatSummary(
+        let response = try await client.reports.vatSummary(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsCashFlow1() async throws -> Void {
+    @Test func cashFlow1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "openingCash": "openingCash",
                   "closingCash": "closingCash",
                   "netChange": "netChange",
@@ -1777,18 +1777,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsCashFlowResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = CashFlowReportsResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             openingCash: "openingCash",
             closingCash: "closingCash",
             netChange: "netChange",
-            operating: PostV1ReportsCashFlowResponseOperating(
+            operating: CashFlowReportsResponseOperating(
                 inflow: "inflow",
                 outflow: "outflow",
                 net: "net",
                 rows: [
-                    PostV1ReportsCashFlowResponseOperatingRowsItem(
+                    CashFlowReportsResponseOperatingRowsItem(
                         code: "code",
                         name: "name",
                         inflow: "inflow",
@@ -1796,12 +1796,12 @@ import Api
                     )
                 ]
             ),
-            investing: PostV1ReportsCashFlowResponseInvesting(
+            investing: CashFlowReportsResponseInvesting(
                 inflow: "inflow",
                 outflow: "outflow",
                 net: "net",
                 rows: [
-                    PostV1ReportsCashFlowResponseInvestingRowsItem(
+                    CashFlowReportsResponseInvestingRowsItem(
                         code: "code",
                         name: "name",
                         inflow: "inflow",
@@ -1809,12 +1809,12 @@ import Api
                     )
                 ]
             ),
-            financing: PostV1ReportsCashFlowResponseFinancing(
+            financing: CashFlowReportsResponseFinancing(
                 inflow: "inflow",
                 outflow: "outflow",
                 net: "net",
                 rows: [
-                    PostV1ReportsCashFlowResponseFinancingRowsItem(
+                    CashFlowReportsResponseFinancingRowsItem(
                         code: "code",
                         name: "name",
                         inflow: "inflow",
@@ -1824,24 +1824,24 @@ import Api
             ),
             balanced: true
         )
-        let response = try await client.reports.postV1ReportsCashFlow(
+        let response = try await client.reports.cashFlow(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsCashFlow2() async throws -> Void {
+    @Test func cashFlow2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "openingCash": "openingCash",
                   "closingCash": "closingCash",
                   "netChange": "netChange",
@@ -1912,24 +1912,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsCashFlowResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = CashFlowReportsResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             openingCash: "openingCash",
             closingCash: "closingCash",
             netChange: "netChange",
-            operating: PostV1ReportsCashFlowResponseOperating(
+            operating: CashFlowReportsResponseOperating(
                 inflow: "inflow",
                 outflow: "outflow",
                 net: "net",
                 rows: [
-                    PostV1ReportsCashFlowResponseOperatingRowsItem(
+                    CashFlowReportsResponseOperatingRowsItem(
                         code: "code",
                         name: "name",
                         inflow: "inflow",
                         outflow: "outflow"
                     ),
-                    PostV1ReportsCashFlowResponseOperatingRowsItem(
+                    CashFlowReportsResponseOperatingRowsItem(
                         code: "code",
                         name: "name",
                         inflow: "inflow",
@@ -1937,18 +1937,18 @@ import Api
                     )
                 ]
             ),
-            investing: PostV1ReportsCashFlowResponseInvesting(
+            investing: CashFlowReportsResponseInvesting(
                 inflow: "inflow",
                 outflow: "outflow",
                 net: "net",
                 rows: [
-                    PostV1ReportsCashFlowResponseInvestingRowsItem(
+                    CashFlowReportsResponseInvestingRowsItem(
                         code: "code",
                         name: "name",
                         inflow: "inflow",
                         outflow: "outflow"
                     ),
-                    PostV1ReportsCashFlowResponseInvestingRowsItem(
+                    CashFlowReportsResponseInvestingRowsItem(
                         code: "code",
                         name: "name",
                         inflow: "inflow",
@@ -1956,18 +1956,18 @@ import Api
                     )
                 ]
             ),
-            financing: PostV1ReportsCashFlowResponseFinancing(
+            financing: CashFlowReportsResponseFinancing(
                 inflow: "inflow",
                 outflow: "outflow",
                 net: "net",
                 rows: [
-                    PostV1ReportsCashFlowResponseFinancingRowsItem(
+                    CashFlowReportsResponseFinancingRowsItem(
                         code: "code",
                         name: "name",
                         inflow: "inflow",
                         outflow: "outflow"
                     ),
-                    PostV1ReportsCashFlowResponseFinancingRowsItem(
+                    CashFlowReportsResponseFinancingRowsItem(
                         code: "code",
                         name: "name",
                         inflow: "inflow",
@@ -1977,17 +1977,17 @@ import Api
             ),
             balanced: true
         )
-        let response = try await client.reports.postV1ReportsCashFlow(
+        let response = try await client.reports.cashFlow(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsStockAging1() async throws -> Void {
+    @Test func stockAging1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2021,10 +2021,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsStockAgingResponse(
+        let expectedResponse = StockAgingReportsResponse(
             asOf: "asOf",
             rows: [
-                PostV1ReportsStockAgingResponseRowsItem(
+                StockAgingReportsResponseRowsItem(
                     itemId: "itemId",
                     itemName: "itemName",
                     warehouseId: "warehouseId",
@@ -2042,14 +2042,14 @@ import Api
             ],
             totalValue: "totalValue"
         )
-        let response = try await client.reports.postV1ReportsStockAging(
-            request: .init(asOf: "asOf"),
+        let response = try await client.reports.stockAging(
+            request: .init(asOf: CalendarDate("2026-07-01")!),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsStockAging2() async throws -> Void {
+    @Test func stockAging2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2098,10 +2098,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsStockAgingResponse(
+        let expectedResponse = StockAgingReportsResponse(
             asOf: "asOf",
             rows: [
-                PostV1ReportsStockAgingResponseRowsItem(
+                StockAgingReportsResponseRowsItem(
                     itemId: "x",
                     itemName: "itemName",
                     warehouseId: "x",
@@ -2116,7 +2116,7 @@ import Api
                     totalQty: "totalQty",
                     totalValue: "totalValue"
                 ),
-                PostV1ReportsStockAgingResponseRowsItem(
+                StockAgingReportsResponseRowsItem(
                     itemId: "x",
                     itemName: "itemName",
                     warehouseId: "x",
@@ -2134,14 +2134,14 @@ import Api
             ],
             totalValue: "totalValue"
         )
-        let response = try await client.reports.postV1ReportsStockAging(
-            request: .init(asOf: "asOf"),
+        let response = try await client.reports.stockAging(
+            request: .init(asOf: CalendarDate("2023-01-15")!),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsStockShortage1() async throws -> Void {
+    @Test func stockShortage1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2166,9 +2166,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsStockShortageResponse(
+        let expectedResponse = StockShortageReportsResponse(
             rows: [
-                PostV1ReportsStockShortageResponseRowsItem(
+                StockShortageReportsResponseRowsItem(
                     itemId: "itemId",
                     itemName: "itemName",
                     warehouseId: "warehouseId",
@@ -2178,14 +2178,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsStockShortage(
+        let response = try await client.reports.stockShortage(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsStockShortage2() async throws -> Void {
+    @Test func stockShortage2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2218,9 +2218,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsStockShortageResponse(
+        let expectedResponse = StockShortageReportsResponse(
             rows: [
-                PostV1ReportsStockShortageResponseRowsItem(
+                StockShortageReportsResponseRowsItem(
                     itemId: "x",
                     itemName: "itemName",
                     warehouseId: "x",
@@ -2228,7 +2228,7 @@ import Api
                     reserved: "reserved",
                     shortage: "shortage"
                 ),
-                PostV1ReportsStockShortageResponseRowsItem(
+                StockShortageReportsResponseRowsItem(
                     itemId: "x",
                     itemName: "itemName",
                     warehouseId: "x",
@@ -2238,14 +2238,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsStockShortage(
+        let response = try await client.reports.stockShortage(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsSie1() async throws -> Void {
+    @Test func sie1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2272,7 +2272,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsSieResponse(
+        let expectedResponse = SieReportsResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data",
@@ -2286,17 +2286,17 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.reports.postV1ReportsSie(
+        let response = try await client.reports.sie(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsSie2() async throws -> Void {
+    @Test func sie2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2325,7 +2325,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsSieResponse(
+        let expectedResponse = SieReportsResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data",
@@ -2341,17 +2341,17 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.reports.postV1ReportsSie(
+        let response = try await client.reports.sie(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsDatev1() async throws -> Void {
+    @Test func datev1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2377,7 +2377,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsDatevResponse(
+        let expectedResponse = DatevReportsResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data",
@@ -2390,17 +2390,17 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.reports.postV1ReportsDatev(
+        let response = try await client.reports.datev(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsDatev2() async throws -> Void {
+    @Test func datev2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2428,7 +2428,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsDatevResponse(
+        let expectedResponse = DatevReportsResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data",
@@ -2443,17 +2443,17 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.reports.postV1ReportsDatev(
+        let response = try await client.reports.datev(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsFec1() async throws -> Void {
+    @Test func fec1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2479,7 +2479,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsFecResponse(
+        let expectedResponse = FecReportsResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data",
@@ -2492,17 +2492,17 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.reports.postV1ReportsFec(
+        let response = try await client.reports.fec(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsFec2() async throws -> Void {
+    @Test func fec2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2530,7 +2530,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsFecResponse(
+        let expectedResponse = FecReportsResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data",
@@ -2545,24 +2545,24 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.reports.postV1ReportsFec(
+        let response = try await client.reports.fec(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsEuPurchases1() async throws -> Void {
+    @Test func euPurchases1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "countryCode": "countryCode",
@@ -2585,11 +2585,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsEuPurchasesResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = EuPurchasesReportsResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1ReportsEuPurchasesResponseRowsItem(
+                EuPurchasesReportsResponseRowsItem(
                     countryCode: "countryCode",
                     vatRatePercent: "vatRatePercent",
                     net: "net",
@@ -2597,29 +2597,29 @@ import Api
                     documents: 1000000
                 )
             ],
-            totals: PostV1ReportsEuPurchasesResponseTotals(
+            totals: EuPurchasesReportsResponseTotals(
                 net: "net",
                 vat: "vat"
             )
         )
-        let response = try await client.reports.postV1ReportsEuPurchases(
+        let response = try await client.reports.euPurchases(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsEuPurchases2() async throws -> Void {
+    @Test func euPurchases2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "countryCode": "countryCode",
@@ -2649,18 +2649,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsEuPurchasesResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = EuPurchasesReportsResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1ReportsEuPurchasesResponseRowsItem(
+                EuPurchasesReportsResponseRowsItem(
                     countryCode: "countryCode",
                     vatRatePercent: "vatRatePercent",
                     net: "net",
                     vat: "vat",
                     documents: 1000000
                 ),
-                PostV1ReportsEuPurchasesResponseRowsItem(
+                EuPurchasesReportsResponseRowsItem(
                     countryCode: "countryCode",
                     vatRatePercent: "vatRatePercent",
                     net: "net",
@@ -2668,35 +2668,35 @@ import Api
                     documents: 1000000
                 )
             ],
-            totals: PostV1ReportsEuPurchasesResponseTotals(
+            totals: EuPurchasesReportsResponseTotals(
                 net: "net",
                 vat: "vat"
             )
         )
-        let response = try await client.reports.postV1ReportsEuPurchases(
+        let response = try await client.reports.euPurchases(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsVatDetail1() async throws -> Void {
+    @Test func vatDetail1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "side": "side",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "documentId": "documentId",
                       "documentNumber": "documentNumber",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "partnerName": "partnerName",
                       "vatRatePercent": "vatRatePercent",
                       "net": "net",
@@ -2718,15 +2718,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsVatDetailResponse(
+        let expectedResponse = VatDetailReportsResponse(
             side: "side",
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1ReportsVatDetailResponseRowsItem(
+                VatDetailReportsResponseRowsItem(
                     documentId: "documentId",
                     documentNumber: "documentNumber",
-                    date: Nullable<String>.value("date"),
+                    date: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     partnerName: "partnerName",
                     vatRatePercent: "vatRatePercent",
                     net: "net",
@@ -2734,36 +2734,36 @@ import Api
                     gross: "gross"
                 )
             ],
-            totals: PostV1ReportsVatDetailResponseTotals(
+            totals: VatDetailReportsResponseTotals(
                 net: "net",
                 vat: "vat",
                 gross: "gross"
             )
         )
-        let response = try await client.reports.postV1ReportsVatDetail(
+        let response = try await client.reports.vatDetail(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsVatDetail2() async throws -> Void {
+    @Test func vatDetail2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "side": "side",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "documentId": "x",
                       "documentNumber": "documentNumber",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "partnerName": "partnerName",
                       "vatRatePercent": "vatRatePercent",
                       "net": "net",
@@ -2773,7 +2773,7 @@ import Api
                     {
                       "documentId": "x",
                       "documentNumber": "documentNumber",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "partnerName": "partnerName",
                       "vatRatePercent": "vatRatePercent",
                       "net": "net",
@@ -2795,25 +2795,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsVatDetailResponse(
+        let expectedResponse = VatDetailReportsResponse(
             side: "side",
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1ReportsVatDetailResponseRowsItem(
+                VatDetailReportsResponseRowsItem(
                     documentId: "x",
                     documentNumber: "documentNumber",
-                    date: Nullable<String>.value("date"),
+                    date: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     partnerName: "partnerName",
                     vatRatePercent: "vatRatePercent",
                     net: "net",
                     vat: "vat",
                     gross: "gross"
                 ),
-                PostV1ReportsVatDetailResponseRowsItem(
+                VatDetailReportsResponseRowsItem(
                     documentId: "x",
                     documentNumber: "documentNumber",
-                    date: Nullable<String>.value("date"),
+                    date: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     partnerName: "partnerName",
                     vatRatePercent: "vatRatePercent",
                     net: "net",
@@ -2821,35 +2821,35 @@ import Api
                     gross: "gross"
                 )
             ],
-            totals: PostV1ReportsVatDetailResponseTotals(
+            totals: VatDetailReportsResponseTotals(
                 net: "net",
                 vat: "vat",
                 gross: "gross"
             )
         )
-        let response = try await client.reports.postV1ReportsVatDetail(
+        let response = try await client.reports.vatDetail(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsPosSales1() async throws -> Void {
+    @Test func posSales1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "reportId": "reportId",
                       "reportNumber": "reportNumber",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "net": "net",
                       "vat": "vat",
                       "gross": "gross",
@@ -2882,14 +2882,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsPosSalesResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = PosSalesReportsResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1ReportsPosSalesResponseRowsItem(
+                PosSalesReportsResponseRowsItem(
                     reportId: "reportId",
                     reportNumber: "reportNumber",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     net: "net",
                     vat: "vat",
                     gross: "gross",
@@ -2899,13 +2899,13 @@ import Api
                 )
             ],
             byRate: [
-                PostV1ReportsPosSalesResponseByRateItem(
+                PosSalesReportsResponseByRateItem(
                     vatRatePercent: "vatRatePercent",
                     net: "net",
                     vat: "vat"
                 )
             ],
-            totals: PostV1ReportsPosSalesResponseTotals(
+            totals: PosSalesReportsResponseTotals(
                 net: "net",
                 vat: "vat",
                 gross: "gross",
@@ -2914,29 +2914,29 @@ import Api
                 cogs: "cogs"
             )
         )
-        let response = try await client.reports.postV1ReportsPosSales(
+        let response = try await client.reports.posSales(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsPosSales2() async throws -> Void {
+    @Test func posSales2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "reportId": "x",
                       "reportNumber": "reportNumber",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "net": "net",
                       "vat": "vat",
                       "gross": "gross",
@@ -2947,7 +2947,7 @@ import Api
                     {
                       "reportId": "x",
                       "reportNumber": "reportNumber",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "net": "net",
                       "vat": "vat",
                       "gross": "gross",
@@ -2985,14 +2985,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsPosSalesResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = PosSalesReportsResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1ReportsPosSalesResponseRowsItem(
+                PosSalesReportsResponseRowsItem(
                     reportId: "x",
                     reportNumber: "reportNumber",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     net: "net",
                     vat: "vat",
                     gross: "gross",
@@ -3000,10 +3000,10 @@ import Api
                     card: "card",
                     cogs: Nullable<String>.value("cogs")
                 ),
-                PostV1ReportsPosSalesResponseRowsItem(
+                PosSalesReportsResponseRowsItem(
                     reportId: "x",
                     reportNumber: "reportNumber",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     net: "net",
                     vat: "vat",
                     gross: "gross",
@@ -3013,18 +3013,18 @@ import Api
                 )
             ],
             byRate: [
-                PostV1ReportsPosSalesResponseByRateItem(
+                PosSalesReportsResponseByRateItem(
                     vatRatePercent: "vatRatePercent",
                     net: "net",
                     vat: "vat"
                 ),
-                PostV1ReportsPosSalesResponseByRateItem(
+                PosSalesReportsResponseByRateItem(
                     vatRatePercent: "vatRatePercent",
                     net: "net",
                     vat: "vat"
                 )
             ],
-            totals: PostV1ReportsPosSalesResponseTotals(
+            totals: PosSalesReportsResponseTotals(
                 net: "net",
                 vat: "vat",
                 gross: "gross",
@@ -3033,24 +3033,24 @@ import Api
                 cogs: "cogs"
             )
         )
-        let response = try await client.reports.postV1ReportsPosSales(
+        let response = try await client.reports.posSales(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsOnlineSales1() async throws -> Void {
+    @Test func onlineSales1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "channel": "channel",
@@ -3071,11 +3071,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsOnlineSalesResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = OnlineSalesReportsResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1ReportsOnlineSalesResponseRowsItem(
+                OnlineSalesReportsResponseRowsItem(
                     channel: "channel",
                     orders: 1000000,
                     fulfilled: 1000000,
@@ -3086,24 +3086,24 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsOnlineSales(
+        let response = try await client.reports.onlineSales(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsOnlineSales2() async throws -> Void {
+    @Test func onlineSales2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "channel": "channel",
@@ -3133,11 +3133,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsOnlineSalesResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = OnlineSalesReportsResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1ReportsOnlineSalesResponseRowsItem(
+                OnlineSalesReportsResponseRowsItem(
                     channel: "channel",
                     orders: 1000000,
                     fulfilled: 1000000,
@@ -3146,7 +3146,7 @@ import Api
                     net: "net",
                     gross: "gross"
                 ),
-                PostV1ReportsOnlineSalesResponseRowsItem(
+                OnlineSalesReportsResponseRowsItem(
                     channel: "channel",
                     orders: 1000000,
                     fulfilled: 1000000,
@@ -3157,24 +3157,24 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsOnlineSales(
+        let response = try await client.reports.onlineSales(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsOss1() async throws -> Void {
+    @Test func oss1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "countryCode": "countryCode",
@@ -3197,11 +3197,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsOssResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = OssReportsResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1ReportsOssResponseRowsItem(
+                OssReportsResponseRowsItem(
                     countryCode: "countryCode",
                     vatRatePercent: "vatRatePercent",
                     net: "net",
@@ -3209,29 +3209,29 @@ import Api
                     documents: 1000000
                 )
             ],
-            totals: PostV1ReportsOssResponseTotals(
+            totals: OssReportsResponseTotals(
                 net: "net",
                 vat: "vat"
             )
         )
-        let response = try await client.reports.postV1ReportsOss(
+        let response = try await client.reports.oss(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsOss2() async throws -> Void {
+    @Test func oss2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "countryCode": "countryCode",
@@ -3261,18 +3261,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsOssResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = OssReportsResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1ReportsOssResponseRowsItem(
+                OssReportsResponseRowsItem(
                     countryCode: "countryCode",
                     vatRatePercent: "vatRatePercent",
                     net: "net",
                     vat: "vat",
                     documents: 1000000
                 ),
-                PostV1ReportsOssResponseRowsItem(
+                OssReportsResponseRowsItem(
                     countryCode: "countryCode",
                     vatRatePercent: "vatRatePercent",
                     net: "net",
@@ -3280,29 +3280,29 @@ import Api
                     documents: 1000000
                 )
             ],
-            totals: PostV1ReportsOssResponseTotals(
+            totals: OssReportsResponseTotals(
                 net: "net",
                 vat: "vat"
             )
         )
-        let response = try await client.reports.postV1ReportsOss(
+        let response = try await client.reports.oss(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsAdvanceReconciliation1() async throws -> Void {
+    @Test func advanceReconciliation1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "employeeId": "employeeId",
@@ -3323,11 +3323,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsAdvanceReconciliationResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = AdvanceReconciliationReportsResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1ReportsAdvanceReconciliationResponseRowsItem(
+                AdvanceReconciliationReportsResponseRowsItem(
                     employeeId: "employeeId",
                     firstName: "firstName",
                     lastName: "lastName",
@@ -3338,24 +3338,24 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsAdvanceReconciliation(
+        let response = try await client.reports.advanceReconciliation(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsAdvanceReconciliation2() async throws -> Void {
+    @Test func advanceReconciliation2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "employeeId": "x",
@@ -3385,11 +3385,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsAdvanceReconciliationResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = AdvanceReconciliationReportsResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1ReportsAdvanceReconciliationResponseRowsItem(
+                AdvanceReconciliationReportsResponseRowsItem(
                     employeeId: "x",
                     firstName: "firstName",
                     lastName: "lastName",
@@ -3398,7 +3398,7 @@ import Api
                     returned: "returned",
                     closing: "closing"
                 ),
-                PostV1ReportsAdvanceReconciliationResponseRowsItem(
+                AdvanceReconciliationReportsResponseRowsItem(
                     employeeId: "x",
                     firstName: "firstName",
                     lastName: "lastName",
@@ -3409,28 +3409,28 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsAdvanceReconciliation(
+        let response = try await client.reports.advanceReconciliation(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsWriteOffActs1() async throws -> Void {
+    @Test func writeOffActs1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "movementId": "movementId",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "documentType": "documentType",
                       "itemName": "itemName",
                       "warehouseCode": "warehouseCode",
@@ -3449,13 +3449,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsWriteOffActsResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = WriteOffActsReportsResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1ReportsWriteOffActsResponseRowsItem(
+                WriteOffActsReportsResponseRowsItem(
                     movementId: "movementId",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     documentType: "documentType",
                     itemName: "itemName",
                     warehouseCode: "warehouseCode",
@@ -3466,28 +3466,28 @@ import Api
             ],
             totalCost: "totalCost"
         )
-        let response = try await client.reports.postV1ReportsWriteOffActs(
+        let response = try await client.reports.writeOffActs(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsWriteOffActs2() async throws -> Void {
+    @Test func writeOffActs2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "movementId": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "documentType": "documentType",
                       "itemName": "itemName",
                       "warehouseCode": "warehouseCode",
@@ -3497,7 +3497,7 @@ import Api
                     },
                     {
                       "movementId": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "documentType": "documentType",
                       "itemName": "itemName",
                       "warehouseCode": "warehouseCode",
@@ -3516,13 +3516,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsWriteOffActsResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = WriteOffActsReportsResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1ReportsWriteOffActsResponseRowsItem(
+                WriteOffActsReportsResponseRowsItem(
                     movementId: "x",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     documentType: "documentType",
                     itemName: "itemName",
                     warehouseCode: "warehouseCode",
@@ -3530,9 +3530,9 @@ import Api
                     totalCost: "totalCost",
                     notes: Nullable<String>.value("notes")
                 ),
-                PostV1ReportsWriteOffActsResponseRowsItem(
+                WriteOffActsReportsResponseRowsItem(
                     movementId: "x",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     documentType: "documentType",
                     itemName: "itemName",
                     warehouseCode: "warehouseCode",
@@ -3543,24 +3543,24 @@ import Api
             ],
             totalCost: "totalCost"
         )
-        let response = try await client.reports.postV1ReportsWriteOffActs(
+        let response = try await client.reports.writeOffActs(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsCostCenters1() async throws -> Void {
+    @Test func costCenters1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "costCenterId": "costCenterId",
@@ -3580,11 +3580,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsCostCentersResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = CostCentersReportsResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1ReportsCostCentersResponseRowsItem(
+                CostCentersReportsResponseRowsItem(
                     costCenterId: "costCenterId",
                     code: "code",
                     name: "name",
@@ -3594,24 +3594,24 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsCostCenters(
+        let response = try await client.reports.costCenters(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsCostCenters2() async throws -> Void {
+    @Test func costCenters2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "costCenterId": "x",
@@ -3639,11 +3639,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsCostCentersResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = CostCentersReportsResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1ReportsCostCentersResponseRowsItem(
+                CostCentersReportsResponseRowsItem(
                     costCenterId: "x",
                     code: "code",
                     name: "name",
@@ -3651,7 +3651,7 @@ import Api
                     expenses: "expenses",
                     result: "result"
                 ),
-                PostV1ReportsCostCentersResponseRowsItem(
+                CostCentersReportsResponseRowsItem(
                     costCenterId: "x",
                     code: "code",
                     name: "name",
@@ -3661,17 +3661,17 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsCostCenters(
+        let response = try await client.reports.costCenters(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsCostCenterActivity1() async throws -> Void {
+    @Test func costCenterActivity1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3682,8 +3682,8 @@ import Api
                     "code": "code",
                     "name": "name"
                   },
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "accountCode": "accountCode",
@@ -3702,16 +3702,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsCostCenterActivityResponse(
-            costCenter: PostV1ReportsCostCenterActivityResponseCostCenter(
+        let expectedResponse = CostCenterActivityReportsResponse(
+            costCenter: CostCenterActivityReportsResponseCostCenter(
                 id: "id",
                 code: "code",
                 name: "name"
             ),
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1ReportsCostCenterActivityResponseRowsItem(
+                CostCenterActivityReportsResponseRowsItem(
                     accountCode: "accountCode",
                     accountName: "accountName",
                     debit: "debit",
@@ -3720,10 +3720,10 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsCostCenterActivity(
+        let response = try await client.reports.costCenterActivity(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate",
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!,
                 costCenterId: "costCenterId"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -3731,7 +3731,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsCostCenterActivity2() async throws -> Void {
+    @Test func costCenterActivity2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3742,8 +3742,8 @@ import Api
                     "code": "code",
                     "name": "name"
                   },
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "accountCode": "accountCode",
@@ -3769,23 +3769,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsCostCenterActivityResponse(
-            costCenter: PostV1ReportsCostCenterActivityResponseCostCenter(
+        let expectedResponse = CostCenterActivityReportsResponse(
+            costCenter: CostCenterActivityReportsResponseCostCenter(
                 id: "x",
                 code: "code",
                 name: "name"
             ),
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1ReportsCostCenterActivityResponseRowsItem(
+                CostCenterActivityReportsResponseRowsItem(
                     accountCode: "accountCode",
                     accountName: "accountName",
                     debit: "debit",
                     credit: "credit",
                     net: "net"
                 ),
-                PostV1ReportsCostCenterActivityResponseRowsItem(
+                CostCenterActivityReportsResponseRowsItem(
                     accountCode: "accountCode",
                     accountName: "accountName",
                     debit: "debit",
@@ -3794,10 +3794,10 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsCostCenterActivity(
+        let response = try await client.reports.costCenterActivity(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate",
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!,
                 costCenterId: "x"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -3805,14 +3805,14 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsCostCenterItems1() async throws -> Void {
+    @Test func costCenterItems1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "costCenterCode": "costCenterCode",
@@ -3830,11 +3830,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsCostCenterItemsResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = CostCenterItemsReportsResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1ReportsCostCenterItemsResponseRowsItem(
+                CostCenterItemsReportsResponseRowsItem(
                     costCenterCode: "costCenterCode",
                     costCenterName: "costCenterName",
                     itemName: "itemName",
@@ -3842,24 +3842,24 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsCostCenterItems(
+        let response = try await client.reports.costCenterItems(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsCostCenterItems2() async throws -> Void {
+    @Test func costCenterItems2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "costCenterCode": "costCenterCode",
@@ -3883,17 +3883,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsCostCenterItemsResponse(
-            fromDate: "fromDate",
-            toDate: "toDate",
+        let expectedResponse = CostCenterItemsReportsResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1ReportsCostCenterItemsResponseRowsItem(
+                CostCenterItemsReportsResponseRowsItem(
                     costCenterCode: "costCenterCode",
                     costCenterName: "costCenterName",
                     itemName: "itemName",
                     net: "net"
                 ),
-                PostV1ReportsCostCenterItemsResponseRowsItem(
+                CostCenterItemsReportsResponseRowsItem(
                     costCenterCode: "costCenterCode",
                     costCenterName: "costCenterName",
                     itemName: "itemName",
@@ -3901,17 +3901,17 @@ import Api
                 )
             ]
         )
-        let response = try await client.reports.postV1ReportsCostCenterItems(
+        let response = try await client.reports.costCenterItems(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsJobsCreate1() async throws -> Void {
+    @Test func jobsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3935,9 +3935,9 @@ import Api
                       "sizeBytes": 1000000
                     }
                   ],
-                  "createdAt": "createdAt",
-                  "startedAt": "startedAt",
-                  "finishedAt": "finishedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "startedAt": "2026-07-01T09:30:00Z",
+                  "finishedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3947,7 +3947,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsJobsCreateResponse(
+        let expectedResponse = JobsCreateReportsResponse(
             id: "id",
             reportType: "reportType",
             params: JSONValue.object(
@@ -3960,26 +3960,26 @@ import Api
             ],
             status: .queued,
             error: Nullable<String>.value("error"),
-            outputs: Nullable<[PostV1ReportsJobsCreateResponseOutputsItem]>.value([
-                PostV1ReportsJobsCreateResponseOutputsItem(
+            outputs: Nullable<[JobsCreateReportsResponseOutputsItem]>.value([
+                JobsCreateReportsResponseOutputsItem(
                     format: "format",
                     fileId: "fileId",
                     fileName: "fileName",
                     sizeBytes: 1000000
                 )
             ]),
-            createdAt: "createdAt",
-            startedAt: Nullable<String>.value("startedAt"),
-            finishedAt: Nullable<String>.value("finishedAt")
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            startedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            finishedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.reports.postV1ReportsJobsCreate(
+        let response = try await client.reports.jobsCreate(
             request: .init(reportType: "reportType"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsJobsCreate2() async throws -> Void {
+    @Test func jobsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4010,9 +4010,9 @@ import Api
                       "sizeBytes": 1000000
                     }
                   ],
-                  "createdAt": "createdAt",
-                  "startedAt": "startedAt",
-                  "finishedAt": "finishedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "startedAt": "2024-01-15T09:30:00Z",
+                  "finishedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4022,7 +4022,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsJobsCreateResponse(
+        let expectedResponse = JobsCreateReportsResponse(
             id: "x",
             reportType: "reportType",
             params: JSONValue.object(
@@ -4036,32 +4036,32 @@ import Api
             ],
             status: .queued,
             error: Nullable<String>.value("error"),
-            outputs: Nullable<[PostV1ReportsJobsCreateResponseOutputsItem]>.value([
-                PostV1ReportsJobsCreateResponseOutputsItem(
+            outputs: Nullable<[JobsCreateReportsResponseOutputsItem]>.value([
+                JobsCreateReportsResponseOutputsItem(
                     format: "format",
                     fileId: "x",
                     fileName: "fileName",
                     sizeBytes: 1000000
                 ),
-                PostV1ReportsJobsCreateResponseOutputsItem(
+                JobsCreateReportsResponseOutputsItem(
                     format: "format",
                     fileId: "x",
                     fileName: "fileName",
                     sizeBytes: 1000000
                 )
             ]),
-            createdAt: "createdAt",
-            startedAt: Nullable<String>.value("startedAt"),
-            finishedAt: Nullable<String>.value("finishedAt")
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            startedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            finishedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.reports.postV1ReportsJobsCreate(
+        let response = try await client.reports.jobsCreate(
             request: .init(reportType: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsJobsGet1() async throws -> Void {
+    @Test func jobsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4085,9 +4085,9 @@ import Api
                       "sizeBytes": 1000000
                     }
                   ],
-                  "createdAt": "createdAt",
-                  "startedAt": "startedAt",
-                  "finishedAt": "finishedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "startedAt": "2026-07-01T09:30:00Z",
+                  "finishedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4097,7 +4097,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsJobsGetResponse(
+        let expectedResponse = JobsGetReportsResponse(
             id: "id",
             reportType: "reportType",
             params: JSONValue.object(
@@ -4110,26 +4110,26 @@ import Api
             ],
             status: .queued,
             error: Nullable<String>.value("error"),
-            outputs: Nullable<[PostV1ReportsJobsGetResponseOutputsItem]>.value([
-                PostV1ReportsJobsGetResponseOutputsItem(
+            outputs: Nullable<[JobsGetReportsResponseOutputsItem]>.value([
+                JobsGetReportsResponseOutputsItem(
                     format: "format",
                     fileId: "fileId",
                     fileName: "fileName",
                     sizeBytes: 1000000
                 )
             ]),
-            createdAt: "createdAt",
-            startedAt: Nullable<String>.value("startedAt"),
-            finishedAt: Nullable<String>.value("finishedAt")
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            startedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            finishedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.reports.postV1ReportsJobsGet(
+        let response = try await client.reports.jobsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsJobsGet2() async throws -> Void {
+    @Test func jobsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4160,9 +4160,9 @@ import Api
                       "sizeBytes": 1000000
                     }
                   ],
-                  "createdAt": "createdAt",
-                  "startedAt": "startedAt",
-                  "finishedAt": "finishedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "startedAt": "2024-01-15T09:30:00Z",
+                  "finishedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4172,7 +4172,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsJobsGetResponse(
+        let expectedResponse = JobsGetReportsResponse(
             id: "x",
             reportType: "reportType",
             params: JSONValue.object(
@@ -4186,32 +4186,32 @@ import Api
             ],
             status: .queued,
             error: Nullable<String>.value("error"),
-            outputs: Nullable<[PostV1ReportsJobsGetResponseOutputsItem]>.value([
-                PostV1ReportsJobsGetResponseOutputsItem(
+            outputs: Nullable<[JobsGetReportsResponseOutputsItem]>.value([
+                JobsGetReportsResponseOutputsItem(
                     format: "format",
                     fileId: "x",
                     fileName: "fileName",
                     sizeBytes: 1000000
                 ),
-                PostV1ReportsJobsGetResponseOutputsItem(
+                JobsGetReportsResponseOutputsItem(
                     format: "format",
                     fileId: "x",
                     fileName: "fileName",
                     sizeBytes: 1000000
                 )
             ]),
-            createdAt: "createdAt",
-            startedAt: Nullable<String>.value("startedAt"),
-            finishedAt: Nullable<String>.value("finishedAt")
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            startedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            finishedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.reports.postV1ReportsJobsGet(
+        let response = try await client.reports.jobsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsJobsList1() async throws -> Void {
+    @Test func jobsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4237,9 +4237,9 @@ import Api
                           "sizeBytes": 1000000
                         }
                       ],
-                      "createdAt": "createdAt",
-                      "startedAt": "startedAt",
-                      "finishedAt": "finishedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "startedAt": "2026-07-01T09:30:00Z",
+                      "finishedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -4257,9 +4257,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsJobsListResponse(
+        let expectedResponse = JobsListReportsResponse(
             rows: [
-                PostV1ReportsJobsListResponseRowsItem(
+                JobsListReportsResponseRowsItem(
                     id: "id",
                     reportType: "reportType",
                     params: JSONValue.object(
@@ -4272,17 +4272,17 @@ import Api
                     ],
                     status: .queued,
                     error: Nullable<String>.value("error"),
-                    outputs: Nullable<[PostV1ReportsJobsListResponseRowsItemOutputsItem]>.value([
-                        PostV1ReportsJobsListResponseRowsItemOutputsItem(
+                    outputs: Nullable<[JobsListReportsResponseRowsItemOutputsItem]>.value([
+                        JobsListReportsResponseRowsItemOutputsItem(
                             format: "format",
                             fileId: "fileId",
                             fileName: "fileName",
                             sizeBytes: 1000000
                         )
                     ]),
-                    createdAt: "createdAt",
-                    startedAt: Nullable<String>.value("startedAt"),
-                    finishedAt: Nullable<String>.value("finishedAt")
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    startedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    finishedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 )
             ],
             page: 1000000,
@@ -4292,14 +4292,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.reports.postV1ReportsJobsList(
+        let response = try await client.reports.jobsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1ReportsJobsList2() async throws -> Void {
+    @Test func jobsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4332,9 +4332,9 @@ import Api
                           "sizeBytes": 1000000
                         }
                       ],
-                      "createdAt": "createdAt",
-                      "startedAt": "startedAt",
-                      "finishedAt": "finishedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "startedAt": "2024-01-15T09:30:00Z",
+                      "finishedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -4362,9 +4362,9 @@ import Api
                           "sizeBytes": 1000000
                         }
                       ],
-                      "createdAt": "createdAt",
-                      "startedAt": "startedAt",
-                      "finishedAt": "finishedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "startedAt": "2024-01-15T09:30:00Z",
+                      "finishedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -4382,9 +4382,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1ReportsJobsListResponse(
+        let expectedResponse = JobsListReportsResponse(
             rows: [
-                PostV1ReportsJobsListResponseRowsItem(
+                JobsListReportsResponseRowsItem(
                     id: "x",
                     reportType: "reportType",
                     params: JSONValue.object(
@@ -4398,25 +4398,25 @@ import Api
                     ],
                     status: .queued,
                     error: Nullable<String>.value("error"),
-                    outputs: Nullable<[PostV1ReportsJobsListResponseRowsItemOutputsItem]>.value([
-                        PostV1ReportsJobsListResponseRowsItemOutputsItem(
+                    outputs: Nullable<[JobsListReportsResponseRowsItemOutputsItem]>.value([
+                        JobsListReportsResponseRowsItemOutputsItem(
                             format: "format",
                             fileId: "x",
                             fileName: "fileName",
                             sizeBytes: 1000000
                         ),
-                        PostV1ReportsJobsListResponseRowsItemOutputsItem(
+                        JobsListReportsResponseRowsItemOutputsItem(
                             format: "format",
                             fileId: "x",
                             fileName: "fileName",
                             sizeBytes: 1000000
                         )
                     ]),
-                    createdAt: "createdAt",
-                    startedAt: Nullable<String>.value("startedAt"),
-                    finishedAt: Nullable<String>.value("finishedAt")
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    startedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    finishedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                PostV1ReportsJobsListResponseRowsItem(
+                JobsListReportsResponseRowsItem(
                     id: "x",
                     reportType: "reportType",
                     params: JSONValue.object(
@@ -4430,23 +4430,23 @@ import Api
                     ],
                     status: .queued,
                     error: Nullable<String>.value("error"),
-                    outputs: Nullable<[PostV1ReportsJobsListResponseRowsItemOutputsItem]>.value([
-                        PostV1ReportsJobsListResponseRowsItemOutputsItem(
+                    outputs: Nullable<[JobsListReportsResponseRowsItemOutputsItem]>.value([
+                        JobsListReportsResponseRowsItemOutputsItem(
                             format: "format",
                             fileId: "x",
                             fileName: "fileName",
                             sizeBytes: 1000000
                         ),
-                        PostV1ReportsJobsListResponseRowsItemOutputsItem(
+                        JobsListReportsResponseRowsItemOutputsItem(
                             format: "format",
                             fileId: "x",
                             fileName: "fileName",
                             sizeBytes: 1000000
                         )
                     ]),
-                    createdAt: "createdAt",
-                    startedAt: Nullable<String>.value("startedAt"),
-                    finishedAt: Nullable<String>.value("finishedAt")
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    startedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    finishedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 )
             ],
             page: 1000000,
@@ -4456,7 +4456,7 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.reports.postV1ReportsJobsList(
+        let response = try await client.reports.jobsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

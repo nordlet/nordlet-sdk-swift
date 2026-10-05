@@ -7,43 +7,43 @@ public final class FilesClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1FilesUpload(request: Requests.PostV1FilesUploadRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1FilesUploadResponse {
+    public func upload(request: Requests.UploadFilesRequest, requestOptions: RequestOptions? = nil) async throws -> UploadFilesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/files/upload",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1FilesUploadResponse.self
+            responseType: UploadFilesResponse.self
         )
     }
 
-    public func postV1FilesGet(request: Requests.PostV1FilesGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1FilesGetResponse {
+    public func get(request: Requests.GetFilesRequest, requestOptions: RequestOptions? = nil) async throws -> GetFilesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/files/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1FilesGetResponse.self
+            responseType: GetFilesResponse.self
         )
     }
 
-    public func postV1FilesList(request: Requests.PostV1FilesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1FilesListResponse {
+    public func list(request: Requests.ListFilesRequest, requestOptions: RequestOptions? = nil) async throws -> ListFilesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/files/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1FilesListResponse.self
+            responseType: ListFilesResponse.self
         )
     }
 
-    public func postV1FilesDelete(request: Requests.PostV1FilesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1FilesDeleteResponse {
+    public func delete(request: Requests.DeleteFilesRequest, requestOptions: RequestOptions? = nil) async throws -> DeleteFilesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/files/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1FilesDeleteResponse.self
+            responseType: DeleteFilesResponse.self
         )
     }
 }

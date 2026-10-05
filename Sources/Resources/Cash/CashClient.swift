@@ -7,53 +7,53 @@ public final class CashClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1CashOrdersCreate(request: Requests.PostV1CashOrdersCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CashOrdersCreateResponse {
+    public func ordersCreate(request: Requests.OrdersCreateCashRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersCreateCashResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/cash/orders/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CashOrdersCreateResponse.self
+            responseType: OrdersCreateCashResponse.self
         )
     }
 
-    public func postV1CashOrdersGet(request: Requests.PostV1CashOrdersGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CashOrdersGetResponse {
+    public func ordersGet(request: Requests.OrdersGetCashRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersGetCashResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/cash/orders/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CashOrdersGetResponse.self
+            responseType: OrdersGetCashResponse.self
         )
     }
 
-    public func postV1CashOrdersList(request: Requests.PostV1CashOrdersListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CashOrdersListResponse {
+    public func ordersList(request: Requests.OrdersListCashRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersListCashResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/cash/orders/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CashOrdersListResponse.self
+            responseType: OrdersListCashResponse.self
         )
     }
 
-    public func postV1CashBalance(request: Requests.PostV1CashBalanceRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CashBalanceResponse {
+    public func balance(request: Requests.BalanceCashRequest, requestOptions: RequestOptions? = nil) async throws -> BalanceCashResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/cash/balance",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CashBalanceResponse.self
+            responseType: BalanceCashResponse.self
         )
     }
 
-    public func postV1CashAdvanceHoldersBalances(request: Requests.PostV1CashAdvanceHoldersBalancesRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1CashAdvanceHoldersBalancesResponse {
+    public func advanceHoldersBalances(request: Requests.AdvanceHoldersBalancesCashRequest, requestOptions: RequestOptions? = nil) async throws -> AdvanceHoldersBalancesCashResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/cash/advance-holders/balances",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1CashAdvanceHoldersBalancesResponse.self
+            responseType: AdvanceHoldersBalancesCashResponse.self
         )
     }
 }

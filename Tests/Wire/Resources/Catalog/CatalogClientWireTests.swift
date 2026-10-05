@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("CatalogClient Wire Tests") struct CatalogClientWireTests {
-    @Test func postV1CatalogItemsCreate1() async throws -> Void {
+    @Test func itemsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -67,14 +67,14 @@ import Api
                   "packageQuantity": "packageQuantity",
                   "taraCode": "taraCode",
                   "certificateNumber": "certificateNumber",
-                  "certificateDate": "certificateDate",
+                  "certificateDate": "2026-07-01",
                   "validFrom": "validFrom",
                   "validTo": "validTo",
                   "posFlags": {
                     "key": true
                   },
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -84,7 +84,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsCreateResponse(
+        let expectedResponse = ItemsCreateCatalogResponse(
             id: "id",
             type: .product,
             tracking: .none,
@@ -107,14 +107,14 @@ import Api
                 "key": Nullable<String>.value("value")
             ]),
             documentRef: Nullable<String>.value("documentRef"),
-            translations: Nullable<[String: Nullable<PostV1CatalogItemsCreateResponseTranslationsValue>]>.value([
-                "key": Nullable<PostV1CatalogItemsCreateResponseTranslationsValue>.value(PostV1CatalogItemsCreateResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<ItemsCreateCatalogResponseTranslationsValue>]>.value([
+                "key": Nullable<ItemsCreateCatalogResponseTranslationsValue>.value(ItemsCreateCatalogResponseTranslationsValue(
                     name: "name",
                     description: Optional("description")
                 ))
             ]),
             components: [
-                PostV1CatalogItemsCreateResponseComponentsItem(
+                ItemsCreateCatalogResponseComponentsItem(
                     itemId: "itemId",
                     itemName: "itemName",
                     quantity: "quantity"
@@ -143,23 +143,23 @@ import Api
             packageQuantity: Nullable<String>.value("packageQuantity"),
             taraCode: Nullable<String>.value("taraCode"),
             certificateNumber: Nullable<String>.value("certificateNumber"),
-            certificateDate: Nullable<String>.value("certificateDate"),
+            certificateDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             validFrom: Nullable<String>.value("validFrom"),
             validTo: Nullable<String>.value("validTo"),
             posFlags: Nullable<[String: Nullable<Bool>]>.value([
                 "key": Nullable<Bool>.value(true)
             ]),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemsCreate(
+        let response = try await client.catalog.itemsCreate(
             request: .init(name: "name"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsCreate2() async throws -> Void {
+    @Test func itemsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -228,14 +228,14 @@ import Api
                   "packageQuantity": "packageQuantity",
                   "taraCode": "taraCode",
                   "certificateNumber": "certificateNumber",
-                  "certificateDate": "certificateDate",
+                  "certificateDate": "2023-01-15",
                   "validFrom": "validFrom",
                   "validTo": "validTo",
                   "posFlags": {
                     "posFlags": true
                   },
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -245,7 +245,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsCreateResponse(
+        let expectedResponse = ItemsCreateCatalogResponse(
             id: "x",
             type: .product,
             tracking: .none,
@@ -268,19 +268,19 @@ import Api
                 "attributes": Nullable<String>.value("attributes")
             ]),
             documentRef: Nullable<String>.value("documentRef"),
-            translations: Nullable<[String: Nullable<PostV1CatalogItemsCreateResponseTranslationsValue>]>.value([
-                "translations": Nullable<PostV1CatalogItemsCreateResponseTranslationsValue>.value(PostV1CatalogItemsCreateResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<ItemsCreateCatalogResponseTranslationsValue>]>.value([
+                "translations": Nullable<ItemsCreateCatalogResponseTranslationsValue>.value(ItemsCreateCatalogResponseTranslationsValue(
                     name: "name",
                     description: Optional("description")
                 ))
             ]),
             components: [
-                PostV1CatalogItemsCreateResponseComponentsItem(
+                ItemsCreateCatalogResponseComponentsItem(
                     itemId: "x",
                     itemName: "itemName",
                     quantity: "quantity"
                 ),
-                PostV1CatalogItemsCreateResponseComponentsItem(
+                ItemsCreateCatalogResponseComponentsItem(
                     itemId: "x",
                     itemName: "itemName",
                     quantity: "quantity"
@@ -309,23 +309,23 @@ import Api
             packageQuantity: Nullable<String>.value("packageQuantity"),
             taraCode: Nullable<String>.value("taraCode"),
             certificateNumber: Nullable<String>.value("certificateNumber"),
-            certificateDate: Nullable<String>.value("certificateDate"),
+            certificateDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             validFrom: Nullable<String>.value("validFrom"),
             validTo: Nullable<String>.value("validTo"),
             posFlags: Nullable<[String: Nullable<Bool>]>.value([
                 "posFlags": Nullable<Bool>.value(true)
             ]),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemsCreate(
+        let response = try await client.catalog.itemsCreate(
             request: .init(name: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsGet1() async throws -> Void {
+    @Test func itemsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -389,14 +389,14 @@ import Api
                   "packageQuantity": "packageQuantity",
                   "taraCode": "taraCode",
                   "certificateNumber": "certificateNumber",
-                  "certificateDate": "certificateDate",
+                  "certificateDate": "2026-07-01",
                   "validFrom": "validFrom",
                   "validTo": "validTo",
                   "posFlags": {
                     "key": true
                   },
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -406,7 +406,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsGetResponse(
+        let expectedResponse = ItemsGetCatalogResponse(
             id: "id",
             type: .product,
             tracking: .none,
@@ -429,14 +429,14 @@ import Api
                 "key": Nullable<String>.value("value")
             ]),
             documentRef: Nullable<String>.value("documentRef"),
-            translations: Nullable<[String: Nullable<PostV1CatalogItemsGetResponseTranslationsValue>]>.value([
-                "key": Nullable<PostV1CatalogItemsGetResponseTranslationsValue>.value(PostV1CatalogItemsGetResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<ItemsGetCatalogResponseTranslationsValue>]>.value([
+                "key": Nullable<ItemsGetCatalogResponseTranslationsValue>.value(ItemsGetCatalogResponseTranslationsValue(
                     name: "name",
                     description: Optional("description")
                 ))
             ]),
             components: [
-                PostV1CatalogItemsGetResponseComponentsItem(
+                ItemsGetCatalogResponseComponentsItem(
                     itemId: "itemId",
                     itemName: "itemName",
                     quantity: "quantity"
@@ -465,23 +465,23 @@ import Api
             packageQuantity: Nullable<String>.value("packageQuantity"),
             taraCode: Nullable<String>.value("taraCode"),
             certificateNumber: Nullable<String>.value("certificateNumber"),
-            certificateDate: Nullable<String>.value("certificateDate"),
+            certificateDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             validFrom: Nullable<String>.value("validFrom"),
             validTo: Nullable<String>.value("validTo"),
             posFlags: Nullable<[String: Nullable<Bool>]>.value([
                 "key": Nullable<Bool>.value(true)
             ]),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemsGet(
+        let response = try await client.catalog.itemsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsGet2() async throws -> Void {
+    @Test func itemsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -550,14 +550,14 @@ import Api
                   "packageQuantity": "packageQuantity",
                   "taraCode": "taraCode",
                   "certificateNumber": "certificateNumber",
-                  "certificateDate": "certificateDate",
+                  "certificateDate": "2023-01-15",
                   "validFrom": "validFrom",
                   "validTo": "validTo",
                   "posFlags": {
                     "posFlags": true
                   },
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -567,7 +567,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsGetResponse(
+        let expectedResponse = ItemsGetCatalogResponse(
             id: "x",
             type: .product,
             tracking: .none,
@@ -590,19 +590,19 @@ import Api
                 "attributes": Nullable<String>.value("attributes")
             ]),
             documentRef: Nullable<String>.value("documentRef"),
-            translations: Nullable<[String: Nullable<PostV1CatalogItemsGetResponseTranslationsValue>]>.value([
-                "translations": Nullable<PostV1CatalogItemsGetResponseTranslationsValue>.value(PostV1CatalogItemsGetResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<ItemsGetCatalogResponseTranslationsValue>]>.value([
+                "translations": Nullable<ItemsGetCatalogResponseTranslationsValue>.value(ItemsGetCatalogResponseTranslationsValue(
                     name: "name",
                     description: Optional("description")
                 ))
             ]),
             components: [
-                PostV1CatalogItemsGetResponseComponentsItem(
+                ItemsGetCatalogResponseComponentsItem(
                     itemId: "x",
                     itemName: "itemName",
                     quantity: "quantity"
                 ),
-                PostV1CatalogItemsGetResponseComponentsItem(
+                ItemsGetCatalogResponseComponentsItem(
                     itemId: "x",
                     itemName: "itemName",
                     quantity: "quantity"
@@ -631,23 +631,23 @@ import Api
             packageQuantity: Nullable<String>.value("packageQuantity"),
             taraCode: Nullable<String>.value("taraCode"),
             certificateNumber: Nullable<String>.value("certificateNumber"),
-            certificateDate: Nullable<String>.value("certificateDate"),
+            certificateDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             validFrom: Nullable<String>.value("validFrom"),
             validTo: Nullable<String>.value("validTo"),
             posFlags: Nullable<[String: Nullable<Bool>]>.value([
                 "posFlags": Nullable<Bool>.value(true)
             ]),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemsGet(
+        let response = try await client.catalog.itemsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsUpdate1() async throws -> Void {
+    @Test func itemsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -711,14 +711,14 @@ import Api
                   "packageQuantity": "packageQuantity",
                   "taraCode": "taraCode",
                   "certificateNumber": "certificateNumber",
-                  "certificateDate": "certificateDate",
+                  "certificateDate": "2026-07-01",
                   "validFrom": "validFrom",
                   "validTo": "validTo",
                   "posFlags": {
                     "key": true
                   },
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -728,7 +728,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsUpdateResponse(
+        let expectedResponse = ItemsUpdateCatalogResponse(
             id: "id",
             type: .product,
             tracking: .none,
@@ -751,14 +751,14 @@ import Api
                 "key": Nullable<String>.value("value")
             ]),
             documentRef: Nullable<String>.value("documentRef"),
-            translations: Nullable<[String: Nullable<PostV1CatalogItemsUpdateResponseTranslationsValue>]>.value([
-                "key": Nullable<PostV1CatalogItemsUpdateResponseTranslationsValue>.value(PostV1CatalogItemsUpdateResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<ItemsUpdateCatalogResponseTranslationsValue>]>.value([
+                "key": Nullable<ItemsUpdateCatalogResponseTranslationsValue>.value(ItemsUpdateCatalogResponseTranslationsValue(
                     name: "name",
                     description: Optional("description")
                 ))
             ]),
             components: [
-                PostV1CatalogItemsUpdateResponseComponentsItem(
+                ItemsUpdateCatalogResponseComponentsItem(
                     itemId: "itemId",
                     itemName: "itemName",
                     quantity: "quantity"
@@ -787,23 +787,23 @@ import Api
             packageQuantity: Nullable<String>.value("packageQuantity"),
             taraCode: Nullable<String>.value("taraCode"),
             certificateNumber: Nullable<String>.value("certificateNumber"),
-            certificateDate: Nullable<String>.value("certificateDate"),
+            certificateDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             validFrom: Nullable<String>.value("validFrom"),
             validTo: Nullable<String>.value("validTo"),
             posFlags: Nullable<[String: Nullable<Bool>]>.value([
                 "key": Nullable<Bool>.value(true)
             ]),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemsUpdate(
+        let response = try await client.catalog.itemsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsUpdate2() async throws -> Void {
+    @Test func itemsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -872,14 +872,14 @@ import Api
                   "packageQuantity": "packageQuantity",
                   "taraCode": "taraCode",
                   "certificateNumber": "certificateNumber",
-                  "certificateDate": "certificateDate",
+                  "certificateDate": "2023-01-15",
                   "validFrom": "validFrom",
                   "validTo": "validTo",
                   "posFlags": {
                     "posFlags": true
                   },
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -889,7 +889,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsUpdateResponse(
+        let expectedResponse = ItemsUpdateCatalogResponse(
             id: "x",
             type: .product,
             tracking: .none,
@@ -912,19 +912,19 @@ import Api
                 "attributes": Nullable<String>.value("attributes")
             ]),
             documentRef: Nullable<String>.value("documentRef"),
-            translations: Nullable<[String: Nullable<PostV1CatalogItemsUpdateResponseTranslationsValue>]>.value([
-                "translations": Nullable<PostV1CatalogItemsUpdateResponseTranslationsValue>.value(PostV1CatalogItemsUpdateResponseTranslationsValue(
+            translations: Nullable<[String: Nullable<ItemsUpdateCatalogResponseTranslationsValue>]>.value([
+                "translations": Nullable<ItemsUpdateCatalogResponseTranslationsValue>.value(ItemsUpdateCatalogResponseTranslationsValue(
                     name: "name",
                     description: Optional("description")
                 ))
             ]),
             components: [
-                PostV1CatalogItemsUpdateResponseComponentsItem(
+                ItemsUpdateCatalogResponseComponentsItem(
                     itemId: "x",
                     itemName: "itemName",
                     quantity: "quantity"
                 ),
-                PostV1CatalogItemsUpdateResponseComponentsItem(
+                ItemsUpdateCatalogResponseComponentsItem(
                     itemId: "x",
                     itemName: "itemName",
                     quantity: "quantity"
@@ -953,23 +953,23 @@ import Api
             packageQuantity: Nullable<String>.value("packageQuantity"),
             taraCode: Nullable<String>.value("taraCode"),
             certificateNumber: Nullable<String>.value("certificateNumber"),
-            certificateDate: Nullable<String>.value("certificateDate"),
+            certificateDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             validFrom: Nullable<String>.value("validFrom"),
             validTo: Nullable<String>.value("validTo"),
             posFlags: Nullable<[String: Nullable<Bool>]>.value([
                 "posFlags": Nullable<Bool>.value(true)
             ]),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemsUpdate(
+        let response = try await client.catalog.itemsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsDelete1() async throws -> Void {
+    @Test func itemsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -985,17 +985,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsDeleteResponse(
+        let expectedResponse = ItemsDeleteCatalogResponse(
             id: "id"
         )
-        let response = try await client.catalog.postV1CatalogItemsDelete(
+        let response = try await client.catalog.itemsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsDelete2() async throws -> Void {
+    @Test func itemsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1011,17 +1011,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsDeleteResponse(
+        let expectedResponse = ItemsDeleteCatalogResponse(
             id: "x"
         )
-        let response = try await client.catalog.postV1CatalogItemsDelete(
+        let response = try await client.catalog.itemsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsList1() async throws -> Void {
+    @Test func itemsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1080,12 +1080,12 @@ import Api
                       "packageQuantity": "packageQuantity",
                       "taraCode": "taraCode",
                       "certificateNumber": "certificateNumber",
-                      "certificateDate": "certificateDate",
+                      "certificateDate": "2026-07-01",
                       "validFrom": "validFrom",
                       "validTo": "validTo",
                       "posFlags": {},
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1103,9 +1103,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsListResponse(
+        let expectedResponse = ItemsListCatalogResponse(
             rows: [
-                PostV1CatalogItemsListResponseRowsItem(
+                ItemsListCatalogResponseRowsItem(
                     id: "id",
                     type: .product,
                     tracking: .none,
@@ -1126,9 +1126,9 @@ import Api
                     groupId: Nullable<String>.value("groupId"),
                     attributes: Nullable<[String: Nullable<String>]>.value([:]),
                     documentRef: Nullable<String>.value("documentRef"),
-                    translations: Nullable<[String: Nullable<PostV1CatalogItemsListResponseRowsItemTranslationsValue>]>.value([:]),
+                    translations: Nullable<[String: Nullable<ItemsListCatalogResponseRowsItemTranslationsValue>]>.value([:]),
                     components: [
-                        PostV1CatalogItemsListResponseRowsItemComponentsItem(
+                        ItemsListCatalogResponseRowsItemComponentsItem(
                             itemId: "itemId",
                             itemName: "itemName",
                             quantity: "quantity"
@@ -1157,12 +1157,12 @@ import Api
                     packageQuantity: Nullable<String>.value("packageQuantity"),
                     taraCode: Nullable<String>.value("taraCode"),
                     certificateNumber: Nullable<String>.value("certificateNumber"),
-                    certificateDate: Nullable<String>.value("certificateDate"),
+                    certificateDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     validFrom: Nullable<String>.value("validFrom"),
                     validTo: Nullable<String>.value("validTo"),
                     posFlags: Nullable<[String: Nullable<Bool>]>.value([:]),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1172,14 +1172,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.catalog.postV1CatalogItemsList(
+        let response = try await client.catalog.itemsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsList2() async throws -> Void {
+    @Test func itemsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1250,14 +1250,14 @@ import Api
                       "packageQuantity": "packageQuantity",
                       "taraCode": "taraCode",
                       "certificateNumber": "certificateNumber",
-                      "certificateDate": "certificateDate",
+                      "certificateDate": "2023-01-15",
                       "validFrom": "validFrom",
                       "validTo": "validTo",
                       "posFlags": {
                         "posFlags": true
                       },
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1323,14 +1323,14 @@ import Api
                       "packageQuantity": "packageQuantity",
                       "taraCode": "taraCode",
                       "certificateNumber": "certificateNumber",
-                      "certificateDate": "certificateDate",
+                      "certificateDate": "2023-01-15",
                       "validFrom": "validFrom",
                       "validTo": "validTo",
                       "posFlags": {
                         "posFlags": true
                       },
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1348,9 +1348,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsListResponse(
+        let expectedResponse = ItemsListCatalogResponse(
             rows: [
-                PostV1CatalogItemsListResponseRowsItem(
+                ItemsListCatalogResponseRowsItem(
                     id: "x",
                     type: .product,
                     tracking: .none,
@@ -1373,19 +1373,19 @@ import Api
                         "attributes": Nullable<String>.value("attributes")
                     ]),
                     documentRef: Nullable<String>.value("documentRef"),
-                    translations: Nullable<[String: Nullable<PostV1CatalogItemsListResponseRowsItemTranslationsValue>]>.value([
-                        "translations": Nullable<PostV1CatalogItemsListResponseRowsItemTranslationsValue>.value(PostV1CatalogItemsListResponseRowsItemTranslationsValue(
+                    translations: Nullable<[String: Nullable<ItemsListCatalogResponseRowsItemTranslationsValue>]>.value([
+                        "translations": Nullable<ItemsListCatalogResponseRowsItemTranslationsValue>.value(ItemsListCatalogResponseRowsItemTranslationsValue(
                             name: "name",
                             description: Optional("description")
                         ))
                     ]),
                     components: [
-                        PostV1CatalogItemsListResponseRowsItemComponentsItem(
+                        ItemsListCatalogResponseRowsItemComponentsItem(
                             itemId: "x",
                             itemName: "itemName",
                             quantity: "quantity"
                         ),
-                        PostV1CatalogItemsListResponseRowsItemComponentsItem(
+                        ItemsListCatalogResponseRowsItemComponentsItem(
                             itemId: "x",
                             itemName: "itemName",
                             quantity: "quantity"
@@ -1414,16 +1414,16 @@ import Api
                     packageQuantity: Nullable<String>.value("packageQuantity"),
                     taraCode: Nullable<String>.value("taraCode"),
                     certificateNumber: Nullable<String>.value("certificateNumber"),
-                    certificateDate: Nullable<String>.value("certificateDate"),
+                    certificateDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     validFrom: Nullable<String>.value("validFrom"),
                     validTo: Nullable<String>.value("validTo"),
                     posFlags: Nullable<[String: Nullable<Bool>]>.value([
                         "posFlags": Nullable<Bool>.value(true)
                     ]),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1CatalogItemsListResponseRowsItem(
+                ItemsListCatalogResponseRowsItem(
                     id: "x",
                     type: .product,
                     tracking: .none,
@@ -1446,19 +1446,19 @@ import Api
                         "attributes": Nullable<String>.value("attributes")
                     ]),
                     documentRef: Nullable<String>.value("documentRef"),
-                    translations: Nullable<[String: Nullable<PostV1CatalogItemsListResponseRowsItemTranslationsValue>]>.value([
-                        "translations": Nullable<PostV1CatalogItemsListResponseRowsItemTranslationsValue>.value(PostV1CatalogItemsListResponseRowsItemTranslationsValue(
+                    translations: Nullable<[String: Nullable<ItemsListCatalogResponseRowsItemTranslationsValue>]>.value([
+                        "translations": Nullable<ItemsListCatalogResponseRowsItemTranslationsValue>.value(ItemsListCatalogResponseRowsItemTranslationsValue(
                             name: "name",
                             description: Optional("description")
                         ))
                     ]),
                     components: [
-                        PostV1CatalogItemsListResponseRowsItemComponentsItem(
+                        ItemsListCatalogResponseRowsItemComponentsItem(
                             itemId: "x",
                             itemName: "itemName",
                             quantity: "quantity"
                         ),
-                        PostV1CatalogItemsListResponseRowsItemComponentsItem(
+                        ItemsListCatalogResponseRowsItemComponentsItem(
                             itemId: "x",
                             itemName: "itemName",
                             quantity: "quantity"
@@ -1487,14 +1487,14 @@ import Api
                     packageQuantity: Nullable<String>.value("packageQuantity"),
                     taraCode: Nullable<String>.value("taraCode"),
                     certificateNumber: Nullable<String>.value("certificateNumber"),
-                    certificateDate: Nullable<String>.value("certificateDate"),
+                    certificateDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     validFrom: Nullable<String>.value("validFrom"),
                     validTo: Nullable<String>.value("validTo"),
                     posFlags: Nullable<[String: Nullable<Bool>]>.value([
                         "posFlags": Nullable<Bool>.value(true)
                     ]),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1504,14 +1504,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.catalog.postV1CatalogItemsList(
+        let response = try await client.catalog.itemsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsFilesList1() async throws -> Void {
+    @Test func itemsFilesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1527,7 +1527,7 @@ import Api
                       "sizeBytes": 1000000,
                       "sha256": "sha256",
                       "storageKey": "storageKey",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -1539,9 +1539,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsFilesListResponse(
+        let expectedResponse = ItemsFilesListCatalogResponse(
             rows: [
-                PostV1CatalogItemsFilesListResponseRowsItem(
+                ItemsFilesListCatalogResponseRowsItem(
                     id: "id",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
@@ -1550,18 +1550,18 @@ import Api
                     sizeBytes: 1000000,
                     sha256: "sha256",
                     storageKey: "storageKey",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogItemsFilesList(
+        let response = try await client.catalog.itemsFilesList(
             request: .init(itemId: "itemId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsFilesList2() async throws -> Void {
+    @Test func itemsFilesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1577,7 +1577,7 @@ import Api
                       "sizeBytes": 1000000,
                       "sha256": "sha256",
                       "storageKey": "storageKey",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1588,7 +1588,7 @@ import Api
                       "sizeBytes": 1000000,
                       "sha256": "sha256",
                       "storageKey": "storageKey",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -1600,9 +1600,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsFilesListResponse(
+        let expectedResponse = ItemsFilesListCatalogResponse(
             rows: [
-                PostV1CatalogItemsFilesListResponseRowsItem(
+                ItemsFilesListCatalogResponseRowsItem(
                     id: "x",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
@@ -1611,9 +1611,9 @@ import Api
                     sizeBytes: 1000000,
                     sha256: "sha256",
                     storageKey: "storageKey",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1CatalogItemsFilesListResponseRowsItem(
+                ItemsFilesListCatalogResponseRowsItem(
                     id: "x",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
@@ -1622,18 +1622,18 @@ import Api
                     sizeBytes: 1000000,
                     sha256: "sha256",
                     storageKey: "storageKey",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogItemsFilesList(
+        let response = try await client.catalog.itemsFilesList(
             request: .init(itemId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsKindsCreate1() async throws -> Void {
+    @Test func itemsKindsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1645,7 +1645,7 @@ import Api
                   "saftType": "goods",
                   "quantityAccounting": true,
                   "sortOrder": 1000000,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1655,16 +1655,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsKindsCreateResponse(
+        let expectedResponse = ItemsKindsCreateCatalogResponse(
             id: "id",
             code: "code",
             name: "name",
             saftType: .goods,
             quantityAccounting: true,
             sortOrder: 1000000,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemsKindsCreate(
+        let response = try await client.catalog.itemsKindsCreate(
             request: .init(
                 code: "code",
                 name: "name"
@@ -1674,7 +1674,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsKindsCreate2() async throws -> Void {
+    @Test func itemsKindsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1686,7 +1686,7 @@ import Api
                   "saftType": "goods",
                   "quantityAccounting": true,
                   "sortOrder": 1000000,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1696,16 +1696,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsKindsCreateResponse(
+        let expectedResponse = ItemsKindsCreateCatalogResponse(
             id: "x",
             code: "code",
             name: "name",
             saftType: .goods,
             quantityAccounting: true,
             sortOrder: 1000000,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemsKindsCreate(
+        let response = try await client.catalog.itemsKindsCreate(
             request: .init(
                 code: "x",
                 name: "x"
@@ -1715,7 +1715,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsKindsUpdate1() async throws -> Void {
+    @Test func itemsKindsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1727,7 +1727,7 @@ import Api
                   "saftType": "goods",
                   "quantityAccounting": true,
                   "sortOrder": 1000000,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1737,23 +1737,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsKindsUpdateResponse(
+        let expectedResponse = ItemsKindsUpdateCatalogResponse(
             id: "id",
             code: "code",
             name: "name",
             saftType: .goods,
             quantityAccounting: true,
             sortOrder: 1000000,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemsKindsUpdate(
+        let response = try await client.catalog.itemsKindsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsKindsUpdate2() async throws -> Void {
+    @Test func itemsKindsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1765,7 +1765,7 @@ import Api
                   "saftType": "goods",
                   "quantityAccounting": true,
                   "sortOrder": 1000000,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1775,23 +1775,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsKindsUpdateResponse(
+        let expectedResponse = ItemsKindsUpdateCatalogResponse(
             id: "x",
             code: "code",
             name: "name",
             saftType: .goods,
             quantityAccounting: true,
             sortOrder: 1000000,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemsKindsUpdate(
+        let response = try await client.catalog.itemsKindsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsKindsDelete1() async throws -> Void {
+    @Test func itemsKindsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1807,17 +1807,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsKindsDeleteResponse(
+        let expectedResponse = ItemsKindsDeleteCatalogResponse(
             id: "id"
         )
-        let response = try await client.catalog.postV1CatalogItemsKindsDelete(
+        let response = try await client.catalog.itemsKindsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsKindsDelete2() async throws -> Void {
+    @Test func itemsKindsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1833,17 +1833,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsKindsDeleteResponse(
+        let expectedResponse = ItemsKindsDeleteCatalogResponse(
             id: "x"
         )
-        let response = try await client.catalog.postV1CatalogItemsKindsDelete(
+        let response = try await client.catalog.itemsKindsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsKindsList1() async throws -> Void {
+    @Test func itemsKindsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1857,7 +1857,7 @@ import Api
                       "saftType": "goods",
                       "quantityAccounting": true,
                       "sortOrder": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -1869,27 +1869,27 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsKindsListResponse(
+        let expectedResponse = ItemsKindsListCatalogResponse(
             rows: [
-                PostV1CatalogItemsKindsListResponseRowsItem(
+                ItemsKindsListCatalogResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
                     saftType: .goods,
                     quantityAccounting: true,
                     sortOrder: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogItemsKindsList(
+        let response = try await client.catalog.itemsKindsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsKindsList2() async throws -> Void {
+    @Test func itemsKindsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1903,7 +1903,7 @@ import Api
                       "saftType": "goods",
                       "quantityAccounting": true,
                       "sortOrder": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1912,7 +1912,7 @@ import Api
                       "saftType": "goods",
                       "quantityAccounting": true,
                       "sortOrder": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -1924,36 +1924,36 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsKindsListResponse(
+        let expectedResponse = ItemsKindsListCatalogResponse(
             rows: [
-                PostV1CatalogItemsKindsListResponseRowsItem(
+                ItemsKindsListCatalogResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     saftType: .goods,
                     quantityAccounting: true,
                     sortOrder: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1CatalogItemsKindsListResponseRowsItem(
+                ItemsKindsListCatalogResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     saftType: .goods,
                     quantityAccounting: true,
                     sortOrder: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogItemsKindsList(
+        let response = try await client.catalog.itemsKindsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogUnitsCreate1() async throws -> Void {
+    @Test func unitsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1963,7 +1963,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1973,14 +1973,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogUnitsCreateResponse(
+        let expectedResponse = UnitsCreateCatalogResponse(
             id: "id",
             code: "code",
             name: "name",
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogUnitsCreate(
+        let response = try await client.catalog.unitsCreate(
             request: .init(
                 code: "code",
                 name: "name"
@@ -1990,7 +1990,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogUnitsCreate2() async throws -> Void {
+    @Test func unitsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2000,7 +2000,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2010,14 +2010,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogUnitsCreateResponse(
+        let expectedResponse = UnitsCreateCatalogResponse(
             id: "x",
             code: "code",
             name: "name",
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogUnitsCreate(
+        let response = try await client.catalog.unitsCreate(
             request: .init(
                 code: "x",
                 name: "x"
@@ -2027,7 +2027,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogUnitsUpdate1() async throws -> Void {
+    @Test func unitsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2037,7 +2037,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2047,21 +2047,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogUnitsUpdateResponse(
+        let expectedResponse = UnitsUpdateCatalogResponse(
             id: "id",
             code: "code",
             name: "name",
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogUnitsUpdate(
+        let response = try await client.catalog.unitsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogUnitsUpdate2() async throws -> Void {
+    @Test func unitsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2071,7 +2071,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2081,21 +2081,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogUnitsUpdateResponse(
+        let expectedResponse = UnitsUpdateCatalogResponse(
             id: "x",
             code: "code",
             name: "name",
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogUnitsUpdate(
+        let response = try await client.catalog.unitsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogUnitsDelete1() async throws -> Void {
+    @Test func unitsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2111,17 +2111,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogUnitsDeleteResponse(
+        let expectedResponse = UnitsDeleteCatalogResponse(
             id: "id"
         )
-        let response = try await client.catalog.postV1CatalogUnitsDelete(
+        let response = try await client.catalog.unitsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogUnitsDelete2() async throws -> Void {
+    @Test func unitsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2137,17 +2137,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogUnitsDeleteResponse(
+        let expectedResponse = UnitsDeleteCatalogResponse(
             id: "x"
         )
-        let response = try await client.catalog.postV1CatalogUnitsDelete(
+        let response = try await client.catalog.unitsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogUnitsList1() async throws -> Void {
+    @Test func unitsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2159,7 +2159,7 @@ import Api
                       "code": "code",
                       "name": "name",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -2171,25 +2171,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogUnitsListResponse(
+        let expectedResponse = UnitsListCatalogResponse(
             rows: [
-                PostV1CatalogUnitsListResponseRowsItem(
+                UnitsListCatalogResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogUnitsList(
+        let response = try await client.catalog.unitsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogUnitsList2() async throws -> Void {
+    @Test func unitsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2201,14 +2201,14 @@ import Api
                       "code": "code",
                       "name": "name",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "code": "code",
                       "name": "name",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -2220,32 +2220,32 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogUnitsListResponse(
+        let expectedResponse = UnitsListCatalogResponse(
             rows: [
-                PostV1CatalogUnitsListResponseRowsItem(
+                UnitsListCatalogResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1CatalogUnitsListResponseRowsItem(
+                UnitsListCatalogResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogUnitsList(
+        let response = try await client.catalog.unitsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogUnitsOptions1() async throws -> Void {
+    @Test func unitsOptions1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2267,23 +2267,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogUnitsOptionsResponse(
+        let expectedResponse = UnitsOptionsCatalogResponse(
             rows: [
-                PostV1CatalogUnitsOptionsResponseRowsItem(
+                UnitsOptionsCatalogResponseRowsItem(
                     code: "code",
                     name: "name",
                     source: .company
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogUnitsOptions(
+        let response = try await client.catalog.unitsOptions(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogUnitsOptions2() async throws -> Void {
+    @Test func unitsOptions2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2310,28 +2310,28 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogUnitsOptionsResponse(
+        let expectedResponse = UnitsOptionsCatalogResponse(
             rows: [
-                PostV1CatalogUnitsOptionsResponseRowsItem(
+                UnitsOptionsCatalogResponseRowsItem(
                     code: "code",
                     name: "name",
                     source: .company
                 ),
-                PostV1CatalogUnitsOptionsResponseRowsItem(
+                UnitsOptionsCatalogResponseRowsItem(
                     code: "code",
                     name: "name",
                     source: .company
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogUnitsOptions(
+        let response = try await client.catalog.unitsOptions(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemGroupsCreate1() async throws -> Void {
+    @Test func itemGroupsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2341,7 +2341,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "parentId": "parentId",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2351,14 +2351,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemGroupsCreateResponse(
+        let expectedResponse = ItemGroupsCreateCatalogResponse(
             id: "id",
             code: "code",
             name: "name",
             parentId: Nullable<String>.value("parentId"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemGroupsCreate(
+        let response = try await client.catalog.itemGroupsCreate(
             request: .init(
                 code: "code",
                 name: "name"
@@ -2368,7 +2368,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemGroupsCreate2() async throws -> Void {
+    @Test func itemGroupsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2378,7 +2378,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "parentId": "x",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2388,14 +2388,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemGroupsCreateResponse(
+        let expectedResponse = ItemGroupsCreateCatalogResponse(
             id: "x",
             code: "code",
             name: "name",
             parentId: Nullable<String>.value("x"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemGroupsCreate(
+        let response = try await client.catalog.itemGroupsCreate(
             request: .init(
                 code: "x",
                 name: "x"
@@ -2405,7 +2405,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemGroupsUpdate1() async throws -> Void {
+    @Test func itemGroupsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2415,7 +2415,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "parentId": "parentId",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2425,21 +2425,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemGroupsUpdateResponse(
+        let expectedResponse = ItemGroupsUpdateCatalogResponse(
             id: "id",
             code: "code",
             name: "name",
             parentId: Nullable<String>.value("parentId"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemGroupsUpdate(
+        let response = try await client.catalog.itemGroupsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemGroupsUpdate2() async throws -> Void {
+    @Test func itemGroupsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2449,7 +2449,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "parentId": "x",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2459,21 +2459,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemGroupsUpdateResponse(
+        let expectedResponse = ItemGroupsUpdateCatalogResponse(
             id: "x",
             code: "code",
             name: "name",
             parentId: Nullable<String>.value("x"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemGroupsUpdate(
+        let response = try await client.catalog.itemGroupsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemGroupsDelete1() async throws -> Void {
+    @Test func itemGroupsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2489,17 +2489,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemGroupsDeleteResponse(
+        let expectedResponse = ItemGroupsDeleteCatalogResponse(
             id: "id"
         )
-        let response = try await client.catalog.postV1CatalogItemGroupsDelete(
+        let response = try await client.catalog.itemGroupsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemGroupsDelete2() async throws -> Void {
+    @Test func itemGroupsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2515,17 +2515,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemGroupsDeleteResponse(
+        let expectedResponse = ItemGroupsDeleteCatalogResponse(
             id: "x"
         )
-        let response = try await client.catalog.postV1CatalogItemGroupsDelete(
+        let response = try await client.catalog.itemGroupsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemGroupsList1() async throws -> Void {
+    @Test func itemGroupsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2537,7 +2537,7 @@ import Api
                       "code": "code",
                       "name": "name",
                       "parentId": "parentId",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -2549,25 +2549,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemGroupsListResponse(
+        let expectedResponse = ItemGroupsListCatalogResponse(
             rows: [
-                PostV1CatalogItemGroupsListResponseRowsItem(
+                ItemGroupsListCatalogResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
                     parentId: Nullable<String>.value("parentId"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogItemGroupsList(
+        let response = try await client.catalog.itemGroupsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemGroupsList2() async throws -> Void {
+    @Test func itemGroupsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2579,14 +2579,14 @@ import Api
                       "code": "code",
                       "name": "name",
                       "parentId": "x",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "code": "code",
                       "name": "name",
                       "parentId": "x",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -2598,32 +2598,32 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemGroupsListResponse(
+        let expectedResponse = ItemGroupsListCatalogResponse(
             rows: [
-                PostV1CatalogItemGroupsListResponseRowsItem(
+                ItemGroupsListCatalogResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     parentId: Nullable<String>.value("x"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1CatalogItemGroupsListResponseRowsItem(
+                ItemGroupsListCatalogResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     parentId: Nullable<String>.value("x"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogItemGroupsList(
+        let response = try await client.catalog.itemGroupsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsSuppliersUpsert1() async throws -> Void {
+    @Test func itemsSuppliersUpsert1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2637,7 +2637,7 @@ import Api
                   "purchasePriceExclVat": "purchasePriceExclVat",
                   "currency": "currency",
                   "notes": "notes",
-                  "updatedAt": "updatedAt"
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2647,7 +2647,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsSuppliersUpsertResponse(
+        let expectedResponse = ItemsSuppliersUpsertCatalogResponse(
             id: "id",
             itemId: "itemId",
             partnerId: "partnerId",
@@ -2656,9 +2656,9 @@ import Api
             purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat"),
             currency: "currency",
             notes: Nullable<String>.value("notes"),
-            updatedAt: "updatedAt"
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemsSuppliersUpsert(
+        let response = try await client.catalog.itemsSuppliersUpsert(
             request: .init(
                 itemId: "itemId",
                 partnerId: "partnerId"
@@ -2668,7 +2668,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsSuppliersUpsert2() async throws -> Void {
+    @Test func itemsSuppliersUpsert2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2682,7 +2682,7 @@ import Api
                   "purchasePriceExclVat": "purchasePriceExclVat",
                   "currency": "currency",
                   "notes": "notes",
-                  "updatedAt": "updatedAt"
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2692,7 +2692,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsSuppliersUpsertResponse(
+        let expectedResponse = ItemsSuppliersUpsertCatalogResponse(
             id: "x",
             itemId: "x",
             partnerId: "x",
@@ -2701,9 +2701,9 @@ import Api
             purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat"),
             currency: "currency",
             notes: Nullable<String>.value("notes"),
-            updatedAt: "updatedAt"
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogItemsSuppliersUpsert(
+        let response = try await client.catalog.itemsSuppliersUpsert(
             request: .init(
                 itemId: "x",
                 partnerId: "x"
@@ -2713,7 +2713,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsSuppliersList1() async throws -> Void {
+    @Test func itemsSuppliersList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2729,7 +2729,7 @@ import Api
                       "purchasePriceExclVat": "purchasePriceExclVat",
                       "currency": "currency",
                       "notes": "notes",
-                      "updatedAt": "updatedAt"
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -2741,9 +2741,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsSuppliersListResponse(
+        let expectedResponse = ItemsSuppliersListCatalogResponse(
             rows: [
-                PostV1CatalogItemsSuppliersListResponseRowsItem(
+                ItemsSuppliersListCatalogResponseRowsItem(
                     id: "id",
                     itemId: "itemId",
                     partnerId: "partnerId",
@@ -2752,18 +2752,18 @@ import Api
                     purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat"),
                     currency: "currency",
                     notes: Nullable<String>.value("notes"),
-                    updatedAt: "updatedAt"
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogItemsSuppliersList(
+        let response = try await client.catalog.itemsSuppliersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsSuppliersList2() async throws -> Void {
+    @Test func itemsSuppliersList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2779,7 +2779,7 @@ import Api
                       "purchasePriceExclVat": "purchasePriceExclVat",
                       "currency": "currency",
                       "notes": "notes",
-                      "updatedAt": "updatedAt"
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -2790,7 +2790,7 @@ import Api
                       "purchasePriceExclVat": "purchasePriceExclVat",
                       "currency": "currency",
                       "notes": "notes",
-                      "updatedAt": "updatedAt"
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -2802,9 +2802,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsSuppliersListResponse(
+        let expectedResponse = ItemsSuppliersListCatalogResponse(
             rows: [
-                PostV1CatalogItemsSuppliersListResponseRowsItem(
+                ItemsSuppliersListCatalogResponseRowsItem(
                     id: "x",
                     itemId: "x",
                     partnerId: "x",
@@ -2813,9 +2813,9 @@ import Api
                     purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat"),
                     currency: "currency",
                     notes: Nullable<String>.value("notes"),
-                    updatedAt: "updatedAt"
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1CatalogItemsSuppliersListResponseRowsItem(
+                ItemsSuppliersListCatalogResponseRowsItem(
                     id: "x",
                     itemId: "x",
                     partnerId: "x",
@@ -2824,18 +2824,18 @@ import Api
                     purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat"),
                     currency: "currency",
                     notes: Nullable<String>.value("notes"),
-                    updatedAt: "updatedAt"
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogItemsSuppliersList(
+        let response = try await client.catalog.itemsSuppliersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsSuppliersDelete1() async throws -> Void {
+    @Test func itemsSuppliersDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2851,17 +2851,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsSuppliersDeleteResponse(
+        let expectedResponse = ItemsSuppliersDeleteCatalogResponse(
             id: "id"
         )
-        let response = try await client.catalog.postV1CatalogItemsSuppliersDelete(
+        let response = try await client.catalog.itemsSuppliersDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogItemsSuppliersDelete2() async throws -> Void {
+    @Test func itemsSuppliersDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2877,17 +2877,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogItemsSuppliersDeleteResponse(
+        let expectedResponse = ItemsSuppliersDeleteCatalogResponse(
             id: "x"
         )
-        let response = try await client.catalog.postV1CatalogItemsSuppliersDelete(
+        let response = try await client.catalog.itemsSuppliersDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogPriceListsCreate1() async throws -> Void {
+    @Test func priceListsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2898,7 +2898,7 @@ import Api
                   "name": "name",
                   "currency": "currency",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2908,15 +2908,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogPriceListsCreateResponse(
+        let expectedResponse = PriceListsCreateCatalogResponse(
             id: "id",
             code: "code",
             name: "name",
             currency: "currency",
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogPriceListsCreate(
+        let response = try await client.catalog.priceListsCreate(
             request: .init(
                 code: "code",
                 name: "name"
@@ -2926,7 +2926,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogPriceListsCreate2() async throws -> Void {
+    @Test func priceListsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2937,7 +2937,7 @@ import Api
                   "name": "name",
                   "currency": "currency",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2947,15 +2947,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogPriceListsCreateResponse(
+        let expectedResponse = PriceListsCreateCatalogResponse(
             id: "x",
             code: "code",
             name: "name",
             currency: "currency",
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogPriceListsCreate(
+        let response = try await client.catalog.priceListsCreate(
             request: .init(
                 code: "x",
                 name: "x"
@@ -2965,7 +2965,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogPriceListsUpdate1() async throws -> Void {
+    @Test func priceListsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2976,7 +2976,7 @@ import Api
                   "name": "name",
                   "currency": "currency",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2986,22 +2986,22 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogPriceListsUpdateResponse(
+        let expectedResponse = PriceListsUpdateCatalogResponse(
             id: "id",
             code: "code",
             name: "name",
             currency: "currency",
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogPriceListsUpdate(
+        let response = try await client.catalog.priceListsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogPriceListsUpdate2() async throws -> Void {
+    @Test func priceListsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3012,7 +3012,7 @@ import Api
                   "name": "name",
                   "currency": "currency",
                   "isActive": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3022,22 +3022,22 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogPriceListsUpdateResponse(
+        let expectedResponse = PriceListsUpdateCatalogResponse(
             id: "x",
             code: "code",
             name: "name",
             currency: "currency",
             isActive: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.catalog.postV1CatalogPriceListsUpdate(
+        let response = try await client.catalog.priceListsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogPriceListsList1() async throws -> Void {
+    @Test func priceListsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3050,7 +3050,7 @@ import Api
                       "name": "name",
                       "currency": "currency",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -3062,26 +3062,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogPriceListsListResponse(
+        let expectedResponse = PriceListsListCatalogResponse(
             rows: [
-                PostV1CatalogPriceListsListResponseRowsItem(
+                PriceListsListCatalogResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
                     currency: "currency",
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogPriceListsList(
+        let response = try await client.catalog.priceListsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogPriceListsList2() async throws -> Void {
+    @Test func priceListsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3094,7 +3094,7 @@ import Api
                       "name": "name",
                       "currency": "currency",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -3102,7 +3102,7 @@ import Api
                       "name": "name",
                       "currency": "currency",
                       "isActive": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -3114,34 +3114,34 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogPriceListsListResponse(
+        let expectedResponse = PriceListsListCatalogResponse(
             rows: [
-                PostV1CatalogPriceListsListResponseRowsItem(
+                PriceListsListCatalogResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     currency: "currency",
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1CatalogPriceListsListResponseRowsItem(
+                PriceListsListCatalogResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     currency: "currency",
                     isActive: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogPriceListsList(
+        let response = try await client.catalog.priceListsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogPriceListsItemsSet1() async throws -> Void {
+    @Test func priceListsItemsSet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3157,16 +3157,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogPriceListsItemsSetResponse(
+        let expectedResponse = PriceListsItemsSetCatalogResponse(
             updated: 1000000
         )
-        let response = try await client.catalog.postV1CatalogPriceListsItemsSet(
+        let response = try await client.catalog.priceListsItemsSet(
             request: .init(
                 priceListId: "priceListId",
                 items: [
-                    PostV1CatalogPriceListsItemsSetRequestItemsItem(
+                    PriceListsItemsSetCatalogRequestItemsItem(
                         itemId: "itemId",
-                        unitPriceExclVat: "unitPriceExclVat"
+                        unitPriceExclVat: "121.0000"
                     )
                 ]
             ),
@@ -3175,7 +3175,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogPriceListsItemsSet2() async throws -> Void {
+    @Test func priceListsItemsSet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3191,18 +3191,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogPriceListsItemsSetResponse(
+        let expectedResponse = PriceListsItemsSetCatalogResponse(
             updated: 1000000
         )
-        let response = try await client.catalog.postV1CatalogPriceListsItemsSet(
+        let response = try await client.catalog.priceListsItemsSet(
             request: .init(
                 priceListId: "x",
                 items: [
-                    PostV1CatalogPriceListsItemsSetRequestItemsItem(
+                    PriceListsItemsSetCatalogRequestItemsItem(
                         itemId: "x",
                         unitPriceExclVat: "unitPriceExclVat"
                     ),
-                    PostV1CatalogPriceListsItemsSetRequestItemsItem(
+                    PriceListsItemsSetCatalogRequestItemsItem(
                         itemId: "x",
                         unitPriceExclVat: "unitPriceExclVat"
                     )
@@ -3213,7 +3213,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogPriceListsItemsList1() async throws -> Void {
+    @Test func priceListsItemsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3236,9 +3236,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogPriceListsItemsListResponse(
+        let expectedResponse = PriceListsItemsListCatalogResponse(
             rows: [
-                PostV1CatalogPriceListsItemsListResponseRowsItem(
+                PriceListsItemsListCatalogResponseRowsItem(
                     itemId: "itemId",
                     itemName: "itemName",
                     itemCode: Nullable<String>.value("itemCode"),
@@ -3246,14 +3246,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogPriceListsItemsList(
+        let response = try await client.catalog.priceListsItemsList(
             request: .init(priceListId: "priceListId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogPriceListsItemsList2() async throws -> Void {
+    @Test func priceListsItemsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3282,15 +3282,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogPriceListsItemsListResponse(
+        let expectedResponse = PriceListsItemsListCatalogResponse(
             rows: [
-                PostV1CatalogPriceListsItemsListResponseRowsItem(
+                PriceListsItemsListCatalogResponseRowsItem(
                     itemId: "x",
                     itemName: "itemName",
                     itemCode: Nullable<String>.value("itemCode"),
                     unitPriceExclVat: "unitPriceExclVat"
                 ),
-                PostV1CatalogPriceListsItemsListResponseRowsItem(
+                PriceListsItemsListCatalogResponseRowsItem(
                     itemId: "x",
                     itemName: "itemName",
                     itemCode: Nullable<String>.value("itemCode"),
@@ -3298,14 +3298,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.catalog.postV1CatalogPriceListsItemsList(
+        let response = try await client.catalog.priceListsItemsList(
             request: .init(priceListId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogPriceListsItemsDelete1() async throws -> Void {
+    @Test func priceListsItemsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3321,10 +3321,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogPriceListsItemsDeleteResponse(
+        let expectedResponse = PriceListsItemsDeleteCatalogResponse(
             deleted: true
         )
-        let response = try await client.catalog.postV1CatalogPriceListsItemsDelete(
+        let response = try await client.catalog.priceListsItemsDelete(
             request: .init(
                 priceListId: "priceListId",
                 itemId: "itemId"
@@ -3334,7 +3334,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CatalogPriceListsItemsDelete2() async throws -> Void {
+    @Test func priceListsItemsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3350,10 +3350,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CatalogPriceListsItemsDeleteResponse(
+        let expectedResponse = PriceListsItemsDeleteCatalogResponse(
             deleted: true
         )
-        let response = try await client.catalog.postV1CatalogPriceListsItemsDelete(
+        let response = try await client.catalog.priceListsItemsDelete(
             request: .init(
                 priceListId: "x",
                 itemId: "x"

@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("InventoryClient Wire Tests") struct InventoryClientWireTests {
-    @Test func postV1InventorySettingsGet1() async throws -> Void {
+    @Test func settingsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -19,17 +19,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventorySettingsGetResponse(
+        let expectedResponse = SettingsGetInventoryResponse(
             negativeStockPolicy: .reject
         )
-        let response = try await client.inventory.postV1InventorySettingsGet(
+        let response = try await client.inventory.settingsGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventorySettingsGet2() async throws -> Void {
+    @Test func settingsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -45,17 +45,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventorySettingsGetResponse(
+        let expectedResponse = SettingsGetInventoryResponse(
             negativeStockPolicy: .reject
         )
-        let response = try await client.inventory.postV1InventorySettingsGet(
+        let response = try await client.inventory.settingsGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventorySettingsUpdate1() async throws -> Void {
+    @Test func settingsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -71,17 +71,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventorySettingsUpdateResponse(
+        let expectedResponse = SettingsUpdateInventoryResponse(
             negativeStockPolicy: .reject
         )
-        let response = try await client.inventory.postV1InventorySettingsUpdate(
+        let response = try await client.inventory.settingsUpdate(
             request: .init(negativeStockPolicy: .reject),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventorySettingsUpdate2() async throws -> Void {
+    @Test func settingsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -97,17 +97,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventorySettingsUpdateResponse(
+        let expectedResponse = SettingsUpdateInventoryResponse(
             negativeStockPolicy: .reject
         )
-        let response = try await client.inventory.postV1InventorySettingsUpdate(
+        let response = try await client.inventory.settingsUpdate(
             request: .init(negativeStockPolicy: .reject),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryWarehousesCreate1() async throws -> Void {
+    @Test func warehousesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -117,7 +117,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "isDefault": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -127,14 +127,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryWarehousesCreateResponse(
+        let expectedResponse = WarehousesCreateInventoryResponse(
             id: "id",
             code: "code",
             name: "name",
             isDefault: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.inventory.postV1InventoryWarehousesCreate(
+        let response = try await client.inventory.warehousesCreate(
             request: .init(
                 code: "code",
                 name: "name"
@@ -144,7 +144,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryWarehousesCreate2() async throws -> Void {
+    @Test func warehousesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -154,7 +154,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "isDefault": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -164,14 +164,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryWarehousesCreateResponse(
+        let expectedResponse = WarehousesCreateInventoryResponse(
             id: "x",
             code: "code",
             name: "name",
             isDefault: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.inventory.postV1InventoryWarehousesCreate(
+        let response = try await client.inventory.warehousesCreate(
             request: .init(
                 code: "x",
                 name: "x"
@@ -181,7 +181,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryWarehousesList1() async throws -> Void {
+    @Test func warehousesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -193,7 +193,7 @@ import Api
                       "code": "code",
                       "name": "name",
                       "isDefault": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -211,14 +211,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryWarehousesListResponse(
+        let expectedResponse = WarehousesListInventoryResponse(
             rows: [
-                PostV1InventoryWarehousesListResponseRowsItem(
+                WarehousesListInventoryResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
                     isDefault: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -228,14 +228,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.inventory.postV1InventoryWarehousesList(
+        let response = try await client.inventory.warehousesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryWarehousesList2() async throws -> Void {
+    @Test func warehousesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -247,14 +247,14 @@ import Api
                       "code": "code",
                       "name": "name",
                       "isDefault": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "code": "code",
                       "name": "name",
                       "isDefault": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -272,21 +272,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryWarehousesListResponse(
+        let expectedResponse = WarehousesListInventoryResponse(
             rows: [
-                PostV1InventoryWarehousesListResponseRowsItem(
+                WarehousesListInventoryResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     isDefault: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1InventoryWarehousesListResponseRowsItem(
+                WarehousesListInventoryResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     isDefault: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -296,14 +296,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.inventory.postV1InventoryWarehousesList(
+        let response = try await client.inventory.warehousesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryStockReceive1() async throws -> Void {
+    @Test func stockReceive1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -320,24 +320,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryStockReceiveResponse(
+        let expectedResponse = StockReceiveInventoryResponse(
             movementId: "movementId",
             totalCost: "totalCost"
         )
-        let response = try await client.inventory.postV1InventoryStockReceive(
+        let response = try await client.inventory.stockReceive(
             request: .init(
                 warehouseId: "warehouseId",
                 itemId: "itemId",
-                date: "date",
-                quantity: "quantity",
-                unitCost: "unitCost"
+                date: CalendarDate("2026-07-01")!,
+                quantity: "121.0000",
+                unitCost: "121.000000"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryStockReceive2() async throws -> Void {
+    @Test func stockReceive2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -354,15 +354,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryStockReceiveResponse(
+        let expectedResponse = StockReceiveInventoryResponse(
             movementId: "x",
             totalCost: "totalCost"
         )
-        let response = try await client.inventory.postV1InventoryStockReceive(
+        let response = try await client.inventory.stockReceive(
             request: .init(
                 warehouseId: "x",
                 itemId: "x",
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 quantity: "quantity",
                 unitCost: "unitCost"
             ),
@@ -371,7 +371,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryStockWriteOff1() async throws -> Void {
+    @Test func stockWriteOff1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -389,24 +389,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryStockWriteOffResponse(
+        let expectedResponse = StockWriteOffInventoryResponse(
             movementId: "movementId",
             totalCost: "totalCost",
             journalTransactionId: "journalTransactionId"
         )
-        let response = try await client.inventory.postV1InventoryStockWriteOff(
+        let response = try await client.inventory.stockWriteOff(
             request: .init(
                 warehouseId: "warehouseId",
                 itemId: "itemId",
-                date: "date",
-                quantity: "quantity"
+                date: CalendarDate("2026-07-01")!,
+                quantity: "121.0000"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryStockWriteOff2() async throws -> Void {
+    @Test func stockWriteOff2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -424,16 +424,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryStockWriteOffResponse(
+        let expectedResponse = StockWriteOffInventoryResponse(
             movementId: "x",
             totalCost: "totalCost",
             journalTransactionId: "x"
         )
-        let response = try await client.inventory.postV1InventoryStockWriteOff(
+        let response = try await client.inventory.stockWriteOff(
             request: .init(
                 warehouseId: "x",
                 itemId: "x",
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 quantity: "quantity"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -441,7 +441,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryStockTransfer1() async throws -> Void {
+    @Test func stockTransfer1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -459,25 +459,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryStockTransferResponse(
+        let expectedResponse = StockTransferInventoryResponse(
             outMovementId: "outMovementId",
             inMovementId: "inMovementId",
             totalCost: "totalCost"
         )
-        let response = try await client.inventory.postV1InventoryStockTransfer(
+        let response = try await client.inventory.stockTransfer(
             request: .init(
                 fromWarehouseId: "fromWarehouseId",
                 toWarehouseId: "toWarehouseId",
                 itemId: "itemId",
-                date: "date",
-                quantity: "quantity"
+                date: CalendarDate("2026-07-01")!,
+                quantity: "121.0000"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryStockTransfer2() async throws -> Void {
+    @Test func stockTransfer2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -495,17 +495,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryStockTransferResponse(
+        let expectedResponse = StockTransferInventoryResponse(
             outMovementId: "x",
             inMovementId: "x",
             totalCost: "totalCost"
         )
-        let response = try await client.inventory.postV1InventoryStockTransfer(
+        let response = try await client.inventory.stockTransfer(
             request: .init(
                 fromWarehouseId: "x",
                 toWarehouseId: "x",
                 itemId: "x",
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 quantity: "quantity"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -513,7 +513,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryStockTake1() async throws -> Void {
+    @Test func stockTake1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -538,9 +538,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryStockTakeResponse(
+        let expectedResponse = StockTakeInventoryResponse(
             rows: [
-                PostV1InventoryStockTakeResponseRowsItem(
+                StockTakeInventoryResponseRowsItem(
                     itemId: "itemId",
                     onHand: "onHand",
                     counted: "counted",
@@ -550,13 +550,13 @@ import Api
             ],
             journalTransactionId: Nullable<String>.value("journalTransactionId")
         )
-        let response = try await client.inventory.postV1InventoryStockTake(
+        let response = try await client.inventory.stockTake(
             request: .init(
                 warehouseId: "warehouseId",
-                date: "date",
+                date: CalendarDate("2026-07-01")!,
                 lines: [
-                    PostV1InventoryStockTakeRequestLinesItem(
-                        countedQty: "countedQty"
+                    StockTakeInventoryRequestLinesItem(
+                        countedQty: "121.0000"
                     )
                 ]
             ),
@@ -565,7 +565,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryStockTake2() async throws -> Void {
+    @Test func stockTake2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -597,16 +597,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryStockTakeResponse(
+        let expectedResponse = StockTakeInventoryResponse(
             rows: [
-                PostV1InventoryStockTakeResponseRowsItem(
+                StockTakeInventoryResponseRowsItem(
                     itemId: "x",
                     onHand: "onHand",
                     counted: "counted",
                     difference: "difference",
                     adjustmentCost: "adjustmentCost"
                 ),
-                PostV1InventoryStockTakeResponseRowsItem(
+                StockTakeInventoryResponseRowsItem(
                     itemId: "x",
                     onHand: "onHand",
                     counted: "counted",
@@ -616,15 +616,15 @@ import Api
             ],
             journalTransactionId: Nullable<String>.value("x")
         )
-        let response = try await client.inventory.postV1InventoryStockTake(
+        let response = try await client.inventory.stockTake(
             request: .init(
                 warehouseId: "x",
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 lines: [
-                    PostV1InventoryStockTakeRequestLinesItem(
+                    StockTakeInventoryRequestLinesItem(
                         countedQty: "countedQty"
                     ),
-                    PostV1InventoryStockTakeRequestLinesItem(
+                    StockTakeInventoryRequestLinesItem(
                         countedQty: "countedQty"
                     )
                 ]
@@ -634,7 +634,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryStockLevels1() async throws -> Void {
+    @Test func stockLevels1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -657,9 +657,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryStockLevelsResponse(
+        let expectedResponse = StockLevelsInventoryResponse(
             rows: [
-                PostV1InventoryStockLevelsResponseRowsItem(
+                StockLevelsInventoryResponseRowsItem(
                     itemId: "itemId",
                     warehouseId: "warehouseId",
                     quantity: "quantity",
@@ -667,14 +667,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.inventory.postV1InventoryStockLevels(
+        let response = try await client.inventory.stockLevels(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryStockLevels2() async throws -> Void {
+    @Test func stockLevels2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -703,15 +703,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryStockLevelsResponse(
+        let expectedResponse = StockLevelsInventoryResponse(
             rows: [
-                PostV1InventoryStockLevelsResponseRowsItem(
+                StockLevelsInventoryResponseRowsItem(
                     itemId: "x",
                     warehouseId: "x",
                     quantity: "quantity",
                     value: "value"
                 ),
-                PostV1InventoryStockLevelsResponseRowsItem(
+                StockLevelsInventoryResponseRowsItem(
                     itemId: "x",
                     warehouseId: "x",
                     quantity: "quantity",
@@ -719,14 +719,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.inventory.postV1InventoryStockLevels(
+        let response = try await client.inventory.stockLevels(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryStockMovementsList1() async throws -> Void {
+    @Test func stockMovementsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -738,7 +738,7 @@ import Api
                       "warehouseId": "warehouseId",
                       "itemId": "itemId",
                       "lotId": "lotId",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "direction": "in",
                       "quantity": "quantity",
                       "unitCost": "unitCost",
@@ -747,7 +747,7 @@ import Api
                       "documentType": "documentType",
                       "documentId": "documentId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -765,14 +765,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryStockMovementsListResponse(
+        let expectedResponse = StockMovementsListInventoryResponse(
             rows: [
-                PostV1InventoryStockMovementsListResponseRowsItem(
+                StockMovementsListInventoryResponseRowsItem(
                     id: "id",
                     warehouseId: "warehouseId",
                     itemId: "itemId",
                     lotId: Nullable<String>.value("lotId"),
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     direction: .in,
                     quantity: "quantity",
                     unitCost: Nullable<String>.value("unitCost"),
@@ -781,7 +781,7 @@ import Api
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("documentId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -791,14 +791,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.inventory.postV1InventoryStockMovementsList(
+        let response = try await client.inventory.stockMovementsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryStockMovementsList2() async throws -> Void {
+    @Test func stockMovementsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -810,7 +810,7 @@ import Api
                       "warehouseId": "x",
                       "itemId": "x",
                       "lotId": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "direction": "in",
                       "quantity": "quantity",
                       "unitCost": "unitCost",
@@ -819,14 +819,14 @@ import Api
                       "documentType": "documentType",
                       "documentId": "documentId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "warehouseId": "x",
                       "itemId": "x",
                       "lotId": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "direction": "in",
                       "quantity": "quantity",
                       "unitCost": "unitCost",
@@ -835,7 +835,7 @@ import Api
                       "documentType": "documentType",
                       "documentId": "documentId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -853,14 +853,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryStockMovementsListResponse(
+        let expectedResponse = StockMovementsListInventoryResponse(
             rows: [
-                PostV1InventoryStockMovementsListResponseRowsItem(
+                StockMovementsListInventoryResponseRowsItem(
                     id: "x",
                     warehouseId: "x",
                     itemId: "x",
                     lotId: Nullable<String>.value("x"),
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     direction: .in,
                     quantity: "quantity",
                     unitCost: Nullable<String>.value("unitCost"),
@@ -869,14 +869,14 @@ import Api
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("documentId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1InventoryStockMovementsListResponseRowsItem(
+                StockMovementsListInventoryResponseRowsItem(
                     id: "x",
                     warehouseId: "x",
                     itemId: "x",
                     lotId: Nullable<String>.value("x"),
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     direction: .in,
                     quantity: "quantity",
                     unitCost: Nullable<String>.value("unitCost"),
@@ -885,7 +885,7 @@ import Api
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("documentId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -895,14 +895,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.inventory.postV1InventoryStockMovementsList(
+        let response = try await client.inventory.stockMovementsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryLotsList1() async throws -> Void {
+    @Test func lotsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -913,10 +913,10 @@ import Api
                       "id": "id",
                       "itemId": "itemId",
                       "lotNumber": "lotNumber",
-                      "expiryDate": "expiryDate",
+                      "expiryDate": "2026-07-01",
                       "notes": "notes",
                       "onHand": "onHand",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -934,16 +934,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryLotsListResponse(
+        let expectedResponse = LotsListInventoryResponse(
             rows: [
-                PostV1InventoryLotsListResponseRowsItem(
+                LotsListInventoryResponseRowsItem(
                     id: "id",
                     itemId: "itemId",
                     lotNumber: "lotNumber",
-                    expiryDate: Nullable<String>.value("expiryDate"),
+                    expiryDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     notes: Nullable<String>.value("notes"),
                     onHand: "onHand",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -953,14 +953,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.inventory.postV1InventoryLotsList(
+        let response = try await client.inventory.lotsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryLotsList2() async throws -> Void {
+    @Test func lotsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -971,19 +971,19 @@ import Api
                       "id": "x",
                       "itemId": "x",
                       "lotNumber": "lotNumber",
-                      "expiryDate": "expiryDate",
+                      "expiryDate": "2023-01-15",
                       "notes": "notes",
                       "onHand": "onHand",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "itemId": "x",
                       "lotNumber": "lotNumber",
-                      "expiryDate": "expiryDate",
+                      "expiryDate": "2023-01-15",
                       "notes": "notes",
                       "onHand": "onHand",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1001,25 +1001,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryLotsListResponse(
+        let expectedResponse = LotsListInventoryResponse(
             rows: [
-                PostV1InventoryLotsListResponseRowsItem(
+                LotsListInventoryResponseRowsItem(
                     id: "x",
                     itemId: "x",
                     lotNumber: "lotNumber",
-                    expiryDate: Nullable<String>.value("expiryDate"),
+                    expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     notes: Nullable<String>.value("notes"),
                     onHand: "onHand",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1InventoryLotsListResponseRowsItem(
+                LotsListInventoryResponseRowsItem(
                     id: "x",
                     itemId: "x",
                     lotNumber: "lotNumber",
-                    expiryDate: Nullable<String>.value("expiryDate"),
+                    expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     notes: Nullable<String>.value("notes"),
                     onHand: "onHand",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1029,14 +1029,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.inventory.postV1InventoryLotsList(
+        let response = try await client.inventory.lotsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryLotsGet1() async throws -> Void {
+    @Test func lotsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1045,17 +1045,17 @@ import Api
                   "id": "id",
                   "itemId": "itemId",
                   "lotNumber": "lotNumber",
-                  "expiryDate": "expiryDate",
+                  "expiryDate": "2026-07-01",
                   "notes": "notes",
                   "onHand": "onHand",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "movements": [
                     {
                       "id": "id",
                       "warehouseId": "warehouseId",
                       "itemId": "itemId",
                       "lotId": "lotId",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "direction": "in",
                       "quantity": "quantity",
                       "unitCost": "unitCost",
@@ -1064,7 +1064,7 @@ import Api
                       "documentType": "documentType",
                       "documentId": "documentId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -1076,21 +1076,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryLotsGetResponse(
+        let expectedResponse = LotsGetInventoryResponse(
             id: "id",
             itemId: "itemId",
             lotNumber: "lotNumber",
-            expiryDate: Nullable<String>.value("expiryDate"),
+            expiryDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             notes: Nullable<String>.value("notes"),
             onHand: "onHand",
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             movements: [
-                PostV1InventoryLotsGetResponseMovementsItem(
+                LotsGetInventoryResponseMovementsItem(
                     id: "id",
                     warehouseId: "warehouseId",
                     itemId: "itemId",
                     lotId: Nullable<String>.value("lotId"),
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     direction: .in,
                     quantity: "quantity",
                     unitCost: Nullable<String>.value("unitCost"),
@@ -1099,18 +1099,18 @@ import Api
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("documentId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.inventory.postV1InventoryLotsGet(
+        let response = try await client.inventory.lotsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryLotsGet2() async throws -> Void {
+    @Test func lotsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1119,17 +1119,17 @@ import Api
                   "id": "x",
                   "itemId": "x",
                   "lotNumber": "lotNumber",
-                  "expiryDate": "expiryDate",
+                  "expiryDate": "2023-01-15",
                   "notes": "notes",
                   "onHand": "onHand",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "movements": [
                     {
                       "id": "x",
                       "warehouseId": "x",
                       "itemId": "x",
                       "lotId": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "direction": "in",
                       "quantity": "quantity",
                       "unitCost": "unitCost",
@@ -1138,14 +1138,14 @@ import Api
                       "documentType": "documentType",
                       "documentId": "documentId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "warehouseId": "x",
                       "itemId": "x",
                       "lotId": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "direction": "in",
                       "quantity": "quantity",
                       "unitCost": "unitCost",
@@ -1154,7 +1154,7 @@ import Api
                       "documentType": "documentType",
                       "documentId": "documentId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -1166,21 +1166,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryLotsGetResponse(
+        let expectedResponse = LotsGetInventoryResponse(
             id: "x",
             itemId: "x",
             lotNumber: "lotNumber",
-            expiryDate: Nullable<String>.value("expiryDate"),
+            expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             notes: Nullable<String>.value("notes"),
             onHand: "onHand",
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             movements: [
-                PostV1InventoryLotsGetResponseMovementsItem(
+                LotsGetInventoryResponseMovementsItem(
                     id: "x",
                     warehouseId: "x",
                     itemId: "x",
                     lotId: Nullable<String>.value("x"),
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     direction: .in,
                     quantity: "quantity",
                     unitCost: Nullable<String>.value("unitCost"),
@@ -1189,14 +1189,14 @@ import Api
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("documentId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1InventoryLotsGetResponseMovementsItem(
+                LotsGetInventoryResponseMovementsItem(
                     id: "x",
                     warehouseId: "x",
                     itemId: "x",
                     lotId: Nullable<String>.value("x"),
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     direction: .in,
                     quantity: "quantity",
                     unitCost: Nullable<String>.value("unitCost"),
@@ -1205,18 +1205,18 @@ import Api
                     documentType: Nullable<String>.value("documentType"),
                     documentId: Nullable<String>.value("documentId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.inventory.postV1InventoryLotsGet(
+        let response = try await client.inventory.lotsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryLotsUpdate1() async throws -> Void {
+    @Test func lotsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1225,10 +1225,10 @@ import Api
                   "id": "id",
                   "itemId": "itemId",
                   "lotNumber": "lotNumber",
-                  "expiryDate": "expiryDate",
+                  "expiryDate": "2026-07-01",
                   "notes": "notes",
                   "onHand": "onHand",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1238,23 +1238,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryLotsUpdateResponse(
+        let expectedResponse = LotsUpdateInventoryResponse(
             id: "id",
             itemId: "itemId",
             lotNumber: "lotNumber",
-            expiryDate: Nullable<String>.value("expiryDate"),
+            expiryDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             notes: Nullable<String>.value("notes"),
             onHand: "onHand",
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.inventory.postV1InventoryLotsUpdate(
+        let response = try await client.inventory.lotsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryLotsUpdate2() async throws -> Void {
+    @Test func lotsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1263,10 +1263,10 @@ import Api
                   "id": "x",
                   "itemId": "x",
                   "lotNumber": "lotNumber",
-                  "expiryDate": "expiryDate",
+                  "expiryDate": "2023-01-15",
                   "notes": "notes",
                   "onHand": "onHand",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1276,36 +1276,36 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryLotsUpdateResponse(
+        let expectedResponse = LotsUpdateInventoryResponse(
             id: "x",
             itemId: "x",
             lotNumber: "lotNumber",
-            expiryDate: Nullable<String>.value("expiryDate"),
+            expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             notes: Nullable<String>.value("notes"),
             onHand: "onHand",
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.inventory.postV1InventoryLotsUpdate(
+        let response = try await client.inventory.lotsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryLandedCostsCreate1() async throws -> Void {
+    @Test func landedCostsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "id": "id",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "amount": "amount",
                   "method": "by_value",
                   "goodsReceiptId": "goodsReceiptId",
                   "sourceInvoiceId": "sourceInvoiceId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "movementId": "movementId",
@@ -1322,47 +1322,47 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryLandedCostsCreateResponse(
+        let expectedResponse = LandedCostsCreateInventoryResponse(
             id: "id",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             amount: "amount",
             method: .byValue,
             goodsReceiptId: Nullable<String>.value("goodsReceiptId"),
             sourceInvoiceId: Nullable<String>.value("sourceInvoiceId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1InventoryLandedCostsCreateResponseLinesItem(
+                LandedCostsCreateInventoryResponseLinesItem(
                     movementId: "movementId",
                     allocatedAmount: "allocatedAmount",
                     newUnitCost: "newUnitCost"
                 )
             ]
         )
-        let response = try await client.inventory.postV1InventoryLandedCostsCreate(
+        let response = try await client.inventory.landedCostsCreate(
             request: .init(
-                date: "date",
-                amount: "amount"
+                date: CalendarDate("2026-07-01")!,
+                amount: "121.000000"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryLandedCostsCreate2() async throws -> Void {
+    @Test func landedCostsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "id": "x",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "amount": "amount",
                   "method": "by_value",
                   "goodsReceiptId": "goodsReceiptId",
                   "sourceInvoiceId": "sourceInvoiceId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "movementId": "x",
@@ -1384,31 +1384,31 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryLandedCostsCreateResponse(
+        let expectedResponse = LandedCostsCreateInventoryResponse(
             id: "x",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             amount: "amount",
             method: .byValue,
             goodsReceiptId: Nullable<String>.value("goodsReceiptId"),
             sourceInvoiceId: Nullable<String>.value("sourceInvoiceId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1InventoryLandedCostsCreateResponseLinesItem(
+                LandedCostsCreateInventoryResponseLinesItem(
                     movementId: "x",
                     allocatedAmount: "allocatedAmount",
                     newUnitCost: "newUnitCost"
                 ),
-                PostV1InventoryLandedCostsCreateResponseLinesItem(
+                LandedCostsCreateInventoryResponseLinesItem(
                     movementId: "x",
                     allocatedAmount: "allocatedAmount",
                     newUnitCost: "newUnitCost"
                 )
             ]
         )
-        let response = try await client.inventory.postV1InventoryLandedCostsCreate(
+        let response = try await client.inventory.landedCostsCreate(
             request: .init(
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 amount: "amount"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -1416,20 +1416,20 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryLandedCostsGet1() async throws -> Void {
+    @Test func landedCostsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "id": "id",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "amount": "amount",
                   "method": "by_value",
                   "goodsReceiptId": "goodsReceiptId",
                   "sourceInvoiceId": "sourceInvoiceId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "movementId": "movementId",
@@ -1446,44 +1446,44 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryLandedCostsGetResponse(
+        let expectedResponse = LandedCostsGetInventoryResponse(
             id: "id",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             amount: "amount",
             method: .byValue,
             goodsReceiptId: Nullable<String>.value("goodsReceiptId"),
             sourceInvoiceId: Nullable<String>.value("sourceInvoiceId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1InventoryLandedCostsGetResponseLinesItem(
+                LandedCostsGetInventoryResponseLinesItem(
                     movementId: "movementId",
                     allocatedAmount: "allocatedAmount",
                     newUnitCost: "newUnitCost"
                 )
             ]
         )
-        let response = try await client.inventory.postV1InventoryLandedCostsGet(
+        let response = try await client.inventory.landedCostsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryLandedCostsGet2() async throws -> Void {
+    @Test func landedCostsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "id": "x",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "amount": "amount",
                   "method": "by_value",
                   "goodsReceiptId": "goodsReceiptId",
                   "sourceInvoiceId": "sourceInvoiceId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "movementId": "x",
@@ -1505,36 +1505,36 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryLandedCostsGetResponse(
+        let expectedResponse = LandedCostsGetInventoryResponse(
             id: "x",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             amount: "amount",
             method: .byValue,
             goodsReceiptId: Nullable<String>.value("goodsReceiptId"),
             sourceInvoiceId: Nullable<String>.value("sourceInvoiceId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
-                PostV1InventoryLandedCostsGetResponseLinesItem(
+                LandedCostsGetInventoryResponseLinesItem(
                     movementId: "x",
                     allocatedAmount: "allocatedAmount",
                     newUnitCost: "newUnitCost"
                 ),
-                PostV1InventoryLandedCostsGetResponseLinesItem(
+                LandedCostsGetInventoryResponseLinesItem(
                     movementId: "x",
                     allocatedAmount: "allocatedAmount",
                     newUnitCost: "newUnitCost"
                 )
             ]
         )
-        let response = try await client.inventory.postV1InventoryLandedCostsGet(
+        let response = try await client.inventory.landedCostsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryLandedCostsList1() async throws -> Void {
+    @Test func landedCostsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1543,13 +1543,13 @@ import Api
                   "rows": [
                     {
                       "id": "id",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "amount": "amount",
                       "method": "by_value",
                       "goodsReceiptId": "goodsReceiptId",
                       "sourceInvoiceId": "sourceInvoiceId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1567,17 +1567,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryLandedCostsListResponse(
+        let expectedResponse = LandedCostsListInventoryResponse(
             rows: [
-                PostV1InventoryLandedCostsListResponseRowsItem(
+                LandedCostsListInventoryResponseRowsItem(
                     id: "id",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     amount: "amount",
                     method: .byValue,
                     goodsReceiptId: Nullable<String>.value("goodsReceiptId"),
                     sourceInvoiceId: Nullable<String>.value("sourceInvoiceId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1587,14 +1587,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.inventory.postV1InventoryLandedCostsList(
+        let response = try await client.inventory.landedCostsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryLandedCostsList2() async throws -> Void {
+    @Test func landedCostsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1603,23 +1603,23 @@ import Api
                   "rows": [
                     {
                       "id": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "amount": "amount",
                       "method": "by_value",
                       "goodsReceiptId": "goodsReceiptId",
                       "sourceInvoiceId": "sourceInvoiceId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "amount": "amount",
                       "method": "by_value",
                       "goodsReceiptId": "goodsReceiptId",
                       "sourceInvoiceId": "sourceInvoiceId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1637,27 +1637,27 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryLandedCostsListResponse(
+        let expectedResponse = LandedCostsListInventoryResponse(
             rows: [
-                PostV1InventoryLandedCostsListResponseRowsItem(
+                LandedCostsListInventoryResponseRowsItem(
                     id: "x",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     amount: "amount",
                     method: .byValue,
                     goodsReceiptId: Nullable<String>.value("goodsReceiptId"),
                     sourceInvoiceId: Nullable<String>.value("sourceInvoiceId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1InventoryLandedCostsListResponseRowsItem(
+                LandedCostsListInventoryResponseRowsItem(
                     id: "x",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     amount: "amount",
                     method: .byValue,
                     goodsReceiptId: Nullable<String>.value("goodsReceiptId"),
                     sourceInvoiceId: Nullable<String>.value("sourceInvoiceId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1667,14 +1667,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.inventory.postV1InventoryLandedCostsList(
+        let response = try await client.inventory.landedCostsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryReorderRulesCreate1() async throws -> Void {
+    @Test func reorderRulesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1687,8 +1687,8 @@ import Api
                   "reorderQty": "reorderQty",
                   "isActive": true,
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1698,7 +1698,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryReorderRulesCreateResponse(
+        let expectedResponse = ReorderRulesCreateInventoryResponse(
             id: "id",
             itemId: "itemId",
             warehouseId: Nullable<String>.value("warehouseId"),
@@ -1706,20 +1706,20 @@ import Api
             reorderQty: Nullable<String>.value("reorderQty"),
             isActive: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.inventory.postV1InventoryReorderRulesCreate(
+        let response = try await client.inventory.reorderRulesCreate(
             request: .init(
                 itemId: "itemId",
-                minQty: "minQty"
+                minQty: "121.0000"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryReorderRulesCreate2() async throws -> Void {
+    @Test func reorderRulesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1732,8 +1732,8 @@ import Api
                   "reorderQty": "reorderQty",
                   "isActive": true,
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1743,7 +1743,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryReorderRulesCreateResponse(
+        let expectedResponse = ReorderRulesCreateInventoryResponse(
             id: "x",
             itemId: "x",
             warehouseId: Nullable<String>.value("x"),
@@ -1751,10 +1751,10 @@ import Api
             reorderQty: Nullable<String>.value("reorderQty"),
             isActive: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.inventory.postV1InventoryReorderRulesCreate(
+        let response = try await client.inventory.reorderRulesCreate(
             request: .init(
                 itemId: "x",
                 minQty: "minQty"
@@ -1764,7 +1764,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryReorderRulesUpdate1() async throws -> Void {
+    @Test func reorderRulesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1777,8 +1777,8 @@ import Api
                   "reorderQty": "reorderQty",
                   "isActive": true,
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1788,7 +1788,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryReorderRulesUpdateResponse(
+        let expectedResponse = ReorderRulesUpdateInventoryResponse(
             id: "id",
             itemId: "itemId",
             warehouseId: Nullable<String>.value("warehouseId"),
@@ -1796,17 +1796,17 @@ import Api
             reorderQty: Nullable<String>.value("reorderQty"),
             isActive: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.inventory.postV1InventoryReorderRulesUpdate(
+        let response = try await client.inventory.reorderRulesUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryReorderRulesUpdate2() async throws -> Void {
+    @Test func reorderRulesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1819,8 +1819,8 @@ import Api
                   "reorderQty": "reorderQty",
                   "isActive": true,
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1830,7 +1830,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryReorderRulesUpdateResponse(
+        let expectedResponse = ReorderRulesUpdateInventoryResponse(
             id: "x",
             itemId: "x",
             warehouseId: Nullable<String>.value("x"),
@@ -1838,17 +1838,17 @@ import Api
             reorderQty: Nullable<String>.value("reorderQty"),
             isActive: true,
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.inventory.postV1InventoryReorderRulesUpdate(
+        let response = try await client.inventory.reorderRulesUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryReorderRulesDelete1() async throws -> Void {
+    @Test func reorderRulesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1864,17 +1864,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryReorderRulesDeleteResponse(
+        let expectedResponse = ReorderRulesDeleteInventoryResponse(
             id: "id"
         )
-        let response = try await client.inventory.postV1InventoryReorderRulesDelete(
+        let response = try await client.inventory.reorderRulesDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryReorderRulesDelete2() async throws -> Void {
+    @Test func reorderRulesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1890,17 +1890,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryReorderRulesDeleteResponse(
+        let expectedResponse = ReorderRulesDeleteInventoryResponse(
             id: "x"
         )
-        let response = try await client.inventory.postV1InventoryReorderRulesDelete(
+        let response = try await client.inventory.reorderRulesDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryReorderRulesList1() async throws -> Void {
+    @Test func reorderRulesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1915,8 +1915,8 @@ import Api
                       "reorderQty": "reorderQty",
                       "isActive": true,
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1934,9 +1934,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryReorderRulesListResponse(
+        let expectedResponse = ReorderRulesListInventoryResponse(
             rows: [
-                PostV1InventoryReorderRulesListResponseRowsItem(
+                ReorderRulesListInventoryResponseRowsItem(
                     id: "id",
                     itemId: "itemId",
                     warehouseId: Nullable<String>.value("warehouseId"),
@@ -1944,8 +1944,8 @@ import Api
                     reorderQty: Nullable<String>.value("reorderQty"),
                     isActive: true,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1955,14 +1955,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.inventory.postV1InventoryReorderRulesList(
+        let response = try await client.inventory.reorderRulesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryReorderRulesList2() async throws -> Void {
+    @Test func reorderRulesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1977,8 +1977,8 @@ import Api
                       "reorderQty": "reorderQty",
                       "isActive": true,
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1988,8 +1988,8 @@ import Api
                       "reorderQty": "reorderQty",
                       "isActive": true,
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -2007,9 +2007,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryReorderRulesListResponse(
+        let expectedResponse = ReorderRulesListInventoryResponse(
             rows: [
-                PostV1InventoryReorderRulesListResponseRowsItem(
+                ReorderRulesListInventoryResponseRowsItem(
                     id: "x",
                     itemId: "x",
                     warehouseId: Nullable<String>.value("x"),
@@ -2017,10 +2017,10 @@ import Api
                     reorderQty: Nullable<String>.value("reorderQty"),
                     isActive: true,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1InventoryReorderRulesListResponseRowsItem(
+                ReorderRulesListInventoryResponseRowsItem(
                     id: "x",
                     itemId: "x",
                     warehouseId: Nullable<String>.value("x"),
@@ -2028,8 +2028,8 @@ import Api
                     reorderQty: Nullable<String>.value("reorderQty"),
                     isActive: true,
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -2039,14 +2039,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.inventory.postV1InventoryReorderRulesList(
+        let response = try await client.inventory.reorderRulesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryReorderRulesCheck1() async throws -> Void {
+    @Test func reorderRulesCheck1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2073,9 +2073,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryReorderRulesCheckResponse(
+        let expectedResponse = ReorderRulesCheckInventoryResponse(
             rows: [
-                PostV1InventoryReorderRulesCheckResponseRowsItem(
+                ReorderRulesCheckInventoryResponseRowsItem(
                     ruleId: "ruleId",
                     itemId: "itemId",
                     warehouseId: Nullable<String>.value("warehouseId"),
@@ -2087,14 +2087,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.inventory.postV1InventoryReorderRulesCheck(
+        let response = try await client.inventory.reorderRulesCheck(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1InventoryReorderRulesCheck2() async throws -> Void {
+    @Test func reorderRulesCheck2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2131,9 +2131,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1InventoryReorderRulesCheckResponse(
+        let expectedResponse = ReorderRulesCheckInventoryResponse(
             rows: [
-                PostV1InventoryReorderRulesCheckResponseRowsItem(
+                ReorderRulesCheckInventoryResponseRowsItem(
                     ruleId: "x",
                     itemId: "x",
                     warehouseId: Nullable<String>.value("x"),
@@ -2143,7 +2143,7 @@ import Api
                     reserved: "reserved",
                     available: "available"
                 ),
-                PostV1InventoryReorderRulesCheckResponseRowsItem(
+                ReorderRulesCheckInventoryResponseRowsItem(
                     ruleId: "x",
                     itemId: "x",
                     warehouseId: Nullable<String>.value("x"),
@@ -2155,7 +2155,7 @@ import Api
                 )
             ]
         )
-        let response = try await client.inventory.postV1InventoryReorderRulesCheck(
+        let response = try await client.inventory.reorderRulesCheck(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

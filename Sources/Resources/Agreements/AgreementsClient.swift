@@ -7,123 +7,123 @@ public final class AgreementsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1AgreementsTypesCreate(request: Requests.PostV1AgreementsTypesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsTypesCreateResponse {
+    public func typesCreate(request: Requests.TypesCreateAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> TypesCreateAgreementsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/agreements/types/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AgreementsTypesCreateResponse.self
+            responseType: TypesCreateAgreementsResponse.self
         )
     }
 
-    public func postV1AgreementsTypesList(request: Requests.PostV1AgreementsTypesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsTypesListResponse {
+    public func typesList(request: Requests.TypesListAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> TypesListAgreementsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/agreements/types/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AgreementsTypesListResponse.self
+            responseType: TypesListAgreementsResponse.self
         )
     }
 
-    public func postV1AgreementsAgreementsCreate(request: Requests.PostV1AgreementsAgreementsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsAgreementsCreateResponse {
+    public func agreementsCreate(request: Requests.AgreementsCreateAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> AgreementsCreateAgreementsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/agreements/agreements/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AgreementsAgreementsCreateResponse.self
+            responseType: AgreementsCreateAgreementsResponse.self
         )
     }
 
-    public func postV1AgreementsAgreementsGet(request: Requests.PostV1AgreementsAgreementsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsAgreementsGetResponse {
+    public func agreementsGet(request: Requests.AgreementsGetAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> AgreementsGetAgreementsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/agreements/agreements/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AgreementsAgreementsGetResponse.self
+            responseType: AgreementsGetAgreementsResponse.self
         )
     }
 
-    public func postV1AgreementsAgreementsUpdate(request: Requests.PostV1AgreementsAgreementsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsAgreementsUpdateResponse {
+    public func agreementsUpdate(request: Requests.AgreementsUpdateAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> AgreementsUpdateAgreementsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/agreements/agreements/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AgreementsAgreementsUpdateResponse.self
+            responseType: AgreementsUpdateAgreementsResponse.self
         )
     }
 
-    public func postV1AgreementsAgreementsDelete(request: Requests.PostV1AgreementsAgreementsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsAgreementsDeleteResponse {
+    public func agreementsDelete(request: Requests.AgreementsDeleteAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> AgreementsDeleteAgreementsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/agreements/agreements/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AgreementsAgreementsDeleteResponse.self
+            responseType: AgreementsDeleteAgreementsResponse.self
         )
     }
 
-    public func postV1AgreementsAgreementsList(request: Requests.PostV1AgreementsAgreementsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsAgreementsListResponse {
+    public func agreementsList(request: Requests.AgreementsListAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> AgreementsListAgreementsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/agreements/agreements/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AgreementsAgreementsListResponse.self
+            responseType: AgreementsListAgreementsResponse.self
         )
     }
 
-    public func postV1AgreementsAgreementsGenerateInvoice(request: Requests.PostV1AgreementsAgreementsGenerateInvoiceRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsAgreementsGenerateInvoiceResponse {
+    public func agreementsGenerateInvoice(request: Requests.AgreementsGenerateInvoiceAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> AgreementsGenerateInvoiceAgreementsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/agreements/agreements/generate-invoice",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AgreementsAgreementsGenerateInvoiceResponse.self
+            responseType: AgreementsGenerateInvoiceAgreementsResponse.self
         )
     }
 
-    public func postV1AgreementsAgreementsBillingRun(request: Requests.PostV1AgreementsAgreementsBillingRunRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsAgreementsBillingRunResponse {
+    public func agreementsBillingRun(request: Requests.AgreementsBillingRunAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> AgreementsBillingRunAgreementsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/agreements/agreements/billing/run",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AgreementsAgreementsBillingRunResponse.self
+            responseType: AgreementsBillingRunAgreementsResponse.self
         )
     }
 
-    public func postV1AgreementsInsurancePoliciesCreate(request: Requests.PostV1AgreementsInsurancePoliciesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsInsurancePoliciesCreateResponse {
+    public func insurancePoliciesCreate(request: Requests.InsurancePoliciesCreateAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> InsurancePoliciesCreateAgreementsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/agreements/insurance-policies/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AgreementsInsurancePoliciesCreateResponse.self
+            responseType: InsurancePoliciesCreateAgreementsResponse.self
         )
     }
 
-    public func postV1AgreementsInsurancePoliciesList(request: Requests.PostV1AgreementsInsurancePoliciesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsInsurancePoliciesListResponse {
+    public func insurancePoliciesList(request: Requests.InsurancePoliciesListAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> InsurancePoliciesListAgreementsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/agreements/insurance-policies/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AgreementsInsurancePoliciesListResponse.self
+            responseType: InsurancePoliciesListAgreementsResponse.self
         )
     }
 
-    public func postV1AgreementsInsurancePoliciesDelete(request: Requests.PostV1AgreementsInsurancePoliciesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1AgreementsInsurancePoliciesDeleteResponse {
+    public func insurancePoliciesDelete(request: Requests.InsurancePoliciesDeleteAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> InsurancePoliciesDeleteAgreementsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/agreements/insurance-policies/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1AgreementsInsurancePoliciesDeleteResponse.self
+            responseType: InsurancePoliciesDeleteAgreementsResponse.self
         )
     }
 }

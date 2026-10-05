@@ -7,103 +7,103 @@ public final class ProjectsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1ProjectsCreate(request: Requests.PostV1ProjectsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProjectsCreateResponse {
+    public func create(request: Requests.CreateProjectsRequest, requestOptions: RequestOptions? = nil) async throws -> CreateProjectsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/projects/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProjectsCreateResponse.self
+            responseType: CreateProjectsResponse.self
         )
     }
 
-    public func postV1ProjectsUpdate(request: Requests.PostV1ProjectsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProjectsUpdateResponse {
+    public func update(request: Requests.UpdateProjectsRequest, requestOptions: RequestOptions? = nil) async throws -> UpdateProjectsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/projects/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProjectsUpdateResponse.self
+            responseType: UpdateProjectsResponse.self
         )
     }
 
-    public func postV1ProjectsGet(request: Requests.PostV1ProjectsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProjectsGetResponse {
+    public func get(request: Requests.GetProjectsRequest, requestOptions: RequestOptions? = nil) async throws -> GetProjectsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/projects/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProjectsGetResponse.self
+            responseType: GetProjectsResponse.self
         )
     }
 
-    public func postV1ProjectsList(request: Requests.PostV1ProjectsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProjectsListResponse {
+    public func list(request: Requests.ListProjectsRequest, requestOptions: RequestOptions? = nil) async throws -> ListProjectsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/projects/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProjectsListResponse.self
+            responseType: ListProjectsResponse.self
         )
     }
 
-    public func postV1ProjectsTimeEntriesCreate(request: Requests.PostV1ProjectsTimeEntriesCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProjectsTimeEntriesCreateResponse {
+    public func timeEntriesCreate(request: Requests.TimeEntriesCreateProjectsRequest, requestOptions: RequestOptions? = nil) async throws -> TimeEntriesCreateProjectsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/projects/time-entries/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProjectsTimeEntriesCreateResponse.self
+            responseType: TimeEntriesCreateProjectsResponse.self
         )
     }
 
-    public func postV1ProjectsTimeEntriesUpdate(request: Requests.PostV1ProjectsTimeEntriesUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProjectsTimeEntriesUpdateResponse {
+    public func timeEntriesUpdate(request: Requests.TimeEntriesUpdateProjectsRequest, requestOptions: RequestOptions? = nil) async throws -> TimeEntriesUpdateProjectsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/projects/time-entries/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProjectsTimeEntriesUpdateResponse.self
+            responseType: TimeEntriesUpdateProjectsResponse.self
         )
     }
 
-    public func postV1ProjectsTimeEntriesDelete(request: Requests.PostV1ProjectsTimeEntriesDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProjectsTimeEntriesDeleteResponse {
+    public func timeEntriesDelete(request: Requests.TimeEntriesDeleteProjectsRequest, requestOptions: RequestOptions? = nil) async throws -> TimeEntriesDeleteProjectsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/projects/time-entries/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProjectsTimeEntriesDeleteResponse.self
+            responseType: TimeEntriesDeleteProjectsResponse.self
         )
     }
 
-    public func postV1ProjectsTimeEntriesList(request: Requests.PostV1ProjectsTimeEntriesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProjectsTimeEntriesListResponse {
+    public func timeEntriesList(request: Requests.TimeEntriesListProjectsRequest, requestOptions: RequestOptions? = nil) async throws -> TimeEntriesListProjectsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/projects/time-entries/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProjectsTimeEntriesListResponse.self
+            responseType: TimeEntriesListProjectsResponse.self
         )
     }
 
-    public func postV1ProjectsTimeEntriesBill(request: Requests.PostV1ProjectsTimeEntriesBillRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProjectsTimeEntriesBillResponse {
+    public func timeEntriesBill(request: Requests.TimeEntriesBillProjectsRequest, requestOptions: RequestOptions? = nil) async throws -> TimeEntriesBillProjectsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/projects/time-entries/bill",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProjectsTimeEntriesBillResponse.self
+            responseType: TimeEntriesBillProjectsResponse.self
         )
     }
 
-    public func postV1ProjectsReport(request: Requests.PostV1ProjectsReportRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProjectsReportResponse {
+    public func report(request: Requests.ReportProjectsRequest, requestOptions: RequestOptions? = nil) async throws -> ReportProjectsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/projects/report",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProjectsReportResponse.self
+            responseType: ReportProjectsResponse.self
         )
     }
 }

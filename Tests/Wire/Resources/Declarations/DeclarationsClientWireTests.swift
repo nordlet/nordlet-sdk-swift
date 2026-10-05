@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("DeclarationsClient Wire Tests") struct DeclarationsClientWireTests {
-    @Test func postV1DeclarationsLtIntrastatCompute1() async throws -> Void {
+    @Test func ltIntrastatCompute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -61,7 +61,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtIntrastatComputeResponse(
+        let expectedResponse = LtIntrastatComputeDeclarationsResponse(
             flow: .arrivals,
             referencePeriod: "referencePeriod",
             periodStart: "periodStart",
@@ -69,7 +69,7 @@ import Api
             fileName: "fileName",
             fileId: Nullable<String>.value("fileId"),
             rows: [
-                PostV1DeclarationsLtIntrastatComputeResponseRowsItem(
+                LtIntrastatComputeDeclarationsResponseRowsItem(
                     itemNumber: 1000000,
                     cnCode: "cnCode",
                     description: Nullable<String>.value("description"),
@@ -87,13 +87,13 @@ import Api
                     statisticalValue: "statisticalValue"
                 )
             ],
-            totals: PostV1DeclarationsLtIntrastatComputeResponseTotals(
+            totals: LtIntrastatComputeDeclarationsResponseTotals(
                 invoicedValue: "invoicedValue",
                 statisticalValue: "statisticalValue",
                 netMassKg: "netMassKg",
                 lines: 1000000
             ),
-            counts: PostV1DeclarationsLtIntrastatComputeResponseCounts(
+            counts: LtIntrastatComputeDeclarationsResponseCounts(
                 invoices: 1000000,
                 linesIncluded: 1000000,
                 linesSkipped: 1000000
@@ -106,7 +106,7 @@ import Api
             ],
             xml: "xml"
         )
-        let response = try await client.declarations.postV1DeclarationsLtIntrastatCompute(
+        let response = try await client.declarations.ltIntrastatCompute(
             request: .init(
                 year: 1000000,
                 month: 1000000,
@@ -117,7 +117,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtIntrastatCompute2() async throws -> Void {
+    @Test func ltIntrastatCompute2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -194,7 +194,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtIntrastatComputeResponse(
+        let expectedResponse = LtIntrastatComputeDeclarationsResponse(
             flow: .arrivals,
             referencePeriod: "referencePeriod",
             periodStart: "periodStart",
@@ -202,7 +202,7 @@ import Api
             fileName: "fileName",
             fileId: Nullable<String>.value("x"),
             rows: [
-                PostV1DeclarationsLtIntrastatComputeResponseRowsItem(
+                LtIntrastatComputeDeclarationsResponseRowsItem(
                     itemNumber: 1000000,
                     cnCode: "cnCode",
                     description: Nullable<String>.value("description"),
@@ -219,7 +219,7 @@ import Api
                     invoicedValue: "invoicedValue",
                     statisticalValue: "statisticalValue"
                 ),
-                PostV1DeclarationsLtIntrastatComputeResponseRowsItem(
+                LtIntrastatComputeDeclarationsResponseRowsItem(
                     itemNumber: 1000000,
                     cnCode: "cnCode",
                     description: Nullable<String>.value("description"),
@@ -237,13 +237,13 @@ import Api
                     statisticalValue: "statisticalValue"
                 )
             ],
-            totals: PostV1DeclarationsLtIntrastatComputeResponseTotals(
+            totals: LtIntrastatComputeDeclarationsResponseTotals(
                 invoicedValue: "invoicedValue",
                 statisticalValue: "statisticalValue",
                 netMassKg: "netMassKg",
                 lines: 1000000
             ),
-            counts: PostV1DeclarationsLtIntrastatComputeResponseCounts(
+            counts: LtIntrastatComputeDeclarationsResponseCounts(
                 invoices: 1000000,
                 linesIncluded: 1000000,
                 linesSkipped: 1000000
@@ -258,7 +258,7 @@ import Api
             ],
             xml: "xml"
         )
-        let response = try await client.declarations.postV1DeclarationsLtIntrastatCompute(
+        let response = try await client.declarations.ltIntrastatCompute(
             request: .init(
                 year: 1000000,
                 month: 1000000,
@@ -269,7 +269,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtIvazGenerate1() async throws -> Void {
+    @Test func ltIvazGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -296,10 +296,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtIvazGenerateResponse(
+        let expectedResponse = LtIvazGenerateDeclarationsResponse(
             fileName: "fileName",
             fileId: Nullable<String>.value("fileId"),
-            counts: PostV1DeclarationsLtIvazGenerateResponseCounts(
+            counts: LtIvazGenerateDeclarationsResponseCounts(
                 documents: 1000000
             ),
             warnings: [
@@ -310,7 +310,7 @@ import Api
             ],
             xml: "xml"
         )
-        let response = try await client.declarations.postV1DeclarationsLtIvazGenerate(
+        let response = try await client.declarations.ltIvazGenerate(
             request: .init(waybillIds: [
                 "waybillIds"
             ]),
@@ -319,7 +319,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtIvazGenerate2() async throws -> Void {
+    @Test func ltIvazGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -348,10 +348,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtIvazGenerateResponse(
+        let expectedResponse = LtIvazGenerateDeclarationsResponse(
             fileName: "fileName",
             fileId: Nullable<String>.value("x"),
-            counts: PostV1DeclarationsLtIvazGenerateResponseCounts(
+            counts: LtIvazGenerateDeclarationsResponseCounts(
                 documents: 1000000
             ),
             warnings: [
@@ -364,7 +364,7 @@ import Api
             ],
             xml: "xml"
         )
-        let response = try await client.declarations.postV1DeclarationsLtIvazGenerate(
+        let response = try await client.declarations.ltIvazGenerate(
             request: .init(waybillIds: [
                 "waybillIds",
                 "waybillIds"
@@ -374,7 +374,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtIntrastatObligation1() async throws -> Void {
+    @Test func ltIntrastatObligation1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -424,36 +424,36 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtIntrastatObligationResponse(
+        let expectedResponse = LtIntrastatObligationDeclarationsResponse(
             year: 1000000,
             isVatPayer: true,
             notes: [
                 "notes"
             ],
-            thresholds: PostV1DeclarationsLtIntrastatObligationResponseThresholds(
+            thresholds: LtIntrastatObligationDeclarationsResponseThresholds(
                 arrivalsReporting: "arrivalsReporting",
                 dispatchesReporting: "dispatchesReporting",
                 arrivalsStatistical: "arrivalsStatistical",
                 dispatchesStatistical: "dispatchesStatistical"
             ),
-            arrivals: PostV1DeclarationsLtIntrastatObligationResponseArrivals(
+            arrivals: LtIntrastatObligationDeclarationsResponseArrivals(
                 previousYearValue: "previousYearValue",
                 obligatedFromMonth: Nullable<Int64>.value(1000000),
                 statisticalValueRequired: true,
                 monthly: [
-                    PostV1DeclarationsLtIntrastatObligationResponseArrivalsMonthlyItem(
+                    LtIntrastatObligationDeclarationsResponseArrivalsMonthlyItem(
                         month: 1000000,
                         value: "value",
                         cumulative: "cumulative"
                     )
                 ]
             ),
-            dispatches: PostV1DeclarationsLtIntrastatObligationResponseDispatches(
+            dispatches: LtIntrastatObligationDeclarationsResponseDispatches(
                 previousYearValue: "previousYearValue",
                 obligatedFromMonth: Nullable<Int64>.value(1000000),
                 statisticalValueRequired: true,
                 monthly: [
-                    PostV1DeclarationsLtIntrastatObligationResponseDispatchesMonthlyItem(
+                    LtIntrastatObligationDeclarationsResponseDispatchesMonthlyItem(
                         month: 1000000,
                         value: "value",
                         cumulative: "cumulative"
@@ -461,14 +461,14 @@ import Api
                 ]
             )
         )
-        let response = try await client.declarations.postV1DeclarationsLtIntrastatObligation(
+        let response = try await client.declarations.ltIntrastatObligation(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtIntrastatObligation2() async throws -> Void {
+    @Test func ltIntrastatObligation2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -529,47 +529,47 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtIntrastatObligationResponse(
+        let expectedResponse = LtIntrastatObligationDeclarationsResponse(
             year: 1000000,
             isVatPayer: true,
             notes: [
                 "notes",
                 "notes"
             ],
-            thresholds: PostV1DeclarationsLtIntrastatObligationResponseThresholds(
+            thresholds: LtIntrastatObligationDeclarationsResponseThresholds(
                 arrivalsReporting: "arrivalsReporting",
                 dispatchesReporting: "dispatchesReporting",
                 arrivalsStatistical: "arrivalsStatistical",
                 dispatchesStatistical: "dispatchesStatistical"
             ),
-            arrivals: PostV1DeclarationsLtIntrastatObligationResponseArrivals(
+            arrivals: LtIntrastatObligationDeclarationsResponseArrivals(
                 previousYearValue: "previousYearValue",
                 obligatedFromMonth: Nullable<Int64>.value(1000000),
                 statisticalValueRequired: true,
                 monthly: [
-                    PostV1DeclarationsLtIntrastatObligationResponseArrivalsMonthlyItem(
+                    LtIntrastatObligationDeclarationsResponseArrivalsMonthlyItem(
                         month: 1000000,
                         value: "value",
                         cumulative: "cumulative"
                     ),
-                    PostV1DeclarationsLtIntrastatObligationResponseArrivalsMonthlyItem(
+                    LtIntrastatObligationDeclarationsResponseArrivalsMonthlyItem(
                         month: 1000000,
                         value: "value",
                         cumulative: "cumulative"
                     )
                 ]
             ),
-            dispatches: PostV1DeclarationsLtIntrastatObligationResponseDispatches(
+            dispatches: LtIntrastatObligationDeclarationsResponseDispatches(
                 previousYearValue: "previousYearValue",
                 obligatedFromMonth: Nullable<Int64>.value(1000000),
                 statisticalValueRequired: true,
                 monthly: [
-                    PostV1DeclarationsLtIntrastatObligationResponseDispatchesMonthlyItem(
+                    LtIntrastatObligationDeclarationsResponseDispatchesMonthlyItem(
                         month: 1000000,
                         value: "value",
                         cumulative: "cumulative"
                     ),
-                    PostV1DeclarationsLtIntrastatObligationResponseDispatchesMonthlyItem(
+                    LtIntrastatObligationDeclarationsResponseDispatchesMonthlyItem(
                         month: 1000000,
                         value: "value",
                         cumulative: "cumulative"
@@ -577,14 +577,14 @@ import Api
                 ]
             )
         )
-        let response = try await client.declarations.postV1DeclarationsLtIntrastatObligation(
+        let response = try await client.declarations.ltIntrastatObligation(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtIsafGenerate1() async throws -> Void {
+    @Test func ltIsafGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -612,11 +612,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtIsafGenerateResponse(
+        let expectedResponse = LtIsafGenerateDeclarationsResponse(
             fileName: "fileName",
             periodStart: "periodStart",
             periodEnd: "periodEnd",
-            counts: PostV1DeclarationsLtIsafGenerateResponseCounts(
+            counts: LtIsafGenerateDeclarationsResponseCounts(
                 salesInvoices: 1000000,
                 purchaseInvoices: 1000000,
                 customers: 1000000,
@@ -627,7 +627,7 @@ import Api
             ],
             xml: "xml"
         )
-        let response = try await client.declarations.postV1DeclarationsLtIsafGenerate(
+        let response = try await client.declarations.ltIsafGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -637,7 +637,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtIsafGenerate2() async throws -> Void {
+    @Test func ltIsafGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -666,11 +666,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtIsafGenerateResponse(
+        let expectedResponse = LtIsafGenerateDeclarationsResponse(
             fileName: "fileName",
             periodStart: "periodStart",
             periodEnd: "periodEnd",
-            counts: PostV1DeclarationsLtIsafGenerateResponseCounts(
+            counts: LtIsafGenerateDeclarationsResponseCounts(
                 salesInvoices: 1000000,
                 purchaseInvoices: 1000000,
                 customers: 1000000,
@@ -682,7 +682,7 @@ import Api
             ],
             xml: "xml"
         )
-        let response = try await client.declarations.postV1DeclarationsLtIsafGenerate(
+        let response = try await client.declarations.ltIsafGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -692,7 +692,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtFr0600Compute1() async throws -> Void {
+    @Test func ltFr0600Compute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -741,19 +741,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtFr0600ComputeResponse(
+        let expectedResponse = LtFr0600ComputeDeclarationsResponse(
             periodStart: "periodStart",
             periodEnd: "periodEnd",
             deductionPercent: 1000000,
             fields: [
-                PostV1DeclarationsLtFr0600ComputeResponseFieldsItem(
+                LtFr0600ComputeDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 )
             ],
             breakdown: [
-                PostV1DeclarationsLtFr0600ComputeResponseBreakdownItem(
+                LtFr0600ComputeDeclarationsResponseBreakdownItem(
                     direction: .sales,
                     taxCode: Nullable<String>.value("taxCode"),
                     net: "net",
@@ -766,7 +766,7 @@ import Api
                     ]
                 )
             ],
-            counts: PostV1DeclarationsLtFr0600ComputeResponseCounts(
+            counts: LtFr0600ComputeDeclarationsResponseCounts(
                 salesInvoices: 1000000,
                 purchaseInvoices: 1000000
             ),
@@ -777,7 +777,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtFr0600Compute(
+        let response = try await client.declarations.ltFr0600Compute(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -787,7 +787,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtFr0600Compute2() async throws -> Void {
+    @Test func ltFr0600Compute2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -859,24 +859,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtFr0600ComputeResponse(
+        let expectedResponse = LtFr0600ComputeDeclarationsResponse(
             periodStart: "periodStart",
             periodEnd: "periodEnd",
             deductionPercent: 1000000,
             fields: [
-                PostV1DeclarationsLtFr0600ComputeResponseFieldsItem(
+                LtFr0600ComputeDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 ),
-                PostV1DeclarationsLtFr0600ComputeResponseFieldsItem(
+                LtFr0600ComputeDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 )
             ],
             breakdown: [
-                PostV1DeclarationsLtFr0600ComputeResponseBreakdownItem(
+                LtFr0600ComputeDeclarationsResponseBreakdownItem(
                     direction: .sales,
                     taxCode: Nullable<String>.value("taxCode"),
                     net: "net",
@@ -890,7 +890,7 @@ import Api
                         "vatFields"
                     ]
                 ),
-                PostV1DeclarationsLtFr0600ComputeResponseBreakdownItem(
+                LtFr0600ComputeDeclarationsResponseBreakdownItem(
                     direction: .sales,
                     taxCode: Nullable<String>.value("taxCode"),
                     net: "net",
@@ -905,7 +905,7 @@ import Api
                     ]
                 )
             ],
-            counts: PostV1DeclarationsLtFr0600ComputeResponseCounts(
+            counts: LtFr0600ComputeDeclarationsResponseCounts(
                 salesInvoices: 1000000,
                 purchaseInvoices: 1000000
             ),
@@ -918,7 +918,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtFr0600Compute(
+        let response = try await client.declarations.ltFr0600Compute(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -928,7 +928,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtGpm313Compute1() async throws -> Void {
+    @Test func ltGpm313Compute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -962,15 +962,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtGpm313ComputeResponse(
+        let expectedResponse = LtGpm313ComputeDeclarationsResponse(
             declarationYear: 1000000,
             declarationMonth: 1000000,
-            runPeriod: Nullable<PostV1DeclarationsLtGpm313ComputeResponseRunPeriod>.value(PostV1DeclarationsLtGpm313ComputeResponseRunPeriod(
+            runPeriod: Nullable<LtGpm313ComputeDeclarationsResponseRunPeriod>.value(LtGpm313ComputeDeclarationsResponseRunPeriod(
                 year: 1000000,
                 month: 1000000
             )),
             fields: [
-                PostV1DeclarationsLtGpm313ComputeResponseFieldsItem(
+                LtGpm313ComputeDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
@@ -983,7 +983,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtGpm313Compute(
+        let response = try await client.declarations.ltGpm313Compute(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -993,7 +993,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtGpm313Compute2() async throws -> Void {
+    @Test func ltGpm313Compute2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1034,20 +1034,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtGpm313ComputeResponse(
+        let expectedResponse = LtGpm313ComputeDeclarationsResponse(
             declarationYear: 1000000,
             declarationMonth: 1000000,
-            runPeriod: Nullable<PostV1DeclarationsLtGpm313ComputeResponseRunPeriod>.value(PostV1DeclarationsLtGpm313ComputeResponseRunPeriod(
+            runPeriod: Nullable<LtGpm313ComputeDeclarationsResponseRunPeriod>.value(LtGpm313ComputeDeclarationsResponseRunPeriod(
                 year: 1000000,
                 month: 1000000
             )),
             fields: [
-                PostV1DeclarationsLtGpm313ComputeResponseFieldsItem(
+                LtGpm313ComputeDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 ),
-                PostV1DeclarationsLtGpm313ComputeResponseFieldsItem(
+                LtGpm313ComputeDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
@@ -1062,7 +1062,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtGpm313Compute(
+        let response = try await client.declarations.ltGpm313Compute(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -1072,7 +1072,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtSamCompute1() async throws -> Void {
+    @Test func ltSamCompute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1110,14 +1110,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtSamComputeResponse(
+        let expectedResponse = LtSamComputeDeclarationsResponse(
             year: 1000000,
             month: 1000000,
             insuredCount: 1000000,
             insuredIncomeTotal: "insuredIncomeTotal",
             contributionsTotal: "contributionsTotal",
             persons: [
-                PostV1DeclarationsLtSamComputeResponsePersonsItem(
+                LtSamComputeDeclarationsResponsePersonsItem(
                     employeeId: "employeeId",
                     personalCode: Nullable<String>.value("personalCode"),
                     socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
@@ -1135,7 +1135,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtSamCompute(
+        let response = try await client.declarations.ltSamCompute(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -1145,7 +1145,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtSamCompute2() async throws -> Void {
+    @Test func ltSamCompute2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1195,14 +1195,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtSamComputeResponse(
+        let expectedResponse = LtSamComputeDeclarationsResponse(
             year: 1000000,
             month: 1000000,
             insuredCount: 1000000,
             insuredIncomeTotal: "insuredIncomeTotal",
             contributionsTotal: "contributionsTotal",
             persons: [
-                PostV1DeclarationsLtSamComputeResponsePersonsItem(
+                LtSamComputeDeclarationsResponsePersonsItem(
                     employeeId: "x",
                     personalCode: Nullable<String>.value("personalCode"),
                     socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
@@ -1212,7 +1212,7 @@ import Api
                     contributions: "contributions",
                     tariffPercent: "tariffPercent"
                 ),
-                PostV1DeclarationsLtSamComputeResponsePersonsItem(
+                LtSamComputeDeclarationsResponsePersonsItem(
                     employeeId: "x",
                     personalCode: Nullable<String>.value("personalCode"),
                     socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
@@ -1232,7 +1232,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtSamCompute(
+        let response = try await client.declarations.ltSamCompute(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -1242,15 +1242,15 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtSdGenerate1() async throws -> Void {
+    @Test func ltSdGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "type": "1-SD",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "rows": [
                     {
                       "employeeId": "employeeId",
@@ -1260,7 +1260,7 @@ import Api
                       "socialInsuranceNo": "socialInsuranceNo",
                       "firstName": "firstName",
                       "lastName": "lastName",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "professionCode": "professionCode",
                       "endReason": "endReason",
                       "finalInsuredIncome": "finalInsuredIncome",
@@ -1282,12 +1282,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtSdGenerateResponse(
+        let expectedResponse = LtSdGenerateDeclarationsResponse(
             type: .oneSd,
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             rows: [
-                PostV1DeclarationsLtSdGenerateResponseRowsItem(
+                LtSdGenerateDeclarationsResponseRowsItem(
                     employeeId: "employeeId",
                     contractId: "contractId",
                     contractNo: "contractNo",
@@ -1295,7 +1295,7 @@ import Api
                     socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
                     firstName: "firstName",
                     lastName: "lastName",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     professionCode: Nullable<String>.value("professionCode"),
                     endReason: Nullable<String>.value("endReason"),
                     finalInsuredIncome: Nullable<String>.value("finalInsuredIncome"),
@@ -1309,26 +1309,26 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtSdGenerate(
+        let response = try await client.declarations.ltSdGenerate(
             request: .init(
                 type: .oneSd,
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtSdGenerate2() async throws -> Void {
+    @Test func ltSdGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "type": "1-SD",
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "rows": [
                     {
                       "employeeId": "x",
@@ -1338,7 +1338,7 @@ import Api
                       "socialInsuranceNo": "socialInsuranceNo",
                       "firstName": "firstName",
                       "lastName": "lastName",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "professionCode": "professionCode",
                       "endReason": "endReason",
                       "finalInsuredIncome": "finalInsuredIncome",
@@ -1352,7 +1352,7 @@ import Api
                       "socialInsuranceNo": "socialInsuranceNo",
                       "firstName": "firstName",
                       "lastName": "lastName",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "professionCode": "professionCode",
                       "endReason": "endReason",
                       "finalInsuredIncome": "finalInsuredIncome",
@@ -1376,12 +1376,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtSdGenerateResponse(
+        let expectedResponse = LtSdGenerateDeclarationsResponse(
             type: .oneSd,
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             rows: [
-                PostV1DeclarationsLtSdGenerateResponseRowsItem(
+                LtSdGenerateDeclarationsResponseRowsItem(
                     employeeId: "x",
                     contractId: "x",
                     contractNo: "contractNo",
@@ -1389,13 +1389,13 @@ import Api
                     socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
                     firstName: "firstName",
                     lastName: "lastName",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     professionCode: Nullable<String>.value("professionCode"),
                     endReason: Nullable<String>.value("endReason"),
                     finalInsuredIncome: Nullable<String>.value("finalInsuredIncome"),
                     finalContributions: Nullable<String>.value("finalContributions")
                 ),
-                PostV1DeclarationsLtSdGenerateResponseRowsItem(
+                LtSdGenerateDeclarationsResponseRowsItem(
                     employeeId: "x",
                     contractId: "x",
                     contractNo: "contractNo",
@@ -1403,7 +1403,7 @@ import Api
                     socialInsuranceNo: Nullable<String>.value("socialInsuranceNo"),
                     firstName: "firstName",
                     lastName: "lastName",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     professionCode: Nullable<String>.value("professionCode"),
                     endReason: Nullable<String>.value("endReason"),
                     finalInsuredIncome: Nullable<String>.value("finalInsuredIncome"),
@@ -1419,18 +1419,18 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtSdGenerate(
+        let response = try await client.declarations.ltSdGenerate(
             request: .init(
                 type: .oneSd,
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtSaftGenerate1() async throws -> Void {
+    @Test func ltSaftGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1464,12 +1464,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtSaftGenerateResponse(
+        let expectedResponse = LtSaftGenerateDeclarationsResponse(
             fileName: "fileName",
             fileId: Nullable<String>.value("fileId"),
             periodStart: "periodStart",
             periodEnd: "periodEnd",
-            counts: PostV1DeclarationsLtSaftGenerateResponseCounts(
+            counts: LtSaftGenerateDeclarationsResponseCounts(
                 accounts: 1000000,
                 customers: 1000000,
                 suppliers: 1000000,
@@ -1485,17 +1485,17 @@ import Api
             ],
             xml: "xml"
         )
-        let response = try await client.declarations.postV1DeclarationsLtSaftGenerate(
+        let response = try await client.declarations.ltSaftGenerate(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtSaftGenerate2() async throws -> Void {
+    @Test func ltSaftGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1530,12 +1530,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtSaftGenerateResponse(
+        let expectedResponse = LtSaftGenerateDeclarationsResponse(
             fileName: "fileName",
             fileId: Nullable<String>.value("x"),
             periodStart: "periodStart",
             periodEnd: "periodEnd",
-            counts: PostV1DeclarationsLtSaftGenerateResponseCounts(
+            counts: LtSaftGenerateDeclarationsResponseCounts(
                 accounts: 1000000,
                 customers: 1000000,
                 suppliers: 1000000,
@@ -1552,17 +1552,17 @@ import Api
             ],
             xml: "xml"
         )
-        let response = try await client.declarations.postV1DeclarationsLtSaftGenerate(
+        let response = try await client.declarations.ltSaftGenerate(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtIvazAmend1() async throws -> Void {
+    @Test func ltIvazAmend1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1589,10 +1589,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtIvazAmendResponse(
+        let expectedResponse = LtIvazAmendDeclarationsResponse(
             fileName: "fileName",
             fileId: Nullable<String>.value("fileId"),
-            counts: PostV1DeclarationsLtIvazAmendResponseCounts(
+            counts: LtIvazAmendDeclarationsResponseCounts(
                 documents: 1000000
             ),
             warnings: [
@@ -1603,7 +1603,7 @@ import Api
             ],
             xml: "xml"
         )
-        let response = try await client.declarations.postV1DeclarationsLtIvazAmend(
+        let response = try await client.declarations.ltIvazAmend(
             request: .init(waybillIds: [
                 "waybillIds"
             ]),
@@ -1612,7 +1612,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtIvazAmend2() async throws -> Void {
+    @Test func ltIvazAmend2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1641,10 +1641,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtIvazAmendResponse(
+        let expectedResponse = LtIvazAmendDeclarationsResponse(
             fileName: "fileName",
             fileId: Nullable<String>.value("x"),
-            counts: PostV1DeclarationsLtIvazAmendResponseCounts(
+            counts: LtIvazAmendDeclarationsResponseCounts(
                 documents: 1000000
             ),
             warnings: [
@@ -1657,7 +1657,7 @@ import Api
             ],
             xml: "xml"
         )
-        let response = try await client.declarations.postV1DeclarationsLtIvazAmend(
+        let response = try await client.declarations.ltIvazAmend(
             request: .init(waybillIds: [
                 "waybillIds",
                 "waybillIds"
@@ -1667,7 +1667,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtIvazCancel1() async throws -> Void {
+    @Test func ltIvazCancel1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1694,10 +1694,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtIvazCancelResponse(
+        let expectedResponse = LtIvazCancelDeclarationsResponse(
             fileName: "fileName",
             fileId: Nullable<String>.value("fileId"),
-            counts: PostV1DeclarationsLtIvazCancelResponseCounts(
+            counts: LtIvazCancelDeclarationsResponseCounts(
                 documents: 1000000
             ),
             warnings: [
@@ -1708,9 +1708,9 @@ import Api
             ],
             xml: "xml"
         )
-        let response = try await client.declarations.postV1DeclarationsLtIvazCancel(
+        let response = try await client.declarations.ltIvazCancel(
             request: .init(entries: [
-                PostV1DeclarationsLtIvazCancelRequestEntriesItem(
+                LtIvazCancelDeclarationsRequestEntriesItem(
                     waybillId: "waybillId",
                     reason: .one
                 )
@@ -1720,7 +1720,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtIvazCancel2() async throws -> Void {
+    @Test func ltIvazCancel2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1749,10 +1749,10 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtIvazCancelResponse(
+        let expectedResponse = LtIvazCancelDeclarationsResponse(
             fileName: "fileName",
             fileId: Nullable<String>.value("x"),
-            counts: PostV1DeclarationsLtIvazCancelResponseCounts(
+            counts: LtIvazCancelDeclarationsResponseCounts(
                 documents: 1000000
             ),
             warnings: [
@@ -1765,13 +1765,13 @@ import Api
             ],
             xml: "xml"
         )
-        let response = try await client.declarations.postV1DeclarationsLtIvazCancel(
+        let response = try await client.declarations.ltIvazCancel(
             request: .init(entries: [
-                PostV1DeclarationsLtIvazCancelRequestEntriesItem(
+                LtIvazCancelDeclarationsRequestEntriesItem(
                     waybillId: "x",
                     reason: .one
                 ),
-                PostV1DeclarationsLtIvazCancelRequestEntriesItem(
+                LtIvazCancelDeclarationsRequestEntriesItem(
                     waybillId: "x",
                     reason: .one
                 )
@@ -1781,7 +1781,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtFr0564Compute1() async throws -> Void {
+    @Test func ltFr0564Compute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1829,7 +1829,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtFr0564ComputeResponse(
+        let expectedResponse = LtFr0564ComputeDeclarationsResponse(
             year: 1000000,
             month: 1000000,
             periodStart: "periodStart",
@@ -1838,7 +1838,7 @@ import Api
             vatCode: "vatCode",
             companyName: "companyName",
             rows: [
-                PostV1DeclarationsLtFr0564ComputeResponseRowsItem(
+                LtFr0564ComputeDeclarationsResponseRowsItem(
                     vatCode: "vatCode",
                     partnerName: "partnerName",
                     countryCode: "countryCode",
@@ -1847,13 +1847,13 @@ import Api
                     services: "services"
                 )
             ],
-            totals: PostV1DeclarationsLtFr0564ComputeResponseTotals(
+            totals: LtFr0564ComputeDeclarationsResponseTotals(
                 goods: "goods",
                 triangular: "triangular",
                 services: "services",
                 rows: 1000000
             ),
-            counts: PostV1DeclarationsLtFr0564ComputeResponseCounts(
+            counts: LtFr0564ComputeDeclarationsResponseCounts(
                 salesInvoices: 1000000
             ),
             warnings: [
@@ -1864,7 +1864,7 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsLtFr0564Compute(
+        let response = try await client.declarations.ltFr0564Compute(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -1874,7 +1874,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtFr0564Compute2() async throws -> Void {
+    @Test func ltFr0564Compute2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1932,7 +1932,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtFr0564ComputeResponse(
+        let expectedResponse = LtFr0564ComputeDeclarationsResponse(
             year: 1000000,
             month: 1000000,
             periodStart: "periodStart",
@@ -1941,7 +1941,7 @@ import Api
             vatCode: "vatCode",
             companyName: "companyName",
             rows: [
-                PostV1DeclarationsLtFr0564ComputeResponseRowsItem(
+                LtFr0564ComputeDeclarationsResponseRowsItem(
                     vatCode: "vatCode",
                     partnerName: "partnerName",
                     countryCode: "countryCode",
@@ -1949,7 +1949,7 @@ import Api
                     triangular: "triangular",
                     services: "services"
                 ),
-                PostV1DeclarationsLtFr0564ComputeResponseRowsItem(
+                LtFr0564ComputeDeclarationsResponseRowsItem(
                     vatCode: "vatCode",
                     partnerName: "partnerName",
                     countryCode: "countryCode",
@@ -1958,13 +1958,13 @@ import Api
                     services: "services"
                 )
             ],
-            totals: PostV1DeclarationsLtFr0564ComputeResponseTotals(
+            totals: LtFr0564ComputeDeclarationsResponseTotals(
                 goods: "goods",
                 triangular: "triangular",
                 services: "services",
                 rows: 1000000
             ),
-            counts: PostV1DeclarationsLtFr0564ComputeResponseCounts(
+            counts: LtFr0564ComputeDeclarationsResponseCounts(
                 salesInvoices: 1000000
             ),
             warnings: [
@@ -1977,7 +1977,7 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsLtFr0564Compute(
+        let response = try await client.declarations.ltFr0564Compute(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -1987,7 +1987,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtGpm312Compute1() async throws -> Void {
+    @Test func ltGpm312Compute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2038,21 +2038,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtGpm312ComputeResponse(
+        let expectedResponse = LtGpm312ComputeDeclarationsResponse(
             year: 1000000,
             payoutTiming: .sameMonth,
-            payoutFrom: PostV1DeclarationsLtGpm312ComputeResponsePayoutFrom(
+            payoutFrom: LtGpm312ComputeDeclarationsResponsePayoutFrom(
                 year: 1000000,
                 month: 1000000
             ),
-            payoutTo: PostV1DeclarationsLtGpm312ComputeResponsePayoutTo(
+            payoutTo: LtGpm312ComputeDeclarationsResponsePayoutTo(
                 year: 1000000,
                 month: 1000000
             ),
             registrationNumber: "registrationNumber",
             companyName: "companyName",
             rows: [
-                PostV1DeclarationsLtGpm312ComputeResponseRowsItem(
+                LtGpm312ComputeDeclarationsResponseRowsItem(
                     employeeId: "employeeId",
                     personalCode: Nullable<String>.value("personalCode"),
                     firstName: "firstName",
@@ -2062,7 +2062,7 @@ import Api
                     gpmWithheld: "gpmWithheld"
                 )
             ],
-            totals: PostV1DeclarationsLtGpm312ComputeResponseTotals(
+            totals: LtGpm312ComputeDeclarationsResponseTotals(
                 paidAmount: "paidAmount",
                 gpmWithheld: "gpmWithheld",
                 persons: 1000000
@@ -2076,14 +2076,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsLtGpm312Compute(
+        let response = try await client.declarations.ltGpm312Compute(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtGpm312Compute2() async throws -> Void {
+    @Test func ltGpm312Compute2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2145,21 +2145,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtGpm312ComputeResponse(
+        let expectedResponse = LtGpm312ComputeDeclarationsResponse(
             year: 1000000,
             payoutTiming: .sameMonth,
-            payoutFrom: PostV1DeclarationsLtGpm312ComputeResponsePayoutFrom(
+            payoutFrom: LtGpm312ComputeDeclarationsResponsePayoutFrom(
                 year: 1000000,
                 month: 1000000
             ),
-            payoutTo: PostV1DeclarationsLtGpm312ComputeResponsePayoutTo(
+            payoutTo: LtGpm312ComputeDeclarationsResponsePayoutTo(
                 year: 1000000,
                 month: 1000000
             ),
             registrationNumber: "registrationNumber",
             companyName: "companyName",
             rows: [
-                PostV1DeclarationsLtGpm312ComputeResponseRowsItem(
+                LtGpm312ComputeDeclarationsResponseRowsItem(
                     employeeId: "x",
                     personalCode: Nullable<String>.value("personalCode"),
                     firstName: "firstName",
@@ -2168,7 +2168,7 @@ import Api
                     paidAmount: "paidAmount",
                     gpmWithheld: "gpmWithheld"
                 ),
-                PostV1DeclarationsLtGpm312ComputeResponseRowsItem(
+                LtGpm312ComputeDeclarationsResponseRowsItem(
                     employeeId: "x",
                     personalCode: Nullable<String>.value("personalCode"),
                     firstName: "firstName",
@@ -2178,7 +2178,7 @@ import Api
                     gpmWithheld: "gpmWithheld"
                 )
             ],
-            totals: PostV1DeclarationsLtGpm312ComputeResponseTotals(
+            totals: LtGpm312ComputeDeclarationsResponseTotals(
                 paidAmount: "paidAmount",
                 gpmWithheld: "gpmWithheld",
                 persons: 1000000
@@ -2194,14 +2194,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsLtGpm312Compute(
+        let response = try await client.declarations.ltGpm312Compute(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtPln204Compute1() async throws -> Void {
+    @Test func ltPln204Compute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2261,7 +2261,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtPln204ComputeResponse(
+        let expectedResponse = LtPln204ComputeDeclarationsResponse(
             year: 1000000,
             periodStart: "periodStart",
             periodEnd: "periodEnd",
@@ -2271,7 +2271,7 @@ import Api
             ratePercent: "ratePercent",
             rateCode: "rateCode",
             smallEntity: true,
-            criteria: PostV1DeclarationsLtPln204ComputeResponseCriteria(
+            criteria: LtPln204ComputeDeclarationsResponseCriteria(
                 netTurnover: "netTurnover",
                 avgEmployees: 1.1
             ),
@@ -2280,21 +2280,21 @@ import Api
                 "key": "value"
             ],
             annexS: [
-                PostV1DeclarationsLtPln204ComputeResponseAnnexSItem(
+                LtPln204ComputeDeclarationsResponseAnnexSItem(
                     code: "code",
                     amount: "amount",
                     description: "description"
                 )
             ],
             annexZ: [
-                PostV1DeclarationsLtPln204ComputeResponseAnnexZItem(
+                LtPln204ComputeDeclarationsResponseAnnexZItem(
                     code: "code",
                     amount: "amount",
                     description: "description"
                 )
             ],
             lines: [
-                PostV1DeclarationsLtPln204ComputeResponseLinesItem(
+                LtPln204ComputeDeclarationsResponseLinesItem(
                     key: "key",
                     label: "label",
                     value: "value"
@@ -2308,14 +2308,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsLtPln204Compute(
+        let response = try await client.declarations.ltPln204Compute(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtPln204Compute2() async throws -> Void {
+    @Test func ltPln204Compute2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2392,7 +2392,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtPln204ComputeResponse(
+        let expectedResponse = LtPln204ComputeDeclarationsResponse(
             year: 1000000,
             periodStart: "periodStart",
             periodEnd: "periodEnd",
@@ -2402,7 +2402,7 @@ import Api
             ratePercent: "ratePercent",
             rateCode: "rateCode",
             smallEntity: true,
-            criteria: PostV1DeclarationsLtPln204ComputeResponseCriteria(
+            criteria: LtPln204ComputeDeclarationsResponseCriteria(
                 netTurnover: "netTurnover",
                 avgEmployees: 1.1
             ),
@@ -2411,36 +2411,36 @@ import Api
                 "boxes": "boxes"
             ],
             annexS: [
-                PostV1DeclarationsLtPln204ComputeResponseAnnexSItem(
+                LtPln204ComputeDeclarationsResponseAnnexSItem(
                     code: "code",
                     amount: "amount",
                     description: "description"
                 ),
-                PostV1DeclarationsLtPln204ComputeResponseAnnexSItem(
+                LtPln204ComputeDeclarationsResponseAnnexSItem(
                     code: "code",
                     amount: "amount",
                     description: "description"
                 )
             ],
             annexZ: [
-                PostV1DeclarationsLtPln204ComputeResponseAnnexZItem(
+                LtPln204ComputeDeclarationsResponseAnnexZItem(
                     code: "code",
                     amount: "amount",
                     description: "description"
                 ),
-                PostV1DeclarationsLtPln204ComputeResponseAnnexZItem(
+                LtPln204ComputeDeclarationsResponseAnnexZItem(
                     code: "code",
                     amount: "amount",
                     description: "description"
                 )
             ],
             lines: [
-                PostV1DeclarationsLtPln204ComputeResponseLinesItem(
+                LtPln204ComputeDeclarationsResponseLinesItem(
                     key: "key",
                     label: "label",
                     value: "value"
                 ),
-                PostV1DeclarationsLtPln204ComputeResponseLinesItem(
+                LtPln204ComputeDeclarationsResponseLinesItem(
                     key: "key",
                     label: "label",
                     value: "value"
@@ -2456,22 +2456,22 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsLtPln204Compute(
+        let response = try await client.declarations.ltPln204Compute(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuOssCompute1() async throws -> Void {
+    @Test func euOssCompute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "periodYear": 1000000,
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "memberStateOfIdentification": "memberStateOfIdentification",
                   "rows": [
                     {
@@ -2515,13 +2515,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuOssComputeResponse(
+        let expectedResponse = EuOssComputeDeclarationsResponse(
             periodYear: 1000000,
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             memberStateOfIdentification: "memberStateOfIdentification",
             rows: [
-                PostV1DeclarationsEuOssComputeResponseRowsItem(
+                EuOssComputeDeclarationsResponseRowsItem(
                     countryCode: "countryCode",
                     rateType: .standard,
                     vatRatePercent: "vatRatePercent",
@@ -2530,12 +2530,12 @@ import Api
                     documents: 1000000
                 )
             ],
-            totals: PostV1DeclarationsEuOssComputeResponseTotals(
+            totals: EuOssComputeDeclarationsResponseTotals(
                 taxableAmount: "taxableAmount",
                 vatAmount: "vatAmount"
             ),
             corrections: [
-                PostV1DeclarationsEuOssComputeResponseCorrectionsItem(
+                EuOssComputeDeclarationsResponseCorrectionsItem(
                     countryCode: "countryCode",
                     periodYear: 1000000,
                     periodQuarter: Nullable<Int64>.value(1000000),
@@ -2545,7 +2545,7 @@ import Api
                     documents: 1000000
                 )
             ],
-            correctionsTotal: PostV1DeclarationsEuOssComputeResponseCorrectionsTotal(
+            correctionsTotal: EuOssComputeDeclarationsResponseCorrectionsTotal(
                 taxableAmount: "taxableAmount",
                 vatAmount: "vatAmount"
             ),
@@ -2554,7 +2554,7 @@ import Api
             ],
             periodQuarter: 1000000
         )
-        let response = try await client.declarations.postV1DeclarationsEuOssCompute(
+        let response = try await client.declarations.euOssCompute(
             request: .init(
                 year: 1000000,
                 quarter: 1000000
@@ -2564,15 +2564,15 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuOssCompute2() async throws -> Void {
+    @Test func euOssCompute2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "periodYear": 1000000,
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "memberStateOfIdentification": "memberStateOfIdentification",
                   "rows": [
                     {
@@ -2634,13 +2634,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuOssComputeResponse(
+        let expectedResponse = EuOssComputeDeclarationsResponse(
             periodYear: 1000000,
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             memberStateOfIdentification: "memberStateOfIdentification",
             rows: [
-                PostV1DeclarationsEuOssComputeResponseRowsItem(
+                EuOssComputeDeclarationsResponseRowsItem(
                     countryCode: "countryCode",
                     rateType: .standard,
                     vatRatePercent: "vatRatePercent",
@@ -2648,7 +2648,7 @@ import Api
                     vatAmount: "vatAmount",
                     documents: 1000000
                 ),
-                PostV1DeclarationsEuOssComputeResponseRowsItem(
+                EuOssComputeDeclarationsResponseRowsItem(
                     countryCode: "countryCode",
                     rateType: .standard,
                     vatRatePercent: "vatRatePercent",
@@ -2657,12 +2657,12 @@ import Api
                     documents: 1000000
                 )
             ],
-            totals: PostV1DeclarationsEuOssComputeResponseTotals(
+            totals: EuOssComputeDeclarationsResponseTotals(
                 taxableAmount: "taxableAmount",
                 vatAmount: "vatAmount"
             ),
             corrections: [
-                PostV1DeclarationsEuOssComputeResponseCorrectionsItem(
+                EuOssComputeDeclarationsResponseCorrectionsItem(
                     countryCode: "countryCode",
                     periodYear: 1000000,
                     periodQuarter: Nullable<Int64>.value(1000000),
@@ -2671,7 +2671,7 @@ import Api
                     vatAmount: "vatAmount",
                     documents: 1000000
                 ),
-                PostV1DeclarationsEuOssComputeResponseCorrectionsItem(
+                EuOssComputeDeclarationsResponseCorrectionsItem(
                     countryCode: "countryCode",
                     periodYear: 1000000,
                     periodQuarter: Nullable<Int64>.value(1000000),
@@ -2681,7 +2681,7 @@ import Api
                     documents: 1000000
                 )
             ],
-            correctionsTotal: PostV1DeclarationsEuOssComputeResponseCorrectionsTotal(
+            correctionsTotal: EuOssComputeDeclarationsResponseCorrectionsTotal(
                 taxableAmount: "taxableAmount",
                 vatAmount: "vatAmount"
             ),
@@ -2691,7 +2691,7 @@ import Api
             ],
             periodQuarter: 1000000
         )
-        let response = try await client.declarations.postV1DeclarationsEuOssCompute(
+        let response = try await client.declarations.euOssCompute(
             request: .init(
                 year: 1000000,
                 quarter: 1000000
@@ -2701,15 +2701,15 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuIossCompute1() async throws -> Void {
+    @Test func euIossCompute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "periodYear": 1000000,
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "memberStateOfIdentification": "memberStateOfIdentification",
                   "rows": [
                     {
@@ -2753,13 +2753,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuIossComputeResponse(
+        let expectedResponse = EuIossComputeDeclarationsResponse(
             periodYear: 1000000,
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             memberStateOfIdentification: "memberStateOfIdentification",
             rows: [
-                PostV1DeclarationsEuIossComputeResponseRowsItem(
+                EuIossComputeDeclarationsResponseRowsItem(
                     countryCode: "countryCode",
                     rateType: .standard,
                     vatRatePercent: "vatRatePercent",
@@ -2768,12 +2768,12 @@ import Api
                     documents: 1000000
                 )
             ],
-            totals: PostV1DeclarationsEuIossComputeResponseTotals(
+            totals: EuIossComputeDeclarationsResponseTotals(
                 taxableAmount: "taxableAmount",
                 vatAmount: "vatAmount"
             ),
             corrections: [
-                PostV1DeclarationsEuIossComputeResponseCorrectionsItem(
+                EuIossComputeDeclarationsResponseCorrectionsItem(
                     countryCode: "countryCode",
                     periodYear: 1000000,
                     periodQuarter: Nullable<Int64>.value(1000000),
@@ -2783,7 +2783,7 @@ import Api
                     documents: 1000000
                 )
             ],
-            correctionsTotal: PostV1DeclarationsEuIossComputeResponseCorrectionsTotal(
+            correctionsTotal: EuIossComputeDeclarationsResponseCorrectionsTotal(
                 taxableAmount: "taxableAmount",
                 vatAmount: "vatAmount"
             ),
@@ -2792,7 +2792,7 @@ import Api
             ],
             periodMonth: 1000000
         )
-        let response = try await client.declarations.postV1DeclarationsEuIossCompute(
+        let response = try await client.declarations.euIossCompute(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -2802,15 +2802,15 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuIossCompute2() async throws -> Void {
+    @Test func euIossCompute2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
                   "periodYear": 1000000,
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "memberStateOfIdentification": "memberStateOfIdentification",
                   "rows": [
                     {
@@ -2872,13 +2872,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuIossComputeResponse(
+        let expectedResponse = EuIossComputeDeclarationsResponse(
             periodYear: 1000000,
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             memberStateOfIdentification: "memberStateOfIdentification",
             rows: [
-                PostV1DeclarationsEuIossComputeResponseRowsItem(
+                EuIossComputeDeclarationsResponseRowsItem(
                     countryCode: "countryCode",
                     rateType: .standard,
                     vatRatePercent: "vatRatePercent",
@@ -2886,7 +2886,7 @@ import Api
                     vatAmount: "vatAmount",
                     documents: 1000000
                 ),
-                PostV1DeclarationsEuIossComputeResponseRowsItem(
+                EuIossComputeDeclarationsResponseRowsItem(
                     countryCode: "countryCode",
                     rateType: .standard,
                     vatRatePercent: "vatRatePercent",
@@ -2895,12 +2895,12 @@ import Api
                     documents: 1000000
                 )
             ],
-            totals: PostV1DeclarationsEuIossComputeResponseTotals(
+            totals: EuIossComputeDeclarationsResponseTotals(
                 taxableAmount: "taxableAmount",
                 vatAmount: "vatAmount"
             ),
             corrections: [
-                PostV1DeclarationsEuIossComputeResponseCorrectionsItem(
+                EuIossComputeDeclarationsResponseCorrectionsItem(
                     countryCode: "countryCode",
                     periodYear: 1000000,
                     periodQuarter: Nullable<Int64>.value(1000000),
@@ -2909,7 +2909,7 @@ import Api
                     vatAmount: "vatAmount",
                     documents: 1000000
                 ),
-                PostV1DeclarationsEuIossComputeResponseCorrectionsItem(
+                EuIossComputeDeclarationsResponseCorrectionsItem(
                     countryCode: "countryCode",
                     periodYear: 1000000,
                     periodQuarter: Nullable<Int64>.value(1000000),
@@ -2919,7 +2919,7 @@ import Api
                     documents: 1000000
                 )
             ],
-            correctionsTotal: PostV1DeclarationsEuIossComputeResponseCorrectionsTotal(
+            correctionsTotal: EuIossComputeDeclarationsResponseCorrectionsTotal(
                 taxableAmount: "taxableAmount",
                 vatAmount: "vatAmount"
             ),
@@ -2929,7 +2929,7 @@ import Api
             ],
             periodMonth: 1000000
         )
-        let response = try await client.declarations.postV1DeclarationsEuIossCompute(
+        let response = try await client.declarations.euIossCompute(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -2939,7 +2939,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuDistanceSalesThresholdGet1() async throws -> Void {
+    @Test func euDistanceSalesThresholdGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2971,15 +2971,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuDistanceSalesThresholdGetResponse(
+        let expectedResponse = EuDistanceSalesThresholdGetDeclarationsResponse(
             thresholdEur: "thresholdEur",
             homeCountryCode: "homeCountryCode",
-            currentYear: PostV1DeclarationsEuDistanceSalesThresholdGetResponseCurrentYear(
+            currentYear: EuDistanceSalesThresholdGetDeclarationsResponseCurrentYear(
                 year: 1000000,
                 totalAmount: "totalAmount",
                 documents: 1000000
             ),
-            precedingYear: PostV1DeclarationsEuDistanceSalesThresholdGetResponsePrecedingYear(
+            precedingYear: EuDistanceSalesThresholdGetDeclarationsResponsePrecedingYear(
                 year: 1000000,
                 totalAmount: "totalAmount",
                 documents: 1000000
@@ -2990,14 +2990,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEuDistanceSalesThresholdGet(
+        let response = try await client.declarations.euDistanceSalesThresholdGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuDistanceSalesThresholdGet2() async throws -> Void {
+    @Test func euDistanceSalesThresholdGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3030,15 +3030,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuDistanceSalesThresholdGetResponse(
+        let expectedResponse = EuDistanceSalesThresholdGetDeclarationsResponse(
             thresholdEur: "thresholdEur",
             homeCountryCode: "homeCountryCode",
-            currentYear: PostV1DeclarationsEuDistanceSalesThresholdGetResponseCurrentYear(
+            currentYear: EuDistanceSalesThresholdGetDeclarationsResponseCurrentYear(
                 year: 1000000,
                 totalAmount: "totalAmount",
                 documents: 1000000
             ),
-            precedingYear: PostV1DeclarationsEuDistanceSalesThresholdGetResponsePrecedingYear(
+            precedingYear: EuDistanceSalesThresholdGetDeclarationsResponsePrecedingYear(
                 year: 1000000,
                 totalAmount: "totalAmount",
                 documents: 1000000
@@ -3050,14 +3050,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEuDistanceSalesThresholdGet(
+        let response = try await client.declarations.euDistanceSalesThresholdGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuUnionTurnoverGet1() async throws -> Void {
+    @Test func euUnionTurnoverGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3090,16 +3090,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuUnionTurnoverGetResponse(
+        let expectedResponse = EuUnionTurnoverGetDeclarationsResponse(
             capEur: "capEur",
             currency: "currency",
             isVatPayer: true,
-            currentYear: PostV1DeclarationsEuUnionTurnoverGetResponseCurrentYear(
+            currentYear: EuUnionTurnoverGetDeclarationsResponseCurrentYear(
                 year: 1000000,
                 amount: "amount",
                 documents: 1000000
             ),
-            previousYear: PostV1DeclarationsEuUnionTurnoverGetResponsePreviousYear(
+            previousYear: EuUnionTurnoverGetDeclarationsResponsePreviousYear(
                 year: 1000000,
                 amount: "amount",
                 documents: 1000000
@@ -3110,14 +3110,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEuUnionTurnoverGet(
+        let response = try await client.declarations.euUnionTurnoverGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuUnionTurnoverGet2() async throws -> Void {
+    @Test func euUnionTurnoverGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3151,16 +3151,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuUnionTurnoverGetResponse(
+        let expectedResponse = EuUnionTurnoverGetDeclarationsResponse(
             capEur: "capEur",
             currency: "currency",
             isVatPayer: true,
-            currentYear: PostV1DeclarationsEuUnionTurnoverGetResponseCurrentYear(
+            currentYear: EuUnionTurnoverGetDeclarationsResponseCurrentYear(
                 year: 1000000,
                 amount: "amount",
                 documents: 1000000
             ),
-            previousYear: PostV1DeclarationsEuUnionTurnoverGetResponsePreviousYear(
+            previousYear: EuUnionTurnoverGetDeclarationsResponsePreviousYear(
                 year: 1000000,
                 amount: "amount",
                 documents: 1000000
@@ -3172,14 +3172,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEuUnionTurnoverGet(
+        let response = try await client.declarations.euUnionTurnoverGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuSmeCrossBorderReportCompute1() async throws -> Void {
+    @Test func euSmeCrossBorderReportCompute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3187,8 +3187,8 @@ import Api
                 {
                   "year": 1000000,
                   "quarter": 1000000,
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
                   "currency": "currency",
                   "rows": [
                     {
@@ -3210,14 +3210,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuSmeCrossBorderReportComputeResponse(
+        let expectedResponse = EuSmeCrossBorderReportComputeDeclarationsResponse(
             year: 1000000,
             quarter: 1000000,
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
             currency: "currency",
             rows: [
-                PostV1DeclarationsEuSmeCrossBorderReportComputeResponseRowsItem(
+                EuSmeCrossBorderReportComputeDeclarationsResponseRowsItem(
                     countryCode: "countryCode",
                     amount: "amount",
                     documents: 1000000
@@ -3228,7 +3228,7 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEuSmeCrossBorderReportCompute(
+        let response = try await client.declarations.euSmeCrossBorderReportCompute(
             request: .init(
                 year: 1000000,
                 quarter: 1000000
@@ -3238,7 +3238,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuSmeCrossBorderReportCompute2() async throws -> Void {
+    @Test func euSmeCrossBorderReportCompute2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3246,8 +3246,8 @@ import Api
                 {
                   "year": 1000000,
                   "quarter": 1000000,
-                  "fromDate": "fromDate",
-                  "toDate": "toDate",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
                   "currency": "currency",
                   "rows": [
                     {
@@ -3275,19 +3275,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuSmeCrossBorderReportComputeResponse(
+        let expectedResponse = EuSmeCrossBorderReportComputeDeclarationsResponse(
             year: 1000000,
             quarter: 1000000,
-            fromDate: "fromDate",
-            toDate: "toDate",
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
             currency: "currency",
             rows: [
-                PostV1DeclarationsEuSmeCrossBorderReportComputeResponseRowsItem(
+                EuSmeCrossBorderReportComputeDeclarationsResponseRowsItem(
                     countryCode: "countryCode",
                     amount: "amount",
                     documents: 1000000
                 ),
-                PostV1DeclarationsEuSmeCrossBorderReportComputeResponseRowsItem(
+                EuSmeCrossBorderReportComputeDeclarationsResponseRowsItem(
                     countryCode: "countryCode",
                     amount: "amount",
                     documents: 1000000
@@ -3299,7 +3299,7 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEuSmeCrossBorderReportCompute(
+        let response = try await client.declarations.euSmeCrossBorderReportCompute(
             request: .init(
                 year: 1000000,
                 quarter: 1000000
@@ -3309,7 +3309,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuSmeThresholdsList1() async throws -> Void {
+    @Test func euSmeThresholdsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3346,21 +3346,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuSmeThresholdsListResponse(
+        let expectedResponse = EuSmeThresholdsListDeclarationsResponse(
             nationalCapEur: "nationalCapEur",
             unionTurnoverCapEur: "unionTurnoverCapEur",
             thresholds: [
-                PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItem(
+                EuSmeThresholdsListDeclarationsResponseThresholdsItem(
                     countryCode: "countryCode",
                     currency: "currency",
                     nationalThreshold: Nullable<String>.value("nationalThreshold"),
                     sectors: Optional([
-                        PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemSectorsItem(
+                        EuSmeThresholdsListDeclarationsResponseThresholdsItemSectorsItem(
                             label: "label",
                             amount: "amount"
                         )
                     ]),
-                    intraEuAcquisitionsTrigger: Optional(PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemIntraEuAcquisitionsTrigger(
+                    intraEuAcquisitionsTrigger: Optional(EuSmeThresholdsListDeclarationsResponseThresholdsItemIntraEuAcquisitionsTrigger(
                         amount: "amount",
                         currency: "currency",
                         note: "note"
@@ -3370,14 +3370,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEuSmeThresholdsList(
+        let response = try await client.declarations.euSmeThresholdsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuSmeThresholdsList2() async throws -> Void {
+    @Test func euSmeThresholdsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3444,27 +3444,27 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuSmeThresholdsListResponse(
+        let expectedResponse = EuSmeThresholdsListDeclarationsResponse(
             nationalCapEur: "nationalCapEur",
             unionTurnoverCapEur: "unionTurnoverCapEur",
             thresholds: [
-                PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItem(
+                EuSmeThresholdsListDeclarationsResponseThresholdsItem(
                     countryCode: "countryCode",
                     currency: "currency",
                     nationalThreshold: Nullable<String>.value("nationalThreshold"),
                     sectors: Optional([
-                        PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemSectorsItem(
+                        EuSmeThresholdsListDeclarationsResponseThresholdsItemSectorsItem(
                             label: "label",
                             amount: "amount",
                             note: Optional("note")
                         ),
-                        PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemSectorsItem(
+                        EuSmeThresholdsListDeclarationsResponseThresholdsItemSectorsItem(
                             label: "label",
                             amount: "amount",
                             note: Optional("note")
                         )
                     ]),
-                    intraEuAcquisitionsTrigger: Optional(PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemIntraEuAcquisitionsTrigger(
+                    intraEuAcquisitionsTrigger: Optional(EuSmeThresholdsListDeclarationsResponseThresholdsItemIntraEuAcquisitionsTrigger(
                         amount: "amount",
                         currency: "currency",
                         note: "note"
@@ -3472,23 +3472,23 @@ import Api
                     note: Optional("note"),
                     source: "source"
                 ),
-                PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItem(
+                EuSmeThresholdsListDeclarationsResponseThresholdsItem(
                     countryCode: "countryCode",
                     currency: "currency",
                     nationalThreshold: Nullable<String>.value("nationalThreshold"),
                     sectors: Optional([
-                        PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemSectorsItem(
+                        EuSmeThresholdsListDeclarationsResponseThresholdsItemSectorsItem(
                             label: "label",
                             amount: "amount",
                             note: Optional("note")
                         ),
-                        PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemSectorsItem(
+                        EuSmeThresholdsListDeclarationsResponseThresholdsItemSectorsItem(
                             label: "label",
                             amount: "amount",
                             note: Optional("note")
                         )
                     ]),
-                    intraEuAcquisitionsTrigger: Optional(PostV1DeclarationsEuSmeThresholdsListResponseThresholdsItemIntraEuAcquisitionsTrigger(
+                    intraEuAcquisitionsTrigger: Optional(EuSmeThresholdsListDeclarationsResponseThresholdsItemIntraEuAcquisitionsTrigger(
                         amount: "amount",
                         currency: "currency",
                         note: "note"
@@ -3498,14 +3498,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEuSmeThresholdsList(
+        let response = try await client.declarations.euSmeThresholdsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuSmeThresholdGet1() async throws -> Void {
+    @Test func euSmeThresholdGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3560,16 +3560,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuSmeThresholdGetResponse(
+        let expectedResponse = EuSmeThresholdGetDeclarationsResponse(
             countryCode: "countryCode",
             isVatPayer: true,
             baseCurrency: "baseCurrency",
             year: 1000000,
-            threshold: Nullable<PostV1DeclarationsEuSmeThresholdGetResponseThreshold>.value(PostV1DeclarationsEuSmeThresholdGetResponseThreshold(
+            threshold: Nullable<EuSmeThresholdGetDeclarationsResponseThreshold>.value(EuSmeThresholdGetDeclarationsResponseThreshold(
                 currency: "currency",
                 nationalThreshold: Nullable<String>.value("nationalThreshold"),
                 sectors: Optional([
-                    PostV1DeclarationsEuSmeThresholdGetResponseThresholdSectorsItem(
+                    EuSmeThresholdGetDeclarationsResponseThresholdSectorsItem(
                         label: "label",
                         amount: "amount"
                     )
@@ -3577,19 +3577,19 @@ import Api
                 note: Optional("note"),
                 source: "source"
             )),
-            turnover: PostV1DeclarationsEuSmeThresholdGetResponseTurnover(
+            turnover: EuSmeThresholdGetDeclarationsResponseTurnover(
                 amount: "amount",
                 currency: "currency",
                 documents: 1000000
             ),
-            precedingTurnover: PostV1DeclarationsEuSmeThresholdGetResponsePrecedingTurnover(
+            precedingTurnover: EuSmeThresholdGetDeclarationsResponsePrecedingTurnover(
                 year: 1000000,
                 amount: "amount",
                 documents: 1000000
             ),
             status: .notApplicable,
             headroomAmount: Nullable<String>.value("headroomAmount"),
-            intraEu: Nullable<PostV1DeclarationsEuSmeThresholdGetResponseIntraEu>.value(PostV1DeclarationsEuSmeThresholdGetResponseIntraEu(
+            intraEu: Nullable<EuSmeThresholdGetDeclarationsResponseIntraEu>.value(EuSmeThresholdGetDeclarationsResponseIntraEu(
                 trigger: "trigger",
                 currency: "currency",
                 acquisitionsFromMemberStates: "acquisitionsFromMemberStates",
@@ -3602,14 +3602,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEuSmeThresholdGet(
+        let response = try await client.declarations.euSmeThresholdGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuSmeThresholdGet2() async throws -> Void {
+    @Test func euSmeThresholdGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3671,21 +3671,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuSmeThresholdGetResponse(
+        let expectedResponse = EuSmeThresholdGetDeclarationsResponse(
             countryCode: "countryCode",
             isVatPayer: true,
             baseCurrency: "baseCurrency",
             year: 1000000,
-            threshold: Nullable<PostV1DeclarationsEuSmeThresholdGetResponseThreshold>.value(PostV1DeclarationsEuSmeThresholdGetResponseThreshold(
+            threshold: Nullable<EuSmeThresholdGetDeclarationsResponseThreshold>.value(EuSmeThresholdGetDeclarationsResponseThreshold(
                 currency: "currency",
                 nationalThreshold: Nullable<String>.value("nationalThreshold"),
                 sectors: Optional([
-                    PostV1DeclarationsEuSmeThresholdGetResponseThresholdSectorsItem(
+                    EuSmeThresholdGetDeclarationsResponseThresholdSectorsItem(
                         label: "label",
                         amount: "amount",
                         note: Optional("note")
                     ),
-                    PostV1DeclarationsEuSmeThresholdGetResponseThresholdSectorsItem(
+                    EuSmeThresholdGetDeclarationsResponseThresholdSectorsItem(
                         label: "label",
                         amount: "amount",
                         note: Optional("note")
@@ -3694,19 +3694,19 @@ import Api
                 note: Optional("note"),
                 source: "source"
             )),
-            turnover: PostV1DeclarationsEuSmeThresholdGetResponseTurnover(
+            turnover: EuSmeThresholdGetDeclarationsResponseTurnover(
                 amount: "amount",
                 currency: "currency",
                 documents: 1000000
             ),
-            precedingTurnover: PostV1DeclarationsEuSmeThresholdGetResponsePrecedingTurnover(
+            precedingTurnover: EuSmeThresholdGetDeclarationsResponsePrecedingTurnover(
                 year: 1000000,
                 amount: "amount",
                 documents: 1000000
             ),
             status: .notApplicable,
             headroomAmount: Nullable<String>.value("headroomAmount"),
-            intraEu: Nullable<PostV1DeclarationsEuSmeThresholdGetResponseIntraEu>.value(PostV1DeclarationsEuSmeThresholdGetResponseIntraEu(
+            intraEu: Nullable<EuSmeThresholdGetDeclarationsResponseIntraEu>.value(EuSmeThresholdGetDeclarationsResponseIntraEu(
                 trigger: "trigger",
                 currency: "currency",
                 acquisitionsFromMemberStates: "acquisitionsFromMemberStates",
@@ -3720,14 +3720,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEuSmeThresholdGet(
+        let response = try await client.declarations.euSmeThresholdGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuVatReturnPacksList1() async throws -> Void {
+    @Test func euVatReturnPacksList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3751,9 +3751,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuVatReturnPacksListResponse(
+        let expectedResponse = EuVatReturnPacksListDeclarationsResponse(
             packs: [
-                PostV1DeclarationsEuVatReturnPacksListResponsePacksItem(
+                EuVatReturnPacksListDeclarationsResponsePacksItem(
                     countryCode: "countryCode",
                     formKey: "formKey",
                     formName: "formName",
@@ -3762,14 +3762,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEuVatReturnPacksList(
+        let response = try await client.declarations.euVatReturnPacksList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuVatReturnPacksList2() async throws -> Void {
+    @Test func euVatReturnPacksList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3800,16 +3800,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuVatReturnPacksListResponse(
+        let expectedResponse = EuVatReturnPacksListDeclarationsResponse(
             packs: [
-                PostV1DeclarationsEuVatReturnPacksListResponsePacksItem(
+                EuVatReturnPacksListDeclarationsResponsePacksItem(
                     countryCode: "countryCode",
                     formKey: "formKey",
                     formName: "formName",
                     frequency: .monthly,
                     source: "source"
                 ),
-                PostV1DeclarationsEuVatReturnPacksListResponsePacksItem(
+                EuVatReturnPacksListDeclarationsResponsePacksItem(
                     countryCode: "countryCode",
                     formKey: "formKey",
                     formName: "formName",
@@ -3818,14 +3818,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEuVatReturnPacksList(
+        let response = try await client.declarations.euVatReturnPacksList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuVatReturnCompute1() async throws -> Void {
+    @Test func euVatReturnCompute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3860,7 +3860,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuVatReturnComputeResponse(
+        let expectedResponse = EuVatReturnComputeDeclarationsResponse(
             countryCode: "countryCode",
             formKey: "formKey",
             formName: "formName",
@@ -3868,7 +3868,7 @@ import Api
             periodStart: "periodStart",
             periodEnd: "periodEnd",
             boxes: [
-                PostV1DeclarationsEuVatReturnComputeResponseBoxesItem(
+                EuVatReturnComputeDeclarationsResponseBoxesItem(
                     code: "code",
                     label: "label",
                     amount: "amount"
@@ -3882,7 +3882,7 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsEuVatReturnCompute(
+        let response = try await client.declarations.euVatReturnCompute(
             request: .init(
                 countryCode: "countryCode",
                 year: 1000000,
@@ -3893,7 +3893,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEuVatReturnCompute2() async throws -> Void {
+    @Test func euVatReturnCompute2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3935,7 +3935,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEuVatReturnComputeResponse(
+        let expectedResponse = EuVatReturnComputeDeclarationsResponse(
             countryCode: "countryCode",
             formKey: "formKey",
             formName: "formName",
@@ -3943,12 +3943,12 @@ import Api
             periodStart: "periodStart",
             periodEnd: "periodEnd",
             boxes: [
-                PostV1DeclarationsEuVatReturnComputeResponseBoxesItem(
+                EuVatReturnComputeDeclarationsResponseBoxesItem(
                     code: "code",
                     label: "label",
                     amount: "amount"
                 ),
-                PostV1DeclarationsEuVatReturnComputeResponseBoxesItem(
+                EuVatReturnComputeDeclarationsResponseBoxesItem(
                     code: "code",
                     label: "label",
                     amount: "amount"
@@ -3964,7 +3964,7 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsEuVatReturnCompute(
+        let response = try await client.declarations.euVatReturnCompute(
             request: .init(
                 countryCode: "xy",
                 year: 1000000,
@@ -3975,7 +3975,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlJpkV7MGenerate1() async throws -> Void {
+    @Test func plJpkV7MGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4011,19 +4011,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlJpkV7MGenerateResponse(
+        let expectedResponse = PlJpkV7MGenerateDeclarationsResponse(
             fileName: "fileName",
             xml: "xml",
             periodStart: "periodStart",
             periodEnd: "periodEnd",
             declaration: [
-                PostV1DeclarationsPlJpkV7MGenerateResponseDeclarationItem(
+                PlJpkV7MGenerateDeclarationsResponseDeclarationItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 )
             ],
-            counts: PostV1DeclarationsPlJpkV7MGenerateResponseCounts(
+            counts: PlJpkV7MGenerateDeclarationsResponseCounts(
                 salesRows: 1000000,
                 purchaseRows: 1000000
             ),
@@ -4034,7 +4034,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsPlJpkV7MGenerate(
+        let response = try await client.declarations.plJpkV7MGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000,
@@ -4046,7 +4046,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlJpkV7MGenerate2() async throws -> Void {
+    @Test func plJpkV7MGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4089,24 +4089,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlJpkV7MGenerateResponse(
+        let expectedResponse = PlJpkV7MGenerateDeclarationsResponse(
             fileName: "fileName",
             xml: "xml",
             periodStart: "periodStart",
             periodEnd: "periodEnd",
             declaration: [
-                PostV1DeclarationsPlJpkV7MGenerateResponseDeclarationItem(
+                PlJpkV7MGenerateDeclarationsResponseDeclarationItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 ),
-                PostV1DeclarationsPlJpkV7MGenerateResponseDeclarationItem(
+                PlJpkV7MGenerateDeclarationsResponseDeclarationItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 )
             ],
-            counts: PostV1DeclarationsPlJpkV7MGenerateResponseCounts(
+            counts: PlJpkV7MGenerateDeclarationsResponseCounts(
                 salesRows: 1000000,
                 purchaseRows: 1000000
             ),
@@ -4119,7 +4119,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsPlJpkV7MGenerate(
+        let response = try await client.declarations.plJpkV7MGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000,
@@ -4131,7 +4131,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlVatUeGenerate1() async throws -> Void {
+    @Test func plVatUeGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4176,13 +4176,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlVatUeGenerateResponse(
+        let expectedResponse = PlVatUeGenerateDeclarationsResponse(
             periodStart: "periodStart",
             periodEnd: "periodEnd",
             nip: "nip",
             companyName: "companyName",
             rows: [
-                PostV1DeclarationsPlVatUeGenerateResponseRowsItem(
+                PlVatUeGenerateDeclarationsResponseRowsItem(
                     section: .c,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
@@ -4194,7 +4194,7 @@ import Api
                 )
             ],
             totals: [
-                PostV1DeclarationsPlVatUeGenerateResponseTotalsItem(
+                PlVatUeGenerateDeclarationsResponseTotalsItem(
                     section: .c,
                     counterparties: 1000000,
                     amount: "amount"
@@ -4208,7 +4208,7 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsPlVatUeGenerate(
+        let response = try await client.declarations.plVatUeGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -4218,7 +4218,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlVatUeGenerate2() async throws -> Void {
+    @Test func plVatUeGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4282,13 +4282,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlVatUeGenerateResponse(
+        let expectedResponse = PlVatUeGenerateDeclarationsResponse(
             periodStart: "periodStart",
             periodEnd: "periodEnd",
             nip: "nip",
             companyName: "companyName",
             rows: [
-                PostV1DeclarationsPlVatUeGenerateResponseRowsItem(
+                PlVatUeGenerateDeclarationsResponseRowsItem(
                     section: .c,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
@@ -4299,7 +4299,7 @@ import Api
                         "documents"
                     ]
                 ),
-                PostV1DeclarationsPlVatUeGenerateResponseRowsItem(
+                PlVatUeGenerateDeclarationsResponseRowsItem(
                     section: .c,
                     countryCode: "countryCode",
                     vatNumber: "vatNumber",
@@ -4312,12 +4312,12 @@ import Api
                 )
             ],
             totals: [
-                PostV1DeclarationsPlVatUeGenerateResponseTotalsItem(
+                PlVatUeGenerateDeclarationsResponseTotalsItem(
                     section: .c,
                     counterparties: 1000000,
                     amount: "amount"
                 ),
-                PostV1DeclarationsPlVatUeGenerateResponseTotalsItem(
+                PlVatUeGenerateDeclarationsResponseTotalsItem(
                     section: .c,
                     counterparties: 1000000,
                     amount: "amount"
@@ -4333,7 +4333,7 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsPlVatUeGenerate(
+        let response = try await client.declarations.plVatUeGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -4343,7 +4343,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlIntrastatGenerate1() async throws -> Void {
+    @Test func plIntrastatGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4402,7 +4402,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlIntrastatGenerateResponse(
+        let expectedResponse = PlIntrastatGenerateDeclarationsResponse(
             flow: .arrivals,
             referencePeriod: "referencePeriod",
             periodStart: "periodStart",
@@ -4411,7 +4411,7 @@ import Api
             companyName: "companyName",
             detailedThreshold: true,
             rows: [
-                PostV1DeclarationsPlIntrastatGenerateResponseRowsItem(
+                PlIntrastatGenerateDeclarationsResponseRowsItem(
                     itemNumber: 1000000,
                     cnCode: "cnCode",
                     description: Nullable<String>.value("description"),
@@ -4428,13 +4428,13 @@ import Api
                     statisticalValue: Nullable<String>.value("statisticalValue")
                 )
             ],
-            totals: PostV1DeclarationsPlIntrastatGenerateResponseTotals(
+            totals: PlIntrastatGenerateDeclarationsResponseTotals(
                 invoicedValue: "invoicedValue",
                 statisticalValue: Nullable<String>.value("statisticalValue"),
                 netMassKg: "netMassKg",
                 lines: 1000000
             ),
-            counts: PostV1DeclarationsPlIntrastatGenerateResponseCounts(
+            counts: PlIntrastatGenerateDeclarationsResponseCounts(
                 invoices: 1000000,
                 linesIncluded: 1000000,
                 linesSkipped: 1000000,
@@ -4448,7 +4448,7 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsPlIntrastatGenerate(
+        let response = try await client.declarations.plIntrastatGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000,
@@ -4459,7 +4459,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlIntrastatGenerate2() async throws -> Void {
+    @Test func plIntrastatGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4536,7 +4536,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlIntrastatGenerateResponse(
+        let expectedResponse = PlIntrastatGenerateDeclarationsResponse(
             flow: .arrivals,
             referencePeriod: "referencePeriod",
             periodStart: "periodStart",
@@ -4545,7 +4545,7 @@ import Api
             companyName: "companyName",
             detailedThreshold: true,
             rows: [
-                PostV1DeclarationsPlIntrastatGenerateResponseRowsItem(
+                PlIntrastatGenerateDeclarationsResponseRowsItem(
                     itemNumber: 1000000,
                     cnCode: "cnCode",
                     description: Nullable<String>.value("description"),
@@ -4561,7 +4561,7 @@ import Api
                     invoicedValue: "invoicedValue",
                     statisticalValue: Nullable<String>.value("statisticalValue")
                 ),
-                PostV1DeclarationsPlIntrastatGenerateResponseRowsItem(
+                PlIntrastatGenerateDeclarationsResponseRowsItem(
                     itemNumber: 1000000,
                     cnCode: "cnCode",
                     description: Nullable<String>.value("description"),
@@ -4578,13 +4578,13 @@ import Api
                     statisticalValue: Nullable<String>.value("statisticalValue")
                 )
             ],
-            totals: PostV1DeclarationsPlIntrastatGenerateResponseTotals(
+            totals: PlIntrastatGenerateDeclarationsResponseTotals(
                 invoicedValue: "invoicedValue",
                 statisticalValue: Nullable<String>.value("statisticalValue"),
                 netMassKg: "netMassKg",
                 lines: 1000000
             ),
-            counts: PostV1DeclarationsPlIntrastatGenerateResponseCounts(
+            counts: PlIntrastatGenerateDeclarationsResponseCounts(
                 invoices: 1000000,
                 linesIncluded: 1000000,
                 linesSkipped: 1000000,
@@ -4600,7 +4600,7 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsPlIntrastatGenerate(
+        let response = try await client.declarations.plIntrastatGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000,
@@ -4611,7 +4611,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlKsefReceivedList1() async throws -> Void {
+    @Test func plKsefReceivedList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4622,7 +4622,7 @@ import Api
                       "ksefReferenceNumber": "ksefReferenceNumber",
                       "invoiceNumber": "invoiceNumber",
                       "issuerNip": "issuerNip",
-                      "issueDate": "issueDate",
+                      "issueDate": "2026-07-01",
                       "acquisitionTimestamp": "acquisitionTimestamp",
                       "grossAmount": "grossAmount",
                       "purchaseInvoiceId": "purchaseInvoiceId"
@@ -4637,20 +4637,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlKsefReceivedListResponse(
+        let expectedResponse = PlKsefReceivedListDeclarationsResponse(
             rows: [
-                PostV1DeclarationsPlKsefReceivedListResponseRowsItem(
+                PlKsefReceivedListDeclarationsResponseRowsItem(
                     ksefReferenceNumber: "ksefReferenceNumber",
                     invoiceNumber: Nullable<String>.value("invoiceNumber"),
                     issuerNip: Nullable<String>.value("issuerNip"),
-                    issueDate: Nullable<String>.value("issueDate"),
+                    issueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     acquisitionTimestamp: Nullable<String>.value("acquisitionTimestamp"),
                     grossAmount: Nullable<String>.value("grossAmount"),
                     purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId")
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsPlKsefReceivedList(
+        let response = try await client.declarations.plKsefReceivedList(
             request: .init(
                 from: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                 to: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
@@ -4660,7 +4660,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlKsefReceivedList2() async throws -> Void {
+    @Test func plKsefReceivedList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4671,7 +4671,7 @@ import Api
                       "ksefReferenceNumber": "ksefReferenceNumber",
                       "invoiceNumber": "invoiceNumber",
                       "issuerNip": "issuerNip",
-                      "issueDate": "issueDate",
+                      "issueDate": "2023-01-15",
                       "acquisitionTimestamp": "acquisitionTimestamp",
                       "grossAmount": "grossAmount",
                       "purchaseInvoiceId": "x"
@@ -4680,7 +4680,7 @@ import Api
                       "ksefReferenceNumber": "ksefReferenceNumber",
                       "invoiceNumber": "invoiceNumber",
                       "issuerNip": "issuerNip",
-                      "issueDate": "issueDate",
+                      "issueDate": "2023-01-15",
                       "acquisitionTimestamp": "acquisitionTimestamp",
                       "grossAmount": "grossAmount",
                       "purchaseInvoiceId": "x"
@@ -4695,29 +4695,29 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlKsefReceivedListResponse(
+        let expectedResponse = PlKsefReceivedListDeclarationsResponse(
             rows: [
-                PostV1DeclarationsPlKsefReceivedListResponseRowsItem(
+                PlKsefReceivedListDeclarationsResponseRowsItem(
                     ksefReferenceNumber: "ksefReferenceNumber",
                     invoiceNumber: Nullable<String>.value("invoiceNumber"),
                     issuerNip: Nullable<String>.value("issuerNip"),
-                    issueDate: Nullable<String>.value("issueDate"),
+                    issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     acquisitionTimestamp: Nullable<String>.value("acquisitionTimestamp"),
                     grossAmount: Nullable<String>.value("grossAmount"),
                     purchaseInvoiceId: Nullable<String>.value("x")
                 ),
-                PostV1DeclarationsPlKsefReceivedListResponseRowsItem(
+                PlKsefReceivedListDeclarationsResponseRowsItem(
                     ksefReferenceNumber: "ksefReferenceNumber",
                     invoiceNumber: Nullable<String>.value("invoiceNumber"),
                     issuerNip: Nullable<String>.value("issuerNip"),
-                    issueDate: Nullable<String>.value("issueDate"),
+                    issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     acquisitionTimestamp: Nullable<String>.value("acquisitionTimestamp"),
                     grossAmount: Nullable<String>.value("grossAmount"),
                     purchaseInvoiceId: Nullable<String>.value("x")
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsPlKsefReceivedList(
+        let response = try await client.declarations.plKsefReceivedList(
             request: .init(
                 from: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                 to: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
@@ -4727,7 +4727,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlKsefReceivedFetch1() async throws -> Void {
+    @Test func plKsefReceivedFetch1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4745,19 +4745,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlKsefReceivedFetchResponse(
+        let expectedResponse = PlKsefReceivedFetchDeclarationsResponse(
             ksefNumber: "ksefNumber",
             xml: "xml",
             attachedTo: Nullable<String>.value("attachedTo")
         )
-        let response = try await client.declarations.postV1DeclarationsPlKsefReceivedFetch(
+        let response = try await client.declarations.plKsefReceivedFetch(
             request: .init(ksefNumber: "ksefNumber"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlKsefReceivedFetch2() async throws -> Void {
+    @Test func plKsefReceivedFetch2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4775,19 +4775,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlKsefReceivedFetchResponse(
+        let expectedResponse = PlKsefReceivedFetchDeclarationsResponse(
             ksefNumber: "ksefNumber",
             xml: "xml",
             attachedTo: Nullable<String>.value("x")
         )
-        let response = try await client.declarations.postV1DeclarationsPlKsefReceivedFetch(
+        let response = try await client.declarations.plKsefReceivedFetch(
             request: .init(ksefNumber: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlKsefReceipt1() async throws -> Void {
+    @Test func plKsefReceipt1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4807,21 +4807,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlKsefReceiptResponse(
+        let expectedResponse = PlKsefReceiptDeclarationsResponse(
             referenceNumber: "referenceNumber",
             state: .sent,
             detail: Nullable<String>.value("detail"),
             invoiceCount: Nullable<Int64>.value(1000000),
             upoXml: Nullable<String>.value("upoXml")
         )
-        let response = try await client.declarations.postV1DeclarationsPlKsefReceipt(
+        let response = try await client.declarations.plKsefReceipt(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlKsefReceipt2() async throws -> Void {
+    @Test func plKsefReceipt2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4841,21 +4841,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlKsefReceiptResponse(
+        let expectedResponse = PlKsefReceiptDeclarationsResponse(
             referenceNumber: "referenceNumber",
             state: .sent,
             detail: Nullable<String>.value("detail"),
             invoiceCount: Nullable<Int64>.value(1000000),
             upoXml: Nullable<String>.value("upoXml")
         )
-        let response = try await client.declarations.postV1DeclarationsPlKsefReceipt(
+        let response = try await client.declarations.plKsefReceipt(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func taxAdjustmentsRecordedForATaxYear1() async throws -> Void {
+    @Test func taxAdjustmentsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4880,9 +4880,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxAdjustmentsListResponse(
+        let expectedResponse = TaxAdjustmentsListDeclarationsResponse(
             rows: [
-                PostV1DeclarationsTaxAdjustmentsListResponseRowsItem(
+                TaxAdjustmentsListDeclarationsResponseRowsItem(
                     id: "id",
                     year: 1000000,
                     kind: .nonDeductible,
@@ -4892,14 +4892,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.taxAdjustmentsRecordedForATaxYear(
+        let response = try await client.declarations.taxAdjustmentsList(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func taxAdjustmentsRecordedForATaxYear2() async throws -> Void {
+    @Test func taxAdjustmentsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4932,9 +4932,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxAdjustmentsListResponse(
+        let expectedResponse = TaxAdjustmentsListDeclarationsResponse(
             rows: [
-                PostV1DeclarationsTaxAdjustmentsListResponseRowsItem(
+                TaxAdjustmentsListDeclarationsResponseRowsItem(
                     id: "x",
                     year: 1000000,
                     kind: .nonDeductible,
@@ -4942,7 +4942,7 @@ import Api
                     amount: "amount",
                     description: "description"
                 ),
-                PostV1DeclarationsTaxAdjustmentsListResponseRowsItem(
+                TaxAdjustmentsListDeclarationsResponseRowsItem(
                     id: "x",
                     year: 1000000,
                     kind: .nonDeductible,
@@ -4952,14 +4952,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.taxAdjustmentsRecordedForATaxYear(
+        let response = try await client.declarations.taxAdjustmentsList(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func recordATaxAdjustmentForATaxYear1() async throws -> Void {
+    @Test func taxAdjustmentsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4980,7 +4980,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxAdjustmentsCreateResponse(
+        let expectedResponse = TaxAdjustmentsCreateDeclarationsResponse(
             id: "id",
             year: 1000000,
             kind: .nonDeductible,
@@ -4988,11 +4988,11 @@ import Api
             amount: "amount",
             description: "description"
         )
-        let response = try await client.declarations.recordATaxAdjustmentForATaxYear(
+        let response = try await client.declarations.taxAdjustmentsCreate(
             request: .init(
                 year: 1000000,
                 kind: .nonDeductible,
-                amount: "amount",
+                amount: "121.00",
                 description: "description"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -5000,7 +5000,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func recordATaxAdjustmentForATaxYear2() async throws -> Void {
+    @Test func taxAdjustmentsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5021,7 +5021,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxAdjustmentsCreateResponse(
+        let expectedResponse = TaxAdjustmentsCreateDeclarationsResponse(
             id: "x",
             year: 1000000,
             kind: .nonDeductible,
@@ -5029,7 +5029,7 @@ import Api
             amount: "amount",
             description: "description"
         )
-        let response = try await client.declarations.recordATaxAdjustmentForATaxYear(
+        let response = try await client.declarations.taxAdjustmentsCreate(
             request: .init(
                 year: 1000000,
                 kind: .nonDeductible,
@@ -5041,7 +5041,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func changeARecordedTaxAdjustment1() async throws -> Void {
+    @Test func taxAdjustmentsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5062,7 +5062,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxAdjustmentsUpdateResponse(
+        let expectedResponse = TaxAdjustmentsUpdateDeclarationsResponse(
             id: "id",
             year: 1000000,
             kind: .nonDeductible,
@@ -5070,14 +5070,14 @@ import Api
             amount: "amount",
             description: "description"
         )
-        let response = try await client.declarations.changeARecordedTaxAdjustment(
+        let response = try await client.declarations.taxAdjustmentsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func changeARecordedTaxAdjustment2() async throws -> Void {
+    @Test func taxAdjustmentsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5098,7 +5098,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxAdjustmentsUpdateResponse(
+        let expectedResponse = TaxAdjustmentsUpdateDeclarationsResponse(
             id: "x",
             year: 1000000,
             kind: .nonDeductible,
@@ -5106,14 +5106,14 @@ import Api
             amount: "amount",
             description: "description"
         )
-        let response = try await client.declarations.changeARecordedTaxAdjustment(
+        let response = try await client.declarations.taxAdjustmentsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func removeARecordedTaxAdjustment1() async throws -> Void {
+    @Test func taxAdjustmentsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5129,17 +5129,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxAdjustmentsDeleteResponse(
+        let expectedResponse = TaxAdjustmentsDeleteDeclarationsResponse(
             id: "id"
         )
-        let response = try await client.declarations.removeARecordedTaxAdjustment(
+        let response = try await client.declarations.taxAdjustmentsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func removeARecordedTaxAdjustment2() async throws -> Void {
+    @Test func taxAdjustmentsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5155,17 +5155,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxAdjustmentsDeleteResponse(
+        let expectedResponse = TaxAdjustmentsDeleteDeclarationsResponse(
             id: "x"
         )
-        let response = try await client.declarations.removeARecordedTaxAdjustment(
+        let response = try await client.declarations.taxAdjustmentsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func paymentsAlreadyMadeTowardsATaxOfAYear1() async throws -> Void {
+    @Test func taxPaymentsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5193,9 +5193,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxPaymentsListResponse(
+        let expectedResponse = TaxPaymentsListDeclarationsResponse(
             rows: [
-                PostV1DeclarationsTaxPaymentsListResponseRowsItem(
+                TaxPaymentsListDeclarationsResponseRowsItem(
                     id: "id",
                     tax: "tax",
                     year: 1000000,
@@ -5208,7 +5208,7 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.paymentsAlreadyMadeTowardsATaxOfAYear(
+        let response = try await client.declarations.taxPaymentsList(
             request: .init(
                 tax: .corporateIncomeTax,
                 year: 1000000
@@ -5218,7 +5218,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func paymentsAlreadyMadeTowardsATaxOfAYear2() async throws -> Void {
+    @Test func taxPaymentsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5257,9 +5257,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxPaymentsListResponse(
+        let expectedResponse = TaxPaymentsListDeclarationsResponse(
             rows: [
-                PostV1DeclarationsTaxPaymentsListResponseRowsItem(
+                TaxPaymentsListDeclarationsResponseRowsItem(
                     id: "x",
                     tax: "tax",
                     year: 1000000,
@@ -5270,7 +5270,7 @@ import Api
                     reference: Nullable<String>.value("reference"),
                     description: "description"
                 ),
-                PostV1DeclarationsTaxPaymentsListResponseRowsItem(
+                TaxPaymentsListDeclarationsResponseRowsItem(
                     id: "x",
                     tax: "tax",
                     year: 1000000,
@@ -5283,7 +5283,7 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.paymentsAlreadyMadeTowardsATaxOfAYear(
+        let response = try await client.declarations.taxPaymentsList(
             request: .init(
                 tax: .corporateIncomeTax,
                 year: 1000000
@@ -5293,7 +5293,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func recordAPaymentMadeTowardsATax1() async throws -> Void {
+    @Test func taxPaymentsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5317,7 +5317,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxPaymentsCreateResponse(
+        let expectedResponse = TaxPaymentsCreateDeclarationsResponse(
             id: "id",
             tax: "tax",
             year: 1000000,
@@ -5328,13 +5328,13 @@ import Api
             reference: Nullable<String>.value("reference"),
             description: "description"
         )
-        let response = try await client.declarations.recordAPaymentMadeTowardsATax(
+        let response = try await client.declarations.taxPaymentsCreate(
             request: .init(
                 tax: .corporateIncomeTax,
                 year: 1000000,
                 kind: .advance,
-                amount: "amount",
-                paidOn: "paidOn",
+                amount: "121.00",
+                paidOn: CalendarDate("2026-07-01")!,
                 description: "description"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -5342,7 +5342,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func recordAPaymentMadeTowardsATax2() async throws -> Void {
+    @Test func taxPaymentsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5366,7 +5366,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxPaymentsCreateResponse(
+        let expectedResponse = TaxPaymentsCreateDeclarationsResponse(
             id: "x",
             tax: "tax",
             year: 1000000,
@@ -5377,13 +5377,13 @@ import Api
             reference: Nullable<String>.value("reference"),
             description: "description"
         )
-        let response = try await client.declarations.recordAPaymentMadeTowardsATax(
+        let response = try await client.declarations.taxPaymentsCreate(
             request: .init(
                 tax: .corporateIncomeTax,
                 year: 1000000,
                 kind: .advance,
                 amount: "amount",
-                paidOn: "paidOn",
+                paidOn: CalendarDate("2023-01-15")!,
                 description: "x"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -5391,7 +5391,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func changeARecordedTaxPayment1() async throws -> Void {
+    @Test func taxPaymentsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5415,7 +5415,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxPaymentsUpdateResponse(
+        let expectedResponse = TaxPaymentsUpdateDeclarationsResponse(
             id: "id",
             tax: "tax",
             year: 1000000,
@@ -5426,14 +5426,14 @@ import Api
             reference: Nullable<String>.value("reference"),
             description: "description"
         )
-        let response = try await client.declarations.changeARecordedTaxPayment(
+        let response = try await client.declarations.taxPaymentsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func changeARecordedTaxPayment2() async throws -> Void {
+    @Test func taxPaymentsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5457,7 +5457,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxPaymentsUpdateResponse(
+        let expectedResponse = TaxPaymentsUpdateDeclarationsResponse(
             id: "x",
             tax: "tax",
             year: 1000000,
@@ -5468,14 +5468,14 @@ import Api
             reference: Nullable<String>.value("reference"),
             description: "description"
         )
-        let response = try await client.declarations.changeARecordedTaxPayment(
+        let response = try await client.declarations.taxPaymentsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func removeARecordedTaxPayment1() async throws -> Void {
+    @Test func taxPaymentsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5491,17 +5491,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxPaymentsDeleteResponse(
+        let expectedResponse = TaxPaymentsDeleteDeclarationsResponse(
             id: "id"
         )
-        let response = try await client.declarations.removeARecordedTaxPayment(
+        let response = try await client.declarations.taxPaymentsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func removeARecordedTaxPayment2() async throws -> Void {
+    @Test func taxPaymentsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5517,17 +5517,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsTaxPaymentsDeleteResponse(
+        let expectedResponse = TaxPaymentsDeleteDeclarationsResponse(
             id: "x"
         )
-        let response = try await client.declarations.removeARecordedTaxPayment(
+        let response = try await client.declarations.taxPaymentsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func adoptionAndSigningFactsOfTheAnnualAccountsOfAYear1() async throws -> Void {
+    @Test func annualAccountsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5537,7 +5537,7 @@ import Api
                     "id": "id",
                     "year": 1000000,
                     "adopted": true,
-                    "adoptionDate": "adoptionDate",
+                    "adoptionDate": "2026-07-01",
                     "dateOfPreparation": "dateOfPreparation",
                     "audited": true,
                     "auditReportQualified": true,
@@ -5545,7 +5545,7 @@ import Api
                     "notesText": "notesText",
                     "managementReportText": "managementReportText",
                     "auditorReportText": "auditorReportText",
-                    "auditorReportDate": "auditorReportDate",
+                    "auditorReportDate": "2026-07-01",
                     "resultToReserves": "resultToReserves",
                     "resultToLossCompensation": "resultToLossCompensation",
                     "resultToRemainder": "resultToRemainder",
@@ -5556,7 +5556,7 @@ import Api
                         "directorType": "managing_current",
                         "signed": true,
                         "signedOn": null,
-                        "signedAt": null,
+                        "signedAt": "2026-07-01T09:30:00Z",
                         "reasonNotSigned": null
                       }
                     ],
@@ -5591,12 +5591,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsGetResponse(
-            approval: Nullable<PostV1DeclarationsAnnualAccountsGetResponseApproval>.value(PostV1DeclarationsAnnualAccountsGetResponseApproval(
+        let expectedResponse = AnnualAccountsGetDeclarationsResponse(
+            approval: Nullable<AnnualAccountsGetDeclarationsResponseApproval>.value(AnnualAccountsGetDeclarationsResponseApproval(
                 id: "id",
                 year: 1000000,
                 adopted: true,
-                adoptionDate: Nullable<String>.value("adoptionDate"),
+                adoptionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                 dateOfPreparation: "dateOfPreparation",
                 audited: true,
                 auditReportQualified: Nullable<Bool>.value(true),
@@ -5604,23 +5604,23 @@ import Api
                 notesText: Nullable<String>.value("notesText"),
                 managementReportText: Nullable<String>.value("managementReportText"),
                 auditorReportText: Nullable<String>.value("auditorReportText"),
-                auditorReportDate: Nullable<String>.value("auditorReportDate"),
+                auditorReportDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                 resultToReserves: Nullable<String>.value("resultToReserves"),
                 resultToLossCompensation: Nullable<String>.value("resultToLossCompensation"),
                 resultToRemainder: Nullable<String>.value("resultToRemainder"),
                 signatures: [
-                    PostV1DeclarationsAnnualAccountsGetResponseApprovalSignaturesItem(
+                    AnnualAccountsGetDeclarationsResponseApprovalSignaturesItem(
                         id: "id",
                         directorName: "directorName",
                         directorType: .managingCurrent,
                         signed: true,
                         signedOn: .null,
-                        signedAt: .null,
+                        signedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                         reasonNotSigned: .null
                     )
                 ],
                 distributions: [
-                    PostV1DeclarationsAnnualAccountsGetResponseApprovalDistributionsItem(
+                    AnnualAccountsGetDeclarationsResponseApprovalDistributionsItem(
                         id: "id",
                         decidedOn: "decidedOn",
                         kind: .dividend,
@@ -5629,7 +5629,7 @@ import Api
                     )
                 ],
                 attachments: [
-                    PostV1DeclarationsAnnualAccountsGetResponseApprovalAttachmentsItem(
+                    AnnualAccountsGetDeclarationsResponseApprovalAttachmentsItem(
                         id: "id",
                         kind: .fullReport,
                         name: "name",
@@ -5642,14 +5642,14 @@ import Api
                 ]
             ))
         )
-        let response = try await client.declarations.adoptionAndSigningFactsOfTheAnnualAccountsOfAYear(
+        let response = try await client.declarations.annualAccountsGet(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func adoptionAndSigningFactsOfTheAnnualAccountsOfAYear2() async throws -> Void {
+    @Test func annualAccountsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5659,7 +5659,7 @@ import Api
                     "id": "x",
                     "year": 1000000,
                     "adopted": true,
-                    "adoptionDate": "adoptionDate",
+                    "adoptionDate": "2023-01-15",
                     "dateOfPreparation": "dateOfPreparation",
                     "audited": true,
                     "auditReportQualified": true,
@@ -5667,7 +5667,7 @@ import Api
                     "notesText": "notesText",
                     "managementReportText": "managementReportText",
                     "auditorReportText": "auditorReportText",
-                    "auditorReportDate": "auditorReportDate",
+                    "auditorReportDate": "2023-01-15",
                     "resultToReserves": "resultToReserves",
                     "resultToLossCompensation": "resultToLossCompensation",
                     "resultToRemainder": "resultToRemainder",
@@ -5678,7 +5678,7 @@ import Api
                         "directorType": "managing_current",
                         "signed": true,
                         "signedOn": "signedOn",
-                        "signedAt": "signedAt",
+                        "signedAt": "2024-01-15T09:30:00Z",
                         "reasonNotSigned": "reasonNotSigned"
                       },
                       {
@@ -5687,7 +5687,7 @@ import Api
                         "directorType": "managing_current",
                         "signed": true,
                         "signedOn": "signedOn",
-                        "signedAt": "signedAt",
+                        "signedAt": "2024-01-15T09:30:00Z",
                         "reasonNotSigned": "reasonNotSigned"
                       }
                     ],
@@ -5739,12 +5739,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsGetResponse(
-            approval: Nullable<PostV1DeclarationsAnnualAccountsGetResponseApproval>.value(PostV1DeclarationsAnnualAccountsGetResponseApproval(
+        let expectedResponse = AnnualAccountsGetDeclarationsResponse(
+            approval: Nullable<AnnualAccountsGetDeclarationsResponseApproval>.value(AnnualAccountsGetDeclarationsResponseApproval(
                 id: "x",
                 year: 1000000,
                 adopted: true,
-                adoptionDate: Nullable<String>.value("adoptionDate"),
+                adoptionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                 dateOfPreparation: "dateOfPreparation",
                 audited: true,
                 auditReportQualified: Nullable<Bool>.value(true),
@@ -5752,39 +5752,39 @@ import Api
                 notesText: Nullable<String>.value("notesText"),
                 managementReportText: Nullable<String>.value("managementReportText"),
                 auditorReportText: Nullable<String>.value("auditorReportText"),
-                auditorReportDate: Nullable<String>.value("auditorReportDate"),
+                auditorReportDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                 resultToReserves: Nullable<String>.value("resultToReserves"),
                 resultToLossCompensation: Nullable<String>.value("resultToLossCompensation"),
                 resultToRemainder: Nullable<String>.value("resultToRemainder"),
                 signatures: [
-                    PostV1DeclarationsAnnualAccountsGetResponseApprovalSignaturesItem(
+                    AnnualAccountsGetDeclarationsResponseApprovalSignaturesItem(
                         id: "x",
                         directorName: "directorName",
                         directorType: .managingCurrent,
                         signed: true,
                         signedOn: Nullable<String>.value("signedOn"),
-                        signedAt: Nullable<String>.value("signedAt"),
+                        signedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                         reasonNotSigned: Nullable<String>.value("reasonNotSigned")
                     ),
-                    PostV1DeclarationsAnnualAccountsGetResponseApprovalSignaturesItem(
+                    AnnualAccountsGetDeclarationsResponseApprovalSignaturesItem(
                         id: "x",
                         directorName: "directorName",
                         directorType: .managingCurrent,
                         signed: true,
                         signedOn: Nullable<String>.value("signedOn"),
-                        signedAt: Nullable<String>.value("signedAt"),
+                        signedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                         reasonNotSigned: Nullable<String>.value("reasonNotSigned")
                     )
                 ],
                 distributions: [
-                    PostV1DeclarationsAnnualAccountsGetResponseApprovalDistributionsItem(
+                    AnnualAccountsGetDeclarationsResponseApprovalDistributionsItem(
                         id: "x",
                         decidedOn: "decidedOn",
                         kind: .dividend,
                         amount: "amount",
                         description: Nullable<String>.value("description")
                     ),
-                    PostV1DeclarationsAnnualAccountsGetResponseApprovalDistributionsItem(
+                    AnnualAccountsGetDeclarationsResponseApprovalDistributionsItem(
                         id: "x",
                         decidedOn: "decidedOn",
                         kind: .dividend,
@@ -5793,7 +5793,7 @@ import Api
                     )
                 ],
                 attachments: [
-                    PostV1DeclarationsAnnualAccountsGetResponseApprovalAttachmentsItem(
+                    AnnualAccountsGetDeclarationsResponseApprovalAttachmentsItem(
                         id: "x",
                         kind: .fullReport,
                         name: "name",
@@ -5803,7 +5803,7 @@ import Api
                         sizeBytes: 1000000,
                         storageKey: "storageKey"
                     ),
-                    PostV1DeclarationsAnnualAccountsGetResponseApprovalAttachmentsItem(
+                    AnnualAccountsGetDeclarationsResponseApprovalAttachmentsItem(
                         id: "x",
                         kind: .fullReport,
                         name: "name",
@@ -5816,14 +5816,14 @@ import Api
                 ]
             ))
         )
-        let response = try await client.declarations.adoptionAndSigningFactsOfTheAnnualAccountsOfAYear(
+        let response = try await client.declarations.annualAccountsGet(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func recordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYear1() async throws -> Void {
+    @Test func annualAccountsSet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5832,7 +5832,7 @@ import Api
                   "id": "id",
                   "year": 1000000,
                   "adopted": true,
-                  "adoptionDate": "adoptionDate",
+                  "adoptionDate": "2026-07-01",
                   "dateOfPreparation": "dateOfPreparation",
                   "audited": true,
                   "auditReportQualified": true,
@@ -5840,7 +5840,7 @@ import Api
                   "notesText": "notesText",
                   "managementReportText": "managementReportText",
                   "auditorReportText": "auditorReportText",
-                  "auditorReportDate": "auditorReportDate",
+                  "auditorReportDate": "2026-07-01",
                   "resultToReserves": "resultToReserves",
                   "resultToLossCompensation": "resultToLossCompensation",
                   "resultToRemainder": "resultToRemainder",
@@ -5851,7 +5851,7 @@ import Api
                       "directorType": "managing_current",
                       "signed": true,
                       "signedOn": "signedOn",
-                      "signedAt": "signedAt",
+                      "signedAt": "2026-07-01T09:30:00Z",
                       "reasonNotSigned": "reasonNotSigned"
                     }
                   ],
@@ -5885,11 +5885,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsSetResponse(
+        let expectedResponse = AnnualAccountsSetDeclarationsResponse(
             id: "id",
             year: 1000000,
             adopted: true,
-            adoptionDate: Nullable<String>.value("adoptionDate"),
+            adoptionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             dateOfPreparation: "dateOfPreparation",
             audited: true,
             auditReportQualified: Nullable<Bool>.value(true),
@@ -5897,23 +5897,23 @@ import Api
             notesText: Nullable<String>.value("notesText"),
             managementReportText: Nullable<String>.value("managementReportText"),
             auditorReportText: Nullable<String>.value("auditorReportText"),
-            auditorReportDate: Nullable<String>.value("auditorReportDate"),
+            auditorReportDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             resultToReserves: Nullable<String>.value("resultToReserves"),
             resultToLossCompensation: Nullable<String>.value("resultToLossCompensation"),
             resultToRemainder: Nullable<String>.value("resultToRemainder"),
             signatures: [
-                PostV1DeclarationsAnnualAccountsSetResponseSignaturesItem(
+                AnnualAccountsSetDeclarationsResponseSignaturesItem(
                     id: "id",
                     directorName: "directorName",
                     directorType: .managingCurrent,
                     signed: true,
                     signedOn: Nullable<String>.value("signedOn"),
-                    signedAt: Nullable<String>.value("signedAt"),
+                    signedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     reasonNotSigned: Nullable<String>.value("reasonNotSigned")
                 )
             ],
             distributions: [
-                PostV1DeclarationsAnnualAccountsSetResponseDistributionsItem(
+                AnnualAccountsSetDeclarationsResponseDistributionsItem(
                     id: "id",
                     decidedOn: "decidedOn",
                     kind: .dividend,
@@ -5922,7 +5922,7 @@ import Api
                 )
             ],
             attachments: [
-                PostV1DeclarationsAnnualAccountsSetResponseAttachmentsItem(
+                AnnualAccountsSetDeclarationsResponseAttachmentsItem(
                     id: "id",
                     kind: .fullReport,
                     name: "name",
@@ -5934,18 +5934,18 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.recordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYear(
+        let response = try await client.declarations.annualAccountsSet(
             request: .init(
                 year: 1000000,
                 adopted: true,
-                dateOfPreparation: "dateOfPreparation"
+                dateOfPreparation: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func recordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYear2() async throws -> Void {
+    @Test func annualAccountsSet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -5954,7 +5954,7 @@ import Api
                   "id": "x",
                   "year": 1000000,
                   "adopted": true,
-                  "adoptionDate": "adoptionDate",
+                  "adoptionDate": "2023-01-15",
                   "dateOfPreparation": "dateOfPreparation",
                   "audited": true,
                   "auditReportQualified": true,
@@ -5962,7 +5962,7 @@ import Api
                   "notesText": "notesText",
                   "managementReportText": "managementReportText",
                   "auditorReportText": "auditorReportText",
-                  "auditorReportDate": "auditorReportDate",
+                  "auditorReportDate": "2023-01-15",
                   "resultToReserves": "resultToReserves",
                   "resultToLossCompensation": "resultToLossCompensation",
                   "resultToRemainder": "resultToRemainder",
@@ -5973,7 +5973,7 @@ import Api
                       "directorType": "managing_current",
                       "signed": true,
                       "signedOn": "signedOn",
-                      "signedAt": "signedAt",
+                      "signedAt": "2024-01-15T09:30:00Z",
                       "reasonNotSigned": "reasonNotSigned"
                     },
                     {
@@ -5982,7 +5982,7 @@ import Api
                       "directorType": "managing_current",
                       "signed": true,
                       "signedOn": "signedOn",
-                      "signedAt": "signedAt",
+                      "signedAt": "2024-01-15T09:30:00Z",
                       "reasonNotSigned": "reasonNotSigned"
                     }
                   ],
@@ -6033,11 +6033,11 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsSetResponse(
+        let expectedResponse = AnnualAccountsSetDeclarationsResponse(
             id: "x",
             year: 1000000,
             adopted: true,
-            adoptionDate: Nullable<String>.value("adoptionDate"),
+            adoptionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             dateOfPreparation: "dateOfPreparation",
             audited: true,
             auditReportQualified: Nullable<Bool>.value(true),
@@ -6045,39 +6045,39 @@ import Api
             notesText: Nullable<String>.value("notesText"),
             managementReportText: Nullable<String>.value("managementReportText"),
             auditorReportText: Nullable<String>.value("auditorReportText"),
-            auditorReportDate: Nullable<String>.value("auditorReportDate"),
+            auditorReportDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             resultToReserves: Nullable<String>.value("resultToReserves"),
             resultToLossCompensation: Nullable<String>.value("resultToLossCompensation"),
             resultToRemainder: Nullable<String>.value("resultToRemainder"),
             signatures: [
-                PostV1DeclarationsAnnualAccountsSetResponseSignaturesItem(
+                AnnualAccountsSetDeclarationsResponseSignaturesItem(
                     id: "x",
                     directorName: "directorName",
                     directorType: .managingCurrent,
                     signed: true,
                     signedOn: Nullable<String>.value("signedOn"),
-                    signedAt: Nullable<String>.value("signedAt"),
+                    signedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     reasonNotSigned: Nullable<String>.value("reasonNotSigned")
                 ),
-                PostV1DeclarationsAnnualAccountsSetResponseSignaturesItem(
+                AnnualAccountsSetDeclarationsResponseSignaturesItem(
                     id: "x",
                     directorName: "directorName",
                     directorType: .managingCurrent,
                     signed: true,
                     signedOn: Nullable<String>.value("signedOn"),
-                    signedAt: Nullable<String>.value("signedAt"),
+                    signedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     reasonNotSigned: Nullable<String>.value("reasonNotSigned")
                 )
             ],
             distributions: [
-                PostV1DeclarationsAnnualAccountsSetResponseDistributionsItem(
+                AnnualAccountsSetDeclarationsResponseDistributionsItem(
                     id: "x",
                     decidedOn: "decidedOn",
                     kind: .dividend,
                     amount: "amount",
                     description: Nullable<String>.value("description")
                 ),
-                PostV1DeclarationsAnnualAccountsSetResponseDistributionsItem(
+                AnnualAccountsSetDeclarationsResponseDistributionsItem(
                     id: "x",
                     decidedOn: "decidedOn",
                     kind: .dividend,
@@ -6086,7 +6086,7 @@ import Api
                 )
             ],
             attachments: [
-                PostV1DeclarationsAnnualAccountsSetResponseAttachmentsItem(
+                AnnualAccountsSetDeclarationsResponseAttachmentsItem(
                     id: "x",
                     kind: .fullReport,
                     name: "name",
@@ -6096,7 +6096,7 @@ import Api
                     sizeBytes: 1000000,
                     storageKey: "storageKey"
                 ),
-                PostV1DeclarationsAnnualAccountsSetResponseAttachmentsItem(
+                AnnualAccountsSetDeclarationsResponseAttachmentsItem(
                     id: "x",
                     kind: .fullReport,
                     name: "name",
@@ -6108,18 +6108,18 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.recordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYear(
+        let response = try await client.declarations.annualAccountsSet(
             request: .init(
                 year: 1000000,
                 adopted: true,
-                dateOfPreparation: "dateOfPreparation"
+                dateOfPreparation: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func recordWhetherADirectorSignedTheAnnualAccountsOfAYear1() async throws -> Void {
+    @Test func annualAccountsSignaturesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6130,7 +6130,7 @@ import Api
                   "directorType": "managing_current",
                   "signed": true,
                   "signedOn": "signedOn",
-                  "signedAt": "signedAt",
+                  "signedAt": "2026-07-01T09:30:00Z",
                   "reasonNotSigned": "reasonNotSigned"
                 }
                 """#.utf8
@@ -6141,16 +6141,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsSignaturesCreateResponse(
+        let expectedResponse = AnnualAccountsSignaturesCreateDeclarationsResponse(
             id: "id",
             directorName: "directorName",
             directorType: .managingCurrent,
             signed: true,
             signedOn: Nullable<String>.value("signedOn"),
-            signedAt: Nullable<String>.value("signedAt"),
+            signedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             reasonNotSigned: Nullable<String>.value("reasonNotSigned")
         )
-        let response = try await client.declarations.recordWhetherADirectorSignedTheAnnualAccountsOfAYear(
+        let response = try await client.declarations.annualAccountsSignaturesCreate(
             request: .init(
                 year: 1000000,
                 directorName: "directorName",
@@ -6162,7 +6162,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func recordWhetherADirectorSignedTheAnnualAccountsOfAYear2() async throws -> Void {
+    @Test func annualAccountsSignaturesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6173,7 +6173,7 @@ import Api
                   "directorType": "managing_current",
                   "signed": true,
                   "signedOn": "signedOn",
-                  "signedAt": "signedAt",
+                  "signedAt": "2024-01-15T09:30:00Z",
                   "reasonNotSigned": "reasonNotSigned"
                 }
                 """#.utf8
@@ -6184,16 +6184,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsSignaturesCreateResponse(
+        let expectedResponse = AnnualAccountsSignaturesCreateDeclarationsResponse(
             id: "x",
             directorName: "directorName",
             directorType: .managingCurrent,
             signed: true,
             signedOn: Nullable<String>.value("signedOn"),
-            signedAt: Nullable<String>.value("signedAt"),
+            signedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             reasonNotSigned: Nullable<String>.value("reasonNotSigned")
         )
-        let response = try await client.declarations.recordWhetherADirectorSignedTheAnnualAccountsOfAYear(
+        let response = try await client.declarations.annualAccountsSignaturesCreate(
             request: .init(
                 year: 1000000,
                 directorName: "x",
@@ -6205,7 +6205,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func changeARecordedDirectorSignature1() async throws -> Void {
+    @Test func annualAccountsSignaturesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6216,7 +6216,7 @@ import Api
                   "directorType": "managing_current",
                   "signed": true,
                   "signedOn": "signedOn",
-                  "signedAt": "signedAt",
+                  "signedAt": "2026-07-01T09:30:00Z",
                   "reasonNotSigned": "reasonNotSigned"
                 }
                 """#.utf8
@@ -6227,16 +6227,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsSignaturesUpdateResponse(
+        let expectedResponse = AnnualAccountsSignaturesUpdateDeclarationsResponse(
             id: "id",
             directorName: "directorName",
             directorType: .managingCurrent,
             signed: true,
             signedOn: Nullable<String>.value("signedOn"),
-            signedAt: Nullable<String>.value("signedAt"),
+            signedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             reasonNotSigned: Nullable<String>.value("reasonNotSigned")
         )
-        let response = try await client.declarations.changeARecordedDirectorSignature(
+        let response = try await client.declarations.annualAccountsSignaturesUpdate(
             request: .init(
                 id: "id",
                 directorName: "directorName",
@@ -6248,7 +6248,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func changeARecordedDirectorSignature2() async throws -> Void {
+    @Test func annualAccountsSignaturesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6259,7 +6259,7 @@ import Api
                   "directorType": "managing_current",
                   "signed": true,
                   "signedOn": "signedOn",
-                  "signedAt": "signedAt",
+                  "signedAt": "2024-01-15T09:30:00Z",
                   "reasonNotSigned": "reasonNotSigned"
                 }
                 """#.utf8
@@ -6270,16 +6270,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsSignaturesUpdateResponse(
+        let expectedResponse = AnnualAccountsSignaturesUpdateDeclarationsResponse(
             id: "x",
             directorName: "directorName",
             directorType: .managingCurrent,
             signed: true,
             signedOn: Nullable<String>.value("signedOn"),
-            signedAt: Nullable<String>.value("signedAt"),
+            signedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             reasonNotSigned: Nullable<String>.value("reasonNotSigned")
         )
-        let response = try await client.declarations.changeARecordedDirectorSignature(
+        let response = try await client.declarations.annualAccountsSignaturesUpdate(
             request: .init(
                 id: "x",
                 directorName: "x",
@@ -6291,7 +6291,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func removeARecordedDirectorSignature1() async throws -> Void {
+    @Test func annualAccountsSignaturesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6307,17 +6307,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsSignaturesDeleteResponse(
+        let expectedResponse = AnnualAccountsSignaturesDeleteDeclarationsResponse(
             id: "id"
         )
-        let response = try await client.declarations.removeARecordedDirectorSignature(
+        let response = try await client.declarations.annualAccountsSignaturesDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func removeARecordedDirectorSignature2() async throws -> Void {
+    @Test func annualAccountsSignaturesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6333,17 +6333,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsSignaturesDeleteResponse(
+        let expectedResponse = AnnualAccountsSignaturesDeleteDeclarationsResponse(
             id: "x"
         )
-        let response = try await client.declarations.removeARecordedDirectorSignature(
+        let response = try await client.declarations.annualAccountsSignaturesDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func recordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOne1() async throws -> Void {
+    @Test func annualAccountsDistributionsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6363,26 +6363,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsDistributionsCreateResponse(
+        let expectedResponse = AnnualAccountsDistributionsCreateDeclarationsResponse(
             id: "id",
             decidedOn: "decidedOn",
             kind: .dividend,
             amount: "amount",
             description: Nullable<String>.value("description")
         )
-        let response = try await client.declarations.recordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOne(
+        let response = try await client.declarations.annualAccountsDistributionsCreate(
             request: .init(
                 year: 1000000,
-                decidedOn: "decidedOn",
+                decidedOn: CalendarDate("2026-07-01")!,
                 kind: .dividend,
-                amount: "amount"
+                amount: "121.00"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func recordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOne2() async throws -> Void {
+    @Test func annualAccountsDistributionsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6402,17 +6402,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsDistributionsCreateResponse(
+        let expectedResponse = AnnualAccountsDistributionsCreateDeclarationsResponse(
             id: "x",
             decidedOn: "decidedOn",
             kind: .dividend,
             amount: "amount",
             description: Nullable<String>.value("description")
         )
-        let response = try await client.declarations.recordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOne(
+        let response = try await client.declarations.annualAccountsDistributionsCreate(
             request: .init(
                 year: 1000000,
-                decidedOn: "decidedOn",
+                decidedOn: CalendarDate("2023-01-15")!,
                 kind: .dividend,
                 amount: "amount"
             ),
@@ -6421,7 +6421,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func changeARecordedProfitDistribution1() async throws -> Void {
+    @Test func annualAccountsDistributionsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6441,26 +6441,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsDistributionsUpdateResponse(
+        let expectedResponse = AnnualAccountsDistributionsUpdateDeclarationsResponse(
             id: "id",
             decidedOn: "decidedOn",
             kind: .dividend,
             amount: "amount",
             description: Nullable<String>.value("description")
         )
-        let response = try await client.declarations.changeARecordedProfitDistribution(
+        let response = try await client.declarations.annualAccountsDistributionsUpdate(
             request: .init(
                 id: "id",
-                decidedOn: "decidedOn",
+                decidedOn: CalendarDate("2026-07-01")!,
                 kind: .dividend,
-                amount: "amount"
+                amount: "121.00"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func changeARecordedProfitDistribution2() async throws -> Void {
+    @Test func annualAccountsDistributionsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6480,17 +6480,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsDistributionsUpdateResponse(
+        let expectedResponse = AnnualAccountsDistributionsUpdateDeclarationsResponse(
             id: "x",
             decidedOn: "decidedOn",
             kind: .dividend,
             amount: "amount",
             description: Nullable<String>.value("description")
         )
-        let response = try await client.declarations.changeARecordedProfitDistribution(
+        let response = try await client.declarations.annualAccountsDistributionsUpdate(
             request: .init(
                 id: "x",
-                decidedOn: "decidedOn",
+                decidedOn: CalendarDate("2023-01-15")!,
                 kind: .dividend,
                 amount: "amount"
             ),
@@ -6499,7 +6499,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func removeARecordedProfitDistribution1() async throws -> Void {
+    @Test func annualAccountsDistributionsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6515,17 +6515,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsDistributionsDeleteResponse(
+        let expectedResponse = AnnualAccountsDistributionsDeleteDeclarationsResponse(
             id: "id"
         )
-        let response = try await client.declarations.removeARecordedProfitDistribution(
+        let response = try await client.declarations.annualAccountsDistributionsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func removeARecordedProfitDistribution2() async throws -> Void {
+    @Test func annualAccountsDistributionsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6541,17 +6541,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsDistributionsDeleteResponse(
+        let expectedResponse = AnnualAccountsDistributionsDeleteDeclarationsResponse(
             id: "x"
         )
-        let response = try await client.declarations.removeARecordedProfitDistribution(
+        let response = try await client.declarations.annualAccountsDistributionsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func attachAnUploadedDocumentToTheAnnualAccountsOfAYear1() async throws -> Void {
+    @Test func annualAccountsAttachmentsAdd1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6574,7 +6574,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsAttachmentsAddResponse(
+        let expectedResponse = AnnualAccountsAttachmentsAddDeclarationsResponse(
             id: "id",
             kind: .fullReport,
             name: "name",
@@ -6584,7 +6584,7 @@ import Api
             sizeBytes: 1000000,
             storageKey: "storageKey"
         )
-        let response = try await client.declarations.attachAnUploadedDocumentToTheAnnualAccountsOfAYear(
+        let response = try await client.declarations.annualAccountsAttachmentsAdd(
             request: .init(
                 year: 1000000,
                 kind: .fullReport,
@@ -6595,7 +6595,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func attachAnUploadedDocumentToTheAnnualAccountsOfAYear2() async throws -> Void {
+    @Test func annualAccountsAttachmentsAdd2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6618,7 +6618,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsAttachmentsAddResponse(
+        let expectedResponse = AnnualAccountsAttachmentsAddDeclarationsResponse(
             id: "x",
             kind: .fullReport,
             name: "name",
@@ -6628,7 +6628,7 @@ import Api
             sizeBytes: 1000000,
             storageKey: "storageKey"
         )
-        let response = try await client.declarations.attachAnUploadedDocumentToTheAnnualAccountsOfAYear(
+        let response = try await client.declarations.annualAccountsAttachmentsAdd(
             request: .init(
                 year: 1000000,
                 kind: .fullReport,
@@ -6639,7 +6639,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func removeADocumentAttachedToTheAnnualAccountsAndDeleteItsFile1() async throws -> Void {
+    @Test func annualAccountsAttachmentsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6655,17 +6655,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsAttachmentsDeleteResponse(
+        let expectedResponse = AnnualAccountsAttachmentsDeleteDeclarationsResponse(
             id: "id"
         )
-        let response = try await client.declarations.removeADocumentAttachedToTheAnnualAccountsAndDeleteItsFile(
+        let response = try await client.declarations.annualAccountsAttachmentsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func removeADocumentAttachedToTheAnnualAccountsAndDeleteItsFile2() async throws -> Void {
+    @Test func annualAccountsAttachmentsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6681,17 +6681,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAnnualAccountsAttachmentsDeleteResponse(
+        let expectedResponse = AnnualAccountsAttachmentsDeleteDeclarationsResponse(
             id: "x"
         )
-        let response = try await client.declarations.removeADocumentAttachedToTheAnnualAccountsAndDeleteItsFile(
+        let response = try await client.declarations.annualAccountsAttachmentsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsCyTd4Generate1() async throws -> Void {
+    @Test func cyTd4Generate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6726,7 +6726,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsCyTd4GenerateResponse(
+        let expectedResponse = CyTd4GenerateDeclarationsResponse(
             year: 1000000,
             periodStart: "periodStart",
             periodEnd: "periodEnd",
@@ -6734,7 +6734,7 @@ import Api
             fileName: "fileName",
             xml: "xml",
             fields: [
-                PostV1DeclarationsCyTd4GenerateResponseFieldsItem(
+                CyTd4GenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
@@ -6748,14 +6748,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsCyTd4Generate(
+        let response = try await client.declarations.cyTd4Generate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsCyTd4Generate2() async throws -> Void {
+    @Test func cyTd4Generate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6797,7 +6797,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsCyTd4GenerateResponse(
+        let expectedResponse = CyTd4GenerateDeclarationsResponse(
             year: 1000000,
             periodStart: "periodStart",
             periodEnd: "periodEnd",
@@ -6805,12 +6805,12 @@ import Api
             fileName: "fileName",
             xml: "xml",
             fields: [
-                PostV1DeclarationsCyTd4GenerateResponseFieldsItem(
+                CyTd4GenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 ),
-                PostV1DeclarationsCyTd4GenerateResponseFieldsItem(
+                CyTd4GenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
@@ -6826,14 +6826,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsCyTd4Generate(
+        let response = try await client.declarations.cyTd4Generate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsCyHe32Generate1() async throws -> Void {
+    @Test func cyHe32Generate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -6887,7 +6887,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsCyHe32GenerateResponse(
+        let expectedResponse = CyHe32GenerateDeclarationsResponse(
             year: 1000000,
             madeUpTo: "madeUpTo",
             registrarNumber: "registrarNumber",
@@ -6898,14 +6898,14 @@ import Api
             pdf: "pdf",
             formSource: "formSource",
             fields: [
-                PostV1DeclarationsCyHe32GenerateResponseFieldsItem(
+                CyHe32GenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 )
             ],
             members: [
-                PostV1DeclarationsCyHe32GenerateResponseMembersItem(
+                CyHe32GenerateDeclarationsResponseMembersItem(
                     name: "name",
                     identifier: "identifier",
                     shares: "shares",
@@ -6914,7 +6914,7 @@ import Api
                 )
             ],
             officers: [
-                PostV1DeclarationsCyHe32GenerateResponseOfficersItem(
+                CyHe32GenerateDeclarationsResponseOfficersItem(
                     position: "position",
                     name: "name",
                     identifier: Nullable<String>.value("identifier")
@@ -6928,14 +6928,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsCyHe32Generate(
+        let response = try await client.declarations.cyHe32Generate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsCyHe32Generate2() async throws -> Void {
+    @Test func cyHe32Generate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -7008,7 +7008,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsCyHe32GenerateResponse(
+        let expectedResponse = CyHe32GenerateDeclarationsResponse(
             year: 1000000,
             madeUpTo: "madeUpTo",
             registrarNumber: "registrarNumber",
@@ -7019,26 +7019,26 @@ import Api
             pdf: "pdf",
             formSource: "formSource",
             fields: [
-                PostV1DeclarationsCyHe32GenerateResponseFieldsItem(
+                CyHe32GenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 ),
-                PostV1DeclarationsCyHe32GenerateResponseFieldsItem(
+                CyHe32GenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 )
             ],
             members: [
-                PostV1DeclarationsCyHe32GenerateResponseMembersItem(
+                CyHe32GenerateDeclarationsResponseMembersItem(
                     name: "name",
                     identifier: "identifier",
                     shares: "shares",
                     nominalValue: "nominalValue",
                     shareClass: "shareClass"
                 ),
-                PostV1DeclarationsCyHe32GenerateResponseMembersItem(
+                CyHe32GenerateDeclarationsResponseMembersItem(
                     name: "name",
                     identifier: "identifier",
                     shares: "shares",
@@ -7047,12 +7047,12 @@ import Api
                 )
             ],
             officers: [
-                PostV1DeclarationsCyHe32GenerateResponseOfficersItem(
+                CyHe32GenerateDeclarationsResponseOfficersItem(
                     position: "position",
                     name: "name",
                     identifier: Nullable<String>.value("identifier")
                 ),
-                PostV1DeclarationsCyHe32GenerateResponseOfficersItem(
+                CyHe32GenerateDeclarationsResponseOfficersItem(
                     position: "position",
                     name: "name",
                     identifier: Nullable<String>.value("identifier")
@@ -7068,14 +7068,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsCyHe32Generate(
+        let response = try await client.declarations.cyHe32Generate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsDeReturnsGenerate1() async throws -> Void {
+    @Test func deReturnsGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -7099,7 +7099,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsDeReturnsGenerateResponse(
+        let expectedResponse = DeReturnsGenerateDeclarationsResponse(
             ruleKey: "ruleKey",
             period: "period",
             fileName: "fileName",
@@ -7110,7 +7110,7 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsDeReturnsGenerate(
+        let response = try await client.declarations.deReturnsGenerate(
             request: .init(
                 ruleKey: .deEBilanz,
                 period: "period"
@@ -7120,7 +7120,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsDeReturnsGenerate2() async throws -> Void {
+    @Test func deReturnsGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -7145,7 +7145,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsDeReturnsGenerateResponse(
+        let expectedResponse = DeReturnsGenerateDeclarationsResponse(
             ruleKey: "ruleKey",
             period: "period",
             fileName: "fileName",
@@ -7157,7 +7157,7 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsDeReturnsGenerate(
+        let response = try await client.declarations.deReturnsGenerate(
             request: .init(
                 ruleKey: .deEBilanz,
                 period: "buzz"
@@ -7167,7 +7167,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsDeReturnFactsGet1() async throws -> Void {
+    @Test func deReturnFactsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -7182,36 +7182,36 @@ import Api
                     "contracts": [
                       {
                         "kind": "kind",
-                        "date": "date",
+                        "date": "2026-07-01",
                         "partner": "partner",
-                        "amount": "amount"
+                        "amount": "-121.00"
                       }
                     ],
                     "harmfulShareAcquisition": true,
-                    "coronaAid": "coronaAid",
-                    "lossCarryback": "lossCarryback",
-                    "donationCarryforward": "donationCarryforward",
-                    "contributionAccountOpening": "contributionAccountOpening",
+                    "coronaAid": "-121.00",
+                    "lossCarryback": "-121.00",
+                    "donationCarryforward": "-121.00",
+                    "contributionAccountOpening": "-121.00",
                     "contributions": [
                       {
                         "name": "name",
-                        "date": "date",
+                        "date": "2026-07-01",
                         "kind": "cash",
-                        "amount": "amount"
+                        "amount": "-121.00"
                       }
                     ],
                     "distributions": [
                       {
-                        "resolutionDate": "resolutionDate",
-                        "paidOn": "paidOn",
-                        "amount": "amount",
-                        "certifiedReduction": "certifiedReduction"
+                        "resolutionDate": "2026-07-01",
+                        "paidOn": "2026-07-01",
+                        "amount": "-121.00",
+                        "certifiedReduction": "-121.00"
                       }
                     ],
-                    "taxBalanceEquity": "taxBalanceEquity",
+                    "taxBalanceEquity": "-121.00",
                     "multipleMunicipalities": true,
                     "relocation": {
-                      "date": "date",
+                      "date": "2026-07-01",
                       "from": "from",
                       "to": "to"
                     },
@@ -7220,35 +7220,35 @@ import Api
                         "name": "name",
                         "postalCode": "postalCode",
                         "ags": "ags",
-                        "hebesatz": "hebesatz",
-                        "wages": "wages"
+                        "hebesatz": "121.00",
+                        "wages": "-121.00"
                       }
                     ],
                     "landHoldings": [
                       {
                         "fileNumber": "fileNumber",
-                        "assessedValue": "assessedValue",
+                        "assessedValue": "-121.00",
                         "category": "rental_east"
                       }
                     ],
-                    "propertyTaxExpense": "propertyTaxExpense",
-                    "licencesToNonResidents": "licencesToNonResidents",
+                    "propertyTaxExpense": "-121.00",
+                    "licencesToNonResidents": "-121.00",
                     "participations": [
                       {
                         "name": "name",
                         "countryCode": "countryCode",
-                        "sharePercent": "sharePercent",
-                        "dividends": "dividends"
+                        "sharePercent": "121.0000",
+                        "dividends": "-121.00"
                       }
                     ],
                     "foreignIncome": [
                       {
                         "countryCode": "countryCode",
                         "kind": "dividends",
-                        "income": "income"
+                        "income": "-121.00"
                       }
                     ],
-                    "smallBusinessSwitchDate": "smallBusinessSwitchDate",
+                    "smallBusinessSwitchDate": "2026-07-01",
                     "refundProcedureApplied": true,
                     "bic": "bic",
                     "representative": {
@@ -7259,8 +7259,8 @@ import Api
                       "postalCode": "postalCode",
                       "city": "city"
                     },
-                    "singleTransportTax": "singleTransportTax",
-                    "distanceSales": "distanceSales"
+                    "singleTransportTax": "-121.00",
+                    "distanceSales": "-121.00"
                   }
                 }
                 """#.utf8
@@ -7271,86 +7271,86 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsDeReturnFactsGetResponse(
+        let expectedResponse = DeReturnFactsGetDeclarationsResponse(
             year: 1000000,
-            facts: PostV1DeclarationsDeReturnFactsGetResponseFacts(
+            facts: DeReturnFactsGetDeclarationsResponseFacts(
                 changedShareholderIds: Optional([
                     "changedShareholderIds"
                 ]),
                 shareholderContracts: Optional(true),
                 contracts: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsContractsItem(
+                    DeReturnFactsGetDeclarationsResponseFactsContractsItem(
                         kind: "kind",
-                        date: "date",
+                        date: CalendarDate("2026-07-01")!,
                         partner: "partner",
-                        amount: "amount"
+                        amount: "-121.00"
                     )
                 ]),
                 harmfulShareAcquisition: Optional(true),
-                coronaAid: Optional("coronaAid"),
-                lossCarryback: Optional("lossCarryback"),
-                donationCarryforward: Optional("donationCarryforward"),
-                contributionAccountOpening: Optional("contributionAccountOpening"),
+                coronaAid: Optional("-121.00"),
+                lossCarryback: Optional("-121.00"),
+                donationCarryforward: Optional("-121.00"),
+                contributionAccountOpening: Optional("-121.00"),
                 contributions: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsContributionsItem(
+                    DeReturnFactsGetDeclarationsResponseFactsContributionsItem(
                         name: "name",
-                        date: "date",
+                        date: CalendarDate("2026-07-01")!,
                         kind: .cash,
-                        amount: "amount"
+                        amount: "-121.00"
                     )
                 ]),
                 distributions: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsDistributionsItem(
-                        resolutionDate: "resolutionDate",
-                        paidOn: "paidOn",
-                        amount: "amount",
-                        certifiedReduction: "certifiedReduction"
+                    DeReturnFactsGetDeclarationsResponseFactsDistributionsItem(
+                        resolutionDate: CalendarDate("2026-07-01")!,
+                        paidOn: CalendarDate("2026-07-01")!,
+                        amount: "-121.00",
+                        certifiedReduction: "-121.00"
                     )
                 ]),
-                taxBalanceEquity: Optional("taxBalanceEquity"),
+                taxBalanceEquity: Optional("-121.00"),
                 multipleMunicipalities: Optional(true),
-                relocation: Optional(Nullable<PostV1DeclarationsDeReturnFactsGetResponseFactsRelocation>.value(PostV1DeclarationsDeReturnFactsGetResponseFactsRelocation(
-                    date: "date",
+                relocation: Optional(Nullable<DeReturnFactsGetDeclarationsResponseFactsRelocation>.value(DeReturnFactsGetDeclarationsResponseFactsRelocation(
+                    date: CalendarDate("2026-07-01")!,
                     from: "from",
                     to: "to"
                 ))),
                 municipalities: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsMunicipalitiesItem(
+                    DeReturnFactsGetDeclarationsResponseFactsMunicipalitiesItem(
                         name: "name",
                         postalCode: "postalCode",
                         ags: "ags",
-                        hebesatz: "hebesatz",
-                        wages: "wages"
+                        hebesatz: "121.00",
+                        wages: "-121.00"
                     )
                 ]),
                 landHoldings: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsLandHoldingsItem(
+                    DeReturnFactsGetDeclarationsResponseFactsLandHoldingsItem(
                         fileNumber: "fileNumber",
-                        assessedValue: "assessedValue",
+                        assessedValue: "-121.00",
                         category: .rentalEast
                     )
                 ]),
-                propertyTaxExpense: Optional("propertyTaxExpense"),
-                licencesToNonResidents: Optional("licencesToNonResidents"),
+                propertyTaxExpense: Optional("-121.00"),
+                licencesToNonResidents: Optional("-121.00"),
                 participations: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsParticipationsItem(
+                    DeReturnFactsGetDeclarationsResponseFactsParticipationsItem(
                         name: "name",
                         countryCode: "countryCode",
-                        sharePercent: "sharePercent",
-                        dividends: "dividends"
+                        sharePercent: "121.0000",
+                        dividends: "-121.00"
                     )
                 ]),
                 foreignIncome: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsForeignIncomeItem(
+                    DeReturnFactsGetDeclarationsResponseFactsForeignIncomeItem(
                         countryCode: "countryCode",
                         kind: .dividends,
-                        income: "income"
+                        income: "-121.00"
                     )
                 ]),
-                smallBusinessSwitchDate: Optional(Nullable<String>.value("smallBusinessSwitchDate")),
+                smallBusinessSwitchDate: Optional(Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!)),
                 refundProcedureApplied: Optional(true),
                 bic: Optional("bic"),
-                representative: Optional(Nullable<PostV1DeclarationsDeReturnFactsGetResponseFactsRepresentative>.value(PostV1DeclarationsDeReturnFactsGetResponseFactsRepresentative(
+                representative: Optional(Nullable<DeReturnFactsGetDeclarationsResponseFactsRepresentative>.value(DeReturnFactsGetDeclarationsResponseFactsRepresentative(
                     role: .agent,
                     name: "name",
                     street: "street",
@@ -7358,18 +7358,18 @@ import Api
                     postalCode: "postalCode",
                     city: "city"
                 ))),
-                singleTransportTax: Optional("singleTransportTax"),
-                distanceSales: Optional("distanceSales")
+                singleTransportTax: Optional("-121.00"),
+                distanceSales: Optional("-121.00")
             )
         )
-        let response = try await client.declarations.postV1DeclarationsDeReturnFactsGet(
+        let response = try await client.declarations.deReturnFactsGet(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsDeReturnFactsGet2() async throws -> Void {
+    @Test func deReturnFactsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -7385,13 +7385,13 @@ import Api
                     "contracts": [
                       {
                         "kind": "x",
-                        "date": "date",
+                        "date": "2023-01-15",
                         "partner": "x",
                         "amount": "amount"
                       },
                       {
                         "kind": "x",
-                        "date": "date",
+                        "date": "2023-01-15",
                         "partner": "x",
                         "amount": "amount"
                       }
@@ -7404,14 +7404,14 @@ import Api
                     "contributions": [
                       {
                         "name": "x",
-                        "date": "date",
+                        "date": "2023-01-15",
                         "kind": "cash",
                         "description": "description",
                         "amount": "amount"
                       },
                       {
                         "name": "x",
-                        "date": "date",
+                        "date": "2023-01-15",
                         "kind": "cash",
                         "description": "description",
                         "amount": "amount"
@@ -7419,14 +7419,14 @@ import Api
                     ],
                     "distributions": [
                       {
-                        "resolutionDate": "resolutionDate",
-                        "paidOn": "paidOn",
+                        "resolutionDate": "2023-01-15",
+                        "paidOn": "2023-01-15",
                         "amount": "amount",
                         "certifiedReduction": "certifiedReduction"
                       },
                       {
-                        "resolutionDate": "resolutionDate",
-                        "paidOn": "paidOn",
+                        "resolutionDate": "2023-01-15",
+                        "paidOn": "2023-01-15",
                         "amount": "amount",
                         "certifiedReduction": "certifiedReduction"
                       }
@@ -7434,7 +7434,7 @@ import Api
                     "taxBalanceEquity": "taxBalanceEquity",
                     "multipleMunicipalities": true,
                     "relocation": {
-                      "date": "date",
+                      "date": "2023-01-15",
                       "from": "x",
                       "to": "x"
                     },
@@ -7494,7 +7494,7 @@ import Api
                         "income": "income"
                       }
                     ],
-                    "smallBusinessSwitchDate": "smallBusinessSwitchDate",
+                    "smallBusinessSwitchDate": "2023-01-15",
                     "refundProcedureApplied": true,
                     "bic": "bic",
                     "representative": {
@@ -7517,24 +7517,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsDeReturnFactsGetResponse(
+        let expectedResponse = DeReturnFactsGetDeclarationsResponse(
             year: 1000000,
-            facts: PostV1DeclarationsDeReturnFactsGetResponseFacts(
+            facts: DeReturnFactsGetDeclarationsResponseFacts(
                 changedShareholderIds: Optional([
                     "changedShareholderIds",
                     "changedShareholderIds"
                 ]),
                 shareholderContracts: Optional(true),
                 contracts: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsContractsItem(
+                    DeReturnFactsGetDeclarationsResponseFactsContractsItem(
                         kind: "x",
-                        date: "date",
+                        date: CalendarDate("2023-01-15")!,
                         partner: "x",
                         amount: "amount"
                     ),
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsContractsItem(
+                    DeReturnFactsGetDeclarationsResponseFactsContractsItem(
                         kind: "x",
-                        date: "date",
+                        date: CalendarDate("2023-01-15")!,
                         partner: "x",
                         amount: "amount"
                     )
@@ -7545,51 +7545,51 @@ import Api
                 donationCarryforward: Optional("donationCarryforward"),
                 contributionAccountOpening: Optional("contributionAccountOpening"),
                 contributions: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsContributionsItem(
+                    DeReturnFactsGetDeclarationsResponseFactsContributionsItem(
                         name: "x",
-                        date: "date",
+                        date: CalendarDate("2023-01-15")!,
                         kind: .cash,
                         description: Optional("description"),
                         amount: "amount"
                     ),
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsContributionsItem(
+                    DeReturnFactsGetDeclarationsResponseFactsContributionsItem(
                         name: "x",
-                        date: "date",
+                        date: CalendarDate("2023-01-15")!,
                         kind: .cash,
                         description: Optional("description"),
                         amount: "amount"
                     )
                 ]),
                 distributions: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsDistributionsItem(
-                        resolutionDate: "resolutionDate",
-                        paidOn: "paidOn",
+                    DeReturnFactsGetDeclarationsResponseFactsDistributionsItem(
+                        resolutionDate: CalendarDate("2023-01-15")!,
+                        paidOn: CalendarDate("2023-01-15")!,
                         amount: "amount",
                         certifiedReduction: "certifiedReduction"
                     ),
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsDistributionsItem(
-                        resolutionDate: "resolutionDate",
-                        paidOn: "paidOn",
+                    DeReturnFactsGetDeclarationsResponseFactsDistributionsItem(
+                        resolutionDate: CalendarDate("2023-01-15")!,
+                        paidOn: CalendarDate("2023-01-15")!,
                         amount: "amount",
                         certifiedReduction: "certifiedReduction"
                     )
                 ]),
                 taxBalanceEquity: Optional("taxBalanceEquity"),
                 multipleMunicipalities: Optional(true),
-                relocation: Optional(Nullable<PostV1DeclarationsDeReturnFactsGetResponseFactsRelocation>.value(PostV1DeclarationsDeReturnFactsGetResponseFactsRelocation(
-                    date: "date",
+                relocation: Optional(Nullable<DeReturnFactsGetDeclarationsResponseFactsRelocation>.value(DeReturnFactsGetDeclarationsResponseFactsRelocation(
+                    date: CalendarDate("2023-01-15")!,
                     from: "x",
                     to: "x"
                 ))),
                 municipalities: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsMunicipalitiesItem(
+                    DeReturnFactsGetDeclarationsResponseFactsMunicipalitiesItem(
                         name: "x",
                         postalCode: "postalCode",
                         ags: "ags",
                         hebesatz: "hebesatz",
                         wages: "wages"
                     ),
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsMunicipalitiesItem(
+                    DeReturnFactsGetDeclarationsResponseFactsMunicipalitiesItem(
                         name: "x",
                         postalCode: "postalCode",
                         ags: "ags",
@@ -7598,12 +7598,12 @@ import Api
                     )
                 ]),
                 landHoldings: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsLandHoldingsItem(
+                    DeReturnFactsGetDeclarationsResponseFactsLandHoldingsItem(
                         fileNumber: "x",
                         assessedValue: "assessedValue",
                         category: .rentalEast
                     ),
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsLandHoldingsItem(
+                    DeReturnFactsGetDeclarationsResponseFactsLandHoldingsItem(
                         fileNumber: "x",
                         assessedValue: "assessedValue",
                         category: .rentalEast
@@ -7612,13 +7612,13 @@ import Api
                 propertyTaxExpense: Optional("propertyTaxExpense"),
                 licencesToNonResidents: Optional("licencesToNonResidents"),
                 participations: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsParticipationsItem(
+                    DeReturnFactsGetDeclarationsResponseFactsParticipationsItem(
                         name: "x",
                         countryCode: "countryCode",
                         sharePercent: "sharePercent",
                         dividends: "dividends"
                     ),
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsParticipationsItem(
+                    DeReturnFactsGetDeclarationsResponseFactsParticipationsItem(
                         name: "x",
                         countryCode: "countryCode",
                         sharePercent: "sharePercent",
@@ -7626,21 +7626,21 @@ import Api
                     )
                 ]),
                 foreignIncome: Optional([
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsForeignIncomeItem(
+                    DeReturnFactsGetDeclarationsResponseFactsForeignIncomeItem(
                         countryCode: "countryCode",
                         kind: .dividends,
                         income: "income"
                     ),
-                    PostV1DeclarationsDeReturnFactsGetResponseFactsForeignIncomeItem(
+                    DeReturnFactsGetDeclarationsResponseFactsForeignIncomeItem(
                         countryCode: "countryCode",
                         kind: .dividends,
                         income: "income"
                     )
                 ]),
-                smallBusinessSwitchDate: Optional(Nullable<String>.value("smallBusinessSwitchDate")),
+                smallBusinessSwitchDate: Optional(Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!)),
                 refundProcedureApplied: Optional(true),
                 bic: Optional("bic"),
-                representative: Optional(Nullable<PostV1DeclarationsDeReturnFactsGetResponseFactsRepresentative>.value(PostV1DeclarationsDeReturnFactsGetResponseFactsRepresentative(
+                representative: Optional(Nullable<DeReturnFactsGetDeclarationsResponseFactsRepresentative>.value(DeReturnFactsGetDeclarationsResponseFactsRepresentative(
                     role: .agent,
                     name: "x",
                     street: "x",
@@ -7652,14 +7652,14 @@ import Api
                 distanceSales: Optional("distanceSales")
             )
         )
-        let response = try await client.declarations.postV1DeclarationsDeReturnFactsGet(
+        let response = try await client.declarations.deReturnFactsGet(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsDeReturnFactsSet1() async throws -> Void {
+    @Test func deReturnFactsSet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -7674,36 +7674,36 @@ import Api
                     "contracts": [
                       {
                         "kind": "kind",
-                        "date": "date",
+                        "date": "2026-07-01",
                         "partner": "partner",
-                        "amount": "amount"
+                        "amount": "-121.00"
                       }
                     ],
                     "harmfulShareAcquisition": true,
-                    "coronaAid": "coronaAid",
-                    "lossCarryback": "lossCarryback",
-                    "donationCarryforward": "donationCarryforward",
-                    "contributionAccountOpening": "contributionAccountOpening",
+                    "coronaAid": "-121.00",
+                    "lossCarryback": "-121.00",
+                    "donationCarryforward": "-121.00",
+                    "contributionAccountOpening": "-121.00",
                     "contributions": [
                       {
                         "name": "name",
-                        "date": "date",
+                        "date": "2026-07-01",
                         "kind": "cash",
-                        "amount": "amount"
+                        "amount": "-121.00"
                       }
                     ],
                     "distributions": [
                       {
-                        "resolutionDate": "resolutionDate",
-                        "paidOn": "paidOn",
-                        "amount": "amount",
-                        "certifiedReduction": "certifiedReduction"
+                        "resolutionDate": "2026-07-01",
+                        "paidOn": "2026-07-01",
+                        "amount": "-121.00",
+                        "certifiedReduction": "-121.00"
                       }
                     ],
-                    "taxBalanceEquity": "taxBalanceEquity",
+                    "taxBalanceEquity": "-121.00",
                     "multipleMunicipalities": true,
                     "relocation": {
-                      "date": "date",
+                      "date": "2026-07-01",
                       "from": "from",
                       "to": "to"
                     },
@@ -7712,35 +7712,35 @@ import Api
                         "name": "name",
                         "postalCode": "postalCode",
                         "ags": "ags",
-                        "hebesatz": "hebesatz",
-                        "wages": "wages"
+                        "hebesatz": "121.00",
+                        "wages": "-121.00"
                       }
                     ],
                     "landHoldings": [
                       {
                         "fileNumber": "fileNumber",
-                        "assessedValue": "assessedValue",
+                        "assessedValue": "-121.00",
                         "category": "rental_east"
                       }
                     ],
-                    "propertyTaxExpense": "propertyTaxExpense",
-                    "licencesToNonResidents": "licencesToNonResidents",
+                    "propertyTaxExpense": "-121.00",
+                    "licencesToNonResidents": "-121.00",
                     "participations": [
                       {
                         "name": "name",
                         "countryCode": "countryCode",
-                        "sharePercent": "sharePercent",
-                        "dividends": "dividends"
+                        "sharePercent": "121.0000",
+                        "dividends": "-121.00"
                       }
                     ],
                     "foreignIncome": [
                       {
                         "countryCode": "countryCode",
                         "kind": "dividends",
-                        "income": "income"
+                        "income": "-121.00"
                       }
                     ],
-                    "smallBusinessSwitchDate": "smallBusinessSwitchDate",
+                    "smallBusinessSwitchDate": "2026-07-01",
                     "refundProcedureApplied": true,
                     "bic": "bic",
                     "representative": {
@@ -7751,8 +7751,8 @@ import Api
                       "postalCode": "postalCode",
                       "city": "city"
                     },
-                    "singleTransportTax": "singleTransportTax",
-                    "distanceSales": "distanceSales"
+                    "singleTransportTax": "-121.00",
+                    "distanceSales": "-121.00"
                   }
                 }
                 """#.utf8
@@ -7763,86 +7763,86 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsDeReturnFactsSetResponse(
+        let expectedResponse = DeReturnFactsSetDeclarationsResponse(
             year: 1000000,
-            facts: PostV1DeclarationsDeReturnFactsSetResponseFacts(
+            facts: DeReturnFactsSetDeclarationsResponseFacts(
                 changedShareholderIds: Optional([
                     "changedShareholderIds"
                 ]),
                 shareholderContracts: Optional(true),
                 contracts: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsContractsItem(
+                    DeReturnFactsSetDeclarationsResponseFactsContractsItem(
                         kind: "kind",
-                        date: "date",
+                        date: CalendarDate("2026-07-01")!,
                         partner: "partner",
-                        amount: "amount"
+                        amount: "-121.00"
                     )
                 ]),
                 harmfulShareAcquisition: Optional(true),
-                coronaAid: Optional("coronaAid"),
-                lossCarryback: Optional("lossCarryback"),
-                donationCarryforward: Optional("donationCarryforward"),
-                contributionAccountOpening: Optional("contributionAccountOpening"),
+                coronaAid: Optional("-121.00"),
+                lossCarryback: Optional("-121.00"),
+                donationCarryforward: Optional("-121.00"),
+                contributionAccountOpening: Optional("-121.00"),
                 contributions: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsContributionsItem(
+                    DeReturnFactsSetDeclarationsResponseFactsContributionsItem(
                         name: "name",
-                        date: "date",
+                        date: CalendarDate("2026-07-01")!,
                         kind: .cash,
-                        amount: "amount"
+                        amount: "-121.00"
                     )
                 ]),
                 distributions: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsDistributionsItem(
-                        resolutionDate: "resolutionDate",
-                        paidOn: "paidOn",
-                        amount: "amount",
-                        certifiedReduction: "certifiedReduction"
+                    DeReturnFactsSetDeclarationsResponseFactsDistributionsItem(
+                        resolutionDate: CalendarDate("2026-07-01")!,
+                        paidOn: CalendarDate("2026-07-01")!,
+                        amount: "-121.00",
+                        certifiedReduction: "-121.00"
                     )
                 ]),
-                taxBalanceEquity: Optional("taxBalanceEquity"),
+                taxBalanceEquity: Optional("-121.00"),
                 multipleMunicipalities: Optional(true),
-                relocation: Optional(Nullable<PostV1DeclarationsDeReturnFactsSetResponseFactsRelocation>.value(PostV1DeclarationsDeReturnFactsSetResponseFactsRelocation(
-                    date: "date",
+                relocation: Optional(Nullable<DeReturnFactsSetDeclarationsResponseFactsRelocation>.value(DeReturnFactsSetDeclarationsResponseFactsRelocation(
+                    date: CalendarDate("2026-07-01")!,
                     from: "from",
                     to: "to"
                 ))),
                 municipalities: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsMunicipalitiesItem(
+                    DeReturnFactsSetDeclarationsResponseFactsMunicipalitiesItem(
                         name: "name",
                         postalCode: "postalCode",
                         ags: "ags",
-                        hebesatz: "hebesatz",
-                        wages: "wages"
+                        hebesatz: "121.00",
+                        wages: "-121.00"
                     )
                 ]),
                 landHoldings: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsLandHoldingsItem(
+                    DeReturnFactsSetDeclarationsResponseFactsLandHoldingsItem(
                         fileNumber: "fileNumber",
-                        assessedValue: "assessedValue",
+                        assessedValue: "-121.00",
                         category: .rentalEast
                     )
                 ]),
-                propertyTaxExpense: Optional("propertyTaxExpense"),
-                licencesToNonResidents: Optional("licencesToNonResidents"),
+                propertyTaxExpense: Optional("-121.00"),
+                licencesToNonResidents: Optional("-121.00"),
                 participations: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsParticipationsItem(
+                    DeReturnFactsSetDeclarationsResponseFactsParticipationsItem(
                         name: "name",
                         countryCode: "countryCode",
-                        sharePercent: "sharePercent",
-                        dividends: "dividends"
+                        sharePercent: "121.0000",
+                        dividends: "-121.00"
                     )
                 ]),
                 foreignIncome: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsForeignIncomeItem(
+                    DeReturnFactsSetDeclarationsResponseFactsForeignIncomeItem(
                         countryCode: "countryCode",
                         kind: .dividends,
-                        income: "income"
+                        income: "-121.00"
                     )
                 ]),
-                smallBusinessSwitchDate: Optional(Nullable<String>.value("smallBusinessSwitchDate")),
+                smallBusinessSwitchDate: Optional(Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!)),
                 refundProcedureApplied: Optional(true),
                 bic: Optional("bic"),
-                representative: Optional(Nullable<PostV1DeclarationsDeReturnFactsSetResponseFactsRepresentative>.value(PostV1DeclarationsDeReturnFactsSetResponseFactsRepresentative(
+                representative: Optional(Nullable<DeReturnFactsSetDeclarationsResponseFactsRepresentative>.value(DeReturnFactsSetDeclarationsResponseFactsRepresentative(
                     role: .agent,
                     name: "name",
                     street: "street",
@@ -7850,14 +7850,14 @@ import Api
                     postalCode: "postalCode",
                     city: "city"
                 ))),
-                singleTransportTax: Optional("singleTransportTax"),
-                distanceSales: Optional("distanceSales")
+                singleTransportTax: Optional("-121.00"),
+                distanceSales: Optional("-121.00")
             )
         )
-        let response = try await client.declarations.postV1DeclarationsDeReturnFactsSet(
+        let response = try await client.declarations.deReturnFactsSet(
             request: .init(
                 year: 1000000,
-                facts: PostV1DeclarationsDeReturnFactsSetRequestFacts(
+                facts: DeReturnFactsSetDeclarationsRequestFacts(
 
                 )
             ),
@@ -7866,7 +7866,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsDeReturnFactsSet2() async throws -> Void {
+    @Test func deReturnFactsSet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -7882,13 +7882,13 @@ import Api
                     "contracts": [
                       {
                         "kind": "x",
-                        "date": "date",
+                        "date": "2023-01-15",
                         "partner": "x",
                         "amount": "amount"
                       },
                       {
                         "kind": "x",
-                        "date": "date",
+                        "date": "2023-01-15",
                         "partner": "x",
                         "amount": "amount"
                       }
@@ -7901,14 +7901,14 @@ import Api
                     "contributions": [
                       {
                         "name": "x",
-                        "date": "date",
+                        "date": "2023-01-15",
                         "kind": "cash",
                         "description": "description",
                         "amount": "amount"
                       },
                       {
                         "name": "x",
-                        "date": "date",
+                        "date": "2023-01-15",
                         "kind": "cash",
                         "description": "description",
                         "amount": "amount"
@@ -7916,14 +7916,14 @@ import Api
                     ],
                     "distributions": [
                       {
-                        "resolutionDate": "resolutionDate",
-                        "paidOn": "paidOn",
+                        "resolutionDate": "2023-01-15",
+                        "paidOn": "2023-01-15",
                         "amount": "amount",
                         "certifiedReduction": "certifiedReduction"
                       },
                       {
-                        "resolutionDate": "resolutionDate",
-                        "paidOn": "paidOn",
+                        "resolutionDate": "2023-01-15",
+                        "paidOn": "2023-01-15",
                         "amount": "amount",
                         "certifiedReduction": "certifiedReduction"
                       }
@@ -7931,7 +7931,7 @@ import Api
                     "taxBalanceEquity": "taxBalanceEquity",
                     "multipleMunicipalities": true,
                     "relocation": {
-                      "date": "date",
+                      "date": "2023-01-15",
                       "from": "x",
                       "to": "x"
                     },
@@ -7991,7 +7991,7 @@ import Api
                         "income": "income"
                       }
                     ],
-                    "smallBusinessSwitchDate": "smallBusinessSwitchDate",
+                    "smallBusinessSwitchDate": "2023-01-15",
                     "refundProcedureApplied": true,
                     "bic": "bic",
                     "representative": {
@@ -8014,24 +8014,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsDeReturnFactsSetResponse(
+        let expectedResponse = DeReturnFactsSetDeclarationsResponse(
             year: 1000000,
-            facts: PostV1DeclarationsDeReturnFactsSetResponseFacts(
+            facts: DeReturnFactsSetDeclarationsResponseFacts(
                 changedShareholderIds: Optional([
                     "changedShareholderIds",
                     "changedShareholderIds"
                 ]),
                 shareholderContracts: Optional(true),
                 contracts: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsContractsItem(
+                    DeReturnFactsSetDeclarationsResponseFactsContractsItem(
                         kind: "x",
-                        date: "date",
+                        date: CalendarDate("2023-01-15")!,
                         partner: "x",
                         amount: "amount"
                     ),
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsContractsItem(
+                    DeReturnFactsSetDeclarationsResponseFactsContractsItem(
                         kind: "x",
-                        date: "date",
+                        date: CalendarDate("2023-01-15")!,
                         partner: "x",
                         amount: "amount"
                     )
@@ -8042,51 +8042,51 @@ import Api
                 donationCarryforward: Optional("donationCarryforward"),
                 contributionAccountOpening: Optional("contributionAccountOpening"),
                 contributions: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsContributionsItem(
+                    DeReturnFactsSetDeclarationsResponseFactsContributionsItem(
                         name: "x",
-                        date: "date",
+                        date: CalendarDate("2023-01-15")!,
                         kind: .cash,
                         description: Optional("description"),
                         amount: "amount"
                     ),
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsContributionsItem(
+                    DeReturnFactsSetDeclarationsResponseFactsContributionsItem(
                         name: "x",
-                        date: "date",
+                        date: CalendarDate("2023-01-15")!,
                         kind: .cash,
                         description: Optional("description"),
                         amount: "amount"
                     )
                 ]),
                 distributions: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsDistributionsItem(
-                        resolutionDate: "resolutionDate",
-                        paidOn: "paidOn",
+                    DeReturnFactsSetDeclarationsResponseFactsDistributionsItem(
+                        resolutionDate: CalendarDate("2023-01-15")!,
+                        paidOn: CalendarDate("2023-01-15")!,
                         amount: "amount",
                         certifiedReduction: "certifiedReduction"
                     ),
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsDistributionsItem(
-                        resolutionDate: "resolutionDate",
-                        paidOn: "paidOn",
+                    DeReturnFactsSetDeclarationsResponseFactsDistributionsItem(
+                        resolutionDate: CalendarDate("2023-01-15")!,
+                        paidOn: CalendarDate("2023-01-15")!,
                         amount: "amount",
                         certifiedReduction: "certifiedReduction"
                     )
                 ]),
                 taxBalanceEquity: Optional("taxBalanceEquity"),
                 multipleMunicipalities: Optional(true),
-                relocation: Optional(Nullable<PostV1DeclarationsDeReturnFactsSetResponseFactsRelocation>.value(PostV1DeclarationsDeReturnFactsSetResponseFactsRelocation(
-                    date: "date",
+                relocation: Optional(Nullable<DeReturnFactsSetDeclarationsResponseFactsRelocation>.value(DeReturnFactsSetDeclarationsResponseFactsRelocation(
+                    date: CalendarDate("2023-01-15")!,
                     from: "x",
                     to: "x"
                 ))),
                 municipalities: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsMunicipalitiesItem(
+                    DeReturnFactsSetDeclarationsResponseFactsMunicipalitiesItem(
                         name: "x",
                         postalCode: "postalCode",
                         ags: "ags",
                         hebesatz: "hebesatz",
                         wages: "wages"
                     ),
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsMunicipalitiesItem(
+                    DeReturnFactsSetDeclarationsResponseFactsMunicipalitiesItem(
                         name: "x",
                         postalCode: "postalCode",
                         ags: "ags",
@@ -8095,12 +8095,12 @@ import Api
                     )
                 ]),
                 landHoldings: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsLandHoldingsItem(
+                    DeReturnFactsSetDeclarationsResponseFactsLandHoldingsItem(
                         fileNumber: "x",
                         assessedValue: "assessedValue",
                         category: .rentalEast
                     ),
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsLandHoldingsItem(
+                    DeReturnFactsSetDeclarationsResponseFactsLandHoldingsItem(
                         fileNumber: "x",
                         assessedValue: "assessedValue",
                         category: .rentalEast
@@ -8109,13 +8109,13 @@ import Api
                 propertyTaxExpense: Optional("propertyTaxExpense"),
                 licencesToNonResidents: Optional("licencesToNonResidents"),
                 participations: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsParticipationsItem(
+                    DeReturnFactsSetDeclarationsResponseFactsParticipationsItem(
                         name: "x",
                         countryCode: "countryCode",
                         sharePercent: "sharePercent",
                         dividends: "dividends"
                     ),
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsParticipationsItem(
+                    DeReturnFactsSetDeclarationsResponseFactsParticipationsItem(
                         name: "x",
                         countryCode: "countryCode",
                         sharePercent: "sharePercent",
@@ -8123,21 +8123,21 @@ import Api
                     )
                 ]),
                 foreignIncome: Optional([
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsForeignIncomeItem(
+                    DeReturnFactsSetDeclarationsResponseFactsForeignIncomeItem(
                         countryCode: "countryCode",
                         kind: .dividends,
                         income: "income"
                     ),
-                    PostV1DeclarationsDeReturnFactsSetResponseFactsForeignIncomeItem(
+                    DeReturnFactsSetDeclarationsResponseFactsForeignIncomeItem(
                         countryCode: "countryCode",
                         kind: .dividends,
                         income: "income"
                     )
                 ]),
-                smallBusinessSwitchDate: Optional(Nullable<String>.value("smallBusinessSwitchDate")),
+                smallBusinessSwitchDate: Optional(Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!)),
                 refundProcedureApplied: Optional(true),
                 bic: Optional("bic"),
-                representative: Optional(Nullable<PostV1DeclarationsDeReturnFactsSetResponseFactsRepresentative>.value(PostV1DeclarationsDeReturnFactsSetResponseFactsRepresentative(
+                representative: Optional(Nullable<DeReturnFactsSetDeclarationsResponseFactsRepresentative>.value(DeReturnFactsSetDeclarationsResponseFactsRepresentative(
                     role: .agent,
                     name: "x",
                     street: "x",
@@ -8149,10 +8149,10 @@ import Api
                 distanceSales: Optional("distanceSales")
             )
         )
-        let response = try await client.declarations.postV1DeclarationsDeReturnFactsSet(
+        let response = try await client.declarations.deReturnFactsSet(
             request: .init(
                 year: 1000000,
-                facts: PostV1DeclarationsDeReturnFactsSetRequestFacts(
+                facts: DeReturnFactsSetDeclarationsRequestFacts(
 
                 )
             ),
@@ -8161,7 +8161,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsDeDeuevGenerate1() async throws -> Void {
+    @Test func deDeuevGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8205,14 +8205,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsDeDeuevGenerateResponse(
+        let expectedResponse = DeDeuevGenerateDeclarationsResponse(
             year: 1000000,
             month: 1000000,
             fileName: "fileName",
             content: "content",
             source: "source",
             records: [
-                PostV1DeclarationsDeDeuevGenerateResponseRecordsItem(
+                DeDeuevGenerateDeclarationsResponseRecordsItem(
                     employeeId: "employeeId",
                     name: "name",
                     abgabegrund: "abgabegrund",
@@ -8236,7 +8236,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsDeDeuevGenerate(
+        let response = try await client.declarations.deDeuevGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -8246,7 +8246,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsDeDeuevGenerate2() async throws -> Void {
+    @Test func deDeuevGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8310,14 +8310,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsDeDeuevGenerateResponse(
+        let expectedResponse = DeDeuevGenerateDeclarationsResponse(
             year: 1000000,
             month: 1000000,
             fileName: "fileName",
             content: "content",
             source: "source",
             records: [
-                PostV1DeclarationsDeDeuevGenerateResponseRecordsItem(
+                DeDeuevGenerateDeclarationsResponseRecordsItem(
                     employeeId: "employeeId",
                     name: "name",
                     abgabegrund: "abgabegrund",
@@ -8334,7 +8334,7 @@ import Api
                         "warnings"
                     ]
                 ),
-                PostV1DeclarationsDeDeuevGenerateResponseRecordsItem(
+                DeDeuevGenerateDeclarationsResponseRecordsItem(
                     employeeId: "employeeId",
                     name: "name",
                     abgabegrund: "abgabegrund",
@@ -8361,7 +8361,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsDeDeuevGenerate(
+        let response = try await client.declarations.deDeuevGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -8371,7 +8371,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsDeBeitragsnachweisGenerate1() async throws -> Void {
+    @Test func deBeitragsnachweisGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8412,14 +8412,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsDeBeitragsnachweisGenerateResponse(
+        let expectedResponse = DeBeitragsnachweisGenerateDeclarationsResponse(
             year: 1000000,
             month: 1000000,
             fileName: "fileName",
             content: "content",
             source: "source",
             records: [
-                PostV1DeclarationsDeBeitragsnachweisGenerateResponseRecordsItem(
+                DeBeitragsnachweisGenerateDeclarationsResponseRecordsItem(
                     betriebsnummerKrankenkasse: "betriebsnummerKrankenkasse",
                     faelligkeitstag: "faelligkeitstag",
                     kvAllgemein: "kvAllgemein",
@@ -8428,7 +8428,7 @@ import Api
                     beitragssatzAllgemein: "beitragssatzAllgemein",
                     summe: "summe",
                     positionen: [
-                        PostV1DeclarationsDeBeitragsnachweisGenerateResponseRecordsItemPositionenItem(
+                        DeBeitragsnachweisGenerateDeclarationsResponseRecordsItemPositionenItem(
                             beitragsgruppe: "beitragsgruppe",
                             betrag: "betrag"
                         )
@@ -8440,7 +8440,7 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsDeBeitragsnachweisGenerate(
+        let response = try await client.declarations.deBeitragsnachweisGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -8450,7 +8450,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsDeBeitragsnachweisGenerate2() async throws -> Void {
+    @Test func deBeitragsnachweisGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8516,14 +8516,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsDeBeitragsnachweisGenerateResponse(
+        let expectedResponse = DeBeitragsnachweisGenerateDeclarationsResponse(
             year: 1000000,
             month: 1000000,
             fileName: "fileName",
             content: "content",
             source: "source",
             records: [
-                PostV1DeclarationsDeBeitragsnachweisGenerateResponseRecordsItem(
+                DeBeitragsnachweisGenerateDeclarationsResponseRecordsItem(
                     betriebsnummerKrankenkasse: "betriebsnummerKrankenkasse",
                     faelligkeitstag: "faelligkeitstag",
                     kvAllgemein: "kvAllgemein",
@@ -8532,18 +8532,18 @@ import Api
                     beitragssatzAllgemein: "beitragssatzAllgemein",
                     summe: "summe",
                     positionen: [
-                        PostV1DeclarationsDeBeitragsnachweisGenerateResponseRecordsItemPositionenItem(
+                        DeBeitragsnachweisGenerateDeclarationsResponseRecordsItemPositionenItem(
                             beitragsgruppe: "beitragsgruppe",
                             betrag: "betrag"
                         ),
-                        PostV1DeclarationsDeBeitragsnachweisGenerateResponseRecordsItemPositionenItem(
+                        DeBeitragsnachweisGenerateDeclarationsResponseRecordsItemPositionenItem(
                             beitragsgruppe: "beitragsgruppe",
                             betrag: "betrag"
                         )
                     ],
                     record: "record"
                 ),
-                PostV1DeclarationsDeBeitragsnachweisGenerateResponseRecordsItem(
+                DeBeitragsnachweisGenerateDeclarationsResponseRecordsItem(
                     betriebsnummerKrankenkasse: "betriebsnummerKrankenkasse",
                     faelligkeitstag: "faelligkeitstag",
                     kvAllgemein: "kvAllgemein",
@@ -8552,11 +8552,11 @@ import Api
                     beitragssatzAllgemein: "beitragssatzAllgemein",
                     summe: "summe",
                     positionen: [
-                        PostV1DeclarationsDeBeitragsnachweisGenerateResponseRecordsItemPositionenItem(
+                        DeBeitragsnachweisGenerateDeclarationsResponseRecordsItemPositionenItem(
                             beitragsgruppe: "beitragsgruppe",
                             betrag: "betrag"
                         ),
-                        PostV1DeclarationsDeBeitragsnachweisGenerateResponseRecordsItemPositionenItem(
+                        DeBeitragsnachweisGenerateDeclarationsResponseRecordsItemPositionenItem(
                             beitragsgruppe: "beitragsgruppe",
                             betrag: "betrag"
                         )
@@ -8569,7 +8569,7 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsDeBeitragsnachweisGenerate(
+        let response = try await client.declarations.deBeitragsnachweisGenerate(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -8579,7 +8579,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsDkSelskabsskatGenerate1() async throws -> Void {
+    @Test func dkSelskabsskatGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8614,7 +8614,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsDkSelskabsskatGenerateResponse(
+        let expectedResponse = DkSelskabsskatGenerateDeclarationsResponse(
             year: 1000000,
             periodStart: "periodStart",
             periodEnd: "periodEnd",
@@ -8622,7 +8622,7 @@ import Api
             fileName: "fileName",
             xml: "xml",
             fields: [
-                PostV1DeclarationsDkSelskabsskatGenerateResponseFieldsItem(
+                DkSelskabsskatGenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
@@ -8636,14 +8636,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsDkSelskabsskatGenerate(
+        let response = try await client.declarations.dkSelskabsskatGenerate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsDkSelskabsskatGenerate2() async throws -> Void {
+    @Test func dkSelskabsskatGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8685,7 +8685,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsDkSelskabsskatGenerateResponse(
+        let expectedResponse = DkSelskabsskatGenerateDeclarationsResponse(
             year: 1000000,
             periodStart: "periodStart",
             periodEnd: "periodEnd",
@@ -8693,12 +8693,12 @@ import Api
             fileName: "fileName",
             xml: "xml",
             fields: [
-                PostV1DeclarationsDkSelskabsskatGenerateResponseFieldsItem(
+                DkSelskabsskatGenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 ),
-                PostV1DeclarationsDkSelskabsskatGenerateResponseFieldsItem(
+                DkSelskabsskatGenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
@@ -8714,14 +8714,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsDkSelskabsskatGenerate(
+        let response = try await client.declarations.dkSelskabsskatGenerate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEeEmploymentRegisterSend1() async throws -> Void {
+    @Test func eeEmploymentRegisterSend1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8731,7 +8731,7 @@ import Api
                   "state": "submitted",
                   "detail": "detail",
                   "fileName": "fileName",
-                  "entryDate": "entryDate",
+                  "entryDate": "2026-07-01",
                   "xml": "xml",
                   "warnings": [
                     "warnings"
@@ -8745,18 +8745,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEeEmploymentRegisterSendResponse(
+        let expectedResponse = EeEmploymentRegisterSendDeclarationsResponse(
             reference: "reference",
             state: .submitted,
             detail: Nullable<String>.value("detail"),
             fileName: "fileName",
-            entryDate: "entryDate",
+            entryDate: CalendarDate("2026-07-01")!,
             xml: "xml",
             warnings: [
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEeEmploymentRegisterSend(
+        let response = try await client.declarations.eeEmploymentRegisterSend(
             request: .init(
                 contractId: "contractId",
                 event: .start
@@ -8766,7 +8766,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEeEmploymentRegisterSend2() async throws -> Void {
+    @Test func eeEmploymentRegisterSend2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8776,7 +8776,7 @@ import Api
                   "state": "submitted",
                   "detail": "detail",
                   "fileName": "fileName",
-                  "entryDate": "entryDate",
+                  "entryDate": "2023-01-15",
                   "xml": "xml",
                   "warnings": [
                     "warnings",
@@ -8791,19 +8791,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEeEmploymentRegisterSendResponse(
+        let expectedResponse = EeEmploymentRegisterSendDeclarationsResponse(
             reference: "reference",
             state: .submitted,
             detail: Nullable<String>.value("detail"),
             fileName: "fileName",
-            entryDate: "entryDate",
+            entryDate: CalendarDate("2023-01-15")!,
             xml: "xml",
             warnings: [
                 "warnings",
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsEeEmploymentRegisterSend(
+        let response = try await client.declarations.eeEmploymentRegisterSend(
             request: .init(
                 contractId: "x",
                 event: .start
@@ -8813,7 +8813,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEsVerifactuDeclaracionResponsable1() async throws -> Void {
+    @Test func esVerifactuDeclaracionResponsable1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8833,21 +8833,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEsVerifactuDeclaracionResponsableResponse(
+        let expectedResponse = EsVerifactuDeclaracionResponsableDeclarationsResponse(
             fileName: "fileName",
             mimeType: "mimeType",
             content: "content",
             text: "text",
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsEsVerifactuDeclaracionResponsable(
+        let response = try await client.declarations.esVerifactuDeclaracionResponsable(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsEsVerifactuDeclaracionResponsable2() async throws -> Void {
+    @Test func esVerifactuDeclaracionResponsable2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8867,21 +8867,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsEsVerifactuDeclaracionResponsableResponse(
+        let expectedResponse = EsVerifactuDeclaracionResponsableDeclarationsResponse(
             fileName: "fileName",
             mimeType: "mimeType",
             content: "content",
             text: "text",
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsEsVerifactuDeclaracionResponsable(
+        let response = try await client.declarations.esVerifactuDeclaracionResponsable(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsIeCt1Generate1() async throws -> Void {
+    @Test func ieCt1Generate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -8931,16 +8931,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsIeCt1GenerateResponse(
+        let expectedResponse = IeCt1GenerateDeclarationsResponse(
             year: 1000000,
             periodStart: "periodStart",
             periodEnd: "periodEnd",
             taxRegNumber: "taxRegNumber",
-            ct1: PostV1DeclarationsIeCt1GenerateResponseCt1(
+            ct1: IeCt1GenerateDeclarationsResponseCt1(
                 fileName: "fileName",
                 xml: "xml"
             ),
-            accounts: Nullable<PostV1DeclarationsIeCt1GenerateResponseAccounts>.value(PostV1DeclarationsIeCt1GenerateResponseAccounts(
+            accounts: Nullable<IeCt1GenerateDeclarationsResponseAccounts>.value(IeCt1GenerateDeclarationsResponseAccounts(
                 fileName: "fileName",
                 xhtml: "xhtml"
             )),
@@ -8948,13 +8948,13 @@ import Api
                 "accountsBlocking"
             ],
             ixbrlMandatory: true,
-            criteria: PostV1DeclarationsIeCt1GenerateResponseCriteria(
+            criteria: IeCt1GenerateDeclarationsResponseCriteria(
                 balanceSheetTotal: "balanceSheetTotal",
                 turnover: "turnover",
                 averageEmployees: 1.1
             ),
             fields: [
-                PostV1DeclarationsIeCt1GenerateResponseFieldsItem(
+                IeCt1GenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
@@ -8968,14 +8968,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsIeCt1Generate(
+        let response = try await client.declarations.ieCt1Generate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsIeCt1Generate2() async throws -> Void {
+    @Test func ieCt1Generate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9033,16 +9033,16 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsIeCt1GenerateResponse(
+        let expectedResponse = IeCt1GenerateDeclarationsResponse(
             year: 1000000,
             periodStart: "periodStart",
             periodEnd: "periodEnd",
             taxRegNumber: "taxRegNumber",
-            ct1: PostV1DeclarationsIeCt1GenerateResponseCt1(
+            ct1: IeCt1GenerateDeclarationsResponseCt1(
                 fileName: "fileName",
                 xml: "xml"
             ),
-            accounts: Nullable<PostV1DeclarationsIeCt1GenerateResponseAccounts>.value(PostV1DeclarationsIeCt1GenerateResponseAccounts(
+            accounts: Nullable<IeCt1GenerateDeclarationsResponseAccounts>.value(IeCt1GenerateDeclarationsResponseAccounts(
                 fileName: "fileName",
                 xhtml: "xhtml"
             )),
@@ -9051,18 +9051,18 @@ import Api
                 "accountsBlocking"
             ],
             ixbrlMandatory: true,
-            criteria: PostV1DeclarationsIeCt1GenerateResponseCriteria(
+            criteria: IeCt1GenerateDeclarationsResponseCriteria(
                 balanceSheetTotal: "balanceSheetTotal",
                 turnover: "turnover",
                 averageEmployees: 1.1
             ),
             fields: [
-                PostV1DeclarationsIeCt1GenerateResponseFieldsItem(
+                IeCt1GenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 ),
-                PostV1DeclarationsIeCt1GenerateResponseFieldsItem(
+                IeCt1GenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
@@ -9078,14 +9078,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsIeCt1Generate(
+        let response = try await client.declarations.ieCt1Generate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsIeB1Generate1() async throws -> Void {
+    @Test func ieB1Generate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9094,7 +9094,7 @@ import Api
                   "year": 1000000,
                   "croNumber": "croNumber",
                   "companyName": "companyName",
-                  "annualReturnDate": "annualReturnDate",
+                  "annualReturnDate": "2026-07-01",
                   "fileName": "fileName",
                   "xml": "xml",
                   "fields": [
@@ -9122,7 +9122,7 @@ import Api
                       "sharesQuantity": "sharesQuantity",
                       "sharesAmount": "sharesAmount",
                       "sharesType": "sharesType",
-                      "acquisitionDate": "acquisitionDate"
+                      "acquisitionDate": "2026-07-01"
                     }
                   ],
                   "warnings": [
@@ -9141,39 +9141,39 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsIeB1GenerateResponse(
+        let expectedResponse = IeB1GenerateDeclarationsResponse(
             year: 1000000,
             croNumber: "croNumber",
             companyName: "companyName",
-            annualReturnDate: Nullable<String>.value("annualReturnDate"),
+            annualReturnDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             fileName: "fileName",
             xml: "xml",
             fields: [
-                PostV1DeclarationsIeB1GenerateResponseFieldsItem(
+                IeB1GenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 )
             ],
             directors: [
-                PostV1DeclarationsIeB1GenerateResponseDirectorsItem(
+                IeB1GenerateDeclarationsResponseDirectorsItem(
                     name: "name",
                     identifier: Nullable<String>.value("identifier"),
                     appointedOn: Nullable<String>.value("appointedOn")
                 )
             ],
-            secretary: Nullable<PostV1DeclarationsIeB1GenerateResponseSecretary>.value(PostV1DeclarationsIeB1GenerateResponseSecretary(
+            secretary: Nullable<IeB1GenerateDeclarationsResponseSecretary>.value(IeB1GenerateDeclarationsResponseSecretary(
                 name: "name",
                 identifier: Nullable<String>.value("identifier")
             )),
             members: [
-                PostV1DeclarationsIeB1GenerateResponseMembersItem(
+                IeB1GenerateDeclarationsResponseMembersItem(
                     name: "name",
                     identifier: Nullable<String>.value("identifier"),
                     sharesQuantity: Nullable<String>.value("sharesQuantity"),
                     sharesAmount: Nullable<String>.value("sharesAmount"),
                     sharesType: Nullable<String>.value("sharesType"),
-                    acquisitionDate: Nullable<String>.value("acquisitionDate")
+                    acquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!)
                 )
             ],
             warnings: [
@@ -9184,14 +9184,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsIeB1Generate(
+        let response = try await client.declarations.ieB1Generate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsIeB1Generate2() async throws -> Void {
+    @Test func ieB1Generate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9200,7 +9200,7 @@ import Api
                   "year": 1000000,
                   "croNumber": "croNumber",
                   "companyName": "companyName",
-                  "annualReturnDate": "annualReturnDate",
+                  "annualReturnDate": "2023-01-15",
                   "fileName": "fileName",
                   "xml": "xml",
                   "fields": [
@@ -9238,7 +9238,7 @@ import Api
                       "sharesQuantity": "sharesQuantity",
                       "sharesAmount": "sharesAmount",
                       "sharesType": "sharesType",
-                      "acquisitionDate": "acquisitionDate"
+                      "acquisitionDate": "2023-01-15"
                     },
                     {
                       "name": "name",
@@ -9246,7 +9246,7 @@ import Api
                       "sharesQuantity": "sharesQuantity",
                       "sharesAmount": "sharesAmount",
                       "sharesType": "sharesType",
-                      "acquisitionDate": "acquisitionDate"
+                      "acquisitionDate": "2023-01-15"
                     }
                   ],
                   "warnings": [
@@ -9267,57 +9267,57 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsIeB1GenerateResponse(
+        let expectedResponse = IeB1GenerateDeclarationsResponse(
             year: 1000000,
             croNumber: "croNumber",
             companyName: "companyName",
-            annualReturnDate: Nullable<String>.value("annualReturnDate"),
+            annualReturnDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             fileName: "fileName",
             xml: "xml",
             fields: [
-                PostV1DeclarationsIeB1GenerateResponseFieldsItem(
+                IeB1GenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 ),
-                PostV1DeclarationsIeB1GenerateResponseFieldsItem(
+                IeB1GenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 )
             ],
             directors: [
-                PostV1DeclarationsIeB1GenerateResponseDirectorsItem(
+                IeB1GenerateDeclarationsResponseDirectorsItem(
                     name: "name",
                     identifier: Nullable<String>.value("identifier"),
                     appointedOn: Nullable<String>.value("appointedOn")
                 ),
-                PostV1DeclarationsIeB1GenerateResponseDirectorsItem(
+                IeB1GenerateDeclarationsResponseDirectorsItem(
                     name: "name",
                     identifier: Nullable<String>.value("identifier"),
                     appointedOn: Nullable<String>.value("appointedOn")
                 )
             ],
-            secretary: Nullable<PostV1DeclarationsIeB1GenerateResponseSecretary>.value(PostV1DeclarationsIeB1GenerateResponseSecretary(
+            secretary: Nullable<IeB1GenerateDeclarationsResponseSecretary>.value(IeB1GenerateDeclarationsResponseSecretary(
                 name: "name",
                 identifier: Nullable<String>.value("identifier")
             )),
             members: [
-                PostV1DeclarationsIeB1GenerateResponseMembersItem(
+                IeB1GenerateDeclarationsResponseMembersItem(
                     name: "name",
                     identifier: Nullable<String>.value("identifier"),
                     sharesQuantity: Nullable<String>.value("sharesQuantity"),
                     sharesAmount: Nullable<String>.value("sharesAmount"),
                     sharesType: Nullable<String>.value("sharesType"),
-                    acquisitionDate: Nullable<String>.value("acquisitionDate")
+                    acquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!)
                 ),
-                PostV1DeclarationsIeB1GenerateResponseMembersItem(
+                IeB1GenerateDeclarationsResponseMembersItem(
                     name: "name",
                     identifier: Nullable<String>.value("identifier"),
                     sharesQuantity: Nullable<String>.value("sharesQuantity"),
                     sharesAmount: Nullable<String>.value("sharesAmount"),
                     sharesType: Nullable<String>.value("sharesType"),
-                    acquisitionDate: Nullable<String>.value("acquisitionDate")
+                    acquisitionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!)
                 )
             ],
             warnings: [
@@ -9330,14 +9330,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsIeB1Generate(
+        let response = try await client.declarations.ieB1Generate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsItSdiPurchaseSend1() async throws -> Void {
+    @Test func itSdiPurchaseSend1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9366,7 +9366,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsItSdiPurchaseSendResponse(
+        let expectedResponse = ItSdiPurchaseSendDeclarationsResponse(
             sent: true,
             system: "system",
             transport: .bridge,
@@ -9382,14 +9382,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsItSdiPurchaseSend(
+        let response = try await client.declarations.itSdiPurchaseSend(
             request: .init(purchaseInvoiceId: "purchaseInvoiceId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsItSdiPurchaseSend2() async throws -> Void {
+    @Test func itSdiPurchaseSend2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9419,7 +9419,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsItSdiPurchaseSendResponse(
+        let expectedResponse = ItSdiPurchaseSendDeclarationsResponse(
             sent: true,
             system: "system",
             transport: .bridge,
@@ -9436,14 +9436,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsItSdiPurchaseSend(
+        let response = try await client.declarations.itSdiPurchaseSend(
             request: .init(purchaseInvoiceId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsItSdiPurchasePreview1() async throws -> Void {
+    @Test func itSdiPurchasePreview1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9467,7 +9467,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsItSdiPurchasePreviewResponse(
+        let expectedResponse = ItSdiPurchasePreviewDeclarationsResponse(
             tipoDocumento: .td16,
             fileName: "fileName",
             contentType: "contentType",
@@ -9478,14 +9478,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsItSdiPurchasePreview(
+        let response = try await client.declarations.itSdiPurchasePreview(
             request: .init(purchaseInvoiceId: "purchaseInvoiceId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsItSdiPurchasePreview2() async throws -> Void {
+    @Test func itSdiPurchasePreview2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9510,7 +9510,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsItSdiPurchasePreviewResponse(
+        let expectedResponse = ItSdiPurchasePreviewDeclarationsResponse(
             tipoDocumento: .td16,
             fileName: "fileName",
             contentType: "contentType",
@@ -9522,19 +9522,20 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsItSdiPurchasePreview(
+        let response = try await client.declarations.itSdiPurchasePreview(
             request: .init(purchaseInvoiceId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtSaftSend1() async throws -> Void {
+    @Test func ltSaftSend1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
+                  "submissionId": "submissionId",
                   "caseId": "caseId",
                   "state": "submitted",
                   "detail": "detail",
@@ -9552,7 +9553,8 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtSaftSendResponse(
+        let expectedResponse = LtSaftSendDeclarationsResponse(
+            submissionId: "submissionId",
             caseId: "caseId",
             state: .submitted,
             detail: Nullable<String>.value("detail"),
@@ -9562,22 +9564,23 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtSaftSend(
+        let response = try await client.declarations.ltSaftSend(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtSaftSend2() async throws -> Void {
+    @Test func ltSaftSend2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
                 #"""
                 {
+                  "submissionId": "x",
                   "caseId": "caseId",
                   "state": "submitted",
                   "detail": "detail",
@@ -9596,7 +9599,8 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtSaftSendResponse(
+        let expectedResponse = LtSaftSendDeclarationsResponse(
+            submissionId: "x",
             caseId: "caseId",
             state: .submitted,
             detail: Nullable<String>.value("detail"),
@@ -9607,17 +9611,17 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtSaftSend(
+        let response = try await client.declarations.ltSaftSend(
             request: .init(
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtSdFfdata1() async throws -> Void {
+    @Test func ltSdFfdata1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9640,7 +9644,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtSdFfdataResponse(
+        let expectedResponse = LtSdFfdataDeclarationsResponse(
             type: .oneSd,
             fileName: "fileName",
             xml: "xml",
@@ -9650,18 +9654,18 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtSdFfdata(
+        let response = try await client.declarations.ltSdFfdata(
             request: .init(
                 type: .oneSd,
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtSdFfdata2() async throws -> Void {
+    @Test func ltSdFfdata2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9685,7 +9689,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtSdFfdataResponse(
+        let expectedResponse = LtSdFfdataDeclarationsResponse(
             type: .oneSd,
             fileName: "fileName",
             xml: "xml",
@@ -9696,18 +9700,18 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtSdFfdata(
+        let response = try await client.declarations.ltSdFfdata(
             request: .init(
                 type: .oneSd,
-                fromDate: "fromDate",
-                toDate: "toDate"
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtPln204Ffdata1() async throws -> Void {
+    @Test func ltPln204Ffdata1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9730,7 +9734,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtPln204FfdataResponse(
+        let expectedResponse = LtPln204FfdataDeclarationsResponse(
             year: 1000000,
             fileName: "fileName",
             xml: "xml",
@@ -9740,14 +9744,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtPln204Ffdata(
+        let response = try await client.declarations.ltPln204Ffdata(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLtPln204Ffdata2() async throws -> Void {
+    @Test func ltPln204Ffdata2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9771,7 +9775,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLtPln204FfdataResponse(
+        let expectedResponse = LtPln204FfdataDeclarationsResponse(
             year: 1000000,
             fileName: "fileName",
             xml: "xml",
@@ -9782,14 +9786,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsLtPln204Ffdata(
+        let response = try await client.declarations.ltPln204Ffdata(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsMtCompanyTaxGenerate1() async throws -> Void {
+    @Test func mtCompanyTaxGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9832,7 +9836,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsMtCompanyTaxGenerateResponse(
+        let expectedResponse = MtCompanyTaxGenerateDeclarationsResponse(
             year: 1000000,
             yearOfAssessment: 1000000,
             periodStart: "periodStart",
@@ -9841,14 +9845,14 @@ import Api
             fileName: "fileName",
             xml: "xml",
             fields: [
-                PostV1DeclarationsMtCompanyTaxGenerateResponseFieldsItem(
+                MtCompanyTaxGenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 )
             ],
             taxAccounts: [
-                PostV1DeclarationsMtCompanyTaxGenerateResponseTaxAccountsItem(
+                MtCompanyTaxGenerateDeclarationsResponseTaxAccountsItem(
                     code: "code",
                     label: "label",
                     amount: "amount"
@@ -9862,14 +9866,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsMtCompanyTaxGenerate(
+        let response = try await client.declarations.mtCompanyTaxGenerate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsMtCompanyTaxGenerate2() async throws -> Void {
+    @Test func mtCompanyTaxGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -9924,7 +9928,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsMtCompanyTaxGenerateResponse(
+        let expectedResponse = MtCompanyTaxGenerateDeclarationsResponse(
             year: 1000000,
             yearOfAssessment: 1000000,
             periodStart: "periodStart",
@@ -9933,24 +9937,24 @@ import Api
             fileName: "fileName",
             xml: "xml",
             fields: [
-                PostV1DeclarationsMtCompanyTaxGenerateResponseFieldsItem(
+                MtCompanyTaxGenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 ),
-                PostV1DeclarationsMtCompanyTaxGenerateResponseFieldsItem(
+                MtCompanyTaxGenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 )
             ],
             taxAccounts: [
-                PostV1DeclarationsMtCompanyTaxGenerateResponseTaxAccountsItem(
+                MtCompanyTaxGenerateDeclarationsResponseTaxAccountsItem(
                     code: "code",
                     label: "label",
                     amount: "amount"
                 ),
-                PostV1DeclarationsMtCompanyTaxGenerateResponseTaxAccountsItem(
+                MtCompanyTaxGenerateDeclarationsResponseTaxAccountsItem(
                     code: "code",
                     label: "label",
                     amount: "amount"
@@ -9966,14 +9970,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsMtCompanyTaxGenerate(
+        let response = try await client.declarations.mtCompanyTaxGenerate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsMtAnnualReturnGenerate1() async throws -> Void {
+    @Test func mtAnnualReturnGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -10027,7 +10031,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsMtAnnualReturnGenerateResponse(
+        let expectedResponse = MtAnnualReturnGenerateDeclarationsResponse(
             year: 1000000,
             madeUpTo: Nullable<String>.value("madeUpTo"),
             mbrNumber: "mbrNumber",
@@ -10038,14 +10042,14 @@ import Api
             pdf: "pdf",
             formSource: "formSource",
             fields: [
-                PostV1DeclarationsMtAnnualReturnGenerateResponseFieldsItem(
+                MtAnnualReturnGenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 )
             ],
             members: [
-                PostV1DeclarationsMtAnnualReturnGenerateResponseMembersItem(
+                MtAnnualReturnGenerateDeclarationsResponseMembersItem(
                     name: "name",
                     identifier: Nullable<String>.value("identifier"),
                     shares: "shares",
@@ -10054,7 +10058,7 @@ import Api
                 )
             ],
             officers: [
-                PostV1DeclarationsMtAnnualReturnGenerateResponseOfficersItem(
+                MtAnnualReturnGenerateDeclarationsResponseOfficersItem(
                     position: "position",
                     name: "name",
                     identifier: Nullable<String>.value("identifier")
@@ -10068,14 +10072,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsMtAnnualReturnGenerate(
+        let response = try await client.declarations.mtAnnualReturnGenerate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsMtAnnualReturnGenerate2() async throws -> Void {
+    @Test func mtAnnualReturnGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -10148,7 +10152,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsMtAnnualReturnGenerateResponse(
+        let expectedResponse = MtAnnualReturnGenerateDeclarationsResponse(
             year: 1000000,
             madeUpTo: Nullable<String>.value("madeUpTo"),
             mbrNumber: "mbrNumber",
@@ -10159,26 +10163,26 @@ import Api
             pdf: "pdf",
             formSource: "formSource",
             fields: [
-                PostV1DeclarationsMtAnnualReturnGenerateResponseFieldsItem(
+                MtAnnualReturnGenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 ),
-                PostV1DeclarationsMtAnnualReturnGenerateResponseFieldsItem(
+                MtAnnualReturnGenerateDeclarationsResponseFieldsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 )
             ],
             members: [
-                PostV1DeclarationsMtAnnualReturnGenerateResponseMembersItem(
+                MtAnnualReturnGenerateDeclarationsResponseMembersItem(
                     name: "name",
                     identifier: Nullable<String>.value("identifier"),
                     shares: "shares",
                     nominalValue: "nominalValue",
                     shareClass: "shareClass"
                 ),
-                PostV1DeclarationsMtAnnualReturnGenerateResponseMembersItem(
+                MtAnnualReturnGenerateDeclarationsResponseMembersItem(
                     name: "name",
                     identifier: Nullable<String>.value("identifier"),
                     shares: "shares",
@@ -10187,12 +10191,12 @@ import Api
                 )
             ],
             officers: [
-                PostV1DeclarationsMtAnnualReturnGenerateResponseOfficersItem(
+                MtAnnualReturnGenerateDeclarationsResponseOfficersItem(
                     position: "position",
                     name: "name",
                     identifier: Nullable<String>.value("identifier")
                 ),
-                PostV1DeclarationsMtAnnualReturnGenerateResponseOfficersItem(
+                MtAnnualReturnGenerateDeclarationsResponseOfficersItem(
                     position: "position",
                     name: "name",
                     identifier: Nullable<String>.value("identifier")
@@ -10208,14 +10212,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsMtAnnualReturnGenerate(
+        let response = try await client.declarations.mtAnnualReturnGenerate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlJpkFaGenerate1() async throws -> Void {
+    @Test func plJpkFaGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -10249,7 +10253,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlJpkFaGenerateResponse(
+        let expectedResponse = PlJpkFaGenerateDeclarationsResponse(
             fileName: "fileName",
             xml: "xml",
             periodStart: "periodStart",
@@ -10261,26 +10265,26 @@ import Api
                 "notes"
             ],
             source: "source",
-            counts: PostV1DeclarationsPlJpkFaGenerateResponseCounts(
+            counts: PlJpkFaGenerateDeclarationsResponseCounts(
                 invoices: 1000000,
                 lines: 1000000
             ),
-            totals: PostV1DeclarationsPlJpkFaGenerateResponseTotals(
+            totals: PlJpkFaGenerateDeclarationsResponseTotals(
                 invoices: "invoices",
                 lines: "lines"
             )
         )
-        let response = try await client.declarations.postV1DeclarationsPlJpkFaGenerate(
+        let response = try await client.declarations.plJpkFaGenerate(
             request: .init(
-                dateFrom: "dateFrom",
-                dateTo: "dateTo"
+                dateFrom: CalendarDate("2026-07-01")!,
+                dateTo: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlJpkFaGenerate2() async throws -> Void {
+    @Test func plJpkFaGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -10316,7 +10320,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlJpkFaGenerateResponse(
+        let expectedResponse = PlJpkFaGenerateDeclarationsResponse(
             fileName: "fileName",
             xml: "xml",
             periodStart: "periodStart",
@@ -10330,26 +10334,26 @@ import Api
                 "notes"
             ],
             source: "source",
-            counts: PostV1DeclarationsPlJpkFaGenerateResponseCounts(
+            counts: PlJpkFaGenerateDeclarationsResponseCounts(
                 invoices: 1000000,
                 lines: 1000000
             ),
-            totals: PostV1DeclarationsPlJpkFaGenerateResponseTotals(
+            totals: PlJpkFaGenerateDeclarationsResponseTotals(
                 invoices: "invoices",
                 lines: "lines"
             )
         )
-        let response = try await client.declarations.postV1DeclarationsPlJpkFaGenerate(
+        let response = try await client.declarations.plJpkFaGenerate(
             request: .init(
-                dateFrom: "dateFrom",
-                dateTo: "dateTo"
+                dateFrom: CalendarDate("2023-01-15")!,
+                dateTo: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlJpkKrGenerate1() async throws -> Void {
+    @Test func plJpkKrGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -10385,7 +10389,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlJpkKrGenerateResponse(
+        let expectedResponse = PlJpkKrGenerateDeclarationsResponse(
             fileName: "fileName",
             xml: "xml",
             periodStart: "periodStart",
@@ -10397,28 +10401,28 @@ import Api
                 "notes"
             ],
             source: "source",
-            counts: PostV1DeclarationsPlJpkKrGenerateResponseCounts(
+            counts: PlJpkKrGenerateDeclarationsResponseCounts(
                 accounts: 1000000,
                 journalRows: 1000000,
                 entryRows: 1000000
             ),
-            totals: PostV1DeclarationsPlJpkKrGenerateResponseTotals(
+            totals: PlJpkKrGenerateDeclarationsResponseTotals(
                 operations: "operations",
                 debit: "debit",
                 credit: "credit"
             )
         )
-        let response = try await client.declarations.postV1DeclarationsPlJpkKrGenerate(
+        let response = try await client.declarations.plJpkKrGenerate(
             request: .init(
-                dateFrom: "dateFrom",
-                dateTo: "dateTo"
+                dateFrom: CalendarDate("2026-07-01")!,
+                dateTo: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlJpkKrGenerate2() async throws -> Void {
+    @Test func plJpkKrGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -10456,7 +10460,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlJpkKrGenerateResponse(
+        let expectedResponse = PlJpkKrGenerateDeclarationsResponse(
             fileName: "fileName",
             xml: "xml",
             periodStart: "periodStart",
@@ -10470,28 +10474,28 @@ import Api
                 "notes"
             ],
             source: "source",
-            counts: PostV1DeclarationsPlJpkKrGenerateResponseCounts(
+            counts: PlJpkKrGenerateDeclarationsResponseCounts(
                 accounts: 1000000,
                 journalRows: 1000000,
                 entryRows: 1000000
             ),
-            totals: PostV1DeclarationsPlJpkKrGenerateResponseTotals(
+            totals: PlJpkKrGenerateDeclarationsResponseTotals(
                 operations: "operations",
                 debit: "debit",
                 credit: "credit"
             )
         )
-        let response = try await client.declarations.postV1DeclarationsPlJpkKrGenerate(
+        let response = try await client.declarations.plJpkKrGenerate(
             request: .init(
-                dateFrom: "dateFrom",
-                dateTo: "dateTo"
+                dateFrom: CalendarDate("2023-01-15")!,
+                dateTo: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlJpkMagGenerate1() async throws -> Void {
+    @Test func plJpkMagGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -10525,7 +10529,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlJpkMagGenerateResponse(
+        let expectedResponse = PlJpkMagGenerateDeclarationsResponse(
             fileName: "fileName",
             xml: "xml",
             periodStart: "periodStart",
@@ -10538,7 +10542,7 @@ import Api
             ],
             source: "source",
             warehouseCode: "warehouseCode",
-            counts: PostV1DeclarationsPlJpkMagGenerateResponseCounts(
+            counts: PlJpkMagGenerateDeclarationsResponseCounts(
                 pz: 1000000,
                 pw: 1000000,
                 wz: 1000000,
@@ -10546,17 +10550,17 @@ import Api
                 rows: 1000000
             )
         )
-        let response = try await client.declarations.postV1DeclarationsPlJpkMagGenerate(
+        let response = try await client.declarations.plJpkMagGenerate(
             request: .init(
-                dateFrom: "dateFrom",
-                dateTo: "dateTo"
+                dateFrom: CalendarDate("2026-07-01")!,
+                dateTo: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlJpkMagGenerate2() async throws -> Void {
+    @Test func plJpkMagGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -10592,7 +10596,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlJpkMagGenerateResponse(
+        let expectedResponse = PlJpkMagGenerateDeclarationsResponse(
             fileName: "fileName",
             xml: "xml",
             periodStart: "periodStart",
@@ -10607,7 +10611,7 @@ import Api
             ],
             source: "source",
             warehouseCode: "warehouseCode",
-            counts: PostV1DeclarationsPlJpkMagGenerateResponseCounts(
+            counts: PlJpkMagGenerateDeclarationsResponseCounts(
                 pz: 1000000,
                 pw: 1000000,
                 wz: 1000000,
@@ -10615,17 +10619,17 @@ import Api
                 rows: 1000000
             )
         )
-        let response = try await client.declarations.postV1DeclarationsPlJpkMagGenerate(
+        let response = try await client.declarations.plJpkMagGenerate(
             request: .init(
-                dateFrom: "dateFrom",
-                dateTo: "dateTo"
+                dateFrom: CalendarDate("2023-01-15")!,
+                dateTo: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlPit11Generate1() async throws -> Void {
+    @Test func plPit11Generate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -10666,7 +10670,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlPit11GenerateResponse(
+        let expectedResponse = PlPit11GenerateDeclarationsResponse(
             year: 1000000,
             source: "source",
             warnings: [
@@ -10676,7 +10680,7 @@ import Api
                 "notes"
             ],
             persons: [
-                PostV1DeclarationsPlPit11GenerateResponsePersonsItem(
+                PlPit11GenerateDeclarationsResponsePersonsItem(
                     employeeId: "employeeId",
                     firstName: "firstName",
                     lastName: "lastName",
@@ -10694,14 +10698,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsPlPit11Generate(
+        let response = try await client.declarations.plPit11Generate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlPit11Generate2() async throws -> Void {
+    @Test func plPit11Generate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -10762,7 +10766,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlPit11GenerateResponse(
+        let expectedResponse = PlPit11GenerateDeclarationsResponse(
             year: 1000000,
             source: "source",
             warnings: [
@@ -10774,7 +10778,7 @@ import Api
                 "notes"
             ],
             persons: [
-                PostV1DeclarationsPlPit11GenerateResponsePersonsItem(
+                PlPit11GenerateDeclarationsResponsePersonsItem(
                     employeeId: "x",
                     firstName: "firstName",
                     lastName: "lastName",
@@ -10791,7 +10795,7 @@ import Api
                         "warnings"
                     ]
                 ),
-                PostV1DeclarationsPlPit11GenerateResponsePersonsItem(
+                PlPit11GenerateDeclarationsResponsePersonsItem(
                     employeeId: "x",
                     firstName: "firstName",
                     lastName: "lastName",
@@ -10810,14 +10814,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsPlPit11Generate(
+        let response = try await client.declarations.plPit11Generate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlCit8Generate1() async throws -> Void {
+    @Test func plCit8Generate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -10854,14 +10858,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlCit8GenerateResponse(
+        let expectedResponse = PlCit8GenerateDeclarationsResponse(
             year: 1000000,
             periodStart: "periodStart",
             periodEnd: "periodEnd",
             fileName: "fileName",
             xml: "xml",
             positions: [
-                PostV1DeclarationsPlCit8GenerateResponsePositionsItem(
+                PlCit8GenerateDeclarationsResponsePositionsItem(
                     field: "field",
                     label: "label",
                     value: "value"
@@ -10878,14 +10882,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsPlCit8Generate(
+        let response = try await client.declarations.plCit8Generate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlCit8Generate2() async throws -> Void {
+    @Test func plCit8Generate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -10930,19 +10934,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlCit8GenerateResponse(
+        let expectedResponse = PlCit8GenerateDeclarationsResponse(
             year: 1000000,
             periodStart: "periodStart",
             periodEnd: "periodEnd",
             fileName: "fileName",
             xml: "xml",
             positions: [
-                PostV1DeclarationsPlCit8GenerateResponsePositionsItem(
+                PlCit8GenerateDeclarationsResponsePositionsItem(
                     field: "field",
                     label: "label",
                     value: "value"
                 ),
-                PostV1DeclarationsPlCit8GenerateResponsePositionsItem(
+                PlCit8GenerateDeclarationsResponsePositionsItem(
                     field: "field",
                     label: "label",
                     value: "value"
@@ -10962,14 +10966,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsPlCit8Generate(
+        let response = try await client.declarations.plCit8Generate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlZusDraCompute1() async throws -> Void {
+    @Test func plZusDraCompute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11008,14 +11012,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlZusDraComputeResponse(
+        let expectedResponse = PlZusDraComputeDeclarationsResponse(
             year: 1000000,
             month: 1000000,
             source: "source",
             runStatus: Nullable<String>.value("runStatus"),
             insuredCount: 1000000,
             rows: [
-                PostV1DeclarationsPlZusDraComputeResponseRowsItem(
+                PlZusDraComputeDeclarationsResponseRowsItem(
                     code: "code",
                     label: "label",
                     insured: "insured",
@@ -11034,7 +11038,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsPlZusDraCompute(
+        let response = try await client.declarations.plZusDraCompute(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -11044,7 +11048,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlZusDraCompute2() async throws -> Void {
+    @Test func plZusDraCompute2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11092,21 +11096,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlZusDraComputeResponse(
+        let expectedResponse = PlZusDraComputeDeclarationsResponse(
             year: 1000000,
             month: 1000000,
             source: "source",
             runStatus: Nullable<String>.value("runStatus"),
             insuredCount: 1000000,
             rows: [
-                PostV1DeclarationsPlZusDraComputeResponseRowsItem(
+                PlZusDraComputeDeclarationsResponseRowsItem(
                     code: "code",
                     label: "label",
                     insured: "insured",
                     payer: "payer",
                     total: "total"
                 ),
-                PostV1DeclarationsPlZusDraComputeResponseRowsItem(
+                PlZusDraComputeDeclarationsResponseRowsItem(
                     code: "code",
                     label: "label",
                     insured: "insured",
@@ -11127,7 +11131,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsPlZusDraCompute(
+        let response = try await client.declarations.plZusDraCompute(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -11137,7 +11141,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlZusDraKedu1() async throws -> Void {
+    @Test func plZusDraKedu1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11178,19 +11182,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlZusDraKeduResponse(
+        let expectedResponse = PlZusDraKeduDeclarationsResponse(
             year: 1000000,
             month: 1000000,
             fileName: "fileName",
             xml: "xml",
             source: "source",
             insured: [
-                PostV1DeclarationsPlZusDraKeduResponseInsuredItem(
+                PlZusDraKeduDeclarationsResponseInsuredItem(
                     employeeId: "employeeId",
                     firstName: "firstName",
                     lastName: "lastName",
                     pesel: "pesel",
-                    kodTytulu: PostV1DeclarationsPlZusDraKeduResponseInsuredItemKodTytulu(
+                    kodTytulu: PlZusDraKeduDeclarationsResponseInsuredItemKodTytulu(
                         p1: "p1",
                         p2: "p2",
                         p3: "p3"
@@ -11206,7 +11210,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsPlZusDraKedu(
+        let response = try await client.declarations.plZusDraKedu(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -11216,7 +11220,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlZusDraKedu2() async throws -> Void {
+    @Test func plZusDraKedu2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11272,19 +11276,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlZusDraKeduResponse(
+        let expectedResponse = PlZusDraKeduDeclarationsResponse(
             year: 1000000,
             month: 1000000,
             fileName: "fileName",
             xml: "xml",
             source: "source",
             insured: [
-                PostV1DeclarationsPlZusDraKeduResponseInsuredItem(
+                PlZusDraKeduDeclarationsResponseInsuredItem(
                     employeeId: "x",
                     firstName: "firstName",
                     lastName: "lastName",
                     pesel: "pesel",
-                    kodTytulu: PostV1DeclarationsPlZusDraKeduResponseInsuredItemKodTytulu(
+                    kodTytulu: PlZusDraKeduDeclarationsResponseInsuredItemKodTytulu(
                         p1: "p1",
                         p2: "p2",
                         p3: "p3"
@@ -11292,12 +11296,12 @@ import Api
                     pensionBase: "pensionBase",
                     healthBase: "healthBase"
                 ),
-                PostV1DeclarationsPlZusDraKeduResponseInsuredItem(
+                PlZusDraKeduDeclarationsResponseInsuredItem(
                     employeeId: "x",
                     firstName: "firstName",
                     lastName: "lastName",
                     pesel: "pesel",
-                    kodTytulu: PostV1DeclarationsPlZusDraKeduResponseInsuredItemKodTytulu(
+                    kodTytulu: PlZusDraKeduDeclarationsResponseInsuredItemKodTytulu(
                         p1: "p1",
                         p2: "p2",
                         p3: "p3"
@@ -11315,7 +11319,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsPlZusDraKedu(
+        let response = try await client.declarations.plZusDraKedu(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -11325,7 +11329,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlZusDraPdf1() async throws -> Void {
+    @Test func plZusDraPdf1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11350,7 +11354,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlZusDraPdfResponse(
+        let expectedResponse = PlZusDraPdfDeclarationsResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data",
@@ -11362,7 +11366,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsPlZusDraPdf(
+        let response = try await client.declarations.plZusDraPdf(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -11372,7 +11376,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsPlZusDraPdf2() async throws -> Void {
+    @Test func plZusDraPdf2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11399,7 +11403,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsPlZusDraPdfResponse(
+        let expectedResponse = PlZusDraPdfDeclarationsResponse(
             fileName: "fileName",
             contentType: "contentType",
             data: "data",
@@ -11413,7 +11417,7 @@ import Api
                 "notes"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsPlZusDraPdf(
+        let response = try await client.declarations.plZusDraPdf(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -11423,7 +11427,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsRoEtransportBuild1() async throws -> Void {
+    @Test func roEtransportBuild1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11455,7 +11459,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsRoEtransportBuildResponse(
+        let expectedResponse = RoEtransportBuildDeclarationsResponse(
             waybillId: "waybillId",
             fileId: "fileId",
             fileName: "fileName",
@@ -11474,14 +11478,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsRoEtransportBuild(
+        let response = try await client.declarations.roEtransportBuild(
             request: .init(waybillId: "waybillId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsRoEtransportBuild2() async throws -> Void {
+    @Test func roEtransportBuild2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11516,7 +11520,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsRoEtransportBuildResponse(
+        let expectedResponse = RoEtransportBuildDeclarationsResponse(
             waybillId: "x",
             fileId: "x",
             fileName: "fileName",
@@ -11538,14 +11542,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsRoEtransportBuild(
+        let response = try await client.declarations.roEtransportBuild(
             request: .init(waybillId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsRoEtransportSubmit1() async throws -> Void {
+    @Test func roEtransportSubmit1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11568,7 +11572,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsRoEtransportSubmitResponse(
+        let expectedResponse = RoEtransportSubmitDeclarationsResponse(
             waybillId: "waybillId",
             reference: "reference",
             state: .submitted,
@@ -11578,14 +11582,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsRoEtransportSubmit(
+        let response = try await client.declarations.roEtransportSubmit(
             request: .init(waybillId: "waybillId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsRoEtransportSubmit2() async throws -> Void {
+    @Test func roEtransportSubmit2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11609,7 +11613,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsRoEtransportSubmitResponse(
+        let expectedResponse = RoEtransportSubmitDeclarationsResponse(
             waybillId: "x",
             reference: "reference",
             state: .submitted,
@@ -11620,14 +11624,14 @@ import Api
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsRoEtransportSubmit(
+        let response = try await client.declarations.roEtransportSubmit(
             request: .init(waybillId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsRoEtransportStatus1() async throws -> Void {
+    @Test func roEtransportStatus1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11646,20 +11650,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsRoEtransportStatusResponse(
+        let expectedResponse = RoEtransportStatusDeclarationsResponse(
             reference: "reference",
             state: .submitted,
             uit: Nullable<String>.value("uit"),
             detail: Nullable<String>.value("detail")
         )
-        let response = try await client.declarations.postV1DeclarationsRoEtransportStatus(
+        let response = try await client.declarations.roEtransportStatus(
             request: .init(reference: "reference"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsRoEtransportStatus2() async throws -> Void {
+    @Test func roEtransportStatus2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11678,20 +11682,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsRoEtransportStatusResponse(
+        let expectedResponse = RoEtransportStatusDeclarationsResponse(
             reference: "reference",
             state: .submitted,
             uit: Nullable<String>.value("uit"),
             detail: Nullable<String>.value("detail")
         )
-        let response = try await client.declarations.postV1DeclarationsRoEtransportStatus(
+        let response = try await client.declarations.roEtransportStatus(
             request: .init(reference: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLiLohndeklarationGenerate1() async throws -> Void {
+    @Test func liLohndeklarationGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11736,12 +11740,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLiLohndeklarationGenerateResponse(
+        let expectedResponse = LiLohndeklarationGenerateDeclarationsResponse(
             year: 1000000,
             fileName: "fileName",
             content: "content",
             rows: [
-                PostV1DeclarationsLiLohndeklarationGenerateResponseRowsItem(
+                LiLohndeklarationGenerateDeclarationsResponseRowsItem(
                     employeeId: "employeeId",
                     versichertennummer: "versichertennummer",
                     vorname: "vorname",
@@ -11768,14 +11772,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsLiLohndeklarationGenerate(
+        let response = try await client.declarations.liLohndeklarationGenerate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLiLohndeklarationGenerate2() async throws -> Void {
+    @Test func liLohndeklarationGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11842,12 +11846,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLiLohndeklarationGenerateResponse(
+        let expectedResponse = LiLohndeklarationGenerateDeclarationsResponse(
             year: 1000000,
             fileName: "fileName",
             content: "content",
             rows: [
-                PostV1DeclarationsLiLohndeklarationGenerateResponseRowsItem(
+                LiLohndeklarationGenerateDeclarationsResponseRowsItem(
                     employeeId: "employeeId",
                     versichertennummer: "versichertennummer",
                     vorname: "vorname",
@@ -11866,7 +11870,7 @@ import Api
                         "warnings"
                     ]
                 ),
-                PostV1DeclarationsLiLohndeklarationGenerateResponseRowsItem(
+                LiLohndeklarationGenerateDeclarationsResponseRowsItem(
                     employeeId: "employeeId",
                     versichertennummer: "versichertennummer",
                     vorname: "vorname",
@@ -11896,14 +11900,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsLiLohndeklarationGenerate(
+        let response = try await client.declarations.liLohndeklarationGenerate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLiLohnlistenGenerate1() async throws -> Void {
+    @Test func liLohnlistenGenerate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -11949,12 +11953,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLiLohnlistenGenerateResponse(
+        let expectedResponse = LiLohnlistenGenerateDeclarationsResponse(
             year: 1000000,
             fileName: "fileName",
             content: "content",
             rows: [
-                PostV1DeclarationsLiLohnlistenGenerateResponseRowsItem(
+                LiLohnlistenGenerateDeclarationsResponseRowsItem(
                     employeeId: "employeeId",
                     peid: "peid",
                     name: "name",
@@ -11982,14 +11986,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsLiLohnlistenGenerate(
+        let response = try await client.declarations.liLohnlistenGenerate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsLiLohnlistenGenerate2() async throws -> Void {
+    @Test func liLohnlistenGenerate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -12058,12 +12062,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsLiLohnlistenGenerateResponse(
+        let expectedResponse = LiLohnlistenGenerateDeclarationsResponse(
             year: 1000000,
             fileName: "fileName",
             content: "content",
             rows: [
-                PostV1DeclarationsLiLohnlistenGenerateResponseRowsItem(
+                LiLohnlistenGenerateDeclarationsResponseRowsItem(
                     employeeId: "employeeId",
                     peid: "peid",
                     name: "name",
@@ -12083,7 +12087,7 @@ import Api
                         "warnings"
                     ]
                 ),
-                PostV1DeclarationsLiLohnlistenGenerateResponseRowsItem(
+                LiLohnlistenGenerateDeclarationsResponseRowsItem(
                     employeeId: "employeeId",
                     peid: "peid",
                     name: "name",
@@ -12114,14 +12118,14 @@ import Api
             ],
             source: "source"
         )
-        let response = try await client.declarations.postV1DeclarationsLiLohnlistenGenerate(
+        let response = try await client.declarations.liLohnlistenGenerate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsConfigsList1() async throws -> Void {
+    @Test func configsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -12159,21 +12163,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsConfigsListResponse(
+        let expectedResponse = ConfigsListDeclarationsResponse(
             companyCountry: "companyCountry",
             rows: [
-                PostV1DeclarationsConfigsListResponseRowsItem(
+                ConfigsListDeclarationsResponseRowsItem(
                     system: "system",
                     country: "country",
                     title: "title",
                     fields: [
-                        PostV1DeclarationsConfigsListResponseRowsItemFieldsItem(
+                        ConfigsListDeclarationsResponseRowsItemFieldsItem(
                             key: "key",
                             kind: .text
                         )
                     ],
                     endpoints: Optional([
-                        PostV1DeclarationsConfigsListResponseRowsItemEndpointsItem(
+                        ConfigsListDeclarationsResponseRowsItemEndpointsItem(
                             name: "name"
                         )
                     ]),
@@ -12184,14 +12188,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsConfigsList(
+        let response = try await client.declarations.configsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsConfigsList2() async throws -> Void {
+    @Test func configsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -12291,15 +12295,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsConfigsListResponse(
+        let expectedResponse = ConfigsListDeclarationsResponse(
             companyCountry: "companyCountry",
             rows: [
-                PostV1DeclarationsConfigsListResponseRowsItem(
+                ConfigsListDeclarationsResponseRowsItem(
                     system: "system",
                     country: "country",
                     title: "title",
                     fields: [
-                        PostV1DeclarationsConfigsListResponseRowsItemFieldsItem(
+                        ConfigsListDeclarationsResponseRowsItemFieldsItem(
                             key: "key",
                             kind: .text,
                             multiline: Optional(true),
@@ -12308,7 +12312,7 @@ import Api
                                 "options"
                             ])
                         ),
-                        PostV1DeclarationsConfigsListResponseRowsItemFieldsItem(
+                        ConfigsListDeclarationsResponseRowsItemFieldsItem(
                             key: "key",
                             kind: .text,
                             multiline: Optional(true),
@@ -12319,12 +12323,12 @@ import Api
                         )
                     ],
                     endpoints: Optional([
-                        PostV1DeclarationsConfigsListResponseRowsItemEndpointsItem(
+                        ConfigsListDeclarationsResponseRowsItemEndpointsItem(
                             name: "name",
                             test: Optional("test"),
                             production: Optional("production")
                         ),
-                        PostV1DeclarationsConfigsListResponseRowsItemEndpointsItem(
+                        ConfigsListDeclarationsResponseRowsItemEndpointsItem(
                             name: "name",
                             test: Optional("test"),
                             production: Optional("production")
@@ -12335,12 +12339,12 @@ import Api
                     ],
                     acceptsCertificate: true
                 ),
-                PostV1DeclarationsConfigsListResponseRowsItem(
+                ConfigsListDeclarationsResponseRowsItem(
                     system: "system",
                     country: "country",
                     title: "title",
                     fields: [
-                        PostV1DeclarationsConfigsListResponseRowsItemFieldsItem(
+                        ConfigsListDeclarationsResponseRowsItemFieldsItem(
                             key: "key",
                             kind: .text,
                             multiline: Optional(true),
@@ -12349,7 +12353,7 @@ import Api
                                 "options"
                             ])
                         ),
-                        PostV1DeclarationsConfigsListResponseRowsItemFieldsItem(
+                        ConfigsListDeclarationsResponseRowsItemFieldsItem(
                             key: "key",
                             kind: .text,
                             multiline: Optional(true),
@@ -12360,12 +12364,12 @@ import Api
                         )
                     ],
                     endpoints: Optional([
-                        PostV1DeclarationsConfigsListResponseRowsItemEndpointsItem(
+                        ConfigsListDeclarationsResponseRowsItemEndpointsItem(
                             name: "name",
                             test: Optional("test"),
                             production: Optional("production")
                         ),
-                        PostV1DeclarationsConfigsListResponseRowsItemEndpointsItem(
+                        ConfigsListDeclarationsResponseRowsItemEndpointsItem(
                             name: "name",
                             test: Optional("test"),
                             production: Optional("production")
@@ -12378,14 +12382,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsConfigsList(
+        let response = try await client.declarations.configsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsConfigsUpdate1() async throws -> Void {
+    @Test func configsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -12424,12 +12428,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsConfigsUpdateResponse(
+        let expectedResponse = ConfigsUpdateDeclarationsResponse(
             system: "system",
             country: "country",
             title: "title",
             fields: [
-                PostV1DeclarationsConfigsUpdateResponseFieldsItem(
+                ConfigsUpdateDeclarationsResponseFieldsItem(
                     key: "key",
                     kind: .text,
                     multiline: Optional(true),
@@ -12439,7 +12443,7 @@ import Api
                 )
             ],
             endpoints: Optional([
-                PostV1DeclarationsConfigsUpdateResponseEndpointsItem(
+                ConfigsUpdateDeclarationsResponseEndpointsItem(
                     name: "name",
                     test: Optional("test"),
                     production: Optional("production")
@@ -12450,7 +12454,7 @@ import Api
             ],
             acceptsCertificate: true
         )
-        let response = try await client.declarations.postV1DeclarationsConfigsUpdate(
+        let response = try await client.declarations.configsUpdate(
             request: .init(
                 system: "system",
                 config: [
@@ -12462,7 +12466,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsConfigsUpdate2() async throws -> Void {
+    @Test func configsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -12516,12 +12520,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsConfigsUpdateResponse(
+        let expectedResponse = ConfigsUpdateDeclarationsResponse(
             system: "system",
             country: "country",
             title: "title",
             fields: [
-                PostV1DeclarationsConfigsUpdateResponseFieldsItem(
+                ConfigsUpdateDeclarationsResponseFieldsItem(
                     key: "key",
                     kind: .text,
                     multiline: Optional(true),
@@ -12530,7 +12534,7 @@ import Api
                         "options"
                     ])
                 ),
-                PostV1DeclarationsConfigsUpdateResponseFieldsItem(
+                ConfigsUpdateDeclarationsResponseFieldsItem(
                     key: "key",
                     kind: .text,
                     multiline: Optional(true),
@@ -12541,12 +12545,12 @@ import Api
                 )
             ],
             endpoints: Optional([
-                PostV1DeclarationsConfigsUpdateResponseEndpointsItem(
+                ConfigsUpdateDeclarationsResponseEndpointsItem(
                     name: "name",
                     test: Optional("test"),
                     production: Optional("production")
                 ),
-                PostV1DeclarationsConfigsUpdateResponseEndpointsItem(
+                ConfigsUpdateDeclarationsResponseEndpointsItem(
                     name: "name",
                     test: Optional("test"),
                     production: Optional("production")
@@ -12557,7 +12561,7 @@ import Api
             ],
             acceptsCertificate: true
         )
-        let response = try await client.declarations.postV1DeclarationsConfigsUpdate(
+        let response = try await client.declarations.configsUpdate(
             request: .init(
                 system: "x",
                 config: [
@@ -12569,7 +12573,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func storeTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWith1() async throws -> Void {
+    @Test func certificatesUpload1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -12590,7 +12594,7 @@ import Api
                       "sha256": "sha256",
                       "health": "ok",
                       "daysLeft": 1000000,
-                      "uploadedAt": "uploadedAt"
+                      "uploadedAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -12602,9 +12606,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsCertificatesUploadResponse(
+        let expectedResponse = CertificatesUploadDeclarationsResponse(
             rows: [
-                PostV1DeclarationsCertificatesUploadResponseRowsItem(
+                CertificatesUploadDeclarationsResponseRowsItem(
                     id: "id",
                     system: "system",
                     fieldKey: "fieldKey",
@@ -12618,11 +12622,11 @@ import Api
                     sha256: "sha256",
                     health: .ok,
                     daysLeft: Nullable<Int64>.value(1000000),
-                    uploadedAt: "uploadedAt"
+                    uploadedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.declarations.storeTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWith(
+        let response = try await client.declarations.certificatesUpload(
             request: .init(
                 system: "system",
                 fileName: "fileName",
@@ -12633,7 +12637,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func storeTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWith2() async throws -> Void {
+    @Test func certificatesUpload2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -12654,7 +12658,7 @@ import Api
                       "sha256": "sha256",
                       "health": "ok",
                       "daysLeft": 1000000,
-                      "uploadedAt": "uploadedAt"
+                      "uploadedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -12670,7 +12674,7 @@ import Api
                       "sha256": "sha256",
                       "health": "ok",
                       "daysLeft": 1000000,
-                      "uploadedAt": "uploadedAt"
+                      "uploadedAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -12682,9 +12686,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsCertificatesUploadResponse(
+        let expectedResponse = CertificatesUploadDeclarationsResponse(
             rows: [
-                PostV1DeclarationsCertificatesUploadResponseRowsItem(
+                CertificatesUploadDeclarationsResponseRowsItem(
                     id: "x",
                     system: "system",
                     fieldKey: "fieldKey",
@@ -12698,9 +12702,9 @@ import Api
                     sha256: "sha256",
                     health: .ok,
                     daysLeft: Nullable<Int64>.value(1000000),
-                    uploadedAt: "uploadedAt"
+                    uploadedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1DeclarationsCertificatesUploadResponseRowsItem(
+                CertificatesUploadDeclarationsResponseRowsItem(
                     id: "x",
                     system: "system",
                     fieldKey: "fieldKey",
@@ -12714,11 +12718,11 @@ import Api
                     sha256: "sha256",
                     health: .ok,
                     daysLeft: Nullable<Int64>.value(1000000),
-                    uploadedAt: "uploadedAt"
+                    uploadedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.declarations.storeTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWith(
+        let response = try await client.declarations.certificatesUpload(
             request: .init(
                 system: "x",
                 fileName: "x",
@@ -12729,7 +12733,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsCertificatesList1() async throws -> Void {
+    @Test func certificatesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -12750,7 +12754,7 @@ import Api
                       "sha256": "sha256",
                       "health": "ok",
                       "daysLeft": 1000000,
-                      "uploadedAt": "uploadedAt"
+                      "uploadedAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -12762,9 +12766,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsCertificatesListResponse(
+        let expectedResponse = CertificatesListDeclarationsResponse(
             rows: [
-                PostV1DeclarationsCertificatesListResponseRowsItem(
+                CertificatesListDeclarationsResponseRowsItem(
                     id: "id",
                     system: "system",
                     fieldKey: "fieldKey",
@@ -12778,18 +12782,18 @@ import Api
                     sha256: "sha256",
                     health: .ok,
                     daysLeft: Nullable<Int64>.value(1000000),
-                    uploadedAt: "uploadedAt"
+                    uploadedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsCertificatesList(
+        let response = try await client.declarations.certificatesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsCertificatesList2() async throws -> Void {
+    @Test func certificatesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -12810,7 +12814,7 @@ import Api
                       "sha256": "sha256",
                       "health": "ok",
                       "daysLeft": 1000000,
-                      "uploadedAt": "uploadedAt"
+                      "uploadedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -12826,7 +12830,7 @@ import Api
                       "sha256": "sha256",
                       "health": "ok",
                       "daysLeft": 1000000,
-                      "uploadedAt": "uploadedAt"
+                      "uploadedAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -12838,9 +12842,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsCertificatesListResponse(
+        let expectedResponse = CertificatesListDeclarationsResponse(
             rows: [
-                PostV1DeclarationsCertificatesListResponseRowsItem(
+                CertificatesListDeclarationsResponseRowsItem(
                     id: "x",
                     system: "system",
                     fieldKey: "fieldKey",
@@ -12854,9 +12858,9 @@ import Api
                     sha256: "sha256",
                     health: .ok,
                     daysLeft: Nullable<Int64>.value(1000000),
-                    uploadedAt: "uploadedAt"
+                    uploadedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1DeclarationsCertificatesListResponseRowsItem(
+                CertificatesListDeclarationsResponseRowsItem(
                     id: "x",
                     system: "system",
                     fieldKey: "fieldKey",
@@ -12870,18 +12874,18 @@ import Api
                     sha256: "sha256",
                     health: .ok,
                     daysLeft: Nullable<Int64>.value(1000000),
-                    uploadedAt: "uploadedAt"
+                    uploadedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsCertificatesList(
+        let response = try await client.declarations.certificatesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsCertificatesDelete1() async throws -> Void {
+    @Test func certificatesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -12902,7 +12906,7 @@ import Api
                       "sha256": "sha256",
                       "health": "ok",
                       "daysLeft": 1000000,
-                      "uploadedAt": "uploadedAt"
+                      "uploadedAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -12914,9 +12918,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsCertificatesDeleteResponse(
+        let expectedResponse = CertificatesDeleteDeclarationsResponse(
             rows: [
-                PostV1DeclarationsCertificatesDeleteResponseRowsItem(
+                CertificatesDeleteDeclarationsResponseRowsItem(
                     id: "id",
                     system: "system",
                     fieldKey: "fieldKey",
@@ -12930,11 +12934,11 @@ import Api
                     sha256: "sha256",
                     health: .ok,
                     daysLeft: Nullable<Int64>.value(1000000),
-                    uploadedAt: "uploadedAt"
+                    uploadedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsCertificatesDelete(
+        let response = try await client.declarations.certificatesDelete(
             request: .init(
                 system: "system",
                 fieldKey: .certificate
@@ -12944,7 +12948,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsCertificatesDelete2() async throws -> Void {
+    @Test func certificatesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -12965,7 +12969,7 @@ import Api
                       "sha256": "sha256",
                       "health": "ok",
                       "daysLeft": 1000000,
-                      "uploadedAt": "uploadedAt"
+                      "uploadedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -12981,7 +12985,7 @@ import Api
                       "sha256": "sha256",
                       "health": "ok",
                       "daysLeft": 1000000,
-                      "uploadedAt": "uploadedAt"
+                      "uploadedAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -12993,9 +12997,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsCertificatesDeleteResponse(
+        let expectedResponse = CertificatesDeleteDeclarationsResponse(
             rows: [
-                PostV1DeclarationsCertificatesDeleteResponseRowsItem(
+                CertificatesDeleteDeclarationsResponseRowsItem(
                     id: "x",
                     system: "system",
                     fieldKey: "fieldKey",
@@ -13009,9 +13013,9 @@ import Api
                     sha256: "sha256",
                     health: .ok,
                     daysLeft: Nullable<Int64>.value(1000000),
-                    uploadedAt: "uploadedAt"
+                    uploadedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1DeclarationsCertificatesDeleteResponseRowsItem(
+                CertificatesDeleteDeclarationsResponseRowsItem(
                     id: "x",
                     system: "system",
                     fieldKey: "fieldKey",
@@ -13025,11 +13029,11 @@ import Api
                     sha256: "sha256",
                     health: .ok,
                     daysLeft: Nullable<Int64>.value(1000000),
-                    uploadedAt: "uploadedAt"
+                    uploadedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsCertificatesDelete(
+        let response = try await client.declarations.certificatesDelete(
             request: .init(
                 system: "x",
                 fieldKey: .certificate
@@ -13039,7 +13043,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func whichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOn1() async throws -> Void {
+    @Test func automationList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13054,7 +13058,8 @@ import Api
                       "enabled": true,
                       "applies": true,
                       "configured": true,
-                      "certificate": "ok"
+                      "certificate": "ok",
+                      "environment": "test"
                     }
                   ]
                 }
@@ -13066,9 +13071,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAutomationListResponse(
+        let expectedResponse = AutomationListDeclarationsResponse(
             rows: [
-                PostV1DeclarationsAutomationListResponseRowsItem(
+                AutomationListDeclarationsResponseRowsItem(
                     ruleKey: "ruleKey",
                     title: "title",
                     country: "country",
@@ -13076,18 +13081,19 @@ import Api
                     enabled: true,
                     applies: true,
                     configured: true,
-                    certificate: .ok
+                    certificate: .ok,
+                    environment: .test
                 )
             ]
         )
-        let response = try await client.declarations.whichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOn(
+        let response = try await client.declarations.automationList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func whichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOn2() async throws -> Void {
+    @Test func automationList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13102,7 +13108,8 @@ import Api
                       "enabled": true,
                       "applies": true,
                       "configured": true,
-                      "certificate": "ok"
+                      "certificate": "ok",
+                      "environment": "test"
                     },
                     {
                       "ruleKey": "ruleKey",
@@ -13112,7 +13119,8 @@ import Api
                       "enabled": true,
                       "applies": true,
                       "configured": true,
-                      "certificate": "ok"
+                      "certificate": "ok",
+                      "environment": "test"
                     }
                   ]
                 }
@@ -13124,9 +13132,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAutomationListResponse(
+        let expectedResponse = AutomationListDeclarationsResponse(
             rows: [
-                PostV1DeclarationsAutomationListResponseRowsItem(
+                AutomationListDeclarationsResponseRowsItem(
                     ruleKey: "ruleKey",
                     title: "title",
                     country: "country",
@@ -13134,9 +13142,10 @@ import Api
                     enabled: true,
                     applies: true,
                     configured: true,
-                    certificate: .ok
+                    certificate: .ok,
+                    environment: .test
                 ),
-                PostV1DeclarationsAutomationListResponseRowsItem(
+                AutomationListDeclarationsResponseRowsItem(
                     ruleKey: "ruleKey",
                     title: "title",
                     country: "country",
@@ -13144,18 +13153,19 @@ import Api
                     enabled: true,
                     applies: true,
                     configured: true,
-                    certificate: .ok
+                    certificate: .ok,
+                    environment: .test
                 )
             ]
         )
-        let response = try await client.declarations.whichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOn(
+        let response = try await client.declarations.automationList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsAutomationUpdate1() async throws -> Void {
+    @Test func automationUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13170,7 +13180,8 @@ import Api
                       "enabled": true,
                       "applies": true,
                       "configured": true,
-                      "certificate": "ok"
+                      "certificate": "ok",
+                      "environment": "test"
                     }
                   ]
                 }
@@ -13182,9 +13193,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAutomationUpdateResponse(
+        let expectedResponse = AutomationUpdateDeclarationsResponse(
             rows: [
-                PostV1DeclarationsAutomationUpdateResponseRowsItem(
+                AutomationUpdateDeclarationsResponseRowsItem(
                     ruleKey: "ruleKey",
                     title: "title",
                     country: "country",
@@ -13192,11 +13203,12 @@ import Api
                     enabled: true,
                     applies: true,
                     configured: true,
-                    certificate: .ok
+                    certificate: .ok,
+                    environment: .test
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsAutomationUpdate(
+        let response = try await client.declarations.automationUpdate(
             request: .init(
                 ruleKey: "ruleKey",
                 enabled: true
@@ -13206,7 +13218,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsAutomationUpdate2() async throws -> Void {
+    @Test func automationUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13221,7 +13233,8 @@ import Api
                       "enabled": true,
                       "applies": true,
                       "configured": true,
-                      "certificate": "ok"
+                      "certificate": "ok",
+                      "environment": "test"
                     },
                     {
                       "ruleKey": "ruleKey",
@@ -13231,7 +13244,8 @@ import Api
                       "enabled": true,
                       "applies": true,
                       "configured": true,
-                      "certificate": "ok"
+                      "certificate": "ok",
+                      "environment": "test"
                     }
                   ]
                 }
@@ -13243,9 +13257,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsAutomationUpdateResponse(
+        let expectedResponse = AutomationUpdateDeclarationsResponse(
             rows: [
-                PostV1DeclarationsAutomationUpdateResponseRowsItem(
+                AutomationUpdateDeclarationsResponseRowsItem(
                     ruleKey: "ruleKey",
                     title: "title",
                     country: "country",
@@ -13253,9 +13267,10 @@ import Api
                     enabled: true,
                     applies: true,
                     configured: true,
-                    certificate: .ok
+                    certificate: .ok,
+                    environment: .test
                 ),
-                PostV1DeclarationsAutomationUpdateResponseRowsItem(
+                AutomationUpdateDeclarationsResponseRowsItem(
                     ruleKey: "ruleKey",
                     title: "title",
                     country: "country",
@@ -13263,11 +13278,12 @@ import Api
                     enabled: true,
                     applies: true,
                     configured: true,
-                    certificate: .ok
+                    certificate: .ok,
+                    environment: .test
                 )
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsAutomationUpdate(
+        let response = try await client.declarations.automationUpdate(
             request: .init(
                 ruleKey: "x",
                 enabled: true
@@ -13277,7 +13293,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func sendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGenerated1() async throws -> Void {
+    @Test func submissionsRetry1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13296,21 +13312,23 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "documentKey": "documentKey",
+                  "amendment": 1000000,
                   "origin": "origin",
                   "transportSystem": "transportSystem",
-                  "submittedAt": "submittedAt",
-                  "acceptedAt": "acceptedAt",
-                  "rejectedAt": "rejectedAt",
-                  "checkedAt": "checkedAt",
-                  "nextCheckAt": "nextCheckAt",
+                  "environment": "test",
+                  "submittedAt": "2026-07-01T09:30:00Z",
+                  "acceptedAt": "2026-07-01T09:30:00Z",
+                  "rejectedAt": "2026-07-01T09:30:00Z",
+                  "checkedAt": "2026-07-01T09:30:00Z",
+                  "nextCheckAt": "2026-07-01T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
                   "submittedByActorId": "submittedByActorId",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -13320,7 +13338,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsSubmissionsRetryResponse(
+        let expectedResponse = SubmissionsRetryDeclarationsResponse(
             id: "id",
             obligation: "obligation",
             periodYear: 1000000,
@@ -13334,30 +13352,32 @@ import Api
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
+            amendment: 1000000,
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
-            submittedAt: Nullable<String>.value("submittedAt"),
-            acceptedAt: Nullable<String>.value("acceptedAt"),
-            rejectedAt: Nullable<String>.value("rejectedAt"),
-            checkedAt: Nullable<String>.value("checkedAt"),
-            nextCheckAt: Nullable<String>.value("nextCheckAt"),
+            environment: Nullable<SubmissionsRetryDeclarationsResponseEnvironment>.value(.test),
+            submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
             submittedByActorId: Nullable<String>.value("submittedByActorId"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.declarations.sendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGenerated(
+        let response = try await client.declarations.submissionsRetry(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func sendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGenerated2() async throws -> Void {
+    @Test func submissionsRetry2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13376,21 +13396,23 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "documentKey": "documentKey",
+                  "amendment": 1000000,
                   "origin": "origin",
                   "transportSystem": "transportSystem",
-                  "submittedAt": "submittedAt",
-                  "acceptedAt": "acceptedAt",
-                  "rejectedAt": "rejectedAt",
-                  "checkedAt": "checkedAt",
-                  "nextCheckAt": "nextCheckAt",
+                  "environment": "test",
+                  "submittedAt": "2024-01-15T09:30:00Z",
+                  "acceptedAt": "2024-01-15T09:30:00Z",
+                  "rejectedAt": "2024-01-15T09:30:00Z",
+                  "checkedAt": "2024-01-15T09:30:00Z",
+                  "nextCheckAt": "2024-01-15T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
                   "submittedByActorId": "submittedByActorId",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -13400,7 +13422,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsSubmissionsRetryResponse(
+        let expectedResponse = SubmissionsRetryDeclarationsResponse(
             id: "x",
             obligation: "obligation",
             periodYear: 1000000,
@@ -13414,30 +13436,32 @@ import Api
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
+            amendment: 1000000,
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
-            submittedAt: Nullable<String>.value("submittedAt"),
-            acceptedAt: Nullable<String>.value("acceptedAt"),
-            rejectedAt: Nullable<String>.value("rejectedAt"),
-            checkedAt: Nullable<String>.value("checkedAt"),
-            nextCheckAt: Nullable<String>.value("nextCheckAt"),
+            environment: Nullable<SubmissionsRetryDeclarationsResponseEnvironment>.value(.test),
+            submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
             submittedByActorId: Nullable<String>.value("submittedByActorId"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.declarations.sendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGenerated(
+        let response = try await client.declarations.submissionsRetry(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsSubmissionsCreate1() async throws -> Void {
+    @Test func submissionsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13456,21 +13480,23 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "documentKey": "documentKey",
+                  "amendment": 1000000,
                   "origin": "origin",
                   "transportSystem": "transportSystem",
-                  "submittedAt": "submittedAt",
-                  "acceptedAt": "acceptedAt",
-                  "rejectedAt": "rejectedAt",
-                  "checkedAt": "checkedAt",
-                  "nextCheckAt": "nextCheckAt",
+                  "environment": "test",
+                  "submittedAt": "2026-07-01T09:30:00Z",
+                  "acceptedAt": "2026-07-01T09:30:00Z",
+                  "rejectedAt": "2026-07-01T09:30:00Z",
+                  "checkedAt": "2026-07-01T09:30:00Z",
+                  "nextCheckAt": "2026-07-01T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
                   "submittedByActorId": "submittedByActorId",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
                   "warnings": [
                     "warnings"
                   ]
@@ -13483,7 +13509,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsSubmissionsCreateResponse(
+        let expectedResponse = SubmissionsCreateDeclarationsResponse(
             id: "id",
             obligation: "obligation",
             periodYear: 1000000,
@@ -13497,26 +13523,28 @@ import Api
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
+            amendment: 1000000,
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
-            submittedAt: Nullable<String>.value("submittedAt"),
-            acceptedAt: Nullable<String>.value("acceptedAt"),
-            rejectedAt: Nullable<String>.value("rejectedAt"),
-            checkedAt: Nullable<String>.value("checkedAt"),
-            nextCheckAt: Nullable<String>.value("nextCheckAt"),
+            environment: Nullable<SubmissionsCreateDeclarationsResponseEnvironment>.value(.test),
+            submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
             submittedByActorId: Nullable<String>.value("submittedByActorId"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             warnings: [
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsSubmissionsCreate(
+        let response = try await client.declarations.submissionsCreate(
             request: .init(
                 obligation: .ltIsaf,
                 year: 1000000,
@@ -13527,7 +13555,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsSubmissionsCreate2() async throws -> Void {
+    @Test func submissionsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13546,21 +13574,23 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "documentKey": "documentKey",
+                  "amendment": 1000000,
                   "origin": "origin",
                   "transportSystem": "transportSystem",
-                  "submittedAt": "submittedAt",
-                  "acceptedAt": "acceptedAt",
-                  "rejectedAt": "rejectedAt",
-                  "checkedAt": "checkedAt",
-                  "nextCheckAt": "nextCheckAt",
+                  "environment": "test",
+                  "submittedAt": "2024-01-15T09:30:00Z",
+                  "acceptedAt": "2024-01-15T09:30:00Z",
+                  "rejectedAt": "2024-01-15T09:30:00Z",
+                  "checkedAt": "2024-01-15T09:30:00Z",
+                  "nextCheckAt": "2024-01-15T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
                   "submittedByActorId": "submittedByActorId",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
                   "warnings": [
                     "warnings",
                     "warnings"
@@ -13574,7 +13604,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsSubmissionsCreateResponse(
+        let expectedResponse = SubmissionsCreateDeclarationsResponse(
             id: "x",
             obligation: "obligation",
             periodYear: 1000000,
@@ -13588,27 +13618,29 @@ import Api
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
+            amendment: 1000000,
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
-            submittedAt: Nullable<String>.value("submittedAt"),
-            acceptedAt: Nullable<String>.value("acceptedAt"),
-            rejectedAt: Nullable<String>.value("rejectedAt"),
-            checkedAt: Nullable<String>.value("checkedAt"),
-            nextCheckAt: Nullable<String>.value("nextCheckAt"),
+            environment: Nullable<SubmissionsCreateDeclarationsResponseEnvironment>.value(.test),
+            submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
             submittedByActorId: Nullable<String>.value("submittedByActorId"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             warnings: [
                 "warnings",
                 "warnings"
             ]
         )
-        let response = try await client.declarations.postV1DeclarationsSubmissionsCreate(
+        let response = try await client.declarations.submissionsCreate(
             request: .init(
                 obligation: .ltIsaf,
                 year: 1000000,
@@ -13619,7 +13651,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsSubmissionsMark1() async throws -> Void {
+    @Test func submissionsMark1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13638,21 +13670,23 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "documentKey": "documentKey",
+                  "amendment": 1000000,
                   "origin": "origin",
                   "transportSystem": "transportSystem",
-                  "submittedAt": "submittedAt",
-                  "acceptedAt": "acceptedAt",
-                  "rejectedAt": "rejectedAt",
-                  "checkedAt": "checkedAt",
-                  "nextCheckAt": "nextCheckAt",
+                  "environment": "test",
+                  "submittedAt": "2026-07-01T09:30:00Z",
+                  "acceptedAt": "2026-07-01T09:30:00Z",
+                  "rejectedAt": "2026-07-01T09:30:00Z",
+                  "checkedAt": "2026-07-01T09:30:00Z",
+                  "nextCheckAt": "2026-07-01T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
                   "submittedByActorId": "submittedByActorId",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -13662,7 +13696,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsSubmissionsMarkResponse(
+        let expectedResponse = SubmissionsMarkDeclarationsResponse(
             id: "id",
             obligation: "obligation",
             periodYear: 1000000,
@@ -13676,23 +13710,25 @@ import Api
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
+            amendment: 1000000,
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
-            submittedAt: Nullable<String>.value("submittedAt"),
-            acceptedAt: Nullable<String>.value("acceptedAt"),
-            rejectedAt: Nullable<String>.value("rejectedAt"),
-            checkedAt: Nullable<String>.value("checkedAt"),
-            nextCheckAt: Nullable<String>.value("nextCheckAt"),
+            environment: Nullable<SubmissionsMarkDeclarationsResponseEnvironment>.value(.test),
+            submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
             submittedByActorId: Nullable<String>.value("submittedByActorId"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.declarations.postV1DeclarationsSubmissionsMark(
+        let response = try await client.declarations.submissionsMark(
             request: .init(
                 id: "id",
                 status: .submitted
@@ -13702,7 +13738,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsSubmissionsMark2() async throws -> Void {
+    @Test func submissionsMark2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13721,21 +13757,23 @@ import Api
                   "ruleKey": "ruleKey",
                   "period": "period",
                   "documentKey": "documentKey",
+                  "amendment": 1000000,
                   "origin": "origin",
                   "transportSystem": "transportSystem",
-                  "submittedAt": "submittedAt",
-                  "acceptedAt": "acceptedAt",
-                  "rejectedAt": "rejectedAt",
-                  "checkedAt": "checkedAt",
-                  "nextCheckAt": "nextCheckAt",
+                  "environment": "test",
+                  "submittedAt": "2024-01-15T09:30:00Z",
+                  "acceptedAt": "2024-01-15T09:30:00Z",
+                  "rejectedAt": "2024-01-15T09:30:00Z",
+                  "checkedAt": "2024-01-15T09:30:00Z",
+                  "nextCheckAt": "2024-01-15T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
                   "submittedByActorId": "submittedByActorId",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -13745,7 +13783,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsSubmissionsMarkResponse(
+        let expectedResponse = SubmissionsMarkDeclarationsResponse(
             id: "x",
             obligation: "obligation",
             periodYear: 1000000,
@@ -13759,23 +13797,25 @@ import Api
             ruleKey: Nullable<String>.value("ruleKey"),
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
+            amendment: 1000000,
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
-            submittedAt: Nullable<String>.value("submittedAt"),
-            acceptedAt: Nullable<String>.value("acceptedAt"),
-            rejectedAt: Nullable<String>.value("rejectedAt"),
-            checkedAt: Nullable<String>.value("checkedAt"),
-            nextCheckAt: Nullable<String>.value("nextCheckAt"),
+            environment: Nullable<SubmissionsMarkDeclarationsResponseEnvironment>.value(.test),
+            submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
             submittedByActorId: Nullable<String>.value("submittedByActorId"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.declarations.postV1DeclarationsSubmissionsMark(
+        let response = try await client.declarations.submissionsMark(
             request: .init(
                 id: "x",
                 status: .submitted
@@ -13785,7 +13825,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsSubmissionsList1() async throws -> Void {
+    @Test func submissionsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13806,21 +13846,23 @@ import Api
                       "ruleKey": "ruleKey",
                       "period": "period",
                       "documentKey": "documentKey",
+                      "amendment": 1000000,
                       "origin": "origin",
                       "transportSystem": "transportSystem",
-                      "submittedAt": "submittedAt",
-                      "acceptedAt": "acceptedAt",
-                      "rejectedAt": "rejectedAt",
-                      "checkedAt": "checkedAt",
-                      "nextCheckAt": "nextCheckAt",
+                      "environment": "test",
+                      "submittedAt": "2026-07-01T09:30:00Z",
+                      "acceptedAt": "2026-07-01T09:30:00Z",
+                      "rejectedAt": "2026-07-01T09:30:00Z",
+                      "checkedAt": "2026-07-01T09:30:00Z",
+                      "nextCheckAt": "2026-07-01T09:30:00Z",
                       "attempts": 1000000,
                       "deliveryError": "deliveryError",
                       "sentSha256": "sentSha256",
                       "certificateFingerprint": "certificateFingerprint",
                       "submittedByActorType": "submittedByActorType",
                       "submittedByActorId": "submittedByActorId",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -13838,9 +13880,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsSubmissionsListResponse(
+        let expectedResponse = SubmissionsListDeclarationsResponse(
             rows: [
-                PostV1DeclarationsSubmissionsListResponseRowsItem(
+                SubmissionsListDeclarationsResponseRowsItem(
                     id: "id",
                     obligation: "obligation",
                     periodYear: 1000000,
@@ -13854,21 +13896,23 @@ import Api
                     ruleKey: Nullable<String>.value("ruleKey"),
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
+                    amendment: 1000000,
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
-                    submittedAt: Nullable<String>.value("submittedAt"),
-                    acceptedAt: Nullable<String>.value("acceptedAt"),
-                    rejectedAt: Nullable<String>.value("rejectedAt"),
-                    checkedAt: Nullable<String>.value("checkedAt"),
-                    nextCheckAt: Nullable<String>.value("nextCheckAt"),
+                    environment: Nullable<SubmissionsListDeclarationsResponseRowsItemEnvironment>.value(.test),
+                    submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     attempts: 1000000,
                     deliveryError: Nullable<String>.value("deliveryError"),
                     sentSha256: Nullable<String>.value("sentSha256"),
                     certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                     submittedByActorType: Nullable<String>.value("submittedByActorType"),
                     submittedByActorId: Nullable<String>.value("submittedByActorId"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -13878,14 +13922,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.declarations.postV1DeclarationsSubmissionsList(
+        let response = try await client.declarations.submissionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1DeclarationsSubmissionsList2() async throws -> Void {
+    @Test func submissionsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -13906,21 +13950,23 @@ import Api
                       "ruleKey": "ruleKey",
                       "period": "period",
                       "documentKey": "documentKey",
+                      "amendment": 1000000,
                       "origin": "origin",
                       "transportSystem": "transportSystem",
-                      "submittedAt": "submittedAt",
-                      "acceptedAt": "acceptedAt",
-                      "rejectedAt": "rejectedAt",
-                      "checkedAt": "checkedAt",
-                      "nextCheckAt": "nextCheckAt",
+                      "environment": "test",
+                      "submittedAt": "2024-01-15T09:30:00Z",
+                      "acceptedAt": "2024-01-15T09:30:00Z",
+                      "rejectedAt": "2024-01-15T09:30:00Z",
+                      "checkedAt": "2024-01-15T09:30:00Z",
+                      "nextCheckAt": "2024-01-15T09:30:00Z",
                       "attempts": 1000000,
                       "deliveryError": "deliveryError",
                       "sentSha256": "sentSha256",
                       "certificateFingerprint": "certificateFingerprint",
                       "submittedByActorType": "submittedByActorType",
                       "submittedByActorId": "submittedByActorId",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -13936,21 +13982,23 @@ import Api
                       "ruleKey": "ruleKey",
                       "period": "period",
                       "documentKey": "documentKey",
+                      "amendment": 1000000,
                       "origin": "origin",
                       "transportSystem": "transportSystem",
-                      "submittedAt": "submittedAt",
-                      "acceptedAt": "acceptedAt",
-                      "rejectedAt": "rejectedAt",
-                      "checkedAt": "checkedAt",
-                      "nextCheckAt": "nextCheckAt",
+                      "environment": "test",
+                      "submittedAt": "2024-01-15T09:30:00Z",
+                      "acceptedAt": "2024-01-15T09:30:00Z",
+                      "rejectedAt": "2024-01-15T09:30:00Z",
+                      "checkedAt": "2024-01-15T09:30:00Z",
+                      "nextCheckAt": "2024-01-15T09:30:00Z",
                       "attempts": 1000000,
                       "deliveryError": "deliveryError",
                       "sentSha256": "sentSha256",
                       "certificateFingerprint": "certificateFingerprint",
                       "submittedByActorType": "submittedByActorType",
                       "submittedByActorId": "submittedByActorId",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -13968,9 +14016,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1DeclarationsSubmissionsListResponse(
+        let expectedResponse = SubmissionsListDeclarationsResponse(
             rows: [
-                PostV1DeclarationsSubmissionsListResponseRowsItem(
+                SubmissionsListDeclarationsResponseRowsItem(
                     id: "x",
                     obligation: "obligation",
                     periodYear: 1000000,
@@ -13984,23 +14032,25 @@ import Api
                     ruleKey: Nullable<String>.value("ruleKey"),
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
+                    amendment: 1000000,
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
-                    submittedAt: Nullable<String>.value("submittedAt"),
-                    acceptedAt: Nullable<String>.value("acceptedAt"),
-                    rejectedAt: Nullable<String>.value("rejectedAt"),
-                    checkedAt: Nullable<String>.value("checkedAt"),
-                    nextCheckAt: Nullable<String>.value("nextCheckAt"),
+                    environment: Nullable<SubmissionsListDeclarationsResponseRowsItemEnvironment>.value(.test),
+                    submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     attempts: 1000000,
                     deliveryError: Nullable<String>.value("deliveryError"),
                     sentSha256: Nullable<String>.value("sentSha256"),
                     certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                     submittedByActorType: Nullable<String>.value("submittedByActorType"),
                     submittedByActorId: Nullable<String>.value("submittedByActorId"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1DeclarationsSubmissionsListResponseRowsItem(
+                SubmissionsListDeclarationsResponseRowsItem(
                     id: "x",
                     obligation: "obligation",
                     periodYear: 1000000,
@@ -14014,21 +14064,23 @@ import Api
                     ruleKey: Nullable<String>.value("ruleKey"),
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
+                    amendment: 1000000,
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
-                    submittedAt: Nullable<String>.value("submittedAt"),
-                    acceptedAt: Nullable<String>.value("acceptedAt"),
-                    rejectedAt: Nullable<String>.value("rejectedAt"),
-                    checkedAt: Nullable<String>.value("checkedAt"),
-                    nextCheckAt: Nullable<String>.value("nextCheckAt"),
+                    environment: Nullable<SubmissionsListDeclarationsResponseRowsItemEnvironment>.value(.test),
+                    submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     attempts: 1000000,
                     deliveryError: Nullable<String>.value("deliveryError"),
                     sentSha256: Nullable<String>.value("sentSha256"),
                     certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                     submittedByActorType: Nullable<String>.value("submittedByActorType"),
                     submittedByActorId: Nullable<String>.value("submittedByActorId"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -14038,7 +14090,7 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.declarations.postV1DeclarationsSubmissionsList(
+        let response = try await client.declarations.submissionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

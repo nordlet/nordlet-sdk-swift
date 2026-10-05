@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("CashClient Wire Tests") struct CashClientWireTests {
-    @Test func postV1CashOrdersCreate1() async throws -> Void {
+    @Test func ordersCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -14,7 +14,7 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "partnerId": "partnerId",
                   "employeeId": "employeeId",
                   "amount": "amount",
@@ -24,7 +24,7 @@ import Api
                   "counterAccountCode": "counterAccountCode",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -34,13 +34,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CashOrdersCreateResponse(
+        let expectedResponse = OrdersCreateCashResponse(
             id: "id",
             type: .receipt,
             series: "series",
             number: 1000000,
             fullNumber: "fullNumber",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             partnerId: Nullable<String>.value("partnerId"),
             employeeId: Nullable<String>.value("employeeId"),
             amount: "amount",
@@ -50,13 +50,13 @@ import Api
             counterAccountCode: "counterAccountCode",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.cash.postV1CashOrdersCreate(
+        let response = try await client.cash.ordersCreate(
             request: .init(
                 type: .receipt,
-                date: "date",
-                amount: "amount",
+                date: CalendarDate("2026-07-01")!,
+                amount: "121.0000",
                 purpose: "purpose",
                 counterAccountCode: "counterAccountCode"
             ),
@@ -65,7 +65,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CashOrdersCreate2() async throws -> Void {
+    @Test func ordersCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -76,7 +76,7 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "partnerId": "x",
                   "employeeId": "x",
                   "amount": "amount",
@@ -86,7 +86,7 @@ import Api
                   "counterAccountCode": "counterAccountCode",
                   "journalTransactionId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -96,13 +96,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CashOrdersCreateResponse(
+        let expectedResponse = OrdersCreateCashResponse(
             id: "x",
             type: .receipt,
             series: "series",
             number: 1000000,
             fullNumber: "fullNumber",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             partnerId: Nullable<String>.value("x"),
             employeeId: Nullable<String>.value("x"),
             amount: "amount",
@@ -112,12 +112,12 @@ import Api
             counterAccountCode: "counterAccountCode",
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.cash.postV1CashOrdersCreate(
+        let response = try await client.cash.ordersCreate(
             request: .init(
                 type: .receipt,
-                date: "date",
+                date: CalendarDate("2023-01-15")!,
                 amount: "amount",
                 purpose: "x",
                 counterAccountCode: "x"
@@ -127,7 +127,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CashOrdersGet1() async throws -> Void {
+    @Test func ordersGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -138,7 +138,7 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "date": "date",
+                  "date": "2026-07-01",
                   "partnerId": "partnerId",
                   "employeeId": "employeeId",
                   "amount": "amount",
@@ -148,7 +148,7 @@ import Api
                   "counterAccountCode": "counterAccountCode",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -158,13 +158,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CashOrdersGetResponse(
+        let expectedResponse = OrdersGetCashResponse(
             id: "id",
             type: .receipt,
             series: "series",
             number: 1000000,
             fullNumber: "fullNumber",
-            date: "date",
+            date: CalendarDate("2026-07-01")!,
             partnerId: Nullable<String>.value("partnerId"),
             employeeId: Nullable<String>.value("employeeId"),
             amount: "amount",
@@ -174,16 +174,16 @@ import Api
             counterAccountCode: "counterAccountCode",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.cash.postV1CashOrdersGet(
+        let response = try await client.cash.ordersGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CashOrdersGet2() async throws -> Void {
+    @Test func ordersGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -194,7 +194,7 @@ import Api
                   "series": "series",
                   "number": 1000000,
                   "fullNumber": "fullNumber",
-                  "date": "date",
+                  "date": "2023-01-15",
                   "partnerId": "x",
                   "employeeId": "x",
                   "amount": "amount",
@@ -204,7 +204,7 @@ import Api
                   "counterAccountCode": "counterAccountCode",
                   "journalTransactionId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -214,13 +214,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CashOrdersGetResponse(
+        let expectedResponse = OrdersGetCashResponse(
             id: "x",
             type: .receipt,
             series: "series",
             number: 1000000,
             fullNumber: "fullNumber",
-            date: "date",
+            date: CalendarDate("2023-01-15")!,
             partnerId: Nullable<String>.value("x"),
             employeeId: Nullable<String>.value("x"),
             amount: "amount",
@@ -230,16 +230,16 @@ import Api
             counterAccountCode: "counterAccountCode",
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.cash.postV1CashOrdersGet(
+        let response = try await client.cash.ordersGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CashOrdersList1() async throws -> Void {
+    @Test func ordersList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -252,7 +252,7 @@ import Api
                       "series": "series",
                       "number": 1000000,
                       "fullNumber": "fullNumber",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "partnerId": "partnerId",
                       "employeeId": "employeeId",
                       "amount": "amount",
@@ -262,7 +262,7 @@ import Api
                       "counterAccountCode": "counterAccountCode",
                       "journalTransactionId": "journalTransactionId",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -280,15 +280,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CashOrdersListResponse(
+        let expectedResponse = OrdersListCashResponse(
             rows: [
-                PostV1CashOrdersListResponseRowsItem(
+                OrdersListCashResponseRowsItem(
                     id: "id",
                     type: .receipt,
                     series: "series",
                     number: 1000000,
                     fullNumber: "fullNumber",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     partnerId: Nullable<String>.value("partnerId"),
                     employeeId: Nullable<String>.value("employeeId"),
                     amount: "amount",
@@ -298,7 +298,7 @@ import Api
                     counterAccountCode: "counterAccountCode",
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -308,14 +308,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.cash.postV1CashOrdersList(
+        let response = try await client.cash.ordersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CashOrdersList2() async throws -> Void {
+    @Test func ordersList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -328,7 +328,7 @@ import Api
                       "series": "series",
                       "number": 1000000,
                       "fullNumber": "fullNumber",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "partnerId": "x",
                       "employeeId": "x",
                       "amount": "amount",
@@ -338,7 +338,7 @@ import Api
                       "counterAccountCode": "counterAccountCode",
                       "journalTransactionId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -346,7 +346,7 @@ import Api
                       "series": "series",
                       "number": 1000000,
                       "fullNumber": "fullNumber",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "partnerId": "x",
                       "employeeId": "x",
                       "amount": "amount",
@@ -356,7 +356,7 @@ import Api
                       "counterAccountCode": "counterAccountCode",
                       "journalTransactionId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -374,15 +374,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CashOrdersListResponse(
+        let expectedResponse = OrdersListCashResponse(
             rows: [
-                PostV1CashOrdersListResponseRowsItem(
+                OrdersListCashResponseRowsItem(
                     id: "x",
                     type: .receipt,
                     series: "series",
                     number: 1000000,
                     fullNumber: "fullNumber",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     partnerId: Nullable<String>.value("x"),
                     employeeId: Nullable<String>.value("x"),
                     amount: "amount",
@@ -392,15 +392,15 @@ import Api
                     counterAccountCode: "counterAccountCode",
                     journalTransactionId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1CashOrdersListResponseRowsItem(
+                OrdersListCashResponseRowsItem(
                     id: "x",
                     type: .receipt,
                     series: "series",
                     number: 1000000,
                     fullNumber: "fullNumber",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     partnerId: Nullable<String>.value("x"),
                     employeeId: Nullable<String>.value("x"),
                     amount: "amount",
@@ -410,7 +410,7 @@ import Api
                     counterAccountCode: "counterAccountCode",
                     journalTransactionId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -420,14 +420,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.cash.postV1CashOrdersList(
+        let response = try await client.cash.ordersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CashBalance1() async throws -> Void {
+    @Test func balance1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -444,18 +444,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CashBalanceResponse(
+        let expectedResponse = BalanceCashResponse(
             cashAccountCode: "cashAccountCode",
             balance: "balance"
         )
-        let response = try await client.cash.postV1CashBalance(
+        let response = try await client.cash.balance(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CashBalance2() async throws -> Void {
+    @Test func balance2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -472,18 +472,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CashBalanceResponse(
+        let expectedResponse = BalanceCashResponse(
             cashAccountCode: "cashAccountCode",
             balance: "balance"
         )
-        let response = try await client.cash.postV1CashBalance(
+        let response = try await client.cash.balance(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CashAdvanceHoldersBalances1() async throws -> Void {
+    @Test func advanceHoldersBalances1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -508,9 +508,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CashAdvanceHoldersBalancesResponse(
+        let expectedResponse = AdvanceHoldersBalancesCashResponse(
             rows: [
-                PostV1CashAdvanceHoldersBalancesResponseRowsItem(
+                AdvanceHoldersBalancesCashResponseRowsItem(
                     employeeId: "employeeId",
                     firstName: "firstName",
                     lastName: "lastName",
@@ -520,14 +520,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.cash.postV1CashAdvanceHoldersBalances(
+        let response = try await client.cash.advanceHoldersBalances(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1CashAdvanceHoldersBalances2() async throws -> Void {
+    @Test func advanceHoldersBalances2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -560,9 +560,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1CashAdvanceHoldersBalancesResponse(
+        let expectedResponse = AdvanceHoldersBalancesCashResponse(
             rows: [
-                PostV1CashAdvanceHoldersBalancesResponseRowsItem(
+                AdvanceHoldersBalancesCashResponseRowsItem(
                     employeeId: "x",
                     firstName: "firstName",
                     lastName: "lastName",
@@ -570,7 +570,7 @@ import Api
                     returned: "returned",
                     balance: "balance"
                 ),
-                PostV1CashAdvanceHoldersBalancesResponseRowsItem(
+                AdvanceHoldersBalancesCashResponseRowsItem(
                     employeeId: "x",
                     firstName: "firstName",
                     lastName: "lastName",
@@ -580,7 +580,7 @@ import Api
                 )
             ]
         )
-        let response = try await client.cash.postV1CashAdvanceHoldersBalances(
+        let response = try await client.cash.advanceHoldersBalances(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

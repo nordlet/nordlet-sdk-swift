@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("PayrollClient Wire Tests") struct PayrollClientWireTests {
-    @Test func postV1PayrollDepartmentsCreate1() async throws -> Void {
+    @Test func departmentsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -21,12 +21,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollDepartmentsCreateResponse(
+        let expectedResponse = DepartmentsCreatePayrollResponse(
             id: "id",
             code: "code",
             name: "name"
         )
-        let response = try await client.payroll.postV1PayrollDepartmentsCreate(
+        let response = try await client.payroll.departmentsCreate(
             request: .init(
                 code: "code",
                 name: "name"
@@ -36,7 +36,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollDepartmentsCreate2() async throws -> Void {
+    @Test func departmentsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -54,12 +54,12 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollDepartmentsCreateResponse(
+        let expectedResponse = DepartmentsCreatePayrollResponse(
             id: "x",
             code: "code",
             name: "name"
         )
-        let response = try await client.payroll.postV1PayrollDepartmentsCreate(
+        let response = try await client.payroll.departmentsCreate(
             request: .init(
                 code: "x",
                 name: "x"
@@ -69,7 +69,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollDepartmentsList1() async throws -> Void {
+    @Test func departmentsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -91,23 +91,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollDepartmentsListResponse(
+        let expectedResponse = DepartmentsListPayrollResponse(
             rows: [
-                PostV1PayrollDepartmentsListResponseRowsItem(
+                DepartmentsListPayrollResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name"
                 )
             ]
         )
-        let response = try await client.payroll.postV1PayrollDepartmentsList(
+        let response = try await client.payroll.departmentsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollDepartmentsList2() async throws -> Void {
+    @Test func departmentsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -134,28 +134,28 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollDepartmentsListResponse(
+        let expectedResponse = DepartmentsListPayrollResponse(
             rows: [
-                PostV1PayrollDepartmentsListResponseRowsItem(
+                DepartmentsListPayrollResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name"
                 ),
-                PostV1PayrollDepartmentsListResponseRowsItem(
+                DepartmentsListPayrollResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name"
                 )
             ]
         )
-        let response = try await client.payroll.postV1PayrollDepartmentsList(
+        let response = try await client.payroll.departmentsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollSchedulesCreate1() async throws -> Void {
+    @Test func schedulesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -174,13 +174,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollSchedulesCreateResponse(
+        let expectedResponse = SchedulesCreatePayrollResponse(
             id: "id",
             code: "code",
             name: "name",
             hoursPerWeek: "hoursPerWeek"
         )
-        let response = try await client.payroll.postV1PayrollSchedulesCreate(
+        let response = try await client.payroll.schedulesCreate(
             request: .init(
                 code: "code",
                 name: "name"
@@ -190,7 +190,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollSchedulesCreate2() async throws -> Void {
+    @Test func schedulesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -209,13 +209,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollSchedulesCreateResponse(
+        let expectedResponse = SchedulesCreatePayrollResponse(
             id: "x",
             code: "code",
             name: "name",
             hoursPerWeek: "hoursPerWeek"
         )
-        let response = try await client.payroll.postV1PayrollSchedulesCreate(
+        let response = try await client.payroll.schedulesCreate(
             request: .init(
                 code: "x",
                 name: "x"
@@ -225,7 +225,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollSchedulesList1() async throws -> Void {
+    @Test func schedulesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -248,9 +248,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollSchedulesListResponse(
+        let expectedResponse = SchedulesListPayrollResponse(
             rows: [
-                PostV1PayrollSchedulesListResponseRowsItem(
+                SchedulesListPayrollResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
@@ -258,14 +258,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.payroll.postV1PayrollSchedulesList(
+        let response = try await client.payroll.schedulesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollSchedulesList2() async throws -> Void {
+    @Test func schedulesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -294,15 +294,15 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollSchedulesListResponse(
+        let expectedResponse = SchedulesListPayrollResponse(
             rows: [
-                PostV1PayrollSchedulesListResponseRowsItem(
+                SchedulesListPayrollResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     hoursPerWeek: "hoursPerWeek"
                 ),
-                PostV1PayrollSchedulesListResponseRowsItem(
+                SchedulesListPayrollResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
@@ -310,14 +310,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.payroll.postV1PayrollSchedulesList(
+        let response = try await client.payroll.schedulesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func calculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry1() async throws -> Void {
+    @Test func calc1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -347,14 +347,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollCalcResponse(
+        let expectedResponse = CalcPayrollResponse(
             countryCode: "countryCode",
             taxAllowance: "taxAllowance",
             incomeTax: "incomeTax",
             employeeContributions: "employeeContributions",
             employerContributions: "employerContributions",
             components: [
-                PostV1PayrollCalcResponseComponentsItem(
+                CalcPayrollResponseComponentsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
@@ -364,17 +364,17 @@ import Api
             ],
             net: "net"
         )
-        let response = try await client.payroll.calculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry(
+        let response = try await client.payroll.calc(
             request: .init(
-                taxableBase: "taxableBase",
-                date: "date"
+                taxableBase: "121.00",
+                date: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func calculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry2() async throws -> Void {
+    @Test func calc2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -411,21 +411,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollCalcResponse(
+        let expectedResponse = CalcPayrollResponse(
             countryCode: "countryCode",
             taxAllowance: "taxAllowance",
             incomeTax: "incomeTax",
             employeeContributions: "employeeContributions",
             employerContributions: "employerContributions",
             components: [
-                PostV1PayrollCalcResponseComponentsItem(
+                CalcPayrollResponseComponentsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
                     base: Optional("base")
                 ),
-                PostV1PayrollCalcResponseComponentsItem(
+                CalcPayrollResponseComponentsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
@@ -435,17 +435,17 @@ import Api
             ],
             net: "net"
         )
-        let response = try await client.payroll.calculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry(
+        let response = try await client.payroll.calc(
             request: .init(
                 taxableBase: "taxableBase",
-                date: "date"
+                date: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollRunsCreate1() async throws -> Void {
+    @Test func runsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -473,8 +473,11 @@ import Api
                   "netTotal": "netTotal",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "approvedAt": "approvedAt",
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "approvedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -524,7 +527,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollRunsCreateResponse(
+        let expectedResponse = RunsCreatePayrollResponse(
             id: "id",
             year: 1000000,
             month: 1000000,
@@ -536,7 +539,7 @@ import Api
             employeeContributionsTotal: "employeeContributionsTotal",
             employerContributionsTotal: "employerContributionsTotal",
             componentTotals: [
-                PostV1PayrollRunsCreateResponseComponentTotalsItem(
+                RunsCreatePayrollResponseComponentTotalsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
@@ -547,10 +550,13 @@ import Api
             netTotal: "netTotal",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            approvedAt: Nullable<String>.value("approvedAt"),
+            warnings: [
+                "warnings"
+            ],
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lines: [
-                PostV1PayrollRunsCreateResponseLinesItem(
+                RunsCreatePayrollResponseLinesItem(
                     id: "id",
                     employeeId: "employeeId",
                     contractId: Nullable<String>.value("contractId"),
@@ -558,14 +564,14 @@ import Api
                     gross: "gross",
                     natura: "natura",
                     additions: [
-                        PostV1PayrollRunsCreateResponseLinesItemAdditionsItem(
+                        RunsCreatePayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
                             taxable: true
                         )
                     ],
                     deductions: [
-                        PostV1PayrollRunsCreateResponseLinesItemDeductionsItem(
+                        RunsCreatePayrollResponseLinesItemDeductionsItem(
                             name: "name",
                             amount: "amount"
                         )
@@ -576,7 +582,7 @@ import Api
                     employeeContributions: "employeeContributions",
                     employerContributions: "employerContributions",
                     components: [
-                        PostV1PayrollRunsCreateResponseLinesItemComponentsItem(
+                        RunsCreatePayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount"
@@ -590,7 +596,7 @@ import Api
                 )
             ]
         )
-        let response = try await client.payroll.postV1PayrollRunsCreate(
+        let response = try await client.payroll.runsCreate(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -600,7 +606,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollRunsCreate2() async throws -> Void {
+    @Test func runsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -635,8 +641,12 @@ import Api
                   "netTotal": "netTotal",
                   "journalTransactionId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "approvedAt": "approvedAt",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "approvedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -760,7 +770,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollRunsCreateResponse(
+        let expectedResponse = RunsCreatePayrollResponse(
             id: "x",
             year: 1000000,
             month: 1000000,
@@ -772,14 +782,14 @@ import Api
             employeeContributionsTotal: "employeeContributionsTotal",
             employerContributionsTotal: "employerContributionsTotal",
             componentTotals: [
-                PostV1PayrollRunsCreateResponseComponentTotalsItem(
+                RunsCreatePayrollResponseComponentTotalsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
                     base: Optional("base")
                 ),
-                PostV1PayrollRunsCreateResponseComponentTotalsItem(
+                RunsCreatePayrollResponseComponentTotalsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
@@ -790,10 +800,14 @@ import Api
             netTotal: "netTotal",
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            approvedAt: Nullable<String>.value("approvedAt"),
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lines: [
-                PostV1PayrollRunsCreateResponseLinesItem(
+                RunsCreatePayrollResponseLinesItem(
                     id: "x",
                     employeeId: "x",
                     contractId: Nullable<String>.value("x"),
@@ -801,23 +815,23 @@ import Api
                     gross: "gross",
                     natura: "natura",
                     additions: [
-                        PostV1PayrollRunsCreateResponseLinesItemAdditionsItem(
+                        RunsCreatePayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
                             taxable: true
                         ),
-                        PostV1PayrollRunsCreateResponseLinesItemAdditionsItem(
+                        RunsCreatePayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
                             taxable: true
                         )
                     ],
                     deductions: [
-                        PostV1PayrollRunsCreateResponseLinesItemDeductionsItem(
+                        RunsCreatePayrollResponseLinesItemDeductionsItem(
                             name: "name",
                             amount: "amount"
                         ),
-                        PostV1PayrollRunsCreateResponseLinesItemDeductionsItem(
+                        RunsCreatePayrollResponseLinesItemDeductionsItem(
                             name: "name",
                             amount: "amount"
                         )
@@ -828,14 +842,14 @@ import Api
                     employeeContributions: "employeeContributions",
                     employerContributions: "employerContributions",
                     components: [
-                        PostV1PayrollRunsCreateResponseLinesItemComponentsItem(
+                        RunsCreatePayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
                             base: Optional("base")
                         ),
-                        PostV1PayrollRunsCreateResponseLinesItemComponentsItem(
+                        RunsCreatePayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
@@ -849,7 +863,7 @@ import Api
                     registeredDays: Nullable<String>.value("registeredDays"),
                     averageHourlyEarnings: Nullable<String>.value("averageHourlyEarnings")
                 ),
-                PostV1PayrollRunsCreateResponseLinesItem(
+                RunsCreatePayrollResponseLinesItem(
                     id: "x",
                     employeeId: "x",
                     contractId: Nullable<String>.value("x"),
@@ -857,23 +871,23 @@ import Api
                     gross: "gross",
                     natura: "natura",
                     additions: [
-                        PostV1PayrollRunsCreateResponseLinesItemAdditionsItem(
+                        RunsCreatePayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
                             taxable: true
                         ),
-                        PostV1PayrollRunsCreateResponseLinesItemAdditionsItem(
+                        RunsCreatePayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
                             taxable: true
                         )
                     ],
                     deductions: [
-                        PostV1PayrollRunsCreateResponseLinesItemDeductionsItem(
+                        RunsCreatePayrollResponseLinesItemDeductionsItem(
                             name: "name",
                             amount: "amount"
                         ),
-                        PostV1PayrollRunsCreateResponseLinesItemDeductionsItem(
+                        RunsCreatePayrollResponseLinesItemDeductionsItem(
                             name: "name",
                             amount: "amount"
                         )
@@ -884,14 +898,14 @@ import Api
                     employeeContributions: "employeeContributions",
                     employerContributions: "employerContributions",
                     components: [
-                        PostV1PayrollRunsCreateResponseLinesItemComponentsItem(
+                        RunsCreatePayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
                             base: Optional("base")
                         ),
-                        PostV1PayrollRunsCreateResponseLinesItemComponentsItem(
+                        RunsCreatePayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
@@ -907,7 +921,7 @@ import Api
                 )
             ]
         )
-        let response = try await client.payroll.postV1PayrollRunsCreate(
+        let response = try await client.payroll.runsCreate(
             request: .init(
                 year: 1000000,
                 month: 1000000
@@ -917,7 +931,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollRunsGet1() async throws -> Void {
+    @Test func runsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -945,8 +959,11 @@ import Api
                   "netTotal": "netTotal",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "approvedAt": "approvedAt",
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "approvedAt": "2026-07-01T09:30:00Z",
                   "lines": [
                     {
                       "id": "id",
@@ -996,7 +1013,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollRunsGetResponse(
+        let expectedResponse = RunsGetPayrollResponse(
             id: "id",
             year: 1000000,
             month: 1000000,
@@ -1008,7 +1025,7 @@ import Api
             employeeContributionsTotal: "employeeContributionsTotal",
             employerContributionsTotal: "employerContributionsTotal",
             componentTotals: [
-                PostV1PayrollRunsGetResponseComponentTotalsItem(
+                RunsGetPayrollResponseComponentTotalsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
@@ -1019,10 +1036,13 @@ import Api
             netTotal: "netTotal",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            approvedAt: Nullable<String>.value("approvedAt"),
+            warnings: [
+                "warnings"
+            ],
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lines: [
-                PostV1PayrollRunsGetResponseLinesItem(
+                RunsGetPayrollResponseLinesItem(
                     id: "id",
                     employeeId: "employeeId",
                     contractId: Nullable<String>.value("contractId"),
@@ -1030,14 +1050,14 @@ import Api
                     gross: "gross",
                     natura: "natura",
                     additions: [
-                        PostV1PayrollRunsGetResponseLinesItemAdditionsItem(
+                        RunsGetPayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
                             taxable: true
                         )
                     ],
                     deductions: [
-                        PostV1PayrollRunsGetResponseLinesItemDeductionsItem(
+                        RunsGetPayrollResponseLinesItemDeductionsItem(
                             name: "name",
                             amount: "amount"
                         )
@@ -1048,7 +1068,7 @@ import Api
                     employeeContributions: "employeeContributions",
                     employerContributions: "employerContributions",
                     components: [
-                        PostV1PayrollRunsGetResponseLinesItemComponentsItem(
+                        RunsGetPayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount"
@@ -1062,14 +1082,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.payroll.postV1PayrollRunsGet(
+        let response = try await client.payroll.runsGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollRunsGet2() async throws -> Void {
+    @Test func runsGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1104,8 +1124,12 @@ import Api
                   "netTotal": "netTotal",
                   "journalTransactionId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "approvedAt": "approvedAt",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "approvedAt": "2024-01-15T09:30:00Z",
                   "lines": [
                     {
                       "id": "x",
@@ -1229,7 +1253,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollRunsGetResponse(
+        let expectedResponse = RunsGetPayrollResponse(
             id: "x",
             year: 1000000,
             month: 1000000,
@@ -1241,14 +1265,14 @@ import Api
             employeeContributionsTotal: "employeeContributionsTotal",
             employerContributionsTotal: "employerContributionsTotal",
             componentTotals: [
-                PostV1PayrollRunsGetResponseComponentTotalsItem(
+                RunsGetPayrollResponseComponentTotalsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
                     base: Optional("base")
                 ),
-                PostV1PayrollRunsGetResponseComponentTotalsItem(
+                RunsGetPayrollResponseComponentTotalsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
@@ -1259,10 +1283,14 @@ import Api
             netTotal: "netTotal",
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            approvedAt: Nullable<String>.value("approvedAt"),
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lines: [
-                PostV1PayrollRunsGetResponseLinesItem(
+                RunsGetPayrollResponseLinesItem(
                     id: "x",
                     employeeId: "x",
                     contractId: Nullable<String>.value("x"),
@@ -1270,23 +1298,23 @@ import Api
                     gross: "gross",
                     natura: "natura",
                     additions: [
-                        PostV1PayrollRunsGetResponseLinesItemAdditionsItem(
+                        RunsGetPayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
                             taxable: true
                         ),
-                        PostV1PayrollRunsGetResponseLinesItemAdditionsItem(
+                        RunsGetPayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
                             taxable: true
                         )
                     ],
                     deductions: [
-                        PostV1PayrollRunsGetResponseLinesItemDeductionsItem(
+                        RunsGetPayrollResponseLinesItemDeductionsItem(
                             name: "name",
                             amount: "amount"
                         ),
-                        PostV1PayrollRunsGetResponseLinesItemDeductionsItem(
+                        RunsGetPayrollResponseLinesItemDeductionsItem(
                             name: "name",
                             amount: "amount"
                         )
@@ -1297,14 +1325,14 @@ import Api
                     employeeContributions: "employeeContributions",
                     employerContributions: "employerContributions",
                     components: [
-                        PostV1PayrollRunsGetResponseLinesItemComponentsItem(
+                        RunsGetPayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
                             base: Optional("base")
                         ),
-                        PostV1PayrollRunsGetResponseLinesItemComponentsItem(
+                        RunsGetPayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
@@ -1318,7 +1346,7 @@ import Api
                     registeredDays: Nullable<String>.value("registeredDays"),
                     averageHourlyEarnings: Nullable<String>.value("averageHourlyEarnings")
                 ),
-                PostV1PayrollRunsGetResponseLinesItem(
+                RunsGetPayrollResponseLinesItem(
                     id: "x",
                     employeeId: "x",
                     contractId: Nullable<String>.value("x"),
@@ -1326,23 +1354,23 @@ import Api
                     gross: "gross",
                     natura: "natura",
                     additions: [
-                        PostV1PayrollRunsGetResponseLinesItemAdditionsItem(
+                        RunsGetPayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
                             taxable: true
                         ),
-                        PostV1PayrollRunsGetResponseLinesItemAdditionsItem(
+                        RunsGetPayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
                             taxable: true
                         )
                     ],
                     deductions: [
-                        PostV1PayrollRunsGetResponseLinesItemDeductionsItem(
+                        RunsGetPayrollResponseLinesItemDeductionsItem(
                             name: "name",
                             amount: "amount"
                         ),
-                        PostV1PayrollRunsGetResponseLinesItemDeductionsItem(
+                        RunsGetPayrollResponseLinesItemDeductionsItem(
                             name: "name",
                             amount: "amount"
                         )
@@ -1353,14 +1381,14 @@ import Api
                     employeeContributions: "employeeContributions",
                     employerContributions: "employerContributions",
                     components: [
-                        PostV1PayrollRunsGetResponseLinesItemComponentsItem(
+                        RunsGetPayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
                             base: Optional("base")
                         ),
-                        PostV1PayrollRunsGetResponseLinesItemComponentsItem(
+                        RunsGetPayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
@@ -1376,14 +1404,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.payroll.postV1PayrollRunsGet(
+        let response = try await client.payroll.runsGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollRunsList1() async throws -> Void {
+    @Test func runsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1411,8 +1439,11 @@ import Api
                       "netTotal": "netTotal",
                       "journalTransactionId": "journalTransactionId",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "approvedAt": "approvedAt"
+                      "warnings": [
+                        "warnings"
+                      ],
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "approvedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1430,9 +1461,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollRunsListResponse(
+        let expectedResponse = RunsListPayrollResponse(
             rows: [
-                PostV1PayrollRunsListResponseRowsItem(
+                RunsListPayrollResponseRowsItem(
                     id: "id",
                     year: 1000000,
                     month: 1000000,
@@ -1444,7 +1475,7 @@ import Api
                     employeeContributionsTotal: "employeeContributionsTotal",
                     employerContributionsTotal: "employerContributionsTotal",
                     componentTotals: [
-                        PostV1PayrollRunsListResponseRowsItemComponentTotalsItem(
+                        RunsListPayrollResponseRowsItemComponentTotalsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount"
@@ -1453,8 +1484,11 @@ import Api
                     netTotal: "netTotal",
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    approvedAt: Nullable<String>.value("approvedAt")
+                    warnings: [
+                        "warnings"
+                    ],
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 )
             ],
             page: 1000000,
@@ -1464,14 +1498,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.payroll.postV1PayrollRunsList(
+        let response = try await client.payroll.runsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollRunsList2() async throws -> Void {
+    @Test func runsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1508,8 +1542,12 @@ import Api
                       "netTotal": "netTotal",
                       "journalTransactionId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "approvedAt": "approvedAt"
+                      "warnings": [
+                        "warnings",
+                        "warnings"
+                      ],
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "approvedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1541,8 +1579,12 @@ import Api
                       "netTotal": "netTotal",
                       "journalTransactionId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "approvedAt": "approvedAt"
+                      "warnings": [
+                        "warnings",
+                        "warnings"
+                      ],
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "approvedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1560,9 +1602,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollRunsListResponse(
+        let expectedResponse = RunsListPayrollResponse(
             rows: [
-                PostV1PayrollRunsListResponseRowsItem(
+                RunsListPayrollResponseRowsItem(
                     id: "x",
                     year: 1000000,
                     month: 1000000,
@@ -1574,14 +1616,14 @@ import Api
                     employeeContributionsTotal: "employeeContributionsTotal",
                     employerContributionsTotal: "employerContributionsTotal",
                     componentTotals: [
-                        PostV1PayrollRunsListResponseRowsItemComponentTotalsItem(
+                        RunsListPayrollResponseRowsItemComponentTotalsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
                             base: Optional("base")
                         ),
-                        PostV1PayrollRunsListResponseRowsItemComponentTotalsItem(
+                        RunsListPayrollResponseRowsItemComponentTotalsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
@@ -1592,10 +1634,14 @@ import Api
                     netTotal: "netTotal",
                     journalTransactionId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    approvedAt: Nullable<String>.value("approvedAt")
+                    warnings: [
+                        "warnings",
+                        "warnings"
+                    ],
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                PostV1PayrollRunsListResponseRowsItem(
+                RunsListPayrollResponseRowsItem(
                     id: "x",
                     year: 1000000,
                     month: 1000000,
@@ -1607,14 +1653,14 @@ import Api
                     employeeContributionsTotal: "employeeContributionsTotal",
                     employerContributionsTotal: "employerContributionsTotal",
                     componentTotals: [
-                        PostV1PayrollRunsListResponseRowsItemComponentTotalsItem(
+                        RunsListPayrollResponseRowsItemComponentTotalsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
                             base: Optional("base")
                         ),
-                        PostV1PayrollRunsListResponseRowsItemComponentTotalsItem(
+                        RunsListPayrollResponseRowsItemComponentTotalsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
@@ -1625,8 +1671,12 @@ import Api
                     netTotal: "netTotal",
                     journalTransactionId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    approvedAt: Nullable<String>.value("approvedAt")
+                    warnings: [
+                        "warnings",
+                        "warnings"
+                    ],
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 )
             ],
             page: 1000000,
@@ -1636,14 +1686,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.payroll.postV1PayrollRunsList(
+        let response = try await client.payroll.runsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func recordTheTimeAPersonWorkedInAPayrollLine1() async throws -> Void {
+    @Test func linesAttendance1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1696,7 +1746,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollLinesAttendanceResponse(
+        let expectedResponse = LinesAttendancePayrollResponse(
             id: "id",
             employeeId: "employeeId",
             contractId: Nullable<String>.value("contractId"),
@@ -1704,14 +1754,14 @@ import Api
             gross: "gross",
             natura: "natura",
             additions: [
-                PostV1PayrollLinesAttendanceResponseAdditionsItem(
+                LinesAttendancePayrollResponseAdditionsItem(
                     name: "name",
                     amount: "amount",
                     taxable: true
                 )
             ],
             deductions: [
-                PostV1PayrollLinesAttendanceResponseDeductionsItem(
+                LinesAttendancePayrollResponseDeductionsItem(
                     name: "name",
                     amount: "amount"
                 )
@@ -1722,7 +1772,7 @@ import Api
             employeeContributions: "employeeContributions",
             employerContributions: "employerContributions",
             components: [
-                PostV1PayrollLinesAttendanceResponseComponentsItem(
+                LinesAttendancePayrollResponseComponentsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
@@ -1736,14 +1786,14 @@ import Api
             registeredDays: Nullable<String>.value("registeredDays"),
             averageHourlyEarnings: Nullable<String>.value("averageHourlyEarnings")
         )
-        let response = try await client.payroll.recordTheTimeAPersonWorkedInAPayrollLine(
+        let response = try await client.payroll.linesAttendance(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func recordTheTimeAPersonWorkedInAPayrollLine2() async throws -> Void {
+    @Test func linesAttendance2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1812,7 +1862,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollLinesAttendanceResponse(
+        let expectedResponse = LinesAttendancePayrollResponse(
             id: "x",
             employeeId: "x",
             contractId: Nullable<String>.value("x"),
@@ -1820,23 +1870,23 @@ import Api
             gross: "gross",
             natura: "natura",
             additions: [
-                PostV1PayrollLinesAttendanceResponseAdditionsItem(
+                LinesAttendancePayrollResponseAdditionsItem(
                     name: "name",
                     amount: "amount",
                     taxable: true
                 ),
-                PostV1PayrollLinesAttendanceResponseAdditionsItem(
+                LinesAttendancePayrollResponseAdditionsItem(
                     name: "name",
                     amount: "amount",
                     taxable: true
                 )
             ],
             deductions: [
-                PostV1PayrollLinesAttendanceResponseDeductionsItem(
+                LinesAttendancePayrollResponseDeductionsItem(
                     name: "name",
                     amount: "amount"
                 ),
-                PostV1PayrollLinesAttendanceResponseDeductionsItem(
+                LinesAttendancePayrollResponseDeductionsItem(
                     name: "name",
                     amount: "amount"
                 )
@@ -1847,14 +1897,14 @@ import Api
             employeeContributions: "employeeContributions",
             employerContributions: "employerContributions",
             components: [
-                PostV1PayrollLinesAttendanceResponseComponentsItem(
+                LinesAttendancePayrollResponseComponentsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
                     base: Optional("base")
                 ),
-                PostV1PayrollLinesAttendanceResponseComponentsItem(
+                LinesAttendancePayrollResponseComponentsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
@@ -1868,14 +1918,14 @@ import Api
             registeredDays: Nullable<String>.value("registeredDays"),
             averageHourlyEarnings: Nullable<String>.value("averageHourlyEarnings")
         )
-        let response = try await client.payroll.recordTheTimeAPersonWorkedInAPayrollLine(
+        let response = try await client.payroll.linesAttendance(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollRunsApprove1() async throws -> Void {
+    @Test func runsApprove1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1903,8 +1953,11 @@ import Api
                   "netTotal": "netTotal",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "approvedAt": "approvedAt"
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "approvedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1914,7 +1967,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollRunsApproveResponse(
+        let expectedResponse = RunsApprovePayrollResponse(
             id: "id",
             year: 1000000,
             month: 1000000,
@@ -1926,7 +1979,7 @@ import Api
             employeeContributionsTotal: "employeeContributionsTotal",
             employerContributionsTotal: "employerContributionsTotal",
             componentTotals: [
-                PostV1PayrollRunsApproveResponseComponentTotalsItem(
+                RunsApprovePayrollResponseComponentTotalsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
@@ -1937,17 +1990,20 @@ import Api
             netTotal: "netTotal",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            approvedAt: Nullable<String>.value("approvedAt")
+            warnings: [
+                "warnings"
+            ],
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.payroll.postV1PayrollRunsApprove(
+        let response = try await client.payroll.runsApprove(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollRunsApprove2() async throws -> Void {
+    @Test func runsApprove2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1982,8 +2038,12 @@ import Api
                   "netTotal": "netTotal",
                   "journalTransactionId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "approvedAt": "approvedAt"
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "approvedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1993,7 +2053,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollRunsApproveResponse(
+        let expectedResponse = RunsApprovePayrollResponse(
             id: "x",
             year: 1000000,
             month: 1000000,
@@ -2005,14 +2065,14 @@ import Api
             employeeContributionsTotal: "employeeContributionsTotal",
             employerContributionsTotal: "employerContributionsTotal",
             componentTotals: [
-                PostV1PayrollRunsApproveResponseComponentTotalsItem(
+                RunsApprovePayrollResponseComponentTotalsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
                     base: Optional("base")
                 ),
-                PostV1PayrollRunsApproveResponseComponentTotalsItem(
+                RunsApprovePayrollResponseComponentTotalsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
@@ -2023,17 +2083,21 @@ import Api
             netTotal: "netTotal",
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            approvedAt: Nullable<String>.value("approvedAt")
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.payroll.postV1PayrollRunsApprove(
+        let response = try await client.payroll.runsApprove(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollRunsCancel1() async throws -> Void {
+    @Test func runsCancel1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2049,17 +2113,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollRunsCancelResponse(
+        let expectedResponse = RunsCancelPayrollResponse(
             deleted: true
         )
-        let response = try await client.payroll.postV1PayrollRunsCancel(
+        let response = try await client.payroll.runsCancel(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollRunsCancel2() async throws -> Void {
+    @Test func runsCancel2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2075,17 +2139,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollRunsCancelResponse(
+        let expectedResponse = RunsCancelPayrollResponse(
             deleted: true
         )
-        let response = try await client.payroll.postV1PayrollRunsCancel(
+        let response = try await client.payroll.runsCancel(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollPaymentsExport1() async throws -> Void {
+    @Test func paymentsExport1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2105,14 +2169,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollPaymentsExportResponse(
+        let expectedResponse = PaymentsExportPayrollResponse(
             messageId: "messageId",
             fileName: "fileName",
             transactionCount: 1000000,
             controlSum: "controlSum",
             xml: "xml"
         )
-        let response = try await client.payroll.postV1PayrollPaymentsExport(
+        let response = try await client.payroll.paymentsExport(
             request: .init(
                 runId: "runId",
                 bankAccountId: "bankAccountId"
@@ -2122,7 +2186,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PayrollPaymentsExport2() async throws -> Void {
+    @Test func paymentsExport2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2142,14 +2206,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PayrollPaymentsExportResponse(
+        let expectedResponse = PaymentsExportPayrollResponse(
             messageId: "messageId",
             fileName: "fileName",
             transactionCount: 1000000,
             controlSum: "controlSum",
             xml: "xml"
         )
-        let response = try await client.payroll.postV1PayrollPaymentsExport(
+        let response = try await client.payroll.paymentsExport(
             request: .init(
                 runId: "x",
                 bankAccountId: "x"

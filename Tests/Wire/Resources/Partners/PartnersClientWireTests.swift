@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("PartnersClient Wire Tests") struct PartnersClientWireTests {
-    @Test func postV1PartnersAddressesCreate1() async throws -> Void {
+    @Test func addressesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -17,7 +17,7 @@ import Api
                   "postalCode": "postalCode",
                   "countryCode": "countryCode",
                   "isDefault": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -27,7 +27,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersAddressesCreateResponse(
+        let expectedResponse = AddressesCreatePartnersResponse(
             id: "id",
             partnerId: "partnerId",
             type: "type",
@@ -36,16 +36,16 @@ import Api
             postalCode: Nullable<String>.value("postalCode"),
             countryCode: Nullable<String>.value("countryCode"),
             isDefault: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersAddressesCreate(
+        let response = try await client.partners.addressesCreate(
             request: .init(partnerId: "partnerId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersAddressesCreate2() async throws -> Void {
+    @Test func addressesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -59,7 +59,7 @@ import Api
                   "postalCode": "postalCode",
                   "countryCode": "countryCode",
                   "isDefault": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -69,7 +69,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersAddressesCreateResponse(
+        let expectedResponse = AddressesCreatePartnersResponse(
             id: "x",
             partnerId: "x",
             type: "type",
@@ -78,16 +78,16 @@ import Api
             postalCode: Nullable<String>.value("postalCode"),
             countryCode: Nullable<String>.value("countryCode"),
             isDefault: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersAddressesCreate(
+        let response = try await client.partners.addressesCreate(
             request: .init(partnerId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersAddressesUpdate1() async throws -> Void {
+    @Test func addressesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -101,7 +101,7 @@ import Api
                   "postalCode": "postalCode",
                   "countryCode": "countryCode",
                   "isDefault": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -111,7 +111,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersAddressesUpdateResponse(
+        let expectedResponse = AddressesUpdatePartnersResponse(
             id: "id",
             partnerId: "partnerId",
             type: "type",
@@ -120,16 +120,16 @@ import Api
             postalCode: Nullable<String>.value("postalCode"),
             countryCode: Nullable<String>.value("countryCode"),
             isDefault: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersAddressesUpdate(
+        let response = try await client.partners.addressesUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersAddressesUpdate2() async throws -> Void {
+    @Test func addressesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -143,7 +143,7 @@ import Api
                   "postalCode": "postalCode",
                   "countryCode": "countryCode",
                   "isDefault": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -153,7 +153,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersAddressesUpdateResponse(
+        let expectedResponse = AddressesUpdatePartnersResponse(
             id: "x",
             partnerId: "x",
             type: "type",
@@ -162,16 +162,16 @@ import Api
             postalCode: Nullable<String>.value("postalCode"),
             countryCode: Nullable<String>.value("countryCode"),
             isDefault: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersAddressesUpdate(
+        let response = try await client.partners.addressesUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersAddressesDelete1() async throws -> Void {
+    @Test func addressesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -187,17 +187,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersAddressesDeleteResponse(
+        let expectedResponse = AddressesDeletePartnersResponse(
             deleted: true
         )
-        let response = try await client.partners.postV1PartnersAddressesDelete(
+        let response = try await client.partners.addressesDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersAddressesDelete2() async throws -> Void {
+    @Test func addressesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -213,17 +213,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersAddressesDeleteResponse(
+        let expectedResponse = AddressesDeletePartnersResponse(
             deleted: true
         )
-        let response = try await client.partners.postV1PartnersAddressesDelete(
+        let response = try await client.partners.addressesDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersAddressesList1() async throws -> Void {
+    @Test func addressesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -239,7 +239,7 @@ import Api
                       "postalCode": "postalCode",
                       "countryCode": "countryCode",
                       "isDefault": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -257,9 +257,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersAddressesListResponse(
+        let expectedResponse = AddressesListPartnersResponse(
             rows: [
-                PostV1PartnersAddressesListResponseRowsItem(
+                AddressesListPartnersResponseRowsItem(
                     id: "id",
                     partnerId: "partnerId",
                     type: "type",
@@ -268,7 +268,7 @@ import Api
                     postalCode: Nullable<String>.value("postalCode"),
                     countryCode: Nullable<String>.value("countryCode"),
                     isDefault: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -278,14 +278,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.partners.postV1PartnersAddressesList(
+        let response = try await client.partners.addressesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersAddressesList2() async throws -> Void {
+    @Test func addressesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -301,7 +301,7 @@ import Api
                       "postalCode": "postalCode",
                       "countryCode": "countryCode",
                       "isDefault": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -312,7 +312,7 @@ import Api
                       "postalCode": "postalCode",
                       "countryCode": "countryCode",
                       "isDefault": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -330,9 +330,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersAddressesListResponse(
+        let expectedResponse = AddressesListPartnersResponse(
             rows: [
-                PostV1PartnersAddressesListResponseRowsItem(
+                AddressesListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     type: "type",
@@ -341,9 +341,9 @@ import Api
                     postalCode: Nullable<String>.value("postalCode"),
                     countryCode: Nullable<String>.value("countryCode"),
                     isDefault: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1PartnersAddressesListResponseRowsItem(
+                AddressesListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     type: "type",
@@ -352,7 +352,7 @@ import Api
                     postalCode: Nullable<String>.value("postalCode"),
                     countryCode: Nullable<String>.value("countryCode"),
                     isDefault: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -362,14 +362,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.partners.postV1PartnersAddressesList(
+        let response = try await client.partners.addressesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersContactsCreate1() async throws -> Void {
+    @Test func contactsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -382,7 +382,7 @@ import Api
                   "email": "email",
                   "phone": "phone",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -392,7 +392,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersContactsCreateResponse(
+        let expectedResponse = ContactsCreatePartnersResponse(
             id: "id",
             partnerId: "partnerId",
             name: "name",
@@ -400,9 +400,9 @@ import Api
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersContactsCreate(
+        let response = try await client.partners.contactsCreate(
             request: .init(
                 name: "name",
                 partnerId: "partnerId"
@@ -412,7 +412,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersContactsCreate2() async throws -> Void {
+    @Test func contactsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -425,7 +425,7 @@ import Api
                   "email": "email",
                   "phone": "phone",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -435,7 +435,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersContactsCreateResponse(
+        let expectedResponse = ContactsCreatePartnersResponse(
             id: "x",
             partnerId: "x",
             name: "name",
@@ -443,9 +443,9 @@ import Api
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersContactsCreate(
+        let response = try await client.partners.contactsCreate(
             request: .init(
                 name: "x",
                 partnerId: "x"
@@ -455,7 +455,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersContactsUpdate1() async throws -> Void {
+    @Test func contactsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -468,7 +468,7 @@ import Api
                   "email": "email",
                   "phone": "phone",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -478,7 +478,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersContactsUpdateResponse(
+        let expectedResponse = ContactsUpdatePartnersResponse(
             id: "id",
             partnerId: "partnerId",
             name: "name",
@@ -486,16 +486,16 @@ import Api
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersContactsUpdate(
+        let response = try await client.partners.contactsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersContactsUpdate2() async throws -> Void {
+    @Test func contactsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -508,7 +508,7 @@ import Api
                   "email": "email",
                   "phone": "phone",
                   "notes": "notes",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -518,7 +518,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersContactsUpdateResponse(
+        let expectedResponse = ContactsUpdatePartnersResponse(
             id: "x",
             partnerId: "x",
             name: "name",
@@ -526,16 +526,16 @@ import Api
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersContactsUpdate(
+        let response = try await client.partners.contactsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersContactsDelete1() async throws -> Void {
+    @Test func contactsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -551,17 +551,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersContactsDeleteResponse(
+        let expectedResponse = ContactsDeletePartnersResponse(
             deleted: true
         )
-        let response = try await client.partners.postV1PartnersContactsDelete(
+        let response = try await client.partners.contactsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersContactsDelete2() async throws -> Void {
+    @Test func contactsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -577,17 +577,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersContactsDeleteResponse(
+        let expectedResponse = ContactsDeletePartnersResponse(
             deleted: true
         )
-        let response = try await client.partners.postV1PartnersContactsDelete(
+        let response = try await client.partners.contactsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersContactsList1() async throws -> Void {
+    @Test func contactsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -602,7 +602,7 @@ import Api
                       "email": "email",
                       "phone": "phone",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -620,9 +620,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersContactsListResponse(
+        let expectedResponse = ContactsListPartnersResponse(
             rows: [
-                PostV1PartnersContactsListResponseRowsItem(
+                ContactsListPartnersResponseRowsItem(
                     id: "id",
                     partnerId: "partnerId",
                     name: "name",
@@ -630,7 +630,7 @@ import Api
                     email: Nullable<String>.value("email"),
                     phone: Nullable<String>.value("phone"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -640,14 +640,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.partners.postV1PartnersContactsList(
+        let response = try await client.partners.contactsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersContactsList2() async throws -> Void {
+    @Test func contactsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -662,7 +662,7 @@ import Api
                       "email": "email",
                       "phone": "phone",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -672,7 +672,7 @@ import Api
                       "email": "email",
                       "phone": "phone",
                       "notes": "notes",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -690,9 +690,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersContactsListResponse(
+        let expectedResponse = ContactsListPartnersResponse(
             rows: [
-                PostV1PartnersContactsListResponseRowsItem(
+                ContactsListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     name: "name",
@@ -700,9 +700,9 @@ import Api
                     email: Nullable<String>.value("email"),
                     phone: Nullable<String>.value("phone"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1PartnersContactsListResponseRowsItem(
+                ContactsListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     name: "name",
@@ -710,7 +710,7 @@ import Api
                     email: Nullable<String>.value("email"),
                     phone: Nullable<String>.value("phone"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -720,14 +720,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.partners.postV1PartnersContactsList(
+        let response = try await client.partners.contactsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersBankAccountsCreate1() async throws -> Void {
+    @Test func bankAccountsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -740,7 +740,7 @@ import Api
                   "bic": "bic",
                   "currency": "currency",
                   "isDefault": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -750,7 +750,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersBankAccountsCreateResponse(
+        let expectedResponse = BankAccountsCreatePartnersResponse(
             id: "id",
             partnerId: "partnerId",
             iban: "iban",
@@ -758,9 +758,9 @@ import Api
             bic: Nullable<String>.value("bic"),
             currency: "currency",
             isDefault: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersBankAccountsCreate(
+        let response = try await client.partners.bankAccountsCreate(
             request: .init(
                 iban: "iban",
                 partnerId: "partnerId"
@@ -770,7 +770,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersBankAccountsCreate2() async throws -> Void {
+    @Test func bankAccountsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -783,7 +783,7 @@ import Api
                   "bic": "bic",
                   "currency": "currency",
                   "isDefault": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -793,7 +793,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersBankAccountsCreateResponse(
+        let expectedResponse = BankAccountsCreatePartnersResponse(
             id: "x",
             partnerId: "x",
             iban: "iban",
@@ -801,9 +801,9 @@ import Api
             bic: Nullable<String>.value("bic"),
             currency: "currency",
             isDefault: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersBankAccountsCreate(
+        let response = try await client.partners.bankAccountsCreate(
             request: .init(
                 iban: "alpha",
                 partnerId: "x"
@@ -813,7 +813,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersBankAccountsUpdate1() async throws -> Void {
+    @Test func bankAccountsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -826,7 +826,7 @@ import Api
                   "bic": "bic",
                   "currency": "currency",
                   "isDefault": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -836,7 +836,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersBankAccountsUpdateResponse(
+        let expectedResponse = BankAccountsUpdatePartnersResponse(
             id: "id",
             partnerId: "partnerId",
             iban: "iban",
@@ -844,16 +844,16 @@ import Api
             bic: Nullable<String>.value("bic"),
             currency: "currency",
             isDefault: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersBankAccountsUpdate(
+        let response = try await client.partners.bankAccountsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersBankAccountsUpdate2() async throws -> Void {
+    @Test func bankAccountsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -866,7 +866,7 @@ import Api
                   "bic": "bic",
                   "currency": "currency",
                   "isDefault": true,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -876,7 +876,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersBankAccountsUpdateResponse(
+        let expectedResponse = BankAccountsUpdatePartnersResponse(
             id: "x",
             partnerId: "x",
             iban: "iban",
@@ -884,16 +884,16 @@ import Api
             bic: Nullable<String>.value("bic"),
             currency: "currency",
             isDefault: true,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersBankAccountsUpdate(
+        let response = try await client.partners.bankAccountsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersBankAccountsDelete1() async throws -> Void {
+    @Test func bankAccountsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -909,17 +909,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersBankAccountsDeleteResponse(
+        let expectedResponse = BankAccountsDeletePartnersResponse(
             deleted: true
         )
-        let response = try await client.partners.postV1PartnersBankAccountsDelete(
+        let response = try await client.partners.bankAccountsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersBankAccountsDelete2() async throws -> Void {
+    @Test func bankAccountsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -935,17 +935,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersBankAccountsDeleteResponse(
+        let expectedResponse = BankAccountsDeletePartnersResponse(
             deleted: true
         )
-        let response = try await client.partners.postV1PartnersBankAccountsDelete(
+        let response = try await client.partners.bankAccountsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersBankAccountsList1() async throws -> Void {
+    @Test func bankAccountsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -960,7 +960,7 @@ import Api
                       "bic": "bic",
                       "currency": "currency",
                       "isDefault": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -978,9 +978,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersBankAccountsListResponse(
+        let expectedResponse = BankAccountsListPartnersResponse(
             rows: [
-                PostV1PartnersBankAccountsListResponseRowsItem(
+                BankAccountsListPartnersResponseRowsItem(
                     id: "id",
                     partnerId: "partnerId",
                     iban: "iban",
@@ -988,7 +988,7 @@ import Api
                     bic: Nullable<String>.value("bic"),
                     currency: "currency",
                     isDefault: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -998,14 +998,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.partners.postV1PartnersBankAccountsList(
+        let response = try await client.partners.bankAccountsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersBankAccountsList2() async throws -> Void {
+    @Test func bankAccountsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1020,7 +1020,7 @@ import Api
                       "bic": "bic",
                       "currency": "currency",
                       "isDefault": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1030,7 +1030,7 @@ import Api
                       "bic": "bic",
                       "currency": "currency",
                       "isDefault": true,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1048,9 +1048,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersBankAccountsListResponse(
+        let expectedResponse = BankAccountsListPartnersResponse(
             rows: [
-                PostV1PartnersBankAccountsListResponseRowsItem(
+                BankAccountsListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     iban: "iban",
@@ -1058,9 +1058,9 @@ import Api
                     bic: Nullable<String>.value("bic"),
                     currency: "currency",
                     isDefault: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1PartnersBankAccountsListResponseRowsItem(
+                BankAccountsListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     iban: "iban",
@@ -1068,7 +1068,7 @@ import Api
                     bic: Nullable<String>.value("bic"),
                     currency: "currency",
                     isDefault: true,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1078,14 +1078,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.partners.postV1PartnersBankAccountsList(
+        let response = try await client.partners.bankAccountsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersFilesList1() async throws -> Void {
+    @Test func filesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1101,7 +1101,7 @@ import Api
                       "sizeBytes": 1000000,
                       "sha256": "sha256",
                       "storageKey": "storageKey",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -1113,9 +1113,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersFilesListResponse(
+        let expectedResponse = FilesListPartnersResponse(
             rows: [
-                PostV1PartnersFilesListResponseRowsItem(
+                FilesListPartnersResponseRowsItem(
                     id: "id",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
@@ -1124,18 +1124,18 @@ import Api
                     sizeBytes: 1000000,
                     sha256: "sha256",
                     storageKey: "storageKey",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.partners.postV1PartnersFilesList(
+        let response = try await client.partners.filesList(
             request: .init(partnerId: "partnerId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersFilesList2() async throws -> Void {
+    @Test func filesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1151,7 +1151,7 @@ import Api
                       "sizeBytes": 1000000,
                       "sha256": "sha256",
                       "storageKey": "storageKey",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1162,7 +1162,7 @@ import Api
                       "sizeBytes": 1000000,
                       "sha256": "sha256",
                       "storageKey": "storageKey",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -1174,9 +1174,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersFilesListResponse(
+        let expectedResponse = FilesListPartnersResponse(
             rows: [
-                PostV1PartnersFilesListResponseRowsItem(
+                FilesListPartnersResponseRowsItem(
                     id: "x",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
@@ -1185,9 +1185,9 @@ import Api
                     sizeBytes: 1000000,
                     sha256: "sha256",
                     storageKey: "storageKey",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1PartnersFilesListResponseRowsItem(
+                FilesListPartnersResponseRowsItem(
                     id: "x",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
@@ -1196,18 +1196,18 @@ import Api
                     sizeBytes: 1000000,
                     sha256: "sha256",
                     storageKey: "storageKey",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.partners.postV1PartnersFilesList(
+        let response = try await client.partners.filesList(
             request: .init(partnerId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func remindersTheOvernightDebtReminderJobWouldSendTodayForThisCompany1() async throws -> Void {
+    @Test func debtRemindersPreview1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1224,8 +1224,8 @@ import Api
                         {
                           "id": "id",
                           "fullNumber": "fullNumber",
-                          "issueDate": "issueDate",
-                          "dueDate": "dueDate",
+                          "issueDate": "2026-07-01",
+                          "dueDate": "2026-07-01",
                           "remaining": "remaining",
                           "daysLate": 1000000,
                           "interest": "interest"
@@ -1244,20 +1244,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersDebtRemindersPreviewResponse(
+        let expectedResponse = DebtRemindersPreviewPartnersResponse(
             rows: [
-                PostV1PartnersDebtRemindersPreviewResponseRowsItem(
+                DebtRemindersPreviewPartnersResponseRowsItem(
                     partnerId: "partnerId",
                     partnerName: "partnerName",
                     email: "email",
                     locale: .en,
                     currency: "currency",
                     invoices: [
-                        PostV1PartnersDebtRemindersPreviewResponseRowsItemInvoicesItem(
+                        DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem(
                             id: "id",
                             fullNumber: "fullNumber",
-                            issueDate: "issueDate",
-                            dueDate: "dueDate",
+                            issueDate: CalendarDate("2026-07-01")!,
+                            dueDate: CalendarDate("2026-07-01")!,
                             remaining: "remaining",
                             daysLate: 1000000,
                             interest: "interest"
@@ -1268,14 +1268,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.partners.remindersTheOvernightDebtReminderJobWouldSendTodayForThisCompany(
+        let response = try await client.partners.debtRemindersPreview(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func remindersTheOvernightDebtReminderJobWouldSendTodayForThisCompany2() async throws -> Void {
+    @Test func debtRemindersPreview2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1292,8 +1292,8 @@ import Api
                         {
                           "id": "x",
                           "fullNumber": "fullNumber",
-                          "issueDate": "issueDate",
-                          "dueDate": "dueDate",
+                          "issueDate": "2023-01-15",
+                          "dueDate": "2023-01-15",
                           "remaining": "remaining",
                           "daysLate": 1000000,
                           "interest": "interest"
@@ -1301,8 +1301,8 @@ import Api
                         {
                           "id": "x",
                           "fullNumber": "fullNumber",
-                          "issueDate": "issueDate",
-                          "dueDate": "dueDate",
+                          "issueDate": "2023-01-15",
+                          "dueDate": "2023-01-15",
                           "remaining": "remaining",
                           "daysLate": 1000000,
                           "interest": "interest"
@@ -1321,8 +1321,8 @@ import Api
                         {
                           "id": "x",
                           "fullNumber": "fullNumber",
-                          "issueDate": "issueDate",
-                          "dueDate": "dueDate",
+                          "issueDate": "2023-01-15",
+                          "dueDate": "2023-01-15",
                           "remaining": "remaining",
                           "daysLate": 1000000,
                           "interest": "interest"
@@ -1330,8 +1330,8 @@ import Api
                         {
                           "id": "x",
                           "fullNumber": "fullNumber",
-                          "issueDate": "issueDate",
-                          "dueDate": "dueDate",
+                          "issueDate": "2023-01-15",
+                          "dueDate": "2023-01-15",
                           "remaining": "remaining",
                           "daysLate": 1000000,
                           "interest": "interest"
@@ -1350,29 +1350,29 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersDebtRemindersPreviewResponse(
+        let expectedResponse = DebtRemindersPreviewPartnersResponse(
             rows: [
-                PostV1PartnersDebtRemindersPreviewResponseRowsItem(
+                DebtRemindersPreviewPartnersResponseRowsItem(
                     partnerId: "x",
                     partnerName: "partnerName",
                     email: "email",
                     locale: .en,
                     currency: "currency",
                     invoices: [
-                        PostV1PartnersDebtRemindersPreviewResponseRowsItemInvoicesItem(
+                        DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem(
                             id: "x",
                             fullNumber: "fullNumber",
-                            issueDate: "issueDate",
-                            dueDate: "dueDate",
+                            issueDate: CalendarDate("2023-01-15")!,
+                            dueDate: CalendarDate("2023-01-15")!,
                             remaining: "remaining",
                             daysLate: 1000000,
                             interest: "interest"
                         ),
-                        PostV1PartnersDebtRemindersPreviewResponseRowsItemInvoicesItem(
+                        DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem(
                             id: "x",
                             fullNumber: "fullNumber",
-                            issueDate: "issueDate",
-                            dueDate: "dueDate",
+                            issueDate: CalendarDate("2023-01-15")!,
+                            dueDate: CalendarDate("2023-01-15")!,
                             remaining: "remaining",
                             daysLate: 1000000,
                             interest: "interest"
@@ -1381,27 +1381,27 @@ import Api
                     totalDue: "totalDue",
                     interestDue: "interestDue"
                 ),
-                PostV1PartnersDebtRemindersPreviewResponseRowsItem(
+                DebtRemindersPreviewPartnersResponseRowsItem(
                     partnerId: "x",
                     partnerName: "partnerName",
                     email: "email",
                     locale: .en,
                     currency: "currency",
                     invoices: [
-                        PostV1PartnersDebtRemindersPreviewResponseRowsItemInvoicesItem(
+                        DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem(
                             id: "x",
                             fullNumber: "fullNumber",
-                            issueDate: "issueDate",
-                            dueDate: "dueDate",
+                            issueDate: CalendarDate("2023-01-15")!,
+                            dueDate: CalendarDate("2023-01-15")!,
                             remaining: "remaining",
                             daysLate: 1000000,
                             interest: "interest"
                         ),
-                        PostV1PartnersDebtRemindersPreviewResponseRowsItemInvoicesItem(
+                        DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem(
                             id: "x",
                             fullNumber: "fullNumber",
-                            issueDate: "issueDate",
-                            dueDate: "dueDate",
+                            issueDate: CalendarDate("2023-01-15")!,
+                            dueDate: CalendarDate("2023-01-15")!,
                             remaining: "remaining",
                             daysLate: 1000000,
                             interest: "interest"
@@ -1412,14 +1412,14 @@ import Api
                 )
             ]
         )
-        let response = try await client.partners.remindersTheOvernightDebtReminderJobWouldSendTodayForThisCompany(
+        let response = try await client.partners.debtRemindersPreview(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersDebtRemindersList1() async throws -> Void {
+    @Test func debtRemindersList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1437,7 +1437,7 @@ import Api
                       "invoiceIds": [
                         "invoiceIds"
                       ],
-                      "sentAt": "sentAt"
+                      "sentAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1455,9 +1455,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersDebtRemindersListResponse(
+        let expectedResponse = DebtRemindersListPartnersResponse(
             rows: [
-                PostV1PartnersDebtRemindersListResponseRowsItem(
+                DebtRemindersListPartnersResponseRowsItem(
                     id: "id",
                     partnerId: "partnerId",
                     sentTo: "sentTo",
@@ -1468,7 +1468,7 @@ import Api
                     invoiceIds: [
                         "invoiceIds"
                     ],
-                    sentAt: "sentAt"
+                    sentAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1478,14 +1478,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.partners.postV1PartnersDebtRemindersList(
+        let response = try await client.partners.debtRemindersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersDebtRemindersList2() async throws -> Void {
+    @Test func debtRemindersList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1504,7 +1504,7 @@ import Api
                         "invoiceIds",
                         "invoiceIds"
                       ],
-                      "sentAt": "sentAt"
+                      "sentAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1518,7 +1518,7 @@ import Api
                         "invoiceIds",
                         "invoiceIds"
                       ],
-                      "sentAt": "sentAt"
+                      "sentAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1536,9 +1536,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersDebtRemindersListResponse(
+        let expectedResponse = DebtRemindersListPartnersResponse(
             rows: [
-                PostV1PartnersDebtRemindersListResponseRowsItem(
+                DebtRemindersListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     sentTo: "sentTo",
@@ -1550,9 +1550,9 @@ import Api
                         "invoiceIds",
                         "invoiceIds"
                     ],
-                    sentAt: "sentAt"
+                    sentAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1PartnersDebtRemindersListResponseRowsItem(
+                DebtRemindersListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     sentTo: "sentTo",
@@ -1564,7 +1564,7 @@ import Api
                         "invoiceIds",
                         "invoiceIds"
                     ],
-                    sentAt: "sentAt"
+                    sentAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1574,14 +1574,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.partners.postV1PartnersDebtRemindersList(
+        let response = try await client.partners.debtRemindersList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersValidateVat1() async throws -> Void {
+    @Test func validateVat1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1593,7 +1593,7 @@ import Api
                   "name": "name",
                   "address": "address",
                   "requestIdentifier": "requestIdentifier",
-                  "checkedAt": "checkedAt"
+                  "checkedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1603,23 +1603,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersValidateVatResponse(
+        let expectedResponse = ValidateVatPartnersResponse(
             valid: true,
             countryCode: "countryCode",
             vatNumber: "vatNumber",
             name: Nullable<String>.value("name"),
             address: Nullable<String>.value("address"),
             requestIdentifier: Nullable<String>.value("requestIdentifier"),
-            checkedAt: "checkedAt"
+            checkedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersValidateVat(
+        let response = try await client.partners.validateVat(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersValidateVat2() async throws -> Void {
+    @Test func validateVat2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1631,7 +1631,7 @@ import Api
                   "name": "name",
                   "address": "address",
                   "requestIdentifier": "requestIdentifier",
-                  "checkedAt": "checkedAt"
+                  "checkedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1641,23 +1641,23 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersValidateVatResponse(
+        let expectedResponse = ValidateVatPartnersResponse(
             valid: true,
             countryCode: "countryCode",
             vatNumber: "vatNumber",
             name: Nullable<String>.value("name"),
             address: Nullable<String>.value("address"),
             requestIdentifier: Nullable<String>.value("requestIdentifier"),
-            checkedAt: "checkedAt"
+            checkedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersValidateVat(
+        let response = try await client.partners.validateVat(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersVatReviewsList1() async throws -> Void {
+    @Test func vatReviewsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1673,9 +1673,9 @@ import Api
                       "resolution": "confirmed_valid",
                       "resolutionNote": "resolutionNote",
                       "details": {},
-                      "resolvedAt": "resolvedAt",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "resolvedAt": "2026-07-01T09:30:00Z",
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1693,22 +1693,22 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersVatReviewsListResponse(
+        let expectedResponse = VatReviewsListPartnersResponse(
             rows: [
-                PostV1PartnersVatReviewsListResponseRowsItem(
+                VatReviewsListPartnersResponseRowsItem(
                     id: "id",
                     partnerId: "partnerId",
                     vatCode: "vatCode",
                     reason: .invalid,
                     status: .open,
-                    resolution: Nullable<PostV1PartnersVatReviewsListResponseRowsItemResolution>.value(.confirmedValid),
+                    resolution: Nullable<VatReviewsListPartnersResponseRowsItemResolution>.value(.confirmedValid),
                     resolutionNote: Nullable<String>.value("resolutionNote"),
-                    details: Nullable<PostV1PartnersVatReviewsListResponseRowsItemDetails>.value(PostV1PartnersVatReviewsListResponseRowsItemDetails(
+                    details: Nullable<VatReviewsListPartnersResponseRowsItemDetails>.value(VatReviewsListPartnersResponseRowsItemDetails(
 
                     )),
-                    resolvedAt: Nullable<String>.value("resolvedAt"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    resolvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1718,14 +1718,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.partners.postV1PartnersVatReviewsList(
+        let response = try await client.partners.vatReviewsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersVatReviewsList2() async throws -> Void {
+    @Test func vatReviewsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1747,9 +1747,9 @@ import Api
                         "viesAddress": "viesAddress",
                         "requestIdentifier": "requestIdentifier"
                       },
-                      "resolvedAt": "resolvedAt",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "resolvedAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -1766,9 +1766,9 @@ import Api
                         "viesAddress": "viesAddress",
                         "requestIdentifier": "requestIdentifier"
                       },
-                      "resolvedAt": "resolvedAt",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "resolvedAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -1786,45 +1786,45 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersVatReviewsListResponse(
+        let expectedResponse = VatReviewsListPartnersResponse(
             rows: [
-                PostV1PartnersVatReviewsListResponseRowsItem(
+                VatReviewsListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     vatCode: "vatCode",
                     reason: .invalid,
                     status: .open,
-                    resolution: Nullable<PostV1PartnersVatReviewsListResponseRowsItemResolution>.value(.confirmedValid),
+                    resolution: Nullable<VatReviewsListPartnersResponseRowsItemResolution>.value(.confirmedValid),
                     resolutionNote: Nullable<String>.value("resolutionNote"),
-                    details: Nullable<PostV1PartnersVatReviewsListResponseRowsItemDetails>.value(PostV1PartnersVatReviewsListResponseRowsItemDetails(
+                    details: Nullable<VatReviewsListPartnersResponseRowsItemDetails>.value(VatReviewsListPartnersResponseRowsItemDetails(
                         message: Optional("message"),
                         partnerName: Optional("partnerName"),
                         viesName: Optional(Nullable<String>.value("viesName")),
                         viesAddress: Optional(Nullable<String>.value("viesAddress")),
                         requestIdentifier: Optional(Nullable<String>.value("requestIdentifier"))
                     )),
-                    resolvedAt: Nullable<String>.value("resolvedAt"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    resolvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1PartnersVatReviewsListResponseRowsItem(
+                VatReviewsListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
                     vatCode: "vatCode",
                     reason: .invalid,
                     status: .open,
-                    resolution: Nullable<PostV1PartnersVatReviewsListResponseRowsItemResolution>.value(.confirmedValid),
+                    resolution: Nullable<VatReviewsListPartnersResponseRowsItemResolution>.value(.confirmedValid),
                     resolutionNote: Nullable<String>.value("resolutionNote"),
-                    details: Nullable<PostV1PartnersVatReviewsListResponseRowsItemDetails>.value(PostV1PartnersVatReviewsListResponseRowsItemDetails(
+                    details: Nullable<VatReviewsListPartnersResponseRowsItemDetails>.value(VatReviewsListPartnersResponseRowsItemDetails(
                         message: Optional("message"),
                         partnerName: Optional("partnerName"),
                         viesName: Optional(Nullable<String>.value("viesName")),
                         viesAddress: Optional(Nullable<String>.value("viesAddress")),
                         requestIdentifier: Optional(Nullable<String>.value("requestIdentifier"))
                     )),
-                    resolvedAt: Nullable<String>.value("resolvedAt"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    resolvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -1834,14 +1834,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.partners.postV1PartnersVatReviewsList(
+        let response = try await client.partners.vatReviewsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersVatReviewsResolve1() async throws -> Void {
+    @Test func vatReviewsResolve1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1861,9 +1861,9 @@ import Api
                     "viesAddress": "viesAddress",
                     "requestIdentifier": "requestIdentifier"
                   },
-                  "resolvedAt": "resolvedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "resolvedAt": "2026-07-01T09:30:00Z",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1873,26 +1873,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersVatReviewsResolveResponse(
+        let expectedResponse = VatReviewsResolvePartnersResponse(
             id: "id",
             partnerId: "partnerId",
             vatCode: "vatCode",
             reason: .invalid,
             status: .open,
-            resolution: Nullable<PostV1PartnersVatReviewsResolveResponseResolution>.value(.confirmedValid),
+            resolution: Nullable<VatReviewsResolvePartnersResponseResolution>.value(.confirmedValid),
             resolutionNote: Nullable<String>.value("resolutionNote"),
-            details: Nullable<PostV1PartnersVatReviewsResolveResponseDetails>.value(PostV1PartnersVatReviewsResolveResponseDetails(
+            details: Nullable<VatReviewsResolvePartnersResponseDetails>.value(VatReviewsResolvePartnersResponseDetails(
                 message: Optional("message"),
                 partnerName: Optional("partnerName"),
                 viesName: Optional(Nullable<String>.value("viesName")),
                 viesAddress: Optional(Nullable<String>.value("viesAddress")),
                 requestIdentifier: Optional(Nullable<String>.value("requestIdentifier"))
             )),
-            resolvedAt: Nullable<String>.value("resolvedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            resolvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersVatReviewsResolve(
+        let response = try await client.partners.vatReviewsResolve(
             request: .init(
                 id: "id",
                 resolution: .confirmedValid
@@ -1902,7 +1902,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersVatReviewsResolve2() async throws -> Void {
+    @Test func vatReviewsResolve2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1922,9 +1922,9 @@ import Api
                     "viesAddress": "viesAddress",
                     "requestIdentifier": "requestIdentifier"
                   },
-                  "resolvedAt": "resolvedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "resolvedAt": "2024-01-15T09:30:00Z",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -1934,26 +1934,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersVatReviewsResolveResponse(
+        let expectedResponse = VatReviewsResolvePartnersResponse(
             id: "x",
             partnerId: "x",
             vatCode: "vatCode",
             reason: .invalid,
             status: .open,
-            resolution: Nullable<PostV1PartnersVatReviewsResolveResponseResolution>.value(.confirmedValid),
+            resolution: Nullable<VatReviewsResolvePartnersResponseResolution>.value(.confirmedValid),
             resolutionNote: Nullable<String>.value("resolutionNote"),
-            details: Nullable<PostV1PartnersVatReviewsResolveResponseDetails>.value(PostV1PartnersVatReviewsResolveResponseDetails(
+            details: Nullable<VatReviewsResolvePartnersResponseDetails>.value(VatReviewsResolvePartnersResponseDetails(
                 message: Optional("message"),
                 partnerName: Optional("partnerName"),
                 viesName: Optional(Nullable<String>.value("viesName")),
                 viesAddress: Optional(Nullable<String>.value("viesAddress")),
                 requestIdentifier: Optional(Nullable<String>.value("requestIdentifier"))
             )),
-            resolvedAt: Nullable<String>.value("resolvedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            resolvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersVatReviewsResolve(
+        let response = try await client.partners.vatReviewsResolve(
             request: .init(
                 id: "x",
                 resolution: .confirmedValid
@@ -1963,7 +1963,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersCreate1() async throws -> Void {
+    @Test func create1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -1978,7 +1978,7 @@ import Api
                   "email": "email",
                   "phone": "phone",
                   "selfEmploymentCertNo": "selfEmploymentCertNo",
-                  "birthDate": "birthDate",
+                  "birthDate": "2026-07-01",
                   "isCustomer": true,
                   "isSupplier": true,
                   "paymentTermDays": 1000000,
@@ -1987,7 +1987,7 @@ import Api
                   "groupId": "groupId",
                   "statusId": "statusId",
                   "vatValid": true,
-                  "vatValidatedAt": "vatValidatedAt",
+                  "vatValidatedAt": "2026-07-01T09:30:00Z",
                   "address": {
                     "street": "street",
                     "city": "city",
@@ -2014,16 +2014,16 @@ import Api
                   "foreignTaxNumber": "foreignTaxNumber",
                   "autoDebtReminder": true,
                   "lateInterestPercent": "lateInterestPercent",
-                  "firstCallDate": "firstCallDate",
-                  "lastCallDate": "lastCallDate",
-                  "nextCallDate": "nextCallDate",
+                  "firstCallDate": "2026-07-01",
+                  "lastCallDate": "2026-07-01",
+                  "nextCallDate": "2026-07-01",
                   "rating": 1000000,
                   "isEmployee": true,
                   "isGroupMember": true,
                   "isActive": true,
                   "legalCountryClass": "lt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2033,7 +2033,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersCreateResponse(
+        let expectedResponse = CreatePartnersResponse(
             id: "id",
             type: .company,
             name: "name",
@@ -2043,7 +2043,7 @@ import Api
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
             selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             isCustomer: true,
             isSupplier: true,
             paymentTermDays: Nullable<Int64>.value(1000000),
@@ -2052,8 +2052,8 @@ import Api
             groupId: Nullable<String>.value("groupId"),
             statusId: Nullable<String>.value("statusId"),
             vatValid: Nullable<Bool>.value(true),
-            vatValidatedAt: Nullable<String>.value("vatValidatedAt"),
-            address: Nullable<PostV1PartnersCreateResponseAddress>.value(PostV1PartnersCreateResponseAddress(
+            vatValidatedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            address: Nullable<CreatePartnersResponseAddress>.value(CreatePartnersResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 municipality: Optional("municipality"),
@@ -2061,7 +2061,7 @@ import Api
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("countryCode")
             )),
-            correspondenceAddress: Nullable<PostV1PartnersCreateResponseCorrespondenceAddress>.value(PostV1PartnersCreateResponseCorrespondenceAddress(
+            correspondenceAddress: Nullable<CreatePartnersResponseCorrespondenceAddress>.value(CreatePartnersResponseCorrespondenceAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 municipality: Optional("municipality"),
@@ -2079,25 +2079,25 @@ import Api
             foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
             autoDebtReminder: true,
             lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
-            firstCallDate: Nullable<String>.value("firstCallDate"),
-            lastCallDate: Nullable<String>.value("lastCallDate"),
-            nextCallDate: Nullable<String>.value("nextCallDate"),
+            firstCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            lastCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            nextCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             rating: Nullable<Int64>.value(1000000),
             isEmployee: true,
             isGroupMember: true,
             isActive: true,
-            legalCountryClass: Nullable<PostV1PartnersCreateResponseLegalCountryClass>.value(.lt),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            legalCountryClass: Nullable<CreatePartnersResponseLegalCountryClass>.value(.lt),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersCreate(
+        let response = try await client.partners.create(
             request: .init(name: "name"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersCreate2() async throws -> Void {
+    @Test func create2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2112,7 +2112,7 @@ import Api
                   "email": "email",
                   "phone": "phone",
                   "selfEmploymentCertNo": "selfEmploymentCertNo",
-                  "birthDate": "birthDate",
+                  "birthDate": "2023-01-15",
                   "isCustomer": true,
                   "isSupplier": true,
                   "paymentTermDays": 1000000,
@@ -2121,7 +2121,7 @@ import Api
                   "groupId": "x",
                   "statusId": "x",
                   "vatValid": true,
-                  "vatValidatedAt": "vatValidatedAt",
+                  "vatValidatedAt": "2024-01-15T09:30:00Z",
                   "address": {
                     "street": "street",
                     "city": "city",
@@ -2148,16 +2148,16 @@ import Api
                   "foreignTaxNumber": "foreignTaxNumber",
                   "autoDebtReminder": true,
                   "lateInterestPercent": "lateInterestPercent",
-                  "firstCallDate": "firstCallDate",
-                  "lastCallDate": "lastCallDate",
-                  "nextCallDate": "nextCallDate",
+                  "firstCallDate": "2023-01-15",
+                  "lastCallDate": "2023-01-15",
+                  "nextCallDate": "2023-01-15",
                   "rating": 1000000,
                   "isEmployee": true,
                   "isGroupMember": true,
                   "isActive": true,
                   "legalCountryClass": "lt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2167,7 +2167,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersCreateResponse(
+        let expectedResponse = CreatePartnersResponse(
             id: "x",
             type: .company,
             name: "name",
@@ -2177,7 +2177,7 @@ import Api
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
             selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             isCustomer: true,
             isSupplier: true,
             paymentTermDays: Nullable<Int64>.value(1000000),
@@ -2186,8 +2186,8 @@ import Api
             groupId: Nullable<String>.value("x"),
             statusId: Nullable<String>.value("x"),
             vatValid: Nullable<Bool>.value(true),
-            vatValidatedAt: Nullable<String>.value("vatValidatedAt"),
-            address: Nullable<PostV1PartnersCreateResponseAddress>.value(PostV1PartnersCreateResponseAddress(
+            vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            address: Nullable<CreatePartnersResponseAddress>.value(CreatePartnersResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 municipality: Optional("municipality"),
@@ -2195,7 +2195,7 @@ import Api
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("xy")
             )),
-            correspondenceAddress: Nullable<PostV1PartnersCreateResponseCorrespondenceAddress>.value(PostV1PartnersCreateResponseCorrespondenceAddress(
+            correspondenceAddress: Nullable<CreatePartnersResponseCorrespondenceAddress>.value(CreatePartnersResponseCorrespondenceAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 municipality: Optional("municipality"),
@@ -2213,25 +2213,25 @@ import Api
             foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
             autoDebtReminder: true,
             lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
-            firstCallDate: Nullable<String>.value("firstCallDate"),
-            lastCallDate: Nullable<String>.value("lastCallDate"),
-            nextCallDate: Nullable<String>.value("nextCallDate"),
+            firstCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            lastCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            nextCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             rating: Nullable<Int64>.value(1000000),
             isEmployee: true,
             isGroupMember: true,
             isActive: true,
-            legalCountryClass: Nullable<PostV1PartnersCreateResponseLegalCountryClass>.value(.lt),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            legalCountryClass: Nullable<CreatePartnersResponseLegalCountryClass>.value(.lt),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersCreate(
+        let response = try await client.partners.create(
             request: .init(name: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersFindOrCreate1() async throws -> Void {
+    @Test func findOrCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2248,7 +2248,7 @@ import Api
                     "email": "email",
                     "phone": "phone",
                     "selfEmploymentCertNo": "selfEmploymentCertNo",
-                    "birthDate": "birthDate",
+                    "birthDate": "2026-07-01",
                     "isCustomer": true,
                     "isSupplier": true,
                     "paymentTermDays": 1000000,
@@ -2257,7 +2257,7 @@ import Api
                     "groupId": "groupId",
                     "statusId": "statusId",
                     "vatValid": true,
-                    "vatValidatedAt": "vatValidatedAt",
+                    "vatValidatedAt": "2026-07-01T09:30:00Z",
                     "address": {
                       "street": "street",
                       "city": "city",
@@ -2284,16 +2284,16 @@ import Api
                     "foreignTaxNumber": "foreignTaxNumber",
                     "autoDebtReminder": true,
                     "lateInterestPercent": "lateInterestPercent",
-                    "firstCallDate": "firstCallDate",
-                    "lastCallDate": "lastCallDate",
-                    "nextCallDate": "nextCallDate",
+                    "firstCallDate": "2026-07-01",
+                    "lastCallDate": "2026-07-01",
+                    "nextCallDate": "2026-07-01",
                     "rating": 1000000,
                     "isEmployee": true,
                     "isGroupMember": true,
                     "isActive": true,
                     "legalCountryClass": "lt",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt"
+                    "createdAt": "2026-07-01T09:30:00Z",
+                    "updatedAt": "2026-07-01T09:30:00Z"
                   }
                 }
                 """#.utf8
@@ -2304,9 +2304,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersFindOrCreateResponse(
+        let expectedResponse = FindOrCreatePartnersResponse(
             created: true,
-            partner: PostV1PartnersFindOrCreateResponsePartner(
+            partner: FindOrCreatePartnersResponsePartner(
                 id: "id",
                 type: .company,
                 name: "name",
@@ -2316,7 +2316,7 @@ import Api
                 email: Nullable<String>.value("email"),
                 phone: Nullable<String>.value("phone"),
                 selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
-                birthDate: Nullable<String>.value("birthDate"),
+                birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                 isCustomer: true,
                 isSupplier: true,
                 paymentTermDays: Nullable<Int64>.value(1000000),
@@ -2325,8 +2325,8 @@ import Api
                 groupId: Nullable<String>.value("groupId"),
                 statusId: Nullable<String>.value("statusId"),
                 vatValid: Nullable<Bool>.value(true),
-                vatValidatedAt: Nullable<String>.value("vatValidatedAt"),
-                address: Nullable<PostV1PartnersFindOrCreateResponsePartnerAddress>.value(PostV1PartnersFindOrCreateResponsePartnerAddress(
+                vatValidatedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                address: Nullable<FindOrCreatePartnersResponsePartnerAddress>.value(FindOrCreatePartnersResponsePartnerAddress(
                     street: Optional("street"),
                     city: Optional("city"),
                     municipality: Optional("municipality"),
@@ -2334,7 +2334,7 @@ import Api
                     postalCode: Optional("postalCode"),
                     countryCode: Optional("countryCode")
                 )),
-                correspondenceAddress: Nullable<PostV1PartnersFindOrCreateResponsePartnerCorrespondenceAddress>.value(PostV1PartnersFindOrCreateResponsePartnerCorrespondenceAddress(
+                correspondenceAddress: Nullable<FindOrCreatePartnersResponsePartnerCorrespondenceAddress>.value(FindOrCreatePartnersResponsePartnerCorrespondenceAddress(
                     street: Optional("street"),
                     city: Optional("city"),
                     municipality: Optional("municipality"),
@@ -2352,26 +2352,26 @@ import Api
                 foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
                 autoDebtReminder: true,
                 lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
-                firstCallDate: Nullable<String>.value("firstCallDate"),
-                lastCallDate: Nullable<String>.value("lastCallDate"),
-                nextCallDate: Nullable<String>.value("nextCallDate"),
+                firstCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                lastCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                nextCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                 rating: Nullable<Int64>.value(1000000),
                 isEmployee: true,
                 isGroupMember: true,
                 isActive: true,
-                legalCountryClass: Nullable<PostV1PartnersFindOrCreateResponsePartnerLegalCountryClass>.value(.lt),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt"
+                legalCountryClass: Nullable<FindOrCreatePartnersResponsePartnerLegalCountryClass>.value(.lt),
+                createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
             )
         )
-        let response = try await client.partners.postV1PartnersFindOrCreate(
+        let response = try await client.partners.findOrCreate(
             request: .init(name: "name"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersFindOrCreate2() async throws -> Void {
+    @Test func findOrCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2388,7 +2388,7 @@ import Api
                     "email": "email",
                     "phone": "phone",
                     "selfEmploymentCertNo": "selfEmploymentCertNo",
-                    "birthDate": "birthDate",
+                    "birthDate": "2023-01-15",
                     "isCustomer": true,
                     "isSupplier": true,
                     "paymentTermDays": 1000000,
@@ -2397,7 +2397,7 @@ import Api
                     "groupId": "x",
                     "statusId": "x",
                     "vatValid": true,
-                    "vatValidatedAt": "vatValidatedAt",
+                    "vatValidatedAt": "2024-01-15T09:30:00Z",
                     "address": {
                       "street": "street",
                       "city": "city",
@@ -2424,16 +2424,16 @@ import Api
                     "foreignTaxNumber": "foreignTaxNumber",
                     "autoDebtReminder": true,
                     "lateInterestPercent": "lateInterestPercent",
-                    "firstCallDate": "firstCallDate",
-                    "lastCallDate": "lastCallDate",
-                    "nextCallDate": "nextCallDate",
+                    "firstCallDate": "2023-01-15",
+                    "lastCallDate": "2023-01-15",
+                    "nextCallDate": "2023-01-15",
                     "rating": 1000000,
                     "isEmployee": true,
                     "isGroupMember": true,
                     "isActive": true,
                     "legalCountryClass": "lt",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt"
+                    "createdAt": "2024-01-15T09:30:00Z",
+                    "updatedAt": "2024-01-15T09:30:00Z"
                   }
                 }
                 """#.utf8
@@ -2444,9 +2444,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersFindOrCreateResponse(
+        let expectedResponse = FindOrCreatePartnersResponse(
             created: true,
-            partner: PostV1PartnersFindOrCreateResponsePartner(
+            partner: FindOrCreatePartnersResponsePartner(
                 id: "x",
                 type: .company,
                 name: "name",
@@ -2456,7 +2456,7 @@ import Api
                 email: Nullable<String>.value("email"),
                 phone: Nullable<String>.value("phone"),
                 selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
-                birthDate: Nullable<String>.value("birthDate"),
+                birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                 isCustomer: true,
                 isSupplier: true,
                 paymentTermDays: Nullable<Int64>.value(1000000),
@@ -2465,8 +2465,8 @@ import Api
                 groupId: Nullable<String>.value("x"),
                 statusId: Nullable<String>.value("x"),
                 vatValid: Nullable<Bool>.value(true),
-                vatValidatedAt: Nullable<String>.value("vatValidatedAt"),
-                address: Nullable<PostV1PartnersFindOrCreateResponsePartnerAddress>.value(PostV1PartnersFindOrCreateResponsePartnerAddress(
+                vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                address: Nullable<FindOrCreatePartnersResponsePartnerAddress>.value(FindOrCreatePartnersResponsePartnerAddress(
                     street: Optional("street"),
                     city: Optional("city"),
                     municipality: Optional("municipality"),
@@ -2474,7 +2474,7 @@ import Api
                     postalCode: Optional("postalCode"),
                     countryCode: Optional("xy")
                 )),
-                correspondenceAddress: Nullable<PostV1PartnersFindOrCreateResponsePartnerCorrespondenceAddress>.value(PostV1PartnersFindOrCreateResponsePartnerCorrespondenceAddress(
+                correspondenceAddress: Nullable<FindOrCreatePartnersResponsePartnerCorrespondenceAddress>.value(FindOrCreatePartnersResponsePartnerCorrespondenceAddress(
                     street: Optional("street"),
                     city: Optional("city"),
                     municipality: Optional("municipality"),
@@ -2492,26 +2492,26 @@ import Api
                 foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
                 autoDebtReminder: true,
                 lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
-                firstCallDate: Nullable<String>.value("firstCallDate"),
-                lastCallDate: Nullable<String>.value("lastCallDate"),
-                nextCallDate: Nullable<String>.value("nextCallDate"),
+                firstCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                lastCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                nextCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                 rating: Nullable<Int64>.value(1000000),
                 isEmployee: true,
                 isGroupMember: true,
                 isActive: true,
-                legalCountryClass: Nullable<PostV1PartnersFindOrCreateResponsePartnerLegalCountryClass>.value(.lt),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt"
+                legalCountryClass: Nullable<FindOrCreatePartnersResponsePartnerLegalCountryClass>.value(.lt),
+                createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
             )
         )
-        let response = try await client.partners.postV1PartnersFindOrCreate(
+        let response = try await client.partners.findOrCreate(
             request: .init(name: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersGet1() async throws -> Void {
+    @Test func get1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2526,7 +2526,7 @@ import Api
                   "email": "email",
                   "phone": "phone",
                   "selfEmploymentCertNo": "selfEmploymentCertNo",
-                  "birthDate": "birthDate",
+                  "birthDate": "2026-07-01",
                   "isCustomer": true,
                   "isSupplier": true,
                   "paymentTermDays": 1000000,
@@ -2535,7 +2535,7 @@ import Api
                   "groupId": "groupId",
                   "statusId": "statusId",
                   "vatValid": true,
-                  "vatValidatedAt": "vatValidatedAt",
+                  "vatValidatedAt": "2026-07-01T09:30:00Z",
                   "address": {
                     "street": "street",
                     "city": "city",
@@ -2562,16 +2562,16 @@ import Api
                   "foreignTaxNumber": "foreignTaxNumber",
                   "autoDebtReminder": true,
                   "lateInterestPercent": "lateInterestPercent",
-                  "firstCallDate": "firstCallDate",
-                  "lastCallDate": "lastCallDate",
-                  "nextCallDate": "nextCallDate",
+                  "firstCallDate": "2026-07-01",
+                  "lastCallDate": "2026-07-01",
+                  "nextCallDate": "2026-07-01",
                   "rating": 1000000,
                   "isEmployee": true,
                   "isGroupMember": true,
                   "isActive": true,
                   "legalCountryClass": "lt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2581,7 +2581,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersGetResponse(
+        let expectedResponse = GetPartnersResponse(
             id: "id",
             type: .company,
             name: "name",
@@ -2591,7 +2591,7 @@ import Api
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
             selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             isCustomer: true,
             isSupplier: true,
             paymentTermDays: Nullable<Int64>.value(1000000),
@@ -2600,8 +2600,8 @@ import Api
             groupId: Nullable<String>.value("groupId"),
             statusId: Nullable<String>.value("statusId"),
             vatValid: Nullable<Bool>.value(true),
-            vatValidatedAt: Nullable<String>.value("vatValidatedAt"),
-            address: Nullable<PostV1PartnersGetResponseAddress>.value(PostV1PartnersGetResponseAddress(
+            vatValidatedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            address: Nullable<GetPartnersResponseAddress>.value(GetPartnersResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 municipality: Optional("municipality"),
@@ -2609,7 +2609,7 @@ import Api
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("countryCode")
             )),
-            correspondenceAddress: Nullable<PostV1PartnersGetResponseCorrespondenceAddress>.value(PostV1PartnersGetResponseCorrespondenceAddress(
+            correspondenceAddress: Nullable<GetPartnersResponseCorrespondenceAddress>.value(GetPartnersResponseCorrespondenceAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 municipality: Optional("municipality"),
@@ -2627,25 +2627,25 @@ import Api
             foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
             autoDebtReminder: true,
             lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
-            firstCallDate: Nullable<String>.value("firstCallDate"),
-            lastCallDate: Nullable<String>.value("lastCallDate"),
-            nextCallDate: Nullable<String>.value("nextCallDate"),
+            firstCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            lastCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            nextCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             rating: Nullable<Int64>.value(1000000),
             isEmployee: true,
             isGroupMember: true,
             isActive: true,
-            legalCountryClass: Nullable<PostV1PartnersGetResponseLegalCountryClass>.value(.lt),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            legalCountryClass: Nullable<GetPartnersResponseLegalCountryClass>.value(.lt),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersGet(
+        let response = try await client.partners.get(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersGet2() async throws -> Void {
+    @Test func get2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2660,7 +2660,7 @@ import Api
                   "email": "email",
                   "phone": "phone",
                   "selfEmploymentCertNo": "selfEmploymentCertNo",
-                  "birthDate": "birthDate",
+                  "birthDate": "2023-01-15",
                   "isCustomer": true,
                   "isSupplier": true,
                   "paymentTermDays": 1000000,
@@ -2669,7 +2669,7 @@ import Api
                   "groupId": "x",
                   "statusId": "x",
                   "vatValid": true,
-                  "vatValidatedAt": "vatValidatedAt",
+                  "vatValidatedAt": "2024-01-15T09:30:00Z",
                   "address": {
                     "street": "street",
                     "city": "city",
@@ -2696,16 +2696,16 @@ import Api
                   "foreignTaxNumber": "foreignTaxNumber",
                   "autoDebtReminder": true,
                   "lateInterestPercent": "lateInterestPercent",
-                  "firstCallDate": "firstCallDate",
-                  "lastCallDate": "lastCallDate",
-                  "nextCallDate": "nextCallDate",
+                  "firstCallDate": "2023-01-15",
+                  "lastCallDate": "2023-01-15",
+                  "nextCallDate": "2023-01-15",
                   "rating": 1000000,
                   "isEmployee": true,
                   "isGroupMember": true,
                   "isActive": true,
                   "legalCountryClass": "lt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2715,7 +2715,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersGetResponse(
+        let expectedResponse = GetPartnersResponse(
             id: "x",
             type: .company,
             name: "name",
@@ -2725,7 +2725,7 @@ import Api
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
             selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             isCustomer: true,
             isSupplier: true,
             paymentTermDays: Nullable<Int64>.value(1000000),
@@ -2734,8 +2734,8 @@ import Api
             groupId: Nullable<String>.value("x"),
             statusId: Nullable<String>.value("x"),
             vatValid: Nullable<Bool>.value(true),
-            vatValidatedAt: Nullable<String>.value("vatValidatedAt"),
-            address: Nullable<PostV1PartnersGetResponseAddress>.value(PostV1PartnersGetResponseAddress(
+            vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            address: Nullable<GetPartnersResponseAddress>.value(GetPartnersResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 municipality: Optional("municipality"),
@@ -2743,7 +2743,7 @@ import Api
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("xy")
             )),
-            correspondenceAddress: Nullable<PostV1PartnersGetResponseCorrespondenceAddress>.value(PostV1PartnersGetResponseCorrespondenceAddress(
+            correspondenceAddress: Nullable<GetPartnersResponseCorrespondenceAddress>.value(GetPartnersResponseCorrespondenceAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 municipality: Optional("municipality"),
@@ -2761,25 +2761,25 @@ import Api
             foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
             autoDebtReminder: true,
             lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
-            firstCallDate: Nullable<String>.value("firstCallDate"),
-            lastCallDate: Nullable<String>.value("lastCallDate"),
-            nextCallDate: Nullable<String>.value("nextCallDate"),
+            firstCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            lastCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            nextCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             rating: Nullable<Int64>.value(1000000),
             isEmployee: true,
             isGroupMember: true,
             isActive: true,
-            legalCountryClass: Nullable<PostV1PartnersGetResponseLegalCountryClass>.value(.lt),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            legalCountryClass: Nullable<GetPartnersResponseLegalCountryClass>.value(.lt),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersGet(
+        let response = try await client.partners.get(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersUpdate1() async throws -> Void {
+    @Test func update1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2794,7 +2794,7 @@ import Api
                   "email": "email",
                   "phone": "phone",
                   "selfEmploymentCertNo": "selfEmploymentCertNo",
-                  "birthDate": "birthDate",
+                  "birthDate": "2026-07-01",
                   "isCustomer": true,
                   "isSupplier": true,
                   "paymentTermDays": 1000000,
@@ -2803,7 +2803,7 @@ import Api
                   "groupId": "groupId",
                   "statusId": "statusId",
                   "vatValid": true,
-                  "vatValidatedAt": "vatValidatedAt",
+                  "vatValidatedAt": "2026-07-01T09:30:00Z",
                   "address": {
                     "street": "street",
                     "city": "city",
@@ -2830,16 +2830,16 @@ import Api
                   "foreignTaxNumber": "foreignTaxNumber",
                   "autoDebtReminder": true,
                   "lateInterestPercent": "lateInterestPercent",
-                  "firstCallDate": "firstCallDate",
-                  "lastCallDate": "lastCallDate",
-                  "nextCallDate": "nextCallDate",
+                  "firstCallDate": "2026-07-01",
+                  "lastCallDate": "2026-07-01",
+                  "nextCallDate": "2026-07-01",
                   "rating": 1000000,
                   "isEmployee": true,
                   "isGroupMember": true,
                   "isActive": true,
                   "legalCountryClass": "lt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2849,7 +2849,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersUpdateResponse(
+        let expectedResponse = UpdatePartnersResponse(
             id: "id",
             type: .company,
             name: "name",
@@ -2859,7 +2859,7 @@ import Api
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
             selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             isCustomer: true,
             isSupplier: true,
             paymentTermDays: Nullable<Int64>.value(1000000),
@@ -2868,8 +2868,8 @@ import Api
             groupId: Nullable<String>.value("groupId"),
             statusId: Nullable<String>.value("statusId"),
             vatValid: Nullable<Bool>.value(true),
-            vatValidatedAt: Nullable<String>.value("vatValidatedAt"),
-            address: Nullable<PostV1PartnersUpdateResponseAddress>.value(PostV1PartnersUpdateResponseAddress(
+            vatValidatedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            address: Nullable<UpdatePartnersResponseAddress>.value(UpdatePartnersResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 municipality: Optional("municipality"),
@@ -2877,7 +2877,7 @@ import Api
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("countryCode")
             )),
-            correspondenceAddress: Nullable<PostV1PartnersUpdateResponseCorrespondenceAddress>.value(PostV1PartnersUpdateResponseCorrespondenceAddress(
+            correspondenceAddress: Nullable<UpdatePartnersResponseCorrespondenceAddress>.value(UpdatePartnersResponseCorrespondenceAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 municipality: Optional("municipality"),
@@ -2895,25 +2895,25 @@ import Api
             foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
             autoDebtReminder: true,
             lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
-            firstCallDate: Nullable<String>.value("firstCallDate"),
-            lastCallDate: Nullable<String>.value("lastCallDate"),
-            nextCallDate: Nullable<String>.value("nextCallDate"),
+            firstCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            lastCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            nextCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             rating: Nullable<Int64>.value(1000000),
             isEmployee: true,
             isGroupMember: true,
             isActive: true,
-            legalCountryClass: Nullable<PostV1PartnersUpdateResponseLegalCountryClass>.value(.lt),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            legalCountryClass: Nullable<UpdatePartnersResponseLegalCountryClass>.value(.lt),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersUpdate(
+        let response = try await client.partners.update(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersUpdate2() async throws -> Void {
+    @Test func update2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -2928,7 +2928,7 @@ import Api
                   "email": "email",
                   "phone": "phone",
                   "selfEmploymentCertNo": "selfEmploymentCertNo",
-                  "birthDate": "birthDate",
+                  "birthDate": "2023-01-15",
                   "isCustomer": true,
                   "isSupplier": true,
                   "paymentTermDays": 1000000,
@@ -2937,7 +2937,7 @@ import Api
                   "groupId": "x",
                   "statusId": "x",
                   "vatValid": true,
-                  "vatValidatedAt": "vatValidatedAt",
+                  "vatValidatedAt": "2024-01-15T09:30:00Z",
                   "address": {
                     "street": "street",
                     "city": "city",
@@ -2964,16 +2964,16 @@ import Api
                   "foreignTaxNumber": "foreignTaxNumber",
                   "autoDebtReminder": true,
                   "lateInterestPercent": "lateInterestPercent",
-                  "firstCallDate": "firstCallDate",
-                  "lastCallDate": "lastCallDate",
-                  "nextCallDate": "nextCallDate",
+                  "firstCallDate": "2023-01-15",
+                  "lastCallDate": "2023-01-15",
+                  "nextCallDate": "2023-01-15",
                   "rating": 1000000,
                   "isEmployee": true,
                   "isGroupMember": true,
                   "isActive": true,
                   "legalCountryClass": "lt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -2983,7 +2983,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersUpdateResponse(
+        let expectedResponse = UpdatePartnersResponse(
             id: "x",
             type: .company,
             name: "name",
@@ -2993,7 +2993,7 @@ import Api
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
             selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
-            birthDate: Nullable<String>.value("birthDate"),
+            birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             isCustomer: true,
             isSupplier: true,
             paymentTermDays: Nullable<Int64>.value(1000000),
@@ -3002,8 +3002,8 @@ import Api
             groupId: Nullable<String>.value("x"),
             statusId: Nullable<String>.value("x"),
             vatValid: Nullable<Bool>.value(true),
-            vatValidatedAt: Nullable<String>.value("vatValidatedAt"),
-            address: Nullable<PostV1PartnersUpdateResponseAddress>.value(PostV1PartnersUpdateResponseAddress(
+            vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            address: Nullable<UpdatePartnersResponseAddress>.value(UpdatePartnersResponseAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 municipality: Optional("municipality"),
@@ -3011,7 +3011,7 @@ import Api
                 postalCode: Optional("postalCode"),
                 countryCode: Optional("xy")
             )),
-            correspondenceAddress: Nullable<PostV1PartnersUpdateResponseCorrespondenceAddress>.value(PostV1PartnersUpdateResponseCorrespondenceAddress(
+            correspondenceAddress: Nullable<UpdatePartnersResponseCorrespondenceAddress>.value(UpdatePartnersResponseCorrespondenceAddress(
                 street: Optional("street"),
                 city: Optional("city"),
                 municipality: Optional("municipality"),
@@ -3029,25 +3029,25 @@ import Api
             foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
             autoDebtReminder: true,
             lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
-            firstCallDate: Nullable<String>.value("firstCallDate"),
-            lastCallDate: Nullable<String>.value("lastCallDate"),
-            nextCallDate: Nullable<String>.value("nextCallDate"),
+            firstCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            lastCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            nextCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             rating: Nullable<Int64>.value(1000000),
             isEmployee: true,
             isGroupMember: true,
             isActive: true,
-            legalCountryClass: Nullable<PostV1PartnersUpdateResponseLegalCountryClass>.value(.lt),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
+            legalCountryClass: Nullable<UpdatePartnersResponseLegalCountryClass>.value(.lt),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersUpdate(
+        let response = try await client.partners.update(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersDelete1() async throws -> Void {
+    @Test func delete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3063,17 +3063,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersDeleteResponse(
+        let expectedResponse = DeletePartnersResponse(
             id: "id"
         )
-        let response = try await client.partners.postV1PartnersDelete(
+        let response = try await client.partners.delete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersDelete2() async throws -> Void {
+    @Test func delete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3089,17 +3089,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersDeleteResponse(
+        let expectedResponse = DeletePartnersResponse(
             id: "x"
         )
-        let response = try await client.partners.postV1PartnersDelete(
+        let response = try await client.partners.delete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func blankAPartnersPersonalDataAndHideTheRecord1() async throws -> Void {
+    @Test func anonymize1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3116,18 +3116,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersAnonymizeResponse(
+        let expectedResponse = AnonymizePartnersResponse(
             id: "id",
             anonymized: true
         )
-        let response = try await client.partners.blankAPartnersPersonalDataAndHideTheRecord(
+        let response = try await client.partners.anonymize(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func blankAPartnersPersonalDataAndHideTheRecord2() async throws -> Void {
+    @Test func anonymize2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3144,18 +3144,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersAnonymizeResponse(
+        let expectedResponse = AnonymizePartnersResponse(
             id: "x",
             anonymized: true
         )
-        let response = try await client.partners.blankAPartnersPersonalDataAndHideTheRecord(
+        let response = try await client.partners.anonymize(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersList1() async throws -> Void {
+    @Test func list1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3172,7 +3172,7 @@ import Api
                       "email": "email",
                       "phone": "phone",
                       "selfEmploymentCertNo": "selfEmploymentCertNo",
-                      "birthDate": "birthDate",
+                      "birthDate": "2026-07-01",
                       "isCustomer": true,
                       "isSupplier": true,
                       "paymentTermDays": 1000000,
@@ -3181,7 +3181,7 @@ import Api
                       "groupId": "groupId",
                       "statusId": "statusId",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt",
+                      "vatValidatedAt": "2026-07-01T09:30:00Z",
                       "address": {},
                       "correspondenceAddress": {},
                       "notes": "notes",
@@ -3194,16 +3194,16 @@ import Api
                       "foreignTaxNumber": "foreignTaxNumber",
                       "autoDebtReminder": true,
                       "lateInterestPercent": "lateInterestPercent",
-                      "firstCallDate": "firstCallDate",
-                      "lastCallDate": "lastCallDate",
-                      "nextCallDate": "nextCallDate",
+                      "firstCallDate": "2026-07-01",
+                      "lastCallDate": "2026-07-01",
+                      "nextCallDate": "2026-07-01",
                       "rating": 1000000,
                       "isEmployee": true,
                       "isGroupMember": true,
                       "isActive": true,
                       "legalCountryClass": "lt",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -3221,9 +3221,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersListResponse(
+        let expectedResponse = ListPartnersResponse(
             rows: [
-                PostV1PartnersListResponseRowsItem(
+                ListPartnersResponseRowsItem(
                     id: "id",
                     type: .company,
                     name: "name",
@@ -3233,7 +3233,7 @@ import Api
                     email: Nullable<String>.value("email"),
                     phone: Nullable<String>.value("phone"),
                     selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
-                    birthDate: Nullable<String>.value("birthDate"),
+                    birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     isCustomer: true,
                     isSupplier: true,
                     paymentTermDays: Nullable<Int64>.value(1000000),
@@ -3242,11 +3242,11 @@ import Api
                     groupId: Nullable<String>.value("groupId"),
                     statusId: Nullable<String>.value("statusId"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt"),
-                    address: Nullable<PostV1PartnersListResponseRowsItemAddress>.value(PostV1PartnersListResponseRowsItemAddress(
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    address: Nullable<ListPartnersResponseRowsItemAddress>.value(ListPartnersResponseRowsItemAddress(
 
                     )),
-                    correspondenceAddress: Nullable<PostV1PartnersListResponseRowsItemCorrespondenceAddress>.value(PostV1PartnersListResponseRowsItemCorrespondenceAddress(
+                    correspondenceAddress: Nullable<ListPartnersResponseRowsItemCorrespondenceAddress>.value(ListPartnersResponseRowsItemCorrespondenceAddress(
 
                     )),
                     notes: Nullable<String>.value("notes"),
@@ -3259,16 +3259,16 @@ import Api
                     foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
                     autoDebtReminder: true,
                     lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
-                    firstCallDate: Nullable<String>.value("firstCallDate"),
-                    lastCallDate: Nullable<String>.value("lastCallDate"),
-                    nextCallDate: Nullable<String>.value("nextCallDate"),
+                    firstCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    lastCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    nextCallDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     rating: Nullable<Int64>.value(1000000),
                     isEmployee: true,
                     isGroupMember: true,
                     isActive: true,
-                    legalCountryClass: Nullable<PostV1PartnersListResponseRowsItemLegalCountryClass>.value(.lt),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    legalCountryClass: Nullable<ListPartnersResponseRowsItemLegalCountryClass>.value(.lt),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -3278,14 +3278,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.partners.postV1PartnersList(
+        let response = try await client.partners.list(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersList2() async throws -> Void {
+    @Test func list2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3302,7 +3302,7 @@ import Api
                       "email": "email",
                       "phone": "phone",
                       "selfEmploymentCertNo": "selfEmploymentCertNo",
-                      "birthDate": "birthDate",
+                      "birthDate": "2023-01-15",
                       "isCustomer": true,
                       "isSupplier": true,
                       "paymentTermDays": 1000000,
@@ -3311,7 +3311,7 @@ import Api
                       "groupId": "x",
                       "statusId": "x",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt",
+                      "vatValidatedAt": "2024-01-15T09:30:00Z",
                       "address": {
                         "street": "street",
                         "city": "city",
@@ -3338,16 +3338,16 @@ import Api
                       "foreignTaxNumber": "foreignTaxNumber",
                       "autoDebtReminder": true,
                       "lateInterestPercent": "lateInterestPercent",
-                      "firstCallDate": "firstCallDate",
-                      "lastCallDate": "lastCallDate",
-                      "nextCallDate": "nextCallDate",
+                      "firstCallDate": "2023-01-15",
+                      "lastCallDate": "2023-01-15",
+                      "nextCallDate": "2023-01-15",
                       "rating": 1000000,
                       "isEmployee": true,
                       "isGroupMember": true,
                       "isActive": true,
                       "legalCountryClass": "lt",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -3359,7 +3359,7 @@ import Api
                       "email": "email",
                       "phone": "phone",
                       "selfEmploymentCertNo": "selfEmploymentCertNo",
-                      "birthDate": "birthDate",
+                      "birthDate": "2023-01-15",
                       "isCustomer": true,
                       "isSupplier": true,
                       "paymentTermDays": 1000000,
@@ -3368,7 +3368,7 @@ import Api
                       "groupId": "x",
                       "statusId": "x",
                       "vatValid": true,
-                      "vatValidatedAt": "vatValidatedAt",
+                      "vatValidatedAt": "2024-01-15T09:30:00Z",
                       "address": {
                         "street": "street",
                         "city": "city",
@@ -3395,16 +3395,16 @@ import Api
                       "foreignTaxNumber": "foreignTaxNumber",
                       "autoDebtReminder": true,
                       "lateInterestPercent": "lateInterestPercent",
-                      "firstCallDate": "firstCallDate",
-                      "lastCallDate": "lastCallDate",
-                      "nextCallDate": "nextCallDate",
+                      "firstCallDate": "2023-01-15",
+                      "lastCallDate": "2023-01-15",
+                      "nextCallDate": "2023-01-15",
                       "rating": 1000000,
                       "isEmployee": true,
                       "isGroupMember": true,
                       "isActive": true,
                       "legalCountryClass": "lt",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -3422,9 +3422,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersListResponse(
+        let expectedResponse = ListPartnersResponse(
             rows: [
-                PostV1PartnersListResponseRowsItem(
+                ListPartnersResponseRowsItem(
                     id: "x",
                     type: .company,
                     name: "name",
@@ -3434,7 +3434,7 @@ import Api
                     email: Nullable<String>.value("email"),
                     phone: Nullable<String>.value("phone"),
                     selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
-                    birthDate: Nullable<String>.value("birthDate"),
+                    birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     isCustomer: true,
                     isSupplier: true,
                     paymentTermDays: Nullable<Int64>.value(1000000),
@@ -3443,8 +3443,8 @@ import Api
                     groupId: Nullable<String>.value("x"),
                     statusId: Nullable<String>.value("x"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt"),
-                    address: Nullable<PostV1PartnersListResponseRowsItemAddress>.value(PostV1PartnersListResponseRowsItemAddress(
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    address: Nullable<ListPartnersResponseRowsItemAddress>.value(ListPartnersResponseRowsItemAddress(
                         street: Optional("street"),
                         city: Optional("city"),
                         municipality: Optional("municipality"),
@@ -3452,7 +3452,7 @@ import Api
                         postalCode: Optional("postalCode"),
                         countryCode: Optional("xy")
                     )),
-                    correspondenceAddress: Nullable<PostV1PartnersListResponseRowsItemCorrespondenceAddress>.value(PostV1PartnersListResponseRowsItemCorrespondenceAddress(
+                    correspondenceAddress: Nullable<ListPartnersResponseRowsItemCorrespondenceAddress>.value(ListPartnersResponseRowsItemCorrespondenceAddress(
                         street: Optional("street"),
                         city: Optional("city"),
                         municipality: Optional("municipality"),
@@ -3470,18 +3470,18 @@ import Api
                     foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
                     autoDebtReminder: true,
                     lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
-                    firstCallDate: Nullable<String>.value("firstCallDate"),
-                    lastCallDate: Nullable<String>.value("lastCallDate"),
-                    nextCallDate: Nullable<String>.value("nextCallDate"),
+                    firstCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    lastCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    nextCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     rating: Nullable<Int64>.value(1000000),
                     isEmployee: true,
                     isGroupMember: true,
                     isActive: true,
-                    legalCountryClass: Nullable<PostV1PartnersListResponseRowsItemLegalCountryClass>.value(.lt),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    legalCountryClass: Nullable<ListPartnersResponseRowsItemLegalCountryClass>.value(.lt),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1PartnersListResponseRowsItem(
+                ListPartnersResponseRowsItem(
                     id: "x",
                     type: .company,
                     name: "name",
@@ -3491,7 +3491,7 @@ import Api
                     email: Nullable<String>.value("email"),
                     phone: Nullable<String>.value("phone"),
                     selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
-                    birthDate: Nullable<String>.value("birthDate"),
+                    birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     isCustomer: true,
                     isSupplier: true,
                     paymentTermDays: Nullable<Int64>.value(1000000),
@@ -3500,8 +3500,8 @@ import Api
                     groupId: Nullable<String>.value("x"),
                     statusId: Nullable<String>.value("x"),
                     vatValid: Nullable<Bool>.value(true),
-                    vatValidatedAt: Nullable<String>.value("vatValidatedAt"),
-                    address: Nullable<PostV1PartnersListResponseRowsItemAddress>.value(PostV1PartnersListResponseRowsItemAddress(
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    address: Nullable<ListPartnersResponseRowsItemAddress>.value(ListPartnersResponseRowsItemAddress(
                         street: Optional("street"),
                         city: Optional("city"),
                         municipality: Optional("municipality"),
@@ -3509,7 +3509,7 @@ import Api
                         postalCode: Optional("postalCode"),
                         countryCode: Optional("xy")
                     )),
-                    correspondenceAddress: Nullable<PostV1PartnersListResponseRowsItemCorrespondenceAddress>.value(PostV1PartnersListResponseRowsItemCorrespondenceAddress(
+                    correspondenceAddress: Nullable<ListPartnersResponseRowsItemCorrespondenceAddress>.value(ListPartnersResponseRowsItemCorrespondenceAddress(
                         street: Optional("street"),
                         city: Optional("city"),
                         municipality: Optional("municipality"),
@@ -3527,16 +3527,16 @@ import Api
                     foreignTaxNumber: Nullable<String>.value("foreignTaxNumber"),
                     autoDebtReminder: true,
                     lateInterestPercent: Nullable<String>.value("lateInterestPercent"),
-                    firstCallDate: Nullable<String>.value("firstCallDate"),
-                    lastCallDate: Nullable<String>.value("lastCallDate"),
-                    nextCallDate: Nullable<String>.value("nextCallDate"),
+                    firstCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    lastCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    nextCallDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     rating: Nullable<Int64>.value(1000000),
                     isEmployee: true,
                     isGroupMember: true,
                     isActive: true,
-                    legalCountryClass: Nullable<PostV1PartnersListResponseRowsItemLegalCountryClass>.value(.lt),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
+                    legalCountryClass: Nullable<ListPartnersResponseRowsItemLegalCountryClass>.value(.lt),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -3546,14 +3546,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.partners.postV1PartnersList(
+        let response = try await client.partners.list(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersGroupsCreate1() async throws -> Void {
+    @Test func groupsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3562,7 +3562,7 @@ import Api
                   "id": "id",
                   "code": "code",
                   "name": "name",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3572,13 +3572,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersGroupsCreateResponse(
+        let expectedResponse = GroupsCreatePartnersResponse(
             id: "id",
             code: "code",
             name: "name",
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersGroupsCreate(
+        let response = try await client.partners.groupsCreate(
             request: .init(
                 code: "code",
                 name: "name"
@@ -3588,7 +3588,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersGroupsCreate2() async throws -> Void {
+    @Test func groupsCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3597,7 +3597,7 @@ import Api
                   "id": "x",
                   "code": "code",
                   "name": "name",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3607,13 +3607,13 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersGroupsCreateResponse(
+        let expectedResponse = GroupsCreatePartnersResponse(
             id: "x",
             code: "code",
             name: "name",
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersGroupsCreate(
+        let response = try await client.partners.groupsCreate(
             request: .init(
                 code: "x",
                 name: "x"
@@ -3623,7 +3623,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersGroupsUpdate1() async throws -> Void {
+    @Test func groupsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3632,7 +3632,7 @@ import Api
                   "id": "id",
                   "code": "code",
                   "name": "name",
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3642,20 +3642,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersGroupsUpdateResponse(
+        let expectedResponse = GroupsUpdatePartnersResponse(
             id: "id",
             code: "code",
             name: "name",
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersGroupsUpdate(
+        let response = try await client.partners.groupsUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersGroupsUpdate2() async throws -> Void {
+    @Test func groupsUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3664,7 +3664,7 @@ import Api
                   "id": "x",
                   "code": "code",
                   "name": "name",
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3674,20 +3674,20 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersGroupsUpdateResponse(
+        let expectedResponse = GroupsUpdatePartnersResponse(
             id: "x",
             code: "code",
             name: "name",
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersGroupsUpdate(
+        let response = try await client.partners.groupsUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersGroupsDelete1() async throws -> Void {
+    @Test func groupsDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3703,17 +3703,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersGroupsDeleteResponse(
+        let expectedResponse = GroupsDeletePartnersResponse(
             id: "id"
         )
-        let response = try await client.partners.postV1PartnersGroupsDelete(
+        let response = try await client.partners.groupsDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersGroupsDelete2() async throws -> Void {
+    @Test func groupsDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3729,17 +3729,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersGroupsDeleteResponse(
+        let expectedResponse = GroupsDeletePartnersResponse(
             id: "x"
         )
-        let response = try await client.partners.postV1PartnersGroupsDelete(
+        let response = try await client.partners.groupsDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersGroupsList1() async throws -> Void {
+    @Test func groupsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3750,7 +3750,7 @@ import Api
                       "id": "id",
                       "code": "code",
                       "name": "name",
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -3762,24 +3762,24 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersGroupsListResponse(
+        let expectedResponse = GroupsListPartnersResponse(
             rows: [
-                PostV1PartnersGroupsListResponseRowsItem(
+                GroupsListPartnersResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.partners.postV1PartnersGroupsList(
+        let response = try await client.partners.groupsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersGroupsList2() async throws -> Void {
+    @Test func groupsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3790,13 +3790,13 @@ import Api
                       "id": "x",
                       "code": "code",
                       "name": "name",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "code": "code",
                       "name": "name",
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -3808,30 +3808,30 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersGroupsListResponse(
+        let expectedResponse = GroupsListPartnersResponse(
             rows: [
-                PostV1PartnersGroupsListResponseRowsItem(
+                GroupsListPartnersResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1PartnersGroupsListResponseRowsItem(
+                GroupsListPartnersResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.partners.postV1PartnersGroupsList(
+        let response = try await client.partners.groupsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersStatusesCreate1() async throws -> Void {
+    @Test func statusesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3841,7 +3841,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "sortOrder": 1000000,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3851,14 +3851,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersStatusesCreateResponse(
+        let expectedResponse = StatusesCreatePartnersResponse(
             id: "id",
             code: "code",
             name: "name",
             sortOrder: 1000000,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersStatusesCreate(
+        let response = try await client.partners.statusesCreate(
             request: .init(
                 code: "code",
                 name: "name"
@@ -3868,7 +3868,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersStatusesCreate2() async throws -> Void {
+    @Test func statusesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3878,7 +3878,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "sortOrder": 1000000,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3888,14 +3888,14 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersStatusesCreateResponse(
+        let expectedResponse = StatusesCreatePartnersResponse(
             id: "x",
             code: "code",
             name: "name",
             sortOrder: 1000000,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersStatusesCreate(
+        let response = try await client.partners.statusesCreate(
             request: .init(
                 code: "x",
                 name: "x"
@@ -3905,7 +3905,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersStatusesUpdate1() async throws -> Void {
+    @Test func statusesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3915,7 +3915,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "sortOrder": 1000000,
-                  "createdAt": "createdAt"
+                  "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3925,21 +3925,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersStatusesUpdateResponse(
+        let expectedResponse = StatusesUpdatePartnersResponse(
             id: "id",
             code: "code",
             name: "name",
             sortOrder: 1000000,
-            createdAt: "createdAt"
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersStatusesUpdate(
+        let response = try await client.partners.statusesUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersStatusesUpdate2() async throws -> Void {
+    @Test func statusesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3949,7 +3949,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "sortOrder": 1000000,
-                  "createdAt": "createdAt"
+                  "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -3959,21 +3959,21 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersStatusesUpdateResponse(
+        let expectedResponse = StatusesUpdatePartnersResponse(
             id: "x",
             code: "code",
             name: "name",
             sortOrder: 1000000,
-            createdAt: "createdAt"
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
-        let response = try await client.partners.postV1PartnersStatusesUpdate(
+        let response = try await client.partners.statusesUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersStatusesDelete1() async throws -> Void {
+    @Test func statusesDelete1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3989,17 +3989,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersStatusesDeleteResponse(
+        let expectedResponse = StatusesDeletePartnersResponse(
             id: "id"
         )
-        let response = try await client.partners.postV1PartnersStatusesDelete(
+        let response = try await client.partners.statusesDelete(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersStatusesDelete2() async throws -> Void {
+    @Test func statusesDelete2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4015,17 +4015,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersStatusesDeleteResponse(
+        let expectedResponse = StatusesDeletePartnersResponse(
             id: "x"
         )
-        let response = try await client.partners.postV1PartnersStatusesDelete(
+        let response = try await client.partners.statusesDelete(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersStatusesList1() async throws -> Void {
+    @Test func statusesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4037,7 +4037,7 @@ import Api
                       "code": "code",
                       "name": "name",
                       "sortOrder": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -4049,25 +4049,25 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersStatusesListResponse(
+        let expectedResponse = StatusesListPartnersResponse(
             rows: [
-                PostV1PartnersStatusesListResponseRowsItem(
+                StatusesListPartnersResponseRowsItem(
                     id: "id",
                     code: "code",
                     name: "name",
                     sortOrder: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.partners.postV1PartnersStatusesList(
+        let response = try await client.partners.statusesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersStatusesList2() async throws -> Void {
+    @Test func statusesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4079,14 +4079,14 @@ import Api
                       "code": "code",
                       "name": "name",
                       "sortOrder": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
                       "code": "code",
                       "name": "name",
                       "sortOrder": 1000000,
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -4098,32 +4098,32 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersStatusesListResponse(
+        let expectedResponse = StatusesListPartnersResponse(
             rows: [
-                PostV1PartnersStatusesListResponseRowsItem(
+                StatusesListPartnersResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     sortOrder: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1PartnersStatusesListResponseRowsItem(
+                StatusesListPartnersResponseRowsItem(
                     id: "x",
                     code: "code",
                     name: "name",
                     sortOrder: 1000000,
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.partners.postV1PartnersStatusesList(
+        let response = try await client.partners.statusesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersInquiriesCreate1() async throws -> Void {
+    @Test func inquiriesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4141,9 +4141,9 @@ import Api
                   "status": "new",
                   "assignedUserId": "assignedUserId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
-                  "closedAt": "closedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
+                  "closedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4153,7 +4153,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersInquiriesCreateResponse(
+        let expectedResponse = InquiriesCreatePartnersResponse(
             id: "id",
             partnerId: Nullable<String>.value("partnerId"),
             partnerName: Nullable<String>.value("partnerName"),
@@ -4166,18 +4166,18 @@ import Api
             status: .new,
             assignedUserId: Nullable<String>.value("assignedUserId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
-            closedAt: Nullable<String>.value("closedAt")
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            closedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.partners.postV1PartnersInquiriesCreate(
+        let response = try await client.partners.inquiriesCreate(
             request: .init(subject: "subject"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersInquiriesCreate2() async throws -> Void {
+    @Test func inquiriesCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4195,9 +4195,9 @@ import Api
                   "status": "new",
                   "assignedUserId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
-                  "closedAt": "closedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
+                  "closedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4207,7 +4207,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersInquiriesCreateResponse(
+        let expectedResponse = InquiriesCreatePartnersResponse(
             id: "x",
             partnerId: Nullable<String>.value("x"),
             partnerName: Nullable<String>.value("partnerName"),
@@ -4220,18 +4220,18 @@ import Api
             status: .new,
             assignedUserId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
-            closedAt: Nullable<String>.value("closedAt")
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            closedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.partners.postV1PartnersInquiriesCreate(
+        let response = try await client.partners.inquiriesCreate(
             request: .init(subject: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersInquiriesUpdate1() async throws -> Void {
+    @Test func inquiriesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4249,9 +4249,9 @@ import Api
                   "status": "new",
                   "assignedUserId": "assignedUserId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
-                  "closedAt": "closedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
+                  "closedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4261,7 +4261,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersInquiriesUpdateResponse(
+        let expectedResponse = InquiriesUpdatePartnersResponse(
             id: "id",
             partnerId: Nullable<String>.value("partnerId"),
             partnerName: Nullable<String>.value("partnerName"),
@@ -4274,18 +4274,18 @@ import Api
             status: .new,
             assignedUserId: Nullable<String>.value("assignedUserId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
-            closedAt: Nullable<String>.value("closedAt")
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            closedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.partners.postV1PartnersInquiriesUpdate(
+        let response = try await client.partners.inquiriesUpdate(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersInquiriesUpdate2() async throws -> Void {
+    @Test func inquiriesUpdate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4303,9 +4303,9 @@ import Api
                   "status": "new",
                   "assignedUserId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
-                  "closedAt": "closedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
+                  "closedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4315,7 +4315,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersInquiriesUpdateResponse(
+        let expectedResponse = InquiriesUpdatePartnersResponse(
             id: "x",
             partnerId: Nullable<String>.value("x"),
             partnerName: Nullable<String>.value("partnerName"),
@@ -4328,18 +4328,18 @@ import Api
             status: .new,
             assignedUserId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
-            closedAt: Nullable<String>.value("closedAt")
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            closedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.partners.postV1PartnersInquiriesUpdate(
+        let response = try await client.partners.inquiriesUpdate(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersInquiriesGet1() async throws -> Void {
+    @Test func inquiriesGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4357,9 +4357,9 @@ import Api
                   "status": "new",
                   "assignedUserId": "assignedUserId",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
-                  "closedAt": "closedAt"
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
+                  "closedAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4369,7 +4369,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersInquiriesGetResponse(
+        let expectedResponse = InquiriesGetPartnersResponse(
             id: "id",
             partnerId: Nullable<String>.value("partnerId"),
             partnerName: Nullable<String>.value("partnerName"),
@@ -4382,18 +4382,18 @@ import Api
             status: .new,
             assignedUserId: Nullable<String>.value("assignedUserId"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
-            closedAt: Nullable<String>.value("closedAt")
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            closedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.partners.postV1PartnersInquiriesGet(
+        let response = try await client.partners.inquiriesGet(
             request: .init(id: "id"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersInquiriesGet2() async throws -> Void {
+    @Test func inquiriesGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4411,9 +4411,9 @@ import Api
                   "status": "new",
                   "assignedUserId": "x",
                   "notes": "notes",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt",
-                  "closedAt": "closedAt"
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
+                  "closedAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
             )
@@ -4423,7 +4423,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersInquiriesGetResponse(
+        let expectedResponse = InquiriesGetPartnersResponse(
             id: "x",
             partnerId: Nullable<String>.value("x"),
             partnerName: Nullable<String>.value("partnerName"),
@@ -4436,18 +4436,18 @@ import Api
             status: .new,
             assignedUserId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
-            closedAt: Nullable<String>.value("closedAt")
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            closedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
         )
-        let response = try await client.partners.postV1PartnersInquiriesGet(
+        let response = try await client.partners.inquiriesGet(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersInquiriesList1() async throws -> Void {
+    @Test func inquiriesList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4467,9 +4467,9 @@ import Api
                       "status": "new",
                       "assignedUserId": "assignedUserId",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt",
-                      "closedAt": "closedAt"
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z",
+                      "closedAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -4487,9 +4487,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersInquiriesListResponse(
+        let expectedResponse = InquiriesListPartnersResponse(
             rows: [
-                PostV1PartnersInquiriesListResponseRowsItem(
+                InquiriesListPartnersResponseRowsItem(
                     id: "id",
                     partnerId: Nullable<String>.value("partnerId"),
                     partnerName: Nullable<String>.value("partnerName"),
@@ -4502,9 +4502,9 @@ import Api
                     status: .new,
                     assignedUserId: Nullable<String>.value("assignedUserId"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt",
-                    closedAt: Nullable<String>.value("closedAt")
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    closedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 )
             ],
             page: 1000000,
@@ -4514,14 +4514,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.partners.postV1PartnersInquiriesList(
+        let response = try await client.partners.inquiriesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersInquiriesList2() async throws -> Void {
+    @Test func inquiriesList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4541,9 +4541,9 @@ import Api
                       "status": "new",
                       "assignedUserId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt",
-                      "closedAt": "closedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z",
+                      "closedAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -4558,9 +4558,9 @@ import Api
                       "status": "new",
                       "assignedUserId": "x",
                       "notes": "notes",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt",
-                      "closedAt": "closedAt"
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z",
+                      "closedAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -4578,9 +4578,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersInquiriesListResponse(
+        let expectedResponse = InquiriesListPartnersResponse(
             rows: [
-                PostV1PartnersInquiriesListResponseRowsItem(
+                InquiriesListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: Nullable<String>.value("x"),
                     partnerName: Nullable<String>.value("partnerName"),
@@ -4593,11 +4593,11 @@ import Api
                     status: .new,
                     assignedUserId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt",
-                    closedAt: Nullable<String>.value("closedAt")
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    closedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
-                PostV1PartnersInquiriesListResponseRowsItem(
+                InquiriesListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: Nullable<String>.value("x"),
                     partnerName: Nullable<String>.value("partnerName"),
@@ -4610,9 +4610,9 @@ import Api
                     status: .new,
                     assignedUserId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt",
-                    closedAt: Nullable<String>.value("closedAt")
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    closedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 )
             ],
             page: 1000000,
@@ -4622,14 +4622,14 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.partners.postV1PartnersInquiriesList(
+        let response = try await client.partners.inquiriesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersCreditCheck1() async throws -> Void {
+    @Test func creditCheck1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4652,7 +4652,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersCreditCheckResponse(
+        let expectedResponse = CreditCheckPartnersResponse(
             partnerId: "partnerId",
             partnerName: "partnerName",
             creditLimit: Nullable<String>.value("creditLimit"),
@@ -4662,14 +4662,14 @@ import Api
             available: Nullable<String>.value("available"),
             exceeded: true
         )
-        let response = try await client.partners.postV1PartnersCreditCheck(
+        let response = try await client.partners.creditCheck(
             request: .init(partnerId: "partnerId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1PartnersCreditCheck2() async throws -> Void {
+    @Test func creditCheck2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -4692,7 +4692,7 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1PartnersCreditCheckResponse(
+        let expectedResponse = CreditCheckPartnersResponse(
             partnerId: "x",
             partnerName: "partnerName",
             creditLimit: Nullable<String>.value("creditLimit"),
@@ -4702,1426 +4702,8 @@ import Api
             available: Nullable<String>.value("available"),
             exceeded: true
         )
-        let response = try await client.partners.postV1PartnersCreditCheck(
+        let response = try await client.partners.creditCheck(
             request: .init(partnerId: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsCreate1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id",
-                  "name": "name",
-                  "contactName": "contactName",
-                  "email": "email",
-                  "phone": "phone",
-                  "website": "website",
-                  "countryCode": "countryCode",
-                  "sourceId": "sourceId",
-                  "sourceName": "sourceName",
-                  "status": "new",
-                  "estimatedValue": "estimatedValue",
-                  "currency": "currency",
-                  "description": "description",
-                  "assignedUserId": "assignedUserId",
-                  "partnerId": "partnerId",
-                  "convertedAt": "convertedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsCreateResponse(
-            id: "id",
-            name: "name",
-            contactName: Nullable<String>.value("contactName"),
-            email: Nullable<String>.value("email"),
-            phone: Nullable<String>.value("phone"),
-            website: Nullable<String>.value("website"),
-            countryCode: Nullable<String>.value("countryCode"),
-            sourceId: Nullable<String>.value("sourceId"),
-            sourceName: Nullable<String>.value("sourceName"),
-            status: .new,
-            estimatedValue: Nullable<String>.value("estimatedValue"),
-            currency: "currency",
-            description: Nullable<String>.value("description"),
-            assignedUserId: Nullable<String>.value("assignedUserId"),
-            partnerId: Nullable<String>.value("partnerId"),
-            convertedAt: Nullable<String>.value("convertedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.partners.postV1LeadsCreate(
-            request: .init(name: "name"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsCreate2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "name": "name",
-                  "contactName": "contactName",
-                  "email": "email",
-                  "phone": "phone",
-                  "website": "website",
-                  "countryCode": "countryCode",
-                  "sourceId": "x",
-                  "sourceName": "sourceName",
-                  "status": "new",
-                  "estimatedValue": "estimatedValue",
-                  "currency": "currency",
-                  "description": "description",
-                  "assignedUserId": "x",
-                  "partnerId": "x",
-                  "convertedAt": "convertedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsCreateResponse(
-            id: "x",
-            name: "name",
-            contactName: Nullable<String>.value("contactName"),
-            email: Nullable<String>.value("email"),
-            phone: Nullable<String>.value("phone"),
-            website: Nullable<String>.value("website"),
-            countryCode: Nullable<String>.value("countryCode"),
-            sourceId: Nullable<String>.value("x"),
-            sourceName: Nullable<String>.value("sourceName"),
-            status: .new,
-            estimatedValue: Nullable<String>.value("estimatedValue"),
-            currency: "currency",
-            description: Nullable<String>.value("description"),
-            assignedUserId: Nullable<String>.value("x"),
-            partnerId: Nullable<String>.value("x"),
-            convertedAt: Nullable<String>.value("convertedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.partners.postV1LeadsCreate(
-            request: .init(name: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsGet1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id",
-                  "name": "name",
-                  "contactName": "contactName",
-                  "email": "email",
-                  "phone": "phone",
-                  "website": "website",
-                  "countryCode": "countryCode",
-                  "sourceId": "sourceId",
-                  "sourceName": "sourceName",
-                  "status": "new",
-                  "estimatedValue": "estimatedValue",
-                  "currency": "currency",
-                  "description": "description",
-                  "assignedUserId": "assignedUserId",
-                  "partnerId": "partnerId",
-                  "convertedAt": "convertedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsGetResponse(
-            id: "id",
-            name: "name",
-            contactName: Nullable<String>.value("contactName"),
-            email: Nullable<String>.value("email"),
-            phone: Nullable<String>.value("phone"),
-            website: Nullable<String>.value("website"),
-            countryCode: Nullable<String>.value("countryCode"),
-            sourceId: Nullable<String>.value("sourceId"),
-            sourceName: Nullable<String>.value("sourceName"),
-            status: .new,
-            estimatedValue: Nullable<String>.value("estimatedValue"),
-            currency: "currency",
-            description: Nullable<String>.value("description"),
-            assignedUserId: Nullable<String>.value("assignedUserId"),
-            partnerId: Nullable<String>.value("partnerId"),
-            convertedAt: Nullable<String>.value("convertedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.partners.postV1LeadsGet(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsGet2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "name": "name",
-                  "contactName": "contactName",
-                  "email": "email",
-                  "phone": "phone",
-                  "website": "website",
-                  "countryCode": "countryCode",
-                  "sourceId": "x",
-                  "sourceName": "sourceName",
-                  "status": "new",
-                  "estimatedValue": "estimatedValue",
-                  "currency": "currency",
-                  "description": "description",
-                  "assignedUserId": "x",
-                  "partnerId": "x",
-                  "convertedAt": "convertedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsGetResponse(
-            id: "x",
-            name: "name",
-            contactName: Nullable<String>.value("contactName"),
-            email: Nullable<String>.value("email"),
-            phone: Nullable<String>.value("phone"),
-            website: Nullable<String>.value("website"),
-            countryCode: Nullable<String>.value("countryCode"),
-            sourceId: Nullable<String>.value("x"),
-            sourceName: Nullable<String>.value("sourceName"),
-            status: .new,
-            estimatedValue: Nullable<String>.value("estimatedValue"),
-            currency: "currency",
-            description: Nullable<String>.value("description"),
-            assignedUserId: Nullable<String>.value("x"),
-            partnerId: Nullable<String>.value("x"),
-            convertedAt: Nullable<String>.value("convertedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.partners.postV1LeadsGet(
-            request: .init(id: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsUpdate1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id",
-                  "name": "name",
-                  "contactName": "contactName",
-                  "email": "email",
-                  "phone": "phone",
-                  "website": "website",
-                  "countryCode": "countryCode",
-                  "sourceId": "sourceId",
-                  "sourceName": "sourceName",
-                  "status": "new",
-                  "estimatedValue": "estimatedValue",
-                  "currency": "currency",
-                  "description": "description",
-                  "assignedUserId": "assignedUserId",
-                  "partnerId": "partnerId",
-                  "convertedAt": "convertedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsUpdateResponse(
-            id: "id",
-            name: "name",
-            contactName: Nullable<String>.value("contactName"),
-            email: Nullable<String>.value("email"),
-            phone: Nullable<String>.value("phone"),
-            website: Nullable<String>.value("website"),
-            countryCode: Nullable<String>.value("countryCode"),
-            sourceId: Nullable<String>.value("sourceId"),
-            sourceName: Nullable<String>.value("sourceName"),
-            status: .new,
-            estimatedValue: Nullable<String>.value("estimatedValue"),
-            currency: "currency",
-            description: Nullable<String>.value("description"),
-            assignedUserId: Nullable<String>.value("assignedUserId"),
-            partnerId: Nullable<String>.value("partnerId"),
-            convertedAt: Nullable<String>.value("convertedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.partners.postV1LeadsUpdate(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsUpdate2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "name": "name",
-                  "contactName": "contactName",
-                  "email": "email",
-                  "phone": "phone",
-                  "website": "website",
-                  "countryCode": "countryCode",
-                  "sourceId": "x",
-                  "sourceName": "sourceName",
-                  "status": "new",
-                  "estimatedValue": "estimatedValue",
-                  "currency": "currency",
-                  "description": "description",
-                  "assignedUserId": "x",
-                  "partnerId": "x",
-                  "convertedAt": "convertedAt",
-                  "createdAt": "createdAt",
-                  "updatedAt": "updatedAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsUpdateResponse(
-            id: "x",
-            name: "name",
-            contactName: Nullable<String>.value("contactName"),
-            email: Nullable<String>.value("email"),
-            phone: Nullable<String>.value("phone"),
-            website: Nullable<String>.value("website"),
-            countryCode: Nullable<String>.value("countryCode"),
-            sourceId: Nullable<String>.value("x"),
-            sourceName: Nullable<String>.value("sourceName"),
-            status: .new,
-            estimatedValue: Nullable<String>.value("estimatedValue"),
-            currency: "currency",
-            description: Nullable<String>.value("description"),
-            assignedUserId: Nullable<String>.value("x"),
-            partnerId: Nullable<String>.value("x"),
-            convertedAt: Nullable<String>.value("convertedAt"),
-            createdAt: "createdAt",
-            updatedAt: "updatedAt"
-        )
-        let response = try await client.partners.postV1LeadsUpdate(
-            request: .init(id: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsDelete1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsDeleteResponse(
-            id: "id"
-        )
-        let response = try await client.partners.postV1LeadsDelete(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsDelete2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsDeleteResponse(
-            id: "x"
-        )
-        let response = try await client.partners.postV1LeadsDelete(
-            request: .init(id: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsList1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "id",
-                      "name": "name",
-                      "contactName": "contactName",
-                      "email": "email",
-                      "phone": "phone",
-                      "website": "website",
-                      "countryCode": "countryCode",
-                      "sourceId": "sourceId",
-                      "sourceName": "sourceName",
-                      "status": "new",
-                      "estimatedValue": "estimatedValue",
-                      "currency": "currency",
-                      "description": "description",
-                      "assignedUserId": "assignedUserId",
-                      "partnerId": "partnerId",
-                      "convertedAt": "convertedAt",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
-                    }
-                  ],
-                  "page": 1000000,
-                  "pageSize": 1000000,
-                  "total": 1000000,
-                  "totals": {
-                    "key": "value"
-                  }
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsListResponse(
-            rows: [
-                PostV1LeadsListResponseRowsItem(
-                    id: "id",
-                    name: "name",
-                    contactName: Nullable<String>.value("contactName"),
-                    email: Nullable<String>.value("email"),
-                    phone: Nullable<String>.value("phone"),
-                    website: Nullable<String>.value("website"),
-                    countryCode: Nullable<String>.value("countryCode"),
-                    sourceId: Nullable<String>.value("sourceId"),
-                    sourceName: Nullable<String>.value("sourceName"),
-                    status: .new,
-                    estimatedValue: Nullable<String>.value("estimatedValue"),
-                    currency: "currency",
-                    description: Nullable<String>.value("description"),
-                    assignedUserId: Nullable<String>.value("assignedUserId"),
-                    partnerId: Nullable<String>.value("partnerId"),
-                    convertedAt: Nullable<String>.value("convertedAt"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
-                )
-            ],
-            page: 1000000,
-            pageSize: 1000000,
-            total: 1000000,
-            totals: Optional([
-                "key": "value"
-            ])
-        )
-        let response = try await client.partners.postV1LeadsList(
-            request: .init(),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsList2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "x",
-                      "name": "name",
-                      "contactName": "contactName",
-                      "email": "email",
-                      "phone": "phone",
-                      "website": "website",
-                      "countryCode": "countryCode",
-                      "sourceId": "x",
-                      "sourceName": "sourceName",
-                      "status": "new",
-                      "estimatedValue": "estimatedValue",
-                      "currency": "currency",
-                      "description": "description",
-                      "assignedUserId": "x",
-                      "partnerId": "x",
-                      "convertedAt": "convertedAt",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
-                    },
-                    {
-                      "id": "x",
-                      "name": "name",
-                      "contactName": "contactName",
-                      "email": "email",
-                      "phone": "phone",
-                      "website": "website",
-                      "countryCode": "countryCode",
-                      "sourceId": "x",
-                      "sourceName": "sourceName",
-                      "status": "new",
-                      "estimatedValue": "estimatedValue",
-                      "currency": "currency",
-                      "description": "description",
-                      "assignedUserId": "x",
-                      "partnerId": "x",
-                      "convertedAt": "convertedAt",
-                      "createdAt": "createdAt",
-                      "updatedAt": "updatedAt"
-                    }
-                  ],
-                  "page": 1000000,
-                  "pageSize": 1000000,
-                  "total": 1000000,
-                  "totals": {
-                    "totals": "totals"
-                  }
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsListResponse(
-            rows: [
-                PostV1LeadsListResponseRowsItem(
-                    id: "x",
-                    name: "name",
-                    contactName: Nullable<String>.value("contactName"),
-                    email: Nullable<String>.value("email"),
-                    phone: Nullable<String>.value("phone"),
-                    website: Nullable<String>.value("website"),
-                    countryCode: Nullable<String>.value("countryCode"),
-                    sourceId: Nullable<String>.value("x"),
-                    sourceName: Nullable<String>.value("sourceName"),
-                    status: .new,
-                    estimatedValue: Nullable<String>.value("estimatedValue"),
-                    currency: "currency",
-                    description: Nullable<String>.value("description"),
-                    assignedUserId: Nullable<String>.value("x"),
-                    partnerId: Nullable<String>.value("x"),
-                    convertedAt: Nullable<String>.value("convertedAt"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
-                ),
-                PostV1LeadsListResponseRowsItem(
-                    id: "x",
-                    name: "name",
-                    contactName: Nullable<String>.value("contactName"),
-                    email: Nullable<String>.value("email"),
-                    phone: Nullable<String>.value("phone"),
-                    website: Nullable<String>.value("website"),
-                    countryCode: Nullable<String>.value("countryCode"),
-                    sourceId: Nullable<String>.value("x"),
-                    sourceName: Nullable<String>.value("sourceName"),
-                    status: .new,
-                    estimatedValue: Nullable<String>.value("estimatedValue"),
-                    currency: "currency",
-                    description: Nullable<String>.value("description"),
-                    assignedUserId: Nullable<String>.value("x"),
-                    partnerId: Nullable<String>.value("x"),
-                    convertedAt: Nullable<String>.value("convertedAt"),
-                    createdAt: "createdAt",
-                    updatedAt: "updatedAt"
-                )
-            ],
-            page: 1000000,
-            pageSize: 1000000,
-            total: 1000000,
-            totals: Optional([
-                "totals": "totals"
-            ])
-        )
-        let response = try await client.partners.postV1LeadsList(
-            request: .init(),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsNotesCreate1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id",
-                  "leadId": "leadId",
-                  "body": "body",
-                  "authorId": "authorId",
-                  "createdAt": "createdAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsNotesCreateResponse(
-            id: "id",
-            leadId: "leadId",
-            body: "body",
-            authorId: Nullable<String>.value("authorId"),
-            createdAt: "createdAt"
-        )
-        let response = try await client.partners.postV1LeadsNotesCreate(
-            request: .init(
-                leadId: "leadId",
-                body: "body"
-            ),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsNotesCreate2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "leadId": "x",
-                  "body": "body",
-                  "authorId": "authorId",
-                  "createdAt": "createdAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsNotesCreateResponse(
-            id: "x",
-            leadId: "x",
-            body: "body",
-            authorId: Nullable<String>.value("authorId"),
-            createdAt: "createdAt"
-        )
-        let response = try await client.partners.postV1LeadsNotesCreate(
-            request: .init(
-                leadId: "x",
-                body: "x"
-            ),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsNotesDelete1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsNotesDeleteResponse(
-            id: "id"
-        )
-        let response = try await client.partners.postV1LeadsNotesDelete(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsNotesDelete2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsNotesDeleteResponse(
-            id: "x"
-        )
-        let response = try await client.partners.postV1LeadsNotesDelete(
-            request: .init(id: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsNotesList1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "id",
-                      "leadId": "leadId",
-                      "body": "body",
-                      "authorId": "authorId",
-                      "createdAt": "createdAt"
-                    }
-                  ]
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsNotesListResponse(
-            rows: [
-                PostV1LeadsNotesListResponseRowsItem(
-                    id: "id",
-                    leadId: "leadId",
-                    body: "body",
-                    authorId: Nullable<String>.value("authorId"),
-                    createdAt: "createdAt"
-                )
-            ]
-        )
-        let response = try await client.partners.postV1LeadsNotesList(
-            request: .init(leadId: "leadId"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsNotesList2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "x",
-                      "leadId": "x",
-                      "body": "body",
-                      "authorId": "authorId",
-                      "createdAt": "createdAt"
-                    },
-                    {
-                      "id": "x",
-                      "leadId": "x",
-                      "body": "body",
-                      "authorId": "authorId",
-                      "createdAt": "createdAt"
-                    }
-                  ]
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsNotesListResponse(
-            rows: [
-                PostV1LeadsNotesListResponseRowsItem(
-                    id: "x",
-                    leadId: "x",
-                    body: "body",
-                    authorId: Nullable<String>.value("authorId"),
-                    createdAt: "createdAt"
-                ),
-                PostV1LeadsNotesListResponseRowsItem(
-                    id: "x",
-                    leadId: "x",
-                    body: "body",
-                    authorId: Nullable<String>.value("authorId"),
-                    createdAt: "createdAt"
-                )
-            ]
-        )
-        let response = try await client.partners.postV1LeadsNotesList(
-            request: .init(leadId: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsFilesList1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "id",
-                      "fileName": "fileName",
-                      "mimeType": "mimeType",
-                      "sizeBytes": 1000000,
-                      "createdAt": "createdAt"
-                    }
-                  ]
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsFilesListResponse(
-            rows: [
-                PostV1LeadsFilesListResponseRowsItem(
-                    id: "id",
-                    fileName: "fileName",
-                    mimeType: "mimeType",
-                    sizeBytes: 1000000,
-                    createdAt: "createdAt"
-                )
-            ]
-        )
-        let response = try await client.partners.postV1LeadsFilesList(
-            request: .init(leadId: "leadId"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsFilesList2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "x",
-                      "fileName": "fileName",
-                      "mimeType": "mimeType",
-                      "sizeBytes": 1000000,
-                      "createdAt": "createdAt"
-                    },
-                    {
-                      "id": "x",
-                      "fileName": "fileName",
-                      "mimeType": "mimeType",
-                      "sizeBytes": 1000000,
-                      "createdAt": "createdAt"
-                    }
-                  ]
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsFilesListResponse(
-            rows: [
-                PostV1LeadsFilesListResponseRowsItem(
-                    id: "x",
-                    fileName: "fileName",
-                    mimeType: "mimeType",
-                    sizeBytes: 1000000,
-                    createdAt: "createdAt"
-                ),
-                PostV1LeadsFilesListResponseRowsItem(
-                    id: "x",
-                    fileName: "fileName",
-                    mimeType: "mimeType",
-                    sizeBytes: 1000000,
-                    createdAt: "createdAt"
-                )
-            ]
-        )
-        let response = try await client.partners.postV1LeadsFilesList(
-            request: .init(leadId: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsSourcesCreate1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id",
-                  "name": "name",
-                  "isActive": true,
-                  "createdAt": "createdAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsSourcesCreateResponse(
-            id: "id",
-            name: "name",
-            isActive: true,
-            createdAt: "createdAt"
-        )
-        let response = try await client.partners.postV1LeadsSourcesCreate(
-            request: .init(name: "name"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsSourcesCreate2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "name": "name",
-                  "isActive": true,
-                  "createdAt": "createdAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsSourcesCreateResponse(
-            id: "x",
-            name: "name",
-            isActive: true,
-            createdAt: "createdAt"
-        )
-        let response = try await client.partners.postV1LeadsSourcesCreate(
-            request: .init(name: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsSourcesUpdate1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id",
-                  "name": "name",
-                  "isActive": true,
-                  "createdAt": "createdAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsSourcesUpdateResponse(
-            id: "id",
-            name: "name",
-            isActive: true,
-            createdAt: "createdAt"
-        )
-        let response = try await client.partners.postV1LeadsSourcesUpdate(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsSourcesUpdate2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x",
-                  "name": "name",
-                  "isActive": true,
-                  "createdAt": "createdAt"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsSourcesUpdateResponse(
-            id: "x",
-            name: "name",
-            isActive: true,
-            createdAt: "createdAt"
-        )
-        let response = try await client.partners.postV1LeadsSourcesUpdate(
-            request: .init(id: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsSourcesDelete1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "id"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsSourcesDeleteResponse(
-            id: "id"
-        )
-        let response = try await client.partners.postV1LeadsSourcesDelete(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsSourcesDelete2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "id": "x"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsSourcesDeleteResponse(
-            id: "x"
-        )
-        let response = try await client.partners.postV1LeadsSourcesDelete(
-            request: .init(id: "x"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsSourcesList1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "id",
-                      "name": "name",
-                      "isActive": true,
-                      "createdAt": "createdAt"
-                    }
-                  ]
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsSourcesListResponse(
-            rows: [
-                PostV1LeadsSourcesListResponseRowsItem(
-                    id: "id",
-                    name: "name",
-                    isActive: true,
-                    createdAt: "createdAt"
-                )
-            ]
-        )
-        let response = try await client.partners.postV1LeadsSourcesList(
-            request: .init(),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsSourcesList2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "x",
-                      "name": "name",
-                      "isActive": true,
-                      "createdAt": "createdAt"
-                    },
-                    {
-                      "id": "x",
-                      "name": "name",
-                      "isActive": true,
-                      "createdAt": "createdAt"
-                    }
-                  ]
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsSourcesListResponse(
-            rows: [
-                PostV1LeadsSourcesListResponseRowsItem(
-                    id: "x",
-                    name: "name",
-                    isActive: true,
-                    createdAt: "createdAt"
-                ),
-                PostV1LeadsSourcesListResponseRowsItem(
-                    id: "x",
-                    name: "name",
-                    isActive: true,
-                    createdAt: "createdAt"
-                )
-            ]
-        )
-        let response = try await client.partners.postV1LeadsSourcesList(
-            request: .init(),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsSourcesOptions1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "id",
-                      "name": "name"
-                    }
-                  ]
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsSourcesOptionsResponse(
-            rows: [
-                PostV1LeadsSourcesOptionsResponseRowsItem(
-                    id: "id",
-                    name: "name"
-                )
-            ]
-        )
-        let response = try await client.partners.postV1LeadsSourcesOptions(
-            request: .init(),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsSourcesOptions2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "rows": [
-                    {
-                      "id": "x",
-                      "name": "name"
-                    },
-                    {
-                      "id": "x",
-                      "name": "name"
-                    }
-                  ]
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsSourcesOptionsResponse(
-            rows: [
-                PostV1LeadsSourcesOptionsResponseRowsItem(
-                    id: "x",
-                    name: "name"
-                ),
-                PostV1LeadsSourcesOptionsResponseRowsItem(
-                    id: "x",
-                    name: "name"
-                )
-            ]
-        )
-        let response = try await client.partners.postV1LeadsSourcesOptions(
-            request: .init(),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsConvert1() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "lead": {
-                    "id": "id",
-                    "name": "name",
-                    "contactName": "contactName",
-                    "email": "email",
-                    "phone": "phone",
-                    "website": "website",
-                    "countryCode": "countryCode",
-                    "sourceId": "sourceId",
-                    "sourceName": "sourceName",
-                    "status": "new",
-                    "estimatedValue": "estimatedValue",
-                    "currency": "currency",
-                    "description": "description",
-                    "assignedUserId": "assignedUserId",
-                    "partnerId": "partnerId",
-                    "convertedAt": "convertedAt",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt"
-                  },
-                  "partnerId": "partnerId"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsConvertResponse(
-            lead: PostV1LeadsConvertResponseLead(
-                id: "id",
-                name: "name",
-                contactName: Nullable<String>.value("contactName"),
-                email: Nullable<String>.value("email"),
-                phone: Nullable<String>.value("phone"),
-                website: Nullable<String>.value("website"),
-                countryCode: Nullable<String>.value("countryCode"),
-                sourceId: Nullable<String>.value("sourceId"),
-                sourceName: Nullable<String>.value("sourceName"),
-                status: .new,
-                estimatedValue: Nullable<String>.value("estimatedValue"),
-                currency: "currency",
-                description: Nullable<String>.value("description"),
-                assignedUserId: Nullable<String>.value("assignedUserId"),
-                partnerId: Nullable<String>.value("partnerId"),
-                convertedAt: Nullable<String>.value("convertedAt"),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt"
-            ),
-            partnerId: "partnerId"
-        )
-        let response = try await client.partners.postV1LeadsConvert(
-            request: .init(id: "id"),
-            requestOptions: RequestOptions(additionalHeaders: stub.headers)
-        )
-        try #require(response == expectedResponse)
-    }
-
-    @Test func postV1LeadsConvert2() async throws -> Void {
-        let stub = HTTPStub()
-        stub.setResponse(
-            body: Foundation.Data(
-                #"""
-                {
-                  "lead": {
-                    "id": "x",
-                    "name": "name",
-                    "contactName": "contactName",
-                    "email": "email",
-                    "phone": "phone",
-                    "website": "website",
-                    "countryCode": "countryCode",
-                    "sourceId": "x",
-                    "sourceName": "sourceName",
-                    "status": "new",
-                    "estimatedValue": "estimatedValue",
-                    "currency": "currency",
-                    "description": "description",
-                    "assignedUserId": "x",
-                    "partnerId": "x",
-                    "convertedAt": "convertedAt",
-                    "createdAt": "createdAt",
-                    "updatedAt": "updatedAt"
-                  },
-                  "partnerId": "x"
-                }
-                """#.utf8
-            )
-        )
-        let client = ApiClient(
-            baseURL: "https://api.fern.com",
-            token: "<token>",
-            urlSession: stub.urlSession
-        )
-        let expectedResponse = PostV1LeadsConvertResponse(
-            lead: PostV1LeadsConvertResponseLead(
-                id: "x",
-                name: "name",
-                contactName: Nullable<String>.value("contactName"),
-                email: Nullable<String>.value("email"),
-                phone: Nullable<String>.value("phone"),
-                website: Nullable<String>.value("website"),
-                countryCode: Nullable<String>.value("countryCode"),
-                sourceId: Nullable<String>.value("x"),
-                sourceName: Nullable<String>.value("sourceName"),
-                status: .new,
-                estimatedValue: Nullable<String>.value("estimatedValue"),
-                currency: "currency",
-                description: Nullable<String>.value("description"),
-                assignedUserId: Nullable<String>.value("x"),
-                partnerId: Nullable<String>.value("x"),
-                convertedAt: Nullable<String>.value("convertedAt"),
-                createdAt: "createdAt",
-                updatedAt: "updatedAt"
-            ),
-            partnerId: "x"
-        )
-        let response = try await client.partners.postV1LeadsConvert(
-            request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

@@ -7,63 +7,63 @@ public final class WebhooksClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1WebhooksSubscriptionsCreate(request: Requests.PostV1WebhooksSubscriptionsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1WebhooksSubscriptionsCreateResponse {
+    public func subscriptionsCreate(request: Requests.SubscriptionsCreateWebhooksRequest, requestOptions: RequestOptions? = nil) async throws -> SubscriptionsCreateWebhooksResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/webhooks/subscriptions/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1WebhooksSubscriptionsCreateResponse.self
+            responseType: SubscriptionsCreateWebhooksResponse.self
         )
     }
 
-    public func postV1WebhooksSubscriptionsList(request: Requests.PostV1WebhooksSubscriptionsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1WebhooksSubscriptionsListResponse {
+    public func subscriptionsList(request: Requests.SubscriptionsListWebhooksRequest, requestOptions: RequestOptions? = nil) async throws -> SubscriptionsListWebhooksResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/webhooks/subscriptions/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1WebhooksSubscriptionsListResponse.self
+            responseType: SubscriptionsListWebhooksResponse.self
         )
     }
 
-    public func postV1WebhooksSubscriptionsUpdate(request: Requests.PostV1WebhooksSubscriptionsUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1WebhooksSubscriptionsUpdateResponse {
+    public func subscriptionsUpdate(request: Requests.SubscriptionsUpdateWebhooksRequest, requestOptions: RequestOptions? = nil) async throws -> SubscriptionsUpdateWebhooksResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/webhooks/subscriptions/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1WebhooksSubscriptionsUpdateResponse.self
+            responseType: SubscriptionsUpdateWebhooksResponse.self
         )
     }
 
-    public func postV1WebhooksSubscriptionsDelete(request: Requests.PostV1WebhooksSubscriptionsDeleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1WebhooksSubscriptionsDeleteResponse {
+    public func subscriptionsDelete(request: Requests.SubscriptionsDeleteWebhooksRequest, requestOptions: RequestOptions? = nil) async throws -> SubscriptionsDeleteWebhooksResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/webhooks/subscriptions/delete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1WebhooksSubscriptionsDeleteResponse.self
+            responseType: SubscriptionsDeleteWebhooksResponse.self
         )
     }
 
-    public func postV1WebhooksDeliveriesList(request: Requests.PostV1WebhooksDeliveriesListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1WebhooksDeliveriesListResponse {
+    public func deliveriesList(request: Requests.DeliveriesListWebhooksRequest, requestOptions: RequestOptions? = nil) async throws -> DeliveriesListWebhooksResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/webhooks/deliveries/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1WebhooksDeliveriesListResponse.self
+            responseType: DeliveriesListWebhooksResponse.self
         )
     }
 
-    public func postV1WebhooksDeliveriesRedeliver(request: Requests.PostV1WebhooksDeliveriesRedeliverRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1WebhooksDeliveriesRedeliverResponse {
+    public func deliveriesRedeliver(request: Requests.DeliveriesRedeliverWebhooksRequest, requestOptions: RequestOptions? = nil) async throws -> DeliveriesRedeliverWebhooksResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/webhooks/deliveries/redeliver",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1WebhooksDeliveriesRedeliverResponse.self
+            responseType: DeliveriesRedeliverWebhooksResponse.self
         )
     }
 }

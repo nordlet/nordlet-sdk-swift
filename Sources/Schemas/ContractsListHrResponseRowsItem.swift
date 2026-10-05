@@ -1,0 +1,134 @@
+import Foundation
+
+public struct ContractsListHrResponseRowsItem: Codable, Hashable, Sendable {
+    public let id: String
+    public let employeeId: String
+    public let positionId: Nullable<String>
+    public let departmentId: Nullable<String>
+    public let scheduleId: Nullable<String>
+    public let agreementId: Nullable<String>
+    public let contractNo: String
+    public let type: ContractsListHrResponseRowsItemType
+    public let startDate: CalendarDate
+    public let endDate: Nullable<CalendarDate>
+    public let endReason: Nullable<String>
+    public let baseSalary: String
+    public let salaryType: ContractsListHrResponseRowsItemSalaryType
+    public let workHours: String
+    public let workHoursUnit: ContractsListHrResponseRowsItemWorkHoursUnit
+    public let status: ContractsListHrResponseRowsItemStatus
+    public let notes: Nullable<String>
+    public let createdAt: Date
+    /// Additional properties that are not explicitly defined in the schema
+    public let additionalProperties: [String: JSONValue]
+
+    public init(
+        id: String,
+        employeeId: String,
+        positionId: Nullable<String>,
+        departmentId: Nullable<String>,
+        scheduleId: Nullable<String>,
+        agreementId: Nullable<String>,
+        contractNo: String,
+        type: ContractsListHrResponseRowsItemType,
+        startDate: CalendarDate,
+        endDate: Nullable<CalendarDate>,
+        endReason: Nullable<String>,
+        baseSalary: String,
+        salaryType: ContractsListHrResponseRowsItemSalaryType,
+        workHours: String,
+        workHoursUnit: ContractsListHrResponseRowsItemWorkHoursUnit,
+        status: ContractsListHrResponseRowsItemStatus,
+        notes: Nullable<String>,
+        createdAt: Date,
+        additionalProperties: [String: JSONValue] = .init()
+    ) {
+        self.id = id
+        self.employeeId = employeeId
+        self.positionId = positionId
+        self.departmentId = departmentId
+        self.scheduleId = scheduleId
+        self.agreementId = agreementId
+        self.contractNo = contractNo
+        self.type = type
+        self.startDate = startDate
+        self.endDate = endDate
+        self.endReason = endReason
+        self.baseSalary = baseSalary
+        self.salaryType = salaryType
+        self.workHours = workHours
+        self.workHoursUnit = workHoursUnit
+        self.status = status
+        self.notes = notes
+        self.createdAt = createdAt
+        self.additionalProperties = additionalProperties
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.employeeId = try container.decode(String.self, forKey: .employeeId)
+        self.positionId = try container.decode(Nullable<String>.self, forKey: .positionId)
+        self.departmentId = try container.decode(Nullable<String>.self, forKey: .departmentId)
+        self.scheduleId = try container.decode(Nullable<String>.self, forKey: .scheduleId)
+        self.agreementId = try container.decode(Nullable<String>.self, forKey: .agreementId)
+        self.contractNo = try container.decode(String.self, forKey: .contractNo)
+        self.type = try container.decode(ContractsListHrResponseRowsItemType.self, forKey: .type)
+        self.startDate = try container.decode(CalendarDate.self, forKey: .startDate)
+        self.endDate = try container.decode(Nullable<CalendarDate>.self, forKey: .endDate)
+        self.endReason = try container.decode(Nullable<String>.self, forKey: .endReason)
+        self.baseSalary = try container.decode(String.self, forKey: .baseSalary)
+        self.salaryType = try container.decode(ContractsListHrResponseRowsItemSalaryType.self, forKey: .salaryType)
+        self.workHours = try container.decode(String.self, forKey: .workHours)
+        self.workHoursUnit = try container.decode(ContractsListHrResponseRowsItemWorkHoursUnit.self, forKey: .workHoursUnit)
+        self.status = try container.decode(ContractsListHrResponseRowsItemStatus.self, forKey: .status)
+        self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
+        self.createdAt = try container.decode(Date.self, forKey: .createdAt)
+        self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
+    }
+
+    public func encode(to encoder: Encoder) throws -> Void {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try encoder.encodeAdditionalProperties(self.additionalProperties)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.employeeId, forKey: .employeeId)
+        try container.encode(self.positionId, forKey: .positionId)
+        try container.encode(self.departmentId, forKey: .departmentId)
+        try container.encode(self.scheduleId, forKey: .scheduleId)
+        try container.encode(self.agreementId, forKey: .agreementId)
+        try container.encode(self.contractNo, forKey: .contractNo)
+        try container.encode(self.type, forKey: .type)
+        try container.encode(self.startDate, forKey: .startDate)
+        try container.encode(self.endDate, forKey: .endDate)
+        try container.encode(self.endReason, forKey: .endReason)
+        try container.encode(self.baseSalary, forKey: .baseSalary)
+        try container.encode(self.salaryType, forKey: .salaryType)
+        try container.encode(self.workHours, forKey: .workHours)
+        try container.encode(self.workHoursUnit, forKey: .workHoursUnit)
+        try container.encode(self.status, forKey: .status)
+        try container.encode(self.notes, forKey: .notes)
+        try container.encode(self.createdAt, forKey: .createdAt)
+    }
+
+    /// Keys for encoding/decoding struct properties.
+    enum CodingKeys: String, CodingKey, CaseIterable {
+        case id
+        case employeeId
+        case positionId
+        case departmentId
+        case scheduleId
+        case agreementId
+        case contractNo
+        case type
+        case startDate
+        case endDate
+        case endReason
+        case baseSalary
+        case salaryType
+        case workHours
+        case workHoursUnit
+        case status
+        case notes
+        case createdAt
+    }
+}

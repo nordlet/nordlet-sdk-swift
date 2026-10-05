@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("BillingClient Wire Tests") struct BillingClientWireTests {
-    @Test func postV1BillingAccountGet1() async throws -> Void {
+    @Test func accountGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -12,13 +12,13 @@ import Api
                   "plan": "starter",
                   "status": "trial",
                   "balanceCents": 1000000,
-                  "trialEndsAt": "trialEndsAt",
-                  "firstTopUpAt": "firstTopUpAt",
-                  "lastChargedDate": "lastChargedDate",
+                  "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "firstTopUpAt": "2026-07-01T09:30:00Z",
+                  "lastChargedDate": "2026-07-01",
                   "paymentsConfigured": true,
                   "hasPaymentAccount": true,
                   "hasSubscription": true,
-                  "paymentFailedAt": "paymentFailedAt",
+                  "paymentFailedAt": "2026-07-01T09:30:00Z",
                   "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
                   "monthToDate": {
                     "from": "from",
@@ -53,19 +53,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BillingAccountGetResponse(
+        let expectedResponse = AccountGetBillingResponse(
             plan: .starter,
             status: .trial,
             balanceCents: 1000000,
-            trialEndsAt: Nullable<String>.value("trialEndsAt"),
-            firstTopUpAt: Nullable<String>.value("firstTopUpAt"),
-            lastChargedDate: Nullable<String>.value("lastChargedDate"),
+            trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             paymentsConfigured: true,
             hasPaymentAccount: true,
             hasSubscription: true,
-            paymentFailedAt: Nullable<String>.value("paymentFailedAt"),
+            paymentFailedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
-            monthToDate: PostV1BillingAccountGetResponseMonthToDate(
+            monthToDate: AccountGetBillingResponseMonthToDate(
                 from: "from",
                 to: "to",
                 apiRequests: 1000000,
@@ -76,7 +76,7 @@ import Api
                 estimatedTodayCents: 1000000
             ),
             plans: [
-                "key": PostV1BillingAccountGetResponsePlansValue(
+                "key": AccountGetBillingResponsePlansValue(
                     monthlyFeeEur: "monthlyFeeEur",
                     includedRequests: 1000000,
                     requestOverageEur: "requestOverageEur",
@@ -84,20 +84,20 @@ import Api
                     includedFileBytes: 1.1
                 )
             ],
-            topUp: PostV1BillingAccountGetResponseTopUp(
+            topUp: AccountGetBillingResponseTopUp(
                 minCents: 1000000,
                 maxCents: 1000000
             ),
             trialDays: 1000000
         )
-        let response = try await client.billing.postV1BillingAccountGet(
+        let response = try await client.billing.accountGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BillingAccountGet2() async throws -> Void {
+    @Test func accountGet2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -106,13 +106,13 @@ import Api
                   "plan": "starter",
                   "status": "trial",
                   "balanceCents": 1000000,
-                  "trialEndsAt": "trialEndsAt",
-                  "firstTopUpAt": "firstTopUpAt",
-                  "lastChargedDate": "lastChargedDate",
+                  "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "firstTopUpAt": "2024-01-15T09:30:00Z",
+                  "lastChargedDate": "2023-01-15",
                   "paymentsConfigured": true,
                   "hasPaymentAccount": true,
                   "hasSubscription": true,
-                  "paymentFailedAt": "paymentFailedAt",
+                  "paymentFailedAt": "2024-01-15T09:30:00Z",
                   "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
                   "monthToDate": {
                     "from": "from",
@@ -147,19 +147,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BillingAccountGetResponse(
+        let expectedResponse = AccountGetBillingResponse(
             plan: .starter,
             status: .trial,
             balanceCents: 1000000,
-            trialEndsAt: Nullable<String>.value("trialEndsAt"),
-            firstTopUpAt: Nullable<String>.value("firstTopUpAt"),
-            lastChargedDate: Nullable<String>.value("lastChargedDate"),
+            trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             paymentsConfigured: true,
             hasPaymentAccount: true,
             hasSubscription: true,
-            paymentFailedAt: Nullable<String>.value("paymentFailedAt"),
+            paymentFailedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
-            monthToDate: PostV1BillingAccountGetResponseMonthToDate(
+            monthToDate: AccountGetBillingResponseMonthToDate(
                 from: "from",
                 to: "to",
                 apiRequests: 1000000,
@@ -170,7 +170,7 @@ import Api
                 estimatedTodayCents: 1000000
             ),
             plans: [
-                "plans": PostV1BillingAccountGetResponsePlansValue(
+                "plans": AccountGetBillingResponsePlansValue(
                     monthlyFeeEur: "monthlyFeeEur",
                     includedRequests: 1000000,
                     requestOverageEur: "requestOverageEur",
@@ -178,20 +178,20 @@ import Api
                     includedFileBytes: 1.1
                 )
             ],
-            topUp: PostV1BillingAccountGetResponseTopUp(
+            topUp: AccountGetBillingResponseTopUp(
                 minCents: 1000000,
                 maxCents: 1000000
             ),
             trialDays: 1000000
         )
-        let response = try await client.billing.postV1BillingAccountGet(
+        let response = try await client.billing.accountGet(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BillingAccountSetPlan1() async throws -> Void {
+    @Test func accountSetPlan1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -200,13 +200,13 @@ import Api
                   "plan": "starter",
                   "status": "trial",
                   "balanceCents": 1000000,
-                  "trialEndsAt": "trialEndsAt",
-                  "firstTopUpAt": "firstTopUpAt",
-                  "lastChargedDate": "lastChargedDate",
+                  "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "firstTopUpAt": "2026-07-01T09:30:00Z",
+                  "lastChargedDate": "2026-07-01",
                   "paymentsConfigured": true,
                   "hasPaymentAccount": true,
                   "hasSubscription": true,
-                  "paymentFailedAt": "paymentFailedAt",
+                  "paymentFailedAt": "2026-07-01T09:30:00Z",
                   "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
                   "monthToDate": {
                     "from": "from",
@@ -241,19 +241,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BillingAccountSetPlanResponse(
+        let expectedResponse = AccountSetPlanBillingResponse(
             plan: .starter,
             status: .trial,
             balanceCents: 1000000,
-            trialEndsAt: Nullable<String>.value("trialEndsAt"),
-            firstTopUpAt: Nullable<String>.value("firstTopUpAt"),
-            lastChargedDate: Nullable<String>.value("lastChargedDate"),
+            trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             paymentsConfigured: true,
             hasPaymentAccount: true,
             hasSubscription: true,
-            paymentFailedAt: Nullable<String>.value("paymentFailedAt"),
+            paymentFailedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
-            monthToDate: PostV1BillingAccountSetPlanResponseMonthToDate(
+            monthToDate: AccountSetPlanBillingResponseMonthToDate(
                 from: "from",
                 to: "to",
                 apiRequests: 1000000,
@@ -264,7 +264,7 @@ import Api
                 estimatedTodayCents: 1000000
             ),
             plans: [
-                "key": PostV1BillingAccountSetPlanResponsePlansValue(
+                "key": AccountSetPlanBillingResponsePlansValue(
                     monthlyFeeEur: "monthlyFeeEur",
                     includedRequests: 1000000,
                     requestOverageEur: "requestOverageEur",
@@ -272,20 +272,20 @@ import Api
                     includedFileBytes: 1.1
                 )
             ],
-            topUp: PostV1BillingAccountSetPlanResponseTopUp(
+            topUp: AccountSetPlanBillingResponseTopUp(
                 minCents: 1000000,
                 maxCents: 1000000
             ),
             trialDays: 1000000
         )
-        let response = try await client.billing.postV1BillingAccountSetPlan(
+        let response = try await client.billing.accountSetPlan(
             request: .init(plan: .starter),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BillingAccountSetPlan2() async throws -> Void {
+    @Test func accountSetPlan2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -294,13 +294,13 @@ import Api
                   "plan": "starter",
                   "status": "trial",
                   "balanceCents": 1000000,
-                  "trialEndsAt": "trialEndsAt",
-                  "firstTopUpAt": "firstTopUpAt",
-                  "lastChargedDate": "lastChargedDate",
+                  "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "firstTopUpAt": "2024-01-15T09:30:00Z",
+                  "lastChargedDate": "2023-01-15",
                   "paymentsConfigured": true,
                   "hasPaymentAccount": true,
                   "hasSubscription": true,
-                  "paymentFailedAt": "paymentFailedAt",
+                  "paymentFailedAt": "2024-01-15T09:30:00Z",
                   "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
                   "monthToDate": {
                     "from": "from",
@@ -335,19 +335,19 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BillingAccountSetPlanResponse(
+        let expectedResponse = AccountSetPlanBillingResponse(
             plan: .starter,
             status: .trial,
             balanceCents: 1000000,
-            trialEndsAt: Nullable<String>.value("trialEndsAt"),
-            firstTopUpAt: Nullable<String>.value("firstTopUpAt"),
-            lastChargedDate: Nullable<String>.value("lastChargedDate"),
+            trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             paymentsConfigured: true,
             hasPaymentAccount: true,
             hasSubscription: true,
-            paymentFailedAt: Nullable<String>.value("paymentFailedAt"),
+            paymentFailedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
-            monthToDate: PostV1BillingAccountSetPlanResponseMonthToDate(
+            monthToDate: AccountSetPlanBillingResponseMonthToDate(
                 from: "from",
                 to: "to",
                 apiRequests: 1000000,
@@ -358,7 +358,7 @@ import Api
                 estimatedTodayCents: 1000000
             ),
             plans: [
-                "plans": PostV1BillingAccountSetPlanResponsePlansValue(
+                "plans": AccountSetPlanBillingResponsePlansValue(
                     monthlyFeeEur: "monthlyFeeEur",
                     includedRequests: 1000000,
                     requestOverageEur: "requestOverageEur",
@@ -366,20 +366,20 @@ import Api
                     includedFileBytes: 1.1
                 )
             ],
-            topUp: PostV1BillingAccountSetPlanResponseTopUp(
+            topUp: AccountSetPlanBillingResponseTopUp(
                 minCents: 1000000,
                 maxCents: 1000000
             ),
             trialDays: 1000000
         )
-        let response = try await client.billing.postV1BillingAccountSetPlan(
+        let response = try await client.billing.accountSetPlan(
             request: .init(plan: .starter),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BillingTopupCreate1() async throws -> Void {
+    @Test func topupCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -396,18 +396,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BillingTopupCreateResponse(
+        let expectedResponse = TopupCreateBillingResponse(
             url: "url",
             sessionId: "sessionId"
         )
-        let response = try await client.billing.postV1BillingTopupCreate(
+        let response = try await client.billing.topupCreate(
             request: .init(amountCents: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BillingTopupCreate2() async throws -> Void {
+    @Test func topupCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -424,18 +424,18 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BillingTopupCreateResponse(
+        let expectedResponse = TopupCreateBillingResponse(
             url: "url",
             sessionId: "sessionId"
         )
-        let response = try await client.billing.postV1BillingTopupCreate(
+        let response = try await client.billing.topupCreate(
             request: .init(amountCents: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BillingPortalCreate1() async throws -> Void {
+    @Test func portalCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -451,17 +451,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BillingPortalCreateResponse(
+        let expectedResponse = PortalCreateBillingResponse(
             url: "url"
         )
-        let response = try await client.billing.postV1BillingPortalCreate(
+        let response = try await client.billing.portalCreate(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BillingPortalCreate2() async throws -> Void {
+    @Test func portalCreate2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -477,17 +477,17 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BillingPortalCreateResponse(
+        let expectedResponse = PortalCreateBillingResponse(
             url: "url"
         )
-        let response = try await client.billing.postV1BillingPortalCreate(
+        let response = try await client.billing.portalCreate(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BillingTransactionsList1() async throws -> Void {
+    @Test func transactionsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -501,8 +501,8 @@ import Api
                       "balanceAfterCents": 1000000,
                       "description": "description",
                       "reference": "reference",
-                      "usageDate": "usageDate",
-                      "createdAt": "createdAt"
+                      "usageDate": "2026-07-01",
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ]
                 }
@@ -514,28 +514,28 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BillingTransactionsListResponse(
+        let expectedResponse = TransactionsListBillingResponse(
             rows: [
-                PostV1BillingTransactionsListResponseRowsItem(
+                TransactionsListBillingResponseRowsItem(
                     id: "id",
                     type: .trialGrant,
                     amountCents: 1000000,
                     balanceAfterCents: 1000000,
                     description: "description",
                     reference: Nullable<String>.value("reference"),
-                    usageDate: Nullable<String>.value("usageDate"),
-                    createdAt: "createdAt"
+                    usageDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.billing.postV1BillingTransactionsList(
+        let response = try await client.billing.transactionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BillingTransactionsList2() async throws -> Void {
+    @Test func transactionsList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -549,8 +549,8 @@ import Api
                       "balanceAfterCents": 1000000,
                       "description": "description",
                       "reference": "reference",
-                      "usageDate": "usageDate",
-                      "createdAt": "createdAt"
+                      "usageDate": "2023-01-15",
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": "x",
@@ -559,8 +559,8 @@ import Api
                       "balanceAfterCents": 1000000,
                       "description": "description",
                       "reference": "reference",
-                      "usageDate": "usageDate",
-                      "createdAt": "createdAt"
+                      "usageDate": "2023-01-15",
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ]
                 }
@@ -572,38 +572,38 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BillingTransactionsListResponse(
+        let expectedResponse = TransactionsListBillingResponse(
             rows: [
-                PostV1BillingTransactionsListResponseRowsItem(
+                TransactionsListBillingResponseRowsItem(
                     id: "x",
                     type: .trialGrant,
                     amountCents: 1000000,
                     balanceAfterCents: 1000000,
                     description: "description",
                     reference: Nullable<String>.value("reference"),
-                    usageDate: Nullable<String>.value("usageDate"),
-                    createdAt: "createdAt"
+                    usageDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1BillingTransactionsListResponseRowsItem(
+                TransactionsListBillingResponseRowsItem(
                     id: "x",
                     type: .trialGrant,
                     amountCents: 1000000,
                     balanceAfterCents: 1000000,
                     description: "description",
                     reference: Nullable<String>.value("reference"),
-                    usageDate: Nullable<String>.value("usageDate"),
-                    createdAt: "createdAt"
+                    usageDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
         )
-        let response = try await client.billing.postV1BillingTransactionsList(
+        let response = try await client.billing.transactionsList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BillingUsageList1() async throws -> Void {
+    @Test func usageList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -612,7 +612,7 @@ import Api
                   "rows": [
                     {
                       "companyId": "companyId",
-                      "date": "date",
+                      "date": "2026-07-01",
                       "metric": "api_request",
                       "quantity": 1.1
                     }
@@ -626,27 +626,27 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BillingUsageListResponse(
+        let expectedResponse = UsageListBillingResponse(
             rows: [
-                PostV1BillingUsageListResponseRowsItem(
+                UsageListBillingResponseRowsItem(
                     companyId: "companyId",
-                    date: "date",
+                    date: CalendarDate("2026-07-01")!,
                     metric: .apiRequest,
                     quantity: 1.1
                 )
             ]
         )
-        let response = try await client.billing.postV1BillingUsageList(
+        let response = try await client.billing.usageList(
             request: .init(
-                from: "from",
-                to: "to"
+                from: CalendarDate("2026-07-01")!,
+                to: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1BillingUsageList2() async throws -> Void {
+    @Test func usageList2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -655,13 +655,13 @@ import Api
                   "rows": [
                     {
                       "companyId": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "metric": "api_request",
                       "quantity": 1.1
                     },
                     {
                       "companyId": "x",
-                      "date": "date",
+                      "date": "2023-01-15",
                       "metric": "api_request",
                       "quantity": 1.1
                     }
@@ -675,26 +675,26 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1BillingUsageListResponse(
+        let expectedResponse = UsageListBillingResponse(
             rows: [
-                PostV1BillingUsageListResponseRowsItem(
+                UsageListBillingResponseRowsItem(
                     companyId: "x",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     metric: .apiRequest,
                     quantity: 1.1
                 ),
-                PostV1BillingUsageListResponseRowsItem(
+                UsageListBillingResponseRowsItem(
                     companyId: "x",
-                    date: "date",
+                    date: CalendarDate("2023-01-15")!,
                     metric: .apiRequest,
                     quantity: 1.1
                 )
             ]
         )
-        let response = try await client.billing.postV1BillingUsageList(
+        let response = try await client.billing.usageList(
             request: .init(
-                from: "from",
-                to: "to"
+                from: CalendarDate("2023-01-15")!,
+                to: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

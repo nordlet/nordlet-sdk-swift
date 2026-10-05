@@ -1,6 +1,6 @@
 # Reference
-## Reference
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceExchangeRatesSync</a>(request: Requests.PostV1ReferenceExchangeRatesSyncRequest, requestOptions: RequestOptions?) -> PostV1ReferenceExchangeRatesSyncResponse</code></summary>
+## reference
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">exchangeRatesSync</a>(request: Requests.ExchangeRatesSyncReferenceRequest, requestOptions: RequestOptions?) -> ExchangeRatesSyncReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -19,7 +19,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceExchangeRatesSync(request: .init())
+    _ = try await client.reference.exchangeRatesSync(request: .init())
 }
 
 try await main()
@@ -37,7 +37,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceExchangeRatesSyncRequest` 
+**request:** `Requests.ExchangeRatesSyncReferenceRequest` 
     
 </dd>
 </dl>
@@ -57,7 +57,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceExchangeRatesList</a>(request: Requests.PostV1ReferenceExchangeRatesListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceExchangeRatesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">exchangeRatesList</a>(request: Requests.ExchangeRatesListReferenceRequest, requestOptions: RequestOptions?) -> ExchangeRatesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -76,7 +76,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceExchangeRatesList(request: .init())
+    _ = try await client.reference.exchangeRatesList(request: .init())
 }
 
 try await main()
@@ -94,7 +94,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceExchangeRatesListRequest` 
+**request:** `Requests.ExchangeRatesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -114,7 +114,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceExchangeRatesSet</a>(request: Requests.PostV1ReferenceExchangeRatesSetRequest, requestOptions: RequestOptions?) -> PostV1ReferenceExchangeRatesSetResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">exchangeRatesSet</a>(request: Requests.ExchangeRatesSetReferenceRequest, requestOptions: RequestOptions?) -> ExchangeRatesSetReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -133,10 +133,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceExchangeRatesSet(request: .init(
+    _ = try await client.reference.exchangeRatesSet(request: .init(
         currency: "currency",
-        date: "date",
-        rate: "rate"
+        date: CalendarDate("2026-07-01")!,
+        rate: "121.00000000"
     ))
 }
 
@@ -155,7 +155,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceExchangeRatesSetRequest` 
+**request:** `Requests.ExchangeRatesSetReferenceRequest` 
     
 </dd>
 </dl>
@@ -175,7 +175,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceExchangeRatesOverridesList</a>(request: Requests.PostV1ReferenceExchangeRatesOverridesListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceExchangeRatesOverridesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">exchangeRatesOverridesList</a>(request: Requests.ExchangeRatesOverridesListReferenceRequest, requestOptions: RequestOptions?) -> ExchangeRatesOverridesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -194,7 +194,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceExchangeRatesOverridesList(request: .init())
+    _ = try await client.reference.exchangeRatesOverridesList(request: .init())
 }
 
 try await main()
@@ -212,7 +212,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceExchangeRatesOverridesListRequest` 
+**request:** `Requests.ExchangeRatesOverridesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -232,7 +232,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceExchangeRatesOverridesDelete</a>(request: Requests.PostV1ReferenceExchangeRatesOverridesDeleteRequest, requestOptions: RequestOptions?) -> PostV1ReferenceExchangeRatesOverridesDeleteResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">exchangeRatesOverridesDelete</a>(request: Requests.ExchangeRatesOverridesDeleteReferenceRequest, requestOptions: RequestOptions?) -> ExchangeRatesOverridesDeleteReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -251,9 +251,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceExchangeRatesOverridesDelete(request: .init(
+    _ = try await client.reference.exchangeRatesOverridesDelete(request: .init(
         currency: "currency",
-        date: "date"
+        date: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -272,7 +272,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceExchangeRatesOverridesDeleteRequest` 
+**request:** `Requests.ExchangeRatesOverridesDeleteReferenceRequest` 
     
 </dd>
 </dl>
@@ -292,7 +292,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceCountriesList</a>(request: Requests.PostV1ReferenceCountriesListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceCountriesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">countriesList</a>(request: Requests.CountriesListReferenceRequest, requestOptions: RequestOptions?) -> CountriesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -311,7 +311,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceCountriesList(request: .init())
+    _ = try await client.reference.countriesList(request: .init())
 }
 
 try await main()
@@ -329,7 +329,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceCountriesListRequest` 
+**request:** `Requests.CountriesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -349,7 +349,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceLtCountiesList</a>(request: Requests.PostV1ReferenceLtCountiesListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceLtCountiesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">ltCountiesList</a>(request: Requests.LtCountiesListReferenceRequest, requestOptions: RequestOptions?) -> LtCountiesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -368,7 +368,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceLtCountiesList(request: .init())
+    _ = try await client.reference.ltCountiesList(request: .init())
 }
 
 try await main()
@@ -386,7 +386,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceLtCountiesListRequest` 
+**request:** `Requests.LtCountiesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -406,7 +406,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceLtMunicipalitiesList</a>(request: Requests.PostV1ReferenceLtMunicipalitiesListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceLtMunicipalitiesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">ltMunicipalitiesList</a>(request: Requests.LtMunicipalitiesListReferenceRequest, requestOptions: RequestOptions?) -> LtMunicipalitiesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -425,7 +425,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceLtMunicipalitiesList(request: .init())
+    _ = try await client.reference.ltMunicipalitiesList(request: .init())
 }
 
 try await main()
@@ -443,7 +443,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceLtMunicipalitiesListRequest` 
+**request:** `Requests.LtMunicipalitiesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -463,7 +463,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceLtCitiesList</a>(request: Requests.PostV1ReferenceLtCitiesListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceLtCitiesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">ltCitiesList</a>(request: Requests.LtCitiesListReferenceRequest, requestOptions: RequestOptions?) -> LtCitiesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -482,7 +482,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceLtCitiesList(request: .init())
+    _ = try await client.reference.ltCitiesList(request: .init())
 }
 
 try await main()
@@ -500,7 +500,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceLtCitiesListRequest` 
+**request:** `Requests.LtCitiesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -520,7 +520,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceBanksList</a>(request: Requests.PostV1ReferenceBanksListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceBanksListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">banksList</a>(request: Requests.BanksListReferenceRequest, requestOptions: RequestOptions?) -> BanksListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -539,7 +539,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceBanksList(request: .init())
+    _ = try await client.reference.banksList(request: .init())
 }
 
 try await main()
@@ -557,7 +557,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceBanksListRequest` 
+**request:** `Requests.BanksListReferenceRequest` 
     
 </dd>
 </dl>
@@ -577,7 +577,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceBanksUpsert</a>(request: Requests.PostV1ReferenceBanksUpsertRequest, requestOptions: RequestOptions?) -> PostV1ReferenceBanksUpsertResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">banksUpsert</a>(request: Requests.BanksUpsertReferenceRequest, requestOptions: RequestOptions?) -> BanksUpsertReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -596,7 +596,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceBanksUpsert(request: .init(
+    _ = try await client.reference.banksUpsert(request: .init(
         countryCode: "countryCode",
         name: "name",
         bic: "bic"
@@ -618,7 +618,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceBanksUpsertRequest` 
+**request:** `Requests.BanksUpsertReferenceRequest` 
     
 </dd>
 </dl>
@@ -638,7 +638,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceLtRegionsList</a>(request: Requests.PostV1ReferenceLtRegionsListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceLtRegionsListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">ltRegionsList</a>(request: Requests.LtRegionsListReferenceRequest, requestOptions: RequestOptions?) -> LtRegionsListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -657,7 +657,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceLtRegionsList(request: .init())
+    _ = try await client.reference.ltRegionsList(request: .init())
 }
 
 try await main()
@@ -675,7 +675,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceLtRegionsListRequest` 
+**request:** `Requests.LtRegionsListReferenceRequest` 
     
 </dd>
 </dl>
@@ -695,7 +695,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceCurrenciesList</a>(request: Requests.PostV1ReferenceCurrenciesListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceCurrenciesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">currenciesList</a>(request: Requests.CurrenciesListReferenceRequest, requestOptions: RequestOptions?) -> CurrenciesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -714,7 +714,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceCurrenciesList(request: .init())
+    _ = try await client.reference.currenciesList(request: .init())
 }
 
 try await main()
@@ -732,7 +732,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceCurrenciesListRequest` 
+**request:** `Requests.CurrenciesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -752,7 +752,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceVatClassifiersList</a>(request: Requests.PostV1ReferenceVatClassifiersListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceVatClassifiersListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">vatClassifiersList</a>(request: Requests.VatClassifiersListReferenceRequest, requestOptions: RequestOptions?) -> VatClassifiersListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -771,7 +771,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceVatClassifiersList(request: .init())
+    _ = try await client.reference.vatClassifiersList(request: .init())
 }
 
 try await main()
@@ -789,7 +789,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceVatClassifiersListRequest` 
+**request:** `Requests.VatClassifiersListReferenceRequest` 
     
 </dd>
 </dl>
@@ -809,7 +809,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceVatClassifiersUpsert</a>(request: Requests.PostV1ReferenceVatClassifiersUpsertRequest, requestOptions: RequestOptions?) -> PostV1ReferenceVatClassifiersUpsertResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">vatClassifiersUpsert</a>(request: Requests.VatClassifiersUpsertReferenceRequest, requestOptions: RequestOptions?) -> VatClassifiersUpsertReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -828,8 +828,8 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceVatClassifiersUpsert(request: .init(rows: [
-        PostV1ReferenceVatClassifiersUpsertRequestRowsItem(
+    _ = try await client.reference.vatClassifiersUpsert(request: .init(rows: [
+        VatClassifiersUpsertReferenceRequestRowsItem(
             code: "code",
             name: "name"
         )
@@ -851,7 +851,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceVatClassifiersUpsertRequest` 
+**request:** `Requests.VatClassifiersUpsertReferenceRequest` 
     
 </dd>
 </dl>
@@ -871,7 +871,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceEuVatRatesList</a>(request: Requests.PostV1ReferenceEuVatRatesListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceEuVatRatesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">euVatRatesList</a>(request: Requests.EuVatRatesListReferenceRequest, requestOptions: RequestOptions?) -> EuVatRatesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -904,7 +904,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceEuVatRatesList(request: .init())
+    _ = try await client.reference.euVatRatesList(request: .init())
 }
 
 try await main()
@@ -922,7 +922,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceEuVatRatesListRequest` 
+**request:** `Requests.EuVatRatesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -942,7 +942,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceEuVatRatesSetOverrides</a>(request: Requests.PostV1ReferenceEuVatRatesSetOverridesRequest, requestOptions: RequestOptions?) -> PostV1ReferenceEuVatRatesSetOverridesResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">euVatRatesSetOverrides</a>(request: Requests.EuVatRatesSetOverridesReferenceRequest, requestOptions: RequestOptions?) -> EuVatRatesSetOverridesReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -975,12 +975,12 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceEuVatRatesSetOverrides(request: .init(
+    _ = try await client.reference.euVatRatesSetOverrides(request: .init(
         countryCode: "countryCode",
         rates: [
-            PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem(
+            EuVatRatesSetOverridesReferenceRequestRatesItem(
                 category: .standard,
-                ratePercent: "ratePercent"
+                ratePercent: "121.00"
             )
         ]
     ))
@@ -1001,7 +1001,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceEuVatRatesSetOverridesRequest` 
+**request:** `Requests.EuVatRatesSetOverridesReferenceRequest` 
     
 </dd>
 </dl>
@@ -1021,7 +1021,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceVatResolve</a>(request: Requests.PostV1ReferenceVatResolveRequest, requestOptions: RequestOptions?) -> PostV1ReferenceVatResolveResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">vatResolve</a>(request: Requests.VatResolveReferenceRequest, requestOptions: RequestOptions?) -> VatResolveReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1040,7 +1040,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceVatResolve(request: .init())
+    _ = try await client.reference.vatResolve(request: .init())
 }
 
 try await main()
@@ -1058,7 +1058,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceVatResolveRequest` 
+**request:** `Requests.VatResolveReferenceRequest` 
     
 </dd>
 </dl>
@@ -1078,7 +1078,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceCnCodesList</a>(request: Requests.PostV1ReferenceCnCodesListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceCnCodesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">cnCodesList</a>(request: Requests.CnCodesListReferenceRequest, requestOptions: RequestOptions?) -> CnCodesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1097,7 +1097,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceCnCodesList(request: .init())
+    _ = try await client.reference.cnCodesList(request: .init())
 }
 
 try await main()
@@ -1115,7 +1115,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceCnCodesListRequest` 
+**request:** `Requests.CnCodesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -1135,7 +1135,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceCnCodesUpsert</a>(request: Requests.PostV1ReferenceCnCodesUpsertRequest, requestOptions: RequestOptions?) -> PostV1ReferenceCnCodesUpsertResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">cnCodesUpsert</a>(request: Requests.CnCodesUpsertReferenceRequest, requestOptions: RequestOptions?) -> CnCodesUpsertReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1154,8 +1154,8 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceCnCodesUpsert(request: .init(rows: [
-        PostV1ReferenceCnCodesUpsertRequestRowsItem(
+    _ = try await client.reference.cnCodesUpsert(request: .init(rows: [
+        CnCodesUpsertReferenceRequestRowsItem(
             code: "code",
             name: "name"
         )
@@ -1177,7 +1177,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceCnCodesUpsertRequest` 
+**request:** `Requests.CnCodesUpsertReferenceRequest` 
     
 </dd>
 </dl>
@@ -1197,7 +1197,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceComplianceVersionsList</a>(request: Requests.PostV1ReferenceComplianceVersionsListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceComplianceVersionsListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">complianceVersionsList</a>(request: Requests.ComplianceVersionsListReferenceRequest, requestOptions: RequestOptions?) -> ComplianceVersionsListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1216,7 +1216,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceComplianceVersionsList(request: .init())
+    _ = try await client.reference.complianceVersionsList(request: .init())
 }
 
 try await main()
@@ -1234,7 +1234,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceComplianceVersionsListRequest` 
+**request:** `Requests.ComplianceVersionsListReferenceRequest` 
     
 </dd>
 </dl>
@@ -1254,7 +1254,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceIntrastatThresholdsList</a>(request: Requests.PostV1ReferenceIntrastatThresholdsListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceIntrastatThresholdsListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">intrastatThresholdsList</a>(request: Requests.IntrastatThresholdsListReferenceRequest, requestOptions: RequestOptions?) -> IntrastatThresholdsListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1273,7 +1273,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceIntrastatThresholdsList(request: .init())
+    _ = try await client.reference.intrastatThresholdsList(request: .init())
 }
 
 try await main()
@@ -1291,7 +1291,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceIntrastatThresholdsListRequest` 
+**request:** `Requests.IntrastatThresholdsListReferenceRequest` 
     
 </dd>
 </dl>
@@ -1311,7 +1311,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceUnitsList</a>(request: Requests.PostV1ReferenceUnitsListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceUnitsListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">unitsList</a>(request: Requests.UnitsListReferenceRequest, requestOptions: RequestOptions?) -> UnitsListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1330,7 +1330,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceUnitsList(request: .init())
+    _ = try await client.reference.unitsList(request: .init())
 }
 
 try await main()
@@ -1348,7 +1348,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceUnitsListRequest` 
+**request:** `Requests.UnitsListReferenceRequest` 
     
 </dd>
 </dl>
@@ -1368,7 +1368,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceSeriesCreate</a>(request: Requests.PostV1ReferenceSeriesCreateRequest, requestOptions: RequestOptions?) -> PostV1ReferenceSeriesCreateResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">seriesCreate</a>(request: Requests.SeriesCreateReferenceRequest, requestOptions: RequestOptions?) -> SeriesCreateReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1387,7 +1387,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceSeriesCreate(request: .init(
+    _ = try await client.reference.seriesCreate(request: .init(
         documentType: "documentType",
         year: 1000000
     ))
@@ -1408,7 +1408,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceSeriesCreateRequest` 
+**request:** `Requests.SeriesCreateReferenceRequest` 
     
 </dd>
 </dl>
@@ -1428,7 +1428,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">postV1ReferenceSeriesList</a>(request: Requests.PostV1ReferenceSeriesListRequest, requestOptions: RequestOptions?) -> PostV1ReferenceSeriesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/Sources/Resources/Reference/ReferenceClient.swift">seriesList</a>(request: Requests.SeriesListReferenceRequest, requestOptions: RequestOptions?) -> SeriesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1447,7 +1447,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reference.postV1ReferenceSeriesList(request: .init())
+    _ = try await client.reference.seriesList(request: .init())
 }
 
 try await main()
@@ -1465,7 +1465,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReferenceSeriesListRequest` 
+**request:** `Requests.SeriesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -1485,8 +1485,8 @@ try await main()
 </dl>
 </details>
 
-## Partners
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersAddressesCreate</a>(request: Requests.PostV1PartnersAddressesCreateRequest, requestOptions: RequestOptions?) -> PostV1PartnersAddressesCreateResponse</code></summary>
+## partners
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">addressesCreate</a>(request: Requests.AddressesCreatePartnersRequest, requestOptions: RequestOptions?) -> AddressesCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1505,7 +1505,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersAddressesCreate(request: .init(partnerId: "partnerId"))
+    _ = try await client.partners.addressesCreate(request: .init(partnerId: "partnerId"))
 }
 
 try await main()
@@ -1523,7 +1523,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersAddressesCreateRequest` 
+**request:** `Requests.AddressesCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -1543,7 +1543,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersAddressesUpdate</a>(request: Requests.PostV1PartnersAddressesUpdateRequest, requestOptions: RequestOptions?) -> PostV1PartnersAddressesUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">addressesUpdate</a>(request: Requests.AddressesUpdatePartnersRequest, requestOptions: RequestOptions?) -> AddressesUpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1562,7 +1562,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersAddressesUpdate(request: .init(id: "id"))
+    _ = try await client.partners.addressesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -1580,7 +1580,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersAddressesUpdateRequest` 
+**request:** `Requests.AddressesUpdatePartnersRequest` 
     
 </dd>
 </dl>
@@ -1600,7 +1600,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersAddressesDelete</a>(request: Requests.PostV1PartnersAddressesDeleteRequest, requestOptions: RequestOptions?) -> PostV1PartnersAddressesDeleteResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">addressesDelete</a>(request: Requests.AddressesDeletePartnersRequest, requestOptions: RequestOptions?) -> AddressesDeletePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1619,7 +1619,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersAddressesDelete(request: .init(id: "id"))
+    _ = try await client.partners.addressesDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -1637,7 +1637,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersAddressesDeleteRequest` 
+**request:** `Requests.AddressesDeletePartnersRequest` 
     
 </dd>
 </dl>
@@ -1657,7 +1657,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersAddressesList</a>(request: Requests.PostV1PartnersAddressesListRequest, requestOptions: RequestOptions?) -> PostV1PartnersAddressesListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">addressesList</a>(request: Requests.AddressesListPartnersRequest, requestOptions: RequestOptions?) -> AddressesListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1676,7 +1676,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersAddressesList(request: .init())
+    _ = try await client.partners.addressesList(request: .init())
 }
 
 try await main()
@@ -1694,7 +1694,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersAddressesListRequest` 
+**request:** `Requests.AddressesListPartnersRequest` 
     
 </dd>
 </dl>
@@ -1714,7 +1714,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersContactsCreate</a>(request: Requests.PostV1PartnersContactsCreateRequest, requestOptions: RequestOptions?) -> PostV1PartnersContactsCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">contactsCreate</a>(request: Requests.ContactsCreatePartnersRequest, requestOptions: RequestOptions?) -> ContactsCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1733,7 +1733,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersContactsCreate(request: .init(
+    _ = try await client.partners.contactsCreate(request: .init(
         name: "name",
         partnerId: "partnerId"
     ))
@@ -1754,7 +1754,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersContactsCreateRequest` 
+**request:** `Requests.ContactsCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -1774,7 +1774,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersContactsUpdate</a>(request: Requests.PostV1PartnersContactsUpdateRequest, requestOptions: RequestOptions?) -> PostV1PartnersContactsUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">contactsUpdate</a>(request: Requests.ContactsUpdatePartnersRequest, requestOptions: RequestOptions?) -> ContactsUpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1793,7 +1793,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersContactsUpdate(request: .init(id: "id"))
+    _ = try await client.partners.contactsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -1811,7 +1811,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersContactsUpdateRequest` 
+**request:** `Requests.ContactsUpdatePartnersRequest` 
     
 </dd>
 </dl>
@@ -1831,7 +1831,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersContactsDelete</a>(request: Requests.PostV1PartnersContactsDeleteRequest, requestOptions: RequestOptions?) -> PostV1PartnersContactsDeleteResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">contactsDelete</a>(request: Requests.ContactsDeletePartnersRequest, requestOptions: RequestOptions?) -> ContactsDeletePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1850,7 +1850,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersContactsDelete(request: .init(id: "id"))
+    _ = try await client.partners.contactsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -1868,7 +1868,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersContactsDeleteRequest` 
+**request:** `Requests.ContactsDeletePartnersRequest` 
     
 </dd>
 </dl>
@@ -1888,7 +1888,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersContactsList</a>(request: Requests.PostV1PartnersContactsListRequest, requestOptions: RequestOptions?) -> PostV1PartnersContactsListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">contactsList</a>(request: Requests.ContactsListPartnersRequest, requestOptions: RequestOptions?) -> ContactsListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1907,7 +1907,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersContactsList(request: .init())
+    _ = try await client.partners.contactsList(request: .init())
 }
 
 try await main()
@@ -1925,7 +1925,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersContactsListRequest` 
+**request:** `Requests.ContactsListPartnersRequest` 
     
 </dd>
 </dl>
@@ -1945,7 +1945,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersBankAccountsCreate</a>(request: Requests.PostV1PartnersBankAccountsCreateRequest, requestOptions: RequestOptions?) -> PostV1PartnersBankAccountsCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">bankAccountsCreate</a>(request: Requests.BankAccountsCreatePartnersRequest, requestOptions: RequestOptions?) -> BankAccountsCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1964,7 +1964,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersBankAccountsCreate(request: .init(
+    _ = try await client.partners.bankAccountsCreate(request: .init(
         iban: "iban",
         partnerId: "partnerId"
     ))
@@ -1985,7 +1985,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersBankAccountsCreateRequest` 
+**request:** `Requests.BankAccountsCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -2005,7 +2005,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersBankAccountsUpdate</a>(request: Requests.PostV1PartnersBankAccountsUpdateRequest, requestOptions: RequestOptions?) -> PostV1PartnersBankAccountsUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">bankAccountsUpdate</a>(request: Requests.BankAccountsUpdatePartnersRequest, requestOptions: RequestOptions?) -> BankAccountsUpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2024,7 +2024,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersBankAccountsUpdate(request: .init(id: "id"))
+    _ = try await client.partners.bankAccountsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -2042,7 +2042,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersBankAccountsUpdateRequest` 
+**request:** `Requests.BankAccountsUpdatePartnersRequest` 
     
 </dd>
 </dl>
@@ -2062,7 +2062,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersBankAccountsDelete</a>(request: Requests.PostV1PartnersBankAccountsDeleteRequest, requestOptions: RequestOptions?) -> PostV1PartnersBankAccountsDeleteResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">bankAccountsDelete</a>(request: Requests.BankAccountsDeletePartnersRequest, requestOptions: RequestOptions?) -> BankAccountsDeletePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2081,7 +2081,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersBankAccountsDelete(request: .init(id: "id"))
+    _ = try await client.partners.bankAccountsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -2099,7 +2099,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersBankAccountsDeleteRequest` 
+**request:** `Requests.BankAccountsDeletePartnersRequest` 
     
 </dd>
 </dl>
@@ -2119,7 +2119,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersBankAccountsList</a>(request: Requests.PostV1PartnersBankAccountsListRequest, requestOptions: RequestOptions?) -> PostV1PartnersBankAccountsListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">bankAccountsList</a>(request: Requests.BankAccountsListPartnersRequest, requestOptions: RequestOptions?) -> BankAccountsListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2138,7 +2138,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersBankAccountsList(request: .init())
+    _ = try await client.partners.bankAccountsList(request: .init())
 }
 
 try await main()
@@ -2156,7 +2156,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersBankAccountsListRequest` 
+**request:** `Requests.BankAccountsListPartnersRequest` 
     
 </dd>
 </dl>
@@ -2176,7 +2176,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersFilesList</a>(request: Requests.PostV1PartnersFilesListRequest, requestOptions: RequestOptions?) -> PostV1PartnersFilesListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">filesList</a>(request: Requests.FilesListPartnersRequest, requestOptions: RequestOptions?) -> FilesListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2195,7 +2195,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersFilesList(request: .init(partnerId: "partnerId"))
+    _ = try await client.partners.filesList(request: .init(partnerId: "partnerId"))
 }
 
 try await main()
@@ -2213,7 +2213,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersFilesListRequest` 
+**request:** `Requests.FilesListPartnersRequest` 
     
 </dd>
 </dl>
@@ -2233,7 +2233,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">remindersTheOvernightDebtReminderJobWouldSendTodayForThisCompany</a>(request: Requests.PostV1PartnersDebtRemindersPreviewRequest, requestOptions: RequestOptions?) -> PostV1PartnersDebtRemindersPreviewResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">debtRemindersPreview</a>(request: Requests.DebtRemindersPreviewPartnersRequest, requestOptions: RequestOptions?) -> DebtRemindersPreviewPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2252,7 +2252,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.remindersTheOvernightDebtReminderJobWouldSendTodayForThisCompany(request: .init())
+    _ = try await client.partners.debtRemindersPreview(request: .init())
 }
 
 try await main()
@@ -2270,7 +2270,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersDebtRemindersPreviewRequest` 
+**request:** `Requests.DebtRemindersPreviewPartnersRequest` 
     
 </dd>
 </dl>
@@ -2290,7 +2290,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersDebtRemindersList</a>(request: Requests.PostV1PartnersDebtRemindersListRequest, requestOptions: RequestOptions?) -> PostV1PartnersDebtRemindersListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">debtRemindersList</a>(request: Requests.DebtRemindersListPartnersRequest, requestOptions: RequestOptions?) -> DebtRemindersListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2309,7 +2309,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersDebtRemindersList(request: .init())
+    _ = try await client.partners.debtRemindersList(request: .init())
 }
 
 try await main()
@@ -2327,7 +2327,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersDebtRemindersListRequest` 
+**request:** `Requests.DebtRemindersListPartnersRequest` 
     
 </dd>
 </dl>
@@ -2347,7 +2347,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersValidateVat</a>(request: Requests.PostV1PartnersValidateVatRequest, requestOptions: RequestOptions?) -> PostV1PartnersValidateVatResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">validateVat</a>(request: Requests.ValidateVatPartnersRequest, requestOptions: RequestOptions?) -> ValidateVatPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2366,7 +2366,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersValidateVat(request: .init())
+    _ = try await client.partners.validateVat(request: .init())
 }
 
 try await main()
@@ -2384,7 +2384,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersValidateVatRequest` 
+**request:** `Requests.ValidateVatPartnersRequest` 
     
 </dd>
 </dl>
@@ -2404,7 +2404,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersVatReviewsList</a>(request: Requests.PostV1PartnersVatReviewsListRequest, requestOptions: RequestOptions?) -> PostV1PartnersVatReviewsListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">vatReviewsList</a>(request: Requests.VatReviewsListPartnersRequest, requestOptions: RequestOptions?) -> VatReviewsListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2423,7 +2423,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersVatReviewsList(request: .init())
+    _ = try await client.partners.vatReviewsList(request: .init())
 }
 
 try await main()
@@ -2441,7 +2441,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersVatReviewsListRequest` 
+**request:** `Requests.VatReviewsListPartnersRequest` 
     
 </dd>
 </dl>
@@ -2461,7 +2461,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersVatReviewsResolve</a>(request: Requests.PostV1PartnersVatReviewsResolveRequest, requestOptions: RequestOptions?) -> PostV1PartnersVatReviewsResolveResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">vatReviewsResolve</a>(request: Requests.VatReviewsResolvePartnersRequest, requestOptions: RequestOptions?) -> VatReviewsResolvePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2480,7 +2480,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersVatReviewsResolve(request: .init(
+    _ = try await client.partners.vatReviewsResolve(request: .init(
         id: "id",
         resolution: .confirmedValid
     ))
@@ -2501,7 +2501,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersVatReviewsResolveRequest` 
+**request:** `Requests.VatReviewsResolvePartnersRequest` 
     
 </dd>
 </dl>
@@ -2521,7 +2521,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersCreate</a>(request: Requests.PostV1PartnersCreateRequest, requestOptions: RequestOptions?) -> PostV1PartnersCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">create</a>(request: Requests.CreatePartnersRequest, requestOptions: RequestOptions?) -> CreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2540,7 +2540,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersCreate(request: .init(name: "name"))
+    _ = try await client.partners.create(request: .init(name: "name"))
 }
 
 try await main()
@@ -2558,7 +2558,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersCreateRequest` 
+**request:** `Requests.CreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -2578,7 +2578,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersFindOrCreate</a>(request: Requests.PostV1PartnersFindOrCreateRequest, requestOptions: RequestOptions?) -> PostV1PartnersFindOrCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">findOrCreate</a>(request: Requests.FindOrCreatePartnersRequest, requestOptions: RequestOptions?) -> FindOrCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2597,7 +2597,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersFindOrCreate(request: .init(name: "name"))
+    _ = try await client.partners.findOrCreate(request: .init(name: "name"))
 }
 
 try await main()
@@ -2615,7 +2615,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersFindOrCreateRequest` 
+**request:** `Requests.FindOrCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -2635,7 +2635,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersGet</a>(request: Requests.PostV1PartnersGetRequest, requestOptions: RequestOptions?) -> PostV1PartnersGetResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">get</a>(request: Requests.GetPartnersRequest, requestOptions: RequestOptions?) -> GetPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2654,7 +2654,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersGet(request: .init(id: "id"))
+    _ = try await client.partners.get(request: .init(id: "id"))
 }
 
 try await main()
@@ -2672,7 +2672,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersGetRequest` 
+**request:** `Requests.GetPartnersRequest` 
     
 </dd>
 </dl>
@@ -2692,7 +2692,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersUpdate</a>(request: Requests.PostV1PartnersUpdateRequest, requestOptions: RequestOptions?) -> PostV1PartnersUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">update</a>(request: Requests.UpdatePartnersRequest, requestOptions: RequestOptions?) -> UpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2711,7 +2711,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersUpdate(request: .init(id: "id"))
+    _ = try await client.partners.update(request: .init(id: "id"))
 }
 
 try await main()
@@ -2729,7 +2729,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersUpdateRequest` 
+**request:** `Requests.UpdatePartnersRequest` 
     
 </dd>
 </dl>
@@ -2749,7 +2749,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersDelete</a>(request: Requests.PostV1PartnersDeleteRequest, requestOptions: RequestOptions?) -> PostV1PartnersDeleteResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">delete</a>(request: Requests.DeletePartnersRequest, requestOptions: RequestOptions?) -> DeletePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2768,7 +2768,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersDelete(request: .init(id: "id"))
+    _ = try await client.partners.delete(request: .init(id: "id"))
 }
 
 try await main()
@@ -2786,7 +2786,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersDeleteRequest` 
+**request:** `Requests.DeletePartnersRequest` 
     
 </dd>
 </dl>
@@ -2806,7 +2806,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">blankAPartnersPersonalDataAndHideTheRecord</a>(request: Requests.PostV1PartnersAnonymizeRequest, requestOptions: RequestOptions?) -> PostV1PartnersAnonymizeResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">anonymize</a>(request: Requests.AnonymizePartnersRequest, requestOptions: RequestOptions?) -> AnonymizePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2839,7 +2839,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.blankAPartnersPersonalDataAndHideTheRecord(request: .init(id: "id"))
+    _ = try await client.partners.anonymize(request: .init(id: "id"))
 }
 
 try await main()
@@ -2857,7 +2857,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersAnonymizeRequest` 
+**request:** `Requests.AnonymizePartnersRequest` 
     
 </dd>
 </dl>
@@ -2877,7 +2877,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersList</a>(request: Requests.PostV1PartnersListRequest, requestOptions: RequestOptions?) -> PostV1PartnersListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">list</a>(request: Requests.ListPartnersRequest, requestOptions: RequestOptions?) -> ListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2896,7 +2896,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersList(request: .init())
+    _ = try await client.partners.list(request: .init())
 }
 
 try await main()
@@ -2914,7 +2914,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersListRequest` 
+**request:** `Requests.ListPartnersRequest` 
     
 </dd>
 </dl>
@@ -2934,7 +2934,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersGroupsCreate</a>(request: Requests.PostV1PartnersGroupsCreateRequest, requestOptions: RequestOptions?) -> PostV1PartnersGroupsCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">groupsCreate</a>(request: Requests.GroupsCreatePartnersRequest, requestOptions: RequestOptions?) -> GroupsCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2953,7 +2953,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersGroupsCreate(request: .init(
+    _ = try await client.partners.groupsCreate(request: .init(
         code: "code",
         name: "name"
     ))
@@ -2974,7 +2974,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersGroupsCreateRequest` 
+**request:** `Requests.GroupsCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -2994,7 +2994,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersGroupsUpdate</a>(request: Requests.PostV1PartnersGroupsUpdateRequest, requestOptions: RequestOptions?) -> PostV1PartnersGroupsUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">groupsUpdate</a>(request: Requests.GroupsUpdatePartnersRequest, requestOptions: RequestOptions?) -> GroupsUpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3013,7 +3013,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersGroupsUpdate(request: .init(id: "id"))
+    _ = try await client.partners.groupsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -3031,7 +3031,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersGroupsUpdateRequest` 
+**request:** `Requests.GroupsUpdatePartnersRequest` 
     
 </dd>
 </dl>
@@ -3051,7 +3051,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersGroupsDelete</a>(request: Requests.PostV1PartnersGroupsDeleteRequest, requestOptions: RequestOptions?) -> PostV1PartnersGroupsDeleteResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">groupsDelete</a>(request: Requests.GroupsDeletePartnersRequest, requestOptions: RequestOptions?) -> GroupsDeletePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3070,7 +3070,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersGroupsDelete(request: .init(id: "id"))
+    _ = try await client.partners.groupsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -3088,7 +3088,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersGroupsDeleteRequest` 
+**request:** `Requests.GroupsDeletePartnersRequest` 
     
 </dd>
 </dl>
@@ -3108,7 +3108,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersGroupsList</a>(request: Requests.PostV1PartnersGroupsListRequest, requestOptions: RequestOptions?) -> PostV1PartnersGroupsListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">groupsList</a>(request: Requests.GroupsListPartnersRequest, requestOptions: RequestOptions?) -> GroupsListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3127,7 +3127,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersGroupsList(request: .init())
+    _ = try await client.partners.groupsList(request: .init())
 }
 
 try await main()
@@ -3145,7 +3145,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersGroupsListRequest` 
+**request:** `Requests.GroupsListPartnersRequest` 
     
 </dd>
 </dl>
@@ -3165,7 +3165,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersStatusesCreate</a>(request: Requests.PostV1PartnersStatusesCreateRequest, requestOptions: RequestOptions?) -> PostV1PartnersStatusesCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">statusesCreate</a>(request: Requests.StatusesCreatePartnersRequest, requestOptions: RequestOptions?) -> StatusesCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3184,7 +3184,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersStatusesCreate(request: .init(
+    _ = try await client.partners.statusesCreate(request: .init(
         code: "code",
         name: "name"
     ))
@@ -3205,7 +3205,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersStatusesCreateRequest` 
+**request:** `Requests.StatusesCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -3225,7 +3225,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersStatusesUpdate</a>(request: Requests.PostV1PartnersStatusesUpdateRequest, requestOptions: RequestOptions?) -> PostV1PartnersStatusesUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">statusesUpdate</a>(request: Requests.StatusesUpdatePartnersRequest, requestOptions: RequestOptions?) -> StatusesUpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3244,7 +3244,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersStatusesUpdate(request: .init(id: "id"))
+    _ = try await client.partners.statusesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -3262,7 +3262,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersStatusesUpdateRequest` 
+**request:** `Requests.StatusesUpdatePartnersRequest` 
     
 </dd>
 </dl>
@@ -3282,7 +3282,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersStatusesDelete</a>(request: Requests.PostV1PartnersStatusesDeleteRequest, requestOptions: RequestOptions?) -> PostV1PartnersStatusesDeleteResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">statusesDelete</a>(request: Requests.StatusesDeletePartnersRequest, requestOptions: RequestOptions?) -> StatusesDeletePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3301,7 +3301,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersStatusesDelete(request: .init(id: "id"))
+    _ = try await client.partners.statusesDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -3319,7 +3319,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersStatusesDeleteRequest` 
+**request:** `Requests.StatusesDeletePartnersRequest` 
     
 </dd>
 </dl>
@@ -3339,7 +3339,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersStatusesList</a>(request: Requests.PostV1PartnersStatusesListRequest, requestOptions: RequestOptions?) -> PostV1PartnersStatusesListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">statusesList</a>(request: Requests.StatusesListPartnersRequest, requestOptions: RequestOptions?) -> StatusesListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3358,7 +3358,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersStatusesList(request: .init())
+    _ = try await client.partners.statusesList(request: .init())
 }
 
 try await main()
@@ -3376,7 +3376,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersStatusesListRequest` 
+**request:** `Requests.StatusesListPartnersRequest` 
     
 </dd>
 </dl>
@@ -3396,7 +3396,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersInquiriesCreate</a>(request: Requests.PostV1PartnersInquiriesCreateRequest, requestOptions: RequestOptions?) -> PostV1PartnersInquiriesCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">inquiriesCreate</a>(request: Requests.InquiriesCreatePartnersRequest, requestOptions: RequestOptions?) -> InquiriesCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3415,7 +3415,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersInquiriesCreate(request: .init(subject: "subject"))
+    _ = try await client.partners.inquiriesCreate(request: .init(subject: "subject"))
 }
 
 try await main()
@@ -3433,7 +3433,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersInquiriesCreateRequest` 
+**request:** `Requests.InquiriesCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -3453,7 +3453,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersInquiriesUpdate</a>(request: Requests.PostV1PartnersInquiriesUpdateRequest, requestOptions: RequestOptions?) -> PostV1PartnersInquiriesUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">inquiriesUpdate</a>(request: Requests.InquiriesUpdatePartnersRequest, requestOptions: RequestOptions?) -> InquiriesUpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3472,7 +3472,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersInquiriesUpdate(request: .init(id: "id"))
+    _ = try await client.partners.inquiriesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -3490,7 +3490,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersInquiriesUpdateRequest` 
+**request:** `Requests.InquiriesUpdatePartnersRequest` 
     
 </dd>
 </dl>
@@ -3510,7 +3510,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersInquiriesGet</a>(request: Requests.PostV1PartnersInquiriesGetRequest, requestOptions: RequestOptions?) -> PostV1PartnersInquiriesGetResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">inquiriesGet</a>(request: Requests.InquiriesGetPartnersRequest, requestOptions: RequestOptions?) -> InquiriesGetPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3529,7 +3529,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersInquiriesGet(request: .init(id: "id"))
+    _ = try await client.partners.inquiriesGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -3547,7 +3547,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersInquiriesGetRequest` 
+**request:** `Requests.InquiriesGetPartnersRequest` 
     
 </dd>
 </dl>
@@ -3567,7 +3567,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersInquiriesList</a>(request: Requests.PostV1PartnersInquiriesListRequest, requestOptions: RequestOptions?) -> PostV1PartnersInquiriesListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">inquiriesList</a>(request: Requests.InquiriesListPartnersRequest, requestOptions: RequestOptions?) -> InquiriesListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3586,7 +3586,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersInquiriesList(request: .init())
+    _ = try await client.partners.inquiriesList(request: .init())
 }
 
 try await main()
@@ -3604,7 +3604,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersInquiriesListRequest` 
+**request:** `Requests.InquiriesListPartnersRequest` 
     
 </dd>
 </dl>
@@ -3624,7 +3624,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1PartnersCreditCheck</a>(request: Requests.PostV1PartnersCreditCheckRequest, requestOptions: RequestOptions?) -> PostV1PartnersCreditCheckResponse</code></summary>
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">creditCheck</a>(request: Requests.CreditCheckPartnersRequest, requestOptions: RequestOptions?) -> CreditCheckPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3643,7 +3643,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1PartnersCreditCheck(request: .init(partnerId: "partnerId"))
+    _ = try await client.partners.creditCheck(request: .init(partnerId: "partnerId"))
 }
 
 try await main()
@@ -3661,7 +3661,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PartnersCreditCheckRequest` 
+**request:** `Requests.CreditCheckPartnersRequest` 
     
 </dd>
 </dl>
@@ -3681,7 +3681,8 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsCreate</a>(request: Requests.PostV1LeadsCreateRequest, requestOptions: RequestOptions?) -> PostV1LeadsCreateResponse</code></summary>
+## Leads
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">create</a>(request: Requests.CreateLeadsRequest, requestOptions: RequestOptions?) -> CreateLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -3700,7 +3701,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsCreate(request: .init(name: "name"))
+    _ = try await client.leads.create(request: .init(name: "name"))
 }
 
 try await main()
@@ -3718,7 +3719,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsCreateRequest` 
+**request:** `Requests.CreateLeadsRequest` 
     
 </dd>
 </dl>
@@ -3738,7 +3739,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsGet</a>(request: Requests.PostV1LeadsGetRequest, requestOptions: RequestOptions?) -> PostV1LeadsGetResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">get</a>(request: Requests.GetLeadsRequest, requestOptions: RequestOptions?) -> GetLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -3757,7 +3758,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsGet(request: .init(id: "id"))
+    _ = try await client.leads.get(request: .init(id: "id"))
 }
 
 try await main()
@@ -3775,7 +3776,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsGetRequest` 
+**request:** `Requests.GetLeadsRequest` 
     
 </dd>
 </dl>
@@ -3795,7 +3796,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsUpdate</a>(request: Requests.PostV1LeadsUpdateRequest, requestOptions: RequestOptions?) -> PostV1LeadsUpdateResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">update</a>(request: Requests.UpdateLeadsRequest, requestOptions: RequestOptions?) -> UpdateLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -3814,7 +3815,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsUpdate(request: .init(id: "id"))
+    _ = try await client.leads.update(request: .init(id: "id"))
 }
 
 try await main()
@@ -3832,7 +3833,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsUpdateRequest` 
+**request:** `Requests.UpdateLeadsRequest` 
     
 </dd>
 </dl>
@@ -3852,7 +3853,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsDelete</a>(request: Requests.PostV1LeadsDeleteRequest, requestOptions: RequestOptions?) -> PostV1LeadsDeleteResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">delete</a>(request: Requests.DeleteLeadsRequest, requestOptions: RequestOptions?) -> DeleteLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -3871,7 +3872,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsDelete(request: .init(id: "id"))
+    _ = try await client.leads.delete(request: .init(id: "id"))
 }
 
 try await main()
@@ -3889,7 +3890,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsDeleteRequest` 
+**request:** `Requests.DeleteLeadsRequest` 
     
 </dd>
 </dl>
@@ -3909,7 +3910,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsList</a>(request: Requests.PostV1LeadsListRequest, requestOptions: RequestOptions?) -> PostV1LeadsListResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">list</a>(request: Requests.ListLeadsRequest, requestOptions: RequestOptions?) -> ListLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -3928,7 +3929,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsList(request: .init())
+    _ = try await client.leads.list(request: .init())
 }
 
 try await main()
@@ -3946,7 +3947,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsListRequest` 
+**request:** `Requests.ListLeadsRequest` 
     
 </dd>
 </dl>
@@ -3966,7 +3967,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsNotesCreate</a>(request: Requests.PostV1LeadsNotesCreateRequest, requestOptions: RequestOptions?) -> PostV1LeadsNotesCreateResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">notesCreate</a>(request: Requests.NotesCreateLeadsRequest, requestOptions: RequestOptions?) -> NotesCreateLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -3985,7 +3986,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsNotesCreate(request: .init(
+    _ = try await client.leads.notesCreate(request: .init(
         leadId: "leadId",
         body: "body"
     ))
@@ -4006,7 +4007,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsNotesCreateRequest` 
+**request:** `Requests.NotesCreateLeadsRequest` 
     
 </dd>
 </dl>
@@ -4026,7 +4027,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsNotesDelete</a>(request: Requests.PostV1LeadsNotesDeleteRequest, requestOptions: RequestOptions?) -> PostV1LeadsNotesDeleteResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">notesDelete</a>(request: Requests.NotesDeleteLeadsRequest, requestOptions: RequestOptions?) -> NotesDeleteLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -4045,7 +4046,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsNotesDelete(request: .init(id: "id"))
+    _ = try await client.leads.notesDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -4063,7 +4064,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsNotesDeleteRequest` 
+**request:** `Requests.NotesDeleteLeadsRequest` 
     
 </dd>
 </dl>
@@ -4083,7 +4084,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsNotesList</a>(request: Requests.PostV1LeadsNotesListRequest, requestOptions: RequestOptions?) -> PostV1LeadsNotesListResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">notesList</a>(request: Requests.NotesListLeadsRequest, requestOptions: RequestOptions?) -> NotesListLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -4102,7 +4103,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsNotesList(request: .init(leadId: "leadId"))
+    _ = try await client.leads.notesList(request: .init(leadId: "leadId"))
 }
 
 try await main()
@@ -4120,7 +4121,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsNotesListRequest` 
+**request:** `Requests.NotesListLeadsRequest` 
     
 </dd>
 </dl>
@@ -4140,7 +4141,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsFilesList</a>(request: Requests.PostV1LeadsFilesListRequest, requestOptions: RequestOptions?) -> PostV1LeadsFilesListResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">filesList</a>(request: Requests.FilesListLeadsRequest, requestOptions: RequestOptions?) -> FilesListLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -4159,7 +4160,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsFilesList(request: .init(leadId: "leadId"))
+    _ = try await client.leads.filesList(request: .init(leadId: "leadId"))
 }
 
 try await main()
@@ -4177,7 +4178,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsFilesListRequest` 
+**request:** `Requests.FilesListLeadsRequest` 
     
 </dd>
 </dl>
@@ -4197,7 +4198,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsSourcesCreate</a>(request: Requests.PostV1LeadsSourcesCreateRequest, requestOptions: RequestOptions?) -> PostV1LeadsSourcesCreateResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">sourcesCreate</a>(request: Requests.SourcesCreateLeadsRequest, requestOptions: RequestOptions?) -> SourcesCreateLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -4216,7 +4217,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsSourcesCreate(request: .init(name: "name"))
+    _ = try await client.leads.sourcesCreate(request: .init(name: "name"))
 }
 
 try await main()
@@ -4234,7 +4235,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsSourcesCreateRequest` 
+**request:** `Requests.SourcesCreateLeadsRequest` 
     
 </dd>
 </dl>
@@ -4254,7 +4255,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsSourcesUpdate</a>(request: Requests.PostV1LeadsSourcesUpdateRequest, requestOptions: RequestOptions?) -> PostV1LeadsSourcesUpdateResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">sourcesUpdate</a>(request: Requests.SourcesUpdateLeadsRequest, requestOptions: RequestOptions?) -> SourcesUpdateLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -4273,7 +4274,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsSourcesUpdate(request: .init(id: "id"))
+    _ = try await client.leads.sourcesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -4291,7 +4292,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsSourcesUpdateRequest` 
+**request:** `Requests.SourcesUpdateLeadsRequest` 
     
 </dd>
 </dl>
@@ -4311,7 +4312,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsSourcesDelete</a>(request: Requests.PostV1LeadsSourcesDeleteRequest, requestOptions: RequestOptions?) -> PostV1LeadsSourcesDeleteResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">sourcesDelete</a>(request: Requests.SourcesDeleteLeadsRequest, requestOptions: RequestOptions?) -> SourcesDeleteLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -4330,7 +4331,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsSourcesDelete(request: .init(id: "id"))
+    _ = try await client.leads.sourcesDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -4348,7 +4349,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsSourcesDeleteRequest` 
+**request:** `Requests.SourcesDeleteLeadsRequest` 
     
 </dd>
 </dl>
@@ -4368,7 +4369,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsSourcesList</a>(request: Requests.PostV1LeadsSourcesListRequest, requestOptions: RequestOptions?) -> PostV1LeadsSourcesListResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">sourcesList</a>(request: Requests.SourcesListLeadsRequest, requestOptions: RequestOptions?) -> SourcesListLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -4387,7 +4388,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsSourcesList(request: .init())
+    _ = try await client.leads.sourcesList(request: .init())
 }
 
 try await main()
@@ -4405,7 +4406,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsSourcesListRequest` 
+**request:** `Requests.SourcesListLeadsRequest` 
     
 </dd>
 </dl>
@@ -4425,7 +4426,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsSourcesOptions</a>(request: Requests.PostV1LeadsSourcesOptionsRequest, requestOptions: RequestOptions?) -> PostV1LeadsSourcesOptionsResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">sourcesOptions</a>(request: Requests.SourcesOptionsLeadsRequest, requestOptions: RequestOptions?) -> SourcesOptionsLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -4444,7 +4445,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsSourcesOptions(request: .init())
+    _ = try await client.leads.sourcesOptions(request: .init())
 }
 
 try await main()
@@ -4462,7 +4463,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsSourcesOptionsRequest` 
+**request:** `Requests.SourcesOptionsLeadsRequest` 
     
 </dd>
 </dl>
@@ -4482,7 +4483,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">postV1LeadsConvert</a>(request: Requests.PostV1LeadsConvertRequest, requestOptions: RequestOptions?) -> PostV1LeadsConvertResponse</code></summary>
+<details><summary><code>client.leads.<a href="/Sources/Resources/Leads/LeadsClient.swift">convert</a>(request: Requests.ConvertLeadsRequest, requestOptions: RequestOptions?) -> ConvertLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -4515,7 +4516,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.partners.postV1LeadsConvert(request: .init(id: "id"))
+    _ = try await client.leads.convert(request: .init(id: "id"))
 }
 
 try await main()
@@ -4533,7 +4534,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LeadsConvertRequest` 
+**request:** `Requests.ConvertLeadsRequest` 
     
 </dd>
 </dl>
@@ -4553,8 +4554,8 @@ try await main()
 </dl>
 </details>
 
-## Catalog
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemsCreate</a>(request: Requests.PostV1CatalogItemsCreateRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemsCreateResponse</code></summary>
+## catalog
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemsCreate</a>(request: Requests.ItemsCreateCatalogRequest, requestOptions: RequestOptions?) -> ItemsCreateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -4573,7 +4574,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemsCreate(request: .init(name: "name"))
+    _ = try await client.catalog.itemsCreate(request: .init(name: "name"))
 }
 
 try await main()
@@ -4591,7 +4592,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemsCreateRequest` 
+**request:** `Requests.ItemsCreateCatalogRequest` 
     
 </dd>
 </dl>
@@ -4611,7 +4612,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemsGet</a>(request: Requests.PostV1CatalogItemsGetRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemsGetResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemsGet</a>(request: Requests.ItemsGetCatalogRequest, requestOptions: RequestOptions?) -> ItemsGetCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -4630,7 +4631,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemsGet(request: .init(id: "id"))
+    _ = try await client.catalog.itemsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -4648,7 +4649,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemsGetRequest` 
+**request:** `Requests.ItemsGetCatalogRequest` 
     
 </dd>
 </dl>
@@ -4668,7 +4669,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemsUpdate</a>(request: Requests.PostV1CatalogItemsUpdateRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemsUpdateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemsUpdate</a>(request: Requests.ItemsUpdateCatalogRequest, requestOptions: RequestOptions?) -> ItemsUpdateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -4687,7 +4688,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemsUpdate(request: .init(id: "id"))
+    _ = try await client.catalog.itemsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -4705,7 +4706,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemsUpdateRequest` 
+**request:** `Requests.ItemsUpdateCatalogRequest` 
     
 </dd>
 </dl>
@@ -4725,7 +4726,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemsDelete</a>(request: Requests.PostV1CatalogItemsDeleteRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemsDeleteResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemsDelete</a>(request: Requests.ItemsDeleteCatalogRequest, requestOptions: RequestOptions?) -> ItemsDeleteCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -4744,7 +4745,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemsDelete(request: .init(id: "id"))
+    _ = try await client.catalog.itemsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -4762,7 +4763,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemsDeleteRequest` 
+**request:** `Requests.ItemsDeleteCatalogRequest` 
     
 </dd>
 </dl>
@@ -4782,7 +4783,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemsList</a>(request: Requests.PostV1CatalogItemsListRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemsListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemsList</a>(request: Requests.ItemsListCatalogRequest, requestOptions: RequestOptions?) -> ItemsListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -4801,7 +4802,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemsList(request: .init())
+    _ = try await client.catalog.itemsList(request: .init())
 }
 
 try await main()
@@ -4819,7 +4820,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemsListRequest` 
+**request:** `Requests.ItemsListCatalogRequest` 
     
 </dd>
 </dl>
@@ -4839,7 +4840,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemsFilesList</a>(request: Requests.PostV1CatalogItemsFilesListRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemsFilesListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemsFilesList</a>(request: Requests.ItemsFilesListCatalogRequest, requestOptions: RequestOptions?) -> ItemsFilesListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -4858,7 +4859,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemsFilesList(request: .init(itemId: "itemId"))
+    _ = try await client.catalog.itemsFilesList(request: .init(itemId: "itemId"))
 }
 
 try await main()
@@ -4876,7 +4877,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemsFilesListRequest` 
+**request:** `Requests.ItemsFilesListCatalogRequest` 
     
 </dd>
 </dl>
@@ -4896,7 +4897,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemsKindsCreate</a>(request: Requests.PostV1CatalogItemsKindsCreateRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemsKindsCreateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemsKindsCreate</a>(request: Requests.ItemsKindsCreateCatalogRequest, requestOptions: RequestOptions?) -> ItemsKindsCreateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -4915,7 +4916,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemsKindsCreate(request: .init(
+    _ = try await client.catalog.itemsKindsCreate(request: .init(
         code: "code",
         name: "name"
     ))
@@ -4936,7 +4937,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemsKindsCreateRequest` 
+**request:** `Requests.ItemsKindsCreateCatalogRequest` 
     
 </dd>
 </dl>
@@ -4956,7 +4957,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemsKindsUpdate</a>(request: Requests.PostV1CatalogItemsKindsUpdateRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemsKindsUpdateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemsKindsUpdate</a>(request: Requests.ItemsKindsUpdateCatalogRequest, requestOptions: RequestOptions?) -> ItemsKindsUpdateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -4975,7 +4976,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemsKindsUpdate(request: .init(id: "id"))
+    _ = try await client.catalog.itemsKindsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -4993,7 +4994,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemsKindsUpdateRequest` 
+**request:** `Requests.ItemsKindsUpdateCatalogRequest` 
     
 </dd>
 </dl>
@@ -5013,7 +5014,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemsKindsDelete</a>(request: Requests.PostV1CatalogItemsKindsDeleteRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemsKindsDeleteResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemsKindsDelete</a>(request: Requests.ItemsKindsDeleteCatalogRequest, requestOptions: RequestOptions?) -> ItemsKindsDeleteCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5032,7 +5033,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemsKindsDelete(request: .init(id: "id"))
+    _ = try await client.catalog.itemsKindsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -5050,7 +5051,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemsKindsDeleteRequest` 
+**request:** `Requests.ItemsKindsDeleteCatalogRequest` 
     
 </dd>
 </dl>
@@ -5070,7 +5071,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemsKindsList</a>(request: Requests.PostV1CatalogItemsKindsListRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemsKindsListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemsKindsList</a>(request: Requests.ItemsKindsListCatalogRequest, requestOptions: RequestOptions?) -> ItemsKindsListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5089,7 +5090,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemsKindsList(request: .init())
+    _ = try await client.catalog.itemsKindsList(request: .init())
 }
 
 try await main()
@@ -5107,7 +5108,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemsKindsListRequest` 
+**request:** `Requests.ItemsKindsListCatalogRequest` 
     
 </dd>
 </dl>
@@ -5127,7 +5128,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogUnitsCreate</a>(request: Requests.PostV1CatalogUnitsCreateRequest, requestOptions: RequestOptions?) -> PostV1CatalogUnitsCreateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">unitsCreate</a>(request: Requests.UnitsCreateCatalogRequest, requestOptions: RequestOptions?) -> UnitsCreateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5146,7 +5147,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogUnitsCreate(request: .init(
+    _ = try await client.catalog.unitsCreate(request: .init(
         code: "code",
         name: "name"
     ))
@@ -5167,7 +5168,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogUnitsCreateRequest` 
+**request:** `Requests.UnitsCreateCatalogRequest` 
     
 </dd>
 </dl>
@@ -5187,7 +5188,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogUnitsUpdate</a>(request: Requests.PostV1CatalogUnitsUpdateRequest, requestOptions: RequestOptions?) -> PostV1CatalogUnitsUpdateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">unitsUpdate</a>(request: Requests.UnitsUpdateCatalogRequest, requestOptions: RequestOptions?) -> UnitsUpdateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5206,7 +5207,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogUnitsUpdate(request: .init(id: "id"))
+    _ = try await client.catalog.unitsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -5224,7 +5225,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogUnitsUpdateRequest` 
+**request:** `Requests.UnitsUpdateCatalogRequest` 
     
 </dd>
 </dl>
@@ -5244,7 +5245,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogUnitsDelete</a>(request: Requests.PostV1CatalogUnitsDeleteRequest, requestOptions: RequestOptions?) -> PostV1CatalogUnitsDeleteResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">unitsDelete</a>(request: Requests.UnitsDeleteCatalogRequest, requestOptions: RequestOptions?) -> UnitsDeleteCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5263,7 +5264,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogUnitsDelete(request: .init(id: "id"))
+    _ = try await client.catalog.unitsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -5281,7 +5282,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogUnitsDeleteRequest` 
+**request:** `Requests.UnitsDeleteCatalogRequest` 
     
 </dd>
 </dl>
@@ -5301,7 +5302,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogUnitsList</a>(request: Requests.PostV1CatalogUnitsListRequest, requestOptions: RequestOptions?) -> PostV1CatalogUnitsListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">unitsList</a>(request: Requests.UnitsListCatalogRequest, requestOptions: RequestOptions?) -> UnitsListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5320,7 +5321,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogUnitsList(request: .init())
+    _ = try await client.catalog.unitsList(request: .init())
 }
 
 try await main()
@@ -5338,7 +5339,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogUnitsListRequest` 
+**request:** `Requests.UnitsListCatalogRequest` 
     
 </dd>
 </dl>
@@ -5358,7 +5359,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogUnitsOptions</a>(request: Requests.PostV1CatalogUnitsOptionsRequest, requestOptions: RequestOptions?) -> PostV1CatalogUnitsOptionsResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">unitsOptions</a>(request: Requests.UnitsOptionsCatalogRequest, requestOptions: RequestOptions?) -> UnitsOptionsCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5377,7 +5378,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogUnitsOptions(request: .init())
+    _ = try await client.catalog.unitsOptions(request: .init())
 }
 
 try await main()
@@ -5395,7 +5396,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogUnitsOptionsRequest` 
+**request:** `Requests.UnitsOptionsCatalogRequest` 
     
 </dd>
 </dl>
@@ -5415,7 +5416,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemGroupsCreate</a>(request: Requests.PostV1CatalogItemGroupsCreateRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemGroupsCreateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemGroupsCreate</a>(request: Requests.ItemGroupsCreateCatalogRequest, requestOptions: RequestOptions?) -> ItemGroupsCreateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5434,7 +5435,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemGroupsCreate(request: .init(
+    _ = try await client.catalog.itemGroupsCreate(request: .init(
         code: "code",
         name: "name"
     ))
@@ -5455,7 +5456,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemGroupsCreateRequest` 
+**request:** `Requests.ItemGroupsCreateCatalogRequest` 
     
 </dd>
 </dl>
@@ -5475,7 +5476,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemGroupsUpdate</a>(request: Requests.PostV1CatalogItemGroupsUpdateRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemGroupsUpdateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemGroupsUpdate</a>(request: Requests.ItemGroupsUpdateCatalogRequest, requestOptions: RequestOptions?) -> ItemGroupsUpdateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5494,7 +5495,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemGroupsUpdate(request: .init(id: "id"))
+    _ = try await client.catalog.itemGroupsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -5512,7 +5513,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemGroupsUpdateRequest` 
+**request:** `Requests.ItemGroupsUpdateCatalogRequest` 
     
 </dd>
 </dl>
@@ -5532,7 +5533,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemGroupsDelete</a>(request: Requests.PostV1CatalogItemGroupsDeleteRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemGroupsDeleteResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemGroupsDelete</a>(request: Requests.ItemGroupsDeleteCatalogRequest, requestOptions: RequestOptions?) -> ItemGroupsDeleteCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5551,7 +5552,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemGroupsDelete(request: .init(id: "id"))
+    _ = try await client.catalog.itemGroupsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -5569,7 +5570,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemGroupsDeleteRequest` 
+**request:** `Requests.ItemGroupsDeleteCatalogRequest` 
     
 </dd>
 </dl>
@@ -5589,7 +5590,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemGroupsList</a>(request: Requests.PostV1CatalogItemGroupsListRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemGroupsListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemGroupsList</a>(request: Requests.ItemGroupsListCatalogRequest, requestOptions: RequestOptions?) -> ItemGroupsListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5608,7 +5609,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemGroupsList(request: .init())
+    _ = try await client.catalog.itemGroupsList(request: .init())
 }
 
 try await main()
@@ -5626,7 +5627,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemGroupsListRequest` 
+**request:** `Requests.ItemGroupsListCatalogRequest` 
     
 </dd>
 </dl>
@@ -5646,7 +5647,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemsSuppliersUpsert</a>(request: Requests.PostV1CatalogItemsSuppliersUpsertRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemsSuppliersUpsertResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemsSuppliersUpsert</a>(request: Requests.ItemsSuppliersUpsertCatalogRequest, requestOptions: RequestOptions?) -> ItemsSuppliersUpsertCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5665,7 +5666,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemsSuppliersUpsert(request: .init(
+    _ = try await client.catalog.itemsSuppliersUpsert(request: .init(
         itemId: "itemId",
         partnerId: "partnerId"
     ))
@@ -5686,7 +5687,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemsSuppliersUpsertRequest` 
+**request:** `Requests.ItemsSuppliersUpsertCatalogRequest` 
     
 </dd>
 </dl>
@@ -5706,7 +5707,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemsSuppliersList</a>(request: Requests.PostV1CatalogItemsSuppliersListRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemsSuppliersListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemsSuppliersList</a>(request: Requests.ItemsSuppliersListCatalogRequest, requestOptions: RequestOptions?) -> ItemsSuppliersListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5725,7 +5726,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemsSuppliersList(request: .init())
+    _ = try await client.catalog.itemsSuppliersList(request: .init())
 }
 
 try await main()
@@ -5743,7 +5744,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemsSuppliersListRequest` 
+**request:** `Requests.ItemsSuppliersListCatalogRequest` 
     
 </dd>
 </dl>
@@ -5763,7 +5764,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogItemsSuppliersDelete</a>(request: Requests.PostV1CatalogItemsSuppliersDeleteRequest, requestOptions: RequestOptions?) -> PostV1CatalogItemsSuppliersDeleteResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">itemsSuppliersDelete</a>(request: Requests.ItemsSuppliersDeleteCatalogRequest, requestOptions: RequestOptions?) -> ItemsSuppliersDeleteCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5782,7 +5783,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogItemsSuppliersDelete(request: .init(id: "id"))
+    _ = try await client.catalog.itemsSuppliersDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -5800,7 +5801,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogItemsSuppliersDeleteRequest` 
+**request:** `Requests.ItemsSuppliersDeleteCatalogRequest` 
     
 </dd>
 </dl>
@@ -5820,7 +5821,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogPriceListsCreate</a>(request: Requests.PostV1CatalogPriceListsCreateRequest, requestOptions: RequestOptions?) -> PostV1CatalogPriceListsCreateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">priceListsCreate</a>(request: Requests.PriceListsCreateCatalogRequest, requestOptions: RequestOptions?) -> PriceListsCreateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5839,7 +5840,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogPriceListsCreate(request: .init(
+    _ = try await client.catalog.priceListsCreate(request: .init(
         code: "code",
         name: "name"
     ))
@@ -5860,7 +5861,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogPriceListsCreateRequest` 
+**request:** `Requests.PriceListsCreateCatalogRequest` 
     
 </dd>
 </dl>
@@ -5880,7 +5881,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogPriceListsUpdate</a>(request: Requests.PostV1CatalogPriceListsUpdateRequest, requestOptions: RequestOptions?) -> PostV1CatalogPriceListsUpdateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">priceListsUpdate</a>(request: Requests.PriceListsUpdateCatalogRequest, requestOptions: RequestOptions?) -> PriceListsUpdateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5899,7 +5900,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogPriceListsUpdate(request: .init(id: "id"))
+    _ = try await client.catalog.priceListsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -5917,7 +5918,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogPriceListsUpdateRequest` 
+**request:** `Requests.PriceListsUpdateCatalogRequest` 
     
 </dd>
 </dl>
@@ -5937,7 +5938,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogPriceListsList</a>(request: Requests.PostV1CatalogPriceListsListRequest, requestOptions: RequestOptions?) -> PostV1CatalogPriceListsListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">priceListsList</a>(request: Requests.PriceListsListCatalogRequest, requestOptions: RequestOptions?) -> PriceListsListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -5956,7 +5957,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogPriceListsList(request: .init())
+    _ = try await client.catalog.priceListsList(request: .init())
 }
 
 try await main()
@@ -5974,7 +5975,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogPriceListsListRequest` 
+**request:** `Requests.PriceListsListCatalogRequest` 
     
 </dd>
 </dl>
@@ -5994,7 +5995,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogPriceListsItemsSet</a>(request: Requests.PostV1CatalogPriceListsItemsSetRequest, requestOptions: RequestOptions?) -> PostV1CatalogPriceListsItemsSetResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">priceListsItemsSet</a>(request: Requests.PriceListsItemsSetCatalogRequest, requestOptions: RequestOptions?) -> PriceListsItemsSetCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -6013,12 +6014,12 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogPriceListsItemsSet(request: .init(
+    _ = try await client.catalog.priceListsItemsSet(request: .init(
         priceListId: "priceListId",
         items: [
-            PostV1CatalogPriceListsItemsSetRequestItemsItem(
+            PriceListsItemsSetCatalogRequestItemsItem(
                 itemId: "itemId",
-                unitPriceExclVat: "unitPriceExclVat"
+                unitPriceExclVat: "121.0000"
             )
         ]
     ))
@@ -6039,7 +6040,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogPriceListsItemsSetRequest` 
+**request:** `Requests.PriceListsItemsSetCatalogRequest` 
     
 </dd>
 </dl>
@@ -6059,7 +6060,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogPriceListsItemsList</a>(request: Requests.PostV1CatalogPriceListsItemsListRequest, requestOptions: RequestOptions?) -> PostV1CatalogPriceListsItemsListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">priceListsItemsList</a>(request: Requests.PriceListsItemsListCatalogRequest, requestOptions: RequestOptions?) -> PriceListsItemsListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -6078,7 +6079,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogPriceListsItemsList(request: .init(priceListId: "priceListId"))
+    _ = try await client.catalog.priceListsItemsList(request: .init(priceListId: "priceListId"))
 }
 
 try await main()
@@ -6096,7 +6097,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogPriceListsItemsListRequest` 
+**request:** `Requests.PriceListsItemsListCatalogRequest` 
     
 </dd>
 </dl>
@@ -6116,7 +6117,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">postV1CatalogPriceListsItemsDelete</a>(request: Requests.PostV1CatalogPriceListsItemsDeleteRequest, requestOptions: RequestOptions?) -> PostV1CatalogPriceListsItemsDeleteResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/Sources/Resources/Catalog/CatalogClient.swift">priceListsItemsDelete</a>(request: Requests.PriceListsItemsDeleteCatalogRequest, requestOptions: RequestOptions?) -> PriceListsItemsDeleteCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -6135,7 +6136,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.catalog.postV1CatalogPriceListsItemsDelete(request: .init(
+    _ = try await client.catalog.priceListsItemsDelete(request: .init(
         priceListId: "priceListId",
         itemId: "itemId"
     ))
@@ -6156,7 +6157,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CatalogPriceListsItemsDeleteRequest` 
+**request:** `Requests.PriceListsItemsDeleteCatalogRequest` 
     
 </dd>
 </dl>
@@ -6176,8 +6177,8 @@ try await main()
 </dl>
 </details>
 
-## Sales
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesCreate</a>(request: Requests.PostV1SalesInvoicesCreateRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesCreateResponse</code></summary>
+## sales
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesCreate</a>(request: Requests.InvoicesCreateSalesRequest, requestOptions: RequestOptions?) -> InvoicesCreateSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6196,10 +6197,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesCreate(request: .init(
+    _ = try await client.sales.invoicesCreate(request: .init(
         partnerId: "partnerId",
         lines: [
-            PostV1SalesInvoicesCreateRequestLinesItem(
+            InvoicesCreateSalesRequestLinesItem(
 
             )
         ]
@@ -6221,7 +6222,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesCreateRequest` 
+**request:** `Requests.InvoicesCreateSalesRequest` 
     
 </dd>
 </dl>
@@ -6241,7 +6242,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesGet</a>(request: Requests.PostV1SalesInvoicesGetRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesGetResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesGet</a>(request: Requests.InvoicesGetSalesRequest, requestOptions: RequestOptions?) -> InvoicesGetSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6260,7 +6261,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesGet(request: .init(id: "id"))
+    _ = try await client.sales.invoicesGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -6278,7 +6279,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesGetRequest` 
+**request:** `Requests.InvoicesGetSalesRequest` 
     
 </dd>
 </dl>
@@ -6298,7 +6299,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesPdf</a>(request: Requests.PostV1SalesInvoicesPdfRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesPdfResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesPdf</a>(request: Requests.InvoicesPdfSalesRequest, requestOptions: RequestOptions?) -> InvoicesPdfSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6317,7 +6318,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesPdf(request: .init(id: "id"))
+    _ = try await client.sales.invoicesPdf(request: .init(id: "id"))
 }
 
 try await main()
@@ -6335,7 +6336,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesPdfRequest` 
+**request:** `Requests.InvoicesPdfSalesRequest` 
     
 </dd>
 </dl>
@@ -6355,7 +6356,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesSend</a>(request: Requests.PostV1SalesInvoicesSendRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesSendResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesSend</a>(request: Requests.InvoicesSendSalesRequest, requestOptions: RequestOptions?) -> InvoicesSendSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6374,7 +6375,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesSend(request: .init(id: "id"))
+    _ = try await client.sales.invoicesSend(request: .init(id: "id"))
 }
 
 try await main()
@@ -6392,7 +6393,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesSendRequest` 
+**request:** `Requests.InvoicesSendSalesRequest` 
     
 </dd>
 </dl>
@@ -6412,7 +6413,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesPeppolXml</a>(request: Requests.PostV1SalesInvoicesPeppolXmlRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesPeppolXmlResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesPeppolXml</a>(request: Requests.InvoicesPeppolXmlSalesRequest, requestOptions: RequestOptions?) -> InvoicesPeppolXmlSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6431,7 +6432,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesPeppolXml(request: .init(id: "id"))
+    _ = try await client.sales.invoicesPeppolXml(request: .init(id: "id"))
 }
 
 try await main()
@@ -6449,7 +6450,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesPeppolXmlRequest` 
+**request:** `Requests.InvoicesPeppolXmlSalesRequest` 
     
 </dd>
 </dl>
@@ -6469,7 +6470,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesPeppolSend</a>(request: Requests.PostV1SalesInvoicesPeppolSendRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesPeppolSendResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesPeppolSend</a>(request: Requests.InvoicesPeppolSendSalesRequest, requestOptions: RequestOptions?) -> InvoicesPeppolSendSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6488,7 +6489,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesPeppolSend(request: .init(id: "id"))
+    _ = try await client.sales.invoicesPeppolSend(request: .init(id: "id"))
 }
 
 try await main()
@@ -6506,7 +6507,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesPeppolSendRequest` 
+**request:** `Requests.InvoicesPeppolSendSalesRequest` 
     
 </dd>
 </dl>
@@ -6526,7 +6527,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesEinvoiceXml</a>(request: Requests.PostV1SalesInvoicesEinvoiceXmlRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesEinvoiceXmlResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesEinvoiceXml</a>(request: Requests.InvoicesEinvoiceXmlSalesRequest, requestOptions: RequestOptions?) -> InvoicesEinvoiceXmlSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6559,7 +6560,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesEinvoiceXml(request: .init(id: "id"))
+    _ = try await client.sales.invoicesEinvoiceXml(request: .init(id: "id"))
 }
 
 try await main()
@@ -6577,7 +6578,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesEinvoiceXmlRequest` 
+**request:** `Requests.InvoicesEinvoiceXmlSalesRequest` 
     
 </dd>
 </dl>
@@ -6597,7 +6598,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesEinvoiceSend</a>(request: Requests.PostV1SalesInvoicesEinvoiceSendRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesEinvoiceSendResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesEinvoiceSend</a>(request: Requests.InvoicesEinvoiceSendSalesRequest, requestOptions: RequestOptions?) -> InvoicesEinvoiceSendSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6630,7 +6631,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesEinvoiceSend(request: .init(id: "id"))
+    _ = try await client.sales.invoicesEinvoiceSend(request: .init(id: "id"))
 }
 
 try await main()
@@ -6648,7 +6649,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesEinvoiceSendRequest` 
+**request:** `Requests.InvoicesEinvoiceSendSalesRequest` 
     
 </dd>
 </dl>
@@ -6668,7 +6669,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesEinvoiceStatus</a>(request: Requests.PostV1SalesInvoicesEinvoiceStatusRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesEinvoiceStatusResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesEinvoiceStatus</a>(request: Requests.InvoicesEinvoiceStatusSalesRequest, requestOptions: RequestOptions?) -> InvoicesEinvoiceStatusSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6701,7 +6702,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesEinvoiceStatus(request: .init(id: "id"))
+    _ = try await client.sales.invoicesEinvoiceStatus(request: .init(id: "id"))
 }
 
 try await main()
@@ -6719,7 +6720,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesEinvoiceStatusRequest` 
+**request:** `Requests.InvoicesEinvoiceStatusSalesRequest` 
     
 </dd>
 </dl>
@@ -6739,7 +6740,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesUpdate</a>(request: Requests.PostV1SalesInvoicesUpdateRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesUpdateResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesUpdate</a>(request: Requests.InvoicesUpdateSalesRequest, requestOptions: RequestOptions?) -> InvoicesUpdateSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6758,7 +6759,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesUpdate(request: .init(id: "id"))
+    _ = try await client.sales.invoicesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -6776,7 +6777,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesUpdateRequest` 
+**request:** `Requests.InvoicesUpdateSalesRequest` 
     
 </dd>
 </dl>
@@ -6796,7 +6797,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesDelete</a>(request: Requests.PostV1SalesInvoicesDeleteRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesDeleteResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesDelete</a>(request: Requests.InvoicesDeleteSalesRequest, requestOptions: RequestOptions?) -> InvoicesDeleteSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6815,7 +6816,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesDelete(request: .init(id: "id"))
+    _ = try await client.sales.invoicesDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -6833,7 +6834,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesDeleteRequest` 
+**request:** `Requests.InvoicesDeleteSalesRequest` 
     
 </dd>
 </dl>
@@ -6853,7 +6854,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesIssue</a>(request: Requests.PostV1SalesInvoicesIssueRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesIssueResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesIssue</a>(request: Requests.InvoicesIssueSalesRequest, requestOptions: RequestOptions?) -> InvoicesIssueSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6872,7 +6873,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesIssue(request: .init(id: "id"))
+    _ = try await client.sales.invoicesIssue(request: .init(id: "id"))
 }
 
 try await main()
@@ -6890,7 +6891,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesIssueRequest` 
+**request:** `Requests.InvoicesIssueSalesRequest` 
     
 </dd>
 </dl>
@@ -6910,7 +6911,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesLock</a>(request: Requests.PostV1SalesInvoicesLockRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesLockResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesLock</a>(request: Requests.InvoicesLockSalesRequest, requestOptions: RequestOptions?) -> InvoicesLockSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6929,7 +6930,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesLock(request: .init(id: "id"))
+    _ = try await client.sales.invoicesLock(request: .init(id: "id"))
 }
 
 try await main()
@@ -6947,7 +6948,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesLockRequest` 
+**request:** `Requests.InvoicesLockSalesRequest` 
     
 </dd>
 </dl>
@@ -6967,7 +6968,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesUnlock</a>(request: Requests.PostV1SalesInvoicesUnlockRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesUnlockResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesUnlock</a>(request: Requests.InvoicesUnlockSalesRequest, requestOptions: RequestOptions?) -> InvoicesUnlockSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6986,7 +6987,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesUnlock(request: .init(id: "id"))
+    _ = try await client.sales.invoicesUnlock(request: .init(id: "id"))
 }
 
 try await main()
@@ -7004,7 +7005,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesUnlockRequest` 
+**request:** `Requests.InvoicesUnlockSalesRequest` 
     
 </dd>
 </dl>
@@ -7024,7 +7025,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesPaymentLink</a>(request: Requests.PostV1SalesInvoicesPaymentLinkRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesPaymentLinkResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesPaymentLink</a>(request: Requests.InvoicesPaymentLinkSalesRequest, requestOptions: RequestOptions?) -> InvoicesPaymentLinkSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7043,7 +7044,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesPaymentLink(request: .init(id: "id"))
+    _ = try await client.sales.invoicesPaymentLink(request: .init(id: "id"))
 }
 
 try await main()
@@ -7061,7 +7062,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesPaymentLinkRequest` 
+**request:** `Requests.InvoicesPaymentLinkSalesRequest` 
     
 </dd>
 </dl>
@@ -7081,7 +7082,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesPaymentSettingsGet</a>(request: Requests.PostV1SalesInvoicesPaymentSettingsGetRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesPaymentSettingsGetResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesPaymentSettingsGet</a>(request: Requests.InvoicesPaymentSettingsGetSalesRequest, requestOptions: RequestOptions?) -> InvoicesPaymentSettingsGetSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7100,7 +7101,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesPaymentSettingsGet(request: .init())
+    _ = try await client.sales.invoicesPaymentSettingsGet(request: .init())
 }
 
 try await main()
@@ -7118,7 +7119,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesPaymentSettingsGetRequest` 
+**request:** `Requests.InvoicesPaymentSettingsGetSalesRequest` 
     
 </dd>
 </dl>
@@ -7138,7 +7139,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesPaymentSettingsUpdate</a>(request: Requests.PostV1SalesInvoicesPaymentSettingsUpdateRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesPaymentSettingsUpdateResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesPaymentSettingsUpdate</a>(request: Requests.InvoicesPaymentSettingsUpdateSalesRequest, requestOptions: RequestOptions?) -> InvoicesPaymentSettingsUpdateSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7157,7 +7158,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesPaymentSettingsUpdate(request: .init(paymentLinkTemplate: .null))
+    _ = try await client.sales.invoicesPaymentSettingsUpdate(request: .init(paymentLinkTemplate: .null))
 }
 
 try await main()
@@ -7175,7 +7176,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesPaymentSettingsUpdateRequest` 
+**request:** `Requests.InvoicesPaymentSettingsUpdateSalesRequest` 
     
 </dd>
 </dl>
@@ -7195,7 +7196,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionSchedulesList</a>(request: Requests.PostV1SalesRecognitionSchedulesListRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionSchedulesListResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">recognitionSchedulesList</a>(request: Requests.RecognitionSchedulesListSalesRequest, requestOptions: RequestOptions?) -> RecognitionSchedulesListSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7214,7 +7215,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesRecognitionSchedulesList(request: .init())
+    _ = try await client.sales.recognitionSchedulesList(request: .init())
 }
 
 try await main()
@@ -7232,7 +7233,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesRecognitionSchedulesListRequest` 
+**request:** `Requests.RecognitionSchedulesListSalesRequest` 
     
 </dd>
 </dl>
@@ -7252,7 +7253,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesApplyAdvance</a>(request: Requests.PostV1SalesInvoicesApplyAdvanceRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesApplyAdvanceResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesApplyAdvance</a>(request: Requests.InvoicesApplyAdvanceSalesRequest, requestOptions: RequestOptions?) -> InvoicesApplyAdvanceSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7271,7 +7272,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesApplyAdvance(request: .init(
+    _ = try await client.sales.invoicesApplyAdvance(request: .init(
         advanceId: "advanceId",
         invoiceId: "invoiceId"
     ))
@@ -7292,7 +7293,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesApplyAdvanceRequest` 
+**request:** `Requests.InvoicesApplyAdvanceSalesRequest` 
     
 </dd>
 </dl>
@@ -7312,7 +7313,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesInvoicesList</a>(request: Requests.PostV1SalesInvoicesListRequest, requestOptions: RequestOptions?) -> PostV1SalesInvoicesListResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesList</a>(request: Requests.InvoicesListSalesRequest, requestOptions: RequestOptions?) -> InvoicesListSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7331,7 +7332,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesInvoicesList(request: .init())
+    _ = try await client.sales.invoicesList(request: .init())
 }
 
 try await main()
@@ -7349,7 +7350,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesInvoicesListRequest` 
+**request:** `Requests.InvoicesListSalesRequest` 
     
 </dd>
 </dl>
@@ -7369,7 +7370,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesActsCreate</a>(request: Requests.PostV1SalesActsCreateRequest, requestOptions: RequestOptions?) -> PostV1SalesActsCreateResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">actsCreate</a>(request: Requests.ActsCreateSalesRequest, requestOptions: RequestOptions?) -> ActsCreateSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7388,7 +7389,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesActsCreate(request: .init(partnerId: "partnerId"))
+    _ = try await client.sales.actsCreate(request: .init(partnerId: "partnerId"))
 }
 
 try await main()
@@ -7406,7 +7407,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesActsCreateRequest` 
+**request:** `Requests.ActsCreateSalesRequest` 
     
 </dd>
 </dl>
@@ -7426,7 +7427,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesActsUpdate</a>(request: Requests.PostV1SalesActsUpdateRequest, requestOptions: RequestOptions?) -> PostV1SalesActsUpdateResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">actsUpdate</a>(request: Requests.ActsUpdateSalesRequest, requestOptions: RequestOptions?) -> ActsUpdateSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7445,7 +7446,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesActsUpdate(request: .init(id: "id"))
+    _ = try await client.sales.actsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -7463,7 +7464,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesActsUpdateRequest` 
+**request:** `Requests.ActsUpdateSalesRequest` 
     
 </dd>
 </dl>
@@ -7483,7 +7484,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesActsIssue</a>(request: Requests.PostV1SalesActsIssueRequest, requestOptions: RequestOptions?) -> PostV1SalesActsIssueResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">actsIssue</a>(request: Requests.ActsIssueSalesRequest, requestOptions: RequestOptions?) -> ActsIssueSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7502,7 +7503,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesActsIssue(request: .init(id: "id"))
+    _ = try await client.sales.actsIssue(request: .init(id: "id"))
 }
 
 try await main()
@@ -7520,7 +7521,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesActsIssueRequest` 
+**request:** `Requests.ActsIssueSalesRequest` 
     
 </dd>
 </dl>
@@ -7540,7 +7541,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesActsCancel</a>(request: Requests.PostV1SalesActsCancelRequest, requestOptions: RequestOptions?) -> PostV1SalesActsCancelResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">actsCancel</a>(request: Requests.ActsCancelSalesRequest, requestOptions: RequestOptions?) -> ActsCancelSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7559,7 +7560,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesActsCancel(request: .init(id: "id"))
+    _ = try await client.sales.actsCancel(request: .init(id: "id"))
 }
 
 try await main()
@@ -7577,7 +7578,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesActsCancelRequest` 
+**request:** `Requests.ActsCancelSalesRequest` 
     
 </dd>
 </dl>
@@ -7597,7 +7598,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesActsGet</a>(request: Requests.PostV1SalesActsGetRequest, requestOptions: RequestOptions?) -> PostV1SalesActsGetResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">actsGet</a>(request: Requests.ActsGetSalesRequest, requestOptions: RequestOptions?) -> ActsGetSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7616,7 +7617,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesActsGet(request: .init(id: "id"))
+    _ = try await client.sales.actsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -7634,7 +7635,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesActsGetRequest` 
+**request:** `Requests.ActsGetSalesRequest` 
     
 </dd>
 </dl>
@@ -7654,7 +7655,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesActsList</a>(request: Requests.PostV1SalesActsListRequest, requestOptions: RequestOptions?) -> PostV1SalesActsListResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">actsList</a>(request: Requests.ActsListSalesRequest, requestOptions: RequestOptions?) -> ActsListSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7673,7 +7674,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesActsList(request: .init())
+    _ = try await client.sales.actsList(request: .init())
 }
 
 try await main()
@@ -7691,7 +7692,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesActsListRequest` 
+**request:** `Requests.ActsListSalesRequest` 
     
 </dd>
 </dl>
@@ -7711,7 +7712,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesActsPdf</a>(request: Requests.PostV1SalesActsPdfRequest, requestOptions: RequestOptions?) -> PostV1SalesActsPdfResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">actsPdf</a>(request: Requests.ActsPdfSalesRequest, requestOptions: RequestOptions?) -> ActsPdfSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7730,7 +7731,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesActsPdf(request: .init(id: "id"))
+    _ = try await client.sales.actsPdf(request: .init(id: "id"))
 }
 
 try await main()
@@ -7748,7 +7749,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesActsPdfRequest` 
+**request:** `Requests.ActsPdfSalesRequest` 
     
 </dd>
 </dl>
@@ -7768,7 +7769,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1OperationTypesCreate</a>(request: Requests.PostV1OperationTypesCreateRequest, requestOptions: RequestOptions?) -> PostV1OperationTypesCreateResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">recognitionCompute</a>(request: Requests.RecognitionComputeSalesRequest, requestOptions: RequestOptions?) -> RecognitionComputeSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7787,10 +7788,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1OperationTypesCreate(request: .init(
-        code: "code",
-        name: "name"
-    ))
+    _ = try await client.sales.recognitionCompute(request: .init())
 }
 
 try await main()
@@ -7808,7 +7806,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1OperationTypesCreateRequest` 
+**request:** `Requests.RecognitionComputeSalesRequest` 
     
 </dd>
 </dl>
@@ -7828,7 +7826,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1OperationTypesUpdate</a>(request: Requests.PostV1OperationTypesUpdateRequest, requestOptions: RequestOptions?) -> PostV1OperationTypesUpdateResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">recognitionRun</a>(request: Requests.RecognitionRunSalesRequest, requestOptions: RequestOptions?) -> RecognitionRunSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7847,7 +7845,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1OperationTypesUpdate(request: .init(id: "id"))
+    _ = try await client.sales.recognitionRun(request: .init())
 }
 
 try await main()
@@ -7865,7 +7863,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1OperationTypesUpdateRequest` 
+**request:** `Requests.RecognitionRunSalesRequest` 
     
 </dd>
 </dl>
@@ -7885,7 +7883,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1OperationTypesGet</a>(request: Requests.PostV1OperationTypesGetRequest, requestOptions: RequestOptions?) -> PostV1OperationTypesGetResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">recognitionProgress</a>(request: Requests.RecognitionProgressSalesRequest, requestOptions: RequestOptions?) -> RecognitionProgressSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7904,579 +7902,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1OperationTypesGet(request: .init(id: "id"))
-}
-
-try await main()
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Requests.PostV1OperationTypesGetRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1OperationTypesDelete</a>(request: Requests.PostV1OperationTypesDeleteRequest, requestOptions: RequestOptions?) -> PostV1OperationTypesDeleteResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```swift
-import Foundation
-import Api
-
-private func main() async throws {
-    let client = ApiClient(token: "<token>")
-
-    _ = try await client.sales.postV1OperationTypesDelete(request: .init(id: "id"))
-}
-
-try await main()
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Requests.PostV1OperationTypesDeleteRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1OperationTypesList</a>(request: Requests.PostV1OperationTypesListRequest, requestOptions: RequestOptions?) -> PostV1OperationTypesListResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```swift
-import Foundation
-import Api
-
-private func main() async throws {
-    let client = ApiClient(token: "<token>")
-
-    _ = try await client.sales.postV1OperationTypesList(request: .init())
-}
-
-try await main()
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Requests.PostV1OperationTypesListRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1DocumentSeriesCreate</a>(request: Requests.PostV1DocumentSeriesCreateRequest, requestOptions: RequestOptions?) -> PostV1DocumentSeriesCreateResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```swift
-import Foundation
-import Api
-
-private func main() async throws {
-    let client = ApiClient(token: "<token>")
-
-    _ = try await client.sales.postV1DocumentSeriesCreate(request: .init(prefix: "prefix"))
-}
-
-try await main()
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Requests.PostV1DocumentSeriesCreateRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1DocumentSeriesUpdate</a>(request: Requests.PostV1DocumentSeriesUpdateRequest, requestOptions: RequestOptions?) -> PostV1DocumentSeriesUpdateResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```swift
-import Foundation
-import Api
-
-private func main() async throws {
-    let client = ApiClient(token: "<token>")
-
-    _ = try await client.sales.postV1DocumentSeriesUpdate(request: .init(id: "id"))
-}
-
-try await main()
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Requests.PostV1DocumentSeriesUpdateRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1DocumentSeriesGet</a>(request: Requests.PostV1DocumentSeriesGetRequest, requestOptions: RequestOptions?) -> PostV1DocumentSeriesGetResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```swift
-import Foundation
-import Api
-
-private func main() async throws {
-    let client = ApiClient(token: "<token>")
-
-    _ = try await client.sales.postV1DocumentSeriesGet(request: .init(id: "id"))
-}
-
-try await main()
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Requests.PostV1DocumentSeriesGetRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1DocumentSeriesDelete</a>(request: Requests.PostV1DocumentSeriesDeleteRequest, requestOptions: RequestOptions?) -> PostV1DocumentSeriesDeleteResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```swift
-import Foundation
-import Api
-
-private func main() async throws {
-    let client = ApiClient(token: "<token>")
-
-    _ = try await client.sales.postV1DocumentSeriesDelete(request: .init(id: "id"))
-}
-
-try await main()
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Requests.PostV1DocumentSeriesDeleteRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1DocumentSeriesList</a>(request: Requests.PostV1DocumentSeriesListRequest, requestOptions: RequestOptions?) -> PostV1DocumentSeriesListResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```swift
-import Foundation
-import Api
-
-private func main() async throws {
-    let client = ApiClient(token: "<token>")
-
-    _ = try await client.sales.postV1DocumentSeriesList(request: .init())
-}
-
-try await main()
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Requests.PostV1DocumentSeriesListRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionCompute</a>(request: Requests.PostV1SalesRecognitionComputeRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionComputeResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```swift
-import Foundation
-import Api
-
-private func main() async throws {
-    let client = ApiClient(token: "<token>")
-
-    _ = try await client.sales.postV1SalesRecognitionCompute(request: .init())
-}
-
-try await main()
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Requests.PostV1SalesRecognitionComputeRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionRun</a>(request: Requests.PostV1SalesRecognitionRunRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionRunResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```swift
-import Foundation
-import Api
-
-private func main() async throws {
-    let client = ApiClient(token: "<token>")
-
-    _ = try await client.sales.postV1SalesRecognitionRun(request: .init())
-}
-
-try await main()
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Requests.PostV1SalesRecognitionRunRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionProgress</a>(request: Requests.PostV1SalesRecognitionProgressRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionProgressResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```swift
-import Foundation
-import Api
-
-private func main() async throws {
-    let client = ApiClient(token: "<token>")
-
-    _ = try await client.sales.postV1SalesRecognitionProgress(request: .init(
+    _ = try await client.sales.recognitionProgress(request: .init(
         invoiceLineId: "invoiceLineId",
-        percentComplete: "percentComplete"
+        percentComplete: "121.00"
     ))
 }
 
@@ -8495,7 +7923,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesRecognitionProgressRequest` 
+**request:** `Requests.RecognitionProgressSalesRequest` 
     
 </dd>
 </dl>
@@ -8515,7 +7943,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionModify</a>(request: Requests.PostV1SalesRecognitionModifyRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionModifyResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">recognitionModify</a>(request: Requests.RecognitionModifySalesRequest, requestOptions: RequestOptions?) -> RecognitionModifySalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8548,7 +7976,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesRecognitionModify(request: .init(
+    _ = try await client.sales.recognitionModify(request: .init(
         invoiceLineId: "invoiceLineId",
         approach: .prospective
     ))
@@ -8569,7 +7997,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesRecognitionModifyRequest` 
+**request:** `Requests.RecognitionModifySalesRequest` 
     
 </dd>
 </dl>
@@ -8589,7 +8017,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionRunsList</a>(request: Requests.PostV1SalesRecognitionRunsListRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionRunsListResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">recognitionRunsList</a>(request: Requests.RecognitionRunsListSalesRequest, requestOptions: RequestOptions?) -> RecognitionRunsListSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8608,7 +8036,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesRecognitionRunsList(request: .init())
+    _ = try await client.sales.recognitionRunsList(request: .init())
 }
 
 try await main()
@@ -8626,7 +8054,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesRecognitionRunsListRequest` 
+**request:** `Requests.RecognitionRunsListSalesRequest` 
     
 </dd>
 </dl>
@@ -8646,7 +8074,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRecognitionSummary</a>(request: Requests.PostV1SalesRecognitionSummaryRequest, requestOptions: RequestOptions?) -> PostV1SalesRecognitionSummaryResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">recognitionSummary</a>(request: Requests.RecognitionSummarySalesRequest, requestOptions: RequestOptions?) -> RecognitionSummarySalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8665,7 +8093,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesRecognitionSummary(request: .init())
+    _ = try await client.sales.recognitionSummary(request: .init())
 }
 
 try await main()
@@ -8683,7 +8111,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesRecognitionSummaryRequest` 
+**request:** `Requests.RecognitionSummarySalesRequest` 
     
 </dd>
 </dl>
@@ -8703,7 +8131,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRefundLiabilityList</a>(request: Requests.PostV1SalesRefundLiabilityListRequest, requestOptions: RequestOptions?) -> PostV1SalesRefundLiabilityListResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">refundLiabilityList</a>(request: Requests.RefundLiabilityListSalesRequest, requestOptions: RequestOptions?) -> RefundLiabilityListSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8722,7 +8150,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesRefundLiabilityList(request: .init())
+    _ = try await client.sales.refundLiabilityList(request: .init())
 }
 
 try await main()
@@ -8740,7 +8168,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesRefundLiabilityListRequest` 
+**request:** `Requests.RefundLiabilityListSalesRequest` 
     
 </dd>
 </dl>
@@ -8760,7 +8188,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">postV1SalesRefundLiabilityTrueUp</a>(request: Requests.PostV1SalesRefundLiabilityTrueUpRequest, requestOptions: RequestOptions?) -> PostV1SalesRefundLiabilityTrueUpResponse</code></summary>
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">refundLiabilityTrueUp</a>(request: Requests.RefundLiabilityTrueUpSalesRequest, requestOptions: RequestOptions?) -> RefundLiabilityTrueUpSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8779,9 +8207,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.sales.postV1SalesRefundLiabilityTrueUp(request: .init(
+    _ = try await client.sales.refundLiabilityTrueUp(request: .init(
         invoiceId: "invoiceId",
-        estimatedTotal: "estimatedTotal"
+        estimatedTotal: "121.0000"
     ))
 }
 
@@ -8800,7 +8228,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1SalesRefundLiabilityTrueUpRequest` 
+**request:** `Requests.RefundLiabilityTrueUpSalesRequest` 
     
 </dd>
 </dl>
@@ -8820,8 +8248,8 @@ try await main()
 </dl>
 </details>
 
-## Purchases
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesInvoicesCreate</a>(request: Requests.PostV1PurchasesInvoicesCreateRequest, requestOptions: RequestOptions?) -> PostV1PurchasesInvoicesCreateResponse</code></summary>
+## OperationTypes
+<details><summary><code>client.operationTypes.<a href="/Sources/Resources/OperationTypes/OperationTypesClient.swift">create</a>(request: Requests.CreateOperationTypesRequest, requestOptions: RequestOptions?) -> CreateOperationTypesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8840,12 +8268,587 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesInvoicesCreate(request: .init(
+    _ = try await client.operationTypes.create(request: .init(
+        code: "code",
+        name: "name"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.CreateOperationTypesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.operationTypes.<a href="/Sources/Resources/OperationTypes/OperationTypesClient.swift">update</a>(request: Requests.UpdateOperationTypesRequest, requestOptions: RequestOptions?) -> UpdateOperationTypesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.operationTypes.update(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.UpdateOperationTypesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.operationTypes.<a href="/Sources/Resources/OperationTypes/OperationTypesClient.swift">get</a>(request: Requests.GetOperationTypesRequest, requestOptions: RequestOptions?) -> GetOperationTypesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.operationTypes.get(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.GetOperationTypesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.operationTypes.<a href="/Sources/Resources/OperationTypes/OperationTypesClient.swift">delete</a>(request: Requests.DeleteOperationTypesRequest, requestOptions: RequestOptions?) -> DeleteOperationTypesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.operationTypes.delete(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.DeleteOperationTypesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.operationTypes.<a href="/Sources/Resources/OperationTypes/OperationTypesClient.swift">list</a>(request: Requests.ListOperationTypesRequest, requestOptions: RequestOptions?) -> ListOperationTypesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.operationTypes.list(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ListOperationTypesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## DocumentSeries
+<details><summary><code>client.documentSeries.<a href="/Sources/Resources/DocumentSeries/DocumentSeriesClient.swift">create</a>(request: Requests.CreateDocumentSeriesRequest, requestOptions: RequestOptions?) -> CreateDocumentSeriesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.documentSeries.create(request: .init(prefix: "prefix"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.CreateDocumentSeriesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.documentSeries.<a href="/Sources/Resources/DocumentSeries/DocumentSeriesClient.swift">update</a>(request: Requests.UpdateDocumentSeriesRequest, requestOptions: RequestOptions?) -> UpdateDocumentSeriesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.documentSeries.update(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.UpdateDocumentSeriesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.documentSeries.<a href="/Sources/Resources/DocumentSeries/DocumentSeriesClient.swift">get</a>(request: Requests.GetDocumentSeriesRequest, requestOptions: RequestOptions?) -> GetDocumentSeriesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.documentSeries.get(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.GetDocumentSeriesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.documentSeries.<a href="/Sources/Resources/DocumentSeries/DocumentSeriesClient.swift">delete</a>(request: Requests.DeleteDocumentSeriesRequest, requestOptions: RequestOptions?) -> DeleteDocumentSeriesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.documentSeries.delete(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.DeleteDocumentSeriesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.documentSeries.<a href="/Sources/Resources/DocumentSeries/DocumentSeriesClient.swift">list</a>(request: Requests.ListDocumentSeriesRequest, requestOptions: RequestOptions?) -> ListDocumentSeriesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.documentSeries.list(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ListDocumentSeriesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## purchases
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">invoicesCreate</a>(request: Requests.InvoicesCreatePurchasesRequest, requestOptions: RequestOptions?) -> InvoicesCreatePurchasesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.invoicesCreate(request: .init(
         partnerId: "partnerId",
         documentNumber: "documentNumber",
-        documentDate: "documentDate",
+        documentDate: CalendarDate("2026-07-01")!,
         lines: [
-            PostV1PurchasesInvoicesCreateRequestLinesItem(
+            InvoicesCreatePurchasesRequestLinesItem(
 
             )
         ]
@@ -8867,7 +8870,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesInvoicesCreateRequest` 
+**request:** `Requests.InvoicesCreatePurchasesRequest` 
     
 </dd>
 </dl>
@@ -8887,7 +8890,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesInvoicesGet</a>(request: Requests.PostV1PurchasesInvoicesGetRequest, requestOptions: RequestOptions?) -> PostV1PurchasesInvoicesGetResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">invoicesGet</a>(request: Requests.InvoicesGetPurchasesRequest, requestOptions: RequestOptions?) -> InvoicesGetPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8906,7 +8909,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesInvoicesGet(request: .init(id: "id"))
+    _ = try await client.purchases.invoicesGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -8924,7 +8927,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesInvoicesGetRequest` 
+**request:** `Requests.InvoicesGetPurchasesRequest` 
     
 </dd>
 </dl>
@@ -8944,7 +8947,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesInvoicesUpdate</a>(request: Requests.PostV1PurchasesInvoicesUpdateRequest, requestOptions: RequestOptions?) -> PostV1PurchasesInvoicesUpdateResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">invoicesUpdate</a>(request: Requests.InvoicesUpdatePurchasesRequest, requestOptions: RequestOptions?) -> InvoicesUpdatePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8963,7 +8966,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesInvoicesUpdate(request: .init(id: "id"))
+    _ = try await client.purchases.invoicesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -8981,7 +8984,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesInvoicesUpdateRequest` 
+**request:** `Requests.InvoicesUpdatePurchasesRequest` 
     
 </dd>
 </dl>
@@ -9001,7 +9004,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesInvoicesDelete</a>(request: Requests.PostV1PurchasesInvoicesDeleteRequest, requestOptions: RequestOptions?) -> PostV1PurchasesInvoicesDeleteResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">invoicesDelete</a>(request: Requests.InvoicesDeletePurchasesRequest, requestOptions: RequestOptions?) -> InvoicesDeletePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9020,7 +9023,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesInvoicesDelete(request: .init(id: "id"))
+    _ = try await client.purchases.invoicesDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -9038,7 +9041,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesInvoicesDeleteRequest` 
+**request:** `Requests.InvoicesDeletePurchasesRequest` 
     
 </dd>
 </dl>
@@ -9058,7 +9061,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesInvoicesRegister</a>(request: Requests.PostV1PurchasesInvoicesRegisterRequest, requestOptions: RequestOptions?) -> PostV1PurchasesInvoicesRegisterResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">invoicesRegister</a>(request: Requests.InvoicesRegisterPurchasesRequest, requestOptions: RequestOptions?) -> InvoicesRegisterPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9077,7 +9080,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesInvoicesRegister(request: .init(id: "id"))
+    _ = try await client.purchases.invoicesRegister(request: .init(id: "id"))
 }
 
 try await main()
@@ -9095,7 +9098,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesInvoicesRegisterRequest` 
+**request:** `Requests.InvoicesRegisterPurchasesRequest` 
     
 </dd>
 </dl>
@@ -9115,7 +9118,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesInvoicesList</a>(request: Requests.PostV1PurchasesInvoicesListRequest, requestOptions: RequestOptions?) -> PostV1PurchasesInvoicesListResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">invoicesList</a>(request: Requests.InvoicesListPurchasesRequest, requestOptions: RequestOptions?) -> InvoicesListPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9134,7 +9137,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesInvoicesList(request: .init())
+    _ = try await client.purchases.invoicesList(request: .init())
 }
 
 try await main()
@@ -9152,7 +9155,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesInvoicesListRequest` 
+**request:** `Requests.InvoicesListPurchasesRequest` 
     
 </dd>
 </dl>
@@ -9172,7 +9175,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersCreate</a>(request: Requests.PostV1PurchasesOrdersCreateRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersCreateResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">ordersCreate</a>(request: Requests.OrdersCreatePurchasesRequest, requestOptions: RequestOptions?) -> OrdersCreatePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9191,11 +9194,11 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesOrdersCreate(request: .init(
+    _ = try await client.purchases.ordersCreate(request: .init(
         partnerId: "partnerId",
-        orderDate: "orderDate",
+        orderDate: CalendarDate("2026-07-01")!,
         lines: [
-            PostV1PurchasesOrdersCreateRequestLinesItem(
+            OrdersCreatePurchasesRequestLinesItem(
 
             )
         ]
@@ -9217,7 +9220,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesOrdersCreateRequest` 
+**request:** `Requests.OrdersCreatePurchasesRequest` 
     
 </dd>
 </dl>
@@ -9237,7 +9240,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersUpdate</a>(request: Requests.PostV1PurchasesOrdersUpdateRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersUpdateResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">ordersUpdate</a>(request: Requests.OrdersUpdatePurchasesRequest, requestOptions: RequestOptions?) -> OrdersUpdatePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9256,7 +9259,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesOrdersUpdate(request: .init(id: "id"))
+    _ = try await client.purchases.ordersUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -9274,7 +9277,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesOrdersUpdateRequest` 
+**request:** `Requests.OrdersUpdatePurchasesRequest` 
     
 </dd>
 </dl>
@@ -9294,7 +9297,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersGet</a>(request: Requests.PostV1PurchasesOrdersGetRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersGetResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">ordersGet</a>(request: Requests.OrdersGetPurchasesRequest, requestOptions: RequestOptions?) -> OrdersGetPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9313,7 +9316,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesOrdersGet(request: .init(id: "id"))
+    _ = try await client.purchases.ordersGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -9331,7 +9334,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesOrdersGetRequest` 
+**request:** `Requests.OrdersGetPurchasesRequest` 
     
 </dd>
 </dl>
@@ -9351,7 +9354,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersList</a>(request: Requests.PostV1PurchasesOrdersListRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersListResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">ordersList</a>(request: Requests.OrdersListPurchasesRequest, requestOptions: RequestOptions?) -> OrdersListPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9370,7 +9373,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesOrdersList(request: .init())
+    _ = try await client.purchases.ordersList(request: .init())
 }
 
 try await main()
@@ -9388,7 +9391,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesOrdersListRequest` 
+**request:** `Requests.OrdersListPurchasesRequest` 
     
 </dd>
 </dl>
@@ -9408,7 +9411,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersSubmit</a>(request: Requests.PostV1PurchasesOrdersSubmitRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersSubmitResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">ordersSubmit</a>(request: Requests.OrdersSubmitPurchasesRequest, requestOptions: RequestOptions?) -> OrdersSubmitPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9427,7 +9430,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesOrdersSubmit(request: .init(id: "id"))
+    _ = try await client.purchases.ordersSubmit(request: .init(id: "id"))
 }
 
 try await main()
@@ -9445,7 +9448,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesOrdersSubmitRequest` 
+**request:** `Requests.OrdersSubmitPurchasesRequest` 
     
 </dd>
 </dl>
@@ -9465,7 +9468,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersApprove</a>(request: Requests.PostV1PurchasesOrdersApproveRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersApproveResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">ordersApprove</a>(request: Requests.OrdersApprovePurchasesRequest, requestOptions: RequestOptions?) -> OrdersApprovePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9484,7 +9487,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesOrdersApprove(request: .init(id: "id"))
+    _ = try await client.purchases.ordersApprove(request: .init(id: "id"))
 }
 
 try await main()
@@ -9502,7 +9505,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesOrdersApproveRequest` 
+**request:** `Requests.OrdersApprovePurchasesRequest` 
     
 </dd>
 </dl>
@@ -9522,7 +9525,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersReject</a>(request: Requests.PostV1PurchasesOrdersRejectRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersRejectResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">ordersReject</a>(request: Requests.OrdersRejectPurchasesRequest, requestOptions: RequestOptions?) -> OrdersRejectPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9541,7 +9544,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesOrdersReject(request: .init(id: "id"))
+    _ = try await client.purchases.ordersReject(request: .init(id: "id"))
 }
 
 try await main()
@@ -9559,7 +9562,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesOrdersRejectRequest` 
+**request:** `Requests.OrdersRejectPurchasesRequest` 
     
 </dd>
 </dl>
@@ -9579,7 +9582,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersCancel</a>(request: Requests.PostV1PurchasesOrdersCancelRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersCancelResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">ordersCancel</a>(request: Requests.OrdersCancelPurchasesRequest, requestOptions: RequestOptions?) -> OrdersCancelPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9598,7 +9601,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesOrdersCancel(request: .init(id: "id"))
+    _ = try await client.purchases.ordersCancel(request: .init(id: "id"))
 }
 
 try await main()
@@ -9616,7 +9619,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesOrdersCancelRequest` 
+**request:** `Requests.OrdersCancelPurchasesRequest` 
     
 </dd>
 </dl>
@@ -9636,7 +9639,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersClose</a>(request: Requests.PostV1PurchasesOrdersCloseRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersCloseResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">ordersClose</a>(request: Requests.OrdersClosePurchasesRequest, requestOptions: RequestOptions?) -> OrdersClosePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9655,7 +9658,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesOrdersClose(request: .init(id: "id"))
+    _ = try await client.purchases.ordersClose(request: .init(id: "id"))
 }
 
 try await main()
@@ -9673,7 +9676,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesOrdersCloseRequest` 
+**request:** `Requests.OrdersClosePurchasesRequest` 
     
 </dd>
 </dl>
@@ -9693,7 +9696,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesOrdersDelete</a>(request: Requests.PostV1PurchasesOrdersDeleteRequest, requestOptions: RequestOptions?) -> PostV1PurchasesOrdersDeleteResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">ordersDelete</a>(request: Requests.OrdersDeletePurchasesRequest, requestOptions: RequestOptions?) -> OrdersDeletePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9712,7 +9715,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesOrdersDelete(request: .init(id: "id"))
+    _ = try await client.purchases.ordersDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -9730,7 +9733,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesOrdersDeleteRequest` 
+**request:** `Requests.OrdersDeletePurchasesRequest` 
     
 </dd>
 </dl>
@@ -9750,7 +9753,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesReceiptsCreate</a>(request: Requests.PostV1PurchasesReceiptsCreateRequest, requestOptions: RequestOptions?) -> PostV1PurchasesReceiptsCreateResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">receiptsCreate</a>(request: Requests.ReceiptsCreatePurchasesRequest, requestOptions: RequestOptions?) -> ReceiptsCreatePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9769,13 +9772,13 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesReceiptsCreate(request: .init(
+    _ = try await client.purchases.receiptsCreate(request: .init(
         orderId: "orderId",
-        receiptDate: "receiptDate",
+        receiptDate: CalendarDate("2026-07-01")!,
         lines: [
-            PostV1PurchasesReceiptsCreateRequestLinesItem(
+            ReceiptsCreatePurchasesRequestLinesItem(
                 orderLineId: "orderLineId",
-                quantity: "quantity"
+                quantity: "121.0000"
             )
         ]
     ))
@@ -9796,7 +9799,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesReceiptsCreateRequest` 
+**request:** `Requests.ReceiptsCreatePurchasesRequest` 
     
 </dd>
 </dl>
@@ -9816,7 +9819,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesReceiptsGet</a>(request: Requests.PostV1PurchasesReceiptsGetRequest, requestOptions: RequestOptions?) -> PostV1PurchasesReceiptsGetResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">receiptsGet</a>(request: Requests.ReceiptsGetPurchasesRequest, requestOptions: RequestOptions?) -> ReceiptsGetPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9835,7 +9838,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesReceiptsGet(request: .init(id: "id"))
+    _ = try await client.purchases.receiptsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -9853,7 +9856,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesReceiptsGetRequest` 
+**request:** `Requests.ReceiptsGetPurchasesRequest` 
     
 </dd>
 </dl>
@@ -9873,7 +9876,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesReceiptsList</a>(request: Requests.PostV1PurchasesReceiptsListRequest, requestOptions: RequestOptions?) -> PostV1PurchasesReceiptsListResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">receiptsList</a>(request: Requests.ReceiptsListPurchasesRequest, requestOptions: RequestOptions?) -> ReceiptsListPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9892,7 +9895,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesReceiptsList(request: .init())
+    _ = try await client.purchases.receiptsList(request: .init())
 }
 
 try await main()
@@ -9910,7 +9913,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesReceiptsListRequest` 
+**request:** `Requests.ReceiptsListPurchasesRequest` 
     
 </dd>
 </dl>
@@ -9930,7 +9933,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">postV1PurchasesInvoicesMatch</a>(request: Requests.PostV1PurchasesInvoicesMatchRequest, requestOptions: RequestOptions?) -> PostV1PurchasesInvoicesMatchResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">invoicesMatch</a>(request: Requests.InvoicesMatchPurchasesRequest, requestOptions: RequestOptions?) -> InvoicesMatchPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9949,7 +9952,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.purchases.postV1PurchasesInvoicesMatch(request: .init(invoiceId: "invoiceId"))
+    _ = try await client.purchases.invoicesMatch(request: .init(invoiceId: "invoiceId"))
 }
 
 try await main()
@@ -9967,7 +9970,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PurchasesInvoicesMatchRequest` 
+**request:** `Requests.InvoicesMatchPurchasesRequest` 
     
 </dd>
 </dl>
@@ -9987,8 +9990,8 @@ try await main()
 </dl>
 </details>
 
-## Capture
-<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">postV1CaptureSettingsGet</a>(request: Requests.PostV1CaptureSettingsGetRequest, requestOptions: RequestOptions?) -> PostV1CaptureSettingsGetResponse</code></summary>
+## capture
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">settingsGet</a>(request: Requests.SettingsGetCaptureRequest, requestOptions: RequestOptions?) -> SettingsGetCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -10007,7 +10010,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.capture.postV1CaptureSettingsGet(request: .init())
+    _ = try await client.capture.settingsGet(request: .init())
 }
 
 try await main()
@@ -10025,7 +10028,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CaptureSettingsGetRequest` 
+**request:** `Requests.SettingsGetCaptureRequest` 
     
 </dd>
 </dl>
@@ -10045,7 +10048,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">postV1CaptureSettingsUpdate</a>(request: Requests.PostV1CaptureSettingsUpdateRequest, requestOptions: RequestOptions?) -> PostV1CaptureSettingsUpdateResponse</code></summary>
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">settingsUpdate</a>(request: Requests.SettingsUpdateCaptureRequest, requestOptions: RequestOptions?) -> SettingsUpdateCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -10064,7 +10067,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.capture.postV1CaptureSettingsUpdate(request: .init())
+    _ = try await client.capture.settingsUpdate(request: .init())
 }
 
 try await main()
@@ -10082,7 +10085,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CaptureSettingsUpdateRequest` 
+**request:** `Requests.SettingsUpdateCaptureRequest` 
     
 </dd>
 </dl>
@@ -10102,7 +10105,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">postV1CaptureSettingsRegenerateIntake</a>(request: Requests.PostV1CaptureSettingsRegenerateIntakeRequest, requestOptions: RequestOptions?) -> PostV1CaptureSettingsRegenerateIntakeResponse</code></summary>
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">settingsRegenerateIntake</a>(request: Requests.SettingsRegenerateIntakeCaptureRequest, requestOptions: RequestOptions?) -> SettingsRegenerateIntakeCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -10121,7 +10124,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.capture.postV1CaptureSettingsRegenerateIntake(request: .init())
+    _ = try await client.capture.settingsRegenerateIntake(request: .init())
 }
 
 try await main()
@@ -10139,7 +10142,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CaptureSettingsRegenerateIntakeRequest` 
+**request:** `Requests.SettingsRegenerateIntakeCaptureRequest` 
     
 </dd>
 </dl>
@@ -10159,7 +10162,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">receiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJson</a>(request: Requests.PostV1CaptureInboundEmailRequest, requestOptions: RequestOptions?) -> PostV1CaptureInboundEmailResponse</code></summary>
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">inboundEmail</a>(request: Requests.InboundEmailCaptureRequest, requestOptions: RequestOptions?) -> InboundEmailCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -10178,7 +10181,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.capture.receiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJson(request: .init())
+    _ = try await client.capture.inboundEmail(request: .init())
 }
 
 try await main()
@@ -10196,7 +10199,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CaptureInboundEmailRequest` 
+**request:** `Requests.InboundEmailCaptureRequest` 
     
 </dd>
 </dl>
@@ -10216,7 +10219,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">readAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraft</a>(request: Requests.PostV1CaptureDocumentsUploadRequest, requestOptions: RequestOptions?) -> PostV1CaptureDocumentsUploadResponse</code></summary>
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">documentsUpload</a>(request: Requests.DocumentsUploadCaptureRequest, requestOptions: RequestOptions?) -> DocumentsUploadCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -10235,7 +10238,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.capture.readAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraft(request: .init(
+    _ = try await client.capture.documentsUpload(request: .init(
         fileName: "fileName",
         mimeType: "mimeType",
         content: "content"
@@ -10257,7 +10260,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CaptureDocumentsUploadRequest` 
+**request:** `Requests.DocumentsUploadCaptureRequest` 
     
 </dd>
 </dl>
@@ -10277,7 +10280,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">reReadAStoredCaptureReplacingThePreviousDraft</a>(request: Requests.PostV1CaptureDocumentsExtractRequest, requestOptions: RequestOptions?) -> PostV1CaptureDocumentsExtractResponse</code></summary>
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">documentsExtract</a>(request: Requests.DocumentsExtractCaptureRequest, requestOptions: RequestOptions?) -> DocumentsExtractCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -10296,7 +10299,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.capture.reReadAStoredCaptureReplacingThePreviousDraft(request: .init(id: "id"))
+    _ = try await client.capture.documentsExtract(request: .init(id: "id"))
 }
 
 try await main()
@@ -10314,7 +10317,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CaptureDocumentsExtractRequest` 
+**request:** `Requests.DocumentsExtractCaptureRequest` 
     
 </dd>
 </dl>
@@ -10334,7 +10337,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">postV1CaptureDocumentsGet</a>(request: Requests.PostV1CaptureDocumentsGetRequest, requestOptions: RequestOptions?) -> PostV1CaptureDocumentsGetResponse</code></summary>
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">documentsGet</a>(request: Requests.DocumentsGetCaptureRequest, requestOptions: RequestOptions?) -> DocumentsGetCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -10353,7 +10356,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.capture.postV1CaptureDocumentsGet(request: .init(id: "id"))
+    _ = try await client.capture.documentsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -10371,7 +10374,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CaptureDocumentsGetRequest` 
+**request:** `Requests.DocumentsGetCaptureRequest` 
     
 </dd>
 </dl>
@@ -10391,7 +10394,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">postV1CaptureDocumentsList</a>(request: Requests.PostV1CaptureDocumentsListRequest, requestOptions: RequestOptions?) -> PostV1CaptureDocumentsListResponse</code></summary>
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">documentsList</a>(request: Requests.DocumentsListCaptureRequest, requestOptions: RequestOptions?) -> DocumentsListCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -10410,7 +10413,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.capture.postV1CaptureDocumentsList(request: .init())
+    _ = try await client.capture.documentsList(request: .init())
 }
 
 try await main()
@@ -10428,7 +10431,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CaptureDocumentsListRequest` 
+**request:** `Requests.DocumentsListCaptureRequest` 
     
 </dd>
 </dl>
@@ -10448,7 +10451,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">postV1CaptureDocumentsDelete</a>(request: Requests.PostV1CaptureDocumentsDeleteRequest, requestOptions: RequestOptions?) -> PostV1CaptureDocumentsDeleteResponse</code></summary>
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">documentsDelete</a>(request: Requests.DocumentsDeleteCaptureRequest, requestOptions: RequestOptions?) -> DocumentsDeleteCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -10467,7 +10470,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.capture.postV1CaptureDocumentsDelete(request: .init(id: "id"))
+    _ = try await client.capture.documentsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -10485,7 +10488,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CaptureDocumentsDeleteRequest` 
+**request:** `Requests.DocumentsDeleteCaptureRequest` 
     
 </dd>
 </dl>
@@ -10505,7 +10508,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">saveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocument</a>(request: Requests.PostV1CaptureDocumentsConfirmRequest, requestOptions: RequestOptions?) -> PostV1CaptureDocumentsConfirmResponse</code></summary>
+<details><summary><code>client.capture.<a href="/Sources/Resources/Capture/CaptureClient.swift">documentsConfirm</a>(request: Requests.DocumentsConfirmCaptureRequest, requestOptions: RequestOptions?) -> DocumentsConfirmCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -10524,12 +10527,12 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.capture.saveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocument(request: .init(
+    _ = try await client.capture.documentsConfirm(request: .init(
         id: "id",
         documentNumber: "documentNumber",
-        documentDate: "documentDate",
+        documentDate: CalendarDate("2026-07-01")!,
         lines: [
-            PostV1CaptureDocumentsConfirmRequestLinesItem(
+            DocumentsConfirmCaptureRequestLinesItem(
 
             )
         ]
@@ -10551,7 +10554,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CaptureDocumentsConfirmRequest` 
+**request:** `Requests.DocumentsConfirmCaptureRequest` 
     
 </dd>
 </dl>
@@ -10571,8 +10574,8 @@ try await main()
 </dl>
 </details>
 
-## Declarations
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtIntrastatCompute</a>(request: Requests.PostV1DeclarationsLtIntrastatComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtIntrastatComputeResponse</code></summary>
+## declarations
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltIntrastatCompute</a>(request: Requests.LtIntrastatComputeDeclarationsRequest, requestOptions: RequestOptions?) -> LtIntrastatComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -10591,7 +10594,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtIntrastatCompute(request: .init(
+    _ = try await client.declarations.ltIntrastatCompute(request: .init(
         year: 1000000,
         month: 1000000,
         flow: .arrivals
@@ -10613,7 +10616,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtIntrastatComputeRequest` 
+**request:** `Requests.LtIntrastatComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10633,7 +10636,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtIvazGenerate</a>(request: Requests.PostV1DeclarationsLtIvazGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtIvazGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltIvazGenerate</a>(request: Requests.LtIvazGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> LtIvazGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -10652,7 +10655,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtIvazGenerate(request: .init(waybillIds: [
+    _ = try await client.declarations.ltIvazGenerate(request: .init(waybillIds: [
         "waybillIds"
     ]))
 }
@@ -10672,7 +10675,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtIvazGenerateRequest` 
+**request:** `Requests.LtIvazGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10692,7 +10695,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtIntrastatObligation</a>(request: Requests.PostV1DeclarationsLtIntrastatObligationRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtIntrastatObligationResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltIntrastatObligation</a>(request: Requests.LtIntrastatObligationDeclarationsRequest, requestOptions: RequestOptions?) -> LtIntrastatObligationDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -10711,7 +10714,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtIntrastatObligation(request: .init(year: 1000000))
+    _ = try await client.declarations.ltIntrastatObligation(request: .init(year: 1000000))
 }
 
 try await main()
@@ -10729,7 +10732,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtIntrastatObligationRequest` 
+**request:** `Requests.LtIntrastatObligationDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10749,7 +10752,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtIsafGenerate</a>(request: Requests.PostV1DeclarationsLtIsafGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtIsafGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltIsafGenerate</a>(request: Requests.LtIsafGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> LtIsafGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -10768,7 +10771,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtIsafGenerate(request: .init(
+    _ = try await client.declarations.ltIsafGenerate(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -10789,7 +10792,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtIsafGenerateRequest` 
+**request:** `Requests.LtIsafGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10809,7 +10812,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtFr0600Compute</a>(request: Requests.PostV1DeclarationsLtFr0600ComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtFr0600ComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltFr0600Compute</a>(request: Requests.LtFr0600ComputeDeclarationsRequest, requestOptions: RequestOptions?) -> LtFr0600ComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -10828,7 +10831,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtFr0600Compute(request: .init(
+    _ = try await client.declarations.ltFr0600Compute(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -10849,7 +10852,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtFr0600ComputeRequest` 
+**request:** `Requests.LtFr0600ComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10869,7 +10872,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtGpm313Compute</a>(request: Requests.PostV1DeclarationsLtGpm313ComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtGpm313ComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltGpm313Compute</a>(request: Requests.LtGpm313ComputeDeclarationsRequest, requestOptions: RequestOptions?) -> LtGpm313ComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -10888,7 +10891,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtGpm313Compute(request: .init(
+    _ = try await client.declarations.ltGpm313Compute(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -10909,7 +10912,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtGpm313ComputeRequest` 
+**request:** `Requests.LtGpm313ComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10929,7 +10932,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtSamCompute</a>(request: Requests.PostV1DeclarationsLtSamComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtSamComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltSamCompute</a>(request: Requests.LtSamComputeDeclarationsRequest, requestOptions: RequestOptions?) -> LtSamComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -10948,7 +10951,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtSamCompute(request: .init(
+    _ = try await client.declarations.ltSamCompute(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -10969,7 +10972,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtSamComputeRequest` 
+**request:** `Requests.LtSamComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10989,7 +10992,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtSdGenerate</a>(request: Requests.PostV1DeclarationsLtSdGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtSdGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltSdGenerate</a>(request: Requests.LtSdGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> LtSdGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11008,10 +11011,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtSdGenerate(request: .init(
+    _ = try await client.declarations.ltSdGenerate(request: .init(
         type: .oneSd,
-        fromDate: "fromDate",
-        toDate: "toDate"
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -11030,7 +11033,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtSdGenerateRequest` 
+**request:** `Requests.LtSdGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11050,7 +11053,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtSaftGenerate</a>(request: Requests.PostV1DeclarationsLtSaftGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtSaftGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltSaftGenerate</a>(request: Requests.LtSaftGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> LtSaftGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11069,9 +11072,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtSaftGenerate(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.declarations.ltSaftGenerate(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -11090,7 +11093,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtSaftGenerateRequest` 
+**request:** `Requests.LtSaftGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11110,7 +11113,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtIvazAmend</a>(request: Requests.PostV1DeclarationsLtIvazAmendRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtIvazAmendResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltIvazAmend</a>(request: Requests.LtIvazAmendDeclarationsRequest, requestOptions: RequestOptions?) -> LtIvazAmendDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11129,7 +11132,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtIvazAmend(request: .init(waybillIds: [
+    _ = try await client.declarations.ltIvazAmend(request: .init(waybillIds: [
         "waybillIds"
     ]))
 }
@@ -11149,7 +11152,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtIvazAmendRequest` 
+**request:** `Requests.LtIvazAmendDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11169,7 +11172,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtIvazCancel</a>(request: Requests.PostV1DeclarationsLtIvazCancelRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtIvazCancelResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltIvazCancel</a>(request: Requests.LtIvazCancelDeclarationsRequest, requestOptions: RequestOptions?) -> LtIvazCancelDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11188,8 +11191,8 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtIvazCancel(request: .init(entries: [
-        PostV1DeclarationsLtIvazCancelRequestEntriesItem(
+    _ = try await client.declarations.ltIvazCancel(request: .init(entries: [
+        LtIvazCancelDeclarationsRequestEntriesItem(
             waybillId: "waybillId",
             reason: .one
         )
@@ -11211,7 +11214,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtIvazCancelRequest` 
+**request:** `Requests.LtIvazCancelDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11231,7 +11234,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtFr0564Compute</a>(request: Requests.PostV1DeclarationsLtFr0564ComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtFr0564ComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltFr0564Compute</a>(request: Requests.LtFr0564ComputeDeclarationsRequest, requestOptions: RequestOptions?) -> LtFr0564ComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11250,7 +11253,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtFr0564Compute(request: .init(
+    _ = try await client.declarations.ltFr0564Compute(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -11271,7 +11274,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtFr0564ComputeRequest` 
+**request:** `Requests.LtFr0564ComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11291,7 +11294,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtGpm312Compute</a>(request: Requests.PostV1DeclarationsLtGpm312ComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtGpm312ComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltGpm312Compute</a>(request: Requests.LtGpm312ComputeDeclarationsRequest, requestOptions: RequestOptions?) -> LtGpm312ComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11310,7 +11313,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtGpm312Compute(request: .init(year: 1000000))
+    _ = try await client.declarations.ltGpm312Compute(request: .init(year: 1000000))
 }
 
 try await main()
@@ -11328,7 +11331,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtGpm312ComputeRequest` 
+**request:** `Requests.LtGpm312ComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11348,7 +11351,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtPln204Compute</a>(request: Requests.PostV1DeclarationsLtPln204ComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtPln204ComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltPln204Compute</a>(request: Requests.LtPln204ComputeDeclarationsRequest, requestOptions: RequestOptions?) -> LtPln204ComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11367,7 +11370,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtPln204Compute(request: .init(year: 1000000))
+    _ = try await client.declarations.ltPln204Compute(request: .init(year: 1000000))
 }
 
 try await main()
@@ -11385,7 +11388,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtPln204ComputeRequest` 
+**request:** `Requests.LtPln204ComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11405,7 +11408,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuOssCompute</a>(request: Requests.PostV1DeclarationsEuOssComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuOssComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">euOssCompute</a>(request: Requests.EuOssComputeDeclarationsRequest, requestOptions: RequestOptions?) -> EuOssComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11424,7 +11427,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsEuOssCompute(request: .init(
+    _ = try await client.declarations.euOssCompute(request: .init(
         year: 1000000,
         quarter: 1000000
     ))
@@ -11445,7 +11448,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsEuOssComputeRequest` 
+**request:** `Requests.EuOssComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11465,7 +11468,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuIossCompute</a>(request: Requests.PostV1DeclarationsEuIossComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuIossComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">euIossCompute</a>(request: Requests.EuIossComputeDeclarationsRequest, requestOptions: RequestOptions?) -> EuIossComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11484,7 +11487,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsEuIossCompute(request: .init(
+    _ = try await client.declarations.euIossCompute(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -11505,7 +11508,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsEuIossComputeRequest` 
+**request:** `Requests.EuIossComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11525,7 +11528,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuDistanceSalesThresholdGet</a>(request: Requests.PostV1DeclarationsEuDistanceSalesThresholdGetRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuDistanceSalesThresholdGetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">euDistanceSalesThresholdGet</a>(request: Requests.EuDistanceSalesThresholdGetDeclarationsRequest, requestOptions: RequestOptions?) -> EuDistanceSalesThresholdGetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11544,7 +11547,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsEuDistanceSalesThresholdGet(request: .init())
+    _ = try await client.declarations.euDistanceSalesThresholdGet(request: .init())
 }
 
 try await main()
@@ -11562,7 +11565,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsEuDistanceSalesThresholdGetRequest` 
+**request:** `Requests.EuDistanceSalesThresholdGetDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11582,7 +11585,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuUnionTurnoverGet</a>(request: Requests.PostV1DeclarationsEuUnionTurnoverGetRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuUnionTurnoverGetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">euUnionTurnoverGet</a>(request: Requests.EuUnionTurnoverGetDeclarationsRequest, requestOptions: RequestOptions?) -> EuUnionTurnoverGetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11601,7 +11604,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsEuUnionTurnoverGet(request: .init())
+    _ = try await client.declarations.euUnionTurnoverGet(request: .init())
 }
 
 try await main()
@@ -11619,7 +11622,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsEuUnionTurnoverGetRequest` 
+**request:** `Requests.EuUnionTurnoverGetDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11639,7 +11642,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuSmeCrossBorderReportCompute</a>(request: Requests.PostV1DeclarationsEuSmeCrossBorderReportComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuSmeCrossBorderReportComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">euSmeCrossBorderReportCompute</a>(request: Requests.EuSmeCrossBorderReportComputeDeclarationsRequest, requestOptions: RequestOptions?) -> EuSmeCrossBorderReportComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11658,7 +11661,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsEuSmeCrossBorderReportCompute(request: .init(
+    _ = try await client.declarations.euSmeCrossBorderReportCompute(request: .init(
         year: 1000000,
         quarter: 1000000
     ))
@@ -11679,7 +11682,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsEuSmeCrossBorderReportComputeRequest` 
+**request:** `Requests.EuSmeCrossBorderReportComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11699,7 +11702,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuSmeThresholdsList</a>(request: Requests.PostV1DeclarationsEuSmeThresholdsListRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuSmeThresholdsListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">euSmeThresholdsList</a>(request: Requests.EuSmeThresholdsListDeclarationsRequest, requestOptions: RequestOptions?) -> EuSmeThresholdsListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11718,7 +11721,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsEuSmeThresholdsList(request: .init())
+    _ = try await client.declarations.euSmeThresholdsList(request: .init())
 }
 
 try await main()
@@ -11736,7 +11739,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsEuSmeThresholdsListRequest` 
+**request:** `Requests.EuSmeThresholdsListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11756,7 +11759,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuSmeThresholdGet</a>(request: Requests.PostV1DeclarationsEuSmeThresholdGetRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuSmeThresholdGetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">euSmeThresholdGet</a>(request: Requests.EuSmeThresholdGetDeclarationsRequest, requestOptions: RequestOptions?) -> EuSmeThresholdGetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11775,7 +11778,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsEuSmeThresholdGet(request: .init())
+    _ = try await client.declarations.euSmeThresholdGet(request: .init())
 }
 
 try await main()
@@ -11793,7 +11796,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsEuSmeThresholdGetRequest` 
+**request:** `Requests.EuSmeThresholdGetDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11813,7 +11816,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuVatReturnPacksList</a>(request: Requests.PostV1DeclarationsEuVatReturnPacksListRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuVatReturnPacksListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">euVatReturnPacksList</a>(request: Requests.EuVatReturnPacksListDeclarationsRequest, requestOptions: RequestOptions?) -> EuVatReturnPacksListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11832,7 +11835,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsEuVatReturnPacksList(request: .init())
+    _ = try await client.declarations.euVatReturnPacksList(request: .init())
 }
 
 try await main()
@@ -11850,7 +11853,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsEuVatReturnPacksListRequest` 
+**request:** `Requests.EuVatReturnPacksListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11870,7 +11873,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEuVatReturnCompute</a>(request: Requests.PostV1DeclarationsEuVatReturnComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEuVatReturnComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">euVatReturnCompute</a>(request: Requests.EuVatReturnComputeDeclarationsRequest, requestOptions: RequestOptions?) -> EuVatReturnComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11889,7 +11892,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsEuVatReturnCompute(request: .init(
+    _ = try await client.declarations.euVatReturnCompute(request: .init(
         countryCode: "countryCode",
         year: 1000000,
         month: 1000000
@@ -11911,7 +11914,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsEuVatReturnComputeRequest` 
+**request:** `Requests.EuVatReturnComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11931,7 +11934,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlJpkV7MGenerate</a>(request: Requests.PostV1DeclarationsPlJpkV7MGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlJpkV7MGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plJpkV7MGenerate</a>(request: Requests.PlJpkV7MGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> PlJpkV7MGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11964,7 +11967,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlJpkV7MGenerate(request: .init(
+    _ = try await client.declarations.plJpkV7MGenerate(request: .init(
         year: 1000000,
         month: 1000000,
         kodUrzedu: "kodUrzedu",
@@ -11987,7 +11990,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlJpkV7MGenerateRequest` 
+**request:** `Requests.PlJpkV7MGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12007,7 +12010,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlVatUeGenerate</a>(request: Requests.PostV1DeclarationsPlVatUeGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlVatUeGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plVatUeGenerate</a>(request: Requests.PlVatUeGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> PlVatUeGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12040,7 +12043,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlVatUeGenerate(request: .init(
+    _ = try await client.declarations.plVatUeGenerate(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -12061,7 +12064,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlVatUeGenerateRequest` 
+**request:** `Requests.PlVatUeGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12081,7 +12084,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlIntrastatGenerate</a>(request: Requests.PostV1DeclarationsPlIntrastatGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlIntrastatGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plIntrastatGenerate</a>(request: Requests.PlIntrastatGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> PlIntrastatGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12114,7 +12117,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlIntrastatGenerate(request: .init(
+    _ = try await client.declarations.plIntrastatGenerate(request: .init(
         year: 1000000,
         month: 1000000,
         flow: .arrivals
@@ -12136,7 +12139,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlIntrastatGenerateRequest` 
+**request:** `Requests.PlIntrastatGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12156,7 +12159,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlKsefReceivedList</a>(request: Requests.PostV1DeclarationsPlKsefReceivedListRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlKsefReceivedListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plKsefReceivedList</a>(request: Requests.PlKsefReceivedListDeclarationsRequest, requestOptions: RequestOptions?) -> PlKsefReceivedListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12189,7 +12192,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlKsefReceivedList(request: .init(
+    _ = try await client.declarations.plKsefReceivedList(request: .init(
         from: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
         to: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
     ))
@@ -12210,7 +12213,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlKsefReceivedListRequest` 
+**request:** `Requests.PlKsefReceivedListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12230,7 +12233,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlKsefReceivedFetch</a>(request: Requests.PostV1DeclarationsPlKsefReceivedFetchRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlKsefReceivedFetchResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plKsefReceivedFetch</a>(request: Requests.PlKsefReceivedFetchDeclarationsRequest, requestOptions: RequestOptions?) -> PlKsefReceivedFetchDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12263,7 +12266,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlKsefReceivedFetch(request: .init(ksefNumber: "ksefNumber"))
+    _ = try await client.declarations.plKsefReceivedFetch(request: .init(ksefNumber: "ksefNumber"))
 }
 
 try await main()
@@ -12281,7 +12284,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlKsefReceivedFetchRequest` 
+**request:** `Requests.PlKsefReceivedFetchDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12301,7 +12304,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlKsefReceipt</a>(request: Requests.PostV1DeclarationsPlKsefReceiptRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlKsefReceiptResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plKsefReceipt</a>(request: Requests.PlKsefReceiptDeclarationsRequest, requestOptions: RequestOptions?) -> PlKsefReceiptDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12334,7 +12337,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlKsefReceipt(request: .init())
+    _ = try await client.declarations.plKsefReceipt(request: .init())
 }
 
 try await main()
@@ -12352,7 +12355,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlKsefReceiptRequest` 
+**request:** `Requests.PlKsefReceiptDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12372,7 +12375,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">taxAdjustmentsRecordedForATaxYear</a>(request: Requests.PostV1DeclarationsTaxAdjustmentsListRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsTaxAdjustmentsListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">taxAdjustmentsList</a>(request: Requests.TaxAdjustmentsListDeclarationsRequest, requestOptions: RequestOptions?) -> TaxAdjustmentsListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12405,7 +12408,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.taxAdjustmentsRecordedForATaxYear(request: .init(year: 1000000))
+    _ = try await client.declarations.taxAdjustmentsList(request: .init(year: 1000000))
 }
 
 try await main()
@@ -12423,7 +12426,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsTaxAdjustmentsListRequest` 
+**request:** `Requests.TaxAdjustmentsListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12443,7 +12446,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">recordATaxAdjustmentForATaxYear</a>(request: Requests.PostV1DeclarationsTaxAdjustmentsCreateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsTaxAdjustmentsCreateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">taxAdjustmentsCreate</a>(request: Requests.TaxAdjustmentsCreateDeclarationsRequest, requestOptions: RequestOptions?) -> TaxAdjustmentsCreateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12462,10 +12465,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.recordATaxAdjustmentForATaxYear(request: .init(
+    _ = try await client.declarations.taxAdjustmentsCreate(request: .init(
         year: 1000000,
         kind: .nonDeductible,
-        amount: "amount",
+        amount: "121.00",
         description: "description"
     ))
 }
@@ -12485,7 +12488,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsTaxAdjustmentsCreateRequest` 
+**request:** `Requests.TaxAdjustmentsCreateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12505,7 +12508,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">changeARecordedTaxAdjustment</a>(request: Requests.PostV1DeclarationsTaxAdjustmentsUpdateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsTaxAdjustmentsUpdateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">taxAdjustmentsUpdate</a>(request: Requests.TaxAdjustmentsUpdateDeclarationsRequest, requestOptions: RequestOptions?) -> TaxAdjustmentsUpdateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12524,7 +12527,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.changeARecordedTaxAdjustment(request: .init(id: "id"))
+    _ = try await client.declarations.taxAdjustmentsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -12542,7 +12545,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsTaxAdjustmentsUpdateRequest` 
+**request:** `Requests.TaxAdjustmentsUpdateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12562,7 +12565,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">removeARecordedTaxAdjustment</a>(request: Requests.PostV1DeclarationsTaxAdjustmentsDeleteRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsTaxAdjustmentsDeleteResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">taxAdjustmentsDelete</a>(request: Requests.TaxAdjustmentsDeleteDeclarationsRequest, requestOptions: RequestOptions?) -> TaxAdjustmentsDeleteDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12581,7 +12584,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.removeARecordedTaxAdjustment(request: .init(id: "id"))
+    _ = try await client.declarations.taxAdjustmentsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -12599,7 +12602,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsTaxAdjustmentsDeleteRequest` 
+**request:** `Requests.TaxAdjustmentsDeleteDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12619,7 +12622,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">paymentsAlreadyMadeTowardsATaxOfAYear</a>(request: Requests.PostV1DeclarationsTaxPaymentsListRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsTaxPaymentsListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">taxPaymentsList</a>(request: Requests.TaxPaymentsListDeclarationsRequest, requestOptions: RequestOptions?) -> TaxPaymentsListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12652,7 +12655,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.paymentsAlreadyMadeTowardsATaxOfAYear(request: .init(
+    _ = try await client.declarations.taxPaymentsList(request: .init(
         tax: .corporateIncomeTax,
         year: 1000000
     ))
@@ -12673,7 +12676,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsTaxPaymentsListRequest` 
+**request:** `Requests.TaxPaymentsListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12693,7 +12696,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">recordAPaymentMadeTowardsATax</a>(request: Requests.PostV1DeclarationsTaxPaymentsCreateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsTaxPaymentsCreateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">taxPaymentsCreate</a>(request: Requests.TaxPaymentsCreateDeclarationsRequest, requestOptions: RequestOptions?) -> TaxPaymentsCreateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12712,12 +12715,12 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.recordAPaymentMadeTowardsATax(request: .init(
+    _ = try await client.declarations.taxPaymentsCreate(request: .init(
         tax: .corporateIncomeTax,
         year: 1000000,
         kind: .advance,
-        amount: "amount",
-        paidOn: "paidOn",
+        amount: "121.00",
+        paidOn: CalendarDate("2026-07-01")!,
         description: "description"
     ))
 }
@@ -12737,7 +12740,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsTaxPaymentsCreateRequest` 
+**request:** `Requests.TaxPaymentsCreateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12757,7 +12760,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">changeARecordedTaxPayment</a>(request: Requests.PostV1DeclarationsTaxPaymentsUpdateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsTaxPaymentsUpdateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">taxPaymentsUpdate</a>(request: Requests.TaxPaymentsUpdateDeclarationsRequest, requestOptions: RequestOptions?) -> TaxPaymentsUpdateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12776,7 +12779,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.changeARecordedTaxPayment(request: .init(id: "id"))
+    _ = try await client.declarations.taxPaymentsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -12794,7 +12797,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsTaxPaymentsUpdateRequest` 
+**request:** `Requests.TaxPaymentsUpdateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12814,7 +12817,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">removeARecordedTaxPayment</a>(request: Requests.PostV1DeclarationsTaxPaymentsDeleteRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsTaxPaymentsDeleteResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">taxPaymentsDelete</a>(request: Requests.TaxPaymentsDeleteDeclarationsRequest, requestOptions: RequestOptions?) -> TaxPaymentsDeleteDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12833,7 +12836,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.removeARecordedTaxPayment(request: .init(id: "id"))
+    _ = try await client.declarations.taxPaymentsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -12851,7 +12854,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsTaxPaymentsDeleteRequest` 
+**request:** `Requests.TaxPaymentsDeleteDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12871,7 +12874,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">adoptionAndSigningFactsOfTheAnnualAccountsOfAYear</a>(request: Requests.PostV1DeclarationsAnnualAccountsGetRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsAnnualAccountsGetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">annualAccountsGet</a>(request: Requests.AnnualAccountsGetDeclarationsRequest, requestOptions: RequestOptions?) -> AnnualAccountsGetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12904,7 +12907,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.adoptionAndSigningFactsOfTheAnnualAccountsOfAYear(request: .init(year: 1000000))
+    _ = try await client.declarations.annualAccountsGet(request: .init(year: 1000000))
 }
 
 try await main()
@@ -12922,7 +12925,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsAnnualAccountsGetRequest` 
+**request:** `Requests.AnnualAccountsGetDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12942,7 +12945,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">recordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYear</a>(request: Requests.PostV1DeclarationsAnnualAccountsSetRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsAnnualAccountsSetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">annualAccountsSet</a>(request: Requests.AnnualAccountsSetDeclarationsRequest, requestOptions: RequestOptions?) -> AnnualAccountsSetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12961,10 +12964,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.recordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYear(request: .init(
+    _ = try await client.declarations.annualAccountsSet(request: .init(
         year: 1000000,
         adopted: true,
-        dateOfPreparation: "dateOfPreparation"
+        dateOfPreparation: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -12983,7 +12986,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsAnnualAccountsSetRequest` 
+**request:** `Requests.AnnualAccountsSetDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13003,7 +13006,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">recordWhetherADirectorSignedTheAnnualAccountsOfAYear</a>(request: Requests.PostV1DeclarationsAnnualAccountsSignaturesCreateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsAnnualAccountsSignaturesCreateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">annualAccountsSignaturesCreate</a>(request: Requests.AnnualAccountsSignaturesCreateDeclarationsRequest, requestOptions: RequestOptions?) -> AnnualAccountsSignaturesCreateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13022,7 +13025,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.recordWhetherADirectorSignedTheAnnualAccountsOfAYear(request: .init(
+    _ = try await client.declarations.annualAccountsSignaturesCreate(request: .init(
         year: 1000000,
         directorName: "directorName",
         directorType: .managingCurrent,
@@ -13045,7 +13048,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsAnnualAccountsSignaturesCreateRequest` 
+**request:** `Requests.AnnualAccountsSignaturesCreateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13065,7 +13068,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">changeARecordedDirectorSignature</a>(request: Requests.PostV1DeclarationsAnnualAccountsSignaturesUpdateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsAnnualAccountsSignaturesUpdateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">annualAccountsSignaturesUpdate</a>(request: Requests.AnnualAccountsSignaturesUpdateDeclarationsRequest, requestOptions: RequestOptions?) -> AnnualAccountsSignaturesUpdateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13084,7 +13087,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.changeARecordedDirectorSignature(request: .init(
+    _ = try await client.declarations.annualAccountsSignaturesUpdate(request: .init(
         id: "id",
         directorName: "directorName",
         directorType: .managingCurrent,
@@ -13107,7 +13110,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsAnnualAccountsSignaturesUpdateRequest` 
+**request:** `Requests.AnnualAccountsSignaturesUpdateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13127,7 +13130,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">removeARecordedDirectorSignature</a>(request: Requests.PostV1DeclarationsAnnualAccountsSignaturesDeleteRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsAnnualAccountsSignaturesDeleteResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">annualAccountsSignaturesDelete</a>(request: Requests.AnnualAccountsSignaturesDeleteDeclarationsRequest, requestOptions: RequestOptions?) -> AnnualAccountsSignaturesDeleteDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13146,7 +13149,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.removeARecordedDirectorSignature(request: .init(id: "id"))
+    _ = try await client.declarations.annualAccountsSignaturesDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -13164,7 +13167,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsAnnualAccountsSignaturesDeleteRequest` 
+**request:** `Requests.AnnualAccountsSignaturesDeleteDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13184,7 +13187,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">recordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOne</a>(request: Requests.PostV1DeclarationsAnnualAccountsDistributionsCreateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsAnnualAccountsDistributionsCreateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">annualAccountsDistributionsCreate</a>(request: Requests.AnnualAccountsDistributionsCreateDeclarationsRequest, requestOptions: RequestOptions?) -> AnnualAccountsDistributionsCreateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13203,11 +13206,11 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.recordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOne(request: .init(
+    _ = try await client.declarations.annualAccountsDistributionsCreate(request: .init(
         year: 1000000,
-        decidedOn: "decidedOn",
+        decidedOn: CalendarDate("2026-07-01")!,
         kind: .dividend,
-        amount: "amount"
+        amount: "121.00"
     ))
 }
 
@@ -13226,7 +13229,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsAnnualAccountsDistributionsCreateRequest` 
+**request:** `Requests.AnnualAccountsDistributionsCreateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13246,7 +13249,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">changeARecordedProfitDistribution</a>(request: Requests.PostV1DeclarationsAnnualAccountsDistributionsUpdateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsAnnualAccountsDistributionsUpdateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">annualAccountsDistributionsUpdate</a>(request: Requests.AnnualAccountsDistributionsUpdateDeclarationsRequest, requestOptions: RequestOptions?) -> AnnualAccountsDistributionsUpdateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13265,11 +13268,11 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.changeARecordedProfitDistribution(request: .init(
+    _ = try await client.declarations.annualAccountsDistributionsUpdate(request: .init(
         id: "id",
-        decidedOn: "decidedOn",
+        decidedOn: CalendarDate("2026-07-01")!,
         kind: .dividend,
-        amount: "amount"
+        amount: "121.00"
     ))
 }
 
@@ -13288,7 +13291,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsAnnualAccountsDistributionsUpdateRequest` 
+**request:** `Requests.AnnualAccountsDistributionsUpdateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13308,7 +13311,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">removeARecordedProfitDistribution</a>(request: Requests.PostV1DeclarationsAnnualAccountsDistributionsDeleteRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsAnnualAccountsDistributionsDeleteResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">annualAccountsDistributionsDelete</a>(request: Requests.AnnualAccountsDistributionsDeleteDeclarationsRequest, requestOptions: RequestOptions?) -> AnnualAccountsDistributionsDeleteDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13327,7 +13330,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.removeARecordedProfitDistribution(request: .init(id: "id"))
+    _ = try await client.declarations.annualAccountsDistributionsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -13345,7 +13348,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsAnnualAccountsDistributionsDeleteRequest` 
+**request:** `Requests.AnnualAccountsDistributionsDeleteDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13365,7 +13368,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">attachAnUploadedDocumentToTheAnnualAccountsOfAYear</a>(request: Requests.PostV1DeclarationsAnnualAccountsAttachmentsAddRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsAnnualAccountsAttachmentsAddResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">annualAccountsAttachmentsAdd</a>(request: Requests.AnnualAccountsAttachmentsAddDeclarationsRequest, requestOptions: RequestOptions?) -> AnnualAccountsAttachmentsAddDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13398,7 +13401,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.attachAnUploadedDocumentToTheAnnualAccountsOfAYear(request: .init(
+    _ = try await client.declarations.annualAccountsAttachmentsAdd(request: .init(
         year: 1000000,
         kind: .fullReport,
         ref: "ref"
@@ -13420,7 +13423,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsAnnualAccountsAttachmentsAddRequest` 
+**request:** `Requests.AnnualAccountsAttachmentsAddDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13440,7 +13443,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">removeADocumentAttachedToTheAnnualAccountsAndDeleteItsFile</a>(request: Requests.PostV1DeclarationsAnnualAccountsAttachmentsDeleteRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsAnnualAccountsAttachmentsDeleteResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">annualAccountsAttachmentsDelete</a>(request: Requests.AnnualAccountsAttachmentsDeleteDeclarationsRequest, requestOptions: RequestOptions?) -> AnnualAccountsAttachmentsDeleteDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13459,7 +13462,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.removeADocumentAttachedToTheAnnualAccountsAndDeleteItsFile(request: .init(id: "id"))
+    _ = try await client.declarations.annualAccountsAttachmentsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -13477,7 +13480,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsAnnualAccountsAttachmentsDeleteRequest` 
+**request:** `Requests.AnnualAccountsAttachmentsDeleteDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13497,7 +13500,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsCyTd4Generate</a>(request: Requests.PostV1DeclarationsCyTd4GenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsCyTd4GenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">cyTd4Generate</a>(request: Requests.CyTd4GenerateDeclarationsRequest, requestOptions: RequestOptions?) -> CyTd4GenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13530,7 +13533,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsCyTd4Generate(request: .init(year: 1000000))
+    _ = try await client.declarations.cyTd4Generate(request: .init(year: 1000000))
 }
 
 try await main()
@@ -13548,7 +13551,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsCyTd4GenerateRequest` 
+**request:** `Requests.CyTd4GenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13568,7 +13571,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsCyHe32Generate</a>(request: Requests.PostV1DeclarationsCyHe32GenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsCyHe32GenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">cyHe32Generate</a>(request: Requests.CyHe32GenerateDeclarationsRequest, requestOptions: RequestOptions?) -> CyHe32GenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13601,7 +13604,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsCyHe32Generate(request: .init(year: 1000000))
+    _ = try await client.declarations.cyHe32Generate(request: .init(year: 1000000))
 }
 
 try await main()
@@ -13619,7 +13622,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsCyHe32GenerateRequest` 
+**request:** `Requests.CyHe32GenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13639,7 +13642,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsDeReturnsGenerate</a>(request: Requests.PostV1DeclarationsDeReturnsGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsDeReturnsGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">deReturnsGenerate</a>(request: Requests.DeReturnsGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> DeReturnsGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13672,7 +13675,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsDeReturnsGenerate(request: .init(
+    _ = try await client.declarations.deReturnsGenerate(request: .init(
         ruleKey: .deEBilanz,
         period: "period"
     ))
@@ -13693,7 +13696,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsDeReturnsGenerateRequest` 
+**request:** `Requests.DeReturnsGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13713,7 +13716,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsDeReturnFactsGet</a>(request: Requests.PostV1DeclarationsDeReturnFactsGetRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsDeReturnFactsGetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">deReturnFactsGet</a>(request: Requests.DeReturnFactsGetDeclarationsRequest, requestOptions: RequestOptions?) -> DeReturnFactsGetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13746,7 +13749,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsDeReturnFactsGet(request: .init(year: 1000000))
+    _ = try await client.declarations.deReturnFactsGet(request: .init(year: 1000000))
 }
 
 try await main()
@@ -13764,7 +13767,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsDeReturnFactsGetRequest` 
+**request:** `Requests.DeReturnFactsGetDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13784,7 +13787,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsDeReturnFactsSet</a>(request: Requests.PostV1DeclarationsDeReturnFactsSetRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsDeReturnFactsSetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">deReturnFactsSet</a>(request: Requests.DeReturnFactsSetDeclarationsRequest, requestOptions: RequestOptions?) -> DeReturnFactsSetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13817,9 +13820,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsDeReturnFactsSet(request: .init(
+    _ = try await client.declarations.deReturnFactsSet(request: .init(
         year: 1000000,
-        facts: PostV1DeclarationsDeReturnFactsSetRequestFacts(
+        facts: DeReturnFactsSetDeclarationsRequestFacts(
 
         )
     ))
@@ -13840,7 +13843,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsDeReturnFactsSetRequest` 
+**request:** `Requests.DeReturnFactsSetDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13860,7 +13863,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsDeDeuevGenerate</a>(request: Requests.PostV1DeclarationsDeDeuevGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsDeDeuevGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">deDeuevGenerate</a>(request: Requests.DeDeuevGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> DeDeuevGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13893,7 +13896,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsDeDeuevGenerate(request: .init(
+    _ = try await client.declarations.deDeuevGenerate(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -13914,7 +13917,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsDeDeuevGenerateRequest` 
+**request:** `Requests.DeDeuevGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -13934,7 +13937,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsDeBeitragsnachweisGenerate</a>(request: Requests.PostV1DeclarationsDeBeitragsnachweisGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsDeBeitragsnachweisGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">deBeitragsnachweisGenerate</a>(request: Requests.DeBeitragsnachweisGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> DeBeitragsnachweisGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13967,7 +13970,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsDeBeitragsnachweisGenerate(request: .init(
+    _ = try await client.declarations.deBeitragsnachweisGenerate(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -13988,7 +13991,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsDeBeitragsnachweisGenerateRequest` 
+**request:** `Requests.DeBeitragsnachweisGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14008,7 +14011,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsDkSelskabsskatGenerate</a>(request: Requests.PostV1DeclarationsDkSelskabsskatGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsDkSelskabsskatGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">dkSelskabsskatGenerate</a>(request: Requests.DkSelskabsskatGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> DkSelskabsskatGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14041,7 +14044,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsDkSelskabsskatGenerate(request: .init(year: 1000000))
+    _ = try await client.declarations.dkSelskabsskatGenerate(request: .init(year: 1000000))
 }
 
 try await main()
@@ -14059,7 +14062,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsDkSelskabsskatGenerateRequest` 
+**request:** `Requests.DkSelskabsskatGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14079,7 +14082,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEeEmploymentRegisterSend</a>(request: Requests.PostV1DeclarationsEeEmploymentRegisterSendRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEeEmploymentRegisterSendResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">eeEmploymentRegisterSend</a>(request: Requests.EeEmploymentRegisterSendDeclarationsRequest, requestOptions: RequestOptions?) -> EeEmploymentRegisterSendDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14112,7 +14115,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsEeEmploymentRegisterSend(request: .init(
+    _ = try await client.declarations.eeEmploymentRegisterSend(request: .init(
         contractId: "contractId",
         event: .start
     ))
@@ -14133,7 +14136,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsEeEmploymentRegisterSendRequest` 
+**request:** `Requests.EeEmploymentRegisterSendDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14153,7 +14156,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsEsVerifactuDeclaracionResponsable</a>(request: Requests.PostV1DeclarationsEsVerifactuDeclaracionResponsableRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsEsVerifactuDeclaracionResponsableResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">esVerifactuDeclaracionResponsable</a>(request: Requests.EsVerifactuDeclaracionResponsableDeclarationsRequest, requestOptions: RequestOptions?) -> EsVerifactuDeclaracionResponsableDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14186,7 +14189,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsEsVerifactuDeclaracionResponsable(request: .init())
+    _ = try await client.declarations.esVerifactuDeclaracionResponsable(request: .init())
 }
 
 try await main()
@@ -14204,7 +14207,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsEsVerifactuDeclaracionResponsableRequest` 
+**request:** `Requests.EsVerifactuDeclaracionResponsableDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14224,7 +14227,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsIeCt1Generate</a>(request: Requests.PostV1DeclarationsIeCt1GenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsIeCt1GenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ieCt1Generate</a>(request: Requests.IeCt1GenerateDeclarationsRequest, requestOptions: RequestOptions?) -> IeCt1GenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14257,7 +14260,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsIeCt1Generate(request: .init(year: 1000000))
+    _ = try await client.declarations.ieCt1Generate(request: .init(year: 1000000))
 }
 
 try await main()
@@ -14275,7 +14278,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsIeCt1GenerateRequest` 
+**request:** `Requests.IeCt1GenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14295,7 +14298,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsIeB1Generate</a>(request: Requests.PostV1DeclarationsIeB1GenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsIeB1GenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ieB1Generate</a>(request: Requests.IeB1GenerateDeclarationsRequest, requestOptions: RequestOptions?) -> IeB1GenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14328,7 +14331,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsIeB1Generate(request: .init(year: 1000000))
+    _ = try await client.declarations.ieB1Generate(request: .init(year: 1000000))
 }
 
 try await main()
@@ -14346,7 +14349,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsIeB1GenerateRequest` 
+**request:** `Requests.IeB1GenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14366,7 +14369,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsItSdiPurchaseSend</a>(request: Requests.PostV1DeclarationsItSdiPurchaseSendRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsItSdiPurchaseSendResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">itSdiPurchaseSend</a>(request: Requests.ItSdiPurchaseSendDeclarationsRequest, requestOptions: RequestOptions?) -> ItSdiPurchaseSendDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14399,7 +14402,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsItSdiPurchaseSend(request: .init(purchaseInvoiceId: "purchaseInvoiceId"))
+    _ = try await client.declarations.itSdiPurchaseSend(request: .init(purchaseInvoiceId: "purchaseInvoiceId"))
 }
 
 try await main()
@@ -14417,7 +14420,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsItSdiPurchaseSendRequest` 
+**request:** `Requests.ItSdiPurchaseSendDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14437,7 +14440,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsItSdiPurchasePreview</a>(request: Requests.PostV1DeclarationsItSdiPurchasePreviewRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsItSdiPurchasePreviewResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">itSdiPurchasePreview</a>(request: Requests.ItSdiPurchasePreviewDeclarationsRequest, requestOptions: RequestOptions?) -> ItSdiPurchasePreviewDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14470,7 +14473,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsItSdiPurchasePreview(request: .init(purchaseInvoiceId: "purchaseInvoiceId"))
+    _ = try await client.declarations.itSdiPurchasePreview(request: .init(purchaseInvoiceId: "purchaseInvoiceId"))
 }
 
 try await main()
@@ -14488,7 +14491,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsItSdiPurchasePreviewRequest` 
+**request:** `Requests.ItSdiPurchasePreviewDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14508,7 +14511,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtSaftSend</a>(request: Requests.PostV1DeclarationsLtSaftSendRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtSaftSendResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltSaftSend</a>(request: Requests.LtSaftSendDeclarationsRequest, requestOptions: RequestOptions?) -> LtSaftSendDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14520,7 +14523,7 @@ try await main()
 <dl>
 <dd>
 
-Upload the SAF-T file to i.SAF-T over the iSAFTUploaderService web service and start its processing. The submission itself is confirmed separately, because after confirmation the file can no longer be corrected.
+Upload the SAF-T file to i.SAF-T over the iSAFTUploaderService web service and start its processing. The file, the case reference and the status are kept as a declaration submission (submissionId), whose outcome Nordlet then checks with i.SAF-T. The submission itself is confirmed separately, because after confirmation the file can no longer be corrected. A range and data type already sent is sent again only with amend: true.
 </dd>
 </dl>
 </dd>
@@ -14541,9 +14544,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtSaftSend(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.declarations.ltSaftSend(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -14562,7 +14565,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtSaftSendRequest` 
+**request:** `Requests.LtSaftSendDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14582,7 +14585,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtSdFfdata</a>(request: Requests.PostV1DeclarationsLtSdFfdataRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtSdFfdataResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltSdFfdata</a>(request: Requests.LtSdFfdataDeclarationsRequest, requestOptions: RequestOptions?) -> LtSdFfdataDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14615,10 +14618,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtSdFfdata(request: .init(
+    _ = try await client.declarations.ltSdFfdata(request: .init(
         type: .oneSd,
-        fromDate: "fromDate",
-        toDate: "toDate"
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -14637,7 +14640,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtSdFfdataRequest` 
+**request:** `Requests.LtSdFfdataDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14657,7 +14660,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLtPln204Ffdata</a>(request: Requests.PostV1DeclarationsLtPln204FfdataRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLtPln204FfdataResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ltPln204Ffdata</a>(request: Requests.LtPln204FfdataDeclarationsRequest, requestOptions: RequestOptions?) -> LtPln204FfdataDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14690,7 +14693,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLtPln204Ffdata(request: .init(year: 1000000))
+    _ = try await client.declarations.ltPln204Ffdata(request: .init(year: 1000000))
 }
 
 try await main()
@@ -14708,7 +14711,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLtPln204FfdataRequest` 
+**request:** `Requests.LtPln204FfdataDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14728,7 +14731,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsMtCompanyTaxGenerate</a>(request: Requests.PostV1DeclarationsMtCompanyTaxGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsMtCompanyTaxGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">mtCompanyTaxGenerate</a>(request: Requests.MtCompanyTaxGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> MtCompanyTaxGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14761,7 +14764,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsMtCompanyTaxGenerate(request: .init(year: 1000000))
+    _ = try await client.declarations.mtCompanyTaxGenerate(request: .init(year: 1000000))
 }
 
 try await main()
@@ -14779,7 +14782,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsMtCompanyTaxGenerateRequest` 
+**request:** `Requests.MtCompanyTaxGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14799,7 +14802,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsMtAnnualReturnGenerate</a>(request: Requests.PostV1DeclarationsMtAnnualReturnGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsMtAnnualReturnGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">mtAnnualReturnGenerate</a>(request: Requests.MtAnnualReturnGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> MtAnnualReturnGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14832,7 +14835,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsMtAnnualReturnGenerate(request: .init(year: 1000000))
+    _ = try await client.declarations.mtAnnualReturnGenerate(request: .init(year: 1000000))
 }
 
 try await main()
@@ -14850,7 +14853,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsMtAnnualReturnGenerateRequest` 
+**request:** `Requests.MtAnnualReturnGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14870,7 +14873,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlJpkFaGenerate</a>(request: Requests.PostV1DeclarationsPlJpkFaGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlJpkFaGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plJpkFaGenerate</a>(request: Requests.PlJpkFaGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> PlJpkFaGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14903,9 +14906,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlJpkFaGenerate(request: .init(
-        dateFrom: "dateFrom",
-        dateTo: "dateTo"
+    _ = try await client.declarations.plJpkFaGenerate(request: .init(
+        dateFrom: CalendarDate("2026-07-01")!,
+        dateTo: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -14924,7 +14927,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlJpkFaGenerateRequest` 
+**request:** `Requests.PlJpkFaGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -14944,7 +14947,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlJpkKrGenerate</a>(request: Requests.PostV1DeclarationsPlJpkKrGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlJpkKrGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plJpkKrGenerate</a>(request: Requests.PlJpkKrGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> PlJpkKrGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14977,9 +14980,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlJpkKrGenerate(request: .init(
-        dateFrom: "dateFrom",
-        dateTo: "dateTo"
+    _ = try await client.declarations.plJpkKrGenerate(request: .init(
+        dateFrom: CalendarDate("2026-07-01")!,
+        dateTo: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -14998,7 +15001,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlJpkKrGenerateRequest` 
+**request:** `Requests.PlJpkKrGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15018,7 +15021,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlJpkMagGenerate</a>(request: Requests.PostV1DeclarationsPlJpkMagGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlJpkMagGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plJpkMagGenerate</a>(request: Requests.PlJpkMagGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> PlJpkMagGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15051,9 +15054,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlJpkMagGenerate(request: .init(
-        dateFrom: "dateFrom",
-        dateTo: "dateTo"
+    _ = try await client.declarations.plJpkMagGenerate(request: .init(
+        dateFrom: CalendarDate("2026-07-01")!,
+        dateTo: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -15072,7 +15075,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlJpkMagGenerateRequest` 
+**request:** `Requests.PlJpkMagGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15092,7 +15095,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlPit11Generate</a>(request: Requests.PostV1DeclarationsPlPit11GenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlPit11GenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plPit11Generate</a>(request: Requests.PlPit11GenerateDeclarationsRequest, requestOptions: RequestOptions?) -> PlPit11GenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15125,7 +15128,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlPit11Generate(request: .init(year: 1000000))
+    _ = try await client.declarations.plPit11Generate(request: .init(year: 1000000))
 }
 
 try await main()
@@ -15143,7 +15146,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlPit11GenerateRequest` 
+**request:** `Requests.PlPit11GenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15163,7 +15166,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlCit8Generate</a>(request: Requests.PostV1DeclarationsPlCit8GenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlCit8GenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plCit8Generate</a>(request: Requests.PlCit8GenerateDeclarationsRequest, requestOptions: RequestOptions?) -> PlCit8GenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15196,7 +15199,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlCit8Generate(request: .init(year: 1000000))
+    _ = try await client.declarations.plCit8Generate(request: .init(year: 1000000))
 }
 
 try await main()
@@ -15214,7 +15217,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlCit8GenerateRequest` 
+**request:** `Requests.PlCit8GenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15234,7 +15237,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlZusDraCompute</a>(request: Requests.PostV1DeclarationsPlZusDraComputeRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlZusDraComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plZusDraCompute</a>(request: Requests.PlZusDraComputeDeclarationsRequest, requestOptions: RequestOptions?) -> PlZusDraComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15267,7 +15270,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlZusDraCompute(request: .init(
+    _ = try await client.declarations.plZusDraCompute(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -15288,7 +15291,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlZusDraComputeRequest` 
+**request:** `Requests.PlZusDraComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15308,7 +15311,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlZusDraKedu</a>(request: Requests.PostV1DeclarationsPlZusDraKeduRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlZusDraKeduResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plZusDraKedu</a>(request: Requests.PlZusDraKeduDeclarationsRequest, requestOptions: RequestOptions?) -> PlZusDraKeduDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15341,7 +15344,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlZusDraKedu(request: .init(
+    _ = try await client.declarations.plZusDraKedu(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -15362,7 +15365,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlZusDraKeduRequest` 
+**request:** `Requests.PlZusDraKeduDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15382,7 +15385,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsPlZusDraPdf</a>(request: Requests.PostV1DeclarationsPlZusDraPdfRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsPlZusDraPdfResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">plZusDraPdf</a>(request: Requests.PlZusDraPdfDeclarationsRequest, requestOptions: RequestOptions?) -> PlZusDraPdfDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15415,7 +15418,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsPlZusDraPdf(request: .init(
+    _ = try await client.declarations.plZusDraPdf(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -15436,7 +15439,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsPlZusDraPdfRequest` 
+**request:** `Requests.PlZusDraPdfDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15456,7 +15459,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsRoEtransportBuild</a>(request: Requests.PostV1DeclarationsRoEtransportBuildRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsRoEtransportBuildResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">roEtransportBuild</a>(request: Requests.RoEtransportBuildDeclarationsRequest, requestOptions: RequestOptions?) -> RoEtransportBuildDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15489,7 +15492,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsRoEtransportBuild(request: .init(waybillId: "waybillId"))
+    _ = try await client.declarations.roEtransportBuild(request: .init(waybillId: "waybillId"))
 }
 
 try await main()
@@ -15507,7 +15510,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsRoEtransportBuildRequest` 
+**request:** `Requests.RoEtransportBuildDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15527,7 +15530,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsRoEtransportSubmit</a>(request: Requests.PostV1DeclarationsRoEtransportSubmitRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsRoEtransportSubmitResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">roEtransportSubmit</a>(request: Requests.RoEtransportSubmitDeclarationsRequest, requestOptions: RequestOptions?) -> RoEtransportSubmitDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15560,7 +15563,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsRoEtransportSubmit(request: .init(waybillId: "waybillId"))
+    _ = try await client.declarations.roEtransportSubmit(request: .init(waybillId: "waybillId"))
 }
 
 try await main()
@@ -15578,7 +15581,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsRoEtransportSubmitRequest` 
+**request:** `Requests.RoEtransportSubmitDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15598,7 +15601,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsRoEtransportStatus</a>(request: Requests.PostV1DeclarationsRoEtransportStatusRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsRoEtransportStatusResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">roEtransportStatus</a>(request: Requests.RoEtransportStatusDeclarationsRequest, requestOptions: RequestOptions?) -> RoEtransportStatusDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15631,7 +15634,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsRoEtransportStatus(request: .init(reference: "reference"))
+    _ = try await client.declarations.roEtransportStatus(request: .init(reference: "reference"))
 }
 
 try await main()
@@ -15649,7 +15652,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsRoEtransportStatusRequest` 
+**request:** `Requests.RoEtransportStatusDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15669,7 +15672,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLiLohndeklarationGenerate</a>(request: Requests.PostV1DeclarationsLiLohndeklarationGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLiLohndeklarationGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">liLohndeklarationGenerate</a>(request: Requests.LiLohndeklarationGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> LiLohndeklarationGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15702,7 +15705,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLiLohndeklarationGenerate(request: .init(year: 1000000))
+    _ = try await client.declarations.liLohndeklarationGenerate(request: .init(year: 1000000))
 }
 
 try await main()
@@ -15720,7 +15723,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLiLohndeklarationGenerateRequest` 
+**request:** `Requests.LiLohndeklarationGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15740,7 +15743,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsLiLohnlistenGenerate</a>(request: Requests.PostV1DeclarationsLiLohnlistenGenerateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsLiLohnlistenGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">liLohnlistenGenerate</a>(request: Requests.LiLohnlistenGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> LiLohnlistenGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15773,7 +15776,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsLiLohnlistenGenerate(request: .init(year: 1000000))
+    _ = try await client.declarations.liLohnlistenGenerate(request: .init(year: 1000000))
 }
 
 try await main()
@@ -15791,7 +15794,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsLiLohnlistenGenerateRequest` 
+**request:** `Requests.LiLohnlistenGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15811,7 +15814,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsConfigsList</a>(request: Requests.PostV1DeclarationsConfigsListRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsConfigsListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">configsList</a>(request: Requests.ConfigsListDeclarationsRequest, requestOptions: RequestOptions?) -> ConfigsListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15830,7 +15833,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsConfigsList(request: .init())
+    _ = try await client.declarations.configsList(request: .init())
 }
 
 try await main()
@@ -15848,7 +15851,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsConfigsListRequest` 
+**request:** `Requests.ConfigsListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15868,7 +15871,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsConfigsUpdate</a>(request: Requests.PostV1DeclarationsConfigsUpdateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsConfigsUpdateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">configsUpdate</a>(request: Requests.ConfigsUpdateDeclarationsRequest, requestOptions: RequestOptions?) -> ConfigsUpdateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15887,7 +15890,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsConfigsUpdate(request: .init(
+    _ = try await client.declarations.configsUpdate(request: .init(
         system: "system",
         config: [
             "key": "value"
@@ -15910,7 +15913,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsConfigsUpdateRequest` 
+**request:** `Requests.ConfigsUpdateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15930,7 +15933,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">storeTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWith</a>(request: Requests.PostV1DeclarationsCertificatesUploadRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsCertificatesUploadResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">certificatesUpload</a>(request: Requests.CertificatesUploadDeclarationsRequest, requestOptions: RequestOptions?) -> CertificatesUploadDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15949,7 +15952,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.storeTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWith(request: .init(
+    _ = try await client.declarations.certificatesUpload(request: .init(
         system: "system",
         fileName: "fileName",
         content: "content"
@@ -15971,7 +15974,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsCertificatesUploadRequest` 
+**request:** `Requests.CertificatesUploadDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -15991,7 +15994,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsCertificatesList</a>(request: Requests.PostV1DeclarationsCertificatesListRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsCertificatesListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">certificatesList</a>(request: Requests.CertificatesListDeclarationsRequest, requestOptions: RequestOptions?) -> CertificatesListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16010,7 +16013,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsCertificatesList(request: .init())
+    _ = try await client.declarations.certificatesList(request: .init())
 }
 
 try await main()
@@ -16028,7 +16031,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsCertificatesListRequest` 
+**request:** `Requests.CertificatesListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -16048,7 +16051,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsCertificatesDelete</a>(request: Requests.PostV1DeclarationsCertificatesDeleteRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsCertificatesDeleteResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">certificatesDelete</a>(request: Requests.CertificatesDeleteDeclarationsRequest, requestOptions: RequestOptions?) -> CertificatesDeleteDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16067,7 +16070,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsCertificatesDelete(request: .init(
+    _ = try await client.declarations.certificatesDelete(request: .init(
         system: "system",
         fieldKey: .certificate
     ))
@@ -16088,7 +16091,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsCertificatesDeleteRequest` 
+**request:** `Requests.CertificatesDeleteDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -16108,7 +16111,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">whichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOn</a>(request: Requests.PostV1DeclarationsAutomationListRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsAutomationListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">automationList</a>(request: Requests.AutomationListDeclarationsRequest, requestOptions: RequestOptions?) -> AutomationListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16127,7 +16130,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.whichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOn(request: .init())
+    _ = try await client.declarations.automationList(request: .init())
 }
 
 try await main()
@@ -16145,7 +16148,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsAutomationListRequest` 
+**request:** `Requests.AutomationListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -16165,7 +16168,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsAutomationUpdate</a>(request: Requests.PostV1DeclarationsAutomationUpdateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsAutomationUpdateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">automationUpdate</a>(request: Requests.AutomationUpdateDeclarationsRequest, requestOptions: RequestOptions?) -> AutomationUpdateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16184,7 +16187,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsAutomationUpdate(request: .init(
+    _ = try await client.declarations.automationUpdate(request: .init(
         ruleKey: "ruleKey",
         enabled: true
     ))
@@ -16205,7 +16208,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsAutomationUpdateRequest` 
+**request:** `Requests.AutomationUpdateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -16225,7 +16228,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">sendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGenerated</a>(request: Requests.PostV1DeclarationsSubmissionsRetryRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsSubmissionsRetryResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">submissionsRetry</a>(request: Requests.SubmissionsRetryDeclarationsRequest, requestOptions: RequestOptions?) -> SubmissionsRetryDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16244,7 +16247,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.sendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGenerated(request: .init(id: "id"))
+    _ = try await client.declarations.submissionsRetry(request: .init(id: "id"))
 }
 
 try await main()
@@ -16262,7 +16265,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsSubmissionsRetryRequest` 
+**request:** `Requests.SubmissionsRetryDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -16282,7 +16285,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsSubmissionsCreate</a>(request: Requests.PostV1DeclarationsSubmissionsCreateRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsSubmissionsCreateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">submissionsCreate</a>(request: Requests.SubmissionsCreateDeclarationsRequest, requestOptions: RequestOptions?) -> SubmissionsCreateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16301,7 +16304,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsSubmissionsCreate(request: .init(
+    _ = try await client.declarations.submissionsCreate(request: .init(
         obligation: .ltIsaf,
         year: 1000000,
         month: 1000000
@@ -16323,7 +16326,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsSubmissionsCreateRequest` 
+**request:** `Requests.SubmissionsCreateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -16343,7 +16346,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsSubmissionsMark</a>(request: Requests.PostV1DeclarationsSubmissionsMarkRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsSubmissionsMarkResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">submissionsMark</a>(request: Requests.SubmissionsMarkDeclarationsRequest, requestOptions: RequestOptions?) -> SubmissionsMarkDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16362,7 +16365,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsSubmissionsMark(request: .init(
+    _ = try await client.declarations.submissionsMark(request: .init(
         id: "id",
         status: .submitted
     ))
@@ -16383,7 +16386,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsSubmissionsMarkRequest` 
+**request:** `Requests.SubmissionsMarkDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -16403,7 +16406,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">postV1DeclarationsSubmissionsList</a>(request: Requests.PostV1DeclarationsSubmissionsListRequest, requestOptions: RequestOptions?) -> PostV1DeclarationsSubmissionsListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">submissionsList</a>(request: Requests.SubmissionsListDeclarationsRequest, requestOptions: RequestOptions?) -> SubmissionsListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16422,7 +16425,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.declarations.postV1DeclarationsSubmissionsList(request: .init())
+    _ = try await client.declarations.submissionsList(request: .init())
 }
 
 try await main()
@@ -16440,7 +16443,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1DeclarationsSubmissionsListRequest` 
+**request:** `Requests.SubmissionsListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -16460,8 +16463,8 @@ try await main()
 </dl>
 </details>
 
-## Ledger
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerAccountsList</a>(request: Requests.PostV1LedgerAccountsListRequest, requestOptions: RequestOptions?) -> PostV1LedgerAccountsListResponse</code></summary>
+## ledger
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">accountsList</a>(request: Requests.AccountsListLedgerRequest, requestOptions: RequestOptions?) -> AccountsListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -16480,7 +16483,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerAccountsList(request: .init())
+    _ = try await client.ledger.accountsList(request: .init())
 }
 
 try await main()
@@ -16498,7 +16501,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerAccountsListRequest` 
+**request:** `Requests.AccountsListLedgerRequest` 
     
 </dd>
 </dl>
@@ -16518,7 +16521,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerAccountsCreate</a>(request: Requests.PostV1LedgerAccountsCreateRequest, requestOptions: RequestOptions?) -> PostV1LedgerAccountsCreateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">accountsCreate</a>(request: Requests.AccountsCreateLedgerRequest, requestOptions: RequestOptions?) -> AccountsCreateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -16537,7 +16540,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerAccountsCreate(request: .init(
+    _ = try await client.ledger.accountsCreate(request: .init(
         code: "code",
         name: "name",
         type: .asset
@@ -16559,7 +16562,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerAccountsCreateRequest` 
+**request:** `Requests.AccountsCreateLedgerRequest` 
     
 </dd>
 </dl>
@@ -16579,7 +16582,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerAccountsUpdate</a>(request: Requests.PostV1LedgerAccountsUpdateRequest, requestOptions: RequestOptions?) -> PostV1LedgerAccountsUpdateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">accountsUpdate</a>(request: Requests.AccountsUpdateLedgerRequest, requestOptions: RequestOptions?) -> AccountsUpdateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -16598,7 +16601,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerAccountsUpdate(request: .init(id: "id"))
+    _ = try await client.ledger.accountsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -16616,7 +16619,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerAccountsUpdateRequest` 
+**request:** `Requests.AccountsUpdateLedgerRequest` 
     
 </dd>
 </dl>
@@ -16636,7 +16639,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerAccountsApplyTemplate</a>(request: Requests.PostV1LedgerAccountsApplyTemplateRequest, requestOptions: RequestOptions?) -> PostV1LedgerAccountsApplyTemplateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">accountsApplyTemplate</a>(request: Requests.AccountsApplyTemplateLedgerRequest, requestOptions: RequestOptions?) -> AccountsApplyTemplateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -16655,7 +16658,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerAccountsApplyTemplate(request: .init())
+    _ = try await client.ledger.accountsApplyTemplate(request: .init())
 }
 
 try await main()
@@ -16673,7 +16676,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerAccountsApplyTemplateRequest` 
+**request:** `Requests.AccountsApplyTemplateLedgerRequest` 
     
 </dd>
 </dl>
@@ -16693,7 +16696,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">moveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountry</a>(request: Requests.PostV1LedgerAccountsSwitchChartRequest, requestOptions: RequestOptions?) -> PostV1LedgerAccountsSwitchChartResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">accountsSwitchChart</a>(request: Requests.AccountsSwitchChartLedgerRequest, requestOptions: RequestOptions?) -> AccountsSwitchChartLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -16726,7 +16729,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.moveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountry(request: .init())
+    _ = try await client.ledger.accountsSwitchChart(request: .init())
 }
 
 try await main()
@@ -16744,7 +16747,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerAccountsSwitchChartRequest` 
+**request:** `Requests.AccountsSwitchChartLedgerRequest` 
     
 </dd>
 </dl>
@@ -16764,7 +16767,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerPeriodsList</a>(request: Requests.PostV1LedgerPeriodsListRequest, requestOptions: RequestOptions?) -> PostV1LedgerPeriodsListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">periodsList</a>(request: Requests.PeriodsListLedgerRequest, requestOptions: RequestOptions?) -> PeriodsListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -16783,7 +16786,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerPeriodsList(request: .init())
+    _ = try await client.ledger.periodsList(request: .init())
 }
 
 try await main()
@@ -16801,7 +16804,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerPeriodsListRequest` 
+**request:** `Requests.PeriodsListLedgerRequest` 
     
 </dd>
 </dl>
@@ -16821,7 +16824,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerPeriodsLock</a>(request: Requests.PostV1LedgerPeriodsLockRequest, requestOptions: RequestOptions?) -> PostV1LedgerPeriodsLockResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">periodsLock</a>(request: Requests.PeriodsLockLedgerRequest, requestOptions: RequestOptions?) -> PeriodsLockLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -16840,7 +16843,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerPeriodsLock(request: .init(
+    _ = try await client.ledger.periodsLock(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -16861,7 +16864,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerPeriodsLockRequest` 
+**request:** `Requests.PeriodsLockLedgerRequest` 
     
 </dd>
 </dl>
@@ -16881,7 +16884,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerPeriodsUnlock</a>(request: Requests.PostV1LedgerPeriodsUnlockRequest, requestOptions: RequestOptions?) -> PostV1LedgerPeriodsUnlockResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">periodsUnlock</a>(request: Requests.PeriodsUnlockLedgerRequest, requestOptions: RequestOptions?) -> PeriodsUnlockLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -16900,7 +16903,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerPeriodsUnlock(request: .init(
+    _ = try await client.ledger.periodsUnlock(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -16921,7 +16924,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerPeriodsUnlockRequest` 
+**request:** `Requests.PeriodsUnlockLedgerRequest` 
     
 </dd>
 </dl>
@@ -16941,7 +16944,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerJournalTransactionsList</a>(request: Requests.PostV1LedgerJournalTransactionsListRequest, requestOptions: RequestOptions?) -> PostV1LedgerJournalTransactionsListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">journalTransactionsList</a>(request: Requests.JournalTransactionsListLedgerRequest, requestOptions: RequestOptions?) -> JournalTransactionsListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -16960,7 +16963,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerJournalTransactionsList(request: .init())
+    _ = try await client.ledger.journalTransactionsList(request: .init())
 }
 
 try await main()
@@ -16978,7 +16981,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerJournalTransactionsListRequest` 
+**request:** `Requests.JournalTransactionsListLedgerRequest` 
     
 </dd>
 </dl>
@@ -16998,7 +17001,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerCostCentersCreate</a>(request: Requests.PostV1LedgerCostCentersCreateRequest, requestOptions: RequestOptions?) -> PostV1LedgerCostCentersCreateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">costCentersCreate</a>(request: Requests.CostCentersCreateLedgerRequest, requestOptions: RequestOptions?) -> CostCentersCreateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17017,7 +17020,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerCostCentersCreate(request: .init(
+    _ = try await client.ledger.costCentersCreate(request: .init(
         code: "code",
         name: "name"
     ))
@@ -17038,7 +17041,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerCostCentersCreateRequest` 
+**request:** `Requests.CostCentersCreateLedgerRequest` 
     
 </dd>
 </dl>
@@ -17058,7 +17061,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerCostCentersUpdate</a>(request: Requests.PostV1LedgerCostCentersUpdateRequest, requestOptions: RequestOptions?) -> PostV1LedgerCostCentersUpdateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">costCentersUpdate</a>(request: Requests.CostCentersUpdateLedgerRequest, requestOptions: RequestOptions?) -> CostCentersUpdateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17077,7 +17080,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerCostCentersUpdate(request: .init(id: "id"))
+    _ = try await client.ledger.costCentersUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -17095,7 +17098,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerCostCentersUpdateRequest` 
+**request:** `Requests.CostCentersUpdateLedgerRequest` 
     
 </dd>
 </dl>
@@ -17115,7 +17118,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerCostCentersList</a>(request: Requests.PostV1LedgerCostCentersListRequest, requestOptions: RequestOptions?) -> PostV1LedgerCostCentersListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">costCentersList</a>(request: Requests.CostCentersListLedgerRequest, requestOptions: RequestOptions?) -> CostCentersListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17134,7 +17137,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerCostCentersList(request: .init())
+    _ = try await client.ledger.costCentersList(request: .init())
 }
 
 try await main()
@@ -17152,7 +17155,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerCostCentersListRequest` 
+**request:** `Requests.CostCentersListLedgerRequest` 
     
 </dd>
 </dl>
@@ -17172,7 +17175,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerCostCenterGroupsCreate</a>(request: Requests.PostV1LedgerCostCenterGroupsCreateRequest, requestOptions: RequestOptions?) -> PostV1LedgerCostCenterGroupsCreateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">costCenterGroupsCreate</a>(request: Requests.CostCenterGroupsCreateLedgerRequest, requestOptions: RequestOptions?) -> CostCenterGroupsCreateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17191,7 +17194,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerCostCenterGroupsCreate(request: .init(
+    _ = try await client.ledger.costCenterGroupsCreate(request: .init(
         code: "code",
         name: "name"
     ))
@@ -17212,7 +17215,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerCostCenterGroupsCreateRequest` 
+**request:** `Requests.CostCenterGroupsCreateLedgerRequest` 
     
 </dd>
 </dl>
@@ -17232,7 +17235,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerCostCenterGroupsUpdate</a>(request: Requests.PostV1LedgerCostCenterGroupsUpdateRequest, requestOptions: RequestOptions?) -> PostV1LedgerCostCenterGroupsUpdateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">costCenterGroupsUpdate</a>(request: Requests.CostCenterGroupsUpdateLedgerRequest, requestOptions: RequestOptions?) -> CostCenterGroupsUpdateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17251,7 +17254,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerCostCenterGroupsUpdate(request: .init(id: "id"))
+    _ = try await client.ledger.costCenterGroupsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -17269,7 +17272,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerCostCenterGroupsUpdateRequest` 
+**request:** `Requests.CostCenterGroupsUpdateLedgerRequest` 
     
 </dd>
 </dl>
@@ -17289,7 +17292,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerCostCenterGroupsDelete</a>(request: Requests.PostV1LedgerCostCenterGroupsDeleteRequest, requestOptions: RequestOptions?) -> PostV1LedgerCostCenterGroupsDeleteResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">costCenterGroupsDelete</a>(request: Requests.CostCenterGroupsDeleteLedgerRequest, requestOptions: RequestOptions?) -> CostCenterGroupsDeleteLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17308,7 +17311,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerCostCenterGroupsDelete(request: .init(id: "id"))
+    _ = try await client.ledger.costCenterGroupsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -17326,7 +17329,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerCostCenterGroupsDeleteRequest` 
+**request:** `Requests.CostCenterGroupsDeleteLedgerRequest` 
     
 </dd>
 </dl>
@@ -17346,7 +17349,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerCostCenterGroupsList</a>(request: Requests.PostV1LedgerCostCenterGroupsListRequest, requestOptions: RequestOptions?) -> PostV1LedgerCostCenterGroupsListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">costCenterGroupsList</a>(request: Requests.CostCenterGroupsListLedgerRequest, requestOptions: RequestOptions?) -> CostCenterGroupsListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17365,7 +17368,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerCostCenterGroupsList(request: .init())
+    _ = try await client.ledger.costCenterGroupsList(request: .init())
 }
 
 try await main()
@@ -17383,7 +17386,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerCostCenterGroupsListRequest` 
+**request:** `Requests.CostCenterGroupsListLedgerRequest` 
     
 </dd>
 </dl>
@@ -17403,7 +17406,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerPostingRulesList</a>(request: Requests.PostV1LedgerPostingRulesListRequest, requestOptions: RequestOptions?) -> PostV1LedgerPostingRulesListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postingRulesList</a>(request: Requests.PostingRulesListLedgerRequest, requestOptions: RequestOptions?) -> PostingRulesListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17422,7 +17425,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerPostingRulesList(request: .init())
+    _ = try await client.ledger.postingRulesList(request: .init())
 }
 
 try await main()
@@ -17440,7 +17443,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerPostingRulesListRequest` 
+**request:** `Requests.PostingRulesListLedgerRequest` 
     
 </dd>
 </dl>
@@ -17460,7 +17463,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerPostingRulesUpdate</a>(request: Requests.PostV1LedgerPostingRulesUpdateRequest, requestOptions: RequestOptions?) -> PostV1LedgerPostingRulesUpdateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postingRulesUpdate</a>(request: Requests.PostingRulesUpdateLedgerRequest, requestOptions: RequestOptions?) -> PostingRulesUpdateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17479,8 +17482,8 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerPostingRulesUpdate(request: .init(rules: [
-        PostV1LedgerPostingRulesUpdateRequestRulesItem(
+    _ = try await client.ledger.postingRulesUpdate(request: .init(rules: [
+        PostingRulesUpdateLedgerRequestRulesItem(
             key: .salesReceivable,
             accountCode: .null
         )
@@ -17502,7 +17505,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerPostingRulesUpdateRequest` 
+**request:** `Requests.PostingRulesUpdateLedgerRequest` 
     
 </dd>
 </dl>
@@ -17522,7 +17525,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerOwnersCreate</a>(request: Requests.PostV1LedgerOwnersCreateRequest, requestOptions: RequestOptions?) -> PostV1LedgerOwnersCreateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">ownersCreate</a>(request: Requests.OwnersCreateLedgerRequest, requestOptions: RequestOptions?) -> OwnersCreateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17541,7 +17544,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerOwnersCreate(request: .init(name: "name"))
+    _ = try await client.ledger.ownersCreate(request: .init(name: "name"))
 }
 
 try await main()
@@ -17559,7 +17562,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerOwnersCreateRequest` 
+**request:** `Requests.OwnersCreateLedgerRequest` 
     
 </dd>
 </dl>
@@ -17579,7 +17582,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerOwnersUpdate</a>(request: Requests.PostV1LedgerOwnersUpdateRequest, requestOptions: RequestOptions?) -> PostV1LedgerOwnersUpdateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">ownersUpdate</a>(request: Requests.OwnersUpdateLedgerRequest, requestOptions: RequestOptions?) -> OwnersUpdateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17598,7 +17601,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerOwnersUpdate(request: .init(id: "id"))
+    _ = try await client.ledger.ownersUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -17616,7 +17619,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerOwnersUpdateRequest` 
+**request:** `Requests.OwnersUpdateLedgerRequest` 
     
 </dd>
 </dl>
@@ -17636,7 +17639,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerOwnersDelete</a>(request: Requests.PostV1LedgerOwnersDeleteRequest, requestOptions: RequestOptions?) -> PostV1LedgerOwnersDeleteResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">ownersDelete</a>(request: Requests.OwnersDeleteLedgerRequest, requestOptions: RequestOptions?) -> OwnersDeleteLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17655,7 +17658,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerOwnersDelete(request: .init(id: "id"))
+    _ = try await client.ledger.ownersDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -17673,7 +17676,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerOwnersDeleteRequest` 
+**request:** `Requests.OwnersDeleteLedgerRequest` 
     
 </dd>
 </dl>
@@ -17693,7 +17696,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerOwnersList</a>(request: Requests.PostV1LedgerOwnersListRequest, requestOptions: RequestOptions?) -> PostV1LedgerOwnersListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">ownersList</a>(request: Requests.OwnersListLedgerRequest, requestOptions: RequestOptions?) -> OwnersListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17712,7 +17715,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerOwnersList(request: .init())
+    _ = try await client.ledger.ownersList(request: .init())
 }
 
 try await main()
@@ -17730,7 +17733,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerOwnersListRequest` 
+**request:** `Requests.OwnersListLedgerRequest` 
     
 </dd>
 </dl>
@@ -17750,7 +17753,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerJournalTransactionsGet</a>(request: Requests.PostV1LedgerJournalTransactionsGetRequest, requestOptions: RequestOptions?) -> PostV1LedgerJournalTransactionsGetResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">journalTransactionsGet</a>(request: Requests.JournalTransactionsGetLedgerRequest, requestOptions: RequestOptions?) -> JournalTransactionsGetLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17769,7 +17772,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerJournalTransactionsGet(request: .init(id: "id"))
+    _ = try await client.ledger.journalTransactionsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -17787,7 +17790,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerJournalTransactionsGetRequest` 
+**request:** `Requests.JournalTransactionsGetLedgerRequest` 
     
 </dd>
 </dl>
@@ -17807,7 +17810,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">postV1LedgerJournalTransactionsCreate</a>(request: Requests.PostV1LedgerJournalTransactionsCreateRequest, requestOptions: RequestOptions?) -> PostV1LedgerJournalTransactionsCreateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">journalTransactionsCreate</a>(request: Requests.JournalTransactionsCreateLedgerRequest, requestOptions: RequestOptions?) -> JournalTransactionsCreateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17826,10 +17829,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.postV1LedgerJournalTransactionsCreate(request: .init(
-        date: "date",
+    _ = try await client.ledger.journalTransactionsCreate(request: .init(
+        date: CalendarDate("2026-07-01")!,
         entries: [
-            PostV1LedgerJournalTransactionsCreateRequestEntriesItem(
+            JournalTransactionsCreateLedgerRequestEntriesItem(
                 accountCode: "accountCode"
             )
         ]
@@ -17851,7 +17854,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerJournalTransactionsCreateRequest` 
+**request:** `Requests.JournalTransactionsCreateLedgerRequest` 
     
 </dd>
 </dl>
@@ -17871,7 +17874,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">nationalStatementLayoutsAvailableToTheCompany</a>(request: Requests.PostV1LedgerStatementRowsSchemesRequest, requestOptions: RequestOptions?) -> PostV1LedgerStatementRowsSchemesResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">statementRowsSchemes</a>(request: Requests.StatementRowsSchemesLedgerRequest, requestOptions: RequestOptions?) -> StatementRowsSchemesLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17904,7 +17907,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.nationalStatementLayoutsAvailableToTheCompany(request: .init())
+    _ = try await client.ledger.statementRowsSchemes(request: .init())
 }
 
 try await main()
@@ -17922,7 +17925,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerStatementRowsSchemesRequest` 
+**request:** `Requests.StatementRowsSchemesLedgerRequest` 
     
 </dd>
 </dl>
@@ -17942,7 +17945,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">accountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriod</a>(request: Requests.PostV1LedgerStatementRowsListRequest, requestOptions: RequestOptions?) -> PostV1LedgerStatementRowsListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">statementRowsList</a>(request: Requests.StatementRowsListLedgerRequest, requestOptions: RequestOptions?) -> StatementRowsListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -17961,7 +17964,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.accountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriod(request: .init(scheme: "scheme"))
+    _ = try await client.ledger.statementRowsList(request: .init(scheme: "scheme"))
 }
 
 try await main()
@@ -17979,7 +17982,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerStatementRowsListRequest` 
+**request:** `Requests.StatementRowsListLedgerRequest` 
     
 </dd>
 </dl>
@@ -17999,7 +18002,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">mapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayout</a>(request: Requests.PostV1LedgerStatementRowsSetRequest, requestOptions: RequestOptions?) -> PostV1LedgerStatementRowsSetResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">statementRowsSet</a>(request: Requests.StatementRowsSetLedgerRequest, requestOptions: RequestOptions?) -> StatementRowsSetLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -18032,7 +18035,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.mapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayout(request: .init(
+    _ = try await client.ledger.statementRowsSet(request: .init(
         scheme: "scheme",
         accountCode: "accountCode",
         rowCode: .null
@@ -18054,7 +18057,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1LedgerStatementRowsSetRequest` 
+**request:** `Requests.StatementRowsSetLedgerRequest` 
     
 </dd>
 </dl>
@@ -18074,7 +18077,8 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">officersOfTheCompany</a>(request: Requests.PostV1OfficersListRequest, requestOptions: RequestOptions?) -> PostV1OfficersListResponse</code></summary>
+## Officers
+<details><summary><code>client.officers.<a href="/Sources/Resources/Officers/OfficersClient.swift">list</a>(request: Requests.ListOfficersRequest, requestOptions: RequestOptions?) -> ListOfficersResponse</code></summary>
 <dl>
 <dd>
 
@@ -18107,7 +18111,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.officersOfTheCompany(request: .init())
+    _ = try await client.officers.list(request: .init())
 }
 
 try await main()
@@ -18125,7 +18129,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1OfficersListRequest` 
+**request:** `Requests.ListOfficersRequest` 
     
 </dd>
 </dl>
@@ -18145,7 +18149,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">recordAnOfficerOfTheCompany</a>(request: Requests.PostV1OfficersCreateRequest, requestOptions: RequestOptions?) -> PostV1OfficersCreateResponse</code></summary>
+<details><summary><code>client.officers.<a href="/Sources/Resources/Officers/OfficersClient.swift">create</a>(request: Requests.CreateOfficersRequest, requestOptions: RequestOptions?) -> CreateOfficersResponse</code></summary>
 <dl>
 <dd>
 
@@ -18164,7 +18168,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.recordAnOfficerOfTheCompany(request: .init(
+    _ = try await client.officers.create(request: .init(
         name: "name",
         role: .director
     ))
@@ -18185,7 +18189,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1OfficersCreateRequest` 
+**request:** `Requests.CreateOfficersRequest` 
     
 </dd>
 </dl>
@@ -18205,7 +18209,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">changeARecordedOfficer</a>(request: Requests.PostV1OfficersUpdateRequest, requestOptions: RequestOptions?) -> PostV1OfficersUpdateResponse</code></summary>
+<details><summary><code>client.officers.<a href="/Sources/Resources/Officers/OfficersClient.swift">update</a>(request: Requests.UpdateOfficersRequest, requestOptions: RequestOptions?) -> UpdateOfficersResponse</code></summary>
 <dl>
 <dd>
 
@@ -18224,7 +18228,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.changeARecordedOfficer(request: .init(
+    _ = try await client.officers.update(request: .init(
         id: "id",
         name: "name",
         role: .director
@@ -18246,7 +18250,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1OfficersUpdateRequest` 
+**request:** `Requests.UpdateOfficersRequest` 
     
 </dd>
 </dl>
@@ -18266,7 +18270,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">removeARecordedOfficer</a>(request: Requests.PostV1OfficersDeleteRequest, requestOptions: RequestOptions?) -> PostV1OfficersDeleteResponse</code></summary>
+<details><summary><code>client.officers.<a href="/Sources/Resources/Officers/OfficersClient.swift">delete</a>(request: Requests.DeleteOfficersRequest, requestOptions: RequestOptions?) -> DeleteOfficersResponse</code></summary>
 <dl>
 <dd>
 
@@ -18285,7 +18289,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ledger.removeARecordedOfficer(request: .init(id: "id"))
+    _ = try await client.officers.delete(request: .init(id: "id"))
 }
 
 try await main()
@@ -18303,7 +18307,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1OfficersDeleteRequest` 
+**request:** `Requests.DeleteOfficersRequest` 
     
 </dd>
 </dl>
@@ -18323,8 +18327,8 @@ try await main()
 </dl>
 </details>
 
-## Migration
-<details><summary><code>client.migration.<a href="/Sources/Resources/Migration/MigrationClient.swift">checkAHistoricalBooksPackageWithoutWritingAnything</a>(request: Requests.PostV1MigrationBooksValidateRequest, requestOptions: RequestOptions?) -> PostV1MigrationBooksValidateResponse</code></summary>
+## migration
+<details><summary><code>client.migration.<a href="/Sources/Resources/Migration/MigrationClient.swift">booksValidate</a>(request: Requests.BooksValidateMigrationRequest, requestOptions: RequestOptions?) -> BooksValidateMigrationResponse</code></summary>
 <dl>
 <dd>
 
@@ -18357,7 +18361,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.migration.checkAHistoricalBooksPackageWithoutWritingAnything(request: .init(cutoverDate: "cutoverDate"))
+    _ = try await client.migration.booksValidate(request: .init(cutoverDate: CalendarDate("2026-07-01")!))
 }
 
 try await main()
@@ -18375,7 +18379,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1MigrationBooksValidateRequest` 
+**request:** `Requests.BooksValidateMigrationRequest` 
     
 </dd>
 </dl>
@@ -18395,7 +18399,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.migration.<a href="/Sources/Resources/Migration/MigrationClient.swift">importHistoricalBooksFromAPreviousAccountingSystem</a>(request: Requests.PostV1MigrationBooksImportRequest, requestOptions: RequestOptions?) -> PostV1MigrationBooksImportResponse</code></summary>
+<details><summary><code>client.migration.<a href="/Sources/Resources/Migration/MigrationClient.swift">booksImport</a>(request: Requests.BooksImportMigrationRequest, requestOptions: RequestOptions?) -> BooksImportMigrationResponse</code></summary>
 <dl>
 <dd>
 
@@ -18428,7 +18432,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.migration.importHistoricalBooksFromAPreviousAccountingSystem(request: .init(cutoverDate: "cutoverDate"))
+    _ = try await client.migration.booksImport(request: .init(cutoverDate: CalendarDate("2026-07-01")!))
 }
 
 try await main()
@@ -18446,7 +18450,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1MigrationBooksImportRequest` 
+**request:** `Requests.BooksImportMigrationRequest` 
     
 </dd>
 </dl>
@@ -18466,8 +18470,8 @@ try await main()
 </dl>
 </details>
 
-## Assets
-<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">postV1AssetsGroupsCreate</a>(request: Requests.PostV1AssetsGroupsCreateRequest, requestOptions: RequestOptions?) -> PostV1AssetsGroupsCreateResponse</code></summary>
+## assets
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">groupsCreate</a>(request: Requests.GroupsCreateAssetsRequest, requestOptions: RequestOptions?) -> GroupsCreateAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18486,7 +18490,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.assets.postV1AssetsGroupsCreate(request: .init(
+    _ = try await client.assets.groupsCreate(request: .init(
         code: "code",
         name: "name",
         assetAccountCode: "assetAccountCode",
@@ -18509,7 +18513,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AssetsGroupsCreateRequest` 
+**request:** `Requests.GroupsCreateAssetsRequest` 
     
 </dd>
 </dl>
@@ -18529,7 +18533,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">postV1AssetsGroupsList</a>(request: Requests.PostV1AssetsGroupsListRequest, requestOptions: RequestOptions?) -> PostV1AssetsGroupsListResponse</code></summary>
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">groupsList</a>(request: Requests.GroupsListAssetsRequest, requestOptions: RequestOptions?) -> GroupsListAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18548,7 +18552,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.assets.postV1AssetsGroupsList(request: .init())
+    _ = try await client.assets.groupsList(request: .init())
 }
 
 try await main()
@@ -18566,7 +18570,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AssetsGroupsListRequest` 
+**request:** `Requests.GroupsListAssetsRequest` 
     
 </dd>
 </dl>
@@ -18586,7 +18590,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">postV1AssetsAssetsCreate</a>(request: Requests.PostV1AssetsAssetsCreateRequest, requestOptions: RequestOptions?) -> PostV1AssetsAssetsCreateResponse</code></summary>
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">assetsCreate</a>(request: Requests.AssetsCreateAssetsRequest, requestOptions: RequestOptions?) -> AssetsCreateAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18605,12 +18609,12 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.assets.postV1AssetsAssetsCreate(request: .init(
+    _ = try await client.assets.assetsCreate(request: .init(
         groupId: "groupId",
         code: "code",
         name: "name",
-        acquisitionDate: "acquisitionDate",
-        acquisitionCost: "acquisitionCost"
+        acquisitionDate: CalendarDate("2026-07-01")!,
+        acquisitionCost: "121.0000"
     ))
 }
 
@@ -18629,7 +18633,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AssetsAssetsCreateRequest` 
+**request:** `Requests.AssetsCreateAssetsRequest` 
     
 </dd>
 </dl>
@@ -18649,7 +18653,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">postV1AssetsAssetsUpdate</a>(request: Requests.PostV1AssetsAssetsUpdateRequest, requestOptions: RequestOptions?) -> PostV1AssetsAssetsUpdateResponse</code></summary>
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">assetsUpdate</a>(request: Requests.AssetsUpdateAssetsRequest, requestOptions: RequestOptions?) -> AssetsUpdateAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18668,7 +18672,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.assets.postV1AssetsAssetsUpdate(request: .init(id: "id"))
+    _ = try await client.assets.assetsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -18686,7 +18690,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AssetsAssetsUpdateRequest` 
+**request:** `Requests.AssetsUpdateAssetsRequest` 
     
 </dd>
 </dl>
@@ -18706,7 +18710,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">postV1AssetsAssetsInputVat</a>(request: Requests.PostV1AssetsAssetsInputVatRequest, requestOptions: RequestOptions?) -> PostV1AssetsAssetsInputVatResponse</code></summary>
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">assetsInputVat</a>(request: Requests.AssetsInputVatAssetsRequest, requestOptions: RequestOptions?) -> AssetsInputVatAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18739,16 +18743,16 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.assets.postV1AssetsAssetsInputVat(request: .init(
+    _ = try await client.assets.assetsInputVat(request: .init(
         id: "id",
         inputVatAmount: .null,
         inputVatFirstUseDate: .null,
         inputVatDeductiblePercent: .null,
         inputVatRealEstate: true,
         inputVatUseChanges: [
-            PostV1AssetsAssetsInputVatRequestInputVatUseChangesItem(
+            AssetsInputVatAssetsRequestInputVatUseChangesItem(
                 year: 1000000,
-                percent: "percent",
+                percent: "121.00",
                 reason: .useChange
             )
         ]
@@ -18770,7 +18774,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AssetsAssetsInputVatRequest` 
+**request:** `Requests.AssetsInputVatAssetsRequest` 
     
 </dd>
 </dl>
@@ -18790,7 +18794,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">postV1AssetsAssetsGet</a>(request: Requests.PostV1AssetsAssetsGetRequest, requestOptions: RequestOptions?) -> PostV1AssetsAssetsGetResponse</code></summary>
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">assetsGet</a>(request: Requests.AssetsGetAssetsRequest, requestOptions: RequestOptions?) -> AssetsGetAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18809,7 +18813,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.assets.postV1AssetsAssetsGet(request: .init(id: "id"))
+    _ = try await client.assets.assetsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -18827,7 +18831,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AssetsAssetsGetRequest` 
+**request:** `Requests.AssetsGetAssetsRequest` 
     
 </dd>
 </dl>
@@ -18847,7 +18851,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">postV1AssetsAssetsList</a>(request: Requests.PostV1AssetsAssetsListRequest, requestOptions: RequestOptions?) -> PostV1AssetsAssetsListResponse</code></summary>
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">assetsList</a>(request: Requests.AssetsListAssetsRequest, requestOptions: RequestOptions?) -> AssetsListAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18866,7 +18870,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.assets.postV1AssetsAssetsList(request: .init())
+    _ = try await client.assets.assetsList(request: .init())
 }
 
 try await main()
@@ -18884,7 +18888,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AssetsAssetsListRequest` 
+**request:** `Requests.AssetsListAssetsRequest` 
     
 </dd>
 </dl>
@@ -18904,7 +18908,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">postV1AssetsAssetsModernize</a>(request: Requests.PostV1AssetsAssetsModernizeRequest, requestOptions: RequestOptions?) -> PostV1AssetsAssetsModernizeResponse</code></summary>
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">assetsModernize</a>(request: Requests.AssetsModernizeAssetsRequest, requestOptions: RequestOptions?) -> AssetsModernizeAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18923,10 +18927,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.assets.postV1AssetsAssetsModernize(request: .init(
+    _ = try await client.assets.assetsModernize(request: .init(
         id: "id",
-        date: "date",
-        amount: "amount"
+        date: CalendarDate("2026-07-01")!,
+        amount: "121.0000"
     ))
 }
 
@@ -18945,7 +18949,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AssetsAssetsModernizeRequest` 
+**request:** `Requests.AssetsModernizeAssetsRequest` 
     
 </dd>
 </dl>
@@ -18965,7 +18969,82 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">postV1AssetsDepreciationPreview</a>(request: Requests.PostV1AssetsDepreciationPreviewRequest, requestOptions: RequestOptions?) -> PostV1AssetsDepreciationPreviewResponse</code></summary>
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">assetsDispose</a>(request: Requests.AssetsDisposeAssetsRequest, requestOptions: RequestOptions?) -> AssetsDisposeAssetsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Dispose of a fixed asset (sold, scrapped or written off). Removes its cost and accumulated depreciation, books the net book value as a disposal loss and the proceeds as a disposal gain (posting rules assets.disposalLoss, assets.disposalGain, assets.disposalProceeds), and stops its depreciation. Depreciation must be posted for every month before the disposal month.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.assets.assetsDispose(request: .init(
+        id: "id",
+        date: CalendarDate("2026-07-01")!,
+        reason: .sold
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.AssetsDisposeAssetsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">depreciationPreview</a>(request: Requests.DepreciationPreviewAssetsRequest, requestOptions: RequestOptions?) -> DepreciationPreviewAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18984,7 +19063,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.assets.postV1AssetsDepreciationPreview(request: .init(
+    _ = try await client.assets.depreciationPreview(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -19005,7 +19084,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AssetsDepreciationPreviewRequest` 
+**request:** `Requests.DepreciationPreviewAssetsRequest` 
     
 </dd>
 </dl>
@@ -19025,7 +19104,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">postV1AssetsDepreciationPost</a>(request: Requests.PostV1AssetsDepreciationPostRequest, requestOptions: RequestOptions?) -> PostV1AssetsDepreciationPostResponse</code></summary>
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">depreciationPost</a>(request: Requests.DepreciationPostAssetsRequest, requestOptions: RequestOptions?) -> DepreciationPostAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19044,7 +19123,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.assets.postV1AssetsDepreciationPost(request: .init(
+    _ = try await client.assets.depreciationPost(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -19065,7 +19144,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AssetsDepreciationPostRequest` 
+**request:** `Requests.DepreciationPostAssetsRequest` 
     
 </dd>
 </dl>
@@ -19085,8 +19164,8 @@ try await main()
 </dl>
 </details>
 
-## Hr
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrPositionsCreate</a>(request: Requests.PostV1HrPositionsCreateRequest, requestOptions: RequestOptions?) -> PostV1HrPositionsCreateResponse</code></summary>
+## hr
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">positionsCreate</a>(request: Requests.PositionsCreateHrRequest, requestOptions: RequestOptions?) -> PositionsCreateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19105,7 +19184,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrPositionsCreate(request: .init(name: "name"))
+    _ = try await client.hr.positionsCreate(request: .init(name: "name"))
 }
 
 try await main()
@@ -19123,7 +19202,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrPositionsCreateRequest` 
+**request:** `Requests.PositionsCreateHrRequest` 
     
 </dd>
 </dl>
@@ -19143,7 +19222,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrPositionsUpdate</a>(request: Requests.PostV1HrPositionsUpdateRequest, requestOptions: RequestOptions?) -> PostV1HrPositionsUpdateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">positionsUpdate</a>(request: Requests.PositionsUpdateHrRequest, requestOptions: RequestOptions?) -> PositionsUpdateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19162,7 +19241,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrPositionsUpdate(request: .init(id: "id"))
+    _ = try await client.hr.positionsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -19180,7 +19259,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrPositionsUpdateRequest` 
+**request:** `Requests.PositionsUpdateHrRequest` 
     
 </dd>
 </dl>
@@ -19200,7 +19279,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrPositionsList</a>(request: Requests.PostV1HrPositionsListRequest, requestOptions: RequestOptions?) -> PostV1HrPositionsListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">positionsList</a>(request: Requests.PositionsListHrRequest, requestOptions: RequestOptions?) -> PositionsListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19219,7 +19298,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrPositionsList(request: .init())
+    _ = try await client.hr.positionsList(request: .init())
 }
 
 try await main()
@@ -19237,7 +19316,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrPositionsListRequest` 
+**request:** `Requests.PositionsListHrRequest` 
     
 </dd>
 </dl>
@@ -19257,7 +19336,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrEmployeesCreate</a>(request: Requests.PostV1HrEmployeesCreateRequest, requestOptions: RequestOptions?) -> PostV1HrEmployeesCreateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">employeesCreate</a>(request: Requests.EmployeesCreateHrRequest, requestOptions: RequestOptions?) -> EmployeesCreateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19276,7 +19355,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrEmployeesCreate(request: .init(
+    _ = try await client.hr.employeesCreate(request: .init(
         firstName: "firstName",
         lastName: "lastName"
     ))
@@ -19297,7 +19376,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrEmployeesCreateRequest` 
+**request:** `Requests.EmployeesCreateHrRequest` 
     
 </dd>
 </dl>
@@ -19317,7 +19396,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrEmployeesUpdate</a>(request: Requests.PostV1HrEmployeesUpdateRequest, requestOptions: RequestOptions?) -> PostV1HrEmployeesUpdateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">employeesUpdate</a>(request: Requests.EmployeesUpdateHrRequest, requestOptions: RequestOptions?) -> EmployeesUpdateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19336,7 +19415,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrEmployeesUpdate(request: .init(id: "id"))
+    _ = try await client.hr.employeesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -19354,7 +19433,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrEmployeesUpdateRequest` 
+**request:** `Requests.EmployeesUpdateHrRequest` 
     
 </dd>
 </dl>
@@ -19374,7 +19453,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrEmployeesGet</a>(request: Requests.PostV1HrEmployeesGetRequest, requestOptions: RequestOptions?) -> PostV1HrEmployeesGetResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">employeesGet</a>(request: Requests.EmployeesGetHrRequest, requestOptions: RequestOptions?) -> EmployeesGetHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19393,7 +19472,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrEmployeesGet(request: .init(id: "id"))
+    _ = try await client.hr.employeesGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -19411,7 +19490,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrEmployeesGetRequest` 
+**request:** `Requests.EmployeesGetHrRequest` 
     
 </dd>
 </dl>
@@ -19431,7 +19510,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">extraEmployeeDetailsTheCountryOfTheCompanyAsksFor</a>(request: Requests.PostV1HrEmployeesFieldsRequest, requestOptions: RequestOptions?) -> PostV1HrEmployeesFieldsResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">employeesFields</a>(request: Requests.EmployeesFieldsHrRequest, requestOptions: RequestOptions?) -> EmployeesFieldsHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19464,7 +19543,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.extraEmployeeDetailsTheCountryOfTheCompanyAsksFor(request: .init())
+    _ = try await client.hr.employeesFields(request: .init())
 }
 
 try await main()
@@ -19482,7 +19561,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrEmployeesFieldsRequest` 
+**request:** `Requests.EmployeesFieldsHrRequest` 
     
 </dd>
 </dl>
@@ -19502,7 +19581,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrEmployeesList</a>(request: Requests.PostV1HrEmployeesListRequest, requestOptions: RequestOptions?) -> PostV1HrEmployeesListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">employeesList</a>(request: Requests.EmployeesListHrRequest, requestOptions: RequestOptions?) -> EmployeesListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19521,7 +19600,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrEmployeesList(request: .init())
+    _ = try await client.hr.employeesList(request: .init())
 }
 
 try await main()
@@ -19539,7 +19618,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrEmployeesListRequest` 
+**request:** `Requests.EmployeesListHrRequest` 
     
 </dd>
 </dl>
@@ -19559,7 +19638,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrEmployeesDelete</a>(request: Requests.PostV1HrEmployeesDeleteRequest, requestOptions: RequestOptions?) -> PostV1HrEmployeesDeleteResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">employeesDelete</a>(request: Requests.EmployeesDeleteHrRequest, requestOptions: RequestOptions?) -> EmployeesDeleteHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19578,7 +19657,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrEmployeesDelete(request: .init(id: "id"))
+    _ = try await client.hr.employeesDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -19596,7 +19675,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrEmployeesDeleteRequest` 
+**request:** `Requests.EmployeesDeleteHrRequest` 
     
 </dd>
 </dl>
@@ -19616,7 +19695,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">blankAnEmployeesPersonalDataAndHideTheRecord</a>(request: Requests.PostV1HrEmployeesAnonymizeRequest, requestOptions: RequestOptions?) -> PostV1HrEmployeesAnonymizeResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">employeesAnonymize</a>(request: Requests.EmployeesAnonymizeHrRequest, requestOptions: RequestOptions?) -> EmployeesAnonymizeHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19649,7 +19728,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.blankAnEmployeesPersonalDataAndHideTheRecord(request: .init(id: "id"))
+    _ = try await client.hr.employeesAnonymize(request: .init(id: "id"))
 }
 
 try await main()
@@ -19667,7 +19746,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrEmployeesAnonymizeRequest` 
+**request:** `Requests.EmployeesAnonymizeHrRequest` 
     
 </dd>
 </dl>
@@ -19687,7 +19766,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrContractsCreate</a>(request: Requests.PostV1HrContractsCreateRequest, requestOptions: RequestOptions?) -> PostV1HrContractsCreateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">contractsCreate</a>(request: Requests.ContractsCreateHrRequest, requestOptions: RequestOptions?) -> ContractsCreateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19706,10 +19785,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrContractsCreate(request: .init(
+    _ = try await client.hr.contractsCreate(request: .init(
         employeeId: "employeeId",
-        startDate: "startDate",
-        baseSalary: "baseSalary"
+        startDate: CalendarDate("2026-07-01")!,
+        baseSalary: "121.0000"
     ))
 }
 
@@ -19728,7 +19807,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrContractsCreateRequest` 
+**request:** `Requests.ContractsCreateHrRequest` 
     
 </dd>
 </dl>
@@ -19748,7 +19827,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrContractsEnd</a>(request: Requests.PostV1HrContractsEndRequest, requestOptions: RequestOptions?) -> PostV1HrContractsEndResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">contractsEnd</a>(request: Requests.ContractsEndHrRequest, requestOptions: RequestOptions?) -> ContractsEndHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19767,9 +19846,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrContractsEnd(request: .init(
+    _ = try await client.hr.contractsEnd(request: .init(
         id: "id",
-        endDate: "endDate"
+        endDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -19788,7 +19867,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrContractsEndRequest` 
+**request:** `Requests.ContractsEndHrRequest` 
     
 </dd>
 </dl>
@@ -19808,7 +19887,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrContractsList</a>(request: Requests.PostV1HrContractsListRequest, requestOptions: RequestOptions?) -> PostV1HrContractsListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">contractsList</a>(request: Requests.ContractsListHrRequest, requestOptions: RequestOptions?) -> ContractsListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19827,7 +19906,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrContractsList(request: .init())
+    _ = try await client.hr.contractsList(request: .init())
 }
 
 try await main()
@@ -19845,7 +19924,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrContractsListRequest` 
+**request:** `Requests.ContractsListHrRequest` 
     
 </dd>
 </dl>
@@ -19865,7 +19944,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrLeaveBalancesSet</a>(request: Requests.PostV1HrLeaveBalancesSetRequest, requestOptions: RequestOptions?) -> PostV1HrLeaveBalancesSetResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">leaveBalancesSet</a>(request: Requests.LeaveBalancesSetHrRequest, requestOptions: RequestOptions?) -> LeaveBalancesSetHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19884,10 +19963,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrLeaveBalancesSet(request: .init(
+    _ = try await client.hr.leaveBalancesSet(request: .init(
         employeeId: "employeeId",
         year: 1000000,
-        entitledDays: "entitledDays"
+        entitledDays: "121.00"
     ))
 }
 
@@ -19906,7 +19985,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrLeaveBalancesSetRequest` 
+**request:** `Requests.LeaveBalancesSetHrRequest` 
     
 </dd>
 </dl>
@@ -19926,7 +20005,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrLeaveBalancesList</a>(request: Requests.PostV1HrLeaveBalancesListRequest, requestOptions: RequestOptions?) -> PostV1HrLeaveBalancesListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">leaveBalancesList</a>(request: Requests.LeaveBalancesListHrRequest, requestOptions: RequestOptions?) -> LeaveBalancesListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -19945,7 +20024,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrLeaveBalancesList(request: .init())
+    _ = try await client.hr.leaveBalancesList(request: .init())
 }
 
 try await main()
@@ -19963,7 +20042,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrLeaveBalancesListRequest` 
+**request:** `Requests.LeaveBalancesListHrRequest` 
     
 </dd>
 </dl>
@@ -19983,7 +20062,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrIncapacityCertificatesCreate</a>(request: Requests.PostV1HrIncapacityCertificatesCreateRequest, requestOptions: RequestOptions?) -> PostV1HrIncapacityCertificatesCreateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">incapacityCertificatesCreate</a>(request: Requests.IncapacityCertificatesCreateHrRequest, requestOptions: RequestOptions?) -> IncapacityCertificatesCreateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -20002,11 +20081,11 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrIncapacityCertificatesCreate(request: .init(
+    _ = try await client.hr.incapacityCertificatesCreate(request: .init(
         employeeId: "employeeId",
         number: "number",
-        fromDate: "fromDate",
-        toDate: "toDate"
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -20025,7 +20104,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrIncapacityCertificatesCreateRequest` 
+**request:** `Requests.IncapacityCertificatesCreateHrRequest` 
     
 </dd>
 </dl>
@@ -20045,7 +20124,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrIncapacityCertificatesList</a>(request: Requests.PostV1HrIncapacityCertificatesListRequest, requestOptions: RequestOptions?) -> PostV1HrIncapacityCertificatesListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">incapacityCertificatesList</a>(request: Requests.IncapacityCertificatesListHrRequest, requestOptions: RequestOptions?) -> IncapacityCertificatesListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -20064,7 +20143,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrIncapacityCertificatesList(request: .init())
+    _ = try await client.hr.incapacityCertificatesList(request: .init())
 }
 
 try await main()
@@ -20082,7 +20161,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrIncapacityCertificatesListRequest` 
+**request:** `Requests.IncapacityCertificatesListHrRequest` 
     
 </dd>
 </dl>
@@ -20102,7 +20181,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrEmployeesRecordsCreate</a>(request: Requests.PostV1HrEmployeesRecordsCreateRequest, requestOptions: RequestOptions?) -> PostV1HrEmployeesRecordsCreateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">employeesRecordsCreate</a>(request: Requests.EmployeesRecordsCreateHrRequest, requestOptions: RequestOptions?) -> EmployeesRecordsCreateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -20121,7 +20200,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrEmployeesRecordsCreate(request: .init(
+    _ = try await client.hr.employeesRecordsCreate(request: .init(
         employeeId: "employeeId",
         type: .education,
         title: "title"
@@ -20143,7 +20222,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrEmployeesRecordsCreateRequest` 
+**request:** `Requests.EmployeesRecordsCreateHrRequest` 
     
 </dd>
 </dl>
@@ -20163,7 +20242,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrEmployeesRecordsUpdate</a>(request: Requests.PostV1HrEmployeesRecordsUpdateRequest, requestOptions: RequestOptions?) -> PostV1HrEmployeesRecordsUpdateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">employeesRecordsUpdate</a>(request: Requests.EmployeesRecordsUpdateHrRequest, requestOptions: RequestOptions?) -> EmployeesRecordsUpdateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -20182,7 +20261,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrEmployeesRecordsUpdate(request: .init(id: "id"))
+    _ = try await client.hr.employeesRecordsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -20200,7 +20279,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrEmployeesRecordsUpdateRequest` 
+**request:** `Requests.EmployeesRecordsUpdateHrRequest` 
     
 </dd>
 </dl>
@@ -20220,7 +20299,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrEmployeesRecordsDelete</a>(request: Requests.PostV1HrEmployeesRecordsDeleteRequest, requestOptions: RequestOptions?) -> PostV1HrEmployeesRecordsDeleteResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">employeesRecordsDelete</a>(request: Requests.EmployeesRecordsDeleteHrRequest, requestOptions: RequestOptions?) -> EmployeesRecordsDeleteHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -20239,7 +20318,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrEmployeesRecordsDelete(request: .init(id: "id"))
+    _ = try await client.hr.employeesRecordsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -20257,7 +20336,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrEmployeesRecordsDeleteRequest` 
+**request:** `Requests.EmployeesRecordsDeleteHrRequest` 
     
 </dd>
 </dl>
@@ -20277,7 +20356,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrEmployeesRecordsList</a>(request: Requests.PostV1HrEmployeesRecordsListRequest, requestOptions: RequestOptions?) -> PostV1HrEmployeesRecordsListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">employeesRecordsList</a>(request: Requests.EmployeesRecordsListHrRequest, requestOptions: RequestOptions?) -> EmployeesRecordsListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -20296,7 +20375,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrEmployeesRecordsList(request: .init())
+    _ = try await client.hr.employeesRecordsList(request: .init())
 }
 
 try await main()
@@ -20314,7 +20393,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrEmployeesRecordsListRequest` 
+**request:** `Requests.EmployeesRecordsListHrRequest` 
     
 </dd>
 </dl>
@@ -20334,7 +20413,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrEmployeesAttachmentsList</a>(request: Requests.PostV1HrEmployeesAttachmentsListRequest, requestOptions: RequestOptions?) -> PostV1HrEmployeesAttachmentsListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">employeesAttachmentsList</a>(request: Requests.EmployeesAttachmentsListHrRequest, requestOptions: RequestOptions?) -> EmployeesAttachmentsListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -20353,7 +20432,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrEmployeesAttachmentsList(request: .init(employeeId: "employeeId"))
+    _ = try await client.hr.employeesAttachmentsList(request: .init(employeeId: "employeeId"))
 }
 
 try await main()
@@ -20371,7 +20450,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrEmployeesAttachmentsListRequest` 
+**request:** `Requests.EmployeesAttachmentsListHrRequest` 
     
 </dd>
 </dl>
@@ -20391,7 +20470,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrTimesheetsGenerate</a>(request: Requests.PostV1HrTimesheetsGenerateRequest, requestOptions: RequestOptions?) -> PostV1HrTimesheetsGenerateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">timesheetsGenerate</a>(request: Requests.TimesheetsGenerateHrRequest, requestOptions: RequestOptions?) -> TimesheetsGenerateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -20410,7 +20489,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrTimesheetsGenerate(request: .init(
+    _ = try await client.hr.timesheetsGenerate(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -20431,7 +20510,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrTimesheetsGenerateRequest` 
+**request:** `Requests.TimesheetsGenerateHrRequest` 
     
 </dd>
 </dl>
@@ -20451,7 +20530,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrTimesheetsUpsert</a>(request: Requests.PostV1HrTimesheetsUpsertRequest, requestOptions: RequestOptions?) -> PostV1HrTimesheetsUpsertResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">timesheetsUpsert</a>(request: Requests.TimesheetsUpsertHrRequest, requestOptions: RequestOptions?) -> TimesheetsUpsertHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -20470,14 +20549,14 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrTimesheetsUpsert(request: .init(
+    _ = try await client.hr.timesheetsUpsert(request: .init(
         employeeId: "employeeId",
         year: 1000000,
         month: 1000000,
         days: [
-            PostV1HrTimesheetsUpsertRequestDaysItem(
+            TimesheetsUpsertHrRequestDaysItem(
                 day: 1000000,
-                hours: "hours",
+                hours: "121.00",
                 type: .work
             )
         ]
@@ -20499,7 +20578,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrTimesheetsUpsertRequest` 
+**request:** `Requests.TimesheetsUpsertHrRequest` 
     
 </dd>
 </dl>
@@ -20519,7 +20598,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrTimesheetsGet</a>(request: Requests.PostV1HrTimesheetsGetRequest, requestOptions: RequestOptions?) -> PostV1HrTimesheetsGetResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">timesheetsGet</a>(request: Requests.TimesheetsGetHrRequest, requestOptions: RequestOptions?) -> TimesheetsGetHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -20538,7 +20617,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrTimesheetsGet(request: .init(
+    _ = try await client.hr.timesheetsGet(request: .init(
         employeeId: "employeeId",
         year: 1000000,
         month: 1000000
@@ -20560,7 +20639,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrTimesheetsGetRequest` 
+**request:** `Requests.TimesheetsGetHrRequest` 
     
 </dd>
 </dl>
@@ -20580,7 +20659,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrTimesheetsList</a>(request: Requests.PostV1HrTimesheetsListRequest, requestOptions: RequestOptions?) -> PostV1HrTimesheetsListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">timesheetsList</a>(request: Requests.TimesheetsListHrRequest, requestOptions: RequestOptions?) -> TimesheetsListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -20599,7 +20678,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrTimesheetsList(request: .init(
+    _ = try await client.hr.timesheetsList(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -20620,7 +20699,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrTimesheetsListRequest` 
+**request:** `Requests.TimesheetsListHrRequest` 
     
 </dd>
 </dl>
@@ -20640,7 +20719,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">postV1HrTimesheetsDelete</a>(request: Requests.PostV1HrTimesheetsDeleteRequest, requestOptions: RequestOptions?) -> PostV1HrTimesheetsDeleteResponse</code></summary>
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">timesheetsDelete</a>(request: Requests.TimesheetsDeleteHrRequest, requestOptions: RequestOptions?) -> TimesheetsDeleteHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -20659,7 +20738,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.hr.postV1HrTimesheetsDelete(request: .init(id: "id"))
+    _ = try await client.hr.timesheetsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -20677,7 +20756,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1HrTimesheetsDeleteRequest` 
+**request:** `Requests.TimesheetsDeleteHrRequest` 
     
 </dd>
 </dl>
@@ -20697,8 +20776,8 @@ try await main()
 </dl>
 </details>
 
-## Fleet
-<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetVehiclesCreate</a>(request: Requests.PostV1FleetVehiclesCreateRequest, requestOptions: RequestOptions?) -> PostV1FleetVehiclesCreateResponse</code></summary>
+## fleet
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">vehiclesCreate</a>(request: Requests.VehiclesCreateFleetRequest, requestOptions: RequestOptions?) -> VehiclesCreateFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -20717,7 +20796,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.fleet.postV1FleetVehiclesCreate(request: .init(
+    _ = try await client.fleet.vehiclesCreate(request: .init(
         plateNumber: "plateNumber",
         make: "make",
         model: "model"
@@ -20739,7 +20818,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1FleetVehiclesCreateRequest` 
+**request:** `Requests.VehiclesCreateFleetRequest` 
     
 </dd>
 </dl>
@@ -20759,7 +20838,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetVehiclesUpdate</a>(request: Requests.PostV1FleetVehiclesUpdateRequest, requestOptions: RequestOptions?) -> PostV1FleetVehiclesUpdateResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">vehiclesUpdate</a>(request: Requests.VehiclesUpdateFleetRequest, requestOptions: RequestOptions?) -> VehiclesUpdateFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -20778,7 +20857,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.fleet.postV1FleetVehiclesUpdate(request: .init(id: "id"))
+    _ = try await client.fleet.vehiclesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -20796,7 +20875,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1FleetVehiclesUpdateRequest` 
+**request:** `Requests.VehiclesUpdateFleetRequest` 
     
 </dd>
 </dl>
@@ -20816,7 +20895,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetVehiclesGet</a>(request: Requests.PostV1FleetVehiclesGetRequest, requestOptions: RequestOptions?) -> PostV1FleetVehiclesGetResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">vehiclesGet</a>(request: Requests.VehiclesGetFleetRequest, requestOptions: RequestOptions?) -> VehiclesGetFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -20835,7 +20914,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.fleet.postV1FleetVehiclesGet(request: .init(id: "id"))
+    _ = try await client.fleet.vehiclesGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -20853,7 +20932,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1FleetVehiclesGetRequest` 
+**request:** `Requests.VehiclesGetFleetRequest` 
     
 </dd>
 </dl>
@@ -20873,7 +20952,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetVehiclesList</a>(request: Requests.PostV1FleetVehiclesListRequest, requestOptions: RequestOptions?) -> PostV1FleetVehiclesListResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">vehiclesList</a>(request: Requests.VehiclesListFleetRequest, requestOptions: RequestOptions?) -> VehiclesListFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -20892,7 +20971,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.fleet.postV1FleetVehiclesList(request: .init())
+    _ = try await client.fleet.vehiclesList(request: .init())
 }
 
 try await main()
@@ -20910,7 +20989,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1FleetVehiclesListRequest` 
+**request:** `Requests.VehiclesListFleetRequest` 
     
 </dd>
 </dl>
@@ -20930,7 +21009,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetAssignmentsCreate</a>(request: Requests.PostV1FleetAssignmentsCreateRequest, requestOptions: RequestOptions?) -> PostV1FleetAssignmentsCreateResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">assignmentsCreate</a>(request: Requests.AssignmentsCreateFleetRequest, requestOptions: RequestOptions?) -> AssignmentsCreateFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -20949,10 +21028,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.fleet.postV1FleetAssignmentsCreate(request: .init(
+    _ = try await client.fleet.assignmentsCreate(request: .init(
         vehicleId: "vehicleId",
         employeeId: "employeeId",
-        fromDate: "fromDate"
+        fromDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -20971,7 +21050,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1FleetAssignmentsCreateRequest` 
+**request:** `Requests.AssignmentsCreateFleetRequest` 
     
 </dd>
 </dl>
@@ -20991,7 +21070,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetAssignmentsEnd</a>(request: Requests.PostV1FleetAssignmentsEndRequest, requestOptions: RequestOptions?) -> PostV1FleetAssignmentsEndResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">assignmentsEnd</a>(request: Requests.AssignmentsEndFleetRequest, requestOptions: RequestOptions?) -> AssignmentsEndFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -21010,9 +21089,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.fleet.postV1FleetAssignmentsEnd(request: .init(
+    _ = try await client.fleet.assignmentsEnd(request: .init(
         id: "id",
-        toDate: "toDate"
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -21031,7 +21110,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1FleetAssignmentsEndRequest` 
+**request:** `Requests.AssignmentsEndFleetRequest` 
     
 </dd>
 </dl>
@@ -21051,7 +21130,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetAssignmentsList</a>(request: Requests.PostV1FleetAssignmentsListRequest, requestOptions: RequestOptions?) -> PostV1FleetAssignmentsListResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">assignmentsList</a>(request: Requests.AssignmentsListFleetRequest, requestOptions: RequestOptions?) -> AssignmentsListFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -21070,7 +21149,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.fleet.postV1FleetAssignmentsList(request: .init())
+    _ = try await client.fleet.assignmentsList(request: .init())
 }
 
 try await main()
@@ -21088,7 +21167,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1FleetAssignmentsListRequest` 
+**request:** `Requests.AssignmentsListFleetRequest` 
     
 </dd>
 </dl>
@@ -21108,7 +21187,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">postV1FleetNaturaPreview</a>(request: Requests.PostV1FleetNaturaPreviewRequest, requestOptions: RequestOptions?) -> PostV1FleetNaturaPreviewResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/Sources/Resources/Fleet/FleetClient.swift">naturaPreview</a>(request: Requests.NaturaPreviewFleetRequest, requestOptions: RequestOptions?) -> NaturaPreviewFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -21127,7 +21206,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.fleet.postV1FleetNaturaPreview(request: .init(
+    _ = try await client.fleet.naturaPreview(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -21148,7 +21227,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1FleetNaturaPreviewRequest` 
+**request:** `Requests.NaturaPreviewFleetRequest` 
     
 </dd>
 </dl>
@@ -21168,8 +21247,8 @@ try await main()
 </dl>
 </details>
 
-## Payroll
-<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">postV1PayrollDepartmentsCreate</a>(request: Requests.PostV1PayrollDepartmentsCreateRequest, requestOptions: RequestOptions?) -> PostV1PayrollDepartmentsCreateResponse</code></summary>
+## payroll
+<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">departmentsCreate</a>(request: Requests.DepartmentsCreatePayrollRequest, requestOptions: RequestOptions?) -> DepartmentsCreatePayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -21188,7 +21267,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.payroll.postV1PayrollDepartmentsCreate(request: .init(
+    _ = try await client.payroll.departmentsCreate(request: .init(
         code: "code",
         name: "name"
     ))
@@ -21209,7 +21288,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PayrollDepartmentsCreateRequest` 
+**request:** `Requests.DepartmentsCreatePayrollRequest` 
     
 </dd>
 </dl>
@@ -21229,7 +21308,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">postV1PayrollDepartmentsList</a>(request: Requests.PostV1PayrollDepartmentsListRequest, requestOptions: RequestOptions?) -> PostV1PayrollDepartmentsListResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">departmentsList</a>(request: Requests.DepartmentsListPayrollRequest, requestOptions: RequestOptions?) -> DepartmentsListPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -21248,7 +21327,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.payroll.postV1PayrollDepartmentsList(request: .init())
+    _ = try await client.payroll.departmentsList(request: .init())
 }
 
 try await main()
@@ -21266,7 +21345,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PayrollDepartmentsListRequest` 
+**request:** `Requests.DepartmentsListPayrollRequest` 
     
 </dd>
 </dl>
@@ -21286,7 +21365,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">postV1PayrollSchedulesCreate</a>(request: Requests.PostV1PayrollSchedulesCreateRequest, requestOptions: RequestOptions?) -> PostV1PayrollSchedulesCreateResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">schedulesCreate</a>(request: Requests.SchedulesCreatePayrollRequest, requestOptions: RequestOptions?) -> SchedulesCreatePayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -21305,7 +21384,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.payroll.postV1PayrollSchedulesCreate(request: .init(
+    _ = try await client.payroll.schedulesCreate(request: .init(
         code: "code",
         name: "name"
     ))
@@ -21326,7 +21405,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PayrollSchedulesCreateRequest` 
+**request:** `Requests.SchedulesCreatePayrollRequest` 
     
 </dd>
 </dl>
@@ -21346,7 +21425,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">postV1PayrollSchedulesList</a>(request: Requests.PostV1PayrollSchedulesListRequest, requestOptions: RequestOptions?) -> PostV1PayrollSchedulesListResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">schedulesList</a>(request: Requests.SchedulesListPayrollRequest, requestOptions: RequestOptions?) -> SchedulesListPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -21365,7 +21444,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.payroll.postV1PayrollSchedulesList(request: .init())
+    _ = try await client.payroll.schedulesList(request: .init())
 }
 
 try await main()
@@ -21383,7 +21462,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PayrollSchedulesListRequest` 
+**request:** `Requests.SchedulesListPayrollRequest` 
     
 </dd>
 </dl>
@@ -21403,7 +21482,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">calculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry</a>(request: Requests.PostV1PayrollCalcRequest, requestOptions: RequestOptions?) -> PostV1PayrollCalcResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">calc</a>(request: Requests.CalcPayrollRequest, requestOptions: RequestOptions?) -> CalcPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -21422,9 +21501,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.payroll.calculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry(request: .init(
-        taxableBase: "taxableBase",
-        date: "date"
+    _ = try await client.payroll.calc(request: .init(
+        taxableBase: "121.00",
+        date: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -21443,7 +21522,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PayrollCalcRequest` 
+**request:** `Requests.CalcPayrollRequest` 
     
 </dd>
 </dl>
@@ -21463,7 +21542,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">postV1PayrollRunsCreate</a>(request: Requests.PostV1PayrollRunsCreateRequest, requestOptions: RequestOptions?) -> PostV1PayrollRunsCreateResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">runsCreate</a>(request: Requests.RunsCreatePayrollRequest, requestOptions: RequestOptions?) -> RunsCreatePayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -21482,7 +21561,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.payroll.postV1PayrollRunsCreate(request: .init(
+    _ = try await client.payroll.runsCreate(request: .init(
         year: 1000000,
         month: 1000000
     ))
@@ -21503,7 +21582,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PayrollRunsCreateRequest` 
+**request:** `Requests.RunsCreatePayrollRequest` 
     
 </dd>
 </dl>
@@ -21523,7 +21602,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">postV1PayrollRunsGet</a>(request: Requests.PostV1PayrollRunsGetRequest, requestOptions: RequestOptions?) -> PostV1PayrollRunsGetResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">runsGet</a>(request: Requests.RunsGetPayrollRequest, requestOptions: RequestOptions?) -> RunsGetPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -21542,7 +21621,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.payroll.postV1PayrollRunsGet(request: .init(id: "id"))
+    _ = try await client.payroll.runsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -21560,7 +21639,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PayrollRunsGetRequest` 
+**request:** `Requests.RunsGetPayrollRequest` 
     
 </dd>
 </dl>
@@ -21580,7 +21659,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">postV1PayrollRunsList</a>(request: Requests.PostV1PayrollRunsListRequest, requestOptions: RequestOptions?) -> PostV1PayrollRunsListResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">runsList</a>(request: Requests.RunsListPayrollRequest, requestOptions: RequestOptions?) -> RunsListPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -21599,7 +21678,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.payroll.postV1PayrollRunsList(request: .init())
+    _ = try await client.payroll.runsList(request: .init())
 }
 
 try await main()
@@ -21617,7 +21696,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PayrollRunsListRequest` 
+**request:** `Requests.RunsListPayrollRequest` 
     
 </dd>
 </dl>
@@ -21637,7 +21716,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">recordTheTimeAPersonWorkedInAPayrollLine</a>(request: Requests.PostV1PayrollLinesAttendanceRequest, requestOptions: RequestOptions?) -> PostV1PayrollLinesAttendanceResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">linesAttendance</a>(request: Requests.LinesAttendancePayrollRequest, requestOptions: RequestOptions?) -> LinesAttendancePayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -21670,7 +21749,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.payroll.recordTheTimeAPersonWorkedInAPayrollLine(request: .init(id: "id"))
+    _ = try await client.payroll.linesAttendance(request: .init(id: "id"))
 }
 
 try await main()
@@ -21688,7 +21767,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PayrollLinesAttendanceRequest` 
+**request:** `Requests.LinesAttendancePayrollRequest` 
     
 </dd>
 </dl>
@@ -21708,7 +21787,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">postV1PayrollRunsApprove</a>(request: Requests.PostV1PayrollRunsApproveRequest, requestOptions: RequestOptions?) -> PostV1PayrollRunsApproveResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">runsApprove</a>(request: Requests.RunsApprovePayrollRequest, requestOptions: RequestOptions?) -> RunsApprovePayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -21727,7 +21806,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.payroll.postV1PayrollRunsApprove(request: .init(id: "id"))
+    _ = try await client.payroll.runsApprove(request: .init(id: "id"))
 }
 
 try await main()
@@ -21745,7 +21824,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PayrollRunsApproveRequest` 
+**request:** `Requests.RunsApprovePayrollRequest` 
     
 </dd>
 </dl>
@@ -21765,7 +21844,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">postV1PayrollRunsCancel</a>(request: Requests.PostV1PayrollRunsCancelRequest, requestOptions: RequestOptions?) -> PostV1PayrollRunsCancelResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">runsCancel</a>(request: Requests.RunsCancelPayrollRequest, requestOptions: RequestOptions?) -> RunsCancelPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -21784,7 +21863,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.payroll.postV1PayrollRunsCancel(request: .init(id: "id"))
+    _ = try await client.payroll.runsCancel(request: .init(id: "id"))
 }
 
 try await main()
@@ -21802,7 +21881,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PayrollRunsCancelRequest` 
+**request:** `Requests.RunsCancelPayrollRequest` 
     
 </dd>
 </dl>
@@ -21822,7 +21901,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">postV1PayrollPaymentsExport</a>(request: Requests.PostV1PayrollPaymentsExportRequest, requestOptions: RequestOptions?) -> PostV1PayrollPaymentsExportResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">paymentsExport</a>(request: Requests.PaymentsExportPayrollRequest, requestOptions: RequestOptions?) -> PaymentsExportPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -21841,7 +21920,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.payroll.postV1PayrollPaymentsExport(request: .init(
+    _ = try await client.payroll.paymentsExport(request: .init(
         runId: "runId",
         bankAccountId: "bankAccountId"
     ))
@@ -21862,7 +21941,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PayrollPaymentsExportRequest` 
+**request:** `Requests.PaymentsExportPayrollRequest` 
     
 </dd>
 </dl>
@@ -21882,8 +21961,8 @@ try await main()
 </dl>
 </details>
 
-## Agreements
-<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsTypesCreate</a>(request: Requests.PostV1AgreementsTypesCreateRequest, requestOptions: RequestOptions?) -> PostV1AgreementsTypesCreateResponse</code></summary>
+## agreements
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">typesCreate</a>(request: Requests.TypesCreateAgreementsRequest, requestOptions: RequestOptions?) -> TypesCreateAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -21902,7 +21981,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.agreements.postV1AgreementsTypesCreate(request: .init(
+    _ = try await client.agreements.typesCreate(request: .init(
         code: "code",
         name: "name"
     ))
@@ -21923,7 +22002,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AgreementsTypesCreateRequest` 
+**request:** `Requests.TypesCreateAgreementsRequest` 
     
 </dd>
 </dl>
@@ -21943,7 +22022,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsTypesList</a>(request: Requests.PostV1AgreementsTypesListRequest, requestOptions: RequestOptions?) -> PostV1AgreementsTypesListResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">typesList</a>(request: Requests.TypesListAgreementsRequest, requestOptions: RequestOptions?) -> TypesListAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -21962,7 +22041,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.agreements.postV1AgreementsTypesList(request: .init())
+    _ = try await client.agreements.typesList(request: .init())
 }
 
 try await main()
@@ -21980,7 +22059,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AgreementsTypesListRequest` 
+**request:** `Requests.TypesListAgreementsRequest` 
     
 </dd>
 </dl>
@@ -22000,7 +22079,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsAgreementsCreate</a>(request: Requests.PostV1AgreementsAgreementsCreateRequest, requestOptions: RequestOptions?) -> PostV1AgreementsAgreementsCreateResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">agreementsCreate</a>(request: Requests.AgreementsCreateAgreementsRequest, requestOptions: RequestOptions?) -> AgreementsCreateAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -22019,9 +22098,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.agreements.postV1AgreementsAgreementsCreate(request: .init(
+    _ = try await client.agreements.agreementsCreate(request: .init(
         number: "number",
-        startDate: "startDate"
+        startDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -22040,7 +22119,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AgreementsAgreementsCreateRequest` 
+**request:** `Requests.AgreementsCreateAgreementsRequest` 
     
 </dd>
 </dl>
@@ -22060,7 +22139,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsAgreementsGet</a>(request: Requests.PostV1AgreementsAgreementsGetRequest, requestOptions: RequestOptions?) -> PostV1AgreementsAgreementsGetResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">agreementsGet</a>(request: Requests.AgreementsGetAgreementsRequest, requestOptions: RequestOptions?) -> AgreementsGetAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -22079,7 +22158,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.agreements.postV1AgreementsAgreementsGet(request: .init(id: "id"))
+    _ = try await client.agreements.agreementsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -22097,7 +22176,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AgreementsAgreementsGetRequest` 
+**request:** `Requests.AgreementsGetAgreementsRequest` 
     
 </dd>
 </dl>
@@ -22117,7 +22196,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsAgreementsUpdate</a>(request: Requests.PostV1AgreementsAgreementsUpdateRequest, requestOptions: RequestOptions?) -> PostV1AgreementsAgreementsUpdateResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">agreementsUpdate</a>(request: Requests.AgreementsUpdateAgreementsRequest, requestOptions: RequestOptions?) -> AgreementsUpdateAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -22136,7 +22215,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.agreements.postV1AgreementsAgreementsUpdate(request: .init(id: "id"))
+    _ = try await client.agreements.agreementsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -22154,7 +22233,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AgreementsAgreementsUpdateRequest` 
+**request:** `Requests.AgreementsUpdateAgreementsRequest` 
     
 </dd>
 </dl>
@@ -22174,7 +22253,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsAgreementsDelete</a>(request: Requests.PostV1AgreementsAgreementsDeleteRequest, requestOptions: RequestOptions?) -> PostV1AgreementsAgreementsDeleteResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">agreementsDelete</a>(request: Requests.AgreementsDeleteAgreementsRequest, requestOptions: RequestOptions?) -> AgreementsDeleteAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -22193,7 +22272,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.agreements.postV1AgreementsAgreementsDelete(request: .init(id: "id"))
+    _ = try await client.agreements.agreementsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -22211,7 +22290,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AgreementsAgreementsDeleteRequest` 
+**request:** `Requests.AgreementsDeleteAgreementsRequest` 
     
 </dd>
 </dl>
@@ -22231,7 +22310,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsAgreementsList</a>(request: Requests.PostV1AgreementsAgreementsListRequest, requestOptions: RequestOptions?) -> PostV1AgreementsAgreementsListResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">agreementsList</a>(request: Requests.AgreementsListAgreementsRequest, requestOptions: RequestOptions?) -> AgreementsListAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -22250,7 +22329,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.agreements.postV1AgreementsAgreementsList(request: .init())
+    _ = try await client.agreements.agreementsList(request: .init())
 }
 
 try await main()
@@ -22268,7 +22347,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AgreementsAgreementsListRequest` 
+**request:** `Requests.AgreementsListAgreementsRequest` 
     
 </dd>
 </dl>
@@ -22288,7 +22367,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsAgreementsGenerateInvoice</a>(request: Requests.PostV1AgreementsAgreementsGenerateInvoiceRequest, requestOptions: RequestOptions?) -> PostV1AgreementsAgreementsGenerateInvoiceResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">agreementsGenerateInvoice</a>(request: Requests.AgreementsGenerateInvoiceAgreementsRequest, requestOptions: RequestOptions?) -> AgreementsGenerateInvoiceAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -22307,7 +22386,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.agreements.postV1AgreementsAgreementsGenerateInvoice(request: .init(id: "id"))
+    _ = try await client.agreements.agreementsGenerateInvoice(request: .init(id: "id"))
 }
 
 try await main()
@@ -22325,7 +22404,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AgreementsAgreementsGenerateInvoiceRequest` 
+**request:** `Requests.AgreementsGenerateInvoiceAgreementsRequest` 
     
 </dd>
 </dl>
@@ -22345,7 +22424,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsAgreementsBillingRun</a>(request: Requests.PostV1AgreementsAgreementsBillingRunRequest, requestOptions: RequestOptions?) -> PostV1AgreementsAgreementsBillingRunResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">agreementsBillingRun</a>(request: Requests.AgreementsBillingRunAgreementsRequest, requestOptions: RequestOptions?) -> AgreementsBillingRunAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -22364,7 +22443,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.agreements.postV1AgreementsAgreementsBillingRun(request: .init())
+    _ = try await client.agreements.agreementsBillingRun(request: .init())
 }
 
 try await main()
@@ -22382,7 +22461,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AgreementsAgreementsBillingRunRequest` 
+**request:** `Requests.AgreementsBillingRunAgreementsRequest` 
     
 </dd>
 </dl>
@@ -22402,7 +22481,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsInsurancePoliciesCreate</a>(request: Requests.PostV1AgreementsInsurancePoliciesCreateRequest, requestOptions: RequestOptions?) -> PostV1AgreementsInsurancePoliciesCreateResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">insurancePoliciesCreate</a>(request: Requests.InsurancePoliciesCreateAgreementsRequest, requestOptions: RequestOptions?) -> InsurancePoliciesCreateAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -22421,11 +22500,11 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.agreements.postV1AgreementsInsurancePoliciesCreate(request: .init(
+    _ = try await client.agreements.insurancePoliciesCreate(request: .init(
         policyNumber: "policyNumber",
         insuredObject: "insuredObject",
-        fromDate: "fromDate",
-        toDate: "toDate"
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -22444,7 +22523,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AgreementsInsurancePoliciesCreateRequest` 
+**request:** `Requests.InsurancePoliciesCreateAgreementsRequest` 
     
 </dd>
 </dl>
@@ -22464,7 +22543,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsInsurancePoliciesList</a>(request: Requests.PostV1AgreementsInsurancePoliciesListRequest, requestOptions: RequestOptions?) -> PostV1AgreementsInsurancePoliciesListResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">insurancePoliciesList</a>(request: Requests.InsurancePoliciesListAgreementsRequest, requestOptions: RequestOptions?) -> InsurancePoliciesListAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -22483,7 +22562,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.agreements.postV1AgreementsInsurancePoliciesList(request: .init())
+    _ = try await client.agreements.insurancePoliciesList(request: .init())
 }
 
 try await main()
@@ -22501,7 +22580,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AgreementsInsurancePoliciesListRequest` 
+**request:** `Requests.InsurancePoliciesListAgreementsRequest` 
     
 </dd>
 </dl>
@@ -22521,7 +22600,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">postV1AgreementsInsurancePoliciesDelete</a>(request: Requests.PostV1AgreementsInsurancePoliciesDeleteRequest, requestOptions: RequestOptions?) -> PostV1AgreementsInsurancePoliciesDeleteResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">insurancePoliciesDelete</a>(request: Requests.InsurancePoliciesDeleteAgreementsRequest, requestOptions: RequestOptions?) -> InsurancePoliciesDeleteAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -22540,7 +22619,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.agreements.postV1AgreementsInsurancePoliciesDelete(request: .init(id: "id"))
+    _ = try await client.agreements.insurancePoliciesDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -22558,7 +22637,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AgreementsInsurancePoliciesDeleteRequest` 
+**request:** `Requests.InsurancePoliciesDeleteAgreementsRequest` 
     
 </dd>
 </dl>
@@ -22578,8 +22657,8 @@ try await main()
 </dl>
 </details>
 
-## Inventory
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventorySettingsGet</a>(request: Requests.PostV1InventorySettingsGetRequest, requestOptions: RequestOptions?) -> PostV1InventorySettingsGetResponse</code></summary>
+## inventory
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">settingsGet</a>(request: Requests.SettingsGetInventoryRequest, requestOptions: RequestOptions?) -> SettingsGetInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -22598,7 +22677,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventorySettingsGet(request: .init())
+    _ = try await client.inventory.settingsGet(request: .init())
 }
 
 try await main()
@@ -22616,7 +22695,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventorySettingsGetRequest` 
+**request:** `Requests.SettingsGetInventoryRequest` 
     
 </dd>
 </dl>
@@ -22636,7 +22715,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventorySettingsUpdate</a>(request: Requests.PostV1InventorySettingsUpdateRequest, requestOptions: RequestOptions?) -> PostV1InventorySettingsUpdateResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">settingsUpdate</a>(request: Requests.SettingsUpdateInventoryRequest, requestOptions: RequestOptions?) -> SettingsUpdateInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -22655,7 +22734,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventorySettingsUpdate(request: .init(negativeStockPolicy: .reject))
+    _ = try await client.inventory.settingsUpdate(request: .init(negativeStockPolicy: .reject))
 }
 
 try await main()
@@ -22673,7 +22752,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventorySettingsUpdateRequest` 
+**request:** `Requests.SettingsUpdateInventoryRequest` 
     
 </dd>
 </dl>
@@ -22693,7 +22772,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryWarehousesCreate</a>(request: Requests.PostV1InventoryWarehousesCreateRequest, requestOptions: RequestOptions?) -> PostV1InventoryWarehousesCreateResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">warehousesCreate</a>(request: Requests.WarehousesCreateInventoryRequest, requestOptions: RequestOptions?) -> WarehousesCreateInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -22712,7 +22791,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryWarehousesCreate(request: .init(
+    _ = try await client.inventory.warehousesCreate(request: .init(
         code: "code",
         name: "name"
     ))
@@ -22733,7 +22812,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryWarehousesCreateRequest` 
+**request:** `Requests.WarehousesCreateInventoryRequest` 
     
 </dd>
 </dl>
@@ -22753,7 +22832,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryWarehousesList</a>(request: Requests.PostV1InventoryWarehousesListRequest, requestOptions: RequestOptions?) -> PostV1InventoryWarehousesListResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">warehousesList</a>(request: Requests.WarehousesListInventoryRequest, requestOptions: RequestOptions?) -> WarehousesListInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -22772,7 +22851,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryWarehousesList(request: .init())
+    _ = try await client.inventory.warehousesList(request: .init())
 }
 
 try await main()
@@ -22790,7 +22869,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryWarehousesListRequest` 
+**request:** `Requests.WarehousesListInventoryRequest` 
     
 </dd>
 </dl>
@@ -22810,7 +22889,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryStockReceive</a>(request: Requests.PostV1InventoryStockReceiveRequest, requestOptions: RequestOptions?) -> PostV1InventoryStockReceiveResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">stockReceive</a>(request: Requests.StockReceiveInventoryRequest, requestOptions: RequestOptions?) -> StockReceiveInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -22829,12 +22908,12 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryStockReceive(request: .init(
+    _ = try await client.inventory.stockReceive(request: .init(
         warehouseId: "warehouseId",
         itemId: "itemId",
-        date: "date",
-        quantity: "quantity",
-        unitCost: "unitCost"
+        date: CalendarDate("2026-07-01")!,
+        quantity: "121.0000",
+        unitCost: "121.000000"
     ))
 }
 
@@ -22853,7 +22932,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryStockReceiveRequest` 
+**request:** `Requests.StockReceiveInventoryRequest` 
     
 </dd>
 </dl>
@@ -22873,7 +22952,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryStockWriteOff</a>(request: Requests.PostV1InventoryStockWriteOffRequest, requestOptions: RequestOptions?) -> PostV1InventoryStockWriteOffResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">stockWriteOff</a>(request: Requests.StockWriteOffInventoryRequest, requestOptions: RequestOptions?) -> StockWriteOffInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -22892,11 +22971,11 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryStockWriteOff(request: .init(
+    _ = try await client.inventory.stockWriteOff(request: .init(
         warehouseId: "warehouseId",
         itemId: "itemId",
-        date: "date",
-        quantity: "quantity"
+        date: CalendarDate("2026-07-01")!,
+        quantity: "121.0000"
     ))
 }
 
@@ -22915,7 +22994,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryStockWriteOffRequest` 
+**request:** `Requests.StockWriteOffInventoryRequest` 
     
 </dd>
 </dl>
@@ -22935,7 +23014,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryStockTransfer</a>(request: Requests.PostV1InventoryStockTransferRequest, requestOptions: RequestOptions?) -> PostV1InventoryStockTransferResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">stockTransfer</a>(request: Requests.StockTransferInventoryRequest, requestOptions: RequestOptions?) -> StockTransferInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -22954,12 +23033,12 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryStockTransfer(request: .init(
+    _ = try await client.inventory.stockTransfer(request: .init(
         fromWarehouseId: "fromWarehouseId",
         toWarehouseId: "toWarehouseId",
         itemId: "itemId",
-        date: "date",
-        quantity: "quantity"
+        date: CalendarDate("2026-07-01")!,
+        quantity: "121.0000"
     ))
 }
 
@@ -22978,7 +23057,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryStockTransferRequest` 
+**request:** `Requests.StockTransferInventoryRequest` 
     
 </dd>
 </dl>
@@ -22998,7 +23077,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryStockTake</a>(request: Requests.PostV1InventoryStockTakeRequest, requestOptions: RequestOptions?) -> PostV1InventoryStockTakeResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">stockTake</a>(request: Requests.StockTakeInventoryRequest, requestOptions: RequestOptions?) -> StockTakeInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23017,12 +23096,12 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryStockTake(request: .init(
+    _ = try await client.inventory.stockTake(request: .init(
         warehouseId: "warehouseId",
-        date: "date",
+        date: CalendarDate("2026-07-01")!,
         lines: [
-            PostV1InventoryStockTakeRequestLinesItem(
-                countedQty: "countedQty"
+            StockTakeInventoryRequestLinesItem(
+                countedQty: "121.0000"
             )
         ]
     ))
@@ -23043,7 +23122,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryStockTakeRequest` 
+**request:** `Requests.StockTakeInventoryRequest` 
     
 </dd>
 </dl>
@@ -23063,7 +23142,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryStockLevels</a>(request: Requests.PostV1InventoryStockLevelsRequest, requestOptions: RequestOptions?) -> PostV1InventoryStockLevelsResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">stockLevels</a>(request: Requests.StockLevelsInventoryRequest, requestOptions: RequestOptions?) -> StockLevelsInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23082,7 +23161,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryStockLevels(request: .init())
+    _ = try await client.inventory.stockLevels(request: .init())
 }
 
 try await main()
@@ -23100,7 +23179,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryStockLevelsRequest` 
+**request:** `Requests.StockLevelsInventoryRequest` 
     
 </dd>
 </dl>
@@ -23120,7 +23199,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryStockMovementsList</a>(request: Requests.PostV1InventoryStockMovementsListRequest, requestOptions: RequestOptions?) -> PostV1InventoryStockMovementsListResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">stockMovementsList</a>(request: Requests.StockMovementsListInventoryRequest, requestOptions: RequestOptions?) -> StockMovementsListInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23139,7 +23218,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryStockMovementsList(request: .init())
+    _ = try await client.inventory.stockMovementsList(request: .init())
 }
 
 try await main()
@@ -23157,7 +23236,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryStockMovementsListRequest` 
+**request:** `Requests.StockMovementsListInventoryRequest` 
     
 </dd>
 </dl>
@@ -23177,7 +23256,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryLotsList</a>(request: Requests.PostV1InventoryLotsListRequest, requestOptions: RequestOptions?) -> PostV1InventoryLotsListResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">lotsList</a>(request: Requests.LotsListInventoryRequest, requestOptions: RequestOptions?) -> LotsListInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23196,7 +23275,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryLotsList(request: .init())
+    _ = try await client.inventory.lotsList(request: .init())
 }
 
 try await main()
@@ -23214,7 +23293,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryLotsListRequest` 
+**request:** `Requests.LotsListInventoryRequest` 
     
 </dd>
 </dl>
@@ -23234,7 +23313,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryLotsGet</a>(request: Requests.PostV1InventoryLotsGetRequest, requestOptions: RequestOptions?) -> PostV1InventoryLotsGetResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">lotsGet</a>(request: Requests.LotsGetInventoryRequest, requestOptions: RequestOptions?) -> LotsGetInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23253,7 +23332,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryLotsGet(request: .init(id: "id"))
+    _ = try await client.inventory.lotsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -23271,7 +23350,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryLotsGetRequest` 
+**request:** `Requests.LotsGetInventoryRequest` 
     
 </dd>
 </dl>
@@ -23291,7 +23370,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryLotsUpdate</a>(request: Requests.PostV1InventoryLotsUpdateRequest, requestOptions: RequestOptions?) -> PostV1InventoryLotsUpdateResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">lotsUpdate</a>(request: Requests.LotsUpdateInventoryRequest, requestOptions: RequestOptions?) -> LotsUpdateInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23310,7 +23389,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryLotsUpdate(request: .init(id: "id"))
+    _ = try await client.inventory.lotsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -23328,7 +23407,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryLotsUpdateRequest` 
+**request:** `Requests.LotsUpdateInventoryRequest` 
     
 </dd>
 </dl>
@@ -23348,7 +23427,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryLandedCostsCreate</a>(request: Requests.PostV1InventoryLandedCostsCreateRequest, requestOptions: RequestOptions?) -> PostV1InventoryLandedCostsCreateResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">landedCostsCreate</a>(request: Requests.LandedCostsCreateInventoryRequest, requestOptions: RequestOptions?) -> LandedCostsCreateInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23367,9 +23446,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryLandedCostsCreate(request: .init(
-        date: "date",
-        amount: "amount"
+    _ = try await client.inventory.landedCostsCreate(request: .init(
+        date: CalendarDate("2026-07-01")!,
+        amount: "121.000000"
     ))
 }
 
@@ -23388,7 +23467,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryLandedCostsCreateRequest` 
+**request:** `Requests.LandedCostsCreateInventoryRequest` 
     
 </dd>
 </dl>
@@ -23408,7 +23487,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryLandedCostsGet</a>(request: Requests.PostV1InventoryLandedCostsGetRequest, requestOptions: RequestOptions?) -> PostV1InventoryLandedCostsGetResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">landedCostsGet</a>(request: Requests.LandedCostsGetInventoryRequest, requestOptions: RequestOptions?) -> LandedCostsGetInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23427,7 +23506,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryLandedCostsGet(request: .init(id: "id"))
+    _ = try await client.inventory.landedCostsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -23445,7 +23524,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryLandedCostsGetRequest` 
+**request:** `Requests.LandedCostsGetInventoryRequest` 
     
 </dd>
 </dl>
@@ -23465,7 +23544,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryLandedCostsList</a>(request: Requests.PostV1InventoryLandedCostsListRequest, requestOptions: RequestOptions?) -> PostV1InventoryLandedCostsListResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">landedCostsList</a>(request: Requests.LandedCostsListInventoryRequest, requestOptions: RequestOptions?) -> LandedCostsListInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23484,7 +23563,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryLandedCostsList(request: .init())
+    _ = try await client.inventory.landedCostsList(request: .init())
 }
 
 try await main()
@@ -23502,7 +23581,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryLandedCostsListRequest` 
+**request:** `Requests.LandedCostsListInventoryRequest` 
     
 </dd>
 </dl>
@@ -23522,7 +23601,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryReorderRulesCreate</a>(request: Requests.PostV1InventoryReorderRulesCreateRequest, requestOptions: RequestOptions?) -> PostV1InventoryReorderRulesCreateResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">reorderRulesCreate</a>(request: Requests.ReorderRulesCreateInventoryRequest, requestOptions: RequestOptions?) -> ReorderRulesCreateInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23541,9 +23620,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryReorderRulesCreate(request: .init(
+    _ = try await client.inventory.reorderRulesCreate(request: .init(
         itemId: "itemId",
-        minQty: "minQty"
+        minQty: "121.0000"
     ))
 }
 
@@ -23562,7 +23641,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryReorderRulesCreateRequest` 
+**request:** `Requests.ReorderRulesCreateInventoryRequest` 
     
 </dd>
 </dl>
@@ -23582,7 +23661,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryReorderRulesUpdate</a>(request: Requests.PostV1InventoryReorderRulesUpdateRequest, requestOptions: RequestOptions?) -> PostV1InventoryReorderRulesUpdateResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">reorderRulesUpdate</a>(request: Requests.ReorderRulesUpdateInventoryRequest, requestOptions: RequestOptions?) -> ReorderRulesUpdateInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23601,7 +23680,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryReorderRulesUpdate(request: .init(id: "id"))
+    _ = try await client.inventory.reorderRulesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -23619,7 +23698,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryReorderRulesUpdateRequest` 
+**request:** `Requests.ReorderRulesUpdateInventoryRequest` 
     
 </dd>
 </dl>
@@ -23639,7 +23718,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryReorderRulesDelete</a>(request: Requests.PostV1InventoryReorderRulesDeleteRequest, requestOptions: RequestOptions?) -> PostV1InventoryReorderRulesDeleteResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">reorderRulesDelete</a>(request: Requests.ReorderRulesDeleteInventoryRequest, requestOptions: RequestOptions?) -> ReorderRulesDeleteInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23658,7 +23737,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryReorderRulesDelete(request: .init(id: "id"))
+    _ = try await client.inventory.reorderRulesDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -23676,7 +23755,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryReorderRulesDeleteRequest` 
+**request:** `Requests.ReorderRulesDeleteInventoryRequest` 
     
 </dd>
 </dl>
@@ -23696,7 +23775,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryReorderRulesList</a>(request: Requests.PostV1InventoryReorderRulesListRequest, requestOptions: RequestOptions?) -> PostV1InventoryReorderRulesListResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">reorderRulesList</a>(request: Requests.ReorderRulesListInventoryRequest, requestOptions: RequestOptions?) -> ReorderRulesListInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23715,7 +23794,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryReorderRulesList(request: .init())
+    _ = try await client.inventory.reorderRulesList(request: .init())
 }
 
 try await main()
@@ -23733,7 +23812,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryReorderRulesListRequest` 
+**request:** `Requests.ReorderRulesListInventoryRequest` 
     
 </dd>
 </dl>
@@ -23753,7 +23832,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">postV1InventoryReorderRulesCheck</a>(request: Requests.PostV1InventoryReorderRulesCheckRequest, requestOptions: RequestOptions?) -> PostV1InventoryReorderRulesCheckResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/Sources/Resources/Inventory/InventoryClient.swift">reorderRulesCheck</a>(request: Requests.ReorderRulesCheckInventoryRequest, requestOptions: RequestOptions?) -> ReorderRulesCheckInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -23772,7 +23851,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.inventory.postV1InventoryReorderRulesCheck(request: .init())
+    _ = try await client.inventory.reorderRulesCheck(request: .init())
 }
 
 try await main()
@@ -23790,7 +23869,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1InventoryReorderRulesCheckRequest` 
+**request:** `Requests.ReorderRulesCheckInventoryRequest` 
     
 </dd>
 </dl>
@@ -23810,8 +23889,8 @@ try await main()
 </dl>
 </details>
 
-## Production
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionWorkCentersCreate</a>(request: Requests.PostV1ProductionWorkCentersCreateRequest, requestOptions: RequestOptions?) -> PostV1ProductionWorkCentersCreateResponse</code></summary>
+## production
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">workCentersCreate</a>(request: Requests.WorkCentersCreateProductionRequest, requestOptions: RequestOptions?) -> WorkCentersCreateProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -23830,7 +23909,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionWorkCentersCreate(request: .init(
+    _ = try await client.production.workCentersCreate(request: .init(
         code: "code",
         name: "name"
     ))
@@ -23851,7 +23930,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionWorkCentersCreateRequest` 
+**request:** `Requests.WorkCentersCreateProductionRequest` 
     
 </dd>
 </dl>
@@ -23871,7 +23950,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionWorkCentersUpdate</a>(request: Requests.PostV1ProductionWorkCentersUpdateRequest, requestOptions: RequestOptions?) -> PostV1ProductionWorkCentersUpdateResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">workCentersUpdate</a>(request: Requests.WorkCentersUpdateProductionRequest, requestOptions: RequestOptions?) -> WorkCentersUpdateProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -23890,7 +23969,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionWorkCentersUpdate(request: .init(id: "id"))
+    _ = try await client.production.workCentersUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -23908,7 +23987,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionWorkCentersUpdateRequest` 
+**request:** `Requests.WorkCentersUpdateProductionRequest` 
     
 </dd>
 </dl>
@@ -23928,7 +24007,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionWorkCentersList</a>(request: Requests.PostV1ProductionWorkCentersListRequest, requestOptions: RequestOptions?) -> PostV1ProductionWorkCentersListResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">workCentersList</a>(request: Requests.WorkCentersListProductionRequest, requestOptions: RequestOptions?) -> WorkCentersListProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -23947,7 +24026,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionWorkCentersList(request: .init())
+    _ = try await client.production.workCentersList(request: .init())
 }
 
 try await main()
@@ -23965,7 +24044,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionWorkCentersListRequest` 
+**request:** `Requests.WorkCentersListProductionRequest` 
     
 </dd>
 </dl>
@@ -23985,7 +24064,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionRoutingsCreate</a>(request: Requests.PostV1ProductionRoutingsCreateRequest, requestOptions: RequestOptions?) -> PostV1ProductionRoutingsCreateResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">routingsCreate</a>(request: Requests.RoutingsCreateProductionRequest, requestOptions: RequestOptions?) -> RoutingsCreateProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24004,11 +24083,11 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionRoutingsCreate(request: .init(
+    _ = try await client.production.routingsCreate(request: .init(
         code: "code",
         name: "name",
         operations: [
-            PostV1ProductionRoutingsCreateRequestOperationsItem(
+            RoutingsCreateProductionRequestOperationsItem(
                 sequence: 1000000,
                 name: "name",
                 workCenterId: "workCenterId"
@@ -24032,7 +24111,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionRoutingsCreateRequest` 
+**request:** `Requests.RoutingsCreateProductionRequest` 
     
 </dd>
 </dl>
@@ -24052,7 +24131,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionRoutingsGet</a>(request: Requests.PostV1ProductionRoutingsGetRequest, requestOptions: RequestOptions?) -> PostV1ProductionRoutingsGetResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">routingsGet</a>(request: Requests.RoutingsGetProductionRequest, requestOptions: RequestOptions?) -> RoutingsGetProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24071,7 +24150,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionRoutingsGet(request: .init(id: "id"))
+    _ = try await client.production.routingsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -24089,7 +24168,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionRoutingsGetRequest` 
+**request:** `Requests.RoutingsGetProductionRequest` 
     
 </dd>
 </dl>
@@ -24109,7 +24188,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionRoutingsList</a>(request: Requests.PostV1ProductionRoutingsListRequest, requestOptions: RequestOptions?) -> PostV1ProductionRoutingsListResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">routingsList</a>(request: Requests.RoutingsListProductionRequest, requestOptions: RequestOptions?) -> RoutingsListProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24128,7 +24207,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionRoutingsList(request: .init())
+    _ = try await client.production.routingsList(request: .init())
 }
 
 try await main()
@@ -24146,7 +24225,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionRoutingsListRequest` 
+**request:** `Requests.RoutingsListProductionRequest` 
     
 </dd>
 </dl>
@@ -24166,7 +24245,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionMaintenanceCreate</a>(request: Requests.PostV1ProductionMaintenanceCreateRequest, requestOptions: RequestOptions?) -> PostV1ProductionMaintenanceCreateResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">maintenanceCreate</a>(request: Requests.MaintenanceCreateProductionRequest, requestOptions: RequestOptions?) -> MaintenanceCreateProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24185,10 +24264,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionMaintenanceCreate(request: .init(
+    _ = try await client.production.maintenanceCreate(request: .init(
         workCenterId: "workCenterId",
         type: .preventive,
-        plannedDate: "plannedDate"
+        plannedDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -24207,7 +24286,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionMaintenanceCreateRequest` 
+**request:** `Requests.MaintenanceCreateProductionRequest` 
     
 </dd>
 </dl>
@@ -24227,7 +24306,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionMaintenanceComplete</a>(request: Requests.PostV1ProductionMaintenanceCompleteRequest, requestOptions: RequestOptions?) -> PostV1ProductionMaintenanceCompleteResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">maintenanceComplete</a>(request: Requests.MaintenanceCompleteProductionRequest, requestOptions: RequestOptions?) -> MaintenanceCompleteProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24246,9 +24325,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionMaintenanceComplete(request: .init(
+    _ = try await client.production.maintenanceComplete(request: .init(
         id: "id",
-        completedDate: "completedDate"
+        completedDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -24267,7 +24346,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionMaintenanceCompleteRequest` 
+**request:** `Requests.MaintenanceCompleteProductionRequest` 
     
 </dd>
 </dl>
@@ -24287,7 +24366,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionMaintenanceCancel</a>(request: Requests.PostV1ProductionMaintenanceCancelRequest, requestOptions: RequestOptions?) -> PostV1ProductionMaintenanceCancelResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">maintenanceCancel</a>(request: Requests.MaintenanceCancelProductionRequest, requestOptions: RequestOptions?) -> MaintenanceCancelProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24306,7 +24385,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionMaintenanceCancel(request: .init(id: "id"))
+    _ = try await client.production.maintenanceCancel(request: .init(id: "id"))
 }
 
 try await main()
@@ -24324,7 +24403,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionMaintenanceCancelRequest` 
+**request:** `Requests.MaintenanceCancelProductionRequest` 
     
 </dd>
 </dl>
@@ -24344,7 +24423,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionMaintenanceList</a>(request: Requests.PostV1ProductionMaintenanceListRequest, requestOptions: RequestOptions?) -> PostV1ProductionMaintenanceListResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">maintenanceList</a>(request: Requests.MaintenanceListProductionRequest, requestOptions: RequestOptions?) -> MaintenanceListProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24363,7 +24442,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionMaintenanceList(request: .init())
+    _ = try await client.production.maintenanceList(request: .init())
 }
 
 try await main()
@@ -24381,7 +24460,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionMaintenanceListRequest` 
+**request:** `Requests.MaintenanceListProductionRequest` 
     
 </dd>
 </dl>
@@ -24401,7 +24480,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionBomsCreate</a>(request: Requests.PostV1ProductionBomsCreateRequest, requestOptions: RequestOptions?) -> PostV1ProductionBomsCreateResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">bomsCreate</a>(request: Requests.BomsCreateProductionRequest, requestOptions: RequestOptions?) -> BomsCreateProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24420,14 +24499,14 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionBomsCreate(request: .init(
+    _ = try await client.production.bomsCreate(request: .init(
         code: "code",
         name: "name",
         finishedItemId: "finishedItemId",
         lines: [
-            PostV1ProductionBomsCreateRequestLinesItem(
+            BomsCreateProductionRequestLinesItem(
                 componentItemId: "componentItemId",
-                quantity: "quantity"
+                quantity: "121.0000"
             )
         ]
     ))
@@ -24448,7 +24527,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionBomsCreateRequest` 
+**request:** `Requests.BomsCreateProductionRequest` 
     
 </dd>
 </dl>
@@ -24468,7 +24547,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionBomsGet</a>(request: Requests.PostV1ProductionBomsGetRequest, requestOptions: RequestOptions?) -> PostV1ProductionBomsGetResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">bomsGet</a>(request: Requests.BomsGetProductionRequest, requestOptions: RequestOptions?) -> BomsGetProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24487,7 +24566,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionBomsGet(request: .init(id: "id"))
+    _ = try await client.production.bomsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -24505,7 +24584,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionBomsGetRequest` 
+**request:** `Requests.BomsGetProductionRequest` 
     
 </dd>
 </dl>
@@ -24525,7 +24604,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionBomsList</a>(request: Requests.PostV1ProductionBomsListRequest, requestOptions: RequestOptions?) -> PostV1ProductionBomsListResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">bomsList</a>(request: Requests.BomsListProductionRequest, requestOptions: RequestOptions?) -> BomsListProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24544,7 +24623,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionBomsList(request: .init())
+    _ = try await client.production.bomsList(request: .init())
 }
 
 try await main()
@@ -24562,7 +24641,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionBomsListRequest` 
+**request:** `Requests.BomsListProductionRequest` 
     
 </dd>
 </dl>
@@ -24582,7 +24661,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionOrdersCreate</a>(request: Requests.PostV1ProductionOrdersCreateRequest, requestOptions: RequestOptions?) -> PostV1ProductionOrdersCreateResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">ordersCreate</a>(request: Requests.OrdersCreateProductionRequest, requestOptions: RequestOptions?) -> OrdersCreateProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24601,11 +24680,11 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionOrdersCreate(request: .init(
+    _ = try await client.production.ordersCreate(request: .init(
         bomId: "bomId",
         warehouseId: "warehouseId",
-        quantity: "quantity",
-        date: "date"
+        quantity: "121.0000",
+        date: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -24624,7 +24703,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionOrdersCreateRequest` 
+**request:** `Requests.OrdersCreateProductionRequest` 
     
 </dd>
 </dl>
@@ -24644,7 +24723,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionOrdersRecordOperation</a>(request: Requests.PostV1ProductionOrdersRecordOperationRequest, requestOptions: RequestOptions?) -> PostV1ProductionOrdersRecordOperationResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">ordersRecordOperation</a>(request: Requests.OrdersRecordOperationProductionRequest, requestOptions: RequestOptions?) -> OrdersRecordOperationProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24663,9 +24742,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionOrdersRecordOperation(request: .init(
+    _ = try await client.production.ordersRecordOperation(request: .init(
         id: "id",
-        actualMinutes: "actualMinutes"
+        actualMinutes: "121.00"
     ))
 }
 
@@ -24684,7 +24763,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionOrdersRecordOperationRequest` 
+**request:** `Requests.OrdersRecordOperationProductionRequest` 
     
 </dd>
 </dl>
@@ -24704,7 +24783,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionQualityChecksAdd</a>(request: Requests.PostV1ProductionQualityChecksAddRequest, requestOptions: RequestOptions?) -> PostV1ProductionQualityChecksAddResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">qualityChecksAdd</a>(request: Requests.QualityChecksAddProductionRequest, requestOptions: RequestOptions?) -> QualityChecksAddProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24723,7 +24802,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionQualityChecksAdd(request: .init(
+    _ = try await client.production.qualityChecksAdd(request: .init(
         orderId: "orderId",
         name: "name"
     ))
@@ -24744,7 +24823,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionQualityChecksAddRequest` 
+**request:** `Requests.QualityChecksAddProductionRequest` 
     
 </dd>
 </dl>
@@ -24764,7 +24843,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionQualityChecksRecord</a>(request: Requests.PostV1ProductionQualityChecksRecordRequest, requestOptions: RequestOptions?) -> PostV1ProductionQualityChecksRecordResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">qualityChecksRecord</a>(request: Requests.QualityChecksRecordProductionRequest, requestOptions: RequestOptions?) -> QualityChecksRecordProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24783,7 +24862,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionQualityChecksRecord(request: .init(
+    _ = try await client.production.qualityChecksRecord(request: .init(
         id: "id",
         result: .passed
     ))
@@ -24804,7 +24883,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionQualityChecksRecordRequest` 
+**request:** `Requests.QualityChecksRecordProductionRequest` 
     
 </dd>
 </dl>
@@ -24824,7 +24903,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionQualityChecksList</a>(request: Requests.PostV1ProductionQualityChecksListRequest, requestOptions: RequestOptions?) -> PostV1ProductionQualityChecksListResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">qualityChecksList</a>(request: Requests.QualityChecksListProductionRequest, requestOptions: RequestOptions?) -> QualityChecksListProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24843,7 +24922,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionQualityChecksList(request: .init())
+    _ = try await client.production.qualityChecksList(request: .init())
 }
 
 try await main()
@@ -24861,7 +24940,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionQualityChecksListRequest` 
+**request:** `Requests.QualityChecksListProductionRequest` 
     
 </dd>
 </dl>
@@ -24881,7 +24960,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionOrdersComplete</a>(request: Requests.PostV1ProductionOrdersCompleteRequest, requestOptions: RequestOptions?) -> PostV1ProductionOrdersCompleteResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">ordersComplete</a>(request: Requests.OrdersCompleteProductionRequest, requestOptions: RequestOptions?) -> OrdersCompleteProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24900,7 +24979,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionOrdersComplete(request: .init(id: "id"))
+    _ = try await client.production.ordersComplete(request: .init(id: "id"))
 }
 
 try await main()
@@ -24918,7 +24997,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionOrdersCompleteRequest` 
+**request:** `Requests.OrdersCompleteProductionRequest` 
     
 </dd>
 </dl>
@@ -24938,7 +25017,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionOrdersGet</a>(request: Requests.PostV1ProductionOrdersGetRequest, requestOptions: RequestOptions?) -> PostV1ProductionOrdersGetResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">ordersGet</a>(request: Requests.OrdersGetProductionRequest, requestOptions: RequestOptions?) -> OrdersGetProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24957,7 +25036,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionOrdersGet(request: .init(id: "id"))
+    _ = try await client.production.ordersGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -24975,7 +25054,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionOrdersGetRequest` 
+**request:** `Requests.OrdersGetProductionRequest` 
     
 </dd>
 </dl>
@@ -24995,7 +25074,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">postV1ProductionOrdersList</a>(request: Requests.PostV1ProductionOrdersListRequest, requestOptions: RequestOptions?) -> PostV1ProductionOrdersListResponse</code></summary>
+<details><summary><code>client.production.<a href="/Sources/Resources/Production/ProductionClient.swift">ordersList</a>(request: Requests.OrdersListProductionRequest, requestOptions: RequestOptions?) -> OrdersListProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -25014,7 +25093,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.production.postV1ProductionOrdersList(request: .init())
+    _ = try await client.production.ordersList(request: .init())
 }
 
 try await main()
@@ -25032,7 +25111,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProductionOrdersListRequest` 
+**request:** `Requests.OrdersListProductionRequest` 
     
 </dd>
 </dl>
@@ -25052,8 +25131,8 @@ try await main()
 </dl>
 </details>
 
-## Ecommerce
-<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">postV1EcommerceOrdersCreate</a>(request: Requests.PostV1EcommerceOrdersCreateRequest, requestOptions: RequestOptions?) -> PostV1EcommerceOrdersCreateResponse</code></summary>
+## ecommerce
+<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">ordersCreate</a>(request: Requests.OrdersCreateEcommerceRequest, requestOptions: RequestOptions?) -> OrdersCreateEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -25072,11 +25151,11 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ecommerce.postV1EcommerceOrdersCreate(request: .init(lines: [
-        PostV1EcommerceOrdersCreateRequestLinesItem(
+    _ = try await client.ecommerce.ordersCreate(request: .init(lines: [
+        OrdersCreateEcommerceRequestLinesItem(
             description: "description",
-            quantity: "quantity",
-            unitPriceExclVat: "unitPriceExclVat"
+            quantity: "121.0000",
+            unitPriceExclVat: "121.0000"
         )
     ]))
 }
@@ -25096,7 +25175,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1EcommerceOrdersCreateRequest` 
+**request:** `Requests.OrdersCreateEcommerceRequest` 
     
 </dd>
 </dl>
@@ -25116,7 +25195,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">postV1EcommerceOrdersGet</a>(request: Requests.PostV1EcommerceOrdersGetRequest, requestOptions: RequestOptions?) -> PostV1EcommerceOrdersGetResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">ordersGet</a>(request: Requests.OrdersGetEcommerceRequest, requestOptions: RequestOptions?) -> OrdersGetEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -25135,7 +25214,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ecommerce.postV1EcommerceOrdersGet(request: .init(id: "id"))
+    _ = try await client.ecommerce.ordersGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -25153,7 +25232,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1EcommerceOrdersGetRequest` 
+**request:** `Requests.OrdersGetEcommerceRequest` 
     
 </dd>
 </dl>
@@ -25173,7 +25252,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">postV1EcommerceOrdersList</a>(request: Requests.PostV1EcommerceOrdersListRequest, requestOptions: RequestOptions?) -> PostV1EcommerceOrdersListResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">ordersList</a>(request: Requests.OrdersListEcommerceRequest, requestOptions: RequestOptions?) -> OrdersListEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -25192,7 +25271,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ecommerce.postV1EcommerceOrdersList(request: .init())
+    _ = try await client.ecommerce.ordersList(request: .init())
 }
 
 try await main()
@@ -25210,7 +25289,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1EcommerceOrdersListRequest` 
+**request:** `Requests.OrdersListEcommerceRequest` 
     
 </dd>
 </dl>
@@ -25230,7 +25309,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">postV1EcommerceOrdersReserve</a>(request: Requests.PostV1EcommerceOrdersReserveRequest, requestOptions: RequestOptions?) -> PostV1EcommerceOrdersReserveResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">ordersReserve</a>(request: Requests.OrdersReserveEcommerceRequest, requestOptions: RequestOptions?) -> OrdersReserveEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -25249,7 +25328,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ecommerce.postV1EcommerceOrdersReserve(request: .init(id: "id"))
+    _ = try await client.ecommerce.ordersReserve(request: .init(id: "id"))
 }
 
 try await main()
@@ -25267,7 +25346,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1EcommerceOrdersReserveRequest` 
+**request:** `Requests.OrdersReserveEcommerceRequest` 
     
 </dd>
 </dl>
@@ -25287,7 +25366,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">postV1EcommerceOrdersFulfill</a>(request: Requests.PostV1EcommerceOrdersFulfillRequest, requestOptions: RequestOptions?) -> PostV1EcommerceOrdersFulfillResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">ordersFulfill</a>(request: Requests.OrdersFulfillEcommerceRequest, requestOptions: RequestOptions?) -> OrdersFulfillEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -25306,7 +25385,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ecommerce.postV1EcommerceOrdersFulfill(request: .init(id: "id"))
+    _ = try await client.ecommerce.ordersFulfill(request: .init(id: "id"))
 }
 
 try await main()
@@ -25324,7 +25403,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1EcommerceOrdersFulfillRequest` 
+**request:** `Requests.OrdersFulfillEcommerceRequest` 
     
 </dd>
 </dl>
@@ -25344,7 +25423,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">postV1EcommerceOrdersCancel</a>(request: Requests.PostV1EcommerceOrdersCancelRequest, requestOptions: RequestOptions?) -> PostV1EcommerceOrdersCancelResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">ordersCancel</a>(request: Requests.OrdersCancelEcommerceRequest, requestOptions: RequestOptions?) -> OrdersCancelEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -25363,7 +25442,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ecommerce.postV1EcommerceOrdersCancel(request: .init(id: "id"))
+    _ = try await client.ecommerce.ordersCancel(request: .init(id: "id"))
 }
 
 try await main()
@@ -25381,7 +25460,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1EcommerceOrdersCancelRequest` 
+**request:** `Requests.OrdersCancelEcommerceRequest` 
     
 </dd>
 </dl>
@@ -25401,7 +25480,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">postV1EcommerceProductsList</a>(request: Requests.PostV1EcommerceProductsListRequest, requestOptions: RequestOptions?) -> PostV1EcommerceProductsListResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">productsList</a>(request: Requests.ProductsListEcommerceRequest, requestOptions: RequestOptions?) -> ProductsListEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -25420,7 +25499,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ecommerce.postV1EcommerceProductsList(request: .init())
+    _ = try await client.ecommerce.productsList(request: .init())
 }
 
 try await main()
@@ -25438,7 +25517,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1EcommerceProductsListRequest` 
+**request:** `Requests.ProductsListEcommerceRequest` 
     
 </dd>
 </dl>
@@ -25458,7 +25537,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">postV1EcommerceStockList</a>(request: Requests.PostV1EcommerceStockListRequest, requestOptions: RequestOptions?) -> PostV1EcommerceStockListResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/Sources/Resources/Ecommerce/EcommerceClient.swift">stockList</a>(request: Requests.StockListEcommerceRequest, requestOptions: RequestOptions?) -> StockListEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -25477,7 +25556,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.ecommerce.postV1EcommerceStockList(request: .init())
+    _ = try await client.ecommerce.stockList(request: .init())
 }
 
 try await main()
@@ -25495,7 +25574,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1EcommerceStockListRequest` 
+**request:** `Requests.StockListEcommerceRequest` 
     
 </dd>
 </dl>
@@ -25515,8 +25594,8 @@ try await main()
 </dl>
 </details>
 
-## Cash
-<details><summary><code>client.cash.<a href="/Sources/Resources/Cash/CashClient.swift">postV1CashOrdersCreate</a>(request: Requests.PostV1CashOrdersCreateRequest, requestOptions: RequestOptions?) -> PostV1CashOrdersCreateResponse</code></summary>
+## cash
+<details><summary><code>client.cash.<a href="/Sources/Resources/Cash/CashClient.swift">ordersCreate</a>(request: Requests.OrdersCreateCashRequest, requestOptions: RequestOptions?) -> OrdersCreateCashResponse</code></summary>
 <dl>
 <dd>
 
@@ -25535,10 +25614,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.cash.postV1CashOrdersCreate(request: .init(
+    _ = try await client.cash.ordersCreate(request: .init(
         type: .receipt,
-        date: "date",
-        amount: "amount",
+        date: CalendarDate("2026-07-01")!,
+        amount: "121.0000",
         purpose: "purpose",
         counterAccountCode: "counterAccountCode"
     ))
@@ -25559,7 +25638,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CashOrdersCreateRequest` 
+**request:** `Requests.OrdersCreateCashRequest` 
     
 </dd>
 </dl>
@@ -25579,7 +25658,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.cash.<a href="/Sources/Resources/Cash/CashClient.swift">postV1CashOrdersGet</a>(request: Requests.PostV1CashOrdersGetRequest, requestOptions: RequestOptions?) -> PostV1CashOrdersGetResponse</code></summary>
+<details><summary><code>client.cash.<a href="/Sources/Resources/Cash/CashClient.swift">ordersGet</a>(request: Requests.OrdersGetCashRequest, requestOptions: RequestOptions?) -> OrdersGetCashResponse</code></summary>
 <dl>
 <dd>
 
@@ -25598,7 +25677,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.cash.postV1CashOrdersGet(request: .init(id: "id"))
+    _ = try await client.cash.ordersGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -25616,7 +25695,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CashOrdersGetRequest` 
+**request:** `Requests.OrdersGetCashRequest` 
     
 </dd>
 </dl>
@@ -25636,7 +25715,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.cash.<a href="/Sources/Resources/Cash/CashClient.swift">postV1CashOrdersList</a>(request: Requests.PostV1CashOrdersListRequest, requestOptions: RequestOptions?) -> PostV1CashOrdersListResponse</code></summary>
+<details><summary><code>client.cash.<a href="/Sources/Resources/Cash/CashClient.swift">ordersList</a>(request: Requests.OrdersListCashRequest, requestOptions: RequestOptions?) -> OrdersListCashResponse</code></summary>
 <dl>
 <dd>
 
@@ -25655,7 +25734,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.cash.postV1CashOrdersList(request: .init())
+    _ = try await client.cash.ordersList(request: .init())
 }
 
 try await main()
@@ -25673,7 +25752,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CashOrdersListRequest` 
+**request:** `Requests.OrdersListCashRequest` 
     
 </dd>
 </dl>
@@ -25693,7 +25772,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.cash.<a href="/Sources/Resources/Cash/CashClient.swift">postV1CashBalance</a>(request: Requests.PostV1CashBalanceRequest, requestOptions: RequestOptions?) -> PostV1CashBalanceResponse</code></summary>
+<details><summary><code>client.cash.<a href="/Sources/Resources/Cash/CashClient.swift">balance</a>(request: Requests.BalanceCashRequest, requestOptions: RequestOptions?) -> BalanceCashResponse</code></summary>
 <dl>
 <dd>
 
@@ -25712,7 +25791,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.cash.postV1CashBalance(request: .init())
+    _ = try await client.cash.balance(request: .init())
 }
 
 try await main()
@@ -25730,7 +25809,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CashBalanceRequest` 
+**request:** `Requests.BalanceCashRequest` 
     
 </dd>
 </dl>
@@ -25750,7 +25829,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.cash.<a href="/Sources/Resources/Cash/CashClient.swift">postV1CashAdvanceHoldersBalances</a>(request: Requests.PostV1CashAdvanceHoldersBalancesRequest, requestOptions: RequestOptions?) -> PostV1CashAdvanceHoldersBalancesResponse</code></summary>
+<details><summary><code>client.cash.<a href="/Sources/Resources/Cash/CashClient.swift">advanceHoldersBalances</a>(request: Requests.AdvanceHoldersBalancesCashRequest, requestOptions: RequestOptions?) -> AdvanceHoldersBalancesCashResponse</code></summary>
 <dl>
 <dd>
 
@@ -25769,7 +25848,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.cash.postV1CashAdvanceHoldersBalances(request: .init())
+    _ = try await client.cash.advanceHoldersBalances(request: .init())
 }
 
 try await main()
@@ -25787,7 +25866,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CashAdvanceHoldersBalancesRequest` 
+**request:** `Requests.AdvanceHoldersBalancesCashRequest` 
     
 </dd>
 </dl>
@@ -25807,8 +25886,8 @@ try await main()
 </dl>
 </details>
 
-## Projects
-<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsCreate</a>(request: Requests.PostV1ProjectsCreateRequest, requestOptions: RequestOptions?) -> PostV1ProjectsCreateResponse</code></summary>
+## projects
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">create</a>(request: Requests.CreateProjectsRequest, requestOptions: RequestOptions?) -> CreateProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -25827,7 +25906,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.projects.postV1ProjectsCreate(request: .init(
+    _ = try await client.projects.create(request: .init(
         code: "code",
         name: "name"
     ))
@@ -25848,7 +25927,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProjectsCreateRequest` 
+**request:** `Requests.CreateProjectsRequest` 
     
 </dd>
 </dl>
@@ -25868,7 +25947,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsUpdate</a>(request: Requests.PostV1ProjectsUpdateRequest, requestOptions: RequestOptions?) -> PostV1ProjectsUpdateResponse</code></summary>
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">update</a>(request: Requests.UpdateProjectsRequest, requestOptions: RequestOptions?) -> UpdateProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -25887,7 +25966,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.projects.postV1ProjectsUpdate(request: .init(id: "id"))
+    _ = try await client.projects.update(request: .init(id: "id"))
 }
 
 try await main()
@@ -25905,7 +25984,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProjectsUpdateRequest` 
+**request:** `Requests.UpdateProjectsRequest` 
     
 </dd>
 </dl>
@@ -25925,7 +26004,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsGet</a>(request: Requests.PostV1ProjectsGetRequest, requestOptions: RequestOptions?) -> PostV1ProjectsGetResponse</code></summary>
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">get</a>(request: Requests.GetProjectsRequest, requestOptions: RequestOptions?) -> GetProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -25944,7 +26023,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.projects.postV1ProjectsGet(request: .init(id: "id"))
+    _ = try await client.projects.get(request: .init(id: "id"))
 }
 
 try await main()
@@ -25962,7 +26041,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProjectsGetRequest` 
+**request:** `Requests.GetProjectsRequest` 
     
 </dd>
 </dl>
@@ -25982,7 +26061,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsList</a>(request: Requests.PostV1ProjectsListRequest, requestOptions: RequestOptions?) -> PostV1ProjectsListResponse</code></summary>
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">list</a>(request: Requests.ListProjectsRequest, requestOptions: RequestOptions?) -> ListProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -26001,7 +26080,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.projects.postV1ProjectsList(request: .init())
+    _ = try await client.projects.list(request: .init())
 }
 
 try await main()
@@ -26019,7 +26098,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProjectsListRequest` 
+**request:** `Requests.ListProjectsRequest` 
     
 </dd>
 </dl>
@@ -26039,7 +26118,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsTimeEntriesCreate</a>(request: Requests.PostV1ProjectsTimeEntriesCreateRequest, requestOptions: RequestOptions?) -> PostV1ProjectsTimeEntriesCreateResponse</code></summary>
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">timeEntriesCreate</a>(request: Requests.TimeEntriesCreateProjectsRequest, requestOptions: RequestOptions?) -> TimeEntriesCreateProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -26058,10 +26137,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.projects.postV1ProjectsTimeEntriesCreate(request: .init(
+    _ = try await client.projects.timeEntriesCreate(request: .init(
         projectId: "projectId",
-        date: "date",
-        hours: "hours"
+        date: CalendarDate("2026-07-01")!,
+        hours: "121.00"
     ))
 }
 
@@ -26080,7 +26159,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProjectsTimeEntriesCreateRequest` 
+**request:** `Requests.TimeEntriesCreateProjectsRequest` 
     
 </dd>
 </dl>
@@ -26100,7 +26179,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsTimeEntriesUpdate</a>(request: Requests.PostV1ProjectsTimeEntriesUpdateRequest, requestOptions: RequestOptions?) -> PostV1ProjectsTimeEntriesUpdateResponse</code></summary>
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">timeEntriesUpdate</a>(request: Requests.TimeEntriesUpdateProjectsRequest, requestOptions: RequestOptions?) -> TimeEntriesUpdateProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -26119,7 +26198,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.projects.postV1ProjectsTimeEntriesUpdate(request: .init(id: "id"))
+    _ = try await client.projects.timeEntriesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -26137,7 +26216,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProjectsTimeEntriesUpdateRequest` 
+**request:** `Requests.TimeEntriesUpdateProjectsRequest` 
     
 </dd>
 </dl>
@@ -26157,7 +26236,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsTimeEntriesDelete</a>(request: Requests.PostV1ProjectsTimeEntriesDeleteRequest, requestOptions: RequestOptions?) -> PostV1ProjectsTimeEntriesDeleteResponse</code></summary>
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">timeEntriesDelete</a>(request: Requests.TimeEntriesDeleteProjectsRequest, requestOptions: RequestOptions?) -> TimeEntriesDeleteProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -26176,7 +26255,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.projects.postV1ProjectsTimeEntriesDelete(request: .init(id: "id"))
+    _ = try await client.projects.timeEntriesDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -26194,7 +26273,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProjectsTimeEntriesDeleteRequest` 
+**request:** `Requests.TimeEntriesDeleteProjectsRequest` 
     
 </dd>
 </dl>
@@ -26214,7 +26293,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsTimeEntriesList</a>(request: Requests.PostV1ProjectsTimeEntriesListRequest, requestOptions: RequestOptions?) -> PostV1ProjectsTimeEntriesListResponse</code></summary>
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">timeEntriesList</a>(request: Requests.TimeEntriesListProjectsRequest, requestOptions: RequestOptions?) -> TimeEntriesListProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -26233,7 +26312,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.projects.postV1ProjectsTimeEntriesList(request: .init())
+    _ = try await client.projects.timeEntriesList(request: .init())
 }
 
 try await main()
@@ -26251,7 +26330,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProjectsTimeEntriesListRequest` 
+**request:** `Requests.TimeEntriesListProjectsRequest` 
     
 </dd>
 </dl>
@@ -26271,7 +26350,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsTimeEntriesBill</a>(request: Requests.PostV1ProjectsTimeEntriesBillRequest, requestOptions: RequestOptions?) -> PostV1ProjectsTimeEntriesBillResponse</code></summary>
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">timeEntriesBill</a>(request: Requests.TimeEntriesBillProjectsRequest, requestOptions: RequestOptions?) -> TimeEntriesBillProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -26290,7 +26369,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.projects.postV1ProjectsTimeEntriesBill(request: .init(projectId: "projectId"))
+    _ = try await client.projects.timeEntriesBill(request: .init(projectId: "projectId"))
 }
 
 try await main()
@@ -26308,7 +26387,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProjectsTimeEntriesBillRequest` 
+**request:** `Requests.TimeEntriesBillProjectsRequest` 
     
 </dd>
 </dl>
@@ -26328,7 +26407,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">postV1ProjectsReport</a>(request: Requests.PostV1ProjectsReportRequest, requestOptions: RequestOptions?) -> PostV1ProjectsReportResponse</code></summary>
+<details><summary><code>client.projects.<a href="/Sources/Resources/Projects/ProjectsClient.swift">report</a>(request: Requests.ReportProjectsRequest, requestOptions: RequestOptions?) -> ReportProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -26347,7 +26426,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.projects.postV1ProjectsReport(request: .init())
+    _ = try await client.projects.report(request: .init())
 }
 
 try await main()
@@ -26365,7 +26444,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ProjectsReportRequest` 
+**request:** `Requests.ReportProjectsRequest` 
     
 </dd>
 </dl>
@@ -26385,8 +26464,8 @@ try await main()
 </dl>
 </details>
 
-## Transport
-<details><summary><code>client.transport.<a href="/Sources/Resources/Transport/TransportClient.swift">postV1TransportWaybillsCreate</a>(request: Requests.PostV1TransportWaybillsCreateRequest, requestOptions: RequestOptions?) -> PostV1TransportWaybillsCreateResponse</code></summary>
+## transport
+<details><summary><code>client.transport.<a href="/Sources/Resources/Transport/TransportClient.swift">waybillsCreate</a>(request: Requests.WaybillsCreateTransportRequest, requestOptions: RequestOptions?) -> WaybillsCreateTransportResponse</code></summary>
 <dl>
 <dd>
 
@@ -26405,7 +26484,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.transport.postV1TransportWaybillsCreate(request: .init(
+    _ = try await client.transport.waybillsCreate(request: .init(
         consigneePartnerId: "consigneePartnerId",
         dispatchAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
         loadAddress: "loadAddress",
@@ -26428,7 +26507,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1TransportWaybillsCreateRequest` 
+**request:** `Requests.WaybillsCreateTransportRequest` 
     
 </dd>
 </dl>
@@ -26448,7 +26527,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.transport.<a href="/Sources/Resources/Transport/TransportClient.swift">postV1TransportWaybillsUpdate</a>(request: Requests.PostV1TransportWaybillsUpdateRequest, requestOptions: RequestOptions?) -> PostV1TransportWaybillsUpdateResponse</code></summary>
+<details><summary><code>client.transport.<a href="/Sources/Resources/Transport/TransportClient.swift">waybillsUpdate</a>(request: Requests.WaybillsUpdateTransportRequest, requestOptions: RequestOptions?) -> WaybillsUpdateTransportResponse</code></summary>
 <dl>
 <dd>
 
@@ -26467,7 +26546,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.transport.postV1TransportWaybillsUpdate(request: .init(id: "id"))
+    _ = try await client.transport.waybillsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -26485,7 +26564,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1TransportWaybillsUpdateRequest` 
+**request:** `Requests.WaybillsUpdateTransportRequest` 
     
 </dd>
 </dl>
@@ -26505,7 +26584,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.transport.<a href="/Sources/Resources/Transport/TransportClient.swift">postV1TransportWaybillsIssue</a>(request: Requests.PostV1TransportWaybillsIssueRequest, requestOptions: RequestOptions?) -> PostV1TransportWaybillsIssueResponse</code></summary>
+<details><summary><code>client.transport.<a href="/Sources/Resources/Transport/TransportClient.swift">waybillsIssue</a>(request: Requests.WaybillsIssueTransportRequest, requestOptions: RequestOptions?) -> WaybillsIssueTransportResponse</code></summary>
 <dl>
 <dd>
 
@@ -26524,7 +26603,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.transport.postV1TransportWaybillsIssue(request: .init(id: "id"))
+    _ = try await client.transport.waybillsIssue(request: .init(id: "id"))
 }
 
 try await main()
@@ -26542,7 +26621,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1TransportWaybillsIssueRequest` 
+**request:** `Requests.WaybillsIssueTransportRequest` 
     
 </dd>
 </dl>
@@ -26562,7 +26641,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.transport.<a href="/Sources/Resources/Transport/TransportClient.swift">postV1TransportWaybillsCancel</a>(request: Requests.PostV1TransportWaybillsCancelRequest, requestOptions: RequestOptions?) -> PostV1TransportWaybillsCancelResponse</code></summary>
+<details><summary><code>client.transport.<a href="/Sources/Resources/Transport/TransportClient.swift">waybillsCancel</a>(request: Requests.WaybillsCancelTransportRequest, requestOptions: RequestOptions?) -> WaybillsCancelTransportResponse</code></summary>
 <dl>
 <dd>
 
@@ -26581,7 +26660,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.transport.postV1TransportWaybillsCancel(request: .init(id: "id"))
+    _ = try await client.transport.waybillsCancel(request: .init(id: "id"))
 }
 
 try await main()
@@ -26599,7 +26678,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1TransportWaybillsCancelRequest` 
+**request:** `Requests.WaybillsCancelTransportRequest` 
     
 </dd>
 </dl>
@@ -26619,7 +26698,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.transport.<a href="/Sources/Resources/Transport/TransportClient.swift">postV1TransportWaybillsGet</a>(request: Requests.PostV1TransportWaybillsGetRequest, requestOptions: RequestOptions?) -> PostV1TransportWaybillsGetResponse</code></summary>
+<details><summary><code>client.transport.<a href="/Sources/Resources/Transport/TransportClient.swift">waybillsGet</a>(request: Requests.WaybillsGetTransportRequest, requestOptions: RequestOptions?) -> WaybillsGetTransportResponse</code></summary>
 <dl>
 <dd>
 
@@ -26638,7 +26717,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.transport.postV1TransportWaybillsGet(request: .init(id: "id"))
+    _ = try await client.transport.waybillsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -26656,7 +26735,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1TransportWaybillsGetRequest` 
+**request:** `Requests.WaybillsGetTransportRequest` 
     
 </dd>
 </dl>
@@ -26676,7 +26755,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.transport.<a href="/Sources/Resources/Transport/TransportClient.swift">postV1TransportWaybillsList</a>(request: Requests.PostV1TransportWaybillsListRequest, requestOptions: RequestOptions?) -> PostV1TransportWaybillsListResponse</code></summary>
+<details><summary><code>client.transport.<a href="/Sources/Resources/Transport/TransportClient.swift">waybillsList</a>(request: Requests.WaybillsListTransportRequest, requestOptions: RequestOptions?) -> WaybillsListTransportResponse</code></summary>
 <dl>
 <dd>
 
@@ -26695,7 +26774,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.transport.postV1TransportWaybillsList(request: .init())
+    _ = try await client.transport.waybillsList(request: .init())
 }
 
 try await main()
@@ -26713,7 +26792,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1TransportWaybillsListRequest` 
+**request:** `Requests.WaybillsListTransportRequest` 
     
 </dd>
 </dl>
@@ -26733,8 +26812,8 @@ try await main()
 </dl>
 </details>
 
-## Pos
-<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">postV1PosDevicesCreate</a>(request: Requests.PostV1PosDevicesCreateRequest, requestOptions: RequestOptions?) -> PostV1PosDevicesCreateResponse</code></summary>
+## pos
+<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">devicesCreate</a>(request: Requests.DevicesCreatePosRequest, requestOptions: RequestOptions?) -> DevicesCreatePosResponse</code></summary>
 <dl>
 <dd>
 
@@ -26753,7 +26832,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.pos.postV1PosDevicesCreate(request: .init(
+    _ = try await client.pos.devicesCreate(request: .init(
         name: "name",
         serialNumber: "serialNumber"
     ))
@@ -26774,7 +26853,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PosDevicesCreateRequest` 
+**request:** `Requests.DevicesCreatePosRequest` 
     
 </dd>
 </dl>
@@ -26794,7 +26873,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">postV1PosDevicesUpdate</a>(request: Requests.PostV1PosDevicesUpdateRequest, requestOptions: RequestOptions?) -> PostV1PosDevicesUpdateResponse</code></summary>
+<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">devicesUpdate</a>(request: Requests.DevicesUpdatePosRequest, requestOptions: RequestOptions?) -> DevicesUpdatePosResponse</code></summary>
 <dl>
 <dd>
 
@@ -26813,7 +26892,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.pos.postV1PosDevicesUpdate(request: .init(id: "id"))
+    _ = try await client.pos.devicesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -26831,7 +26910,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PosDevicesUpdateRequest` 
+**request:** `Requests.DevicesUpdatePosRequest` 
     
 </dd>
 </dl>
@@ -26851,7 +26930,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">postV1PosDevicesList</a>(request: Requests.PostV1PosDevicesListRequest, requestOptions: RequestOptions?) -> PostV1PosDevicesListResponse</code></summary>
+<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">devicesList</a>(request: Requests.DevicesListPosRequest, requestOptions: RequestOptions?) -> DevicesListPosResponse</code></summary>
 <dl>
 <dd>
 
@@ -26870,7 +26949,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.pos.postV1PosDevicesList(request: .init())
+    _ = try await client.pos.devicesList(request: .init())
 }
 
 try await main()
@@ -26888,7 +26967,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PosDevicesListRequest` 
+**request:** `Requests.DevicesListPosRequest` 
     
 </dd>
 </dl>
@@ -26908,7 +26987,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">postV1PosReportsCreate</a>(request: Requests.PostV1PosReportsCreateRequest, requestOptions: RequestOptions?) -> PostV1PosReportsCreateResponse</code></summary>
+<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">reportsCreate</a>(request: Requests.ReportsCreatePosRequest, requestOptions: RequestOptions?) -> ReportsCreatePosResponse</code></summary>
 <dl>
 <dd>
 
@@ -26927,14 +27006,14 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.pos.postV1PosReportsCreate(request: .init(
+    _ = try await client.pos.reportsCreate(request: .init(
         reportNumber: "reportNumber",
-        date: "date",
+        date: CalendarDate("2026-07-01")!,
         vatLines: [
-            PostV1PosReportsCreateRequestVatLinesItem(
-                vatRatePercent: "vatRatePercent",
-                netAmount: "netAmount",
-                vatAmount: "vatAmount"
+            ReportsCreatePosRequestVatLinesItem(
+                vatRatePercent: "121.00",
+                netAmount: "121.0000",
+                vatAmount: "121.0000"
             )
         ]
     ))
@@ -26955,7 +27034,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PosReportsCreateRequest` 
+**request:** `Requests.ReportsCreatePosRequest` 
     
 </dd>
 </dl>
@@ -26975,7 +27054,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">postV1PosReportsGet</a>(request: Requests.PostV1PosReportsGetRequest, requestOptions: RequestOptions?) -> PostV1PosReportsGetResponse</code></summary>
+<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">reportsGet</a>(request: Requests.ReportsGetPosRequest, requestOptions: RequestOptions?) -> ReportsGetPosResponse</code></summary>
 <dl>
 <dd>
 
@@ -26994,7 +27073,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.pos.postV1PosReportsGet(request: .init(id: "id"))
+    _ = try await client.pos.reportsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -27012,7 +27091,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PosReportsGetRequest` 
+**request:** `Requests.ReportsGetPosRequest` 
     
 </dd>
 </dl>
@@ -27032,7 +27111,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">postV1PosReportsList</a>(request: Requests.PostV1PosReportsListRequest, requestOptions: RequestOptions?) -> PostV1PosReportsListResponse</code></summary>
+<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">reportsList</a>(request: Requests.ReportsListPosRequest, requestOptions: RequestOptions?) -> ReportsListPosResponse</code></summary>
 <dl>
 <dd>
 
@@ -27051,7 +27130,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.pos.postV1PosReportsList(request: .init())
+    _ = try await client.pos.reportsList(request: .init())
 }
 
 try await main()
@@ -27069,7 +27148,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PosReportsListRequest` 
+**request:** `Requests.ReportsListPosRequest` 
     
 </dd>
 </dl>
@@ -27089,8 +27168,8 @@ try await main()
 </dl>
 </details>
 
-## Calendar
-<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">postV1CalendarList</a>(request: Requests.PostV1CalendarListRequest, requestOptions: RequestOptions?) -> PostV1CalendarListResponse</code></summary>
+## calendar
+<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">list</a>(request: Requests.ListCalendarRequest, requestOptions: RequestOptions?) -> ListCalendarResponse</code></summary>
 <dl>
 <dd>
 
@@ -27109,7 +27188,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.calendar.postV1CalendarList(request: .init())
+    _ = try await client.calendar.list(request: .init())
 }
 
 try await main()
@@ -27127,7 +27206,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CalendarListRequest` 
+**request:** `Requests.ListCalendarRequest` 
     
 </dd>
 </dl>
@@ -27147,7 +27226,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">postV1CalendarGet</a>(request: Requests.PostV1CalendarGetRequest, requestOptions: RequestOptions?) -> PostV1CalendarGetResponse</code></summary>
+<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">get</a>(request: Requests.GetCalendarRequest, requestOptions: RequestOptions?) -> GetCalendarResponse</code></summary>
 <dl>
 <dd>
 
@@ -27166,7 +27245,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.calendar.postV1CalendarGet(request: .init(key: "key"))
+    _ = try await client.calendar.get(request: .init(key: "key"))
 }
 
 try await main()
@@ -27184,7 +27263,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CalendarGetRequest` 
+**request:** `Requests.GetCalendarRequest` 
     
 </dd>
 </dl>
@@ -27204,9 +27283,23 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">generateTheFilingForADeadlineAndSendItToTheAdministration</a>(request: Requests.PostV1CalendarSubmitRequest, requestOptions: RequestOptions?) -> PostV1CalendarSubmitResponse</code></summary>
+<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">submit</a>(request: Requests.SubmitCalendarRequest, requestOptions: RequestOptions?) -> SubmitCalendarResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+With amend: true the return is filed again as a correction of the one already submitted or accepted for the period; only returns whose format has a correction mark accept it.
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -27223,7 +27316,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.calendar.generateTheFilingForADeadlineAndSendItToTheAdministration(request: .init(key: "key"))
+    _ = try await client.calendar.submit(request: .init(key: "key"))
 }
 
 try await main()
@@ -27241,7 +27334,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CalendarSubmitRequest` 
+**request:** `Requests.SubmitCalendarRequest` 
     
 </dd>
 </dl>
@@ -27261,7 +27354,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">generateTheFileOfADeadlineForTheCompanyToSendItself</a>(request: Requests.PostV1CalendarDownloadRequest, requestOptions: RequestOptions?) -> PostV1CalendarDownloadResponse</code></summary>
+<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">download</a>(request: Requests.DownloadCalendarRequest, requestOptions: RequestOptions?) -> DownloadCalendarResponse</code></summary>
 <dl>
 <dd>
 
@@ -27294,7 +27387,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.calendar.generateTheFileOfADeadlineForTheCompanyToSendItself(request: .init(key: "key"))
+    _ = try await client.calendar.download(request: .init(key: "key"))
 }
 
 try await main()
@@ -27312,7 +27405,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CalendarDownloadRequest` 
+**request:** `Requests.DownloadCalendarRequest` 
     
 </dd>
 </dl>
@@ -27332,7 +27425,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">postV1CalendarCreate</a>(request: Requests.PostV1CalendarCreateRequest, requestOptions: RequestOptions?) -> PostV1CalendarCreateResponse</code></summary>
+<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">create</a>(request: Requests.CreateCalendarRequest, requestOptions: RequestOptions?) -> CreateCalendarResponse</code></summary>
 <dl>
 <dd>
 
@@ -27351,9 +27444,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.calendar.postV1CalendarCreate(request: .init(
+    _ = try await client.calendar.create(request: .init(
         title: "title",
-        dueDate: "dueDate"
+        dueDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -27372,7 +27465,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CalendarCreateRequest` 
+**request:** `Requests.CreateCalendarRequest` 
     
 </dd>
 </dl>
@@ -27392,7 +27485,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">postV1CalendarUpdate</a>(request: Requests.PostV1CalendarUpdateRequest, requestOptions: RequestOptions?) -> PostV1CalendarUpdateResponse</code></summary>
+<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">update</a>(request: Requests.UpdateCalendarRequest, requestOptions: RequestOptions?) -> UpdateCalendarResponse</code></summary>
 <dl>
 <dd>
 
@@ -27411,7 +27504,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.calendar.postV1CalendarUpdate(request: .init(key: "key"))
+    _ = try await client.calendar.update(request: .init(key: "key"))
 }
 
 try await main()
@@ -27429,7 +27522,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CalendarUpdateRequest` 
+**request:** `Requests.UpdateCalendarRequest` 
     
 </dd>
 </dl>
@@ -27449,7 +27542,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">postV1CalendarDelete</a>(request: Requests.PostV1CalendarDeleteRequest, requestOptions: RequestOptions?) -> PostV1CalendarDeleteResponse</code></summary>
+<details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">delete</a>(request: Requests.DeleteCalendarRequest, requestOptions: RequestOptions?) -> DeleteCalendarResponse</code></summary>
 <dl>
 <dd>
 
@@ -27468,7 +27561,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.calendar.postV1CalendarDelete(request: .init(key: "key"))
+    _ = try await client.calendar.delete(request: .init(key: "key"))
 }
 
 try await main()
@@ -27486,7 +27579,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1CalendarDeleteRequest` 
+**request:** `Requests.DeleteCalendarRequest` 
     
 </dd>
 </dl>
@@ -27506,8 +27599,8 @@ try await main()
 </dl>
 </details>
 
-## Audit
-<details><summary><code>client.audit.<a href="/Sources/Resources/Audit/AuditClient.swift">postV1AuditList</a>(request: Requests.PostV1AuditListRequest, requestOptions: RequestOptions?) -> PostV1AuditListResponse</code></summary>
+## audit
+<details><summary><code>client.audit.<a href="/Sources/Resources/Audit/AuditClient.swift">list</a>(request: Requests.ListAuditRequest, requestOptions: RequestOptions?) -> ListAuditResponse</code></summary>
 <dl>
 <dd>
 
@@ -27526,7 +27619,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.audit.postV1AuditList(request: .init())
+    _ = try await client.audit.list(request: .init())
 }
 
 try await main()
@@ -27544,7 +27637,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AuditListRequest` 
+**request:** `Requests.ListAuditRequest` 
     
 </dd>
 </dl>
@@ -27564,8 +27657,8 @@ try await main()
 </dl>
 </details>
 
-## Webhooks
-<details><summary><code>client.webhooks.<a href="/Sources/Resources/Webhooks/WebhooksClient.swift">postV1WebhooksSubscriptionsCreate</a>(request: Requests.PostV1WebhooksSubscriptionsCreateRequest, requestOptions: RequestOptions?) -> PostV1WebhooksSubscriptionsCreateResponse</code></summary>
+## webhooks
+<details><summary><code>client.webhooks.<a href="/Sources/Resources/Webhooks/WebhooksClient.swift">subscriptionsCreate</a>(request: Requests.SubscriptionsCreateWebhooksRequest, requestOptions: RequestOptions?) -> SubscriptionsCreateWebhooksResponse</code></summary>
 <dl>
 <dd>
 
@@ -27584,10 +27677,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.webhooks.postV1WebhooksSubscriptionsCreate(request: .init(
+    _ = try await client.webhooks.subscriptionsCreate(request: .init(
         url: "url",
         events: [
-            "events"
+            .agreementInvoiceGenerated
         ]
     ))
 }
@@ -27607,7 +27700,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1WebhooksSubscriptionsCreateRequest` 
+**request:** `Requests.SubscriptionsCreateWebhooksRequest` 
     
 </dd>
 </dl>
@@ -27627,7 +27720,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="/Sources/Resources/Webhooks/WebhooksClient.swift">postV1WebhooksSubscriptionsList</a>(request: Requests.PostV1WebhooksSubscriptionsListRequest, requestOptions: RequestOptions?) -> PostV1WebhooksSubscriptionsListResponse</code></summary>
+<details><summary><code>client.webhooks.<a href="/Sources/Resources/Webhooks/WebhooksClient.swift">subscriptionsList</a>(request: Requests.SubscriptionsListWebhooksRequest, requestOptions: RequestOptions?) -> SubscriptionsListWebhooksResponse</code></summary>
 <dl>
 <dd>
 
@@ -27646,7 +27739,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.webhooks.postV1WebhooksSubscriptionsList(request: .init())
+    _ = try await client.webhooks.subscriptionsList(request: .init())
 }
 
 try await main()
@@ -27664,7 +27757,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1WebhooksSubscriptionsListRequest` 
+**request:** `Requests.SubscriptionsListWebhooksRequest` 
     
 </dd>
 </dl>
@@ -27684,7 +27777,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="/Sources/Resources/Webhooks/WebhooksClient.swift">postV1WebhooksSubscriptionsUpdate</a>(request: Requests.PostV1WebhooksSubscriptionsUpdateRequest, requestOptions: RequestOptions?) -> PostV1WebhooksSubscriptionsUpdateResponse</code></summary>
+<details><summary><code>client.webhooks.<a href="/Sources/Resources/Webhooks/WebhooksClient.swift">subscriptionsUpdate</a>(request: Requests.SubscriptionsUpdateWebhooksRequest, requestOptions: RequestOptions?) -> SubscriptionsUpdateWebhooksResponse</code></summary>
 <dl>
 <dd>
 
@@ -27703,7 +27796,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.webhooks.postV1WebhooksSubscriptionsUpdate(request: .init(id: "id"))
+    _ = try await client.webhooks.subscriptionsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -27721,7 +27814,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1WebhooksSubscriptionsUpdateRequest` 
+**request:** `Requests.SubscriptionsUpdateWebhooksRequest` 
     
 </dd>
 </dl>
@@ -27741,7 +27834,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="/Sources/Resources/Webhooks/WebhooksClient.swift">postV1WebhooksSubscriptionsDelete</a>(request: Requests.PostV1WebhooksSubscriptionsDeleteRequest, requestOptions: RequestOptions?) -> PostV1WebhooksSubscriptionsDeleteResponse</code></summary>
+<details><summary><code>client.webhooks.<a href="/Sources/Resources/Webhooks/WebhooksClient.swift">subscriptionsDelete</a>(request: Requests.SubscriptionsDeleteWebhooksRequest, requestOptions: RequestOptions?) -> SubscriptionsDeleteWebhooksResponse</code></summary>
 <dl>
 <dd>
 
@@ -27760,7 +27853,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.webhooks.postV1WebhooksSubscriptionsDelete(request: .init(id: "id"))
+    _ = try await client.webhooks.subscriptionsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -27778,7 +27871,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1WebhooksSubscriptionsDeleteRequest` 
+**request:** `Requests.SubscriptionsDeleteWebhooksRequest` 
     
 </dd>
 </dl>
@@ -27798,7 +27891,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="/Sources/Resources/Webhooks/WebhooksClient.swift">postV1WebhooksDeliveriesList</a>(request: Requests.PostV1WebhooksDeliveriesListRequest, requestOptions: RequestOptions?) -> PostV1WebhooksDeliveriesListResponse</code></summary>
+<details><summary><code>client.webhooks.<a href="/Sources/Resources/Webhooks/WebhooksClient.swift">deliveriesList</a>(request: Requests.DeliveriesListWebhooksRequest, requestOptions: RequestOptions?) -> DeliveriesListWebhooksResponse</code></summary>
 <dl>
 <dd>
 
@@ -27817,7 +27910,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.webhooks.postV1WebhooksDeliveriesList(request: .init())
+    _ = try await client.webhooks.deliveriesList(request: .init())
 }
 
 try await main()
@@ -27835,7 +27928,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1WebhooksDeliveriesListRequest` 
+**request:** `Requests.DeliveriesListWebhooksRequest` 
     
 </dd>
 </dl>
@@ -27855,7 +27948,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="/Sources/Resources/Webhooks/WebhooksClient.swift">postV1WebhooksDeliveriesRedeliver</a>(request: Requests.PostV1WebhooksDeliveriesRedeliverRequest, requestOptions: RequestOptions?) -> PostV1WebhooksDeliveriesRedeliverResponse</code></summary>
+<details><summary><code>client.webhooks.<a href="/Sources/Resources/Webhooks/WebhooksClient.swift">deliveriesRedeliver</a>(request: Requests.DeliveriesRedeliverWebhooksRequest, requestOptions: RequestOptions?) -> DeliveriesRedeliverWebhooksResponse</code></summary>
 <dl>
 <dd>
 
@@ -27874,7 +27967,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.webhooks.postV1WebhooksDeliveriesRedeliver(request: .init(id: "id"))
+    _ = try await client.webhooks.deliveriesRedeliver(request: .init(id: "id"))
 }
 
 try await main()
@@ -27892,7 +27985,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1WebhooksDeliveriesRedeliverRequest` 
+**request:** `Requests.DeliveriesRedeliverWebhooksRequest` 
     
 </dd>
 </dl>
@@ -27912,8 +28005,8 @@ try await main()
 </dl>
 </details>
 
-## Bank
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankAccountsCreate</a>(request: Requests.PostV1BankAccountsCreateRequest, requestOptions: RequestOptions?) -> PostV1BankAccountsCreateResponse</code></summary>
+## bank
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">accountsCreate</a>(request: Requests.AccountsCreateBankRequest, requestOptions: RequestOptions?) -> AccountsCreateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -27932,7 +28025,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankAccountsCreate(request: .init(name: "name"))
+    _ = try await client.bank.accountsCreate(request: .init(name: "name"))
 }
 
 try await main()
@@ -27950,7 +28043,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankAccountsCreateRequest` 
+**request:** `Requests.AccountsCreateBankRequest` 
     
 </dd>
 </dl>
@@ -27970,7 +28063,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankAccountsList</a>(request: Requests.PostV1BankAccountsListRequest, requestOptions: RequestOptions?) -> PostV1BankAccountsListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">accountsList</a>(request: Requests.AccountsListBankRequest, requestOptions: RequestOptions?) -> AccountsListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -27989,7 +28082,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankAccountsList(request: .init())
+    _ = try await client.bank.accountsList(request: .init())
 }
 
 try await main()
@@ -28007,7 +28100,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankAccountsListRequest` 
+**request:** `Requests.AccountsListBankRequest` 
     
 </dd>
 </dl>
@@ -28027,7 +28120,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankAccountsUpdate</a>(request: Requests.PostV1BankAccountsUpdateRequest, requestOptions: RequestOptions?) -> PostV1BankAccountsUpdateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">accountsUpdate</a>(request: Requests.AccountsUpdateBankRequest, requestOptions: RequestOptions?) -> AccountsUpdateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28046,7 +28139,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankAccountsUpdate(request: .init(id: "id"))
+    _ = try await client.bank.accountsUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -28064,7 +28157,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankAccountsUpdateRequest` 
+**request:** `Requests.AccountsUpdateBankRequest` 
     
 </dd>
 </dl>
@@ -28084,7 +28177,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankTransactionsImport</a>(request: Requests.PostV1BankTransactionsImportRequest, requestOptions: RequestOptions?) -> PostV1BankTransactionsImportResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">transactionsImport</a>(request: Requests.TransactionsImportBankRequest, requestOptions: RequestOptions?) -> TransactionsImportBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28103,12 +28196,12 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankTransactionsImport(request: .init(
+    _ = try await client.bank.transactionsImport(request: .init(
         bankAccountId: "bankAccountId",
         transactions: [
-            PostV1BankTransactionsImportRequestTransactionsItem(
-                date: "date",
-                amount: "amount"
+            TransactionsImportBankRequestTransactionsItem(
+                date: CalendarDate("2026-07-01")!,
+                amount: "-121.0000"
             )
         ]
     ))
@@ -28129,7 +28222,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankTransactionsImportRequest` 
+**request:** `Requests.TransactionsImportBankRequest` 
     
 </dd>
 </dl>
@@ -28149,7 +28242,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankStatementsImport</a>(request: Requests.PostV1BankStatementsImportRequest, requestOptions: RequestOptions?) -> PostV1BankStatementsImportResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">statementsImport</a>(request: Requests.StatementsImportBankRequest, requestOptions: RequestOptions?) -> StatementsImportBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28168,7 +28261,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankStatementsImport(request: .init(
+    _ = try await client.bank.statementsImport(request: .init(
         bankAccountId: "bankAccountId",
         content: "content"
     ))
@@ -28189,7 +28282,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankStatementsImportRequest` 
+**request:** `Requests.StatementsImportBankRequest` 
     
 </dd>
 </dl>
@@ -28209,7 +28302,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankTransactionsList</a>(request: Requests.PostV1BankTransactionsListRequest, requestOptions: RequestOptions?) -> PostV1BankTransactionsListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">transactionsList</a>(request: Requests.TransactionsListBankRequest, requestOptions: RequestOptions?) -> TransactionsListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28228,7 +28321,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankTransactionsList(request: .init())
+    _ = try await client.bank.transactionsList(request: .init())
 }
 
 try await main()
@@ -28246,7 +28339,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankTransactionsListRequest` 
+**request:** `Requests.TransactionsListBankRequest` 
     
 </dd>
 </dl>
@@ -28266,7 +28359,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankTransactionsMatch</a>(request: Requests.PostV1BankTransactionsMatchRequest, requestOptions: RequestOptions?) -> PostV1BankTransactionsMatchResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">transactionsMatch</a>(request: Requests.TransactionsMatchBankRequest, requestOptions: RequestOptions?) -> TransactionsMatchBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28285,7 +28378,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankTransactionsMatch(request: .init(
+    _ = try await client.bank.transactionsMatch(request: .init(
         transactionId: "transactionId",
         documentType: .saleInvoice,
         documentId: "documentId"
@@ -28307,7 +28400,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankTransactionsMatchRequest` 
+**request:** `Requests.TransactionsMatchBankRequest` 
     
 </dd>
 </dl>
@@ -28327,7 +28420,78 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankTransactionsRecord</a>(request: Requests.PostV1BankTransactionsRecordRequest, requestOptions: RequestOptions?) -> PostV1BankTransactionsRecordResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">transactionsUnmatch</a>(request: Requests.TransactionsUnmatchBankRequest, requestOptions: RequestOptions?) -> TransactionsUnmatchBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Undo a match. A payment matched to an invoice, or a line posted by an import template, gets a reversing journal transaction dated date (default: today) and the invoice paid amount and payment status are restored; a line linked to a payment-provider settlement is only unlinked. The line returns to status new.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.transactionsUnmatch(request: .init(transactionId: "transactionId"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.TransactionsUnmatchBankRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">transactionsRecord</a>(request: Requests.TransactionsRecordBankRequest, requestOptions: RequestOptions?) -> TransactionsRecordBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28346,10 +28510,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankTransactionsRecord(request: .init(
+    _ = try await client.bank.transactionsRecord(request: .init(
         bankAccountId: "bankAccountId",
-        date: "date",
-        amount: "amount",
+        date: CalendarDate("2026-07-01")!,
+        amount: "121.0000",
         documentType: .saleInvoice,
         documentId: "documentId"
     ))
@@ -28370,7 +28534,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankTransactionsRecordRequest` 
+**request:** `Requests.TransactionsRecordBankRequest` 
     
 </dd>
 </dl>
@@ -28390,7 +28554,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankPaymentsExport</a>(request: Requests.PostV1BankPaymentsExportRequest, requestOptions: RequestOptions?) -> PostV1BankPaymentsExportResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">paymentsExport</a>(request: Requests.PaymentsExportBankRequest, requestOptions: RequestOptions?) -> PaymentsExportBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28409,7 +28573,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankPaymentsExport(request: .init(
+    _ = try await client.bank.paymentsExport(request: .init(
         bankAccountId: "bankAccountId",
         purchaseInvoiceIds: [
             "purchaseInvoiceIds"
@@ -28432,7 +28596,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankPaymentsExportRequest` 
+**request:** `Requests.PaymentsExportBankRequest` 
     
 </dd>
 </dl>
@@ -28452,7 +28616,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList</a>(request: Requests.PostV1BankImportTemplatesCreateRequest, requestOptions: RequestOptions?) -> PostV1BankImportTemplatesCreateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">importTemplatesCreate</a>(request: Requests.ImportTemplatesCreateBankRequest, requestOptions: RequestOptions?) -> ImportTemplatesCreateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28471,7 +28635,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.createABankImportTemplateFieldsDefaultToTheTypesStandardFieldList(request: .init(
+    _ = try await client.bank.importTemplatesCreate(request: .init(
         name: "name",
         type: .stripe
     ))
@@ -28492,7 +28656,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankImportTemplatesCreateRequest` 
+**request:** `Requests.ImportTemplatesCreateBankRequest` 
     
 </dd>
 </dl>
@@ -28512,7 +28676,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankImportTemplatesUpdate</a>(request: Requests.PostV1BankImportTemplatesUpdateRequest, requestOptions: RequestOptions?) -> PostV1BankImportTemplatesUpdateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">importTemplatesUpdate</a>(request: Requests.ImportTemplatesUpdateBankRequest, requestOptions: RequestOptions?) -> ImportTemplatesUpdateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28531,7 +28695,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankImportTemplatesUpdate(request: .init(id: "id"))
+    _ = try await client.bank.importTemplatesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -28549,7 +28713,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankImportTemplatesUpdateRequest` 
+**request:** `Requests.ImportTemplatesUpdateBankRequest` 
     
 </dd>
 </dl>
@@ -28569,7 +28733,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankImportTemplatesDelete</a>(request: Requests.PostV1BankImportTemplatesDeleteRequest, requestOptions: RequestOptions?) -> PostV1BankImportTemplatesDeleteResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">importTemplatesDelete</a>(request: Requests.ImportTemplatesDeleteBankRequest, requestOptions: RequestOptions?) -> ImportTemplatesDeleteBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28588,7 +28752,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankImportTemplatesDelete(request: .init(id: "id"))
+    _ = try await client.bank.importTemplatesDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -28606,7 +28770,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankImportTemplatesDeleteRequest` 
+**request:** `Requests.ImportTemplatesDeleteBankRequest` 
     
 </dd>
 </dl>
@@ -28626,7 +28790,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankImportTemplatesGet</a>(request: Requests.PostV1BankImportTemplatesGetRequest, requestOptions: RequestOptions?) -> PostV1BankImportTemplatesGetResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">importTemplatesGet</a>(request: Requests.ImportTemplatesGetBankRequest, requestOptions: RequestOptions?) -> ImportTemplatesGetBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28645,7 +28809,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankImportTemplatesGet(request: .init(id: "id"))
+    _ = try await client.bank.importTemplatesGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -28663,7 +28827,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankImportTemplatesGetRequest` 
+**request:** `Requests.ImportTemplatesGetBankRequest` 
     
 </dd>
 </dl>
@@ -28683,7 +28847,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankImportTemplatesList</a>(request: Requests.PostV1BankImportTemplatesListRequest, requestOptions: RequestOptions?) -> PostV1BankImportTemplatesListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">importTemplatesList</a>(request: Requests.ImportTemplatesListBankRequest, requestOptions: RequestOptions?) -> ImportTemplatesListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28702,7 +28866,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankImportTemplatesList(request: .init())
+    _ = try await client.bank.importTemplatesList(request: .init())
 }
 
 try await main()
@@ -28720,7 +28884,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankImportTemplatesListRequest` 
+**request:** `Requests.ImportTemplatesListBankRequest` 
     
 </dd>
 </dl>
@@ -28740,7 +28904,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMatchRulesCreate</a>(request: Requests.PostV1BankMatchRulesCreateRequest, requestOptions: RequestOptions?) -> PostV1BankMatchRulesCreateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">matchRulesCreate</a>(request: Requests.MatchRulesCreateBankRequest, requestOptions: RequestOptions?) -> MatchRulesCreateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28759,7 +28923,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankMatchRulesCreate(request: .init(
+    _ = try await client.bank.matchRulesCreate(request: .init(
         name: "name",
         pattern: "pattern"
     ))
@@ -28780,7 +28944,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankMatchRulesCreateRequest` 
+**request:** `Requests.MatchRulesCreateBankRequest` 
     
 </dd>
 </dl>
@@ -28800,7 +28964,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMatchRulesUpdate</a>(request: Requests.PostV1BankMatchRulesUpdateRequest, requestOptions: RequestOptions?) -> PostV1BankMatchRulesUpdateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">matchRulesUpdate</a>(request: Requests.MatchRulesUpdateBankRequest, requestOptions: RequestOptions?) -> MatchRulesUpdateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28819,7 +28983,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankMatchRulesUpdate(request: .init(id: "id"))
+    _ = try await client.bank.matchRulesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -28837,7 +29001,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankMatchRulesUpdateRequest` 
+**request:** `Requests.MatchRulesUpdateBankRequest` 
     
 </dd>
 </dl>
@@ -28857,7 +29021,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMatchRulesDelete</a>(request: Requests.PostV1BankMatchRulesDeleteRequest, requestOptions: RequestOptions?) -> PostV1BankMatchRulesDeleteResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">matchRulesDelete</a>(request: Requests.MatchRulesDeleteBankRequest, requestOptions: RequestOptions?) -> MatchRulesDeleteBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28876,7 +29040,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankMatchRulesDelete(request: .init(id: "id"))
+    _ = try await client.bank.matchRulesDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -28894,7 +29058,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankMatchRulesDeleteRequest` 
+**request:** `Requests.MatchRulesDeleteBankRequest` 
     
 </dd>
 </dl>
@@ -28914,7 +29078,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMatchRulesList</a>(request: Requests.PostV1BankMatchRulesListRequest, requestOptions: RequestOptions?) -> PostV1BankMatchRulesListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">matchRulesList</a>(request: Requests.MatchRulesListBankRequest, requestOptions: RequestOptions?) -> MatchRulesListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28933,7 +29097,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankMatchRulesList(request: .init())
+    _ = try await client.bank.matchRulesList(request: .init())
 }
 
 try await main()
@@ -28951,7 +29115,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankMatchRulesListRequest` 
+**request:** `Requests.MatchRulesListBankRequest` 
     
 </dd>
 </dl>
@@ -28971,7 +29135,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMandatesCreate</a>(request: Requests.PostV1BankMandatesCreateRequest, requestOptions: RequestOptions?) -> PostV1BankMandatesCreateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">mandatesCreate</a>(request: Requests.MandatesCreateBankRequest, requestOptions: RequestOptions?) -> MandatesCreateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -28990,10 +29154,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankMandatesCreate(request: .init(
+    _ = try await client.bank.mandatesCreate(request: .init(
         partnerId: "partnerId",
         iban: "iban",
-        signatureDate: "signatureDate"
+        signatureDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -29012,7 +29176,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankMandatesCreateRequest` 
+**request:** `Requests.MandatesCreateBankRequest` 
     
 </dd>
 </dl>
@@ -29032,7 +29196,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMandatesUpdate</a>(request: Requests.PostV1BankMandatesUpdateRequest, requestOptions: RequestOptions?) -> PostV1BankMandatesUpdateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">mandatesUpdate</a>(request: Requests.MandatesUpdateBankRequest, requestOptions: RequestOptions?) -> MandatesUpdateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29051,7 +29215,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankMandatesUpdate(request: .init(id: "id"))
+    _ = try await client.bank.mandatesUpdate(request: .init(id: "id"))
 }
 
 try await main()
@@ -29069,7 +29233,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankMandatesUpdateRequest` 
+**request:** `Requests.MandatesUpdateBankRequest` 
     
 </dd>
 </dl>
@@ -29089,7 +29253,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMandatesCancel</a>(request: Requests.PostV1BankMandatesCancelRequest, requestOptions: RequestOptions?) -> PostV1BankMandatesCancelResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">mandatesCancel</a>(request: Requests.MandatesCancelBankRequest, requestOptions: RequestOptions?) -> MandatesCancelBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29108,7 +29272,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankMandatesCancel(request: .init(id: "id"))
+    _ = try await client.bank.mandatesCancel(request: .init(id: "id"))
 }
 
 try await main()
@@ -29126,7 +29290,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankMandatesCancelRequest` 
+**request:** `Requests.MandatesCancelBankRequest` 
     
 </dd>
 </dl>
@@ -29146,7 +29310,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMandatesGet</a>(request: Requests.PostV1BankMandatesGetRequest, requestOptions: RequestOptions?) -> PostV1BankMandatesGetResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">mandatesGet</a>(request: Requests.MandatesGetBankRequest, requestOptions: RequestOptions?) -> MandatesGetBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29165,7 +29329,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankMandatesGet(request: .init(id: "id"))
+    _ = try await client.bank.mandatesGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -29183,7 +29347,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankMandatesGetRequest` 
+**request:** `Requests.MandatesGetBankRequest` 
     
 </dd>
 </dl>
@@ -29203,7 +29367,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankMandatesList</a>(request: Requests.PostV1BankMandatesListRequest, requestOptions: RequestOptions?) -> PostV1BankMandatesListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">mandatesList</a>(request: Requests.MandatesListBankRequest, requestOptions: RequestOptions?) -> MandatesListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29222,7 +29386,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankMandatesList(request: .init())
+    _ = try await client.bank.mandatesList(request: .init())
 }
 
 try await main()
@@ -29240,7 +29404,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankMandatesListRequest` 
+**request:** `Requests.MandatesListBankRequest` 
     
 </dd>
 </dl>
@@ -29260,7 +29424,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankDirectDebitsExport</a>(request: Requests.PostV1BankDirectDebitsExportRequest, requestOptions: RequestOptions?) -> PostV1BankDirectDebitsExportResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">directDebitsExport</a>(request: Requests.DirectDebitsExportBankRequest, requestOptions: RequestOptions?) -> DirectDebitsExportBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29279,7 +29443,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankDirectDebitsExport(request: .init(
+    _ = try await client.bank.directDebitsExport(request: .init(
         bankAccountId: "bankAccountId",
         saleInvoiceIds: [
             "saleInvoiceIds"
@@ -29302,7 +29466,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankDirectDebitsExportRequest` 
+**request:** `Requests.DirectDebitsExportBankRequest` 
     
 </dd>
 </dl>
@@ -29322,7 +29486,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankTransactionsSuggestMatches</a>(request: Requests.PostV1BankTransactionsSuggestMatchesRequest, requestOptions: RequestOptions?) -> PostV1BankTransactionsSuggestMatchesResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">transactionsSuggestMatches</a>(request: Requests.TransactionsSuggestMatchesBankRequest, requestOptions: RequestOptions?) -> TransactionsSuggestMatchesBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29341,7 +29505,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankTransactionsSuggestMatches(request: .init(transactionId: "transactionId"))
+    _ = try await client.bank.transactionsSuggestMatches(request: .init(transactionId: "transactionId"))
 }
 
 try await main()
@@ -29359,7 +29523,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankTransactionsSuggestMatchesRequest` 
+**request:** `Requests.TransactionsSuggestMatchesBankRequest` 
     
 </dd>
 </dl>
@@ -29379,7 +29543,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankSettlementsImport</a>(request: Requests.PostV1BankSettlementsImportRequest, requestOptions: RequestOptions?) -> PostV1BankSettlementsImportResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">settlementsImport</a>(request: Requests.SettlementsImportBankRequest, requestOptions: RequestOptions?) -> SettlementsImportBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29398,7 +29562,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankSettlementsImport(request: .init(
+    _ = try await client.bank.settlementsImport(request: .init(
         bankAccountId: "bankAccountId",
         content: "content"
     ))
@@ -29419,7 +29583,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankSettlementsImportRequest` 
+**request:** `Requests.SettlementsImportBankRequest` 
     
 </dd>
 </dl>
@@ -29439,7 +29603,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankSettlementsList</a>(request: Requests.PostV1BankSettlementsListRequest, requestOptions: RequestOptions?) -> PostV1BankSettlementsListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">settlementsList</a>(request: Requests.SettlementsListBankRequest, requestOptions: RequestOptions?) -> SettlementsListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29458,7 +29622,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankSettlementsList(request: .init())
+    _ = try await client.bank.settlementsList(request: .init())
 }
 
 try await main()
@@ -29476,7 +29640,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankSettlementsListRequest` 
+**request:** `Requests.SettlementsListBankRequest` 
     
 </dd>
 </dl>
@@ -29496,7 +29660,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankSettlementsGet</a>(request: Requests.PostV1BankSettlementsGetRequest, requestOptions: RequestOptions?) -> PostV1BankSettlementsGetResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">settlementsGet</a>(request: Requests.SettlementsGetBankRequest, requestOptions: RequestOptions?) -> SettlementsGetBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29515,7 +29679,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankSettlementsGet(request: .init(id: "id"))
+    _ = try await client.bank.settlementsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -29533,7 +29697,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankSettlementsGetRequest` 
+**request:** `Requests.SettlementsGetBankRequest` 
     
 </dd>
 </dl>
@@ -29553,7 +29717,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankSettlementsMatch</a>(request: Requests.PostV1BankSettlementsMatchRequest, requestOptions: RequestOptions?) -> PostV1BankSettlementsMatchResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">settlementsMatch</a>(request: Requests.SettlementsMatchBankRequest, requestOptions: RequestOptions?) -> SettlementsMatchBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29572,7 +29736,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankSettlementsMatch(request: .init(
+    _ = try await client.bank.settlementsMatch(request: .init(
         lineId: "lineId",
         invoiceId: .null
     ))
@@ -29593,7 +29757,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankSettlementsMatchRequest` 
+**request:** `Requests.SettlementsMatchBankRequest` 
     
 </dd>
 </dl>
@@ -29613,7 +29777,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">setWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmount</a>(request: Requests.PostV1BankSettlementsCommissionRequest, requestOptions: RequestOptions?) -> PostV1BankSettlementsCommissionResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">settlementsCommission</a>(request: Requests.SettlementsCommissionBankRequest, requestOptions: RequestOptions?) -> SettlementsCommissionBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29646,7 +29810,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.setWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmount(request: .init(lineId: "lineId"))
+    _ = try await client.bank.settlementsCommission(request: .init(lineId: "lineId"))
 }
 
 try await main()
@@ -29664,7 +29828,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankSettlementsCommissionRequest` 
+**request:** `Requests.SettlementsCommissionBankRequest` 
     
 </dd>
 </dl>
@@ -29684,7 +29848,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankSettlementsLink</a>(request: Requests.PostV1BankSettlementsLinkRequest, requestOptions: RequestOptions?) -> PostV1BankSettlementsLinkResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">settlementsLink</a>(request: Requests.SettlementsLinkBankRequest, requestOptions: RequestOptions?) -> SettlementsLinkBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29717,7 +29881,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankSettlementsLink(request: .init(
+    _ = try await client.bank.settlementsLink(request: .init(
         id: "id",
         bankTransactionId: "bankTransactionId"
     ))
@@ -29738,7 +29902,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankSettlementsLinkRequest` 
+**request:** `Requests.SettlementsLinkBankRequest` 
     
 </dd>
 </dl>
@@ -29758,7 +29922,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankSettlementsUnlink</a>(request: Requests.PostV1BankSettlementsUnlinkRequest, requestOptions: RequestOptions?) -> PostV1BankSettlementsUnlinkResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">settlementsUnlink</a>(request: Requests.SettlementsUnlinkBankRequest, requestOptions: RequestOptions?) -> SettlementsUnlinkBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29791,7 +29955,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankSettlementsUnlink(request: .init(id: "id"))
+    _ = try await client.bank.settlementsUnlink(request: .init(id: "id"))
 }
 
 try await main()
@@ -29809,7 +29973,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankSettlementsUnlinkRequest` 
+**request:** `Requests.SettlementsUnlinkBankRequest` 
     
 </dd>
 </dl>
@@ -29829,7 +29993,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankSettlementsPost</a>(request: Requests.PostV1BankSettlementsPostRequest, requestOptions: RequestOptions?) -> PostV1BankSettlementsPostResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">settlementsPost</a>(request: Requests.SettlementsPostBankRequest, requestOptions: RequestOptions?) -> SettlementsPostBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29848,7 +30012,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankSettlementsPost(request: .init(id: "id"))
+    _ = try await client.bank.settlementsPost(request: .init(id: "id"))
 }
 
 try await main()
@@ -29866,7 +30030,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankSettlementsPostRequest` 
+**request:** `Requests.SettlementsPostBankRequest` 
     
 </dd>
 </dl>
@@ -29886,7 +30050,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">listThePsd2BanksAspsPsAvailableToConnect</a>(request: Requests.PostV1BankFeedsBanksListRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsBanksListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">feedsBanksList</a>(request: Requests.FeedsBanksListBankRequest, requestOptions: RequestOptions?) -> FeedsBanksListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29905,7 +30069,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.listThePsd2BanksAspsPsAvailableToConnect(request: .init())
+    _ = try await client.bank.feedsBanksList(request: .init())
 }
 
 try await main()
@@ -29923,7 +30087,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankFeedsBanksListRequest` 
+**request:** `Requests.FeedsBanksListBankRequest` 
     
 </dd>
 </dl>
@@ -29943,7 +30107,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">beginBankAuthorizationRedirectTheUserToTheReturnedUrl</a>(request: Requests.PostV1BankFeedsConnectionsStartRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsConnectionsStartResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">feedsConnectionsStart</a>(request: Requests.FeedsConnectionsStartBankRequest, requestOptions: RequestOptions?) -> FeedsConnectionsStartBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -29962,7 +30126,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.beginBankAuthorizationRedirectTheUserToTheReturnedUrl(request: .init(
+    _ = try await client.bank.feedsConnectionsStart(request: .init(
         aspspName: "aspspName",
         aspspCountry: "aspspCountry"
     ))
@@ -29983,7 +30147,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankFeedsConnectionsStartRequest` 
+**request:** `Requests.FeedsConnectionsStartBankRequest` 
     
 </dd>
 </dl>
@@ -30003,7 +30167,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">exchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposes</a>(request: Requests.PostV1BankFeedsConnectionsCompleteRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsConnectionsCompleteResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">feedsConnectionsComplete</a>(request: Requests.FeedsConnectionsCompleteBankRequest, requestOptions: RequestOptions?) -> FeedsConnectionsCompleteBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -30022,7 +30186,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.exchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposes(request: .init(
+    _ = try await client.bank.feedsConnectionsComplete(request: .init(
         reference: "reference",
         code: "code"
     ))
@@ -30043,7 +30207,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankFeedsConnectionsCompleteRequest` 
+**request:** `Requests.FeedsConnectionsCompleteBankRequest` 
     
 </dd>
 </dl>
@@ -30063,7 +30227,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankFeedsConnectionsGet</a>(request: Requests.PostV1BankFeedsConnectionsGetRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsConnectionsGetResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">feedsConnectionsGet</a>(request: Requests.FeedsConnectionsGetBankRequest, requestOptions: RequestOptions?) -> FeedsConnectionsGetBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -30082,7 +30246,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankFeedsConnectionsGet(request: .init(id: "id"))
+    _ = try await client.bank.feedsConnectionsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -30100,7 +30264,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankFeedsConnectionsGetRequest` 
+**request:** `Requests.FeedsConnectionsGetBankRequest` 
     
 </dd>
 </dl>
@@ -30120,7 +30284,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postV1BankFeedsConnectionsList</a>(request: Requests.PostV1BankFeedsConnectionsListRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsConnectionsListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">feedsConnectionsList</a>(request: Requests.FeedsConnectionsListBankRequest, requestOptions: RequestOptions?) -> FeedsConnectionsListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -30139,7 +30303,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.postV1BankFeedsConnectionsList(request: .init())
+    _ = try await client.bank.feedsConnectionsList(request: .init())
 }
 
 try await main()
@@ -30157,7 +30321,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankFeedsConnectionsListRequest` 
+**request:** `Requests.FeedsConnectionsListBankRequest` 
     
 </dd>
 </dl>
@@ -30177,7 +30341,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">revokeTheConsentAtTheBankAndDropTheStoredConnection</a>(request: Requests.PostV1BankFeedsConnectionsDeleteRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsConnectionsDeleteResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">feedsConnectionsDelete</a>(request: Requests.FeedsConnectionsDeleteBankRequest, requestOptions: RequestOptions?) -> FeedsConnectionsDeleteBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -30196,7 +30360,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.revokeTheConsentAtTheBankAndDropTheStoredConnection(request: .init(id: "id"))
+    _ = try await client.bank.feedsConnectionsDelete(request: .init(id: "id"))
 }
 
 try await main()
@@ -30214,7 +30378,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankFeedsConnectionsDeleteRequest` 
+**request:** `Requests.FeedsConnectionsDeleteBankRequest` 
     
 </dd>
 </dl>
@@ -30234,7 +30398,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">pointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSynced</a>(request: Requests.PostV1BankFeedsAccountsLinkRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsAccountsLinkResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">feedsAccountsLink</a>(request: Requests.FeedsAccountsLinkBankRequest, requestOptions: RequestOptions?) -> FeedsAccountsLinkBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -30253,7 +30417,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.pointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSynced(request: .init(id: "id"))
+    _ = try await client.bank.feedsAccountsLink(request: .init(id: "id"))
 }
 
 try await main()
@@ -30271,7 +30435,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankFeedsAccountsLinkRequest` 
+**request:** `Requests.FeedsAccountsLinkBankRequest` 
     
 </dd>
 </dl>
@@ -30291,7 +30455,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically</a>(request: Requests.PostV1BankFeedsAccountsConfigureRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsAccountsConfigureResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">feedsAccountsConfigure</a>(request: Requests.FeedsAccountsConfigureBankRequest, requestOptions: RequestOptions?) -> FeedsAccountsConfigureBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -30310,7 +30474,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.chooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomatically(request: .init(id: "id"))
+    _ = try await client.bank.feedsAccountsConfigure(request: .init(id: "id"))
 }
 
 try await main()
@@ -30328,7 +30492,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankFeedsAccountsConfigureRequest` 
+**request:** `Requests.FeedsAccountsConfigureBankRequest` 
     
 </dd>
 </dl>
@@ -30348,7 +30512,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">pullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSynced</a>(request: Requests.PostV1BankFeedsSyncRequest, requestOptions: RequestOptions?) -> PostV1BankFeedsSyncResponse</code></summary>
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">feedsSync</a>(request: Requests.FeedsSyncBankRequest, requestOptions: RequestOptions?) -> FeedsSyncBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -30367,7 +30531,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.bank.pullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSynced(request: .init(connectionId: "connectionId"))
+    _ = try await client.bank.feedsSync(request: .init(connectionId: "connectionId"))
 }
 
 try await main()
@@ -30385,7 +30549,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BankFeedsSyncRequest` 
+**request:** `Requests.FeedsSyncBankRequest` 
     
 </dd>
 </dl>
@@ -30405,8 +30569,8 @@ try await main()
 </dl>
 </details>
 
-## Files
-<details><summary><code>client.files.<a href="/Sources/Resources/Files/FilesClient.swift">postV1FilesUpload</a>(request: Requests.PostV1FilesUploadRequest, requestOptions: RequestOptions?) -> PostV1FilesUploadResponse</code></summary>
+## files
+<details><summary><code>client.files.<a href="/Sources/Resources/Files/FilesClient.swift">upload</a>(request: Requests.UploadFilesRequest, requestOptions: RequestOptions?) -> UploadFilesResponse</code></summary>
 <dl>
 <dd>
 
@@ -30425,7 +30589,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.files.postV1FilesUpload(request: .init(
+    _ = try await client.files.upload(request: .init(
         entity: "entity",
         fileName: "fileName",
         mimeType: "mimeType",
@@ -30448,7 +30612,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1FilesUploadRequest` 
+**request:** `Requests.UploadFilesRequest` 
     
 </dd>
 </dl>
@@ -30468,7 +30632,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.files.<a href="/Sources/Resources/Files/FilesClient.swift">postV1FilesGet</a>(request: Requests.PostV1FilesGetRequest, requestOptions: RequestOptions?) -> PostV1FilesGetResponse</code></summary>
+<details><summary><code>client.files.<a href="/Sources/Resources/Files/FilesClient.swift">get</a>(request: Requests.GetFilesRequest, requestOptions: RequestOptions?) -> GetFilesResponse</code></summary>
 <dl>
 <dd>
 
@@ -30487,7 +30651,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.files.postV1FilesGet(request: .init(id: "id"))
+    _ = try await client.files.get(request: .init(id: "id"))
 }
 
 try await main()
@@ -30505,7 +30669,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1FilesGetRequest` 
+**request:** `Requests.GetFilesRequest` 
     
 </dd>
 </dl>
@@ -30525,7 +30689,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.files.<a href="/Sources/Resources/Files/FilesClient.swift">postV1FilesList</a>(request: Requests.PostV1FilesListRequest, requestOptions: RequestOptions?) -> PostV1FilesListResponse</code></summary>
+<details><summary><code>client.files.<a href="/Sources/Resources/Files/FilesClient.swift">list</a>(request: Requests.ListFilesRequest, requestOptions: RequestOptions?) -> ListFilesResponse</code></summary>
 <dl>
 <dd>
 
@@ -30544,7 +30708,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.files.postV1FilesList(request: .init())
+    _ = try await client.files.list(request: .init())
 }
 
 try await main()
@@ -30562,7 +30726,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1FilesListRequest` 
+**request:** `Requests.ListFilesRequest` 
     
 </dd>
 </dl>
@@ -30582,7 +30746,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.files.<a href="/Sources/Resources/Files/FilesClient.swift">postV1FilesDelete</a>(request: Requests.PostV1FilesDeleteRequest, requestOptions: RequestOptions?) -> PostV1FilesDeleteResponse</code></summary>
+<details><summary><code>client.files.<a href="/Sources/Resources/Files/FilesClient.swift">delete</a>(request: Requests.DeleteFilesRequest, requestOptions: RequestOptions?) -> DeleteFilesResponse</code></summary>
 <dl>
 <dd>
 
@@ -30601,7 +30765,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.files.postV1FilesDelete(request: .init(id: "id"))
+    _ = try await client.files.delete(request: .init(id: "id"))
 }
 
 try await main()
@@ -30619,7 +30783,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1FilesDeleteRequest` 
+**request:** `Requests.DeleteFilesRequest` 
     
 </dd>
 </dl>
@@ -30639,8 +30803,8 @@ try await main()
 </dl>
 </details>
 
-## Reports
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsTrialBalance</a>(request: Requests.PostV1ReportsTrialBalanceRequest, requestOptions: RequestOptions?) -> PostV1ReportsTrialBalanceResponse</code></summary>
+## reports
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">trialBalance</a>(request: Requests.TrialBalanceReportsRequest, requestOptions: RequestOptions?) -> TrialBalanceReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -30659,9 +30823,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsTrialBalance(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.trialBalance(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -30680,7 +30844,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsTrialBalanceRequest` 
+**request:** `Requests.TrialBalanceReportsRequest` 
     
 </dd>
 </dl>
@@ -30700,7 +30864,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsSizeCategory</a>(request: Requests.PostV1ReportsSizeCategoryRequest, requestOptions: RequestOptions?) -> PostV1ReportsSizeCategoryResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">sizeCategory</a>(request: Requests.SizeCategoryReportsRequest, requestOptions: RequestOptions?) -> SizeCategoryReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -30719,7 +30883,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsSizeCategory(request: .init(year: 1000000))
+    _ = try await client.reports.sizeCategory(request: .init(year: 1000000))
 }
 
 try await main()
@@ -30737,7 +30901,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsSizeCategoryRequest` 
+**request:** `Requests.SizeCategoryReportsRequest` 
     
 </dd>
 </dl>
@@ -30757,7 +30921,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsFinancialStatements</a>(request: Requests.PostV1ReportsFinancialStatementsRequest, requestOptions: RequestOptions?) -> PostV1ReportsFinancialStatementsResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">financialStatements</a>(request: Requests.FinancialStatementsReportsRequest, requestOptions: RequestOptions?) -> FinancialStatementsReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -30776,9 +30940,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsFinancialStatements(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.financialStatements(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -30797,7 +30961,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsFinancialStatementsRequest` 
+**request:** `Requests.FinancialStatementsReportsRequest` 
     
 </dd>
 </dl>
@@ -30817,7 +30981,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsGeneralJournal</a>(request: Requests.PostV1ReportsGeneralJournalRequest, requestOptions: RequestOptions?) -> PostV1ReportsGeneralJournalResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">generalJournal</a>(request: Requests.GeneralJournalReportsRequest, requestOptions: RequestOptions?) -> GeneralJournalReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -30836,9 +31000,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsGeneralJournal(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.generalJournal(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -30857,7 +31021,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsGeneralJournalRequest` 
+**request:** `Requests.GeneralJournalReportsRequest` 
     
 </dd>
 </dl>
@@ -30877,7 +31041,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsGlDetail</a>(request: Requests.PostV1ReportsGlDetailRequest, requestOptions: RequestOptions?) -> PostV1ReportsGlDetailResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">glDetail</a>(request: Requests.GlDetailReportsRequest, requestOptions: RequestOptions?) -> GlDetailReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -30896,10 +31060,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsGlDetail(request: .init(
+    _ = try await client.reports.glDetail(request: .init(
         accountCode: "accountCode",
-        fromDate: "fromDate",
-        toDate: "toDate"
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -30918,7 +31082,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsGlDetailRequest` 
+**request:** `Requests.GlDetailReportsRequest` 
     
 </dd>
 </dl>
@@ -30938,7 +31102,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsPartnerBalances</a>(request: Requests.PostV1ReportsPartnerBalancesRequest, requestOptions: RequestOptions?) -> PostV1ReportsPartnerBalancesResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">partnerBalances</a>(request: Requests.PartnerBalancesReportsRequest, requestOptions: RequestOptions?) -> PartnerBalancesReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -30957,7 +31121,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsPartnerBalances(request: .init())
+    _ = try await client.reports.partnerBalances(request: .init())
 }
 
 try await main()
@@ -30975,7 +31139,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsPartnerBalancesRequest` 
+**request:** `Requests.PartnerBalancesReportsRequest` 
     
 </dd>
 </dl>
@@ -30995,7 +31159,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsDebtAging</a>(request: Requests.PostV1ReportsDebtAgingRequest, requestOptions: RequestOptions?) -> PostV1ReportsDebtAgingResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">debtAging</a>(request: Requests.DebtAgingReportsRequest, requestOptions: RequestOptions?) -> DebtAgingReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31014,7 +31178,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsDebtAging(request: .init())
+    _ = try await client.reports.debtAging(request: .init())
 }
 
 try await main()
@@ -31032,7 +31196,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsDebtAgingRequest` 
+**request:** `Requests.DebtAgingReportsRequest` 
     
 </dd>
 </dl>
@@ -31052,7 +31216,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsMonthlySummary</a>(request: Requests.PostV1ReportsMonthlySummaryRequest, requestOptions: RequestOptions?) -> PostV1ReportsMonthlySummaryResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">monthlySummary</a>(request: Requests.MonthlySummaryReportsRequest, requestOptions: RequestOptions?) -> MonthlySummaryReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31071,7 +31235,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsMonthlySummary(request: .init())
+    _ = try await client.reports.monthlySummary(request: .init())
 }
 
 try await main()
@@ -31089,7 +31253,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsMonthlySummaryRequest` 
+**request:** `Requests.MonthlySummaryReportsRequest` 
     
 </dd>
 </dl>
@@ -31109,7 +31273,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsStockBalance</a>(request: Requests.PostV1ReportsStockBalanceRequest, requestOptions: RequestOptions?) -> PostV1ReportsStockBalanceResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">stockBalance</a>(request: Requests.StockBalanceReportsRequest, requestOptions: RequestOptions?) -> StockBalanceReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31128,7 +31292,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsStockBalance(request: .init(asOf: "asOf"))
+    _ = try await client.reports.stockBalance(request: .init(asOf: CalendarDate("2026-07-01")!))
 }
 
 try await main()
@@ -31146,7 +31310,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsStockBalanceRequest` 
+**request:** `Requests.StockBalanceReportsRequest` 
     
 </dd>
 </dl>
@@ -31166,7 +31330,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsStockMovement</a>(request: Requests.PostV1ReportsStockMovementRequest, requestOptions: RequestOptions?) -> PostV1ReportsStockMovementResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">stockMovement</a>(request: Requests.StockMovementReportsRequest, requestOptions: RequestOptions?) -> StockMovementReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31185,9 +31349,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsStockMovement(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.stockMovement(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -31206,7 +31370,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsStockMovementRequest` 
+**request:** `Requests.StockMovementReportsRequest` 
     
 </dd>
 </dl>
@@ -31226,7 +31390,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsVatSummary</a>(request: Requests.PostV1ReportsVatSummaryRequest, requestOptions: RequestOptions?) -> PostV1ReportsVatSummaryResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">vatSummary</a>(request: Requests.VatSummaryReportsRequest, requestOptions: RequestOptions?) -> VatSummaryReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31245,9 +31409,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsVatSummary(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.vatSummary(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -31266,7 +31430,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsVatSummaryRequest` 
+**request:** `Requests.VatSummaryReportsRequest` 
     
 </dd>
 </dl>
@@ -31286,7 +31450,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsCashFlow</a>(request: Requests.PostV1ReportsCashFlowRequest, requestOptions: RequestOptions?) -> PostV1ReportsCashFlowResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">cashFlow</a>(request: Requests.CashFlowReportsRequest, requestOptions: RequestOptions?) -> CashFlowReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31305,9 +31469,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsCashFlow(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.cashFlow(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -31326,7 +31490,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsCashFlowRequest` 
+**request:** `Requests.CashFlowReportsRequest` 
     
 </dd>
 </dl>
@@ -31346,7 +31510,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsStockAging</a>(request: Requests.PostV1ReportsStockAgingRequest, requestOptions: RequestOptions?) -> PostV1ReportsStockAgingResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">stockAging</a>(request: Requests.StockAgingReportsRequest, requestOptions: RequestOptions?) -> StockAgingReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31365,7 +31529,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsStockAging(request: .init(asOf: "asOf"))
+    _ = try await client.reports.stockAging(request: .init(asOf: CalendarDate("2026-07-01")!))
 }
 
 try await main()
@@ -31383,7 +31547,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsStockAgingRequest` 
+**request:** `Requests.StockAgingReportsRequest` 
     
 </dd>
 </dl>
@@ -31403,7 +31567,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsStockShortage</a>(request: Requests.PostV1ReportsStockShortageRequest, requestOptions: RequestOptions?) -> PostV1ReportsStockShortageResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">stockShortage</a>(request: Requests.StockShortageReportsRequest, requestOptions: RequestOptions?) -> StockShortageReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31422,7 +31586,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsStockShortage(request: .init())
+    _ = try await client.reports.stockShortage(request: .init())
 }
 
 try await main()
@@ -31440,7 +31604,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsStockShortageRequest` 
+**request:** `Requests.StockShortageReportsRequest` 
     
 </dd>
 </dl>
@@ -31460,7 +31624,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsSie</a>(request: Requests.PostV1ReportsSieRequest, requestOptions: RequestOptions?) -> PostV1ReportsSieResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">sie</a>(request: Requests.SieReportsRequest, requestOptions: RequestOptions?) -> SieReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31493,9 +31657,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsSie(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.sie(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -31514,7 +31678,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsSieRequest` 
+**request:** `Requests.SieReportsRequest` 
     
 </dd>
 </dl>
@@ -31534,7 +31698,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsDatev</a>(request: Requests.PostV1ReportsDatevRequest, requestOptions: RequestOptions?) -> PostV1ReportsDatevResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">datev</a>(request: Requests.DatevReportsRequest, requestOptions: RequestOptions?) -> DatevReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31567,9 +31731,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsDatev(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.datev(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -31588,7 +31752,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsDatevRequest` 
+**request:** `Requests.DatevReportsRequest` 
     
 </dd>
 </dl>
@@ -31608,7 +31772,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsFec</a>(request: Requests.PostV1ReportsFecRequest, requestOptions: RequestOptions?) -> PostV1ReportsFecResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">fec</a>(request: Requests.FecReportsRequest, requestOptions: RequestOptions?) -> FecReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31641,9 +31805,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsFec(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.fec(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -31662,7 +31826,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsFecRequest` 
+**request:** `Requests.FecReportsRequest` 
     
 </dd>
 </dl>
@@ -31682,7 +31846,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsEuPurchases</a>(request: Requests.PostV1ReportsEuPurchasesRequest, requestOptions: RequestOptions?) -> PostV1ReportsEuPurchasesResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">euPurchases</a>(request: Requests.EuPurchasesReportsRequest, requestOptions: RequestOptions?) -> EuPurchasesReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31701,9 +31865,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsEuPurchases(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.euPurchases(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -31722,7 +31886,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsEuPurchasesRequest` 
+**request:** `Requests.EuPurchasesReportsRequest` 
     
 </dd>
 </dl>
@@ -31742,7 +31906,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsVatDetail</a>(request: Requests.PostV1ReportsVatDetailRequest, requestOptions: RequestOptions?) -> PostV1ReportsVatDetailResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">vatDetail</a>(request: Requests.VatDetailReportsRequest, requestOptions: RequestOptions?) -> VatDetailReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31761,9 +31925,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsVatDetail(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.vatDetail(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -31782,7 +31946,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsVatDetailRequest` 
+**request:** `Requests.VatDetailReportsRequest` 
     
 </dd>
 </dl>
@@ -31802,7 +31966,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsPosSales</a>(request: Requests.PostV1ReportsPosSalesRequest, requestOptions: RequestOptions?) -> PostV1ReportsPosSalesResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">posSales</a>(request: Requests.PosSalesReportsRequest, requestOptions: RequestOptions?) -> PosSalesReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31821,9 +31985,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsPosSales(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.posSales(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -31842,7 +32006,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsPosSalesRequest` 
+**request:** `Requests.PosSalesReportsRequest` 
     
 </dd>
 </dl>
@@ -31862,7 +32026,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsOnlineSales</a>(request: Requests.PostV1ReportsOnlineSalesRequest, requestOptions: RequestOptions?) -> PostV1ReportsOnlineSalesResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">onlineSales</a>(request: Requests.OnlineSalesReportsRequest, requestOptions: RequestOptions?) -> OnlineSalesReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31881,9 +32045,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsOnlineSales(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.onlineSales(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -31902,7 +32066,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsOnlineSalesRequest` 
+**request:** `Requests.OnlineSalesReportsRequest` 
     
 </dd>
 </dl>
@@ -31922,7 +32086,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsOss</a>(request: Requests.PostV1ReportsOssRequest, requestOptions: RequestOptions?) -> PostV1ReportsOssResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">oss</a>(request: Requests.OssReportsRequest, requestOptions: RequestOptions?) -> OssReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -31941,9 +32105,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsOss(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.oss(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -31962,7 +32126,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsOssRequest` 
+**request:** `Requests.OssReportsRequest` 
     
 </dd>
 </dl>
@@ -31982,7 +32146,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsAdvanceReconciliation</a>(request: Requests.PostV1ReportsAdvanceReconciliationRequest, requestOptions: RequestOptions?) -> PostV1ReportsAdvanceReconciliationResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">advanceReconciliation</a>(request: Requests.AdvanceReconciliationReportsRequest, requestOptions: RequestOptions?) -> AdvanceReconciliationReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -32001,9 +32165,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsAdvanceReconciliation(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.advanceReconciliation(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -32022,7 +32186,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsAdvanceReconciliationRequest` 
+**request:** `Requests.AdvanceReconciliationReportsRequest` 
     
 </dd>
 </dl>
@@ -32042,7 +32206,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsWriteOffActs</a>(request: Requests.PostV1ReportsWriteOffActsRequest, requestOptions: RequestOptions?) -> PostV1ReportsWriteOffActsResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">writeOffActs</a>(request: Requests.WriteOffActsReportsRequest, requestOptions: RequestOptions?) -> WriteOffActsReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -32061,9 +32225,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsWriteOffActs(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.writeOffActs(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -32082,7 +32246,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsWriteOffActsRequest` 
+**request:** `Requests.WriteOffActsReportsRequest` 
     
 </dd>
 </dl>
@@ -32102,7 +32266,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsCostCenters</a>(request: Requests.PostV1ReportsCostCentersRequest, requestOptions: RequestOptions?) -> PostV1ReportsCostCentersResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">costCenters</a>(request: Requests.CostCentersReportsRequest, requestOptions: RequestOptions?) -> CostCentersReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -32121,9 +32285,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsCostCenters(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.costCenters(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -32142,7 +32306,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsCostCentersRequest` 
+**request:** `Requests.CostCentersReportsRequest` 
     
 </dd>
 </dl>
@@ -32162,7 +32326,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsCostCenterActivity</a>(request: Requests.PostV1ReportsCostCenterActivityRequest, requestOptions: RequestOptions?) -> PostV1ReportsCostCenterActivityResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">costCenterActivity</a>(request: Requests.CostCenterActivityReportsRequest, requestOptions: RequestOptions?) -> CostCenterActivityReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -32181,9 +32345,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsCostCenterActivity(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate",
+    _ = try await client.reports.costCenterActivity(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!,
         costCenterId: "costCenterId"
     ))
 }
@@ -32203,7 +32367,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsCostCenterActivityRequest` 
+**request:** `Requests.CostCenterActivityReportsRequest` 
     
 </dd>
 </dl>
@@ -32223,7 +32387,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsCostCenterItems</a>(request: Requests.PostV1ReportsCostCenterItemsRequest, requestOptions: RequestOptions?) -> PostV1ReportsCostCenterItemsResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">costCenterItems</a>(request: Requests.CostCenterItemsReportsRequest, requestOptions: RequestOptions?) -> CostCenterItemsReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -32242,9 +32406,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsCostCenterItems(request: .init(
-        fromDate: "fromDate",
-        toDate: "toDate"
+    _ = try await client.reports.costCenterItems(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -32263,7 +32427,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsCostCenterItemsRequest` 
+**request:** `Requests.CostCenterItemsReportsRequest` 
     
 </dd>
 </dl>
@@ -32283,7 +32447,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsJobsCreate</a>(request: Requests.PostV1ReportsJobsCreateRequest, requestOptions: RequestOptions?) -> PostV1ReportsJobsCreateResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">jobsCreate</a>(request: Requests.JobsCreateReportsRequest, requestOptions: RequestOptions?) -> JobsCreateReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -32302,7 +32466,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsJobsCreate(request: .init(reportType: "reportType"))
+    _ = try await client.reports.jobsCreate(request: .init(reportType: "reportType"))
 }
 
 try await main()
@@ -32320,7 +32484,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsJobsCreateRequest` 
+**request:** `Requests.JobsCreateReportsRequest` 
     
 </dd>
 </dl>
@@ -32340,7 +32504,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsJobsGet</a>(request: Requests.PostV1ReportsJobsGetRequest, requestOptions: RequestOptions?) -> PostV1ReportsJobsGetResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">jobsGet</a>(request: Requests.JobsGetReportsRequest, requestOptions: RequestOptions?) -> JobsGetReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -32359,7 +32523,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsJobsGet(request: .init(id: "id"))
+    _ = try await client.reports.jobsGet(request: .init(id: "id"))
 }
 
 try await main()
@@ -32377,7 +32541,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsJobsGetRequest` 
+**request:** `Requests.JobsGetReportsRequest` 
     
 </dd>
 </dl>
@@ -32397,7 +32561,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">postV1ReportsJobsList</a>(request: Requests.PostV1ReportsJobsListRequest, requestOptions: RequestOptions?) -> PostV1ReportsJobsListResponse</code></summary>
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">jobsList</a>(request: Requests.JobsListReportsRequest, requestOptions: RequestOptions?) -> JobsListReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -32416,7 +32580,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.reports.postV1ReportsJobsList(request: .init())
+    _ = try await client.reports.jobsList(request: .init())
 }
 
 try await main()
@@ -32434,7 +32598,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ReportsJobsListRequest` 
+**request:** `Requests.JobsListReportsRequest` 
     
 </dd>
 </dl>
@@ -32454,8 +32618,8 @@ try await main()
 </dl>
 </details>
 
-## Consolidation
-<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationGroupsCreate</a>(request: Requests.PostV1ConsolidationGroupsCreateRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationGroupsCreateResponse</code></summary>
+## consolidation
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">groupsCreate</a>(request: Requests.GroupsCreateConsolidationRequest, requestOptions: RequestOptions?) -> GroupsCreateConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -32474,7 +32638,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.consolidation.postV1ConsolidationGroupsCreate(request: .init(name: "name"))
+    _ = try await client.consolidation.groupsCreate(request: .init(name: "name"))
 }
 
 try await main()
@@ -32492,7 +32656,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ConsolidationGroupsCreateRequest` 
+**request:** `Requests.GroupsCreateConsolidationRequest` 
     
 </dd>
 </dl>
@@ -32512,7 +32676,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationGroupsList</a>(request: Requests.PostV1ConsolidationGroupsListRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationGroupsListResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">groupsList</a>(request: Requests.GroupsListConsolidationRequest, requestOptions: RequestOptions?) -> GroupsListConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -32531,7 +32695,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.consolidation.postV1ConsolidationGroupsList(request: .init())
+    _ = try await client.consolidation.groupsList(request: .init())
 }
 
 try await main()
@@ -32549,7 +32713,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ConsolidationGroupsListRequest` 
+**request:** `Requests.GroupsListConsolidationRequest` 
     
 </dd>
 </dl>
@@ -32569,7 +32733,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationGroupsGet</a>(request: Requests.PostV1ConsolidationGroupsGetRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationGroupsGetResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">groupsGet</a>(request: Requests.GroupsGetConsolidationRequest, requestOptions: RequestOptions?) -> GroupsGetConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -32588,7 +32752,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.consolidation.postV1ConsolidationGroupsGet(request: .init(groupId: "groupId"))
+    _ = try await client.consolidation.groupsGet(request: .init(groupId: "groupId"))
 }
 
 try await main()
@@ -32606,7 +32770,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ConsolidationGroupsGetRequest` 
+**request:** `Requests.GroupsGetConsolidationRequest` 
     
 </dd>
 </dl>
@@ -32626,7 +32790,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationGroupsUpdate</a>(request: Requests.PostV1ConsolidationGroupsUpdateRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationGroupsUpdateResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">groupsUpdate</a>(request: Requests.GroupsUpdateConsolidationRequest, requestOptions: RequestOptions?) -> GroupsUpdateConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -32645,7 +32809,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.consolidation.postV1ConsolidationGroupsUpdate(request: .init(groupId: "groupId"))
+    _ = try await client.consolidation.groupsUpdate(request: .init(groupId: "groupId"))
 }
 
 try await main()
@@ -32663,7 +32827,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ConsolidationGroupsUpdateRequest` 
+**request:** `Requests.GroupsUpdateConsolidationRequest` 
     
 </dd>
 </dl>
@@ -32683,7 +32847,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationGroupsDelete</a>(request: Requests.PostV1ConsolidationGroupsDeleteRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationGroupsDeleteResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">groupsDelete</a>(request: Requests.GroupsDeleteConsolidationRequest, requestOptions: RequestOptions?) -> GroupsDeleteConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -32702,7 +32866,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.consolidation.postV1ConsolidationGroupsDelete(request: .init(groupId: "groupId"))
+    _ = try await client.consolidation.groupsDelete(request: .init(groupId: "groupId"))
 }
 
 try await main()
@@ -32720,7 +32884,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ConsolidationGroupsDeleteRequest` 
+**request:** `Requests.GroupsDeleteConsolidationRequest` 
     
 </dd>
 </dl>
@@ -32740,7 +32904,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationMembersAdd</a>(request: Requests.PostV1ConsolidationMembersAddRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationMembersAddResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">membersAdd</a>(request: Requests.MembersAddConsolidationRequest, requestOptions: RequestOptions?) -> MembersAddConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -32759,7 +32923,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.consolidation.postV1ConsolidationMembersAdd(request: .init(
+    _ = try await client.consolidation.membersAdd(request: .init(
         groupId: "groupId",
         memberCompanyId: "memberCompanyId"
     ))
@@ -32780,7 +32944,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ConsolidationMembersAddRequest` 
+**request:** `Requests.MembersAddConsolidationRequest` 
     
 </dd>
 </dl>
@@ -32800,7 +32964,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationMembersRemove</a>(request: Requests.PostV1ConsolidationMembersRemoveRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationMembersRemoveResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">membersRemove</a>(request: Requests.MembersRemoveConsolidationRequest, requestOptions: RequestOptions?) -> MembersRemoveConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -32819,7 +32983,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.consolidation.postV1ConsolidationMembersRemove(request: .init(
+    _ = try await client.consolidation.membersRemove(request: .init(
         groupId: "groupId",
         memberCompanyId: "memberCompanyId"
     ))
@@ -32840,7 +33004,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ConsolidationMembersRemoveRequest` 
+**request:** `Requests.MembersRemoveConsolidationRequest` 
     
 </dd>
 </dl>
@@ -32860,7 +33024,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationIntercompanyCandidates</a>(request: Requests.PostV1ConsolidationIntercompanyCandidatesRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationIntercompanyCandidatesResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">intercompanyCandidates</a>(request: Requests.IntercompanyCandidatesConsolidationRequest, requestOptions: RequestOptions?) -> IntercompanyCandidatesConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -32893,7 +33057,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.consolidation.postV1ConsolidationIntercompanyCandidates(request: .init(groupId: "groupId"))
+    _ = try await client.consolidation.intercompanyCandidates(request: .init(groupId: "groupId"))
 }
 
 try await main()
@@ -32911,7 +33075,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ConsolidationIntercompanyCandidatesRequest` 
+**request:** `Requests.IntercompanyCandidatesConsolidationRequest` 
     
 </dd>
 </dl>
@@ -32931,7 +33095,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationIntercompanyLinksSet</a>(request: Requests.PostV1ConsolidationIntercompanyLinksSetRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationIntercompanyLinksSetResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">intercompanyLinksSet</a>(request: Requests.IntercompanyLinksSetConsolidationRequest, requestOptions: RequestOptions?) -> IntercompanyLinksSetConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -32964,7 +33128,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.consolidation.postV1ConsolidationIntercompanyLinksSet(request: .init(
+    _ = try await client.consolidation.intercompanyLinksSet(request: .init(
         groupId: "groupId",
         partnerId: "partnerId",
         counterpartyCompanyId: "counterpartyCompanyId"
@@ -32986,7 +33150,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ConsolidationIntercompanyLinksSetRequest` 
+**request:** `Requests.IntercompanyLinksSetConsolidationRequest` 
     
 </dd>
 </dl>
@@ -33006,7 +33170,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationIntercompanyLinksList</a>(request: Requests.PostV1ConsolidationIntercompanyLinksListRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationIntercompanyLinksListResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">intercompanyLinksList</a>(request: Requests.IntercompanyLinksListConsolidationRequest, requestOptions: RequestOptions?) -> IntercompanyLinksListConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -33025,7 +33189,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.consolidation.postV1ConsolidationIntercompanyLinksList(request: .init(groupId: "groupId"))
+    _ = try await client.consolidation.intercompanyLinksList(request: .init(groupId: "groupId"))
 }
 
 try await main()
@@ -33043,7 +33207,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ConsolidationIntercompanyLinksListRequest` 
+**request:** `Requests.IntercompanyLinksListConsolidationRequest` 
     
 </dd>
 </dl>
@@ -33063,7 +33227,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationIntercompanyLinksRemove</a>(request: Requests.PostV1ConsolidationIntercompanyLinksRemoveRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationIntercompanyLinksRemoveResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">intercompanyLinksRemove</a>(request: Requests.IntercompanyLinksRemoveConsolidationRequest, requestOptions: RequestOptions?) -> IntercompanyLinksRemoveConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -33082,7 +33246,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.consolidation.postV1ConsolidationIntercompanyLinksRemove(request: .init(
+    _ = try await client.consolidation.intercompanyLinksRemove(request: .init(
         groupId: "groupId",
         id: "id"
     ))
@@ -33103,7 +33267,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ConsolidationIntercompanyLinksRemoveRequest` 
+**request:** `Requests.IntercompanyLinksRemoveConsolidationRequest` 
     
 </dd>
 </dl>
@@ -33123,7 +33287,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationIntercompanyReport</a>(request: Requests.PostV1ConsolidationIntercompanyReportRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationIntercompanyReportResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">intercompanyReport</a>(request: Requests.IntercompanyReportConsolidationRequest, requestOptions: RequestOptions?) -> IntercompanyReportConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -33156,10 +33320,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.consolidation.postV1ConsolidationIntercompanyReport(request: .init(
+    _ = try await client.consolidation.intercompanyReport(request: .init(
         groupId: "groupId",
-        fromDate: "fromDate",
-        toDate: "toDate"
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -33178,7 +33342,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ConsolidationIntercompanyReportRequest` 
+**request:** `Requests.IntercompanyReportConsolidationRequest` 
     
 </dd>
 </dl>
@@ -33198,7 +33362,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">postV1ConsolidationReport</a>(request: Requests.PostV1ConsolidationReportRequest, requestOptions: RequestOptions?) -> PostV1ConsolidationReportResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/Sources/Resources/Consolidation/ConsolidationClient.swift">report</a>(request: Requests.ReportConsolidationRequest, requestOptions: RequestOptions?) -> ReportConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -33217,10 +33381,10 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.consolidation.postV1ConsolidationReport(request: .init(
+    _ = try await client.consolidation.report(request: .init(
         groupId: "groupId",
-        fromDate: "fromDate",
-        toDate: "toDate"
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -33239,7 +33403,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1ConsolidationReportRequest` 
+**request:** `Requests.ReportConsolidationRequest` 
     
 </dd>
 </dl>
@@ -33259,8 +33423,8 @@ try await main()
 </dl>
 </details>
 
-## Public
-<details><summary><code>client.public.<a href="/Sources/Resources/Public/PublicClient.swift">postV1PublicIntegrationRequests</a>(request: Requests.PostV1PublicIntegrationRequestsRequest, requestOptions: RequestOptions?) -> PostV1PublicIntegrationRequestsResponse</code></summary>
+## public
+<details><summary><code>client.public.<a href="/Sources/Resources/Public/PublicClient.swift">integrationRequests</a>(request: Requests.IntegrationRequestsPublicRequest, requestOptions: RequestOptions?) -> IntegrationRequestsPublicResponse</code></summary>
 <dl>
 <dd>
 
@@ -33279,7 +33443,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.public.postV1PublicIntegrationRequests(request: .init(
+    _ = try await client.public.integrationRequests(request: .init(
         integration: "integration",
         name: "name",
         email: "email"
@@ -33301,7 +33465,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1PublicIntegrationRequestsRequest` 
+**request:** `Requests.IntegrationRequestsPublicRequest` 
     
 </dd>
 </dl>
@@ -33321,7 +33485,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.public.<a href="/Sources/Resources/Public/PublicClient.swift">getV1PublicPayToken</a>(token: String, requestOptions: RequestOptions?) -> Void</code></summary>
+<details><summary><code>client.public.<a href="/Sources/Resources/Public/PublicClient.swift">pay</a>(token: String, requestOptions: RequestOptions?) -> Void</code></summary>
 <dl>
 <dd>
 
@@ -33340,7 +33504,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.public.getV1PublicPayToken(token: "token")
+    _ = try await client.public.pay(token: "token")
 }
 
 try await main()
@@ -33378,8 +33542,8 @@ try await main()
 </dl>
 </details>
 
-## Billing
-<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">postV1BillingAccountGet</a>(request: Requests.PostV1BillingAccountGetRequest, requestOptions: RequestOptions?) -> PostV1BillingAccountGetResponse</code></summary>
+## billing
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">accountGet</a>(request: Requests.AccountGetBillingRequest, requestOptions: RequestOptions?) -> AccountGetBillingResponse</code></summary>
 <dl>
 <dd>
 
@@ -33398,7 +33562,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.billing.postV1BillingAccountGet(request: .init())
+    _ = try await client.billing.accountGet(request: .init())
 }
 
 try await main()
@@ -33416,7 +33580,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BillingAccountGetRequest` 
+**request:** `Requests.AccountGetBillingRequest` 
     
 </dd>
 </dl>
@@ -33436,7 +33600,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">postV1BillingAccountSetPlan</a>(request: Requests.PostV1BillingAccountSetPlanRequest, requestOptions: RequestOptions?) -> PostV1BillingAccountSetPlanResponse</code></summary>
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">accountSetPlan</a>(request: Requests.AccountSetPlanBillingRequest, requestOptions: RequestOptions?) -> AccountSetPlanBillingResponse</code></summary>
 <dl>
 <dd>
 
@@ -33455,7 +33619,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.billing.postV1BillingAccountSetPlan(request: .init(plan: .starter))
+    _ = try await client.billing.accountSetPlan(request: .init(plan: .starter))
 }
 
 try await main()
@@ -33473,7 +33637,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BillingAccountSetPlanRequest` 
+**request:** `Requests.AccountSetPlanBillingRequest` 
     
 </dd>
 </dl>
@@ -33493,7 +33657,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">postV1BillingTopupCreate</a>(request: Requests.PostV1BillingTopupCreateRequest, requestOptions: RequestOptions?) -> PostV1BillingTopupCreateResponse</code></summary>
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">topupCreate</a>(request: Requests.TopupCreateBillingRequest, requestOptions: RequestOptions?) -> TopupCreateBillingResponse</code></summary>
 <dl>
 <dd>
 
@@ -33512,7 +33676,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.billing.postV1BillingTopupCreate(request: .init(amountCents: 1000000))
+    _ = try await client.billing.topupCreate(request: .init(amountCents: 1000000))
 }
 
 try await main()
@@ -33530,7 +33694,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BillingTopupCreateRequest` 
+**request:** `Requests.TopupCreateBillingRequest` 
     
 </dd>
 </dl>
@@ -33550,7 +33714,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">postV1BillingPortalCreate</a>(request: Requests.PostV1BillingPortalCreateRequest, requestOptions: RequestOptions?) -> PostV1BillingPortalCreateResponse</code></summary>
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">portalCreate</a>(request: Requests.PortalCreateBillingRequest, requestOptions: RequestOptions?) -> PortalCreateBillingResponse</code></summary>
 <dl>
 <dd>
 
@@ -33569,7 +33733,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.billing.postV1BillingPortalCreate(request: .init())
+    _ = try await client.billing.portalCreate(request: .init())
 }
 
 try await main()
@@ -33587,7 +33751,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BillingPortalCreateRequest` 
+**request:** `Requests.PortalCreateBillingRequest` 
     
 </dd>
 </dl>
@@ -33607,7 +33771,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">postV1BillingTransactionsList</a>(request: Requests.PostV1BillingTransactionsListRequest, requestOptions: RequestOptions?) -> PostV1BillingTransactionsListResponse</code></summary>
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">transactionsList</a>(request: Requests.TransactionsListBillingRequest, requestOptions: RequestOptions?) -> TransactionsListBillingResponse</code></summary>
 <dl>
 <dd>
 
@@ -33626,7 +33790,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.billing.postV1BillingTransactionsList(request: .init())
+    _ = try await client.billing.transactionsList(request: .init())
 }
 
 try await main()
@@ -33644,7 +33808,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BillingTransactionsListRequest` 
+**request:** `Requests.TransactionsListBillingRequest` 
     
 </dd>
 </dl>
@@ -33664,7 +33828,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">postV1BillingUsageList</a>(request: Requests.PostV1BillingUsageListRequest, requestOptions: RequestOptions?) -> PostV1BillingUsageListResponse</code></summary>
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">usageList</a>(request: Requests.UsageListBillingRequest, requestOptions: RequestOptions?) -> UsageListBillingResponse</code></summary>
 <dl>
 <dd>
 
@@ -33683,9 +33847,9 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.billing.postV1BillingUsageList(request: .init(
-        from: "from",
-        to: "to"
+    _ = try await client.billing.usageList(request: .init(
+        from: CalendarDate("2026-07-01")!,
+        to: CalendarDate("2026-07-01")!
     ))
 }
 
@@ -33704,7 +33868,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1BillingUsageListRequest` 
+**request:** `Requests.UsageListBillingRequest` 
     
 </dd>
 </dl>
@@ -33724,8 +33888,8 @@ try await main()
 </dl>
 </details>
 
-## Account
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountLoginLinkRequest</a>(request: Requests.PostV1AccountLoginLinkRequestRequest, requestOptions: RequestOptions?) -> PostV1AccountLoginLinkRequestResponse</code></summary>
+## account
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">loginLinkRequest</a>(request: Requests.LoginLinkRequestAccountRequest, requestOptions: RequestOptions?) -> LoginLinkRequestAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -33744,7 +33908,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountLoginLinkRequest(request: .init(email: "email"))
+    _ = try await client.account.loginLinkRequest(request: .init(email: "email"))
 }
 
 try await main()
@@ -33762,7 +33926,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountLoginLinkRequestRequest` 
+**request:** `Requests.LoginLinkRequestAccountRequest` 
     
 </dd>
 </dl>
@@ -33782,7 +33946,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountLoginLinkConsume</a>(request: Requests.PostV1AccountLoginLinkConsumeRequest, requestOptions: RequestOptions?) -> PostV1AccountLoginLinkConsumeResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">loginLinkConsume</a>(request: Requests.LoginLinkConsumeAccountRequest, requestOptions: RequestOptions?) -> LoginLinkConsumeAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -33801,7 +33965,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountLoginLinkConsume(request: .init(token: "token"))
+    _ = try await client.account.loginLinkConsume(request: .init(token: "token"))
 }
 
 try await main()
@@ -33819,7 +33983,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountLoginLinkConsumeRequest` 
+**request:** `Requests.LoginLinkConsumeAccountRequest` 
     
 </dd>
 </dl>
@@ -33839,7 +34003,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountLogout</a>(request: Requests.PostV1AccountLogoutRequest, requestOptions: RequestOptions?) -> PostV1AccountLogoutResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">logout</a>(request: Requests.LogoutAccountRequest, requestOptions: RequestOptions?) -> LogoutAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -33858,7 +34022,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountLogout(request: .init())
+    _ = try await client.account.logout(request: .init())
 }
 
 try await main()
@@ -33876,7 +34040,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountLogoutRequest` 
+**request:** `Requests.LogoutAccountRequest` 
     
 </dd>
 </dl>
@@ -33896,7 +34060,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountMe</a>(request: Requests.PostV1AccountMeRequest, requestOptions: RequestOptions?) -> PostV1AccountMeResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">me</a>(request: Requests.MeAccountRequest, requestOptions: RequestOptions?) -> MeAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -33915,7 +34079,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountMe(request: .init())
+    _ = try await client.account.me(request: .init())
 }
 
 try await main()
@@ -33933,7 +34097,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountMeRequest` 
+**request:** `Requests.MeAccountRequest` 
     
 </dd>
 </dl>
@@ -33953,7 +34117,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountMembersList</a>(request: Requests.PostV1AccountMembersListRequest, requestOptions: RequestOptions?) -> PostV1AccountMembersListResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">membersList</a>(request: Requests.MembersListAccountRequest, requestOptions: RequestOptions?) -> MembersListAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -33972,7 +34136,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountMembersList(request: .init())
+    _ = try await client.account.membersList(request: .init())
 }
 
 try await main()
@@ -33990,7 +34154,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountMembersListRequest` 
+**request:** `Requests.MembersListAccountRequest` 
     
 </dd>
 </dl>
@@ -34010,7 +34174,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountMembersSetRole</a>(request: Requests.PostV1AccountMembersSetRoleRequest, requestOptions: RequestOptions?) -> PostV1AccountMembersSetRoleResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">membersSetRole</a>(request: Requests.MembersSetRoleAccountRequest, requestOptions: RequestOptions?) -> MembersSetRoleAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34029,7 +34193,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountMembersSetRole(request: .init(
+    _ = try await client.account.membersSetRole(request: .init(
         userId: "userId",
         role: .admin
     ))
@@ -34050,7 +34214,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountMembersSetRoleRequest` 
+**request:** `Requests.MembersSetRoleAccountRequest` 
     
 </dd>
 </dl>
@@ -34070,7 +34234,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountMembersTransferOwnership</a>(request: Requests.PostV1AccountMembersTransferOwnershipRequest, requestOptions: RequestOptions?) -> PostV1AccountMembersTransferOwnershipResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">membersTransferOwnership</a>(request: Requests.MembersTransferOwnershipAccountRequest, requestOptions: RequestOptions?) -> MembersTransferOwnershipAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34089,7 +34253,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountMembersTransferOwnership(request: .init(userId: "userId"))
+    _ = try await client.account.membersTransferOwnership(request: .init(userId: "userId"))
 }
 
 try await main()
@@ -34107,7 +34271,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountMembersTransferOwnershipRequest` 
+**request:** `Requests.MembersTransferOwnershipAccountRequest` 
     
 </dd>
 </dl>
@@ -34127,7 +34291,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountMembersRemove</a>(request: Requests.PostV1AccountMembersRemoveRequest, requestOptions: RequestOptions?) -> PostV1AccountMembersRemoveResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">membersRemove</a>(request: Requests.MembersRemoveAccountRequest, requestOptions: RequestOptions?) -> MembersRemoveAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34146,7 +34310,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountMembersRemove(request: .init(userId: "userId"))
+    _ = try await client.account.membersRemove(request: .init(userId: "userId"))
 }
 
 try await main()
@@ -34164,7 +34328,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountMembersRemoveRequest` 
+**request:** `Requests.MembersRemoveAccountRequest` 
     
 </dd>
 </dl>
@@ -34184,7 +34348,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountInvitesCreate</a>(request: Requests.PostV1AccountInvitesCreateRequest, requestOptions: RequestOptions?) -> PostV1AccountInvitesCreateResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">invitesCreate</a>(request: Requests.InvitesCreateAccountRequest, requestOptions: RequestOptions?) -> InvitesCreateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34203,7 +34367,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountInvitesCreate(request: .init(
+    _ = try await client.account.invitesCreate(request: .init(
         email: "email",
         role: .admin
     ))
@@ -34224,7 +34388,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountInvitesCreateRequest` 
+**request:** `Requests.InvitesCreateAccountRequest` 
     
 </dd>
 </dl>
@@ -34244,7 +34408,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountInvitesList</a>(request: Requests.PostV1AccountInvitesListRequest, requestOptions: RequestOptions?) -> PostV1AccountInvitesListResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">invitesList</a>(request: Requests.InvitesListAccountRequest, requestOptions: RequestOptions?) -> InvitesListAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34263,7 +34427,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountInvitesList(request: .init())
+    _ = try await client.account.invitesList(request: .init())
 }
 
 try await main()
@@ -34281,7 +34445,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountInvitesListRequest` 
+**request:** `Requests.InvitesListAccountRequest` 
     
 </dd>
 </dl>
@@ -34301,7 +34465,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountInvitesRevoke</a>(request: Requests.PostV1AccountInvitesRevokeRequest, requestOptions: RequestOptions?) -> PostV1AccountInvitesRevokeResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">invitesRevoke</a>(request: Requests.InvitesRevokeAccountRequest, requestOptions: RequestOptions?) -> InvitesRevokeAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34320,7 +34484,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountInvitesRevoke(request: .init(id: "id"))
+    _ = try await client.account.invitesRevoke(request: .init(id: "id"))
 }
 
 try await main()
@@ -34338,7 +34502,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountInvitesRevokeRequest` 
+**request:** `Requests.InvitesRevokeAccountRequest` 
     
 </dd>
 </dl>
@@ -34358,7 +34522,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountInvitesGet</a>(request: Requests.PostV1AccountInvitesGetRequest, requestOptions: RequestOptions?) -> PostV1AccountInvitesGetResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">invitesGet</a>(request: Requests.InvitesGetAccountRequest, requestOptions: RequestOptions?) -> InvitesGetAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34377,7 +34541,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountInvitesGet(request: .init(token: "token"))
+    _ = try await client.account.invitesGet(request: .init(token: "token"))
 }
 
 try await main()
@@ -34395,7 +34559,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountInvitesGetRequest` 
+**request:** `Requests.InvitesGetAccountRequest` 
     
 </dd>
 </dl>
@@ -34415,7 +34579,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountInvitesAccept</a>(request: Requests.PostV1AccountInvitesAcceptRequest, requestOptions: RequestOptions?) -> PostV1AccountInvitesAcceptResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">invitesAccept</a>(request: Requests.InvitesAcceptAccountRequest, requestOptions: RequestOptions?) -> InvitesAcceptAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34434,7 +34598,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountInvitesAccept(request: .init(token: "token"))
+    _ = try await client.account.invitesAccept(request: .init(token: "token"))
 }
 
 try await main()
@@ -34452,7 +34616,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountInvitesAcceptRequest` 
+**request:** `Requests.InvitesAcceptAccountRequest` 
     
 </dd>
 </dl>
@@ -34472,7 +34636,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountLocaleSet</a>(request: Requests.PostV1AccountLocaleSetRequest, requestOptions: RequestOptions?) -> PostV1AccountLocaleSetResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">localeSet</a>(request: Requests.LocaleSetAccountRequest, requestOptions: RequestOptions?) -> LocaleSetAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34491,7 +34655,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountLocaleSet(request: .init(locale: .en))
+    _ = try await client.account.localeSet(request: .init(locale: .en))
 }
 
 try await main()
@@ -34509,7 +34673,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountLocaleSetRequest` 
+**request:** `Requests.LocaleSetAccountRequest` 
     
 </dd>
 </dl>
@@ -34529,7 +34693,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountCompaniesCreate</a>(request: Requests.PostV1AccountCompaniesCreateRequest, requestOptions: RequestOptions?) -> PostV1AccountCompaniesCreateResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">companiesCreate</a>(request: Requests.CompaniesCreateAccountRequest, requestOptions: RequestOptions?) -> CompaniesCreateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34548,7 +34712,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountCompaniesCreate(request: .init(name: "name"))
+    _ = try await client.account.companiesCreate(request: .init(name: "name"))
 }
 
 try await main()
@@ -34566,7 +34730,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountCompaniesCreateRequest` 
+**request:** `Requests.CompaniesCreateAccountRequest` 
     
 </dd>
 </dl>
@@ -34586,7 +34750,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountCompaniesSelect</a>(request: Requests.PostV1AccountCompaniesSelectRequest, requestOptions: RequestOptions?) -> PostV1AccountCompaniesSelectResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">companiesSelect</a>(request: Requests.CompaniesSelectAccountRequest, requestOptions: RequestOptions?) -> CompaniesSelectAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34605,7 +34769,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountCompaniesSelect(request: .init(companyId: "companyId"))
+    _ = try await client.account.companiesSelect(request: .init(companyId: "companyId"))
 }
 
 try await main()
@@ -34623,7 +34787,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountCompaniesSelectRequest` 
+**request:** `Requests.CompaniesSelectAccountRequest` 
     
 </dd>
 </dl>
@@ -34643,7 +34807,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountCompaniesProfile</a>(request: Requests.PostV1AccountCompaniesProfileRequest, requestOptions: RequestOptions?) -> PostV1AccountCompaniesProfileResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">companiesProfile</a>(request: Requests.CompaniesProfileAccountRequest, requestOptions: RequestOptions?) -> CompaniesProfileAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34662,7 +34826,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountCompaniesProfile(request: .init())
+    _ = try await client.account.companiesProfile(request: .init())
 }
 
 try await main()
@@ -34680,7 +34844,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountCompaniesProfileRequest` 
+**request:** `Requests.CompaniesProfileAccountRequest` 
     
 </dd>
 </dl>
@@ -34700,7 +34864,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountCompaniesUpdate</a>(request: Requests.PostV1AccountCompaniesUpdateRequest, requestOptions: RequestOptions?) -> PostV1AccountCompaniesUpdateResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">companiesUpdate</a>(request: Requests.CompaniesUpdateAccountRequest, requestOptions: RequestOptions?) -> CompaniesUpdateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34719,7 +34883,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountCompaniesUpdate(request: .init())
+    _ = try await client.account.companiesUpdate(request: .init())
 }
 
 try await main()
@@ -34737,7 +34901,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountCompaniesUpdateRequest` 
+**request:** `Requests.CompaniesUpdateAccountRequest` 
     
 </dd>
 </dl>
@@ -34757,7 +34921,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountCompaniesArchive</a>(request: Requests.PostV1AccountCompaniesArchiveRequest, requestOptions: RequestOptions?) -> PostV1AccountCompaniesArchiveResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">companiesArchive</a>(request: Requests.CompaniesArchiveAccountRequest, requestOptions: RequestOptions?) -> CompaniesArchiveAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34776,7 +34940,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountCompaniesArchive(request: .init(companyId: "companyId"))
+    _ = try await client.account.companiesArchive(request: .init(companyId: "companyId"))
 }
 
 try await main()
@@ -34794,7 +34958,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountCompaniesArchiveRequest` 
+**request:** `Requests.CompaniesArchiveAccountRequest` 
     
 </dd>
 </dl>
@@ -34814,7 +34978,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountCompaniesDelete</a>(request: Requests.PostV1AccountCompaniesDeleteRequest, requestOptions: RequestOptions?) -> PostV1AccountCompaniesDeleteResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">companiesDelete</a>(request: Requests.CompaniesDeleteAccountRequest, requestOptions: RequestOptions?) -> CompaniesDeleteAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34833,7 +34997,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountCompaniesDelete(request: .init(companyId: "companyId"))
+    _ = try await client.account.companiesDelete(request: .init(companyId: "companyId"))
 }
 
 try await main()
@@ -34851,7 +35015,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountCompaniesDeleteRequest` 
+**request:** `Requests.CompaniesDeleteAccountRequest` 
     
 </dd>
 </dl>
@@ -34871,7 +35035,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountCompaniesActivate</a>(request: Requests.PostV1AccountCompaniesActivateRequest, requestOptions: RequestOptions?) -> PostV1AccountCompaniesActivateResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">companiesActivate</a>(request: Requests.CompaniesActivateAccountRequest, requestOptions: RequestOptions?) -> CompaniesActivateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34890,7 +35054,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountCompaniesActivate(request: .init(companyId: "companyId"))
+    _ = try await client.account.companiesActivate(request: .init(companyId: "companyId"))
 }
 
 try await main()
@@ -34908,7 +35072,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountCompaniesActivateRequest` 
+**request:** `Requests.CompaniesActivateAccountRequest` 
     
 </dd>
 </dl>
@@ -34928,7 +35092,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountApiKeysCreate</a>(request: Requests.PostV1AccountApiKeysCreateRequest, requestOptions: RequestOptions?) -> PostV1AccountApiKeysCreateResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">apiKeysCreate</a>(request: Requests.ApiKeysCreateAccountRequest, requestOptions: RequestOptions?) -> ApiKeysCreateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -34947,7 +35111,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountApiKeysCreate(request: .init(name: "name"))
+    _ = try await client.account.apiKeysCreate(request: .init(name: "name"))
 }
 
 try await main()
@@ -34965,7 +35129,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountApiKeysCreateRequest` 
+**request:** `Requests.ApiKeysCreateAccountRequest` 
     
 </dd>
 </dl>
@@ -34985,7 +35149,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountApiKeysList</a>(request: Requests.PostV1AccountApiKeysListRequest, requestOptions: RequestOptions?) -> PostV1AccountApiKeysListResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">apiKeysList</a>(request: Requests.ApiKeysListAccountRequest, requestOptions: RequestOptions?) -> ApiKeysListAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35004,7 +35168,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountApiKeysList(request: .init())
+    _ = try await client.account.apiKeysList(request: .init())
 }
 
 try await main()
@@ -35022,7 +35186,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountApiKeysListRequest` 
+**request:** `Requests.ApiKeysListAccountRequest` 
     
 </dd>
 </dl>
@@ -35042,7 +35206,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">issueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlap</a>(request: Requests.PostV1AccountApiKeysRotateRequest, requestOptions: RequestOptions?) -> PostV1AccountApiKeysRotateResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">apiKeysRotate</a>(request: Requests.ApiKeysRotateAccountRequest, requestOptions: RequestOptions?) -> ApiKeysRotateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35061,7 +35225,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.issueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlap(request: .init(id: "id"))
+    _ = try await client.account.apiKeysRotate(request: .init(id: "id"))
 }
 
 try await main()
@@ -35079,7 +35243,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountApiKeysRotateRequest` 
+**request:** `Requests.ApiKeysRotateAccountRequest` 
     
 </dd>
 </dl>
@@ -35099,7 +35263,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountApiKeysRevoke</a>(request: Requests.PostV1AccountApiKeysRevokeRequest, requestOptions: RequestOptions?) -> PostV1AccountApiKeysRevokeResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">apiKeysRevoke</a>(request: Requests.ApiKeysRevokeAccountRequest, requestOptions: RequestOptions?) -> ApiKeysRevokeAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35118,7 +35282,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountApiKeysRevoke(request: .init(id: "id"))
+    _ = try await client.account.apiKeysRevoke(request: .init(id: "id"))
 }
 
 try await main()
@@ -35136,7 +35300,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountApiKeysRevokeRequest` 
+**request:** `Requests.ApiKeysRevokeAccountRequest` 
     
 </dd>
 </dl>
@@ -35156,7 +35320,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountConsentAccept</a>(request: Requests.PostV1AccountConsentAcceptRequest, requestOptions: RequestOptions?) -> PostV1AccountConsentAcceptResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">consentAccept</a>(request: Requests.ConsentAcceptAccountRequest, requestOptions: RequestOptions?) -> ConsentAcceptAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35175,7 +35339,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountConsentAccept(request: .init(
+    _ = try await client.account.consentAccept(request: .init(
         acceptTerms: true,
         acceptDpa: true
     ))
@@ -35196,7 +35360,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountConsentAcceptRequest` 
+**request:** `Requests.ConsentAcceptAccountRequest` 
     
 </dd>
 </dl>
@@ -35216,7 +35380,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountProfileUpdate</a>(request: Requests.PostV1AccountProfileUpdateRequest, requestOptions: RequestOptions?) -> PostV1AccountProfileUpdateResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">profileUpdate</a>(request: Requests.ProfileUpdateAccountRequest, requestOptions: RequestOptions?) -> ProfileUpdateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35235,7 +35399,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountProfileUpdate(request: .init(name: .null))
+    _ = try await client.account.profileUpdate(request: .init(name: .null))
 }
 
 try await main()
@@ -35253,7 +35417,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountProfileUpdateRequest` 
+**request:** `Requests.ProfileUpdateAccountRequest` 
     
 </dd>
 </dl>
@@ -35273,7 +35437,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountEmailChangeRequest</a>(request: Requests.PostV1AccountEmailChangeRequestRequest, requestOptions: RequestOptions?) -> PostV1AccountEmailChangeRequestResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">emailChangeRequest</a>(request: Requests.EmailChangeRequestAccountRequest, requestOptions: RequestOptions?) -> EmailChangeRequestAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35292,7 +35456,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountEmailChangeRequest(request: .init(newEmail: "newEmail"))
+    _ = try await client.account.emailChangeRequest(request: .init(newEmail: "newEmail"))
 }
 
 try await main()
@@ -35310,7 +35474,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountEmailChangeRequestRequest` 
+**request:** `Requests.EmailChangeRequestAccountRequest` 
     
 </dd>
 </dl>
@@ -35330,7 +35494,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountSessionsList</a>(request: Requests.PostV1AccountSessionsListRequest, requestOptions: RequestOptions?) -> PostV1AccountSessionsListResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">sessionsList</a>(request: Requests.SessionsListAccountRequest, requestOptions: RequestOptions?) -> SessionsListAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35349,7 +35513,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountSessionsList(request: .init())
+    _ = try await client.account.sessionsList(request: .init())
 }
 
 try await main()
@@ -35367,7 +35531,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountSessionsListRequest` 
+**request:** `Requests.SessionsListAccountRequest` 
     
 </dd>
 </dl>
@@ -35387,7 +35551,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountSessionsRevoke</a>(request: Requests.PostV1AccountSessionsRevokeRequest, requestOptions: RequestOptions?) -> PostV1AccountSessionsRevokeResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">sessionsRevoke</a>(request: Requests.SessionsRevokeAccountRequest, requestOptions: RequestOptions?) -> SessionsRevokeAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35406,7 +35570,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountSessionsRevoke(request: .init(id: "id"))
+    _ = try await client.account.sessionsRevoke(request: .init(id: "id"))
 }
 
 try await main()
@@ -35424,7 +35588,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountSessionsRevokeRequest` 
+**request:** `Requests.SessionsRevokeAccountRequest` 
     
 </dd>
 </dl>
@@ -35444,7 +35608,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountSessionsRevokeOthers</a>(request: Requests.PostV1AccountSessionsRevokeOthersRequest, requestOptions: RequestOptions?) -> PostV1AccountSessionsRevokeOthersResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">sessionsRevokeOthers</a>(request: Requests.SessionsRevokeOthersAccountRequest, requestOptions: RequestOptions?) -> SessionsRevokeOthersAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35463,7 +35627,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountSessionsRevokeOthers(request: .init())
+    _ = try await client.account.sessionsRevokeOthers(request: .init())
 }
 
 try await main()
@@ -35481,7 +35645,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountSessionsRevokeOthersRequest` 
+**request:** `Requests.SessionsRevokeOthersAccountRequest` 
     
 </dd>
 </dl>
@@ -35501,7 +35665,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">downloadEverythingNordletStoresAboutTheSignedInUser</a>(request: Requests.PostV1AccountExportRequest, requestOptions: RequestOptions?) -> PostV1AccountExportResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">export</a>(request: Requests.ExportAccountRequest, requestOptions: RequestOptions?) -> ExportAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35520,7 +35684,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.downloadEverythingNordletStoresAboutTheSignedInUser(request: .init())
+    _ = try await client.account.export(request: .init())
 }
 
 try await main()
@@ -35538,7 +35702,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountExportRequest` 
+**request:** `Requests.ExportAccountRequest` 
     
 </dd>
 </dl>
@@ -35558,7 +35722,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">deleteTheSignedInUserAccount</a>(request: Requests.PostV1AccountDeleteRequest, requestOptions: RequestOptions?) -> PostV1AccountDeleteResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">delete</a>(request: Requests.DeleteAccountRequest, requestOptions: RequestOptions?) -> DeleteAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35591,7 +35755,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.deleteTheSignedInUserAccount(request: .init(confirmEmail: "confirmEmail"))
+    _ = try await client.account.delete(request: .init(confirmEmail: "confirmEmail"))
 }
 
 try await main()
@@ -35609,7 +35773,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountDeleteRequest` 
+**request:** `Requests.DeleteAccountRequest` 
     
 </dd>
 </dl>
@@ -35629,7 +35793,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountReferralGet</a>(request: Requests.PostV1AccountReferralGetRequest, requestOptions: RequestOptions?) -> PostV1AccountReferralGetResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">referralGet</a>(request: Requests.ReferralGetAccountRequest, requestOptions: RequestOptions?) -> ReferralGetAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35648,7 +35812,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountReferralGet(request: .init())
+    _ = try await client.account.referralGet(request: .init())
 }
 
 try await main()
@@ -35666,7 +35830,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountReferralGetRequest` 
+**request:** `Requests.ReferralGetAccountRequest` 
     
 </dd>
 </dl>
@@ -35686,7 +35850,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountReferralConvert</a>(request: Requests.PostV1AccountReferralConvertRequest, requestOptions: RequestOptions?) -> PostV1AccountReferralConvertResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">referralConvert</a>(request: Requests.ReferralConvertAccountRequest, requestOptions: RequestOptions?) -> ReferralConvertAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35705,7 +35869,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountReferralConvert(request: .init(points: 1000000))
+    _ = try await client.account.referralConvert(request: .init(points: 1000000))
 }
 
 try await main()
@@ -35723,7 +35887,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountReferralConvertRequest` 
+**request:** `Requests.ReferralConvertAccountRequest` 
     
 </dd>
 </dl>
@@ -35743,7 +35907,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountTableSettingsGet</a>(request: Requests.PostV1AccountTableSettingsGetRequest, requestOptions: RequestOptions?) -> PostV1AccountTableSettingsGetResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">tableSettingsGet</a>(request: Requests.TableSettingsGetAccountRequest, requestOptions: RequestOptions?) -> TableSettingsGetAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35762,7 +35926,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountTableSettingsGet(request: .init(tableKey: "tableKey"))
+    _ = try await client.account.tableSettingsGet(request: .init(tableKey: "tableKey"))
 }
 
 try await main()
@@ -35780,7 +35944,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountTableSettingsGetRequest` 
+**request:** `Requests.TableSettingsGetAccountRequest` 
     
 </dd>
 </dl>
@@ -35800,7 +35964,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountTableSettingsSet</a>(request: Requests.PostV1AccountTableSettingsSetRequest, requestOptions: RequestOptions?) -> PostV1AccountTableSettingsSetResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">tableSettingsSet</a>(request: Requests.TableSettingsSetAccountRequest, requestOptions: RequestOptions?) -> TableSettingsSetAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35819,7 +35983,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountTableSettingsSet(request: .init(tableKey: "tableKey"))
+    _ = try await client.account.tableSettingsSet(request: .init(tableKey: "tableKey"))
 }
 
 try await main()
@@ -35837,7 +36001,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountTableSettingsSetRequest` 
+**request:** `Requests.TableSettingsSetAccountRequest` 
     
 </dd>
 </dl>
@@ -35857,7 +36021,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">postV1AccountTableSettingsList</a>(request: Requests.PostV1AccountTableSettingsListRequest, requestOptions: RequestOptions?) -> PostV1AccountTableSettingsListResponse</code></summary>
+<details><summary><code>client.account.<a href="/Sources/Resources/Account/AccountClient.swift">tableSettingsList</a>(request: Requests.TableSettingsListAccountRequest, requestOptions: RequestOptions?) -> TableSettingsListAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -35876,7 +36040,7 @@ import Api
 private func main() async throws {
     let client = ApiClient(token: "<token>")
 
-    _ = try await client.account.postV1AccountTableSettingsList(request: .init())
+    _ = try await client.account.tableSettingsList(request: .init())
 }
 
 try await main()
@@ -35894,7 +36058,7 @@ try await main()
 <dl>
 <dd>
 
-**request:** `Requests.PostV1AccountTableSettingsListRequest` 
+**request:** `Requests.TableSettingsListAccountRequest` 
     
 </dd>
 </dl>

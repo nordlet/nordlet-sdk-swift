@@ -7,213 +7,213 @@ public final class ProductionClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    public func postV1ProductionWorkCentersCreate(request: Requests.PostV1ProductionWorkCentersCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionWorkCentersCreateResponse {
+    public func workCentersCreate(request: Requests.WorkCentersCreateProductionRequest, requestOptions: RequestOptions? = nil) async throws -> WorkCentersCreateProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/work-centers/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionWorkCentersCreateResponse.self
+            responseType: WorkCentersCreateProductionResponse.self
         )
     }
 
-    public func postV1ProductionWorkCentersUpdate(request: Requests.PostV1ProductionWorkCentersUpdateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionWorkCentersUpdateResponse {
+    public func workCentersUpdate(request: Requests.WorkCentersUpdateProductionRequest, requestOptions: RequestOptions? = nil) async throws -> WorkCentersUpdateProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/work-centers/update",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionWorkCentersUpdateResponse.self
+            responseType: WorkCentersUpdateProductionResponse.self
         )
     }
 
-    public func postV1ProductionWorkCentersList(request: Requests.PostV1ProductionWorkCentersListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionWorkCentersListResponse {
+    public func workCentersList(request: Requests.WorkCentersListProductionRequest, requestOptions: RequestOptions? = nil) async throws -> WorkCentersListProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/work-centers/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionWorkCentersListResponse.self
+            responseType: WorkCentersListProductionResponse.self
         )
     }
 
-    public func postV1ProductionRoutingsCreate(request: Requests.PostV1ProductionRoutingsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionRoutingsCreateResponse {
+    public func routingsCreate(request: Requests.RoutingsCreateProductionRequest, requestOptions: RequestOptions? = nil) async throws -> RoutingsCreateProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/routings/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionRoutingsCreateResponse.self
+            responseType: RoutingsCreateProductionResponse.self
         )
     }
 
-    public func postV1ProductionRoutingsGet(request: Requests.PostV1ProductionRoutingsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionRoutingsGetResponse {
+    public func routingsGet(request: Requests.RoutingsGetProductionRequest, requestOptions: RequestOptions? = nil) async throws -> RoutingsGetProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/routings/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionRoutingsGetResponse.self
+            responseType: RoutingsGetProductionResponse.self
         )
     }
 
-    public func postV1ProductionRoutingsList(request: Requests.PostV1ProductionRoutingsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionRoutingsListResponse {
+    public func routingsList(request: Requests.RoutingsListProductionRequest, requestOptions: RequestOptions? = nil) async throws -> RoutingsListProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/routings/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionRoutingsListResponse.self
+            responseType: RoutingsListProductionResponse.self
         )
     }
 
-    public func postV1ProductionMaintenanceCreate(request: Requests.PostV1ProductionMaintenanceCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionMaintenanceCreateResponse {
+    public func maintenanceCreate(request: Requests.MaintenanceCreateProductionRequest, requestOptions: RequestOptions? = nil) async throws -> MaintenanceCreateProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/maintenance/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionMaintenanceCreateResponse.self
+            responseType: MaintenanceCreateProductionResponse.self
         )
     }
 
-    public func postV1ProductionMaintenanceComplete(request: Requests.PostV1ProductionMaintenanceCompleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionMaintenanceCompleteResponse {
+    public func maintenanceComplete(request: Requests.MaintenanceCompleteProductionRequest, requestOptions: RequestOptions? = nil) async throws -> MaintenanceCompleteProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/maintenance/complete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionMaintenanceCompleteResponse.self
+            responseType: MaintenanceCompleteProductionResponse.self
         )
     }
 
-    public func postV1ProductionMaintenanceCancel(request: Requests.PostV1ProductionMaintenanceCancelRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionMaintenanceCancelResponse {
+    public func maintenanceCancel(request: Requests.MaintenanceCancelProductionRequest, requestOptions: RequestOptions? = nil) async throws -> MaintenanceCancelProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/maintenance/cancel",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionMaintenanceCancelResponse.self
+            responseType: MaintenanceCancelProductionResponse.self
         )
     }
 
-    public func postV1ProductionMaintenanceList(request: Requests.PostV1ProductionMaintenanceListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionMaintenanceListResponse {
+    public func maintenanceList(request: Requests.MaintenanceListProductionRequest, requestOptions: RequestOptions? = nil) async throws -> MaintenanceListProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/maintenance/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionMaintenanceListResponse.self
+            responseType: MaintenanceListProductionResponse.self
         )
     }
 
-    public func postV1ProductionBomsCreate(request: Requests.PostV1ProductionBomsCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionBomsCreateResponse {
+    public func bomsCreate(request: Requests.BomsCreateProductionRequest, requestOptions: RequestOptions? = nil) async throws -> BomsCreateProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/boms/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionBomsCreateResponse.self
+            responseType: BomsCreateProductionResponse.self
         )
     }
 
-    public func postV1ProductionBomsGet(request: Requests.PostV1ProductionBomsGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionBomsGetResponse {
+    public func bomsGet(request: Requests.BomsGetProductionRequest, requestOptions: RequestOptions? = nil) async throws -> BomsGetProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/boms/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionBomsGetResponse.self
+            responseType: BomsGetProductionResponse.self
         )
     }
 
-    public func postV1ProductionBomsList(request: Requests.PostV1ProductionBomsListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionBomsListResponse {
+    public func bomsList(request: Requests.BomsListProductionRequest, requestOptions: RequestOptions? = nil) async throws -> BomsListProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/boms/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionBomsListResponse.self
+            responseType: BomsListProductionResponse.self
         )
     }
 
-    public func postV1ProductionOrdersCreate(request: Requests.PostV1ProductionOrdersCreateRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionOrdersCreateResponse {
+    public func ordersCreate(request: Requests.OrdersCreateProductionRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersCreateProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/orders/create",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionOrdersCreateResponse.self
+            responseType: OrdersCreateProductionResponse.self
         )
     }
 
-    public func postV1ProductionOrdersRecordOperation(request: Requests.PostV1ProductionOrdersRecordOperationRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionOrdersRecordOperationResponse {
+    public func ordersRecordOperation(request: Requests.OrdersRecordOperationProductionRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersRecordOperationProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/orders/record-operation",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionOrdersRecordOperationResponse.self
+            responseType: OrdersRecordOperationProductionResponse.self
         )
     }
 
-    public func postV1ProductionQualityChecksAdd(request: Requests.PostV1ProductionQualityChecksAddRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionQualityChecksAddResponse {
+    public func qualityChecksAdd(request: Requests.QualityChecksAddProductionRequest, requestOptions: RequestOptions? = nil) async throws -> QualityChecksAddProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/quality-checks/add",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionQualityChecksAddResponse.self
+            responseType: QualityChecksAddProductionResponse.self
         )
     }
 
-    public func postV1ProductionQualityChecksRecord(request: Requests.PostV1ProductionQualityChecksRecordRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionQualityChecksRecordResponse {
+    public func qualityChecksRecord(request: Requests.QualityChecksRecordProductionRequest, requestOptions: RequestOptions? = nil) async throws -> QualityChecksRecordProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/quality-checks/record",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionQualityChecksRecordResponse.self
+            responseType: QualityChecksRecordProductionResponse.self
         )
     }
 
-    public func postV1ProductionQualityChecksList(request: Requests.PostV1ProductionQualityChecksListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionQualityChecksListResponse {
+    public func qualityChecksList(request: Requests.QualityChecksListProductionRequest, requestOptions: RequestOptions? = nil) async throws -> QualityChecksListProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/quality-checks/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionQualityChecksListResponse.self
+            responseType: QualityChecksListProductionResponse.self
         )
     }
 
-    public func postV1ProductionOrdersComplete(request: Requests.PostV1ProductionOrdersCompleteRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionOrdersCompleteResponse {
+    public func ordersComplete(request: Requests.OrdersCompleteProductionRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersCompleteProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/orders/complete",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionOrdersCompleteResponse.self
+            responseType: OrdersCompleteProductionResponse.self
         )
     }
 
-    public func postV1ProductionOrdersGet(request: Requests.PostV1ProductionOrdersGetRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionOrdersGetResponse {
+    public func ordersGet(request: Requests.OrdersGetProductionRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersGetProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/orders/get",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionOrdersGetResponse.self
+            responseType: OrdersGetProductionResponse.self
         )
     }
 
-    public func postV1ProductionOrdersList(request: Requests.PostV1ProductionOrdersListRequest, requestOptions: RequestOptions? = nil) async throws -> PostV1ProductionOrdersListResponse {
+    public func ordersList(request: Requests.OrdersListProductionRequest, requestOptions: RequestOptions? = nil) async throws -> OrdersListProductionResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/production/orders/list",
             body: request,
             requestOptions: requestOptions,
-            responseType: PostV1ProductionOrdersListResponse.self
+            responseType: OrdersListProductionResponse.self
         )
     }
 }

@@ -3,7 +3,7 @@ import Testing
 import Api
 
 @Suite("AuditClient Wire Tests") struct AuditClientWireTests {
-    @Test func postV1AuditList1() async throws -> Void {
+    @Test func list1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -20,7 +20,7 @@ import Api
                       "diff": {
                         "key": "value"
                       },
-                      "createdAt": "createdAt"
+                      "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -38,9 +38,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AuditListResponse(
+        let expectedResponse = ListAuditResponse(
             rows: [
-                PostV1AuditListResponseRowsItem(
+                ListAuditResponseRowsItem(
                     id: 1000000,
                     actorType: .user,
                     actorId: Nullable<String>.value("actorId"),
@@ -52,7 +52,7 @@ import Api
                             "key": JSONValue.string("value")
                         ]
                     )),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -62,14 +62,14 @@ import Api
                 "key": "value"
             ])
         )
-        let response = try await client.audit.postV1AuditList(
+        let response = try await client.audit.list(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
     }
 
-    @Test func postV1AuditList2() async throws -> Void {
+    @Test func list2() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -86,7 +86,7 @@ import Api
                       "diff": {
                         "key": "value"
                       },
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
                       "id": 1000000,
@@ -98,7 +98,7 @@ import Api
                       "diff": {
                         "key": "value"
                       },
-                      "createdAt": "createdAt"
+                      "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
                   "page": 1000000,
@@ -116,9 +116,9 @@ import Api
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = PostV1AuditListResponse(
+        let expectedResponse = ListAuditResponse(
             rows: [
-                PostV1AuditListResponseRowsItem(
+                ListAuditResponseRowsItem(
                     id: 1000000,
                     actorType: .user,
                     actorId: Nullable<String>.value("actorId"),
@@ -130,9 +130,9 @@ import Api
                             "key": JSONValue.string("value")
                         ]
                     )),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
-                PostV1AuditListResponseRowsItem(
+                ListAuditResponseRowsItem(
                     id: 1000000,
                     actorType: .user,
                     actorId: Nullable<String>.value("actorId"),
@@ -144,7 +144,7 @@ import Api
                             "key": JSONValue.string("value")
                         ]
                     )),
-                    createdAt: "createdAt"
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
             page: 1000000,
@@ -154,7 +154,7 @@ import Api
                 "totals": "totals"
             ])
         )
-        let response = try await client.audit.postV1AuditList(
+        let response = try await client.audit.list(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
