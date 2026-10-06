@@ -26,6 +26,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -54,6 +59,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.ledger.accountsList(
@@ -104,6 +114,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -150,6 +165,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.ledger.accountsList(
@@ -486,6 +506,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -510,6 +535,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.ledger.periodsList(
@@ -544,6 +574,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -574,6 +609,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.ledger.periodsList(
@@ -739,7 +779,8 @@ import Api
                       "partnerId": "partnerId",
                       "status": "draft",
                       "createdAt": "2026-07-01T09:30:00Z",
-                      "postedAt": "2026-07-01T09:30:00Z"
+                      "postedAt": "2026-07-01T09:30:00Z",
+                      "partnerName": "partnerName"
                     }
                   ],
                   "page": 1000000,
@@ -747,6 +788,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -768,7 +814,8 @@ import Api
                     partnerId: Nullable<String>.value("partnerId"),
                     status: .draft,
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
-                    postedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
+                    postedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    partnerName: Nullable<String>.value("partnerName")
                 )
             ],
             page: 1000000,
@@ -776,6 +823,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.ledger.journalTransactionsList(
@@ -801,7 +853,8 @@ import Api
                       "partnerId": "x",
                       "status": "draft",
                       "createdAt": "2024-01-15T09:30:00Z",
-                      "postedAt": "2024-01-15T09:30:00Z"
+                      "postedAt": "2024-01-15T09:30:00Z",
+                      "partnerName": "partnerName"
                     },
                     {
                       "id": "x",
@@ -812,7 +865,8 @@ import Api
                       "partnerId": "x",
                       "status": "draft",
                       "createdAt": "2024-01-15T09:30:00Z",
-                      "postedAt": "2024-01-15T09:30:00Z"
+                      "postedAt": "2024-01-15T09:30:00Z",
+                      "partnerName": "partnerName"
                     }
                   ],
                   "page": 1000000,
@@ -820,6 +874,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -841,7 +900,8 @@ import Api
                     partnerId: Nullable<String>.value("x"),
                     status: .draft,
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
-                    postedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+                    postedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    partnerName: Nullable<String>.value("partnerName")
                 ),
                 JournalTransactionsListLedgerResponseRowsItem(
                     id: "x",
@@ -852,7 +912,8 @@ import Api
                     partnerId: Nullable<String>.value("x"),
                     status: .draft,
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
-                    postedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+                    postedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    partnerName: Nullable<String>.value("partnerName")
                 )
             ],
             page: 1000000,
@@ -860,6 +921,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.ledger.journalTransactionsList(
@@ -1049,6 +1115,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -1076,6 +1147,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.ledger.costCentersList(
@@ -1116,6 +1192,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -1152,6 +1233,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.ledger.costCentersList(
@@ -1366,6 +1452,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -1390,6 +1481,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.ledger.costCenterGroupsList(
@@ -1424,6 +1520,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -1454,6 +1555,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.ledger.costCenterGroupsList(
@@ -2006,6 +2112,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -2042,6 +2153,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.ledger.ownersList(
@@ -2106,6 +2222,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -2166,6 +2287,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.ledger.ownersList(

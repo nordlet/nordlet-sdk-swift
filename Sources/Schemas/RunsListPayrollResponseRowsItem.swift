@@ -5,6 +5,7 @@ public struct RunsListPayrollResponseRowsItem: Codable, Hashable, Sendable {
     public let year: Int64
     public let month: Int64
     public let countryCode: String
+    public let payDate: Nullable<CalendarDate>
     public let status: RunsListPayrollResponseRowsItemStatus
     public let grossTotal: String
     public let taxAllowanceTotal: String
@@ -26,6 +27,7 @@ public struct RunsListPayrollResponseRowsItem: Codable, Hashable, Sendable {
         year: Int64,
         month: Int64,
         countryCode: String,
+        payDate: Nullable<CalendarDate>,
         status: RunsListPayrollResponseRowsItemStatus,
         grossTotal: String,
         taxAllowanceTotal: String,
@@ -45,6 +47,7 @@ public struct RunsListPayrollResponseRowsItem: Codable, Hashable, Sendable {
         self.year = year
         self.month = month
         self.countryCode = countryCode
+        self.payDate = payDate
         self.status = status
         self.grossTotal = grossTotal
         self.taxAllowanceTotal = taxAllowanceTotal
@@ -67,6 +70,7 @@ public struct RunsListPayrollResponseRowsItem: Codable, Hashable, Sendable {
         self.year = try container.decode(Int64.self, forKey: .year)
         self.month = try container.decode(Int64.self, forKey: .month)
         self.countryCode = try container.decode(String.self, forKey: .countryCode)
+        self.payDate = try container.decode(Nullable<CalendarDate>.self, forKey: .payDate)
         self.status = try container.decode(RunsListPayrollResponseRowsItemStatus.self, forKey: .status)
         self.grossTotal = try container.decode(String.self, forKey: .grossTotal)
         self.taxAllowanceTotal = try container.decode(String.self, forKey: .taxAllowanceTotal)
@@ -90,6 +94,7 @@ public struct RunsListPayrollResponseRowsItem: Codable, Hashable, Sendable {
         try container.encode(self.year, forKey: .year)
         try container.encode(self.month, forKey: .month)
         try container.encode(self.countryCode, forKey: .countryCode)
+        try container.encode(self.payDate, forKey: .payDate)
         try container.encode(self.status, forKey: .status)
         try container.encode(self.grossTotal, forKey: .grossTotal)
         try container.encode(self.taxAllowanceTotal, forKey: .taxAllowanceTotal)
@@ -111,6 +116,7 @@ public struct RunsListPayrollResponseRowsItem: Codable, Hashable, Sendable {
         case year
         case month
         case countryCode
+        case payDate
         case status
         case grossTotal
         case taxAllowanceTotal

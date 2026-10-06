@@ -1015,7 +1015,11 @@ import Api
                       "payable": "payable",
                       "net": "net"
                     }
-                  ]
+                  ],
+                  "totals": {
+                    "receivable": "receivable",
+                    "payable": "payable"
+                  }
                 }
                 """#.utf8
             )
@@ -1034,7 +1038,11 @@ import Api
                     payable: "payable",
                     net: "net"
                 )
-            ]
+            ],
+            totals: PartnerBalancesReportsResponseTotals(
+                receivable: "receivable",
+                payable: "payable"
+            )
         )
         let response = try await client.reports.partnerBalances(
             request: .init(),
@@ -1064,7 +1072,11 @@ import Api
                       "payable": "payable",
                       "net": "net"
                     }
-                  ]
+                  ],
+                  "totals": {
+                    "receivable": "receivable",
+                    "payable": "payable"
+                  }
                 }
                 """#.utf8
             )
@@ -1090,7 +1102,11 @@ import Api
                     payable: "payable",
                     net: "net"
                 )
-            ]
+            ],
+            totals: PartnerBalancesReportsResponseTotals(
+                receivable: "receivable",
+                payable: "payable"
+            )
         )
         let response = try await client.reports.partnerBalances(
             request: .init(),
@@ -4247,6 +4263,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -4290,6 +4311,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.reports.jobsList(
@@ -4372,6 +4398,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -4454,6 +4485,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.reports.jobsList(

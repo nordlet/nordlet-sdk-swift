@@ -958,6 +958,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -1000,6 +1005,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.transport.waybillsList(
@@ -1070,6 +1080,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -1136,6 +1151,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.transport.waybillsList(

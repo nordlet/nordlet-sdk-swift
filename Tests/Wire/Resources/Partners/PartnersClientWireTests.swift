@@ -247,6 +247,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -276,6 +281,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.partners.addressesList(
@@ -320,6 +330,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -360,6 +375,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.partners.addressesList(
@@ -610,6 +630,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -638,6 +663,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.partners.contactsList(
@@ -680,6 +710,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -718,6 +753,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.partners.contactsList(
@@ -968,6 +1008,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -996,6 +1041,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.partners.bankAccountsList(
@@ -1038,6 +1088,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -1076,6 +1131,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.partners.bankAccountsList(
@@ -1219,20 +1279,25 @@ import Api
                       "partnerName": "partnerName",
                       "email": "email",
                       "locale": "en",
-                      "currency": "currency",
                       "invoices": [
                         {
                           "id": "id",
                           "fullNumber": "fullNumber",
                           "issueDate": "2026-07-01",
                           "dueDate": "2026-07-01",
+                          "currency": "currency",
                           "remaining": "remaining",
                           "daysLate": 1000000,
                           "interest": "interest"
                         }
                       ],
-                      "totalDue": "totalDue",
-                      "interestDue": "interestDue"
+                      "totals": [
+                        {
+                          "currency": "currency",
+                          "totalDue": "totalDue",
+                          "interestDue": "interestDue"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -1251,20 +1316,25 @@ import Api
                     partnerName: "partnerName",
                     email: "email",
                     locale: .en,
-                    currency: "currency",
                     invoices: [
                         DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem(
                             id: "id",
                             fullNumber: "fullNumber",
                             issueDate: CalendarDate("2026-07-01")!,
                             dueDate: CalendarDate("2026-07-01")!,
+                            currency: "currency",
                             remaining: "remaining",
                             daysLate: 1000000,
                             interest: "interest"
                         )
                     ],
-                    totalDue: "totalDue",
-                    interestDue: "interestDue"
+                    totals: [
+                        DebtRemindersPreviewPartnersResponseRowsItemTotalsItem(
+                            currency: "currency",
+                            totalDue: "totalDue",
+                            interestDue: "interestDue"
+                        )
+                    ]
                 )
             ]
         )
@@ -1287,13 +1357,13 @@ import Api
                       "partnerName": "partnerName",
                       "email": "email",
                       "locale": "en",
-                      "currency": "currency",
                       "invoices": [
                         {
                           "id": "x",
                           "fullNumber": "fullNumber",
                           "issueDate": "2023-01-15",
                           "dueDate": "2023-01-15",
+                          "currency": "currency",
                           "remaining": "remaining",
                           "daysLate": 1000000,
                           "interest": "interest"
@@ -1303,26 +1373,37 @@ import Api
                           "fullNumber": "fullNumber",
                           "issueDate": "2023-01-15",
                           "dueDate": "2023-01-15",
+                          "currency": "currency",
                           "remaining": "remaining",
                           "daysLate": 1000000,
                           "interest": "interest"
                         }
                       ],
-                      "totalDue": "totalDue",
-                      "interestDue": "interestDue"
+                      "totals": [
+                        {
+                          "currency": "currency",
+                          "totalDue": "totalDue",
+                          "interestDue": "interestDue"
+                        },
+                        {
+                          "currency": "currency",
+                          "totalDue": "totalDue",
+                          "interestDue": "interestDue"
+                        }
+                      ]
                     },
                     {
                       "partnerId": "x",
                       "partnerName": "partnerName",
                       "email": "email",
                       "locale": "en",
-                      "currency": "currency",
                       "invoices": [
                         {
                           "id": "x",
                           "fullNumber": "fullNumber",
                           "issueDate": "2023-01-15",
                           "dueDate": "2023-01-15",
+                          "currency": "currency",
                           "remaining": "remaining",
                           "daysLate": 1000000,
                           "interest": "interest"
@@ -1332,13 +1413,24 @@ import Api
                           "fullNumber": "fullNumber",
                           "issueDate": "2023-01-15",
                           "dueDate": "2023-01-15",
+                          "currency": "currency",
                           "remaining": "remaining",
                           "daysLate": 1000000,
                           "interest": "interest"
                         }
                       ],
-                      "totalDue": "totalDue",
-                      "interestDue": "interestDue"
+                      "totals": [
+                        {
+                          "currency": "currency",
+                          "totalDue": "totalDue",
+                          "interestDue": "interestDue"
+                        },
+                        {
+                          "currency": "currency",
+                          "totalDue": "totalDue",
+                          "interestDue": "interestDue"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -1357,13 +1449,13 @@ import Api
                     partnerName: "partnerName",
                     email: "email",
                     locale: .en,
-                    currency: "currency",
                     invoices: [
                         DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem(
                             id: "x",
                             fullNumber: "fullNumber",
                             issueDate: CalendarDate("2023-01-15")!,
                             dueDate: CalendarDate("2023-01-15")!,
+                            currency: "currency",
                             remaining: "remaining",
                             daysLate: 1000000,
                             interest: "interest"
@@ -1373,26 +1465,37 @@ import Api
                             fullNumber: "fullNumber",
                             issueDate: CalendarDate("2023-01-15")!,
                             dueDate: CalendarDate("2023-01-15")!,
+                            currency: "currency",
                             remaining: "remaining",
                             daysLate: 1000000,
                             interest: "interest"
                         )
                     ],
-                    totalDue: "totalDue",
-                    interestDue: "interestDue"
+                    totals: [
+                        DebtRemindersPreviewPartnersResponseRowsItemTotalsItem(
+                            currency: "currency",
+                            totalDue: "totalDue",
+                            interestDue: "interestDue"
+                        ),
+                        DebtRemindersPreviewPartnersResponseRowsItemTotalsItem(
+                            currency: "currency",
+                            totalDue: "totalDue",
+                            interestDue: "interestDue"
+                        )
+                    ]
                 ),
                 DebtRemindersPreviewPartnersResponseRowsItem(
                     partnerId: "x",
                     partnerName: "partnerName",
                     email: "email",
                     locale: .en,
-                    currency: "currency",
                     invoices: [
                         DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem(
                             id: "x",
                             fullNumber: "fullNumber",
                             issueDate: CalendarDate("2023-01-15")!,
                             dueDate: CalendarDate("2023-01-15")!,
+                            currency: "currency",
                             remaining: "remaining",
                             daysLate: 1000000,
                             interest: "interest"
@@ -1402,13 +1505,24 @@ import Api
                             fullNumber: "fullNumber",
                             issueDate: CalendarDate("2023-01-15")!,
                             dueDate: CalendarDate("2023-01-15")!,
+                            currency: "currency",
                             remaining: "remaining",
                             daysLate: 1000000,
                             interest: "interest"
                         )
                     ],
-                    totalDue: "totalDue",
-                    interestDue: "interestDue"
+                    totals: [
+                        DebtRemindersPreviewPartnersResponseRowsItemTotalsItem(
+                            currency: "currency",
+                            totalDue: "totalDue",
+                            interestDue: "interestDue"
+                        ),
+                        DebtRemindersPreviewPartnersResponseRowsItemTotalsItem(
+                            currency: "currency",
+                            totalDue: "totalDue",
+                            interestDue: "interestDue"
+                        )
+                    ]
                 )
             ]
         )
@@ -1445,6 +1559,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -1476,6 +1595,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.partners.debtRemindersList(
@@ -1526,6 +1650,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -1572,6 +1701,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.partners.debtRemindersList(
@@ -1683,6 +1817,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -1716,6 +1855,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.partners.vatReviewsList(
@@ -1776,6 +1920,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -1832,6 +1981,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.partners.vatReviewsList(
@@ -3211,6 +3365,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -3276,6 +3435,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.partners.list(
@@ -3412,6 +3576,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -3544,6 +3713,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.partners.list(
@@ -4477,6 +4651,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -4512,6 +4691,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.partners.inquiriesList(
@@ -4568,6 +4752,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -4620,6 +4809,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.partners.inquiriesList(

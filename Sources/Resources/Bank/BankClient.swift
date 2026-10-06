@@ -250,6 +250,16 @@ public final class BankClient: Sendable {
         )
     }
 
+    public func directDebitsCandidates(request: Requests.DirectDebitsCandidatesBankRequest, requestOptions: RequestOptions? = nil) async throws -> DirectDebitsCandidatesBankResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/direct-debits/candidates",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: DirectDebitsCandidatesBankResponse.self
+        )
+    }
+
     public func directDebitsExport(request: Requests.DirectDebitsExportBankRequest, requestOptions: RequestOptions? = nil) async throws -> DirectDebitsExportBankResponse {
         return try await httpClient.performRequest(
             method: .post,

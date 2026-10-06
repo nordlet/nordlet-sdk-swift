@@ -8,6 +8,7 @@ extension Requests {
         public let grossOverrides: [RunsCreatePayrollRequestGrossOverridesItem]?
         public let lines: [RunsCreatePayrollRequestLinesItem]?
         public let notes: String?
+        public let payDate: CalendarDate?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -18,6 +19,7 @@ extension Requests {
             grossOverrides: [RunsCreatePayrollRequestGrossOverridesItem]? = nil,
             lines: [RunsCreatePayrollRequestLinesItem]? = nil,
             notes: String? = nil,
+            payDate: CalendarDate? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.year = year
@@ -26,6 +28,7 @@ extension Requests {
             self.grossOverrides = grossOverrides
             self.lines = lines
             self.notes = notes
+            self.payDate = payDate
             self.additionalProperties = additionalProperties
         }
 
@@ -37,6 +40,7 @@ extension Requests {
             self.grossOverrides = try container.decodeIfPresent([RunsCreatePayrollRequestGrossOverridesItem].self, forKey: .grossOverrides)
             self.lines = try container.decodeIfPresent([RunsCreatePayrollRequestLinesItem].self, forKey: .lines)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
+            self.payDate = try container.decodeIfPresent(CalendarDate.self, forKey: .payDate)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -49,6 +53,7 @@ extension Requests {
             try container.encodeIfPresent(self.grossOverrides, forKey: .grossOverrides)
             try container.encodeIfPresent(self.lines, forKey: .lines)
             try container.encodeIfPresent(self.notes, forKey: .notes)
+            try container.encodeIfPresent(self.payDate, forKey: .payDate)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -59,6 +64,7 @@ extension Requests {
             case grossOverrides
             case lines
             case notes
+            case payDate
         }
     }
 }

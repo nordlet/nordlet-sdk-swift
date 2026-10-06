@@ -455,6 +455,7 @@ import Api
                   "year": 1000000,
                   "month": 1000000,
                   "countryCode": "countryCode",
+                  "payDate": "2026-07-01",
                   "status": "draft",
                   "grossTotal": "grossTotal",
                   "taxAllowanceTotal": "taxAllowanceTotal",
@@ -532,6 +533,7 @@ import Api
             year: 1000000,
             month: 1000000,
             countryCode: "countryCode",
+            payDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             status: .draft,
             grossTotal: "grossTotal",
             taxAllowanceTotal: "taxAllowanceTotal",
@@ -616,6 +618,7 @@ import Api
                   "year": 1000000,
                   "month": 1000000,
                   "countryCode": "countryCode",
+                  "payDate": "2023-01-15",
                   "status": "draft",
                   "grossTotal": "grossTotal",
                   "taxAllowanceTotal": "taxAllowanceTotal",
@@ -775,6 +778,7 @@ import Api
             year: 1000000,
             month: 1000000,
             countryCode: "countryCode",
+            payDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             status: .draft,
             grossTotal: "grossTotal",
             taxAllowanceTotal: "taxAllowanceTotal",
@@ -941,6 +945,7 @@ import Api
                   "year": 1000000,
                   "month": 1000000,
                   "countryCode": "countryCode",
+                  "payDate": "2026-07-01",
                   "status": "draft",
                   "grossTotal": "grossTotal",
                   "taxAllowanceTotal": "taxAllowanceTotal",
@@ -1018,6 +1023,7 @@ import Api
             year: 1000000,
             month: 1000000,
             countryCode: "countryCode",
+            payDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             status: .draft,
             grossTotal: "grossTotal",
             taxAllowanceTotal: "taxAllowanceTotal",
@@ -1099,6 +1105,7 @@ import Api
                   "year": 1000000,
                   "month": 1000000,
                   "countryCode": "countryCode",
+                  "payDate": "2023-01-15",
                   "status": "draft",
                   "grossTotal": "grossTotal",
                   "taxAllowanceTotal": "taxAllowanceTotal",
@@ -1258,6 +1265,7 @@ import Api
             year: 1000000,
             month: 1000000,
             countryCode: "countryCode",
+            payDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             status: .draft,
             grossTotal: "grossTotal",
             taxAllowanceTotal: "taxAllowanceTotal",
@@ -1423,6 +1431,7 @@ import Api
                       "year": 1000000,
                       "month": 1000000,
                       "countryCode": "countryCode",
+                      "payDate": "2026-07-01",
                       "status": "draft",
                       "grossTotal": "grossTotal",
                       "taxAllowanceTotal": "taxAllowanceTotal",
@@ -1451,6 +1460,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -1468,6 +1482,7 @@ import Api
                     year: 1000000,
                     month: 1000000,
                     countryCode: "countryCode",
+                    payDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     status: .draft,
                     grossTotal: "grossTotal",
                     taxAllowanceTotal: "taxAllowanceTotal",
@@ -1496,6 +1511,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.payroll.runsList(
@@ -1517,6 +1537,7 @@ import Api
                       "year": 1000000,
                       "month": 1000000,
                       "countryCode": "countryCode",
+                      "payDate": "2023-01-15",
                       "status": "draft",
                       "grossTotal": "grossTotal",
                       "taxAllowanceTotal": "taxAllowanceTotal",
@@ -1554,6 +1575,7 @@ import Api
                       "year": 1000000,
                       "month": 1000000,
                       "countryCode": "countryCode",
+                      "payDate": "2023-01-15",
                       "status": "draft",
                       "grossTotal": "grossTotal",
                       "taxAllowanceTotal": "taxAllowanceTotal",
@@ -1592,6 +1614,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -1609,6 +1636,7 @@ import Api
                     year: 1000000,
                     month: 1000000,
                     countryCode: "countryCode",
+                    payDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     status: .draft,
                     grossTotal: "grossTotal",
                     taxAllowanceTotal: "taxAllowanceTotal",
@@ -1646,6 +1674,7 @@ import Api
                     year: 1000000,
                     month: 1000000,
                     countryCode: "countryCode",
+                    payDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     status: .draft,
                     grossTotal: "grossTotal",
                     taxAllowanceTotal: "taxAllowanceTotal",
@@ -1684,6 +1713,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.payroll.runsList(
@@ -1935,6 +1969,7 @@ import Api
                   "year": 1000000,
                   "month": 1000000,
                   "countryCode": "countryCode",
+                  "payDate": "2026-07-01",
                   "status": "draft",
                   "grossTotal": "grossTotal",
                   "taxAllowanceTotal": "taxAllowanceTotal",
@@ -1972,6 +2007,7 @@ import Api
             year: 1000000,
             month: 1000000,
             countryCode: "countryCode",
+            payDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             status: .draft,
             grossTotal: "grossTotal",
             taxAllowanceTotal: "taxAllowanceTotal",
@@ -2013,6 +2049,7 @@ import Api
                   "year": 1000000,
                   "month": 1000000,
                   "countryCode": "countryCode",
+                  "payDate": "2023-01-15",
                   "status": "draft",
                   "grossTotal": "grossTotal",
                   "taxAllowanceTotal": "taxAllowanceTotal",
@@ -2058,6 +2095,7 @@ import Api
             year: 1000000,
             month: 1000000,
             countryCode: "countryCode",
+            payDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             status: .draft,
             grossTotal: "grossTotal",
             taxAllowanceTotal: "taxAllowanceTotal",

@@ -10,6 +10,8 @@ public struct ListLeadsResponseRowsItem: Codable, Hashable, Sendable {
     public let countryCode: Nullable<String>
     public let sourceId: Nullable<String>
     public let sourceName: Nullable<String>
+    public let typeId: Nullable<String>
+    public let typeName: Nullable<String>
     public let status: ListLeadsResponseRowsItemStatus
     public let estimatedValue: Nullable<String>
     public let currency: String
@@ -32,6 +34,8 @@ public struct ListLeadsResponseRowsItem: Codable, Hashable, Sendable {
         countryCode: Nullable<String>,
         sourceId: Nullable<String>,
         sourceName: Nullable<String>,
+        typeId: Nullable<String>,
+        typeName: Nullable<String>,
         status: ListLeadsResponseRowsItemStatus,
         estimatedValue: Nullable<String>,
         currency: String,
@@ -52,6 +56,8 @@ public struct ListLeadsResponseRowsItem: Codable, Hashable, Sendable {
         self.countryCode = countryCode
         self.sourceId = sourceId
         self.sourceName = sourceName
+        self.typeId = typeId
+        self.typeName = typeName
         self.status = status
         self.estimatedValue = estimatedValue
         self.currency = currency
@@ -75,6 +81,8 @@ public struct ListLeadsResponseRowsItem: Codable, Hashable, Sendable {
         self.countryCode = try container.decode(Nullable<String>.self, forKey: .countryCode)
         self.sourceId = try container.decode(Nullable<String>.self, forKey: .sourceId)
         self.sourceName = try container.decode(Nullable<String>.self, forKey: .sourceName)
+        self.typeId = try container.decode(Nullable<String>.self, forKey: .typeId)
+        self.typeName = try container.decode(Nullable<String>.self, forKey: .typeName)
         self.status = try container.decode(ListLeadsResponseRowsItemStatus.self, forKey: .status)
         self.estimatedValue = try container.decode(Nullable<String>.self, forKey: .estimatedValue)
         self.currency = try container.decode(String.self, forKey: .currency)
@@ -99,6 +107,8 @@ public struct ListLeadsResponseRowsItem: Codable, Hashable, Sendable {
         try container.encode(self.countryCode, forKey: .countryCode)
         try container.encode(self.sourceId, forKey: .sourceId)
         try container.encode(self.sourceName, forKey: .sourceName)
+        try container.encode(self.typeId, forKey: .typeId)
+        try container.encode(self.typeName, forKey: .typeName)
         try container.encode(self.status, forKey: .status)
         try container.encode(self.estimatedValue, forKey: .estimatedValue)
         try container.encode(self.currency, forKey: .currency)
@@ -121,6 +131,8 @@ public struct ListLeadsResponseRowsItem: Codable, Hashable, Sendable {
         case countryCode
         case sourceId
         case sourceName
+        case typeId
+        case typeName
         case status
         case estimatedValue
         case currency

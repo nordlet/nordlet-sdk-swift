@@ -10,6 +10,7 @@ extension Requests {
         public let website: Nullable<String>?
         public let countryCode: Nullable<String>?
         public let sourceId: Nullable<String>?
+        public let typeId: Nullable<String>?
         public let status: UpdateLeadsRequestStatus?
         public let estimatedValue: Nullable<String>?
         public let currency: String?
@@ -28,6 +29,7 @@ extension Requests {
             website: Nullable<String>? = nil,
             countryCode: Nullable<String>? = nil,
             sourceId: Nullable<String>? = nil,
+            typeId: Nullable<String>? = nil,
             status: UpdateLeadsRequestStatus? = nil,
             estimatedValue: Nullable<String>? = nil,
             currency: String? = nil,
@@ -44,6 +46,7 @@ extension Requests {
             self.website = website
             self.countryCode = countryCode
             self.sourceId = sourceId
+            self.typeId = typeId
             self.status = status
             self.estimatedValue = estimatedValue
             self.currency = currency
@@ -63,6 +66,7 @@ extension Requests {
             self.website = try container.decodeNullableIfPresent(String.self, forKey: .website)
             self.countryCode = try container.decodeNullableIfPresent(String.self, forKey: .countryCode)
             self.sourceId = try container.decodeNullableIfPresent(String.self, forKey: .sourceId)
+            self.typeId = try container.decodeNullableIfPresent(String.self, forKey: .typeId)
             self.status = try container.decodeIfPresent(UpdateLeadsRequestStatus.self, forKey: .status)
             self.estimatedValue = try container.decodeNullableIfPresent(String.self, forKey: .estimatedValue)
             self.currency = try container.decodeIfPresent(String.self, forKey: .currency)
@@ -83,6 +87,7 @@ extension Requests {
             try container.encodeNullableIfPresent(self.website, forKey: .website)
             try container.encodeNullableIfPresent(self.countryCode, forKey: .countryCode)
             try container.encodeNullableIfPresent(self.sourceId, forKey: .sourceId)
+            try container.encodeNullableIfPresent(self.typeId, forKey: .typeId)
             try container.encodeIfPresent(self.status, forKey: .status)
             try container.encodeNullableIfPresent(self.estimatedValue, forKey: .estimatedValue)
             try container.encodeIfPresent(self.currency, forKey: .currency)
@@ -101,6 +106,7 @@ extension Requests {
             case website
             case countryCode
             case sourceId
+            case typeId
             case status
             case estimatedValue
             case currency

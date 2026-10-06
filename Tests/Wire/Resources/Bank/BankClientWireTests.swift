@@ -101,6 +101,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -128,6 +133,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.bank.accountsList(
@@ -168,6 +178,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -204,6 +219,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.bank.accountsList(
@@ -568,6 +588,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -602,6 +627,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.bank.transactionsList(
@@ -656,6 +686,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -706,6 +741,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.bank.transactionsList(
@@ -1721,6 +1761,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -1767,6 +1812,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.bank.importTemplatesList(
@@ -1857,6 +1907,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -1943,6 +1998,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.bank.importTemplatesList(
@@ -2787,6 +2847,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -2823,6 +2888,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.bank.mandatesList(
@@ -2881,6 +2951,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -2935,9 +3010,204 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.bank.mandatesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func directDebitsCandidates1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "fullNumber": "fullNumber",
+                      "issueDate": "2026-07-01",
+                      "dueDate": "2026-07-01",
+                      "partnerId": "partnerId",
+                      "partnerName": "partnerName",
+                      "currency": "currency",
+                      "grossTotal": "grossTotal",
+                      "paidAmount": "paidAmount",
+                      "remaining": "remaining",
+                      "mandateId": "mandateId",
+                      "mandateReference": "mandateReference",
+                      "mandateSignatureDate": "2026-07-01"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DirectDebitsCandidatesBankResponse(
+            rows: [
+                DirectDebitsCandidatesBankResponseRowsItem(
+                    id: "id",
+                    fullNumber: Nullable<String>.value("fullNumber"),
+                    issueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    partnerId: "partnerId",
+                    partnerName: Nullable<String>.value("partnerName"),
+                    currency: "currency",
+                    grossTotal: "grossTotal",
+                    paidAmount: "paidAmount",
+                    remaining: "remaining",
+                    mandateId: Nullable<String>.value("mandateId"),
+                    mandateReference: Nullable<String>.value("mandateReference"),
+                    mandateSignatureDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
+            ])
+        )
+        let response = try await client.bank.directDebitsCandidates(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func directDebitsCandidates2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "fullNumber": "fullNumber",
+                      "issueDate": "2023-01-15",
+                      "dueDate": "2023-01-15",
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "currency": "currency",
+                      "grossTotal": "grossTotal",
+                      "paidAmount": "paidAmount",
+                      "remaining": "remaining",
+                      "mandateId": "x",
+                      "mandateReference": "mandateReference",
+                      "mandateSignatureDate": "2023-01-15"
+                    },
+                    {
+                      "id": "x",
+                      "fullNumber": "fullNumber",
+                      "issueDate": "2023-01-15",
+                      "dueDate": "2023-01-15",
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "currency": "currency",
+                      "grossTotal": "grossTotal",
+                      "paidAmount": "paidAmount",
+                      "remaining": "remaining",
+                      "mandateId": "x",
+                      "mandateReference": "mandateReference",
+                      "mandateSignatureDate": "2023-01-15"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DirectDebitsCandidatesBankResponse(
+            rows: [
+                DirectDebitsCandidatesBankResponseRowsItem(
+                    id: "x",
+                    fullNumber: Nullable<String>.value("fullNumber"),
+                    issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    partnerId: "x",
+                    partnerName: Nullable<String>.value("partnerName"),
+                    currency: "currency",
+                    grossTotal: "grossTotal",
+                    paidAmount: "paidAmount",
+                    remaining: "remaining",
+                    mandateId: Nullable<String>.value("x"),
+                    mandateReference: Nullable<String>.value("mandateReference"),
+                    mandateSignatureDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!)
+                ),
+                DirectDebitsCandidatesBankResponseRowsItem(
+                    id: "x",
+                    fullNumber: Nullable<String>.value("fullNumber"),
+                    issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    partnerId: "x",
+                    partnerName: Nullable<String>.value("partnerName"),
+                    currency: "currency",
+                    grossTotal: "grossTotal",
+                    paidAmount: "paidAmount",
+                    remaining: "remaining",
+                    mandateId: Nullable<String>.value("x"),
+                    mandateReference: Nullable<String>.value("mandateReference"),
+                    mandateSignatureDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
+            ])
+        )
+        let response = try await client.bank.directDebitsCandidates(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
@@ -3404,6 +3674,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -3442,6 +3717,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.bank.settlementsList(
@@ -3504,6 +3784,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -3562,6 +3847,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.bank.settlementsList(
@@ -5036,6 +5326,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
                   }
                 }
                 """#.utf8
@@ -5068,6 +5363,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
             ])
         )
         let response = try await client.bank.feedsConnectionsList(
@@ -5118,6 +5418,11 @@ import Api
                   "total": 1000000,
                   "totals": {
                     "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
                   }
                 }
                 """#.utf8
@@ -5164,6 +5469,11 @@ import Api
             total: 1000000,
             totals: Optional([
                 "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
             ])
         )
         let response = try await client.bank.feedsConnectionsList(

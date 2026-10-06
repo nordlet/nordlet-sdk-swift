@@ -5,6 +5,7 @@ public struct DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem: Codable,
     public let fullNumber: String
     public let issueDate: CalendarDate
     public let dueDate: CalendarDate
+    public let currency: String
     public let remaining: String
     public let daysLate: Int64
     public let interest: String
@@ -16,6 +17,7 @@ public struct DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem: Codable,
         fullNumber: String,
         issueDate: CalendarDate,
         dueDate: CalendarDate,
+        currency: String,
         remaining: String,
         daysLate: Int64,
         interest: String,
@@ -25,6 +27,7 @@ public struct DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem: Codable,
         self.fullNumber = fullNumber
         self.issueDate = issueDate
         self.dueDate = dueDate
+        self.currency = currency
         self.remaining = remaining
         self.daysLate = daysLate
         self.interest = interest
@@ -37,6 +40,7 @@ public struct DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem: Codable,
         self.fullNumber = try container.decode(String.self, forKey: .fullNumber)
         self.issueDate = try container.decode(CalendarDate.self, forKey: .issueDate)
         self.dueDate = try container.decode(CalendarDate.self, forKey: .dueDate)
+        self.currency = try container.decode(String.self, forKey: .currency)
         self.remaining = try container.decode(String.self, forKey: .remaining)
         self.daysLate = try container.decode(Int64.self, forKey: .daysLate)
         self.interest = try container.decode(String.self, forKey: .interest)
@@ -50,6 +54,7 @@ public struct DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem: Codable,
         try container.encode(self.fullNumber, forKey: .fullNumber)
         try container.encode(self.issueDate, forKey: .issueDate)
         try container.encode(self.dueDate, forKey: .dueDate)
+        try container.encode(self.currency, forKey: .currency)
         try container.encode(self.remaining, forKey: .remaining)
         try container.encode(self.daysLate, forKey: .daysLate)
         try container.encode(self.interest, forKey: .interest)
@@ -61,6 +66,7 @@ public struct DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem: Codable,
         case fullNumber
         case issueDate
         case dueDate
+        case currency
         case remaining
         case daysLate
         case interest

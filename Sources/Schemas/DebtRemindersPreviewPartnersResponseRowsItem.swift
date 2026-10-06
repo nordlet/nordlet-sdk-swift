@@ -5,10 +5,8 @@ public struct DebtRemindersPreviewPartnersResponseRowsItem: Codable, Hashable, S
     public let partnerName: String
     public let email: String
     public let locale: DebtRemindersPreviewPartnersResponseRowsItemLocale
-    public let currency: String
     public let invoices: [DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem]
-    public let totalDue: String
-    public let interestDue: String
+    public let totals: [DebtRemindersPreviewPartnersResponseRowsItemTotalsItem]
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -17,20 +15,16 @@ public struct DebtRemindersPreviewPartnersResponseRowsItem: Codable, Hashable, S
         partnerName: String,
         email: String,
         locale: DebtRemindersPreviewPartnersResponseRowsItemLocale,
-        currency: String,
         invoices: [DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem],
-        totalDue: String,
-        interestDue: String,
+        totals: [DebtRemindersPreviewPartnersResponseRowsItemTotalsItem],
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.partnerId = partnerId
         self.partnerName = partnerName
         self.email = email
         self.locale = locale
-        self.currency = currency
         self.invoices = invoices
-        self.totalDue = totalDue
-        self.interestDue = interestDue
+        self.totals = totals
         self.additionalProperties = additionalProperties
     }
 
@@ -40,10 +34,8 @@ public struct DebtRemindersPreviewPartnersResponseRowsItem: Codable, Hashable, S
         self.partnerName = try container.decode(String.self, forKey: .partnerName)
         self.email = try container.decode(String.self, forKey: .email)
         self.locale = try container.decode(DebtRemindersPreviewPartnersResponseRowsItemLocale.self, forKey: .locale)
-        self.currency = try container.decode(String.self, forKey: .currency)
         self.invoices = try container.decode([DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem].self, forKey: .invoices)
-        self.totalDue = try container.decode(String.self, forKey: .totalDue)
-        self.interestDue = try container.decode(String.self, forKey: .interestDue)
+        self.totals = try container.decode([DebtRemindersPreviewPartnersResponseRowsItemTotalsItem].self, forKey: .totals)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -54,10 +46,8 @@ public struct DebtRemindersPreviewPartnersResponseRowsItem: Codable, Hashable, S
         try container.encode(self.partnerName, forKey: .partnerName)
         try container.encode(self.email, forKey: .email)
         try container.encode(self.locale, forKey: .locale)
-        try container.encode(self.currency, forKey: .currency)
         try container.encode(self.invoices, forKey: .invoices)
-        try container.encode(self.totalDue, forKey: .totalDue)
-        try container.encode(self.interestDue, forKey: .interestDue)
+        try container.encode(self.totals, forKey: .totals)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -66,9 +56,7 @@ public struct DebtRemindersPreviewPartnersResponseRowsItem: Codable, Hashable, S
         case partnerName
         case email
         case locale
-        case currency
         case invoices
-        case totalDue
-        case interestDue
+        case totals
     }
 }

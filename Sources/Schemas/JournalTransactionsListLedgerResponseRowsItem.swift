@@ -10,6 +10,7 @@ public struct JournalTransactionsListLedgerResponseRowsItem: Codable, Hashable, 
     public let status: JournalTransactionsListLedgerResponseRowsItemStatus
     public let createdAt: Date
     public let postedAt: Nullable<Date>
+    public let partnerName: Nullable<String>
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -23,6 +24,7 @@ public struct JournalTransactionsListLedgerResponseRowsItem: Codable, Hashable, 
         status: JournalTransactionsListLedgerResponseRowsItemStatus,
         createdAt: Date,
         postedAt: Nullable<Date>,
+        partnerName: Nullable<String>,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -34,6 +36,7 @@ public struct JournalTransactionsListLedgerResponseRowsItem: Codable, Hashable, 
         self.status = status
         self.createdAt = createdAt
         self.postedAt = postedAt
+        self.partnerName = partnerName
         self.additionalProperties = additionalProperties
     }
 
@@ -48,6 +51,7 @@ public struct JournalTransactionsListLedgerResponseRowsItem: Codable, Hashable, 
         self.status = try container.decode(JournalTransactionsListLedgerResponseRowsItemStatus.self, forKey: .status)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.postedAt = try container.decode(Nullable<Date>.self, forKey: .postedAt)
+        self.partnerName = try container.decode(Nullable<String>.self, forKey: .partnerName)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -63,6 +67,7 @@ public struct JournalTransactionsListLedgerResponseRowsItem: Codable, Hashable, 
         try container.encode(self.status, forKey: .status)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.postedAt, forKey: .postedAt)
+        try container.encode(self.partnerName, forKey: .partnerName)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -76,5 +81,6 @@ public struct JournalTransactionsListLedgerResponseRowsItem: Codable, Hashable, 
         case status
         case createdAt
         case postedAt
+        case partnerName
     }
 }

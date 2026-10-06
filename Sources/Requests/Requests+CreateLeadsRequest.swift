@@ -9,6 +9,7 @@ extension Requests {
         public let website: String?
         public let countryCode: String?
         public let sourceId: String?
+        public let typeId: String?
         public let status: CreateLeadsRequestStatus?
         public let estimatedValue: String?
         public let currency: String?
@@ -27,6 +28,7 @@ extension Requests {
             website: String? = nil,
             countryCode: String? = nil,
             sourceId: String? = nil,
+            typeId: String? = nil,
             status: CreateLeadsRequestStatus? = nil,
             estimatedValue: String? = nil,
             currency: String? = nil,
@@ -43,6 +45,7 @@ extension Requests {
             self.website = website
             self.countryCode = countryCode
             self.sourceId = sourceId
+            self.typeId = typeId
             self.status = status
             self.estimatedValue = estimatedValue
             self.currency = currency
@@ -62,6 +65,7 @@ extension Requests {
             self.website = try container.decodeIfPresent(String.self, forKey: .website)
             self.countryCode = try container.decodeIfPresent(String.self, forKey: .countryCode)
             self.sourceId = try container.decodeIfPresent(String.self, forKey: .sourceId)
+            self.typeId = try container.decodeIfPresent(String.self, forKey: .typeId)
             self.status = try container.decodeIfPresent(CreateLeadsRequestStatus.self, forKey: .status)
             self.estimatedValue = try container.decodeIfPresent(String.self, forKey: .estimatedValue)
             self.currency = try container.decodeIfPresent(String.self, forKey: .currency)
@@ -82,6 +86,7 @@ extension Requests {
             try container.encodeIfPresent(self.website, forKey: .website)
             try container.encodeIfPresent(self.countryCode, forKey: .countryCode)
             try container.encodeIfPresent(self.sourceId, forKey: .sourceId)
+            try container.encodeIfPresent(self.typeId, forKey: .typeId)
             try container.encodeIfPresent(self.status, forKey: .status)
             try container.encodeIfPresent(self.estimatedValue, forKey: .estimatedValue)
             try container.encodeIfPresent(self.currency, forKey: .currency)
@@ -100,6 +105,7 @@ extension Requests {
             case website
             case countryCode
             case sourceId
+            case typeId
             case status
             case estimatedValue
             case currency

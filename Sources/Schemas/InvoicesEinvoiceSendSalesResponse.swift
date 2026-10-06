@@ -9,7 +9,7 @@ public struct InvoicesEinvoiceSendSalesResponse: Codable, Hashable, Sendable {
     public let nationalNumber: Nullable<String>
     public let status: InvoicesEinvoiceSendSalesResponseStatus
     public let detail: Nullable<String>
-    public let fileId: String
+    public let fileId: Nullable<String>
     public let warnings: [String]
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -23,7 +23,7 @@ public struct InvoicesEinvoiceSendSalesResponse: Codable, Hashable, Sendable {
         nationalNumber: Nullable<String>,
         status: InvoicesEinvoiceSendSalesResponseStatus,
         detail: Nullable<String>,
-        fileId: String,
+        fileId: Nullable<String>,
         warnings: [String],
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -50,7 +50,7 @@ public struct InvoicesEinvoiceSendSalesResponse: Codable, Hashable, Sendable {
         self.nationalNumber = try container.decode(Nullable<String>.self, forKey: .nationalNumber)
         self.status = try container.decode(InvoicesEinvoiceSendSalesResponseStatus.self, forKey: .status)
         self.detail = try container.decode(Nullable<String>.self, forKey: .detail)
-        self.fileId = try container.decode(String.self, forKey: .fileId)
+        self.fileId = try container.decode(Nullable<String>.self, forKey: .fileId)
         self.warnings = try container.decode([String].self, forKey: .warnings)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }

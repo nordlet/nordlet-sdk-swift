@@ -147,6 +147,56 @@ public final class LeadsClient: Sendable {
         )
     }
 
+    public func typesCreate(request: Requests.TypesCreateLeadsRequest, requestOptions: RequestOptions? = nil) async throws -> TypesCreateLeadsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/leads/types/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: TypesCreateLeadsResponse.self
+        )
+    }
+
+    public func typesUpdate(request: Requests.TypesUpdateLeadsRequest, requestOptions: RequestOptions? = nil) async throws -> TypesUpdateLeadsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/leads/types/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: TypesUpdateLeadsResponse.self
+        )
+    }
+
+    public func typesDelete(request: Requests.TypesDeleteLeadsRequest, requestOptions: RequestOptions? = nil) async throws -> TypesDeleteLeadsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/leads/types/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: TypesDeleteLeadsResponse.self
+        )
+    }
+
+    public func typesList(request: Requests.TypesListLeadsRequest, requestOptions: RequestOptions? = nil) async throws -> TypesListLeadsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/leads/types/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: TypesListLeadsResponse.self
+        )
+    }
+
+    public func typesOptions(request: Requests.TypesOptionsLeadsRequest, requestOptions: RequestOptions? = nil) async throws -> TypesOptionsLeadsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/leads/types/options",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: TypesOptionsLeadsResponse.self
+        )
+    }
+
     /// Create a customer partner from the lead, move the lead files to the partner, copy the lead notes into the partner notes and mark the lead as converted.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
