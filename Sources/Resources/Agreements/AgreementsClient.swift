@@ -7,6 +7,26 @@ public final class AgreementsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
+    public func settingsGet(request: Requests.SettingsGetAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> SettingsGetAgreementsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/agreements/settings/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: SettingsGetAgreementsResponse.self
+        )
+    }
+
+    public func settingsUpdate(request: Requests.SettingsUpdateAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> SettingsUpdateAgreementsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/agreements/settings/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: SettingsUpdateAgreementsResponse.self
+        )
+    }
+
     public func typesCreate(request: Requests.TypesCreateAgreementsRequest, requestOptions: RequestOptions? = nil) async throws -> TypesCreateAgreementsResponse {
         return try await httpClient.performRequest(
             method: .post,

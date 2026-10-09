@@ -867,6 +867,133 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func transactionsMatchMany1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "bankAccountId": "bankAccountId",
+                  "date": "2026-07-01",
+                  "amount": "amount",
+                  "currency": "currency",
+                  "counterpartyName": "counterpartyName",
+                  "counterpartyIban": "counterpartyIban",
+                  "description": "description",
+                  "externalId": "externalId",
+                  "status": "new",
+                  "matchedDocumentType": "matchedDocumentType",
+                  "matchedDocumentId": "matchedDocumentId",
+                  "journalTransactionId": "journalTransactionId",
+                  "createdAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TransactionsMatchManyBankResponse(
+            id: "id",
+            bankAccountId: "bankAccountId",
+            date: CalendarDate("2026-07-01")!,
+            amount: "amount",
+            currency: "currency",
+            counterpartyName: Nullable<String>.value("counterpartyName"),
+            counterpartyIban: Nullable<String>.value("counterpartyIban"),
+            description: Nullable<String>.value("description"),
+            externalId: Nullable<String>.value("externalId"),
+            status: .new,
+            matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+            matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.transactionsMatchMany(
+            request: .init(
+                transactionId: "transactionId",
+                allocations: [
+                    TransactionsMatchManyBankRequestAllocationsItem(
+                        documentType: .saleInvoice,
+                        documentId: "documentId",
+                        amount: "121.0000"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func transactionsMatchMany2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "bankAccountId": "x",
+                  "date": "2023-01-15",
+                  "amount": "amount",
+                  "currency": "currency",
+                  "counterpartyName": "counterpartyName",
+                  "counterpartyIban": "counterpartyIban",
+                  "description": "description",
+                  "externalId": "externalId",
+                  "status": "new",
+                  "matchedDocumentType": "matchedDocumentType",
+                  "matchedDocumentId": "x",
+                  "journalTransactionId": "x",
+                  "createdAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TransactionsMatchManyBankResponse(
+            id: "x",
+            bankAccountId: "x",
+            date: CalendarDate("2023-01-15")!,
+            amount: "amount",
+            currency: "currency",
+            counterpartyName: Nullable<String>.value("counterpartyName"),
+            counterpartyIban: Nullable<String>.value("counterpartyIban"),
+            description: Nullable<String>.value("description"),
+            externalId: Nullable<String>.value("externalId"),
+            status: .new,
+            matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+            matchedDocumentId: Nullable<String>.value("x"),
+            journalTransactionId: Nullable<String>.value("x"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.transactionsMatchMany(
+            request: .init(
+                transactionId: "x",
+                allocations: [
+                    TransactionsMatchManyBankRequestAllocationsItem(
+                        documentType: .saleInvoice,
+                        documentId: "x",
+                        amount: "amount"
+                    ),
+                    TransactionsMatchManyBankRequestAllocationsItem(
+                        documentType: .saleInvoice,
+                        documentId: "x",
+                        amount: "amount"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func transactionsUnmatch1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

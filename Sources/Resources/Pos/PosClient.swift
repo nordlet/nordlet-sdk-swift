@@ -66,4 +66,74 @@ public final class PosClient: Sendable {
             responseType: ReportsListPosResponse.self
         )
     }
+
+    public func shiftsOpen(request: Requests.ShiftsOpenPosRequest, requestOptions: RequestOptions? = nil) async throws -> ShiftsOpenPosResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/pos/shifts/open",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: ShiftsOpenPosResponse.self
+        )
+    }
+
+    public func shiftsGet(request: Requests.ShiftsGetPosRequest, requestOptions: RequestOptions? = nil) async throws -> ShiftsGetPosResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/pos/shifts/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: ShiftsGetPosResponse.self
+        )
+    }
+
+    public func shiftsList(request: Requests.ShiftsListPosRequest, requestOptions: RequestOptions? = nil) async throws -> ShiftsListPosResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/pos/shifts/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: ShiftsListPosResponse.self
+        )
+    }
+
+    public func receiptsCreate(request: Requests.ReceiptsCreatePosRequest, requestOptions: RequestOptions? = nil) async throws -> ReceiptsCreatePosResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/pos/receipts/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: ReceiptsCreatePosResponse.self
+        )
+    }
+
+    public func receiptsList(request: Requests.ReceiptsListPosRequest, requestOptions: RequestOptions? = nil) async throws -> ReceiptsListPosResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/pos/receipts/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: ReceiptsListPosResponse.self
+        )
+    }
+
+    public func receiptsGet(request: Requests.ReceiptsGetPosRequest, requestOptions: RequestOptions? = nil) async throws -> ReceiptsGetPosResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/pos/receipts/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: ReceiptsGetPosResponse.self
+        )
+    }
+
+    public func shiftsClose(request: Requests.ShiftsClosePosRequest, requestOptions: RequestOptions? = nil) async throws -> ShiftsClosePosResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/pos/shifts/close",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: ShiftsClosePosResponse.self
+        )
+    }
 }

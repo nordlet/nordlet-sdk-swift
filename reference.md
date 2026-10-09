@@ -2806,6 +2806,66 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">merge</a>(request: Requests.MergePartnersRequest, requestOptions: RequestOptions?) -> MergePartnersResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.partners.merge(request: .init(
+        sourceId: "sourceId",
+        targetId: "targetId"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.MergePartnersRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.partners.<a href="/Sources/Resources/Partners/PartnersClient.swift">anonymize</a>(request: Requests.AnonymizePartnersRequest, requestOptions: RequestOptions?) -> AnonymizePartnersResponse</code></summary>
 <dl>
 <dd>
@@ -9384,6 +9444,120 @@ try await main()
 <dd>
 
 **request:** `Requests.InvoicesRegisterPurchasesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">deferralsList</a>(request: Requests.DeferralsListPurchasesRequest, requestOptions: RequestOptions?) -> DeferralsListPurchasesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.deferralsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.DeferralsListPurchasesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">deferralsPost</a>(request: Requests.DeferralsPostPurchasesRequest, requestOptions: RequestOptions?) -> DeferralsPostPurchasesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.deferralsPost(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.DeferralsPostPurchasesRequest` 
     
 </dd>
 </dl>
@@ -18756,6 +18930,120 @@ try await main()
 </details>
 
 ## assets
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">settingsGet</a>(request: Requests.SettingsGetAssetsRequest, requestOptions: RequestOptions?) -> SettingsGetAssetsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.assets.settingsGet(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.SettingsGetAssetsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">settingsUpdate</a>(request: Requests.SettingsUpdateAssetsRequest, requestOptions: RequestOptions?) -> SettingsUpdateAssetsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.assets.settingsUpdate(request: .init(autoDepreciation: true))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.SettingsUpdateAssetsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">groupsCreate</a>(request: Requests.GroupsCreateAssetsRequest, requestOptions: RequestOptions?) -> GroupsCreateAssetsResponse</code></summary>
 <dl>
 <dd>
@@ -20466,6 +20754,472 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">perDiemRatesCreate</a>(request: Requests.PerDiemRatesCreateHrRequest, requestOptions: RequestOptions?) -> PerDiemRatesCreateHrResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.hr.perDiemRatesCreate(request: .init(
+        countryCode: "countryCode",
+        dailyAmount: "121.00",
+        validFrom: CalendarDate("2026-07-01")!
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PerDiemRatesCreateHrRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">perDiemRatesList</a>(request: Requests.PerDiemRatesListHrRequest, requestOptions: RequestOptions?) -> PerDiemRatesListHrResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.hr.perDiemRatesList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PerDiemRatesListHrRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">perDiemRatesDelete</a>(request: Requests.PerDiemRatesDeleteHrRequest, requestOptions: RequestOptions?) -> PerDiemRatesDeleteHrResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.hr.perDiemRatesDelete(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PerDiemRatesDeleteHrRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">businessTripsCreate</a>(request: Requests.BusinessTripsCreateHrRequest, requestOptions: RequestOptions?) -> BusinessTripsCreateHrResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.hr.businessTripsCreate(request: .init(
+        employeeId: "employeeId",
+        destinationCountryCode: "destinationCountryCode",
+        purpose: "purpose",
+        startDate: CalendarDate("2026-07-01")!,
+        endDate: CalendarDate("2026-07-01")!
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.BusinessTripsCreateHrRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">businessTripsGet</a>(request: Requests.BusinessTripsGetHrRequest, requestOptions: RequestOptions?) -> BusinessTripsGetHrResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.hr.businessTripsGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.BusinessTripsGetHrRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">businessTripsList</a>(request: Requests.BusinessTripsListHrRequest, requestOptions: RequestOptions?) -> BusinessTripsListHrResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.hr.businessTripsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.BusinessTripsListHrRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">businessTripsApprove</a>(request: Requests.BusinessTripsApproveHrRequest, requestOptions: RequestOptions?) -> BusinessTripsApproveHrResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.hr.businessTripsApprove(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.BusinessTripsApproveHrRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">businessTripsDelete</a>(request: Requests.BusinessTripsDeleteHrRequest, requestOptions: RequestOptions?) -> BusinessTripsDeleteHrResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.hr.businessTripsDelete(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.BusinessTripsDeleteHrRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.hr.<a href="/Sources/Resources/Hr/HrClient.swift">employeesRecordsCreate</a>(request: Requests.EmployeesRecordsCreateHrRequest, requestOptions: RequestOptions?) -> EmployeesRecordsCreateHrResponse</code></summary>
 <dl>
 <dd>
@@ -22129,6 +22883,66 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">runsReverse</a>(request: Requests.RunsReversePayrollRequest, requestOptions: RequestOptions?) -> RunsReversePayrollResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.payroll.runsReverse(request: .init(
+        id: "id",
+        reason: "reason"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.RunsReversePayrollRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.payroll.<a href="/Sources/Resources/Payroll/PayrollClient.swift">runsCancel</a>(request: Requests.RunsCancelPayrollRequest, requestOptions: RequestOptions?) -> RunsCancelPayrollResponse</code></summary>
 <dl>
 <dd>
@@ -22247,6 +23061,120 @@ try await main()
 </details>
 
 ## agreements
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">settingsGet</a>(request: Requests.SettingsGetAgreementsRequest, requestOptions: RequestOptions?) -> SettingsGetAgreementsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.agreements.settingsGet(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.SettingsGetAgreementsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">settingsUpdate</a>(request: Requests.SettingsUpdateAgreementsRequest, requestOptions: RequestOptions?) -> SettingsUpdateAgreementsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.agreements.settingsUpdate(request: .init(autoBilling: true))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.SettingsUpdateAgreementsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">typesCreate</a>(request: Requests.TypesCreateAgreementsRequest, requestOptions: RequestOptions?) -> TypesCreateAgreementsResponse</code></summary>
 <dl>
 <dd>
@@ -25903,8 +26831,7 @@ private func main() async throws {
         type: .receipt,
         date: CalendarDate("2026-07-01")!,
         amount: "121.0000",
-        purpose: "purpose",
-        counterAccountCode: "counterAccountCode"
+        purpose: "purpose"
     ))
 }
 
@@ -26095,6 +27022,187 @@ try await main()
 <dd>
 
 **request:** `Requests.BalanceCashRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.cash.<a href="/Sources/Resources/Cash/CashClient.swift">expenseReportsCreate</a>(request: Requests.ExpenseReportsCreateCashRequest, requestOptions: RequestOptions?) -> ExpenseReportsCreateCashResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.cash.expenseReportsCreate(request: .init(
+        employeeId: "employeeId",
+        date: CalendarDate("2026-07-01")!,
+        lines: [
+            ExpenseReportsCreateCashRequestLinesItem(
+                description: "description",
+                accountCode: "accountCode",
+                netAmount: "121.00"
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ExpenseReportsCreateCashRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.cash.<a href="/Sources/Resources/Cash/CashClient.swift">expenseReportsGet</a>(request: Requests.ExpenseReportsGetCashRequest, requestOptions: RequestOptions?) -> ExpenseReportsGetCashResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.cash.expenseReportsGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ExpenseReportsGetCashRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.cash.<a href="/Sources/Resources/Cash/CashClient.swift">expenseReportsList</a>(request: Requests.ExpenseReportsListCashRequest, requestOptions: RequestOptions?) -> ExpenseReportsListCashResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.cash.expenseReportsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ExpenseReportsListCashRequest` 
     
 </dd>
 </dl>
@@ -27453,6 +28561,417 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">shiftsOpen</a>(request: Requests.ShiftsOpenPosRequest, requestOptions: RequestOptions?) -> ShiftsOpenPosResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.pos.shiftsOpen(request: .init(deviceId: "deviceId"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ShiftsOpenPosRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">shiftsGet</a>(request: Requests.ShiftsGetPosRequest, requestOptions: RequestOptions?) -> ShiftsGetPosResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.pos.shiftsGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ShiftsGetPosRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">shiftsList</a>(request: Requests.ShiftsListPosRequest, requestOptions: RequestOptions?) -> ShiftsListPosResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.pos.shiftsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ShiftsListPosRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">receiptsCreate</a>(request: Requests.ReceiptsCreatePosRequest, requestOptions: RequestOptions?) -> ReceiptsCreatePosResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.pos.receiptsCreate(request: .init(
+        shiftId: "shiftId",
+        lines: [
+            ReceiptsCreatePosRequestLinesItem(
+                quantity: "121.0000",
+                unitPriceInclVat: "121.0000",
+                vatRatePercent: "121.00"
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ReceiptsCreatePosRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">receiptsList</a>(request: Requests.ReceiptsListPosRequest, requestOptions: RequestOptions?) -> ReceiptsListPosResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.pos.receiptsList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ReceiptsListPosRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">receiptsGet</a>(request: Requests.ReceiptsGetPosRequest, requestOptions: RequestOptions?) -> ReceiptsGetPosResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.pos.receiptsGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ReceiptsGetPosRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.pos.<a href="/Sources/Resources/Pos/PosClient.swift">shiftsClose</a>(request: Requests.ShiftsClosePosRequest, requestOptions: RequestOptions?) -> ShiftsClosePosResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.pos.shiftsClose(request: .init(
+        id: "id",
+        countedCash: "121.00"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ShiftsClosePosRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## calendar
 <details><summary><code>client.calendar.<a href="/Sources/Resources/Calendar/CalendarClient.swift">list</a>(request: Requests.ListCalendarRequest, requestOptions: RequestOptions?) -> ListCalendarResponse</code></summary>
 <dl>
@@ -28686,6 +30205,72 @@ try await main()
 <dd>
 
 **request:** `Requests.TransactionsMatchBankRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">transactionsMatchMany</a>(request: Requests.TransactionsMatchManyBankRequest, requestOptions: RequestOptions?) -> TransactionsMatchManyBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.transactionsMatchMany(request: .init(
+        transactionId: "transactionId",
+        allocations: [
+            TransactionsMatchManyBankRequestAllocationsItem(
+                documentType: .saleInvoice,
+                documentId: "documentId",
+                amount: "121.0000"
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.TransactionsMatchManyBankRequest` 
     
 </dd>
 </dl>

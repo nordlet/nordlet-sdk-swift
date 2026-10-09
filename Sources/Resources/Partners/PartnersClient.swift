@@ -237,6 +237,16 @@ public final class PartnersClient: Sendable {
         )
     }
 
+    public func merge(request: Requests.MergePartnersRequest, requestOptions: RequestOptions? = nil) async throws -> MergePartnersResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/partners/merge",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: MergePartnersResponse.self
+        )
+    }
+
     /// Removes birth date, self-employment certificate number, email, phone, address, notes, contacts, addresses and bank accounts, then hides the partner. The name, code and VAT number stay because issued invoices must keep identifying the counterparty for the statutory retention period.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.

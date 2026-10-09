@@ -6,6 +6,7 @@ public struct AdvanceHoldersBalancesCashResponseRowsItem: Codable, Hashable, Sen
     public let lastName: String
     public let issued: String
     public let returned: String
+    public let settled: String
     public let balance: String
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -16,6 +17,7 @@ public struct AdvanceHoldersBalancesCashResponseRowsItem: Codable, Hashable, Sen
         lastName: String,
         issued: String,
         returned: String,
+        settled: String,
         balance: String,
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -24,6 +26,7 @@ public struct AdvanceHoldersBalancesCashResponseRowsItem: Codable, Hashable, Sen
         self.lastName = lastName
         self.issued = issued
         self.returned = returned
+        self.settled = settled
         self.balance = balance
         self.additionalProperties = additionalProperties
     }
@@ -35,6 +38,7 @@ public struct AdvanceHoldersBalancesCashResponseRowsItem: Codable, Hashable, Sen
         self.lastName = try container.decode(String.self, forKey: .lastName)
         self.issued = try container.decode(String.self, forKey: .issued)
         self.returned = try container.decode(String.self, forKey: .returned)
+        self.settled = try container.decode(String.self, forKey: .settled)
         self.balance = try container.decode(String.self, forKey: .balance)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -47,6 +51,7 @@ public struct AdvanceHoldersBalancesCashResponseRowsItem: Codable, Hashable, Sen
         try container.encode(self.lastName, forKey: .lastName)
         try container.encode(self.issued, forKey: .issued)
         try container.encode(self.returned, forKey: .returned)
+        try container.encode(self.settled, forKey: .settled)
         try container.encode(self.balance, forKey: .balance)
     }
 
@@ -57,6 +62,7 @@ public struct AdvanceHoldersBalancesCashResponseRowsItem: Codable, Hashable, Sen
         case lastName
         case issued
         case returned
+        case settled
         case balance
     }
 }

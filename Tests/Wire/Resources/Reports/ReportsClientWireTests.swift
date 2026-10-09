@@ -3327,6 +3327,7 @@ import Api
                       "opening": "opening",
                       "issued": "issued",
                       "returned": "returned",
+                      "settled": "settled",
                       "closing": "closing"
                     }
                   ]
@@ -3350,6 +3351,7 @@ import Api
                     opening: "opening",
                     issued: "issued",
                     returned: "returned",
+                    settled: "settled",
                     closing: "closing"
                 )
             ]
@@ -3380,6 +3382,7 @@ import Api
                       "opening": "opening",
                       "issued": "issued",
                       "returned": "returned",
+                      "settled": "settled",
                       "closing": "closing"
                     },
                     {
@@ -3389,6 +3392,7 @@ import Api
                       "opening": "opening",
                       "issued": "issued",
                       "returned": "returned",
+                      "settled": "settled",
                       "closing": "closing"
                     }
                   ]
@@ -3412,6 +3416,7 @@ import Api
                     opening: "opening",
                     issued: "issued",
                     returned: "returned",
+                    settled: "settled",
                     closing: "closing"
                 ),
                 AdvanceReconciliationReportsResponseRowsItem(
@@ -3421,6 +3426,7 @@ import Api
                     opening: "opening",
                     issued: "issued",
                     returned: "returned",
+                    settled: "settled",
                     closing: "closing"
                 )
             ]

@@ -7,6 +7,7 @@ public struct AdvanceReconciliationReportsResponseRowsItem: Codable, Hashable, S
     public let opening: String
     public let issued: String
     public let returned: String
+    public let settled: String
     public let closing: String
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -18,6 +19,7 @@ public struct AdvanceReconciliationReportsResponseRowsItem: Codable, Hashable, S
         opening: String,
         issued: String,
         returned: String,
+        settled: String,
         closing: String,
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -27,6 +29,7 @@ public struct AdvanceReconciliationReportsResponseRowsItem: Codable, Hashable, S
         self.opening = opening
         self.issued = issued
         self.returned = returned
+        self.settled = settled
         self.closing = closing
         self.additionalProperties = additionalProperties
     }
@@ -39,6 +42,7 @@ public struct AdvanceReconciliationReportsResponseRowsItem: Codable, Hashable, S
         self.opening = try container.decode(String.self, forKey: .opening)
         self.issued = try container.decode(String.self, forKey: .issued)
         self.returned = try container.decode(String.self, forKey: .returned)
+        self.settled = try container.decode(String.self, forKey: .settled)
         self.closing = try container.decode(String.self, forKey: .closing)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -52,6 +56,7 @@ public struct AdvanceReconciliationReportsResponseRowsItem: Codable, Hashable, S
         try container.encode(self.opening, forKey: .opening)
         try container.encode(self.issued, forKey: .issued)
         try container.encode(self.returned, forKey: .returned)
+        try container.encode(self.settled, forKey: .settled)
         try container.encode(self.closing, forKey: .closing)
     }
 
@@ -63,6 +68,7 @@ public struct AdvanceReconciliationReportsResponseRowsItem: Codable, Hashable, S
         case opening
         case issued
         case returned
+        case settled
         case closing
     }
 }

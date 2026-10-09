@@ -183,6 +183,86 @@ public final class HrClient: Sendable {
         )
     }
 
+    public func perDiemRatesCreate(request: Requests.PerDiemRatesCreateHrRequest, requestOptions: RequestOptions? = nil) async throws -> PerDiemRatesCreateHrResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/hr/per-diem-rates/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PerDiemRatesCreateHrResponse.self
+        )
+    }
+
+    public func perDiemRatesList(request: Requests.PerDiemRatesListHrRequest, requestOptions: RequestOptions? = nil) async throws -> PerDiemRatesListHrResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/hr/per-diem-rates/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PerDiemRatesListHrResponse.self
+        )
+    }
+
+    public func perDiemRatesDelete(request: Requests.PerDiemRatesDeleteHrRequest, requestOptions: RequestOptions? = nil) async throws -> PerDiemRatesDeleteHrResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/hr/per-diem-rates/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PerDiemRatesDeleteHrResponse.self
+        )
+    }
+
+    public func businessTripsCreate(request: Requests.BusinessTripsCreateHrRequest, requestOptions: RequestOptions? = nil) async throws -> BusinessTripsCreateHrResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/hr/business-trips/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: BusinessTripsCreateHrResponse.self
+        )
+    }
+
+    public func businessTripsGet(request: Requests.BusinessTripsGetHrRequest, requestOptions: RequestOptions? = nil) async throws -> BusinessTripsGetHrResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/hr/business-trips/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: BusinessTripsGetHrResponse.self
+        )
+    }
+
+    public func businessTripsList(request: Requests.BusinessTripsListHrRequest, requestOptions: RequestOptions? = nil) async throws -> BusinessTripsListHrResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/hr/business-trips/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: BusinessTripsListHrResponse.self
+        )
+    }
+
+    public func businessTripsApprove(request: Requests.BusinessTripsApproveHrRequest, requestOptions: RequestOptions? = nil) async throws -> BusinessTripsApproveHrResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/hr/business-trips/approve",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: BusinessTripsApproveHrResponse.self
+        )
+    }
+
+    public func businessTripsDelete(request: Requests.BusinessTripsDeleteHrRequest, requestOptions: RequestOptions? = nil) async throws -> BusinessTripsDeleteHrResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/hr/business-trips/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: BusinessTripsDeleteHrResponse.self
+        )
+    }
+
     public func employeesRecordsCreate(request: Requests.EmployeesRecordsCreateHrRequest, requestOptions: RequestOptions? = nil) async throws -> EmployeesRecordsCreateHrResponse {
         return try await httpClient.performRequest(
             method: .post,

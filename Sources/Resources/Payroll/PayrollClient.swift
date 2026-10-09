@@ -110,6 +110,16 @@ public final class PayrollClient: Sendable {
         )
     }
 
+    public func runsReverse(request: Requests.RunsReversePayrollRequest, requestOptions: RequestOptions? = nil) async throws -> RunsReversePayrollResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/payroll/runs/reverse",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: RunsReversePayrollResponse.self
+        )
+    }
+
     public func runsCancel(request: Requests.RunsCancelPayrollRequest, requestOptions: RequestOptions? = nil) async throws -> RunsCancelPayrollResponse {
         return try await httpClient.performRequest(
             method: .post,

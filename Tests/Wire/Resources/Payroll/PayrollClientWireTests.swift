@@ -479,6 +479,9 @@ import Api
                   ],
                   "createdAt": "2026-07-01T09:30:00Z",
                   "approvedAt": "2026-07-01T09:30:00Z",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
                   "lines": [
                     {
                       "id": "id",
@@ -557,6 +560,9 @@ import Api
             ],
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             lines: [
                 RunsCreatePayrollResponseLinesItem(
                     id: "id",
@@ -650,6 +656,9 @@ import Api
                   ],
                   "createdAt": "2024-01-15T09:30:00Z",
                   "approvedAt": "2024-01-15T09:30:00Z",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
                   "lines": [
                     {
                       "id": "x",
@@ -810,6 +819,9 @@ import Api
             ],
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             lines: [
                 RunsCreatePayrollResponseLinesItem(
                     id: "x",
@@ -969,6 +981,9 @@ import Api
                   ],
                   "createdAt": "2026-07-01T09:30:00Z",
                   "approvedAt": "2026-07-01T09:30:00Z",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
                   "lines": [
                     {
                       "id": "id",
@@ -1047,6 +1062,9 @@ import Api
             ],
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             lines: [
                 RunsGetPayrollResponseLinesItem(
                     id: "id",
@@ -1137,6 +1155,9 @@ import Api
                   ],
                   "createdAt": "2024-01-15T09:30:00Z",
                   "approvedAt": "2024-01-15T09:30:00Z",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
                   "lines": [
                     {
                       "id": "x",
@@ -1297,6 +1318,9 @@ import Api
             ],
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             lines: [
                 RunsGetPayrollResponseLinesItem(
                     id: "x",
@@ -1452,7 +1476,10 @@ import Api
                         "warnings"
                       ],
                       "createdAt": "2026-07-01T09:30:00Z",
-                      "approvedAt": "2026-07-01T09:30:00Z"
+                      "approvedAt": "2026-07-01T09:30:00Z",
+                      "reversedAt": "2026-07-01T09:30:00Z",
+                      "reversalJournalTransactionId": "reversalJournalTransactionId",
+                      "reversalReason": "reversalReason"
                     }
                   ],
                   "page": 1000000,
@@ -1503,7 +1530,10 @@ import Api
                         "warnings"
                     ],
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
-                    approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
+                    approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+                    reversalReason: Nullable<String>.value("reversalReason")
                 )
             ],
             page: 1000000,
@@ -1568,7 +1598,10 @@ import Api
                         "warnings"
                       ],
                       "createdAt": "2024-01-15T09:30:00Z",
-                      "approvedAt": "2024-01-15T09:30:00Z"
+                      "approvedAt": "2024-01-15T09:30:00Z",
+                      "reversedAt": "2024-01-15T09:30:00Z",
+                      "reversalJournalTransactionId": "x",
+                      "reversalReason": "reversalReason"
                     },
                     {
                       "id": "x",
@@ -1606,7 +1639,10 @@ import Api
                         "warnings"
                       ],
                       "createdAt": "2024-01-15T09:30:00Z",
-                      "approvedAt": "2024-01-15T09:30:00Z"
+                      "approvedAt": "2024-01-15T09:30:00Z",
+                      "reversedAt": "2024-01-15T09:30:00Z",
+                      "reversalJournalTransactionId": "x",
+                      "reversalReason": "reversalReason"
                     }
                   ],
                   "page": 1000000,
@@ -1667,7 +1703,10 @@ import Api
                         "warnings"
                     ],
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
-                    approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+                    approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    reversalJournalTransactionId: Nullable<String>.value("x"),
+                    reversalReason: Nullable<String>.value("reversalReason")
                 ),
                 RunsListPayrollResponseRowsItem(
                     id: "x",
@@ -1705,7 +1744,10 @@ import Api
                         "warnings"
                     ],
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
-                    approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+                    approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    reversalJournalTransactionId: Nullable<String>.value("x"),
+                    reversalReason: Nullable<String>.value("reversalReason")
                 )
             ],
             page: 1000000,
@@ -1992,7 +2034,10 @@ import Api
                     "warnings"
                   ],
                   "createdAt": "2026-07-01T09:30:00Z",
-                  "approvedAt": "2026-07-01T09:30:00Z"
+                  "approvedAt": "2026-07-01T09:30:00Z",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason"
                 }
                 """#.utf8
             )
@@ -2030,7 +2075,10 @@ import Api
                 "warnings"
             ],
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
-            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
+            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason")
         )
         let response = try await client.payroll.runsApprove(
             request: .init(id: "id"),
@@ -2080,7 +2128,10 @@ import Api
                     "warnings"
                   ],
                   "createdAt": "2024-01-15T09:30:00Z",
-                  "approvedAt": "2024-01-15T09:30:00Z"
+                  "approvedAt": "2024-01-15T09:30:00Z",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason"
                 }
                 """#.utf8
             )
@@ -2126,10 +2177,207 @@ import Api
                 "warnings"
             ],
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
-            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason")
         )
         let response = try await client.payroll.runsApprove(
             request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func runsReverse1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "year": 1000000,
+                  "month": 1000000,
+                  "countryCode": "countryCode",
+                  "payDate": "2026-07-01",
+                  "status": "draft",
+                  "grossTotal": "grossTotal",
+                  "taxAllowanceTotal": "taxAllowanceTotal",
+                  "incomeTaxTotal": "incomeTaxTotal",
+                  "employeeContributionsTotal": "employeeContributionsTotal",
+                  "employerContributionsTotal": "employerContributionsTotal",
+                  "componentTotals": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
+                  "netTotal": "netTotal",
+                  "journalTransactionId": "journalTransactionId",
+                  "notes": "notes",
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "approvedAt": "2026-07-01T09:30:00Z",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RunsReversePayrollResponse(
+            id: "id",
+            year: 1000000,
+            month: 1000000,
+            countryCode: "countryCode",
+            payDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            status: .draft,
+            grossTotal: "grossTotal",
+            taxAllowanceTotal: "taxAllowanceTotal",
+            incomeTaxTotal: "incomeTaxTotal",
+            employeeContributionsTotal: "employeeContributionsTotal",
+            employerContributionsTotal: "employerContributionsTotal",
+            componentTotals: [
+                RunsReversePayrollResponseComponentTotalsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                )
+            ],
+            netTotal: "netTotal",
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            notes: Nullable<String>.value("notes"),
+            warnings: [
+                "warnings"
+            ],
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            approvedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason")
+        )
+        let response = try await client.payroll.runsReverse(
+            request: .init(
+                id: "id",
+                reason: "reason"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func runsReverse2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "year": 1000000,
+                  "month": 1000000,
+                  "countryCode": "countryCode",
+                  "payDate": "2023-01-15",
+                  "status": "draft",
+                  "grossTotal": "grossTotal",
+                  "taxAllowanceTotal": "taxAllowanceTotal",
+                  "incomeTaxTotal": "incomeTaxTotal",
+                  "employeeContributionsTotal": "employeeContributionsTotal",
+                  "employerContributionsTotal": "employerContributionsTotal",
+                  "componentTotals": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    },
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
+                  "netTotal": "netTotal",
+                  "journalTransactionId": "x",
+                  "notes": "notes",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "approvedAt": "2024-01-15T09:30:00Z",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RunsReversePayrollResponse(
+            id: "x",
+            year: 1000000,
+            month: 1000000,
+            countryCode: "countryCode",
+            payDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            status: .draft,
+            grossTotal: "grossTotal",
+            taxAllowanceTotal: "taxAllowanceTotal",
+            incomeTaxTotal: "incomeTaxTotal",
+            employeeContributionsTotal: "employeeContributionsTotal",
+            employerContributionsTotal: "employerContributionsTotal",
+            componentTotals: [
+                RunsReversePayrollResponseComponentTotalsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                ),
+                RunsReversePayrollResponseComponentTotalsItem(
+                    code: "code",
+                    kind: .allowance,
+                    amount: "amount",
+                    rate: Optional("rate"),
+                    base: Optional("base")
+                )
+            ],
+            netTotal: "netTotal",
+            journalTransactionId: Nullable<String>.value("x"),
+            notes: Nullable<String>.value("notes"),
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            approvedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason")
+        )
+        let response = try await client.payroll.runsReverse(
+            request: .init(
+                id: "x",
+                reason: "x"
+            ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

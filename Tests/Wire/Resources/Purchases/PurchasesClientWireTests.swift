@@ -50,6 +50,8 @@ import Api
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "accountCode": "accountCode",
+                      "deferralStartDate": "2026-07-01",
+                      "deferralEndDate": "2026-07-01",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -107,6 +109,8 @@ import Api
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -177,6 +181,8 @@ import Api
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
+                      "deferralStartDate": "2023-01-15",
+                      "deferralEndDate": "2023-01-15",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -195,6 +201,8 @@ import Api
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
+                      "deferralStartDate": "2023-01-15",
+                      "deferralEndDate": "2023-01-15",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -252,6 +260,8 @@ import Api
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -270,6 +280,8 @@ import Api
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -343,6 +355,8 @@ import Api
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "accountCode": "accountCode",
+                      "deferralStartDate": "2026-07-01",
+                      "deferralEndDate": "2026-07-01",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -400,6 +414,8 @@ import Api
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -461,6 +477,8 @@ import Api
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
+                      "deferralStartDate": "2023-01-15",
+                      "deferralEndDate": "2023-01-15",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -479,6 +497,8 @@ import Api
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
+                      "deferralStartDate": "2023-01-15",
+                      "deferralEndDate": "2023-01-15",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -536,6 +556,8 @@ import Api
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -554,6 +576,8 @@ import Api
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -615,6 +639,8 @@ import Api
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "accountCode": "accountCode",
+                      "deferralStartDate": "2026-07-01",
+                      "deferralEndDate": "2026-07-01",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -672,6 +698,8 @@ import Api
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -733,6 +761,8 @@ import Api
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
+                      "deferralStartDate": "2023-01-15",
+                      "deferralEndDate": "2023-01-15",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -751,6 +781,8 @@ import Api
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
+                      "deferralStartDate": "2023-01-15",
+                      "deferralEndDate": "2023-01-15",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -808,6 +840,8 @@ import Api
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -826,6 +860,8 @@ import Api
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -939,6 +975,8 @@ import Api
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "accountCode": "accountCode",
+                      "deferralStartDate": "2026-07-01",
+                      "deferralEndDate": "2026-07-01",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -996,6 +1034,8 @@ import Api
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1057,6 +1097,8 @@ import Api
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
+                      "deferralStartDate": "2023-01-15",
+                      "deferralEndDate": "2023-01-15",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -1075,6 +1117,8 @@ import Api
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
+                      "deferralStartDate": "2023-01-15",
+                      "deferralEndDate": "2023-01-15",
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -1132,6 +1176,8 @@ import Api
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1150,6 +1196,8 @@ import Api
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1159,6 +1207,248 @@ import Api
         )
         let response = try await client.purchases.invoicesRegister(
             request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func deferralsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "invoiceId": "invoiceId",
+                      "invoiceLineId": "invoiceLineId",
+                      "scheduleDate": "2026-07-01",
+                      "description": "description",
+                      "amount": "amount",
+                      "expenseAccountCode": "expenseAccountCode",
+                      "prepaidAccountCode": "prepaidAccountCode",
+                      "status": "pending",
+                      "journalTransactionId": "journalTransactionId"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DeferralsListPurchasesResponse(
+            rows: [
+                DeferralsListPurchasesResponseRowsItem(
+                    id: "id",
+                    invoiceId: "invoiceId",
+                    invoiceLineId: "invoiceLineId",
+                    scheduleDate: CalendarDate("2026-07-01")!,
+                    description: Nullable<String>.value("description"),
+                    amount: "amount",
+                    expenseAccountCode: "expenseAccountCode",
+                    prepaidAccountCode: "prepaidAccountCode",
+                    status: .pending,
+                    journalTransactionId: Nullable<String>.value("journalTransactionId")
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
+            ])
+        )
+        let response = try await client.purchases.deferralsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func deferralsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "invoiceId": "x",
+                      "invoiceLineId": "x",
+                      "scheduleDate": "2023-01-15",
+                      "description": "description",
+                      "amount": "amount",
+                      "expenseAccountCode": "expenseAccountCode",
+                      "prepaidAccountCode": "prepaidAccountCode",
+                      "status": "pending",
+                      "journalTransactionId": "x"
+                    },
+                    {
+                      "id": "x",
+                      "invoiceId": "x",
+                      "invoiceLineId": "x",
+                      "scheduleDate": "2023-01-15",
+                      "description": "description",
+                      "amount": "amount",
+                      "expenseAccountCode": "expenseAccountCode",
+                      "prepaidAccountCode": "prepaidAccountCode",
+                      "status": "pending",
+                      "journalTransactionId": "x"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DeferralsListPurchasesResponse(
+            rows: [
+                DeferralsListPurchasesResponseRowsItem(
+                    id: "x",
+                    invoiceId: "x",
+                    invoiceLineId: "x",
+                    scheduleDate: CalendarDate("2023-01-15")!,
+                    description: Nullable<String>.value("description"),
+                    amount: "amount",
+                    expenseAccountCode: "expenseAccountCode",
+                    prepaidAccountCode: "prepaidAccountCode",
+                    status: .pending,
+                    journalTransactionId: Nullable<String>.value("x")
+                ),
+                DeferralsListPurchasesResponseRowsItem(
+                    id: "x",
+                    invoiceId: "x",
+                    invoiceLineId: "x",
+                    scheduleDate: CalendarDate("2023-01-15")!,
+                    description: Nullable<String>.value("description"),
+                    amount: "amount",
+                    expenseAccountCode: "expenseAccountCode",
+                    prepaidAccountCode: "prepaidAccountCode",
+                    status: .pending,
+                    journalTransactionId: Nullable<String>.value("x")
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
+            ])
+        )
+        let response = try await client.purchases.deferralsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func deferralsPost1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "posted": 1000000,
+                  "total": "total",
+                  "journalTransactionIds": [
+                    "journalTransactionIds"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DeferralsPostPurchasesResponse(
+            posted: 1000000,
+            total: "total",
+            journalTransactionIds: [
+                "journalTransactionIds"
+            ]
+        )
+        let response = try await client.purchases.deferralsPost(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func deferralsPost2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "posted": 1000000,
+                  "total": "total",
+                  "journalTransactionIds": [
+                    "journalTransactionIds",
+                    "journalTransactionIds"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DeferralsPostPurchasesResponse(
+            posted: 1000000,
+            total: "total",
+            journalTransactionIds: [
+                "journalTransactionIds",
+                "journalTransactionIds"
+            ]
+        )
+        let response = try await client.purchases.deferralsPost(
+            request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

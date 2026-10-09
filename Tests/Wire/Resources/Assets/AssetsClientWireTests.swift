@@ -3,6 +3,110 @@ import Testing
 import Api
 
 @Suite("AssetsClient Wire Tests") struct AssetsClientWireTests {
+    @Test func settingsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "autoDepreciation": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SettingsGetAssetsResponse(
+            autoDepreciation: true
+        )
+        let response = try await client.assets.settingsGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func settingsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "autoDepreciation": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SettingsGetAssetsResponse(
+            autoDepreciation: true
+        )
+        let response = try await client.assets.settingsGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func settingsUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "autoDepreciation": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SettingsUpdateAssetsResponse(
+            autoDepreciation: true
+        )
+        let response = try await client.assets.settingsUpdate(
+            request: .init(autoDepreciation: true),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func settingsUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "autoDepreciation": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SettingsUpdateAssetsResponse(
+            autoDepreciation: true
+        )
+        let response = try await client.assets.settingsUpdate(
+            request: .init(autoDepreciation: true),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func groupsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

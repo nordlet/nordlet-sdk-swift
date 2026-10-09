@@ -15,6 +15,7 @@ public enum SubscriptionsUpdateWebhooksRequestEventsItem: String, Codable, Hasha
     case leadCreated = "lead.created"
     case partnerInquiryCreated = "partner_inquiry.created"
     case payrollRunApproved = "payroll_run.approved"
+    case payrollRunReversed = "payroll_run.reversed"
     case posReportCreated = "pos_report.created"
     case priceListUpdated = "price_list.updated"
     case purchaseInvoicePaid = "purchase_invoice.paid"

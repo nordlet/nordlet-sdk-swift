@@ -6,8 +6,10 @@ extension Requests {
         public let date: CalendarDate
         public let amount: String
         public let purpose: String
-        public let counterAccountCode: String
+        public let counterAccountCode: String?
         public let cashAccountCode: String?
+        public let saleInvoiceId: String?
+        public let purchaseInvoiceId: String?
         public let series: String?
         public let partnerId: String?
         public let employeeId: String?
@@ -20,8 +22,10 @@ extension Requests {
             date: CalendarDate,
             amount: String,
             purpose: String,
-            counterAccountCode: String,
+            counterAccountCode: String? = nil,
             cashAccountCode: String? = nil,
+            saleInvoiceId: String? = nil,
+            purchaseInvoiceId: String? = nil,
             series: String? = nil,
             partnerId: String? = nil,
             employeeId: String? = nil,
@@ -34,6 +38,8 @@ extension Requests {
             self.purpose = purpose
             self.counterAccountCode = counterAccountCode
             self.cashAccountCode = cashAccountCode
+            self.saleInvoiceId = saleInvoiceId
+            self.purchaseInvoiceId = purchaseInvoiceId
             self.series = series
             self.partnerId = partnerId
             self.employeeId = employeeId
@@ -47,8 +53,10 @@ extension Requests {
             self.date = try container.decode(CalendarDate.self, forKey: .date)
             self.amount = try container.decode(String.self, forKey: .amount)
             self.purpose = try container.decode(String.self, forKey: .purpose)
-            self.counterAccountCode = try container.decode(String.self, forKey: .counterAccountCode)
+            self.counterAccountCode = try container.decodeIfPresent(String.self, forKey: .counterAccountCode)
             self.cashAccountCode = try container.decodeIfPresent(String.self, forKey: .cashAccountCode)
+            self.saleInvoiceId = try container.decodeIfPresent(String.self, forKey: .saleInvoiceId)
+            self.purchaseInvoiceId = try container.decodeIfPresent(String.self, forKey: .purchaseInvoiceId)
             self.series = try container.decodeIfPresent(String.self, forKey: .series)
             self.partnerId = try container.decodeIfPresent(String.self, forKey: .partnerId)
             self.employeeId = try container.decodeIfPresent(String.self, forKey: .employeeId)
@@ -63,8 +71,10 @@ extension Requests {
             try container.encode(self.date, forKey: .date)
             try container.encode(self.amount, forKey: .amount)
             try container.encode(self.purpose, forKey: .purpose)
-            try container.encode(self.counterAccountCode, forKey: .counterAccountCode)
+            try container.encodeIfPresent(self.counterAccountCode, forKey: .counterAccountCode)
             try container.encodeIfPresent(self.cashAccountCode, forKey: .cashAccountCode)
+            try container.encodeIfPresent(self.saleInvoiceId, forKey: .saleInvoiceId)
+            try container.encodeIfPresent(self.purchaseInvoiceId, forKey: .purchaseInvoiceId)
             try container.encodeIfPresent(self.series, forKey: .series)
             try container.encodeIfPresent(self.partnerId, forKey: .partnerId)
             try container.encodeIfPresent(self.employeeId, forKey: .employeeId)
@@ -79,6 +89,8 @@ extension Requests {
             case purpose
             case counterAccountCode
             case cashAccountCode
+            case saleInvoiceId
+            case purchaseInvoiceId
             case series
             case partnerId
             case employeeId

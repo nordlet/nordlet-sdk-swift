@@ -7,6 +7,26 @@ public final class AssetsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
+    public func settingsGet(request: Requests.SettingsGetAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> SettingsGetAssetsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/assets/settings/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: SettingsGetAssetsResponse.self
+        )
+    }
+
+    public func settingsUpdate(request: Requests.SettingsUpdateAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> SettingsUpdateAssetsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/assets/settings/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: SettingsUpdateAssetsResponse.self
+        )
+    }
+
     public func groupsCreate(request: Requests.GroupsCreateAssetsRequest, requestOptions: RequestOptions? = nil) async throws -> GroupsCreateAssetsResponse {
         return try await httpClient.performRequest(
             method: .post,

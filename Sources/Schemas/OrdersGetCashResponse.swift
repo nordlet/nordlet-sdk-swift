@@ -15,6 +15,8 @@ public struct OrdersGetCashResponse: Codable, Hashable, Sendable {
     public let cashAccountCode: String
     public let counterAccountCode: String
     public let journalTransactionId: Nullable<String>
+    public let saleInvoiceId: Nullable<String>
+    public let purchaseInvoiceId: Nullable<String>
     public let notes: Nullable<String>
     public let createdAt: Date
     /// Additional properties that are not explicitly defined in the schema
@@ -35,6 +37,8 @@ public struct OrdersGetCashResponse: Codable, Hashable, Sendable {
         cashAccountCode: String,
         counterAccountCode: String,
         journalTransactionId: Nullable<String>,
+        saleInvoiceId: Nullable<String>,
+        purchaseInvoiceId: Nullable<String>,
         notes: Nullable<String>,
         createdAt: Date,
         additionalProperties: [String: JSONValue] = .init()
@@ -53,6 +57,8 @@ public struct OrdersGetCashResponse: Codable, Hashable, Sendable {
         self.cashAccountCode = cashAccountCode
         self.counterAccountCode = counterAccountCode
         self.journalTransactionId = journalTransactionId
+        self.saleInvoiceId = saleInvoiceId
+        self.purchaseInvoiceId = purchaseInvoiceId
         self.notes = notes
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
@@ -74,6 +80,8 @@ public struct OrdersGetCashResponse: Codable, Hashable, Sendable {
         self.cashAccountCode = try container.decode(String.self, forKey: .cashAccountCode)
         self.counterAccountCode = try container.decode(String.self, forKey: .counterAccountCode)
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
+        self.saleInvoiceId = try container.decode(Nullable<String>.self, forKey: .saleInvoiceId)
+        self.purchaseInvoiceId = try container.decode(Nullable<String>.self, forKey: .purchaseInvoiceId)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -96,6 +104,8 @@ public struct OrdersGetCashResponse: Codable, Hashable, Sendable {
         try container.encode(self.cashAccountCode, forKey: .cashAccountCode)
         try container.encode(self.counterAccountCode, forKey: .counterAccountCode)
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
+        try container.encode(self.saleInvoiceId, forKey: .saleInvoiceId)
+        try container.encode(self.purchaseInvoiceId, forKey: .purchaseInvoiceId)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
@@ -116,6 +126,8 @@ public struct OrdersGetCashResponse: Codable, Hashable, Sendable {
         case cashAccountCode
         case counterAccountCode
         case journalTransactionId
+        case saleInvoiceId
+        case purchaseInvoiceId
         case notes
         case createdAt
     }

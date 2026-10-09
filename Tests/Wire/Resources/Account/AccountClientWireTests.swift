@@ -1951,6 +1951,7 @@ import Api
                       "lastUsedAt": "2026-07-01T09:30:00Z",
                       "expiresAt": "2026-07-01T09:30:00Z",
                       "replacedByKeyId": "replacedByKeyId",
+                      "createdByUserId": "createdByUserId",
                       "revokedAt": "2026-07-01T09:30:00Z",
                       "createdAt": "2026-07-01T09:30:00Z"
                     }
@@ -1975,6 +1976,7 @@ import Api
                     lastUsedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     expiresAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     replacedByKeyId: Nullable<String>.value("replacedByKeyId"),
+                    createdByUserId: Nullable<String>.value("createdByUserId"),
                     revokedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
@@ -2004,6 +2006,7 @@ import Api
                       "lastUsedAt": "2024-01-15T09:30:00Z",
                       "expiresAt": "2024-01-15T09:30:00Z",
                       "replacedByKeyId": "x",
+                      "createdByUserId": "x",
                       "revokedAt": "2024-01-15T09:30:00Z",
                       "createdAt": "2024-01-15T09:30:00Z"
                     },
@@ -2017,6 +2020,7 @@ import Api
                       "lastUsedAt": "2024-01-15T09:30:00Z",
                       "expiresAt": "2024-01-15T09:30:00Z",
                       "replacedByKeyId": "x",
+                      "createdByUserId": "x",
                       "revokedAt": "2024-01-15T09:30:00Z",
                       "createdAt": "2024-01-15T09:30:00Z"
                     }
@@ -2042,6 +2046,7 @@ import Api
                     lastUsedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     expiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     replacedByKeyId: Nullable<String>.value("x"),
+                    createdByUserId: Nullable<String>.value("x"),
                     revokedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
@@ -2055,6 +2060,7 @@ import Api
                     lastUsedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     expiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     replacedByKeyId: Nullable<String>.value("x"),
+                    createdByUserId: Nullable<String>.value("x"),
                     revokedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )

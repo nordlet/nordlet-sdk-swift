@@ -7,6 +7,7 @@ public struct ApiKeysListAccountResponseRowsItem: Codable, Hashable, Sendable {
     public let lastUsedAt: Nullable<Date>
     public let expiresAt: Nullable<Date>
     public let replacedByKeyId: Nullable<String>
+    public let createdByUserId: Nullable<String>
     public let revokedAt: Nullable<Date>
     public let createdAt: Date
     /// Additional properties that are not explicitly defined in the schema
@@ -19,6 +20,7 @@ public struct ApiKeysListAccountResponseRowsItem: Codable, Hashable, Sendable {
         lastUsedAt: Nullable<Date>,
         expiresAt: Nullable<Date>,
         replacedByKeyId: Nullable<String>,
+        createdByUserId: Nullable<String>,
         revokedAt: Nullable<Date>,
         createdAt: Date,
         additionalProperties: [String: JSONValue] = .init()
@@ -29,6 +31,7 @@ public struct ApiKeysListAccountResponseRowsItem: Codable, Hashable, Sendable {
         self.lastUsedAt = lastUsedAt
         self.expiresAt = expiresAt
         self.replacedByKeyId = replacedByKeyId
+        self.createdByUserId = createdByUserId
         self.revokedAt = revokedAt
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
@@ -42,6 +45,7 @@ public struct ApiKeysListAccountResponseRowsItem: Codable, Hashable, Sendable {
         self.lastUsedAt = try container.decode(Nullable<Date>.self, forKey: .lastUsedAt)
         self.expiresAt = try container.decode(Nullable<Date>.self, forKey: .expiresAt)
         self.replacedByKeyId = try container.decode(Nullable<String>.self, forKey: .replacedByKeyId)
+        self.createdByUserId = try container.decode(Nullable<String>.self, forKey: .createdByUserId)
         self.revokedAt = try container.decode(Nullable<Date>.self, forKey: .revokedAt)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -56,6 +60,7 @@ public struct ApiKeysListAccountResponseRowsItem: Codable, Hashable, Sendable {
         try container.encode(self.lastUsedAt, forKey: .lastUsedAt)
         try container.encode(self.expiresAt, forKey: .expiresAt)
         try container.encode(self.replacedByKeyId, forKey: .replacedByKeyId)
+        try container.encode(self.createdByUserId, forKey: .createdByUserId)
         try container.encode(self.revokedAt, forKey: .revokedAt)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
@@ -68,6 +73,7 @@ public struct ApiKeysListAccountResponseRowsItem: Codable, Hashable, Sendable {
         case lastUsedAt
         case expiresAt
         case replacedByKeyId
+        case createdByUserId
         case revokedAt
         case createdAt
     }

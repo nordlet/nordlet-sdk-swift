@@ -57,6 +57,26 @@ public final class PurchasesClient: Sendable {
         )
     }
 
+    public func deferralsList(request: Requests.DeferralsListPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> DeferralsListPurchasesResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/purchases/deferrals/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: DeferralsListPurchasesResponse.self
+        )
+    }
+
+    public func deferralsPost(request: Requests.DeferralsPostPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> DeferralsPostPurchasesResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/purchases/deferrals/post",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: DeferralsPostPurchasesResponse.self
+        )
+    }
+
     public func invoicesList(request: Requests.InvoicesListPurchasesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesListPurchasesResponse {
         return try await httpClient.performRequest(
             method: .post,

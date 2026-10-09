@@ -3,6 +3,110 @@ import Testing
 import Api
 
 @Suite("AgreementsClient Wire Tests") struct AgreementsClientWireTests {
+    @Test func settingsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "autoBilling": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SettingsGetAgreementsResponse(
+            autoBilling: true
+        )
+        let response = try await client.agreements.settingsGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func settingsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "autoBilling": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SettingsGetAgreementsResponse(
+            autoBilling: true
+        )
+        let response = try await client.agreements.settingsGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func settingsUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "autoBilling": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SettingsUpdateAgreementsResponse(
+            autoBilling: true
+        )
+        let response = try await client.agreements.settingsUpdate(
+            request: .init(autoBilling: true),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func settingsUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "autoBilling": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SettingsUpdateAgreementsResponse(
+            autoBilling: true
+        )
+        let response = try await client.agreements.settingsUpdate(
+            request: .init(autoBilling: true),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func typesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

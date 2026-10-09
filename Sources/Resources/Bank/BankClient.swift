@@ -77,6 +77,16 @@ public final class BankClient: Sendable {
         )
     }
 
+    public func transactionsMatchMany(request: Requests.TransactionsMatchManyBankRequest, requestOptions: RequestOptions? = nil) async throws -> TransactionsMatchManyBankResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/transactions/match-many",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: TransactionsMatchManyBankResponse.self
+        )
+    }
+
     /// Undo a match. A payment matched to an invoice, or a line posted by an import template, gets a reversing journal transaction dated date (default: today) and the invoice paid amount and payment status are restored; a line linked to a payment-provider settlement is only unlinked. The line returns to status new.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.

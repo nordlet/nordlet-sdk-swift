@@ -10,6 +10,7 @@ public enum PostingRulesUpdateLedgerRequestRulesItemKey: String, Codable, Hashab
     case purchasesVatReceivable = "purchases.vatReceivable"
     case purchasesGoodsForResale = "purchases.goodsForResale"
     case purchasesDefaultExpense = "purchases.defaultExpense"
+    case purchasesPrepaidExpenses = "purchases.prepaidExpenses"
     case inventoryCogs = "inventory.cogs"
     case inventoryStock = "inventory.stock"
     case productionLaborApplied = "production.laborApplied"
@@ -26,5 +27,6 @@ public enum PostingRulesUpdateLedgerRequestRulesItemKey: String, Codable, Hashab
     case assetsDisposalGain = "assets.disposalGain"
     case assetsDisposalLoss = "assets.disposalLoss"
     case assetsDisposalProceeds = "assets.disposalProceeds"
+    case cashAdvances = "cash.advances"
     case closingRetainedEarnings = "closing.retainedEarnings"
 }

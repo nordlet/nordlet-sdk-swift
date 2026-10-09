@@ -12,6 +12,8 @@ public struct InvoicesCreatePurchasesRequestLinesItem: Codable, Hashable, Sendab
     public let costCenterId: String?
     public let projectId: String?
     public let accountCode: String?
+    public let deferralStartDate: CalendarDate?
+    public let deferralEndDate: CalendarDate?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -27,6 +29,8 @@ public struct InvoicesCreatePurchasesRequestLinesItem: Codable, Hashable, Sendab
         costCenterId: String? = nil,
         projectId: String? = nil,
         accountCode: String? = nil,
+        deferralStartDate: CalendarDate? = nil,
+        deferralEndDate: CalendarDate? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.itemId = itemId
@@ -40,6 +44,8 @@ public struct InvoicesCreatePurchasesRequestLinesItem: Codable, Hashable, Sendab
         self.costCenterId = costCenterId
         self.projectId = projectId
         self.accountCode = accountCode
+        self.deferralStartDate = deferralStartDate
+        self.deferralEndDate = deferralEndDate
         self.additionalProperties = additionalProperties
     }
 
@@ -56,6 +62,8 @@ public struct InvoicesCreatePurchasesRequestLinesItem: Codable, Hashable, Sendab
         self.costCenterId = try container.decodeIfPresent(String.self, forKey: .costCenterId)
         self.projectId = try container.decodeIfPresent(String.self, forKey: .projectId)
         self.accountCode = try container.decodeIfPresent(String.self, forKey: .accountCode)
+        self.deferralStartDate = try container.decodeIfPresent(CalendarDate.self, forKey: .deferralStartDate)
+        self.deferralEndDate = try container.decodeIfPresent(CalendarDate.self, forKey: .deferralEndDate)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -73,6 +81,8 @@ public struct InvoicesCreatePurchasesRequestLinesItem: Codable, Hashable, Sendab
         try container.encodeIfPresent(self.costCenterId, forKey: .costCenterId)
         try container.encodeIfPresent(self.projectId, forKey: .projectId)
         try container.encodeIfPresent(self.accountCode, forKey: .accountCode)
+        try container.encodeIfPresent(self.deferralStartDate, forKey: .deferralStartDate)
+        try container.encodeIfPresent(self.deferralEndDate, forKey: .deferralEndDate)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -88,5 +98,7 @@ public struct InvoicesCreatePurchasesRequestLinesItem: Codable, Hashable, Sendab
         case costCenterId
         case projectId
         case accountCode
+        case deferralStartDate
+        case deferralEndDate
     }
 }

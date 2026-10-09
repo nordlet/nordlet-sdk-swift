@@ -13,6 +13,8 @@ public struct InvoicesRegisterPurchasesResponseLinesItem: Codable, Hashable, Sen
     public let costCenterId: Nullable<String>
     public let projectId: Nullable<String>
     public let accountCode: Nullable<String>
+    public let deferralStartDate: Nullable<CalendarDate>
+    public let deferralEndDate: Nullable<CalendarDate>
     public let lineNet: String
     public let lineVat: String
     public let lineGross: String
@@ -33,6 +35,8 @@ public struct InvoicesRegisterPurchasesResponseLinesItem: Codable, Hashable, Sen
         costCenterId: Nullable<String>,
         projectId: Nullable<String>,
         accountCode: Nullable<String>,
+        deferralStartDate: Nullable<CalendarDate>,
+        deferralEndDate: Nullable<CalendarDate>,
         lineNet: String,
         lineVat: String,
         lineGross: String,
@@ -51,6 +55,8 @@ public struct InvoicesRegisterPurchasesResponseLinesItem: Codable, Hashable, Sen
         self.costCenterId = costCenterId
         self.projectId = projectId
         self.accountCode = accountCode
+        self.deferralStartDate = deferralStartDate
+        self.deferralEndDate = deferralEndDate
         self.lineNet = lineNet
         self.lineVat = lineVat
         self.lineGross = lineGross
@@ -72,6 +78,8 @@ public struct InvoicesRegisterPurchasesResponseLinesItem: Codable, Hashable, Sen
         self.costCenterId = try container.decode(Nullable<String>.self, forKey: .costCenterId)
         self.projectId = try container.decode(Nullable<String>.self, forKey: .projectId)
         self.accountCode = try container.decode(Nullable<String>.self, forKey: .accountCode)
+        self.deferralStartDate = try container.decode(Nullable<CalendarDate>.self, forKey: .deferralStartDate)
+        self.deferralEndDate = try container.decode(Nullable<CalendarDate>.self, forKey: .deferralEndDate)
         self.lineNet = try container.decode(String.self, forKey: .lineNet)
         self.lineVat = try container.decode(String.self, forKey: .lineVat)
         self.lineGross = try container.decode(String.self, forKey: .lineGross)
@@ -94,6 +102,8 @@ public struct InvoicesRegisterPurchasesResponseLinesItem: Codable, Hashable, Sen
         try container.encode(self.costCenterId, forKey: .costCenterId)
         try container.encode(self.projectId, forKey: .projectId)
         try container.encode(self.accountCode, forKey: .accountCode)
+        try container.encode(self.deferralStartDate, forKey: .deferralStartDate)
+        try container.encode(self.deferralEndDate, forKey: .deferralEndDate)
         try container.encode(self.lineNet, forKey: .lineNet)
         try container.encode(self.lineVat, forKey: .lineVat)
         try container.encode(self.lineGross, forKey: .lineGross)
@@ -114,6 +124,8 @@ public struct InvoicesRegisterPurchasesResponseLinesItem: Codable, Hashable, Sen
         case costCenterId
         case projectId
         case accountCode
+        case deferralStartDate
+        case deferralEndDate
         case lineNet
         case lineVat
         case lineGross

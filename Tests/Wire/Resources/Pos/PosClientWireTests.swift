@@ -833,4 +833,959 @@ import Api
         )
         try #require(response == expectedResponse)
     }
+
+    @Test func shiftsOpen1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "deviceId": "deviceId",
+                  "warehouseId": "warehouseId",
+                  "status": "open",
+                  "openingCash": "openingCash",
+                  "countedCash": "countedCash",
+                  "receiptCount": 1000000,
+                  "reportId": "reportId",
+                  "openedAt": "2026-07-01T09:30:00Z",
+                  "closedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ShiftsOpenPosResponse(
+            id: "id",
+            deviceId: "deviceId",
+            warehouseId: Nullable<String>.value("warehouseId"),
+            status: .open,
+            openingCash: "openingCash",
+            countedCash: Nullable<String>.value("countedCash"),
+            receiptCount: 1000000,
+            reportId: Nullable<String>.value("reportId"),
+            openedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            closedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
+        )
+        let response = try await client.pos.shiftsOpen(
+            request: .init(deviceId: "deviceId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func shiftsOpen2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "deviceId": "x",
+                  "warehouseId": "x",
+                  "status": "open",
+                  "openingCash": "openingCash",
+                  "countedCash": "countedCash",
+                  "receiptCount": 1000000,
+                  "reportId": "x",
+                  "openedAt": "2024-01-15T09:30:00Z",
+                  "closedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ShiftsOpenPosResponse(
+            id: "x",
+            deviceId: "x",
+            warehouseId: Nullable<String>.value("x"),
+            status: .open,
+            openingCash: "openingCash",
+            countedCash: Nullable<String>.value("countedCash"),
+            receiptCount: 1000000,
+            reportId: Nullable<String>.value("x"),
+            openedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            closedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+        )
+        let response = try await client.pos.shiftsOpen(
+            request: .init(deviceId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func shiftsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "deviceId": "deviceId",
+                  "warehouseId": "warehouseId",
+                  "status": "open",
+                  "openingCash": "openingCash",
+                  "countedCash": "countedCash",
+                  "receiptCount": 1000000,
+                  "reportId": "reportId",
+                  "openedAt": "2026-07-01T09:30:00Z",
+                  "closedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ShiftsGetPosResponse(
+            id: "id",
+            deviceId: "deviceId",
+            warehouseId: Nullable<String>.value("warehouseId"),
+            status: .open,
+            openingCash: "openingCash",
+            countedCash: Nullable<String>.value("countedCash"),
+            receiptCount: 1000000,
+            reportId: Nullable<String>.value("reportId"),
+            openedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            closedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
+        )
+        let response = try await client.pos.shiftsGet(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func shiftsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "deviceId": "x",
+                  "warehouseId": "x",
+                  "status": "open",
+                  "openingCash": "openingCash",
+                  "countedCash": "countedCash",
+                  "receiptCount": 1000000,
+                  "reportId": "x",
+                  "openedAt": "2024-01-15T09:30:00Z",
+                  "closedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ShiftsGetPosResponse(
+            id: "x",
+            deviceId: "x",
+            warehouseId: Nullable<String>.value("x"),
+            status: .open,
+            openingCash: "openingCash",
+            countedCash: Nullable<String>.value("countedCash"),
+            receiptCount: 1000000,
+            reportId: Nullable<String>.value("x"),
+            openedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            closedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+        )
+        let response = try await client.pos.shiftsGet(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func shiftsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "deviceId": "deviceId",
+                      "warehouseId": "warehouseId",
+                      "status": "open",
+                      "openingCash": "openingCash",
+                      "countedCash": "countedCash",
+                      "receiptCount": 1000000,
+                      "reportId": "reportId",
+                      "openedAt": "2026-07-01T09:30:00Z",
+                      "closedAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ShiftsListPosResponse(
+            rows: [
+                ShiftsListPosResponseRowsItem(
+                    id: "id",
+                    deviceId: "deviceId",
+                    warehouseId: Nullable<String>.value("warehouseId"),
+                    status: .open,
+                    openingCash: "openingCash",
+                    countedCash: Nullable<String>.value("countedCash"),
+                    receiptCount: 1000000,
+                    reportId: Nullable<String>.value("reportId"),
+                    openedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    closedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
+            ])
+        )
+        let response = try await client.pos.shiftsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func shiftsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "deviceId": "x",
+                      "warehouseId": "x",
+                      "status": "open",
+                      "openingCash": "openingCash",
+                      "countedCash": "countedCash",
+                      "receiptCount": 1000000,
+                      "reportId": "x",
+                      "openedAt": "2024-01-15T09:30:00Z",
+                      "closedAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "deviceId": "x",
+                      "warehouseId": "x",
+                      "status": "open",
+                      "openingCash": "openingCash",
+                      "countedCash": "countedCash",
+                      "receiptCount": 1000000,
+                      "reportId": "x",
+                      "openedAt": "2024-01-15T09:30:00Z",
+                      "closedAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ShiftsListPosResponse(
+            rows: [
+                ShiftsListPosResponseRowsItem(
+                    id: "x",
+                    deviceId: "x",
+                    warehouseId: Nullable<String>.value("x"),
+                    status: .open,
+                    openingCash: "openingCash",
+                    countedCash: Nullable<String>.value("countedCash"),
+                    receiptCount: 1000000,
+                    reportId: Nullable<String>.value("x"),
+                    openedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    closedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+                ),
+                ShiftsListPosResponseRowsItem(
+                    id: "x",
+                    deviceId: "x",
+                    warehouseId: Nullable<String>.value("x"),
+                    status: .open,
+                    openingCash: "openingCash",
+                    countedCash: Nullable<String>.value("countedCash"),
+                    receiptCount: 1000000,
+                    reportId: Nullable<String>.value("x"),
+                    openedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    closedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
+            ])
+        )
+        let response = try await client.pos.shiftsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func receiptsCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "shiftId": "shiftId",
+                  "number": 1000000,
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "cashAmount": "cashAmount",
+                  "cardAmount": "cardAmount",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "lines": [
+                    {
+                      "id": "id",
+                      "itemId": "itemId",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "netAmount": "netAmount",
+                      "vatAmount": "vatAmount",
+                      "grossAmount": "grossAmount"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ReceiptsCreatePosResponse(
+            id: "id",
+            shiftId: "shiftId",
+            number: 1000000,
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            cashAmount: "cashAmount",
+            cardAmount: "cardAmount",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            lines: [
+                ReceiptsCreatePosResponseLinesItem(
+                    id: "id",
+                    itemId: Nullable<String>.value("itemId"),
+                    description: "description",
+                    quantity: "quantity",
+                    unitPriceInclVat: "unitPriceInclVat",
+                    vatRatePercent: "vatRatePercent",
+                    netAmount: "netAmount",
+                    vatAmount: "vatAmount",
+                    grossAmount: "grossAmount"
+                )
+            ]
+        )
+        let response = try await client.pos.receiptsCreate(
+            request: .init(
+                shiftId: "shiftId",
+                lines: [
+                    ReceiptsCreatePosRequestLinesItem(
+                        quantity: "121.0000",
+                        unitPriceInclVat: "121.0000",
+                        vatRatePercent: "121.00"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func receiptsCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "shiftId": "x",
+                  "number": 1000000,
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "cashAmount": "cashAmount",
+                  "cardAmount": "cardAmount",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "lines": [
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "netAmount": "netAmount",
+                      "vatAmount": "vatAmount",
+                      "grossAmount": "grossAmount"
+                    },
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "netAmount": "netAmount",
+                      "vatAmount": "vatAmount",
+                      "grossAmount": "grossAmount"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ReceiptsCreatePosResponse(
+            id: "x",
+            shiftId: "x",
+            number: 1000000,
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            cashAmount: "cashAmount",
+            cardAmount: "cardAmount",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            lines: [
+                ReceiptsCreatePosResponseLinesItem(
+                    id: "x",
+                    itemId: Nullable<String>.value("x"),
+                    description: "description",
+                    quantity: "quantity",
+                    unitPriceInclVat: "unitPriceInclVat",
+                    vatRatePercent: "vatRatePercent",
+                    netAmount: "netAmount",
+                    vatAmount: "vatAmount",
+                    grossAmount: "grossAmount"
+                ),
+                ReceiptsCreatePosResponseLinesItem(
+                    id: "x",
+                    itemId: Nullable<String>.value("x"),
+                    description: "description",
+                    quantity: "quantity",
+                    unitPriceInclVat: "unitPriceInclVat",
+                    vatRatePercent: "vatRatePercent",
+                    netAmount: "netAmount",
+                    vatAmount: "vatAmount",
+                    grossAmount: "grossAmount"
+                )
+            ]
+        )
+        let response = try await client.pos.receiptsCreate(
+            request: .init(
+                shiftId: "x",
+                lines: [
+                    ReceiptsCreatePosRequestLinesItem(
+                        quantity: "quantity",
+                        unitPriceInclVat: "unitPriceInclVat",
+                        vatRatePercent: "vatRatePercent"
+                    ),
+                    ReceiptsCreatePosRequestLinesItem(
+                        quantity: "quantity",
+                        unitPriceInclVat: "unitPriceInclVat",
+                        vatRatePercent: "vatRatePercent"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func receiptsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "shiftId": "shiftId",
+                      "number": 1000000,
+                      "netTotal": "netTotal",
+                      "vatTotal": "vatTotal",
+                      "grossTotal": "grossTotal",
+                      "cashAmount": "cashAmount",
+                      "cardAmount": "cardAmount",
+                      "createdAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ReceiptsListPosResponse(
+            rows: [
+                ReceiptsListPosResponseRowsItem(
+                    id: "id",
+                    shiftId: "shiftId",
+                    number: 1000000,
+                    netTotal: "netTotal",
+                    vatTotal: "vatTotal",
+                    grossTotal: "grossTotal",
+                    cashAmount: "cashAmount",
+                    cardAmount: "cardAmount",
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
+            ])
+        )
+        let response = try await client.pos.receiptsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func receiptsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "shiftId": "x",
+                      "number": 1000000,
+                      "netTotal": "netTotal",
+                      "vatTotal": "vatTotal",
+                      "grossTotal": "grossTotal",
+                      "cashAmount": "cashAmount",
+                      "cardAmount": "cardAmount",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "shiftId": "x",
+                      "number": 1000000,
+                      "netTotal": "netTotal",
+                      "vatTotal": "vatTotal",
+                      "grossTotal": "grossTotal",
+                      "cashAmount": "cashAmount",
+                      "cardAmount": "cardAmount",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ReceiptsListPosResponse(
+            rows: [
+                ReceiptsListPosResponseRowsItem(
+                    id: "x",
+                    shiftId: "x",
+                    number: 1000000,
+                    netTotal: "netTotal",
+                    vatTotal: "vatTotal",
+                    grossTotal: "grossTotal",
+                    cashAmount: "cashAmount",
+                    cardAmount: "cardAmount",
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                ReceiptsListPosResponseRowsItem(
+                    id: "x",
+                    shiftId: "x",
+                    number: 1000000,
+                    netTotal: "netTotal",
+                    vatTotal: "vatTotal",
+                    grossTotal: "grossTotal",
+                    cashAmount: "cashAmount",
+                    cardAmount: "cardAmount",
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
+            ])
+        )
+        let response = try await client.pos.receiptsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func receiptsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "shiftId": "shiftId",
+                  "number": 1000000,
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "cashAmount": "cashAmount",
+                  "cardAmount": "cardAmount",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "lines": [
+                    {
+                      "id": "id",
+                      "itemId": "itemId",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "netAmount": "netAmount",
+                      "vatAmount": "vatAmount",
+                      "grossAmount": "grossAmount"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ReceiptsGetPosResponse(
+            id: "id",
+            shiftId: "shiftId",
+            number: 1000000,
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            cashAmount: "cashAmount",
+            cardAmount: "cardAmount",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            lines: [
+                ReceiptsGetPosResponseLinesItem(
+                    id: "id",
+                    itemId: Nullable<String>.value("itemId"),
+                    description: "description",
+                    quantity: "quantity",
+                    unitPriceInclVat: "unitPriceInclVat",
+                    vatRatePercent: "vatRatePercent",
+                    netAmount: "netAmount",
+                    vatAmount: "vatAmount",
+                    grossAmount: "grossAmount"
+                )
+            ]
+        )
+        let response = try await client.pos.receiptsGet(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func receiptsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "shiftId": "x",
+                  "number": 1000000,
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "cashAmount": "cashAmount",
+                  "cardAmount": "cardAmount",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "lines": [
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "netAmount": "netAmount",
+                      "vatAmount": "vatAmount",
+                      "grossAmount": "grossAmount"
+                    },
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "netAmount": "netAmount",
+                      "vatAmount": "vatAmount",
+                      "grossAmount": "grossAmount"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ReceiptsGetPosResponse(
+            id: "x",
+            shiftId: "x",
+            number: 1000000,
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            cashAmount: "cashAmount",
+            cardAmount: "cardAmount",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            lines: [
+                ReceiptsGetPosResponseLinesItem(
+                    id: "x",
+                    itemId: Nullable<String>.value("x"),
+                    description: "description",
+                    quantity: "quantity",
+                    unitPriceInclVat: "unitPriceInclVat",
+                    vatRatePercent: "vatRatePercent",
+                    netAmount: "netAmount",
+                    vatAmount: "vatAmount",
+                    grossAmount: "grossAmount"
+                ),
+                ReceiptsGetPosResponseLinesItem(
+                    id: "x",
+                    itemId: Nullable<String>.value("x"),
+                    description: "description",
+                    quantity: "quantity",
+                    unitPriceInclVat: "unitPriceInclVat",
+                    vatRatePercent: "vatRatePercent",
+                    netAmount: "netAmount",
+                    vatAmount: "vatAmount",
+                    grossAmount: "grossAmount"
+                )
+            ]
+        )
+        let response = try await client.pos.receiptsGet(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func shiftsClose1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "deviceId": "deviceId",
+                  "warehouseId": "warehouseId",
+                  "status": "open",
+                  "openingCash": "openingCash",
+                  "countedCash": "countedCash",
+                  "receiptCount": 1000000,
+                  "reportId": "reportId",
+                  "openedAt": "2026-07-01T09:30:00Z",
+                  "closedAt": "2026-07-01T09:30:00Z",
+                  "expectedCash": "expectedCash",
+                  "cashDifference": "cashDifference"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ShiftsClosePosResponse(
+            id: "id",
+            deviceId: "deviceId",
+            warehouseId: Nullable<String>.value("warehouseId"),
+            status: .open,
+            openingCash: "openingCash",
+            countedCash: Nullable<String>.value("countedCash"),
+            receiptCount: 1000000,
+            reportId: Nullable<String>.value("reportId"),
+            openedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            closedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            expectedCash: "expectedCash",
+            cashDifference: "cashDifference"
+        )
+        let response = try await client.pos.shiftsClose(
+            request: .init(
+                id: "id",
+                countedCash: "121.00"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func shiftsClose2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "deviceId": "x",
+                  "warehouseId": "x",
+                  "status": "open",
+                  "openingCash": "openingCash",
+                  "countedCash": "countedCash",
+                  "receiptCount": 1000000,
+                  "reportId": "x",
+                  "openedAt": "2024-01-15T09:30:00Z",
+                  "closedAt": "2024-01-15T09:30:00Z",
+                  "expectedCash": "expectedCash",
+                  "cashDifference": "cashDifference"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ShiftsClosePosResponse(
+            id: "x",
+            deviceId: "x",
+            warehouseId: Nullable<String>.value("x"),
+            status: .open,
+            openingCash: "openingCash",
+            countedCash: Nullable<String>.value("countedCash"),
+            receiptCount: 1000000,
+            reportId: Nullable<String>.value("x"),
+            openedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            closedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            expectedCash: "expectedCash",
+            cashDifference: "cashDifference"
+        )
+        let response = try await client.pos.shiftsClose(
+            request: .init(
+                id: "x",
+                countedCash: "countedCash"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
 }

@@ -3253,6 +3253,106 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func merge1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "targetId": "targetId",
+                  "sourceId": "sourceId",
+                  "moved": [
+                    {
+                      "table": "table",
+                      "column": "column",
+                      "rows": 1000000
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = MergePartnersResponse(
+            targetId: "targetId",
+            sourceId: "sourceId",
+            moved: [
+                MergePartnersResponseMovedItem(
+                    table: "table",
+                    column: "column",
+                    rows: 1000000
+                )
+            ]
+        )
+        let response = try await client.partners.merge(
+            request: .init(
+                sourceId: "sourceId",
+                targetId: "targetId"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func merge2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "targetId": "x",
+                  "sourceId": "x",
+                  "moved": [
+                    {
+                      "table": "table",
+                      "column": "column",
+                      "rows": 1000000
+                    },
+                    {
+                      "table": "table",
+                      "column": "column",
+                      "rows": 1000000
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = MergePartnersResponse(
+            targetId: "x",
+            sourceId: "x",
+            moved: [
+                MergePartnersResponseMovedItem(
+                    table: "table",
+                    column: "column",
+                    rows: 1000000
+                ),
+                MergePartnersResponseMovedItem(
+                    table: "table",
+                    column: "column",
+                    rows: 1000000
+                )
+            ]
+        )
+        let response = try await client.partners.merge(
+            request: .init(
+                sourceId: "x",
+                targetId: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func anonymize1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

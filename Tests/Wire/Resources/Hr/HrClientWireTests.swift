@@ -2475,6 +2475,830 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func perDiemRatesCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "countryCode": "countryCode",
+                  "dailyAmount": "dailyAmount",
+                  "validFrom": "validFrom",
+                  "createdAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PerDiemRatesCreateHrResponse(
+            id: "id",
+            countryCode: "countryCode",
+            dailyAmount: "dailyAmount",
+            validFrom: "validFrom",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.hr.perDiemRatesCreate(
+            request: .init(
+                countryCode: "countryCode",
+                dailyAmount: "121.00",
+                validFrom: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func perDiemRatesCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "countryCode": "countryCode",
+                  "dailyAmount": "dailyAmount",
+                  "validFrom": "validFrom",
+                  "createdAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PerDiemRatesCreateHrResponse(
+            id: "x",
+            countryCode: "countryCode",
+            dailyAmount: "dailyAmount",
+            validFrom: "validFrom",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.hr.perDiemRatesCreate(
+            request: .init(
+                countryCode: "xy",
+                dailyAmount: "dailyAmount",
+                validFrom: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func perDiemRatesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "countryCode": "countryCode",
+                      "dailyAmount": "dailyAmount",
+                      "validFrom": "validFrom",
+                      "createdAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PerDiemRatesListHrResponse(
+            rows: [
+                PerDiemRatesListHrResponseRowsItem(
+                    id: "id",
+                    countryCode: "countryCode",
+                    dailyAmount: "dailyAmount",
+                    validFrom: "validFrom",
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
+            ])
+        )
+        let response = try await client.hr.perDiemRatesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func perDiemRatesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "countryCode": "countryCode",
+                      "dailyAmount": "dailyAmount",
+                      "validFrom": "validFrom",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "countryCode": "countryCode",
+                      "dailyAmount": "dailyAmount",
+                      "validFrom": "validFrom",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PerDiemRatesListHrResponse(
+            rows: [
+                PerDiemRatesListHrResponseRowsItem(
+                    id: "x",
+                    countryCode: "countryCode",
+                    dailyAmount: "dailyAmount",
+                    validFrom: "validFrom",
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                PerDiemRatesListHrResponseRowsItem(
+                    id: "x",
+                    countryCode: "countryCode",
+                    dailyAmount: "dailyAmount",
+                    validFrom: "validFrom",
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
+            ])
+        )
+        let response = try await client.hr.perDiemRatesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func perDiemRatesDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PerDiemRatesDeleteHrResponse(
+            id: "id"
+        )
+        let response = try await client.hr.perDiemRatesDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func perDiemRatesDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PerDiemRatesDeleteHrResponse(
+            id: "x"
+        )
+        let response = try await client.hr.perDiemRatesDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func businessTripsCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "employeeId": "employeeId",
+                  "destinationCountryCode": "destinationCountryCode",
+                  "purpose": "purpose",
+                  "startDate": "2026-07-01",
+                  "endDate": "2026-07-01",
+                  "days": 1000000,
+                  "dailyRate": "dailyRate",
+                  "perDiemAmount": "perDiemAmount",
+                  "status": "draft",
+                  "payrollRunId": "payrollRunId",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BusinessTripsCreateHrResponse(
+            id: "id",
+            employeeId: "employeeId",
+            destinationCountryCode: "destinationCountryCode",
+            purpose: "purpose",
+            startDate: CalendarDate("2026-07-01")!,
+            endDate: CalendarDate("2026-07-01")!,
+            days: 1000000,
+            dailyRate: "dailyRate",
+            perDiemAmount: "perDiemAmount",
+            status: .draft,
+            payrollRunId: Nullable<String>.value("payrollRunId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.hr.businessTripsCreate(
+            request: .init(
+                employeeId: "employeeId",
+                destinationCountryCode: "destinationCountryCode",
+                purpose: "purpose",
+                startDate: CalendarDate("2026-07-01")!,
+                endDate: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func businessTripsCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "employeeId": "x",
+                  "destinationCountryCode": "destinationCountryCode",
+                  "purpose": "purpose",
+                  "startDate": "2023-01-15",
+                  "endDate": "2023-01-15",
+                  "days": 1000000,
+                  "dailyRate": "dailyRate",
+                  "perDiemAmount": "perDiemAmount",
+                  "status": "draft",
+                  "payrollRunId": "x",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BusinessTripsCreateHrResponse(
+            id: "x",
+            employeeId: "x",
+            destinationCountryCode: "destinationCountryCode",
+            purpose: "purpose",
+            startDate: CalendarDate("2023-01-15")!,
+            endDate: CalendarDate("2023-01-15")!,
+            days: 1000000,
+            dailyRate: "dailyRate",
+            perDiemAmount: "perDiemAmount",
+            status: .draft,
+            payrollRunId: Nullable<String>.value("x"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.hr.businessTripsCreate(
+            request: .init(
+                employeeId: "x",
+                destinationCountryCode: "xy",
+                purpose: "x",
+                startDate: CalendarDate("2023-01-15")!,
+                endDate: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func businessTripsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "employeeId": "employeeId",
+                  "destinationCountryCode": "destinationCountryCode",
+                  "purpose": "purpose",
+                  "startDate": "2026-07-01",
+                  "endDate": "2026-07-01",
+                  "days": 1000000,
+                  "dailyRate": "dailyRate",
+                  "perDiemAmount": "perDiemAmount",
+                  "status": "draft",
+                  "payrollRunId": "payrollRunId",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BusinessTripsGetHrResponse(
+            id: "id",
+            employeeId: "employeeId",
+            destinationCountryCode: "destinationCountryCode",
+            purpose: "purpose",
+            startDate: CalendarDate("2026-07-01")!,
+            endDate: CalendarDate("2026-07-01")!,
+            days: 1000000,
+            dailyRate: "dailyRate",
+            perDiemAmount: "perDiemAmount",
+            status: .draft,
+            payrollRunId: Nullable<String>.value("payrollRunId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.hr.businessTripsGet(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func businessTripsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "employeeId": "x",
+                  "destinationCountryCode": "destinationCountryCode",
+                  "purpose": "purpose",
+                  "startDate": "2023-01-15",
+                  "endDate": "2023-01-15",
+                  "days": 1000000,
+                  "dailyRate": "dailyRate",
+                  "perDiemAmount": "perDiemAmount",
+                  "status": "draft",
+                  "payrollRunId": "x",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BusinessTripsGetHrResponse(
+            id: "x",
+            employeeId: "x",
+            destinationCountryCode: "destinationCountryCode",
+            purpose: "purpose",
+            startDate: CalendarDate("2023-01-15")!,
+            endDate: CalendarDate("2023-01-15")!,
+            days: 1000000,
+            dailyRate: "dailyRate",
+            perDiemAmount: "perDiemAmount",
+            status: .draft,
+            payrollRunId: Nullable<String>.value("x"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.hr.businessTripsGet(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func businessTripsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "employeeId": "employeeId",
+                      "destinationCountryCode": "destinationCountryCode",
+                      "purpose": "purpose",
+                      "startDate": "2026-07-01",
+                      "endDate": "2026-07-01",
+                      "days": 1000000,
+                      "dailyRate": "dailyRate",
+                      "perDiemAmount": "perDiemAmount",
+                      "status": "draft",
+                      "payrollRunId": "payrollRunId",
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BusinessTripsListHrResponse(
+            rows: [
+                BusinessTripsListHrResponseRowsItem(
+                    id: "id",
+                    employeeId: "employeeId",
+                    destinationCountryCode: "destinationCountryCode",
+                    purpose: "purpose",
+                    startDate: CalendarDate("2026-07-01")!,
+                    endDate: CalendarDate("2026-07-01")!,
+                    days: 1000000,
+                    dailyRate: "dailyRate",
+                    perDiemAmount: "perDiemAmount",
+                    status: .draft,
+                    payrollRunId: Nullable<String>.value("payrollRunId"),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
+            ])
+        )
+        let response = try await client.hr.businessTripsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func businessTripsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "employeeId": "x",
+                      "destinationCountryCode": "destinationCountryCode",
+                      "purpose": "purpose",
+                      "startDate": "2023-01-15",
+                      "endDate": "2023-01-15",
+                      "days": 1000000,
+                      "dailyRate": "dailyRate",
+                      "perDiemAmount": "perDiemAmount",
+                      "status": "draft",
+                      "payrollRunId": "x",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "employeeId": "x",
+                      "destinationCountryCode": "destinationCountryCode",
+                      "purpose": "purpose",
+                      "startDate": "2023-01-15",
+                      "endDate": "2023-01-15",
+                      "days": 1000000,
+                      "dailyRate": "dailyRate",
+                      "perDiemAmount": "perDiemAmount",
+                      "status": "draft",
+                      "payrollRunId": "x",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BusinessTripsListHrResponse(
+            rows: [
+                BusinessTripsListHrResponseRowsItem(
+                    id: "x",
+                    employeeId: "x",
+                    destinationCountryCode: "destinationCountryCode",
+                    purpose: "purpose",
+                    startDate: CalendarDate("2023-01-15")!,
+                    endDate: CalendarDate("2023-01-15")!,
+                    days: 1000000,
+                    dailyRate: "dailyRate",
+                    perDiemAmount: "perDiemAmount",
+                    status: .draft,
+                    payrollRunId: Nullable<String>.value("x"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                BusinessTripsListHrResponseRowsItem(
+                    id: "x",
+                    employeeId: "x",
+                    destinationCountryCode: "destinationCountryCode",
+                    purpose: "purpose",
+                    startDate: CalendarDate("2023-01-15")!,
+                    endDate: CalendarDate("2023-01-15")!,
+                    days: 1000000,
+                    dailyRate: "dailyRate",
+                    perDiemAmount: "perDiemAmount",
+                    status: .draft,
+                    payrollRunId: Nullable<String>.value("x"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
+            ])
+        )
+        let response = try await client.hr.businessTripsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func businessTripsApprove1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "employeeId": "employeeId",
+                  "destinationCountryCode": "destinationCountryCode",
+                  "purpose": "purpose",
+                  "startDate": "2026-07-01",
+                  "endDate": "2026-07-01",
+                  "days": 1000000,
+                  "dailyRate": "dailyRate",
+                  "perDiemAmount": "perDiemAmount",
+                  "status": "draft",
+                  "payrollRunId": "payrollRunId",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BusinessTripsApproveHrResponse(
+            id: "id",
+            employeeId: "employeeId",
+            destinationCountryCode: "destinationCountryCode",
+            purpose: "purpose",
+            startDate: CalendarDate("2026-07-01")!,
+            endDate: CalendarDate("2026-07-01")!,
+            days: 1000000,
+            dailyRate: "dailyRate",
+            perDiemAmount: "perDiemAmount",
+            status: .draft,
+            payrollRunId: Nullable<String>.value("payrollRunId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.hr.businessTripsApprove(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func businessTripsApprove2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "employeeId": "x",
+                  "destinationCountryCode": "destinationCountryCode",
+                  "purpose": "purpose",
+                  "startDate": "2023-01-15",
+                  "endDate": "2023-01-15",
+                  "days": 1000000,
+                  "dailyRate": "dailyRate",
+                  "perDiemAmount": "perDiemAmount",
+                  "status": "draft",
+                  "payrollRunId": "x",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BusinessTripsApproveHrResponse(
+            id: "x",
+            employeeId: "x",
+            destinationCountryCode: "destinationCountryCode",
+            purpose: "purpose",
+            startDate: CalendarDate("2023-01-15")!,
+            endDate: CalendarDate("2023-01-15")!,
+            days: 1000000,
+            dailyRate: "dailyRate",
+            perDiemAmount: "perDiemAmount",
+            status: .draft,
+            payrollRunId: Nullable<String>.value("x"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.hr.businessTripsApprove(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func businessTripsDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BusinessTripsDeleteHrResponse(
+            id: "id"
+        )
+        let response = try await client.hr.businessTripsDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func businessTripsDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BusinessTripsDeleteHrResponse(
+            id: "x"
+        )
+        let response = try await client.hr.businessTripsDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func employeesRecordsCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
