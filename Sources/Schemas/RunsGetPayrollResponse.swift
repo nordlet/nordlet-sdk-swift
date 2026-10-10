@@ -14,6 +14,7 @@ public struct RunsGetPayrollResponse: Codable, Hashable, Sendable {
     public let employerContributionsTotal: String
     public let componentTotals: [RunsGetPayrollResponseComponentTotalsItem]
     public let netTotal: String
+    public let paidAmount: String
     public let journalTransactionId: Nullable<String>
     public let notes: Nullable<String>
     public let warnings: [String]
@@ -40,6 +41,7 @@ public struct RunsGetPayrollResponse: Codable, Hashable, Sendable {
         employerContributionsTotal: String,
         componentTotals: [RunsGetPayrollResponseComponentTotalsItem],
         netTotal: String,
+        paidAmount: String,
         journalTransactionId: Nullable<String>,
         notes: Nullable<String>,
         warnings: [String],
@@ -64,6 +66,7 @@ public struct RunsGetPayrollResponse: Codable, Hashable, Sendable {
         self.employerContributionsTotal = employerContributionsTotal
         self.componentTotals = componentTotals
         self.netTotal = netTotal
+        self.paidAmount = paidAmount
         self.journalTransactionId = journalTransactionId
         self.notes = notes
         self.warnings = warnings
@@ -91,6 +94,7 @@ public struct RunsGetPayrollResponse: Codable, Hashable, Sendable {
         self.employerContributionsTotal = try container.decode(String.self, forKey: .employerContributionsTotal)
         self.componentTotals = try container.decode([RunsGetPayrollResponseComponentTotalsItem].self, forKey: .componentTotals)
         self.netTotal = try container.decode(String.self, forKey: .netTotal)
+        self.paidAmount = try container.decode(String.self, forKey: .paidAmount)
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.warnings = try container.decode([String].self, forKey: .warnings)
@@ -119,6 +123,7 @@ public struct RunsGetPayrollResponse: Codable, Hashable, Sendable {
         try container.encode(self.employerContributionsTotal, forKey: .employerContributionsTotal)
         try container.encode(self.componentTotals, forKey: .componentTotals)
         try container.encode(self.netTotal, forKey: .netTotal)
+        try container.encode(self.paidAmount, forKey: .paidAmount)
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.warnings, forKey: .warnings)
@@ -145,6 +150,7 @@ public struct RunsGetPayrollResponse: Codable, Hashable, Sendable {
         case employerContributionsTotal
         case componentTotals
         case netTotal
+        case paidAmount
         case journalTransactionId
         case notes
         case warnings

@@ -6,6 +6,7 @@ public struct SettlementsPostBankResponseSummary: Codable, Hashable, Sendable {
     public let sellerAmount: String
     public let feeAmount: String
     public let suspenseAmount: String
+    public let clearedAmount: String
     public let fxRate: String
     public let exchangeDifference: String
     /// Additional properties that are not explicitly defined in the schema
@@ -17,6 +18,7 @@ public struct SettlementsPostBankResponseSummary: Codable, Hashable, Sendable {
         sellerAmount: String,
         feeAmount: String,
         suspenseAmount: String,
+        clearedAmount: String,
         fxRate: String,
         exchangeDifference: String,
         additionalProperties: [String: JSONValue] = .init()
@@ -26,6 +28,7 @@ public struct SettlementsPostBankResponseSummary: Codable, Hashable, Sendable {
         self.sellerAmount = sellerAmount
         self.feeAmount = feeAmount
         self.suspenseAmount = suspenseAmount
+        self.clearedAmount = clearedAmount
         self.fxRate = fxRate
         self.exchangeDifference = exchangeDifference
         self.additionalProperties = additionalProperties
@@ -38,6 +41,7 @@ public struct SettlementsPostBankResponseSummary: Codable, Hashable, Sendable {
         self.sellerAmount = try container.decode(String.self, forKey: .sellerAmount)
         self.feeAmount = try container.decode(String.self, forKey: .feeAmount)
         self.suspenseAmount = try container.decode(String.self, forKey: .suspenseAmount)
+        self.clearedAmount = try container.decode(String.self, forKey: .clearedAmount)
         self.fxRate = try container.decode(String.self, forKey: .fxRate)
         self.exchangeDifference = try container.decode(String.self, forKey: .exchangeDifference)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -51,6 +55,7 @@ public struct SettlementsPostBankResponseSummary: Codable, Hashable, Sendable {
         try container.encode(self.sellerAmount, forKey: .sellerAmount)
         try container.encode(self.feeAmount, forKey: .feeAmount)
         try container.encode(self.suspenseAmount, forKey: .suspenseAmount)
+        try container.encode(self.clearedAmount, forKey: .clearedAmount)
         try container.encode(self.fxRate, forKey: .fxRate)
         try container.encode(self.exchangeDifference, forKey: .exchangeDifference)
     }
@@ -62,6 +67,7 @@ public struct SettlementsPostBankResponseSummary: Codable, Hashable, Sendable {
         case sellerAmount
         case feeAmount
         case suspenseAmount
+        case clearedAmount
         case fxRate
         case exchangeDifference
     }

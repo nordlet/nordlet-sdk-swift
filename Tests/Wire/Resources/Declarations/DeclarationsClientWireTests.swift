@@ -2939,6 +2939,820 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func euOwnGoodsTransfersCompute1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "periodYear": 1000000,
+                  "periodMonth": 1000000,
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
+                  "memberStateOfIdentification": "memberStateOfIdentification",
+                  "currency": "currency",
+                  "rows": [
+                    {
+                      "destinationCountryCode": "destinationCountryCode",
+                      "dispatchCountryCode": "dispatchCountryCode",
+                      "taxableAmount": "taxableAmount",
+                      "transfers": 1000000
+                    }
+                  ],
+                  "total": "total",
+                  "transfers": [
+                    {
+                      "movementId": "movementId",
+                      "date": "2026-07-01",
+                      "itemId": "itemId",
+                      "itemName": "itemName",
+                      "quantity": "quantity",
+                      "cost": "cost",
+                      "fromCountryCode": "fromCountryCode",
+                      "toCountryCode": "toCountryCode"
+                    }
+                  ],
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EuOwnGoodsTransfersComputeDeclarationsResponse(
+            periodYear: 1000000,
+            periodMonth: 1000000,
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
+            dueDate: CalendarDate("2026-07-01")!,
+            memberStateOfIdentification: "memberStateOfIdentification",
+            currency: "currency",
+            rows: [
+                EuOwnGoodsTransfersComputeDeclarationsResponseRowsItem(
+                    destinationCountryCode: "destinationCountryCode",
+                    dispatchCountryCode: "dispatchCountryCode",
+                    taxableAmount: "taxableAmount",
+                    transfers: 1000000
+                )
+            ],
+            total: "total",
+            transfers: [
+                EuOwnGoodsTransfersComputeDeclarationsResponseTransfersItem(
+                    movementId: "movementId",
+                    date: CalendarDate("2026-07-01")!,
+                    itemId: "itemId",
+                    itemName: "itemName",
+                    quantity: "quantity",
+                    cost: "cost",
+                    fromCountryCode: "fromCountryCode",
+                    toCountryCode: "toCountryCode"
+                )
+            ],
+            warnings: [
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.euOwnGoodsTransfersCompute(
+            request: .init(
+                year: 1000000,
+                month: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func euOwnGoodsTransfersCompute2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "periodYear": 1000000,
+                  "periodMonth": 1000000,
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
+                  "memberStateOfIdentification": "memberStateOfIdentification",
+                  "currency": "currency",
+                  "rows": [
+                    {
+                      "destinationCountryCode": "destinationCountryCode",
+                      "dispatchCountryCode": "dispatchCountryCode",
+                      "taxableAmount": "taxableAmount",
+                      "transfers": 1000000
+                    },
+                    {
+                      "destinationCountryCode": "destinationCountryCode",
+                      "dispatchCountryCode": "dispatchCountryCode",
+                      "taxableAmount": "taxableAmount",
+                      "transfers": 1000000
+                    }
+                  ],
+                  "total": "total",
+                  "transfers": [
+                    {
+                      "movementId": "movementId",
+                      "date": "2023-01-15",
+                      "itemId": "itemId",
+                      "itemName": "itemName",
+                      "quantity": "quantity",
+                      "cost": "cost",
+                      "fromCountryCode": "fromCountryCode",
+                      "toCountryCode": "toCountryCode"
+                    },
+                    {
+                      "movementId": "movementId",
+                      "date": "2023-01-15",
+                      "itemId": "itemId",
+                      "itemName": "itemName",
+                      "quantity": "quantity",
+                      "cost": "cost",
+                      "fromCountryCode": "fromCountryCode",
+                      "toCountryCode": "toCountryCode"
+                    }
+                  ],
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EuOwnGoodsTransfersComputeDeclarationsResponse(
+            periodYear: 1000000,
+            periodMonth: 1000000,
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
+            dueDate: CalendarDate("2023-01-15")!,
+            memberStateOfIdentification: "memberStateOfIdentification",
+            currency: "currency",
+            rows: [
+                EuOwnGoodsTransfersComputeDeclarationsResponseRowsItem(
+                    destinationCountryCode: "destinationCountryCode",
+                    dispatchCountryCode: "dispatchCountryCode",
+                    taxableAmount: "taxableAmount",
+                    transfers: 1000000
+                ),
+                EuOwnGoodsTransfersComputeDeclarationsResponseRowsItem(
+                    destinationCountryCode: "destinationCountryCode",
+                    dispatchCountryCode: "dispatchCountryCode",
+                    taxableAmount: "taxableAmount",
+                    transfers: 1000000
+                )
+            ],
+            total: "total",
+            transfers: [
+                EuOwnGoodsTransfersComputeDeclarationsResponseTransfersItem(
+                    movementId: "movementId",
+                    date: CalendarDate("2023-01-15")!,
+                    itemId: "itemId",
+                    itemName: "itemName",
+                    quantity: "quantity",
+                    cost: "cost",
+                    fromCountryCode: "fromCountryCode",
+                    toCountryCode: "toCountryCode"
+                ),
+                EuOwnGoodsTransfersComputeDeclarationsResponseTransfersItem(
+                    movementId: "movementId",
+                    date: CalendarDate("2023-01-15")!,
+                    itemId: "itemId",
+                    itemName: "itemName",
+                    quantity: "quantity",
+                    cost: "cost",
+                    fromCountryCode: "fromCountryCode",
+                    toCountryCode: "toCountryCode"
+                )
+            ],
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.euOwnGoodsTransfersCompute(
+            request: .init(
+                year: 1000000,
+                month: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func euDigitalReportingList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
+                  "appliesFrom": "appliesFrom",
+                  "reportTo": "reportTo",
+                  "transactions": [
+                    {
+                      "direction": "supply",
+                      "article": "262(1)(a)",
+                      "documentId": "documentId",
+                      "documentType": "invoice",
+                      "number": "number",
+                      "issueDate": "2026-07-01",
+                      "partnerName": "partnerName",
+                      "supplierVatNumber": "supplierVatNumber",
+                      "customerVatNumber": "customerVatNumber",
+                      "currency": "currency",
+                      "lines": [
+                        {
+                          "description": "description",
+                          "quantity": "quantity",
+                          "unit": "unit",
+                          "unitPrice": null,
+                          "taxableAmount": "taxableAmount",
+                          "vatRatePercent": "vatRatePercent",
+                          "vatAmount": "vatAmount"
+                        }
+                      ],
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "exemptionReference": "exemptionReference",
+                      "reverseCharge": true,
+                      "correctedInvoiceNumber": "correctedInvoiceNumber",
+                      "supplierAccounts": [
+                        "supplierAccounts"
+                      ],
+                      "reportTo": "reportTo",
+                      "deadline": "deadline",
+                      "missing": [
+                        "missing"
+                      ]
+                    }
+                  ],
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EuDigitalReportingListDeclarationsResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
+            appliesFrom: "appliesFrom",
+            reportTo: "reportTo",
+            transactions: [
+                EuDigitalReportingListDeclarationsResponseTransactionsItem(
+                    direction: .supply,
+                    article: .twoHundredSixtyTwo1A,
+                    documentId: "documentId",
+                    documentType: .invoice,
+                    number: Nullable<String>.value("number"),
+                    issueDate: CalendarDate("2026-07-01")!,
+                    partnerName: "partnerName",
+                    supplierVatNumber: Nullable<String>.value("supplierVatNumber"),
+                    customerVatNumber: Nullable<String>.value("customerVatNumber"),
+                    currency: "currency",
+                    lines: [
+                        EuDigitalReportingListDeclarationsResponseTransactionsItemLinesItem(
+                            description: "description",
+                            quantity: "quantity",
+                            unit: "unit",
+                            unitPrice: .null,
+                            taxableAmount: "taxableAmount",
+                            vatRatePercent: "vatRatePercent",
+                            vatAmount: "vatAmount"
+                        )
+                    ],
+                    taxableAmount: "taxableAmount",
+                    vatAmount: Nullable<String>.value("vatAmount"),
+                    exemptionReference: Nullable<String>.value("exemptionReference"),
+                    reverseCharge: true,
+                    correctedInvoiceNumber: Nullable<String>.value("correctedInvoiceNumber"),
+                    supplierAccounts: [
+                        "supplierAccounts"
+                    ],
+                    reportTo: "reportTo",
+                    deadline: "deadline",
+                    missing: [
+                        "missing"
+                    ]
+                )
+            ],
+            warnings: [
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.euDigitalReportingList(
+            request: .init(
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func euDigitalReportingList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
+                  "appliesFrom": "appliesFrom",
+                  "reportTo": "reportTo",
+                  "transactions": [
+                    {
+                      "direction": "supply",
+                      "article": "262(1)(a)",
+                      "documentId": "documentId",
+                      "documentType": "invoice",
+                      "number": "number",
+                      "issueDate": "2023-01-15",
+                      "partnerName": "partnerName",
+                      "supplierVatNumber": "supplierVatNumber",
+                      "customerVatNumber": "customerVatNumber",
+                      "currency": "currency",
+                      "lines": [
+                        {
+                          "description": "description",
+                          "quantity": "quantity",
+                          "unit": "unit",
+                          "unitPrice": "unitPrice",
+                          "taxableAmount": "taxableAmount",
+                          "vatRatePercent": "vatRatePercent",
+                          "vatAmount": "vatAmount"
+                        },
+                        {
+                          "description": "description",
+                          "quantity": "quantity",
+                          "unit": "unit",
+                          "unitPrice": "unitPrice",
+                          "taxableAmount": "taxableAmount",
+                          "vatRatePercent": "vatRatePercent",
+                          "vatAmount": "vatAmount"
+                        }
+                      ],
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "exemptionReference": "exemptionReference",
+                      "reverseCharge": true,
+                      "correctedInvoiceNumber": "correctedInvoiceNumber",
+                      "supplierAccounts": [
+                        "supplierAccounts",
+                        "supplierAccounts"
+                      ],
+                      "reportTo": "reportTo",
+                      "deadline": "deadline",
+                      "missing": [
+                        "missing",
+                        "missing"
+                      ]
+                    },
+                    {
+                      "direction": "supply",
+                      "article": "262(1)(a)",
+                      "documentId": "documentId",
+                      "documentType": "invoice",
+                      "number": "number",
+                      "issueDate": "2023-01-15",
+                      "partnerName": "partnerName",
+                      "supplierVatNumber": "supplierVatNumber",
+                      "customerVatNumber": "customerVatNumber",
+                      "currency": "currency",
+                      "lines": [
+                        {
+                          "description": "description",
+                          "quantity": "quantity",
+                          "unit": "unit",
+                          "unitPrice": "unitPrice",
+                          "taxableAmount": "taxableAmount",
+                          "vatRatePercent": "vatRatePercent",
+                          "vatAmount": "vatAmount"
+                        },
+                        {
+                          "description": "description",
+                          "quantity": "quantity",
+                          "unit": "unit",
+                          "unitPrice": "unitPrice",
+                          "taxableAmount": "taxableAmount",
+                          "vatRatePercent": "vatRatePercent",
+                          "vatAmount": "vatAmount"
+                        }
+                      ],
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "exemptionReference": "exemptionReference",
+                      "reverseCharge": true,
+                      "correctedInvoiceNumber": "correctedInvoiceNumber",
+                      "supplierAccounts": [
+                        "supplierAccounts",
+                        "supplierAccounts"
+                      ],
+                      "reportTo": "reportTo",
+                      "deadline": "deadline",
+                      "missing": [
+                        "missing",
+                        "missing"
+                      ]
+                    }
+                  ],
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EuDigitalReportingListDeclarationsResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
+            appliesFrom: "appliesFrom",
+            reportTo: "reportTo",
+            transactions: [
+                EuDigitalReportingListDeclarationsResponseTransactionsItem(
+                    direction: .supply,
+                    article: .twoHundredSixtyTwo1A,
+                    documentId: "documentId",
+                    documentType: .invoice,
+                    number: Nullable<String>.value("number"),
+                    issueDate: CalendarDate("2023-01-15")!,
+                    partnerName: "partnerName",
+                    supplierVatNumber: Nullable<String>.value("supplierVatNumber"),
+                    customerVatNumber: Nullable<String>.value("customerVatNumber"),
+                    currency: "currency",
+                    lines: [
+                        EuDigitalReportingListDeclarationsResponseTransactionsItemLinesItem(
+                            description: "description",
+                            quantity: "quantity",
+                            unit: "unit",
+                            unitPrice: Nullable<String>.value("unitPrice"),
+                            taxableAmount: "taxableAmount",
+                            vatRatePercent: "vatRatePercent",
+                            vatAmount: "vatAmount"
+                        ),
+                        EuDigitalReportingListDeclarationsResponseTransactionsItemLinesItem(
+                            description: "description",
+                            quantity: "quantity",
+                            unit: "unit",
+                            unitPrice: Nullable<String>.value("unitPrice"),
+                            taxableAmount: "taxableAmount",
+                            vatRatePercent: "vatRatePercent",
+                            vatAmount: "vatAmount"
+                        )
+                    ],
+                    taxableAmount: "taxableAmount",
+                    vatAmount: Nullable<String>.value("vatAmount"),
+                    exemptionReference: Nullable<String>.value("exemptionReference"),
+                    reverseCharge: true,
+                    correctedInvoiceNumber: Nullable<String>.value("correctedInvoiceNumber"),
+                    supplierAccounts: [
+                        "supplierAccounts",
+                        "supplierAccounts"
+                    ],
+                    reportTo: "reportTo",
+                    deadline: "deadline",
+                    missing: [
+                        "missing",
+                        "missing"
+                    ]
+                ),
+                EuDigitalReportingListDeclarationsResponseTransactionsItem(
+                    direction: .supply,
+                    article: .twoHundredSixtyTwo1A,
+                    documentId: "documentId",
+                    documentType: .invoice,
+                    number: Nullable<String>.value("number"),
+                    issueDate: CalendarDate("2023-01-15")!,
+                    partnerName: "partnerName",
+                    supplierVatNumber: Nullable<String>.value("supplierVatNumber"),
+                    customerVatNumber: Nullable<String>.value("customerVatNumber"),
+                    currency: "currency",
+                    lines: [
+                        EuDigitalReportingListDeclarationsResponseTransactionsItemLinesItem(
+                            description: "description",
+                            quantity: "quantity",
+                            unit: "unit",
+                            unitPrice: Nullable<String>.value("unitPrice"),
+                            taxableAmount: "taxableAmount",
+                            vatRatePercent: "vatRatePercent",
+                            vatAmount: "vatAmount"
+                        ),
+                        EuDigitalReportingListDeclarationsResponseTransactionsItemLinesItem(
+                            description: "description",
+                            quantity: "quantity",
+                            unit: "unit",
+                            unitPrice: Nullable<String>.value("unitPrice"),
+                            taxableAmount: "taxableAmount",
+                            vatRatePercent: "vatRatePercent",
+                            vatAmount: "vatAmount"
+                        )
+                    ],
+                    taxableAmount: "taxableAmount",
+                    vatAmount: Nullable<String>.value("vatAmount"),
+                    exemptionReference: Nullable<String>.value("exemptionReference"),
+                    reverseCharge: true,
+                    correctedInvoiceNumber: Nullable<String>.value("correctedInvoiceNumber"),
+                    supplierAccounts: [
+                        "supplierAccounts",
+                        "supplierAccounts"
+                    ],
+                    reportTo: "reportTo",
+                    deadline: "deadline",
+                    missing: [
+                        "missing",
+                        "missing"
+                    ]
+                )
+            ],
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.euDigitalReportingList(
+            request: .init(
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func euDac7Preview1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "country": "country",
+                  "system": "system",
+                  "sendsDirectly": true,
+                  "messageTypeIndic": "messageTypeIndic",
+                  "currency": "currency",
+                  "sellers": [
+                    {
+                      "sellerId": "sellerId",
+                      "name": "name",
+                      "reportable": true,
+                      "reason": "reason",
+                      "consideration": "consideration",
+                      "activities": 1000000,
+                      "warnings": [
+                        "warnings"
+                      ]
+                    }
+                  ],
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EuDac7PreviewDeclarationsResponse(
+            year: 1000000,
+            country: "country",
+            system: "system",
+            sendsDirectly: true,
+            messageTypeIndic: "messageTypeIndic",
+            currency: "currency",
+            sellers: [
+                EuDac7PreviewDeclarationsResponseSellersItem(
+                    sellerId: "sellerId",
+                    name: "name",
+                    reportable: true,
+                    reason: Nullable<String>.value("reason"),
+                    consideration: "consideration",
+                    activities: 1000000,
+                    warnings: [
+                        "warnings"
+                    ]
+                )
+            ],
+            warnings: [
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.euDac7Preview(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func euDac7Preview2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "country": "country",
+                  "system": "system",
+                  "sendsDirectly": true,
+                  "messageTypeIndic": "messageTypeIndic",
+                  "currency": "currency",
+                  "sellers": [
+                    {
+                      "sellerId": "sellerId",
+                      "name": "name",
+                      "reportable": true,
+                      "reason": "reason",
+                      "consideration": "consideration",
+                      "activities": 1000000,
+                      "warnings": [
+                        "warnings",
+                        "warnings"
+                      ]
+                    },
+                    {
+                      "sellerId": "sellerId",
+                      "name": "name",
+                      "reportable": true,
+                      "reason": "reason",
+                      "consideration": "consideration",
+                      "activities": 1000000,
+                      "warnings": [
+                        "warnings",
+                        "warnings"
+                      ]
+                    }
+                  ],
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EuDac7PreviewDeclarationsResponse(
+            year: 1000000,
+            country: "country",
+            system: "system",
+            sendsDirectly: true,
+            messageTypeIndic: "messageTypeIndic",
+            currency: "currency",
+            sellers: [
+                EuDac7PreviewDeclarationsResponseSellersItem(
+                    sellerId: "sellerId",
+                    name: "name",
+                    reportable: true,
+                    reason: Nullable<String>.value("reason"),
+                    consideration: "consideration",
+                    activities: 1000000,
+                    warnings: [
+                        "warnings",
+                        "warnings"
+                    ]
+                ),
+                EuDac7PreviewDeclarationsResponseSellersItem(
+                    sellerId: "sellerId",
+                    name: "name",
+                    reportable: true,
+                    reason: Nullable<String>.value("reason"),
+                    consideration: "consideration",
+                    activities: 1000000,
+                    warnings: [
+                        "warnings",
+                        "warnings"
+                    ]
+                )
+            ],
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.euDac7Preview(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func euDac7Xml1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EuDac7XmlDeclarationsResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.euDac7Xml(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func euDac7Xml2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EuDac7XmlDeclarationsResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.euDac7Xml(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func euDistanceSalesThresholdGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

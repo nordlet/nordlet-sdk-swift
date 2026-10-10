@@ -4,6 +4,7 @@ import Foundation
 public enum SubscriptionsUpdateWebhooksRequestEventsItem: String, Codable, Hashable, CaseIterable, Sendable {
     case agreementInvoiceGenerated = "agreement.invoice_generated"
     case bankFeedSynced = "bank_feed.synced"
+    case documentCapturePeppolReceived = "document_capture.peppol_received"
     case filingFailed = "filing.failed"
     case filingRejected = "filing.rejected"
     case goodsReceiptPosted = "goods_receipt.posted"
@@ -31,6 +32,9 @@ public enum SubscriptionsUpdateWebhooksRequestEventsItem: String, Codable, Hasha
     case saleInvoiceEinvoiceSent = "sale_invoice.einvoice_sent"
     case saleInvoiceIssued = "sale_invoice.issued"
     case saleInvoicePaid = "sale_invoice.paid"
+    case saleInvoicePeppolDelivered = "sale_invoice.peppol_delivered"
+    case saleInvoicePeppolFailed = "sale_invoice.peppol_failed"
+    case saleInvoicePeppolRejected = "sale_invoice.peppol_rejected"
     case saleInvoicePeppolSent = "sale_invoice.peppol_sent"
     case saleInvoiceSent = "sale_invoice.sent"
     case salesOrderCreated = "sales_order.created"

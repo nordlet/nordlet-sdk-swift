@@ -4,6 +4,7 @@ extension Requests {
     public struct AccountsUpdateBankRequest: Codable, Hashable, Sendable {
         public let id: String
         public let name: String?
+        public let type: AccountsUpdateBankRequestType?
         public let iban: String?
         public let accountCode: String?
         public let isActive: Bool?
@@ -13,6 +14,7 @@ extension Requests {
         public init(
             id: String,
             name: String? = nil,
+            type: AccountsUpdateBankRequestType? = nil,
             iban: String? = nil,
             accountCode: String? = nil,
             isActive: Bool? = nil,
@@ -20,6 +22,7 @@ extension Requests {
         ) {
             self.id = id
             self.name = name
+            self.type = type
             self.iban = iban
             self.accountCode = accountCode
             self.isActive = isActive
@@ -30,6 +33,7 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.id = try container.decode(String.self, forKey: .id)
             self.name = try container.decodeIfPresent(String.self, forKey: .name)
+            self.type = try container.decodeIfPresent(AccountsUpdateBankRequestType.self, forKey: .type)
             self.iban = try container.decodeIfPresent(String.self, forKey: .iban)
             self.accountCode = try container.decodeIfPresent(String.self, forKey: .accountCode)
             self.isActive = try container.decodeIfPresent(Bool.self, forKey: .isActive)
@@ -41,6 +45,7 @@ extension Requests {
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.id, forKey: .id)
             try container.encodeIfPresent(self.name, forKey: .name)
+            try container.encodeIfPresent(self.type, forKey: .type)
             try container.encodeIfPresent(self.iban, forKey: .iban)
             try container.encodeIfPresent(self.accountCode, forKey: .accountCode)
             try container.encodeIfPresent(self.isActive, forKey: .isActive)
@@ -50,6 +55,7 @@ extension Requests {
         enum CodingKeys: String, CodingKey, CaseIterable {
             case id
             case name
+            case type
             case iban
             case accountCode
             case isActive

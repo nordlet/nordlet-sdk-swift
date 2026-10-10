@@ -281,6 +281,7 @@ import Api
                   "model": "model",
                   "pagesProcessed": 1000000,
                   "extraction": {
+                    "documentType": "invoice",
                     "supplier": {
                       "name": "name",
                       "code": "code",
@@ -307,11 +308,24 @@ import Api
                         "lineVat": null,
                         "lineGross": null
                       }
+                    ],
+                    "oppositeLines": [
+                      {
+                        "description": "description",
+                        "quantity": "quantity",
+                        "unit": null,
+                        "unitPriceExclVat": null,
+                        "vatRatePercent": null,
+                        "lineNet": null,
+                        "lineVat": null,
+                        "lineGross": null
+                      }
                     ]
                   },
                   "matchedPartnerId": "matchedPartnerId",
                   "purchaseInvoiceId": "purchaseInvoiceId",
                   "error": "error",
+                  "senderId": "senderId",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
                   "rawText": "rawText"
@@ -335,6 +349,7 @@ import Api
             model: Nullable<String>.value("model"),
             pagesProcessed: Nullable<Int64>.value(1000000),
             extraction: Nullable<DocumentsUploadCaptureResponseExtraction>.value(DocumentsUploadCaptureResponseExtraction(
+                documentType: Optional(.invoice),
                 supplier: DocumentsUploadCaptureResponseExtractionSupplier(
                     name: Nullable<String>.value("name"),
                     code: Nullable<String>.value("code"),
@@ -361,11 +376,24 @@ import Api
                         lineVat: .null,
                         lineGross: .null
                     )
-                ]
+                ],
+                oppositeLines: Optional([
+                    DocumentsUploadCaptureResponseExtractionOppositeLinesItem(
+                        description: "description",
+                        quantity: "quantity",
+                        unit: .null,
+                        unitPriceExclVat: .null,
+                        vatRatePercent: .null,
+                        lineNet: .null,
+                        lineVat: .null,
+                        lineGross: .null
+                    )
+                ])
             )),
             matchedPartnerId: Nullable<String>.value("matchedPartnerId"),
             purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
             error: Nullable<String>.value("error"),
+            senderId: Nullable<String>.value("senderId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             rawText: Nullable<String>.value("rawText")
@@ -397,6 +425,7 @@ import Api
                   "model": "model",
                   "pagesProcessed": 1000000,
                   "extraction": {
+                    "documentType": "invoice",
                     "supplier": {
                       "name": "name",
                       "code": "code",
@@ -433,11 +462,34 @@ import Api
                         "lineVat": "lineVat",
                         "lineGross": "lineGross"
                       }
+                    ],
+                    "oppositeLines": [
+                      {
+                        "description": "description",
+                        "quantity": "quantity",
+                        "unit": "unit",
+                        "unitPriceExclVat": "unitPriceExclVat",
+                        "vatRatePercent": "vatRatePercent",
+                        "lineNet": "lineNet",
+                        "lineVat": "lineVat",
+                        "lineGross": "lineGross"
+                      },
+                      {
+                        "description": "description",
+                        "quantity": "quantity",
+                        "unit": "unit",
+                        "unitPriceExclVat": "unitPriceExclVat",
+                        "vatRatePercent": "vatRatePercent",
+                        "lineNet": "lineNet",
+                        "lineVat": "lineVat",
+                        "lineGross": "lineGross"
+                      }
                     ]
                   },
                   "matchedPartnerId": "x",
                   "purchaseInvoiceId": "x",
                   "error": "error",
+                  "senderId": "senderId",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
                   "rawText": "rawText"
@@ -461,6 +513,7 @@ import Api
             model: Nullable<String>.value("model"),
             pagesProcessed: Nullable<Int64>.value(1000000),
             extraction: Nullable<DocumentsUploadCaptureResponseExtraction>.value(DocumentsUploadCaptureResponseExtraction(
+                documentType: Optional(.invoice),
                 supplier: DocumentsUploadCaptureResponseExtractionSupplier(
                     name: Nullable<String>.value("name"),
                     code: Nullable<String>.value("code"),
@@ -497,11 +550,34 @@ import Api
                         lineVat: Nullable<String>.value("lineVat"),
                         lineGross: Nullable<String>.value("lineGross")
                     )
-                ]
+                ],
+                oppositeLines: Optional([
+                    DocumentsUploadCaptureResponseExtractionOppositeLinesItem(
+                        description: "description",
+                        quantity: "quantity",
+                        unit: Nullable<String>.value("unit"),
+                        unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                        vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                        lineNet: Nullable<String>.value("lineNet"),
+                        lineVat: Nullable<String>.value("lineVat"),
+                        lineGross: Nullable<String>.value("lineGross")
+                    ),
+                    DocumentsUploadCaptureResponseExtractionOppositeLinesItem(
+                        description: "description",
+                        quantity: "quantity",
+                        unit: Nullable<String>.value("unit"),
+                        unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                        vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                        lineNet: Nullable<String>.value("lineNet"),
+                        lineVat: Nullable<String>.value("lineVat"),
+                        lineGross: Nullable<String>.value("lineGross")
+                    )
+                ])
             )),
             matchedPartnerId: Nullable<String>.value("x"),
             purchaseInvoiceId: Nullable<String>.value("x"),
             error: Nullable<String>.value("error"),
+            senderId: Nullable<String>.value("senderId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             rawText: Nullable<String>.value("rawText")
@@ -533,6 +609,7 @@ import Api
                   "model": "model",
                   "pagesProcessed": 1000000,
                   "extraction": {
+                    "documentType": "invoice",
                     "supplier": {
                       "name": "name",
                       "code": "code",
@@ -559,11 +636,24 @@ import Api
                         "lineVat": null,
                         "lineGross": null
                       }
+                    ],
+                    "oppositeLines": [
+                      {
+                        "description": "description",
+                        "quantity": "quantity",
+                        "unit": null,
+                        "unitPriceExclVat": null,
+                        "vatRatePercent": null,
+                        "lineNet": null,
+                        "lineVat": null,
+                        "lineGross": null
+                      }
                     ]
                   },
                   "matchedPartnerId": "matchedPartnerId",
                   "purchaseInvoiceId": "purchaseInvoiceId",
                   "error": "error",
+                  "senderId": "senderId",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
                   "rawText": "rawText"
@@ -587,6 +677,7 @@ import Api
             model: Nullable<String>.value("model"),
             pagesProcessed: Nullable<Int64>.value(1000000),
             extraction: Nullable<DocumentsExtractCaptureResponseExtraction>.value(DocumentsExtractCaptureResponseExtraction(
+                documentType: Optional(.invoice),
                 supplier: DocumentsExtractCaptureResponseExtractionSupplier(
                     name: Nullable<String>.value("name"),
                     code: Nullable<String>.value("code"),
@@ -613,11 +704,24 @@ import Api
                         lineVat: .null,
                         lineGross: .null
                     )
-                ]
+                ],
+                oppositeLines: Optional([
+                    DocumentsExtractCaptureResponseExtractionOppositeLinesItem(
+                        description: "description",
+                        quantity: "quantity",
+                        unit: .null,
+                        unitPriceExclVat: .null,
+                        vatRatePercent: .null,
+                        lineNet: .null,
+                        lineVat: .null,
+                        lineGross: .null
+                    )
+                ])
             )),
             matchedPartnerId: Nullable<String>.value("matchedPartnerId"),
             purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
             error: Nullable<String>.value("error"),
+            senderId: Nullable<String>.value("senderId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             rawText: Nullable<String>.value("rawText")
@@ -645,6 +749,7 @@ import Api
                   "model": "model",
                   "pagesProcessed": 1000000,
                   "extraction": {
+                    "documentType": "invoice",
                     "supplier": {
                       "name": "name",
                       "code": "code",
@@ -681,11 +786,34 @@ import Api
                         "lineVat": "lineVat",
                         "lineGross": "lineGross"
                       }
+                    ],
+                    "oppositeLines": [
+                      {
+                        "description": "description",
+                        "quantity": "quantity",
+                        "unit": "unit",
+                        "unitPriceExclVat": "unitPriceExclVat",
+                        "vatRatePercent": "vatRatePercent",
+                        "lineNet": "lineNet",
+                        "lineVat": "lineVat",
+                        "lineGross": "lineGross"
+                      },
+                      {
+                        "description": "description",
+                        "quantity": "quantity",
+                        "unit": "unit",
+                        "unitPriceExclVat": "unitPriceExclVat",
+                        "vatRatePercent": "vatRatePercent",
+                        "lineNet": "lineNet",
+                        "lineVat": "lineVat",
+                        "lineGross": "lineGross"
+                      }
                     ]
                   },
                   "matchedPartnerId": "x",
                   "purchaseInvoiceId": "x",
                   "error": "error",
+                  "senderId": "senderId",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
                   "rawText": "rawText"
@@ -709,6 +837,7 @@ import Api
             model: Nullable<String>.value("model"),
             pagesProcessed: Nullable<Int64>.value(1000000),
             extraction: Nullable<DocumentsExtractCaptureResponseExtraction>.value(DocumentsExtractCaptureResponseExtraction(
+                documentType: Optional(.invoice),
                 supplier: DocumentsExtractCaptureResponseExtractionSupplier(
                     name: Nullable<String>.value("name"),
                     code: Nullable<String>.value("code"),
@@ -745,11 +874,34 @@ import Api
                         lineVat: Nullable<String>.value("lineVat"),
                         lineGross: Nullable<String>.value("lineGross")
                     )
-                ]
+                ],
+                oppositeLines: Optional([
+                    DocumentsExtractCaptureResponseExtractionOppositeLinesItem(
+                        description: "description",
+                        quantity: "quantity",
+                        unit: Nullable<String>.value("unit"),
+                        unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                        vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                        lineNet: Nullable<String>.value("lineNet"),
+                        lineVat: Nullable<String>.value("lineVat"),
+                        lineGross: Nullable<String>.value("lineGross")
+                    ),
+                    DocumentsExtractCaptureResponseExtractionOppositeLinesItem(
+                        description: "description",
+                        quantity: "quantity",
+                        unit: Nullable<String>.value("unit"),
+                        unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                        vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                        lineNet: Nullable<String>.value("lineNet"),
+                        lineVat: Nullable<String>.value("lineVat"),
+                        lineGross: Nullable<String>.value("lineGross")
+                    )
+                ])
             )),
             matchedPartnerId: Nullable<String>.value("x"),
             purchaseInvoiceId: Nullable<String>.value("x"),
             error: Nullable<String>.value("error"),
+            senderId: Nullable<String>.value("senderId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             rawText: Nullable<String>.value("rawText")
@@ -777,6 +929,7 @@ import Api
                   "model": "model",
                   "pagesProcessed": 1000000,
                   "extraction": {
+                    "documentType": "invoice",
                     "supplier": {
                       "name": "name",
                       "code": "code",
@@ -803,11 +956,24 @@ import Api
                         "lineVat": null,
                         "lineGross": null
                       }
+                    ],
+                    "oppositeLines": [
+                      {
+                        "description": "description",
+                        "quantity": "quantity",
+                        "unit": null,
+                        "unitPriceExclVat": null,
+                        "vatRatePercent": null,
+                        "lineNet": null,
+                        "lineVat": null,
+                        "lineGross": null
+                      }
                     ]
                   },
                   "matchedPartnerId": "matchedPartnerId",
                   "purchaseInvoiceId": "purchaseInvoiceId",
                   "error": "error",
+                  "senderId": "senderId",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
                   "rawText": "rawText"
@@ -831,6 +997,7 @@ import Api
             model: Nullable<String>.value("model"),
             pagesProcessed: Nullable<Int64>.value(1000000),
             extraction: Nullable<DocumentsGetCaptureResponseExtraction>.value(DocumentsGetCaptureResponseExtraction(
+                documentType: Optional(.invoice),
                 supplier: DocumentsGetCaptureResponseExtractionSupplier(
                     name: Nullable<String>.value("name"),
                     code: Nullable<String>.value("code"),
@@ -857,11 +1024,24 @@ import Api
                         lineVat: .null,
                         lineGross: .null
                     )
-                ]
+                ],
+                oppositeLines: Optional([
+                    DocumentsGetCaptureResponseExtractionOppositeLinesItem(
+                        description: "description",
+                        quantity: "quantity",
+                        unit: .null,
+                        unitPriceExclVat: .null,
+                        vatRatePercent: .null,
+                        lineNet: .null,
+                        lineVat: .null,
+                        lineGross: .null
+                    )
+                ])
             )),
             matchedPartnerId: Nullable<String>.value("matchedPartnerId"),
             purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
             error: Nullable<String>.value("error"),
+            senderId: Nullable<String>.value("senderId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             rawText: Nullable<String>.value("rawText")
@@ -889,6 +1069,7 @@ import Api
                   "model": "model",
                   "pagesProcessed": 1000000,
                   "extraction": {
+                    "documentType": "invoice",
                     "supplier": {
                       "name": "name",
                       "code": "code",
@@ -925,11 +1106,34 @@ import Api
                         "lineVat": "lineVat",
                         "lineGross": "lineGross"
                       }
+                    ],
+                    "oppositeLines": [
+                      {
+                        "description": "description",
+                        "quantity": "quantity",
+                        "unit": "unit",
+                        "unitPriceExclVat": "unitPriceExclVat",
+                        "vatRatePercent": "vatRatePercent",
+                        "lineNet": "lineNet",
+                        "lineVat": "lineVat",
+                        "lineGross": "lineGross"
+                      },
+                      {
+                        "description": "description",
+                        "quantity": "quantity",
+                        "unit": "unit",
+                        "unitPriceExclVat": "unitPriceExclVat",
+                        "vatRatePercent": "vatRatePercent",
+                        "lineNet": "lineNet",
+                        "lineVat": "lineVat",
+                        "lineGross": "lineGross"
+                      }
                     ]
                   },
                   "matchedPartnerId": "x",
                   "purchaseInvoiceId": "x",
                   "error": "error",
+                  "senderId": "senderId",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
                   "rawText": "rawText"
@@ -953,6 +1157,7 @@ import Api
             model: Nullable<String>.value("model"),
             pagesProcessed: Nullable<Int64>.value(1000000),
             extraction: Nullable<DocumentsGetCaptureResponseExtraction>.value(DocumentsGetCaptureResponseExtraction(
+                documentType: Optional(.invoice),
                 supplier: DocumentsGetCaptureResponseExtractionSupplier(
                     name: Nullable<String>.value("name"),
                     code: Nullable<String>.value("code"),
@@ -989,11 +1194,34 @@ import Api
                         lineVat: Nullable<String>.value("lineVat"),
                         lineGross: Nullable<String>.value("lineGross")
                     )
-                ]
+                ],
+                oppositeLines: Optional([
+                    DocumentsGetCaptureResponseExtractionOppositeLinesItem(
+                        description: "description",
+                        quantity: "quantity",
+                        unit: Nullable<String>.value("unit"),
+                        unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                        vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                        lineNet: Nullable<String>.value("lineNet"),
+                        lineVat: Nullable<String>.value("lineVat"),
+                        lineGross: Nullable<String>.value("lineGross")
+                    ),
+                    DocumentsGetCaptureResponseExtractionOppositeLinesItem(
+                        description: "description",
+                        quantity: "quantity",
+                        unit: Nullable<String>.value("unit"),
+                        unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                        vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                        lineNet: Nullable<String>.value("lineNet"),
+                        lineVat: Nullable<String>.value("lineVat"),
+                        lineGross: Nullable<String>.value("lineGross")
+                    )
+                ])
             )),
             matchedPartnerId: Nullable<String>.value("x"),
             purchaseInvoiceId: Nullable<String>.value("x"),
             error: Nullable<String>.value("error"),
+            senderId: Nullable<String>.value("senderId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             rawText: Nullable<String>.value("rawText")
@@ -1054,6 +1282,7 @@ import Api
                       "matchedPartnerId": "matchedPartnerId",
                       "purchaseInvoiceId": "purchaseInvoiceId",
                       "error": "error",
+                      "senderId": "senderId",
                       "createdAt": "2026-07-01T09:30:00Z",
                       "updatedAt": "2026-07-01T09:30:00Z"
                     }
@@ -1122,6 +1351,7 @@ import Api
                     matchedPartnerId: Nullable<String>.value("matchedPartnerId"),
                     purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
                     error: Nullable<String>.value("error"),
+                    senderId: Nullable<String>.value("senderId"),
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
@@ -1163,6 +1393,7 @@ import Api
                       "model": "model",
                       "pagesProcessed": 1000000,
                       "extraction": {
+                        "documentType": "invoice",
                         "supplier": {
                           "name": "name",
                           "code": "code",
@@ -1199,11 +1430,34 @@ import Api
                             "lineVat": "lineVat",
                             "lineGross": "lineGross"
                           }
+                        ],
+                        "oppositeLines": [
+                          {
+                            "description": "description",
+                            "quantity": "quantity",
+                            "unit": "unit",
+                            "unitPriceExclVat": "unitPriceExclVat",
+                            "vatRatePercent": "vatRatePercent",
+                            "lineNet": "lineNet",
+                            "lineVat": "lineVat",
+                            "lineGross": "lineGross"
+                          },
+                          {
+                            "description": "description",
+                            "quantity": "quantity",
+                            "unit": "unit",
+                            "unitPriceExclVat": "unitPriceExclVat",
+                            "vatRatePercent": "vatRatePercent",
+                            "lineNet": "lineNet",
+                            "lineVat": "lineVat",
+                            "lineGross": "lineGross"
+                          }
                         ]
                       },
                       "matchedPartnerId": "x",
                       "purchaseInvoiceId": "x",
                       "error": "error",
+                      "senderId": "senderId",
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z"
                     },
@@ -1218,6 +1472,7 @@ import Api
                       "model": "model",
                       "pagesProcessed": 1000000,
                       "extraction": {
+                        "documentType": "invoice",
                         "supplier": {
                           "name": "name",
                           "code": "code",
@@ -1254,11 +1509,34 @@ import Api
                             "lineVat": "lineVat",
                             "lineGross": "lineGross"
                           }
+                        ],
+                        "oppositeLines": [
+                          {
+                            "description": "description",
+                            "quantity": "quantity",
+                            "unit": "unit",
+                            "unitPriceExclVat": "unitPriceExclVat",
+                            "vatRatePercent": "vatRatePercent",
+                            "lineNet": "lineNet",
+                            "lineVat": "lineVat",
+                            "lineGross": "lineGross"
+                          },
+                          {
+                            "description": "description",
+                            "quantity": "quantity",
+                            "unit": "unit",
+                            "unitPriceExclVat": "unitPriceExclVat",
+                            "vatRatePercent": "vatRatePercent",
+                            "lineNet": "lineNet",
+                            "lineVat": "lineVat",
+                            "lineGross": "lineGross"
+                          }
                         ]
                       },
                       "matchedPartnerId": "x",
                       "purchaseInvoiceId": "x",
                       "error": "error",
+                      "senderId": "senderId",
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z"
                     }
@@ -1296,6 +1574,7 @@ import Api
                     model: Nullable<String>.value("model"),
                     pagesProcessed: Nullable<Int64>.value(1000000),
                     extraction: Nullable<DocumentsListCaptureResponseRowsItemExtraction>.value(DocumentsListCaptureResponseRowsItemExtraction(
+                        documentType: Optional(.invoice),
                         supplier: DocumentsListCaptureResponseRowsItemExtractionSupplier(
                             name: Nullable<String>.value("name"),
                             code: Nullable<String>.value("code"),
@@ -1332,11 +1611,34 @@ import Api
                                 lineVat: Nullable<String>.value("lineVat"),
                                 lineGross: Nullable<String>.value("lineGross")
                             )
-                        ]
+                        ],
+                        oppositeLines: Optional([
+                            DocumentsListCaptureResponseRowsItemExtractionOppositeLinesItem(
+                                description: "description",
+                                quantity: "quantity",
+                                unit: Nullable<String>.value("unit"),
+                                unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                                vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                                lineNet: Nullable<String>.value("lineNet"),
+                                lineVat: Nullable<String>.value("lineVat"),
+                                lineGross: Nullable<String>.value("lineGross")
+                            ),
+                            DocumentsListCaptureResponseRowsItemExtractionOppositeLinesItem(
+                                description: "description",
+                                quantity: "quantity",
+                                unit: Nullable<String>.value("unit"),
+                                unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                                vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                                lineNet: Nullable<String>.value("lineNet"),
+                                lineVat: Nullable<String>.value("lineVat"),
+                                lineGross: Nullable<String>.value("lineGross")
+                            )
+                        ])
                     )),
                     matchedPartnerId: Nullable<String>.value("x"),
                     purchaseInvoiceId: Nullable<String>.value("x"),
                     error: Nullable<String>.value("error"),
+                    senderId: Nullable<String>.value("senderId"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
@@ -1351,6 +1653,7 @@ import Api
                     model: Nullable<String>.value("model"),
                     pagesProcessed: Nullable<Int64>.value(1000000),
                     extraction: Nullable<DocumentsListCaptureResponseRowsItemExtraction>.value(DocumentsListCaptureResponseRowsItemExtraction(
+                        documentType: Optional(.invoice),
                         supplier: DocumentsListCaptureResponseRowsItemExtractionSupplier(
                             name: Nullable<String>.value("name"),
                             code: Nullable<String>.value("code"),
@@ -1387,11 +1690,34 @@ import Api
                                 lineVat: Nullable<String>.value("lineVat"),
                                 lineGross: Nullable<String>.value("lineGross")
                             )
-                        ]
+                        ],
+                        oppositeLines: Optional([
+                            DocumentsListCaptureResponseRowsItemExtractionOppositeLinesItem(
+                                description: "description",
+                                quantity: "quantity",
+                                unit: Nullable<String>.value("unit"),
+                                unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                                vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                                lineNet: Nullable<String>.value("lineNet"),
+                                lineVat: Nullable<String>.value("lineVat"),
+                                lineGross: Nullable<String>.value("lineGross")
+                            ),
+                            DocumentsListCaptureResponseRowsItemExtractionOppositeLinesItem(
+                                description: "description",
+                                quantity: "quantity",
+                                unit: Nullable<String>.value("unit"),
+                                unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                                vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                                lineNet: Nullable<String>.value("lineNet"),
+                                lineVat: Nullable<String>.value("lineVat"),
+                                lineGross: Nullable<String>.value("lineGross")
+                            )
+                        ])
                     )),
                     matchedPartnerId: Nullable<String>.value("x"),
                     purchaseInvoiceId: Nullable<String>.value("x"),
                     error: Nullable<String>.value("error"),
+                    senderId: Nullable<String>.value("senderId"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
@@ -1484,6 +1810,7 @@ import Api
                     "model": "model",
                     "pagesProcessed": 1000000,
                     "extraction": {
+                      "documentType": "invoice",
                       "supplier": {
                         "name": null,
                         "code": null,
@@ -1510,15 +1837,79 @@ import Api
                           "lineVat": null,
                           "lineGross": null
                         }
+                      ],
+                      "oppositeLines": [
+                        {
+                          "description": "description",
+                          "quantity": "quantity",
+                          "unit": null,
+                          "unitPriceExclVat": null,
+                          "vatRatePercent": null,
+                          "lineNet": null,
+                          "lineVat": null,
+                          "lineGross": null
+                        }
                       ]
                     },
                     "matchedPartnerId": "matchedPartnerId",
                     "purchaseInvoiceId": "purchaseInvoiceId",
                     "error": "error",
+                    "senderId": "senderId",
                     "createdAt": "2026-07-01T09:30:00Z",
                     "updatedAt": "2026-07-01T09:30:00Z"
                   },
                   "invoice": {
+                    "id": "id",
+                    "partnerId": "partnerId",
+                    "type": "invoice",
+                    "status": "draft",
+                    "paymentStatus": "unpaid",
+                    "documentNumber": "documentNumber",
+                    "documentDate": "2026-07-01",
+                    "dueDate": "2026-07-01",
+                    "registrationDate": "2026-07-01",
+                    "currency": "currency",
+                    "netTotal": "netTotal",
+                    "vatTotal": "vatTotal",
+                    "grossTotal": "grossTotal",
+                    "paidAmount": "paidAmount",
+                    "journalTransactionId": "journalTransactionId",
+                    "creditedInvoiceId": "creditedInvoiceId",
+                    "purchaseOrderId": "purchaseOrderId",
+                    "operationTypeId": "operationTypeId",
+                    "notes": "notes",
+                    "intrastatTransportMode": "intrastatTransportMode",
+                    "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                    "intrastatRegion": "intrastatRegion",
+                    "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                    "einvoiceNumber": "einvoiceNumber",
+                    "documentRef": "documentRef",
+                    "createdAt": "2026-07-01T09:30:00Z",
+                    "updatedAt": "2026-07-01T09:30:00Z",
+                    "lines": [
+                      {
+                        "id": "id",
+                        "itemId": null,
+                        "description": "description",
+                        "unit": "unit",
+                        "quantity": "quantity",
+                        "unitPriceExclVat": null,
+                        "unitPriceInclVat": null,
+                        "vatRatePercent": "vatRatePercent",
+                        "vatClassifierCode": null,
+                        "costCenterId": null,
+                        "projectId": null,
+                        "accountCode": null,
+                        "deferralStartDate": "2026-07-01",
+                        "deferralEndDate": "2026-07-01",
+                        "lineNet": "lineNet",
+                        "lineVat": "lineVat",
+                        "lineGross": "lineGross",
+                        "sortOrder": 1000000
+                      }
+                    ]
+                  },
+                  "oppositeInvoice": {
                     "id": "id",
                     "partnerId": "partnerId",
                     "type": "invoice",
@@ -1590,6 +1981,7 @@ import Api
                 model: Nullable<String>.value("model"),
                 pagesProcessed: Nullable<Int64>.value(1000000),
                 extraction: Nullable<DocumentsConfirmCaptureResponseCaptureExtraction>.value(DocumentsConfirmCaptureResponseCaptureExtraction(
+                    documentType: Optional(.invoice),
                     supplier: DocumentsConfirmCaptureResponseCaptureExtractionSupplier(
                         name: .null,
                         code: .null,
@@ -1616,11 +2008,24 @@ import Api
                             lineVat: .null,
                             lineGross: .null
                         )
-                    ]
+                    ],
+                    oppositeLines: Optional([
+                        DocumentsConfirmCaptureResponseCaptureExtractionOppositeLinesItem(
+                            description: "description",
+                            quantity: "quantity",
+                            unit: .null,
+                            unitPriceExclVat: .null,
+                            vatRatePercent: .null,
+                            lineNet: .null,
+                            lineVat: .null,
+                            lineGross: .null
+                        )
+                    ])
                 )),
                 matchedPartnerId: Nullable<String>.value("matchedPartnerId"),
                 purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
                 error: Nullable<String>.value("error"),
+                senderId: Nullable<String>.value("senderId"),
                 createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                 updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
             ),
@@ -1674,7 +2079,58 @@ import Api
                         sortOrder: 1000000
                     )
                 ]
-            )
+            ),
+            oppositeInvoice: Nullable<DocumentsConfirmCaptureResponseOppositeInvoice>.value(DocumentsConfirmCaptureResponseOppositeInvoice(
+                id: "id",
+                partnerId: "partnerId",
+                type: .invoice,
+                status: .draft,
+                paymentStatus: .unpaid,
+                documentNumber: "documentNumber",
+                documentDate: CalendarDate("2026-07-01")!,
+                dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                registrationDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                currency: "currency",
+                netTotal: "netTotal",
+                vatTotal: "vatTotal",
+                grossTotal: "grossTotal",
+                paidAmount: "paidAmount",
+                journalTransactionId: Nullable<String>.value("journalTransactionId"),
+                creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+                purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
+                operationTypeId: Nullable<String>.value("operationTypeId"),
+                notes: Nullable<String>.value("notes"),
+                intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+                intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+                intrastatRegion: Nullable<String>.value("intrastatRegion"),
+                intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+                einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+                documentRef: Nullable<String>.value("documentRef"),
+                createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                lines: [
+                    DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem(
+                        id: "id",
+                        itemId: .null,
+                        description: "description",
+                        unit: "unit",
+                        quantity: "quantity",
+                        unitPriceExclVat: .null,
+                        unitPriceInclVat: .null,
+                        vatRatePercent: "vatRatePercent",
+                        vatClassifierCode: .null,
+                        costCenterId: .null,
+                        projectId: .null,
+                        accountCode: .null,
+                        deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                        deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                        lineNet: "lineNet",
+                        lineVat: "lineVat",
+                        lineGross: "lineGross",
+                        sortOrder: 1000000
+                    )
+                ]
+            ))
         )
         let response = try await client.capture.documentsConfirm(
             request: .init(
@@ -1709,6 +2165,7 @@ import Api
                     "model": "model",
                     "pagesProcessed": 1000000,
                     "extraction": {
+                      "documentType": "invoice",
                       "supplier": {
                         "name": "name",
                         "code": "code",
@@ -1745,15 +2202,109 @@ import Api
                           "lineVat": "lineVat",
                           "lineGross": "lineGross"
                         }
+                      ],
+                      "oppositeLines": [
+                        {
+                          "description": "description",
+                          "quantity": "quantity",
+                          "unit": "unit",
+                          "unitPriceExclVat": "unitPriceExclVat",
+                          "vatRatePercent": "vatRatePercent",
+                          "lineNet": "lineNet",
+                          "lineVat": "lineVat",
+                          "lineGross": "lineGross"
+                        },
+                        {
+                          "description": "description",
+                          "quantity": "quantity",
+                          "unit": "unit",
+                          "unitPriceExclVat": "unitPriceExclVat",
+                          "vatRatePercent": "vatRatePercent",
+                          "lineNet": "lineNet",
+                          "lineVat": "lineVat",
+                          "lineGross": "lineGross"
+                        }
                       ]
                     },
                     "matchedPartnerId": "x",
                     "purchaseInvoiceId": "x",
                     "error": "error",
+                    "senderId": "senderId",
                     "createdAt": "2024-01-15T09:30:00Z",
                     "updatedAt": "2024-01-15T09:30:00Z"
                   },
                   "invoice": {
+                    "id": "x",
+                    "partnerId": "x",
+                    "type": "invoice",
+                    "status": "draft",
+                    "paymentStatus": "unpaid",
+                    "documentNumber": "documentNumber",
+                    "documentDate": "2023-01-15",
+                    "dueDate": "2023-01-15",
+                    "registrationDate": "2023-01-15",
+                    "currency": "currency",
+                    "netTotal": "netTotal",
+                    "vatTotal": "vatTotal",
+                    "grossTotal": "grossTotal",
+                    "paidAmount": "paidAmount",
+                    "journalTransactionId": "x",
+                    "creditedInvoiceId": "x",
+                    "purchaseOrderId": "x",
+                    "operationTypeId": "x",
+                    "notes": "notes",
+                    "intrastatTransportMode": "intrastatTransportMode",
+                    "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                    "intrastatRegion": "intrastatRegion",
+                    "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                    "einvoiceNumber": "einvoiceNumber",
+                    "documentRef": "documentRef",
+                    "createdAt": "2024-01-15T09:30:00Z",
+                    "updatedAt": "2024-01-15T09:30:00Z",
+                    "lines": [
+                      {
+                        "id": "x",
+                        "itemId": "x",
+                        "description": "description",
+                        "unit": "unit",
+                        "quantity": "quantity",
+                        "unitPriceExclVat": "unitPriceExclVat",
+                        "unitPriceInclVat": "unitPriceInclVat",
+                        "vatRatePercent": "vatRatePercent",
+                        "vatClassifierCode": "vatClassifierCode",
+                        "costCenterId": "x",
+                        "projectId": "x",
+                        "accountCode": "accountCode",
+                        "deferralStartDate": "2023-01-15",
+                        "deferralEndDate": "2023-01-15",
+                        "lineNet": "lineNet",
+                        "lineVat": "lineVat",
+                        "lineGross": "lineGross",
+                        "sortOrder": 1000000
+                      },
+                      {
+                        "id": "x",
+                        "itemId": "x",
+                        "description": "description",
+                        "unit": "unit",
+                        "quantity": "quantity",
+                        "unitPriceExclVat": "unitPriceExclVat",
+                        "unitPriceInclVat": "unitPriceInclVat",
+                        "vatRatePercent": "vatRatePercent",
+                        "vatClassifierCode": "vatClassifierCode",
+                        "costCenterId": "x",
+                        "projectId": "x",
+                        "accountCode": "accountCode",
+                        "deferralStartDate": "2023-01-15",
+                        "deferralEndDate": "2023-01-15",
+                        "lineNet": "lineNet",
+                        "lineVat": "lineVat",
+                        "lineGross": "lineGross",
+                        "sortOrder": 1000000
+                      }
+                    ]
+                  },
+                  "oppositeInvoice": {
                     "id": "x",
                     "partnerId": "x",
                     "type": "invoice",
@@ -1845,6 +2396,7 @@ import Api
                 model: Nullable<String>.value("model"),
                 pagesProcessed: Nullable<Int64>.value(1000000),
                 extraction: Nullable<DocumentsConfirmCaptureResponseCaptureExtraction>.value(DocumentsConfirmCaptureResponseCaptureExtraction(
+                    documentType: Optional(.invoice),
                     supplier: DocumentsConfirmCaptureResponseCaptureExtractionSupplier(
                         name: Nullable<String>.value("name"),
                         code: Nullable<String>.value("code"),
@@ -1881,11 +2433,34 @@ import Api
                             lineVat: Nullable<String>.value("lineVat"),
                             lineGross: Nullable<String>.value("lineGross")
                         )
-                    ]
+                    ],
+                    oppositeLines: Optional([
+                        DocumentsConfirmCaptureResponseCaptureExtractionOppositeLinesItem(
+                            description: "description",
+                            quantity: "quantity",
+                            unit: Nullable<String>.value("unit"),
+                            unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                            vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                            lineNet: Nullable<String>.value("lineNet"),
+                            lineVat: Nullable<String>.value("lineVat"),
+                            lineGross: Nullable<String>.value("lineGross")
+                        ),
+                        DocumentsConfirmCaptureResponseCaptureExtractionOppositeLinesItem(
+                            description: "description",
+                            quantity: "quantity",
+                            unit: Nullable<String>.value("unit"),
+                            unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                            vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                            lineNet: Nullable<String>.value("lineNet"),
+                            lineVat: Nullable<String>.value("lineVat"),
+                            lineGross: Nullable<String>.value("lineGross")
+                        )
+                    ])
                 )),
                 matchedPartnerId: Nullable<String>.value("x"),
                 purchaseInvoiceId: Nullable<String>.value("x"),
                 error: Nullable<String>.value("error"),
+                senderId: Nullable<String>.value("senderId"),
                 createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                 updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
             ),
@@ -1959,7 +2534,78 @@ import Api
                         sortOrder: 1000000
                     )
                 ]
-            )
+            ),
+            oppositeInvoice: Nullable<DocumentsConfirmCaptureResponseOppositeInvoice>.value(DocumentsConfirmCaptureResponseOppositeInvoice(
+                id: "x",
+                partnerId: "x",
+                type: .invoice,
+                status: .draft,
+                paymentStatus: .unpaid,
+                documentNumber: "documentNumber",
+                documentDate: CalendarDate("2023-01-15")!,
+                dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                registrationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                currency: "currency",
+                netTotal: "netTotal",
+                vatTotal: "vatTotal",
+                grossTotal: "grossTotal",
+                paidAmount: "paidAmount",
+                journalTransactionId: Nullable<String>.value("x"),
+                creditedInvoiceId: Nullable<String>.value("x"),
+                purchaseOrderId: Nullable<String>.value("x"),
+                operationTypeId: Nullable<String>.value("x"),
+                notes: Nullable<String>.value("notes"),
+                intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+                intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+                intrastatRegion: Nullable<String>.value("intrastatRegion"),
+                intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+                einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+                documentRef: Nullable<String>.value("documentRef"),
+                createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                lines: [
+                    DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem(
+                        id: "x",
+                        itemId: Nullable<String>.value("x"),
+                        description: "description",
+                        unit: "unit",
+                        quantity: "quantity",
+                        unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                        unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                        vatRatePercent: "vatRatePercent",
+                        vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                        costCenterId: Nullable<String>.value("x"),
+                        projectId: Nullable<String>.value("x"),
+                        accountCode: Nullable<String>.value("accountCode"),
+                        deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                        deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                        lineNet: "lineNet",
+                        lineVat: "lineVat",
+                        lineGross: "lineGross",
+                        sortOrder: 1000000
+                    ),
+                    DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem(
+                        id: "x",
+                        itemId: Nullable<String>.value("x"),
+                        description: "description",
+                        unit: "unit",
+                        quantity: "quantity",
+                        unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                        unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                        vatRatePercent: "vatRatePercent",
+                        vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                        costCenterId: Nullable<String>.value("x"),
+                        projectId: Nullable<String>.value("x"),
+                        accountCode: Nullable<String>.value("accountCode"),
+                        deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                        deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                        lineNet: "lineNet",
+                        lineVat: "lineVat",
+                        lineGross: "lineGross",
+                        sortOrder: 1000000
+                    )
+                ]
+            ))
         )
         let response = try await client.capture.documentsConfirm(
             request: .init(

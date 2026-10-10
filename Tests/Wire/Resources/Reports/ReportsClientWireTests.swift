@@ -3070,6 +3070,7 @@ import Api
                   "rows": [
                     {
                       "channel": "channel",
+                      "currency": "currency",
                       "orders": 1000000,
                       "fulfilled": 1000000,
                       "cancelled": 1000000,
@@ -3093,6 +3094,7 @@ import Api
             rows: [
                 OnlineSalesReportsResponseRowsItem(
                     channel: "channel",
+                    currency: "currency",
                     orders: 1000000,
                     fulfilled: 1000000,
                     cancelled: 1000000,
@@ -3123,6 +3125,7 @@ import Api
                   "rows": [
                     {
                       "channel": "channel",
+                      "currency": "currency",
                       "orders": 1000000,
                       "fulfilled": 1000000,
                       "cancelled": 1000000,
@@ -3132,6 +3135,7 @@ import Api
                     },
                     {
                       "channel": "channel",
+                      "currency": "currency",
                       "orders": 1000000,
                       "fulfilled": 1000000,
                       "cancelled": 1000000,
@@ -3155,6 +3159,7 @@ import Api
             rows: [
                 OnlineSalesReportsResponseRowsItem(
                     channel: "channel",
+                    currency: "currency",
                     orders: 1000000,
                     fulfilled: 1000000,
                     cancelled: 1000000,
@@ -3164,6 +3169,7 @@ import Api
                 ),
                 OnlineSalesReportsResponseRowsItem(
                     channel: "channel",
+                    currency: "currency",
                     orders: 1000000,
                     fulfilled: 1000000,
                     cancelled: 1000000,

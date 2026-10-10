@@ -17,6 +17,9 @@ public struct SettlementsPostBankResponse: Codable, Hashable, Sendable {
     public let lineCount: Int64
     public let matchedCount: Int64
     public let unmatchedCount: Int64
+    public let clearedNet: Nullable<String>
+    public let clearingDifference: Nullable<String>
+    public let clearingOpenCount: Int64
     public let createdAt: Date
     public let updatedAt: Date
     public let warnings: [String]
@@ -41,6 +44,9 @@ public struct SettlementsPostBankResponse: Codable, Hashable, Sendable {
         lineCount: Int64,
         matchedCount: Int64,
         unmatchedCount: Int64,
+        clearedNet: Nullable<String>,
+        clearingDifference: Nullable<String>,
+        clearingOpenCount: Int64,
         createdAt: Date,
         updatedAt: Date,
         warnings: [String],
@@ -63,6 +69,9 @@ public struct SettlementsPostBankResponse: Codable, Hashable, Sendable {
         self.lineCount = lineCount
         self.matchedCount = matchedCount
         self.unmatchedCount = unmatchedCount
+        self.clearedNet = clearedNet
+        self.clearingDifference = clearingDifference
+        self.clearingOpenCount = clearingOpenCount
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.warnings = warnings
@@ -88,6 +97,9 @@ public struct SettlementsPostBankResponse: Codable, Hashable, Sendable {
         self.lineCount = try container.decode(Int64.self, forKey: .lineCount)
         self.matchedCount = try container.decode(Int64.self, forKey: .matchedCount)
         self.unmatchedCount = try container.decode(Int64.self, forKey: .unmatchedCount)
+        self.clearedNet = try container.decode(Nullable<String>.self, forKey: .clearedNet)
+        self.clearingDifference = try container.decode(Nullable<String>.self, forKey: .clearingDifference)
+        self.clearingOpenCount = try container.decode(Int64.self, forKey: .clearingOpenCount)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.updatedAt = try container.decode(Date.self, forKey: .updatedAt)
         self.warnings = try container.decode([String].self, forKey: .warnings)
@@ -114,6 +126,9 @@ public struct SettlementsPostBankResponse: Codable, Hashable, Sendable {
         try container.encode(self.lineCount, forKey: .lineCount)
         try container.encode(self.matchedCount, forKey: .matchedCount)
         try container.encode(self.unmatchedCount, forKey: .unmatchedCount)
+        try container.encode(self.clearedNet, forKey: .clearedNet)
+        try container.encode(self.clearingDifference, forKey: .clearingDifference)
+        try container.encode(self.clearingOpenCount, forKey: .clearingOpenCount)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
         try container.encode(self.warnings, forKey: .warnings)
@@ -138,6 +153,9 @@ public struct SettlementsPostBankResponse: Codable, Hashable, Sendable {
         case lineCount
         case matchedCount
         case unmatchedCount
+        case clearedNet
+        case clearingDifference
+        case clearingOpenCount
         case createdAt
         case updatedAt
         case warnings

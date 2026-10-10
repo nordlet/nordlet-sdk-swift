@@ -5,6 +5,7 @@ extension Requests {
         public let id: String
         public let registrationDate: CalendarDate?
         public let warehouseId: String?
+        public let returnFromStock: Bool?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -12,11 +13,13 @@ extension Requests {
             id: String,
             registrationDate: CalendarDate? = nil,
             warehouseId: String? = nil,
+            returnFromStock: Bool? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.id = id
             self.registrationDate = registrationDate
             self.warehouseId = warehouseId
+            self.returnFromStock = returnFromStock
             self.additionalProperties = additionalProperties
         }
 
@@ -25,6 +28,7 @@ extension Requests {
             self.id = try container.decode(String.self, forKey: .id)
             self.registrationDate = try container.decodeIfPresent(CalendarDate.self, forKey: .registrationDate)
             self.warehouseId = try container.decodeIfPresent(String.self, forKey: .warehouseId)
+            self.returnFromStock = try container.decodeIfPresent(Bool.self, forKey: .returnFromStock)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -34,6 +38,7 @@ extension Requests {
             try container.encode(self.id, forKey: .id)
             try container.encodeIfPresent(self.registrationDate, forKey: .registrationDate)
             try container.encodeIfPresent(self.warehouseId, forKey: .warehouseId)
+            try container.encodeIfPresent(self.returnFromStock, forKey: .returnFromStock)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -41,6 +46,7 @@ extension Requests {
             case id
             case registrationDate
             case warehouseId
+            case returnFromStock
         }
     }
 }

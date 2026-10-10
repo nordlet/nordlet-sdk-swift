@@ -47,6 +47,16 @@ public final class InventoryClient: Sendable {
         )
     }
 
+    public func warehousesUpdate(request: Requests.WarehousesUpdateInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> WarehousesUpdateInventoryResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/inventory/warehouses/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: WarehousesUpdateInventoryResponse.self
+        )
+    }
+
     public func stockReceive(request: Requests.StockReceiveInventoryRequest, requestOptions: RequestOptions? = nil) async throws -> StockReceiveInventoryResponse {
         return try await httpClient.performRequest(
             method: .post,

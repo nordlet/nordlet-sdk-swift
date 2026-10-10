@@ -12,6 +12,12 @@ extension Requests {
         public let actingAsMarketplace: Bool?
         public let sellerEstablishedInEu: Bool?
         public let importedConsignmentValueEur: String?
+        public let serviceKind: VatResolveReferenceRequestServiceKind?
+        public let serviceCountryCode: String?
+        public let underlyingSupplierGaveVatNumber: Bool?
+        public let underlyingSupplierChargesVat: Bool?
+        public let goodsKind: VatResolveReferenceRequestGoodsKind?
+        public let goodsLocationCountryCode: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -26,6 +32,12 @@ extension Requests {
             actingAsMarketplace: Bool? = nil,
             sellerEstablishedInEu: Bool? = nil,
             importedConsignmentValueEur: String? = nil,
+            serviceKind: VatResolveReferenceRequestServiceKind? = nil,
+            serviceCountryCode: String? = nil,
+            underlyingSupplierGaveVatNumber: Bool? = nil,
+            underlyingSupplierChargesVat: Bool? = nil,
+            goodsKind: VatResolveReferenceRequestGoodsKind? = nil,
+            goodsLocationCountryCode: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.partnerId = partnerId
@@ -38,6 +50,12 @@ extension Requests {
             self.actingAsMarketplace = actingAsMarketplace
             self.sellerEstablishedInEu = sellerEstablishedInEu
             self.importedConsignmentValueEur = importedConsignmentValueEur
+            self.serviceKind = serviceKind
+            self.serviceCountryCode = serviceCountryCode
+            self.underlyingSupplierGaveVatNumber = underlyingSupplierGaveVatNumber
+            self.underlyingSupplierChargesVat = underlyingSupplierChargesVat
+            self.goodsKind = goodsKind
+            self.goodsLocationCountryCode = goodsLocationCountryCode
             self.additionalProperties = additionalProperties
         }
 
@@ -53,6 +71,12 @@ extension Requests {
             self.actingAsMarketplace = try container.decodeIfPresent(Bool.self, forKey: .actingAsMarketplace)
             self.sellerEstablishedInEu = try container.decodeIfPresent(Bool.self, forKey: .sellerEstablishedInEu)
             self.importedConsignmentValueEur = try container.decodeIfPresent(String.self, forKey: .importedConsignmentValueEur)
+            self.serviceKind = try container.decodeIfPresent(VatResolveReferenceRequestServiceKind.self, forKey: .serviceKind)
+            self.serviceCountryCode = try container.decodeIfPresent(String.self, forKey: .serviceCountryCode)
+            self.underlyingSupplierGaveVatNumber = try container.decodeIfPresent(Bool.self, forKey: .underlyingSupplierGaveVatNumber)
+            self.underlyingSupplierChargesVat = try container.decodeIfPresent(Bool.self, forKey: .underlyingSupplierChargesVat)
+            self.goodsKind = try container.decodeIfPresent(VatResolveReferenceRequestGoodsKind.self, forKey: .goodsKind)
+            self.goodsLocationCountryCode = try container.decodeIfPresent(String.self, forKey: .goodsLocationCountryCode)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -69,6 +93,12 @@ extension Requests {
             try container.encodeIfPresent(self.actingAsMarketplace, forKey: .actingAsMarketplace)
             try container.encodeIfPresent(self.sellerEstablishedInEu, forKey: .sellerEstablishedInEu)
             try container.encodeIfPresent(self.importedConsignmentValueEur, forKey: .importedConsignmentValueEur)
+            try container.encodeIfPresent(self.serviceKind, forKey: .serviceKind)
+            try container.encodeIfPresent(self.serviceCountryCode, forKey: .serviceCountryCode)
+            try container.encodeIfPresent(self.underlyingSupplierGaveVatNumber, forKey: .underlyingSupplierGaveVatNumber)
+            try container.encodeIfPresent(self.underlyingSupplierChargesVat, forKey: .underlyingSupplierChargesVat)
+            try container.encodeIfPresent(self.goodsKind, forKey: .goodsKind)
+            try container.encodeIfPresent(self.goodsLocationCountryCode, forKey: .goodsLocationCountryCode)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -83,6 +113,12 @@ extension Requests {
             case actingAsMarketplace
             case sellerEstablishedInEu
             case importedConsignmentValueEur
+            case serviceKind
+            case serviceCountryCode
+            case underlyingSupplierGaveVatNumber
+            case underlyingSupplierChargesVat
+            case goodsKind
+            case goodsLocationCountryCode
         }
     }
 }

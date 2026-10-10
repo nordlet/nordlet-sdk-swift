@@ -2,6 +2,7 @@ import Foundation
 
 public struct OnlineSalesReportsResponseRowsItem: Codable, Hashable, Sendable {
     public let channel: String
+    public let currency: String
     public let orders: Int64
     public let fulfilled: Int64
     public let cancelled: Int64
@@ -13,6 +14,7 @@ public struct OnlineSalesReportsResponseRowsItem: Codable, Hashable, Sendable {
 
     public init(
         channel: String,
+        currency: String,
         orders: Int64,
         fulfilled: Int64,
         cancelled: Int64,
@@ -22,6 +24,7 @@ public struct OnlineSalesReportsResponseRowsItem: Codable, Hashable, Sendable {
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.channel = channel
+        self.currency = currency
         self.orders = orders
         self.fulfilled = fulfilled
         self.cancelled = cancelled
@@ -34,6 +37,7 @@ public struct OnlineSalesReportsResponseRowsItem: Codable, Hashable, Sendable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.channel = try container.decode(String.self, forKey: .channel)
+        self.currency = try container.decode(String.self, forKey: .currency)
         self.orders = try container.decode(Int64.self, forKey: .orders)
         self.fulfilled = try container.decode(Int64.self, forKey: .fulfilled)
         self.cancelled = try container.decode(Int64.self, forKey: .cancelled)
@@ -47,6 +51,7 @@ public struct OnlineSalesReportsResponseRowsItem: Codable, Hashable, Sendable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.channel, forKey: .channel)
+        try container.encode(self.currency, forKey: .currency)
         try container.encode(self.orders, forKey: .orders)
         try container.encode(self.fulfilled, forKey: .fulfilled)
         try container.encode(self.cancelled, forKey: .cancelled)
@@ -58,6 +63,7 @@ public struct OnlineSalesReportsResponseRowsItem: Codable, Hashable, Sendable {
     /// Keys for encoding/decoding struct properties.
     enum CodingKeys: String, CodingKey, CaseIterable {
         case channel
+        case currency
         case orders
         case fulfilled
         case cancelled

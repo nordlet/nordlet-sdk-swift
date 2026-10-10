@@ -52,8 +52,15 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
     public let einvoiceDetail: Nullable<String>
     public let einvoiceSentAt: Nullable<Date>
     public let einvoiceCheckedAt: Nullable<Date>
+    public let peppolMessageId: Nullable<String>
+    public let peppolStatus: Nullable<String>
+    public let peppolDetail: Nullable<String>
+    public let peppolSentAt: Nullable<Date>
+    public let peppolCheckedAt: Nullable<Date>
     public let createdAt: Date
     public let updatedAt: Date
+    /// Gross amount of an advance invoice applied to final invoices so far; null on other documents
+    public let advanceAppliedAmount: Nullable<String>
     public let lines: [InvoicesLockSalesResponseLinesItem]
     public let vatEvidence: Nullable<InvoicesLockSalesResponseVatEvidence>
     /// Additional properties that are not explicitly defined in the schema
@@ -111,8 +118,14 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         einvoiceDetail: Nullable<String>,
         einvoiceSentAt: Nullable<Date>,
         einvoiceCheckedAt: Nullable<Date>,
+        peppolMessageId: Nullable<String>,
+        peppolStatus: Nullable<String>,
+        peppolDetail: Nullable<String>,
+        peppolSentAt: Nullable<Date>,
+        peppolCheckedAt: Nullable<Date>,
         createdAt: Date,
         updatedAt: Date,
+        advanceAppliedAmount: Nullable<String>,
         lines: [InvoicesLockSalesResponseLinesItem],
         vatEvidence: Nullable<InvoicesLockSalesResponseVatEvidence>,
         additionalProperties: [String: JSONValue] = .init()
@@ -168,8 +181,14 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         self.einvoiceDetail = einvoiceDetail
         self.einvoiceSentAt = einvoiceSentAt
         self.einvoiceCheckedAt = einvoiceCheckedAt
+        self.peppolMessageId = peppolMessageId
+        self.peppolStatus = peppolStatus
+        self.peppolDetail = peppolDetail
+        self.peppolSentAt = peppolSentAt
+        self.peppolCheckedAt = peppolCheckedAt
         self.createdAt = createdAt
         self.updatedAt = updatedAt
+        self.advanceAppliedAmount = advanceAppliedAmount
         self.lines = lines
         self.vatEvidence = vatEvidence
         self.additionalProperties = additionalProperties
@@ -228,8 +247,14 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         self.einvoiceDetail = try container.decode(Nullable<String>.self, forKey: .einvoiceDetail)
         self.einvoiceSentAt = try container.decode(Nullable<Date>.self, forKey: .einvoiceSentAt)
         self.einvoiceCheckedAt = try container.decode(Nullable<Date>.self, forKey: .einvoiceCheckedAt)
+        self.peppolMessageId = try container.decode(Nullable<String>.self, forKey: .peppolMessageId)
+        self.peppolStatus = try container.decode(Nullable<String>.self, forKey: .peppolStatus)
+        self.peppolDetail = try container.decode(Nullable<String>.self, forKey: .peppolDetail)
+        self.peppolSentAt = try container.decode(Nullable<Date>.self, forKey: .peppolSentAt)
+        self.peppolCheckedAt = try container.decode(Nullable<Date>.self, forKey: .peppolCheckedAt)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.updatedAt = try container.decode(Date.self, forKey: .updatedAt)
+        self.advanceAppliedAmount = try container.decode(Nullable<String>.self, forKey: .advanceAppliedAmount)
         self.lines = try container.decode([InvoicesLockSalesResponseLinesItem].self, forKey: .lines)
         self.vatEvidence = try container.decode(Nullable<InvoicesLockSalesResponseVatEvidence>.self, forKey: .vatEvidence)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -289,8 +314,14 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         try container.encode(self.einvoiceDetail, forKey: .einvoiceDetail)
         try container.encode(self.einvoiceSentAt, forKey: .einvoiceSentAt)
         try container.encode(self.einvoiceCheckedAt, forKey: .einvoiceCheckedAt)
+        try container.encode(self.peppolMessageId, forKey: .peppolMessageId)
+        try container.encode(self.peppolStatus, forKey: .peppolStatus)
+        try container.encode(self.peppolDetail, forKey: .peppolDetail)
+        try container.encode(self.peppolSentAt, forKey: .peppolSentAt)
+        try container.encode(self.peppolCheckedAt, forKey: .peppolCheckedAt)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
+        try container.encode(self.advanceAppliedAmount, forKey: .advanceAppliedAmount)
         try container.encode(self.lines, forKey: .lines)
         try container.encode(self.vatEvidence, forKey: .vatEvidence)
     }
@@ -348,8 +379,14 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         case einvoiceDetail
         case einvoiceSentAt
         case einvoiceCheckedAt
+        case peppolMessageId
+        case peppolStatus
+        case peppolDetail
+        case peppolSentAt
+        case peppolCheckedAt
         case createdAt
         case updatedAt
+        case advanceAppliedAmount
         case lines
         case vatEvidence
     }

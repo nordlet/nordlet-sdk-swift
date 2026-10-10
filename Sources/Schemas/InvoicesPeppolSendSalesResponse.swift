@@ -4,6 +4,8 @@ public struct InvoicesPeppolSendSalesResponse: Codable, Hashable, Sendable {
     public let sent: Bool
     public let messageId: String
     public let receiverId: String
+    public let status: InvoicesPeppolSendSalesResponseStatus
+    public let detail: Nullable<String>
     public let fileId: Nullable<String>
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -12,12 +14,16 @@ public struct InvoicesPeppolSendSalesResponse: Codable, Hashable, Sendable {
         sent: Bool,
         messageId: String,
         receiverId: String,
+        status: InvoicesPeppolSendSalesResponseStatus,
+        detail: Nullable<String>,
         fileId: Nullable<String>,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.sent = sent
         self.messageId = messageId
         self.receiverId = receiverId
+        self.status = status
+        self.detail = detail
         self.fileId = fileId
         self.additionalProperties = additionalProperties
     }
@@ -27,6 +33,8 @@ public struct InvoicesPeppolSendSalesResponse: Codable, Hashable, Sendable {
         self.sent = try container.decode(Bool.self, forKey: .sent)
         self.messageId = try container.decode(String.self, forKey: .messageId)
         self.receiverId = try container.decode(String.self, forKey: .receiverId)
+        self.status = try container.decode(InvoicesPeppolSendSalesResponseStatus.self, forKey: .status)
+        self.detail = try container.decode(Nullable<String>.self, forKey: .detail)
         self.fileId = try container.decode(Nullable<String>.self, forKey: .fileId)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -37,6 +45,8 @@ public struct InvoicesPeppolSendSalesResponse: Codable, Hashable, Sendable {
         try container.encode(self.sent, forKey: .sent)
         try container.encode(self.messageId, forKey: .messageId)
         try container.encode(self.receiverId, forKey: .receiverId)
+        try container.encode(self.status, forKey: .status)
+        try container.encode(self.detail, forKey: .detail)
         try container.encode(self.fileId, forKey: .fileId)
     }
 
@@ -45,6 +55,8 @@ public struct InvoicesPeppolSendSalesResponse: Codable, Hashable, Sendable {
         case sent
         case messageId
         case receiverId
+        case status
+        case detail
         case fileId
     }
 }

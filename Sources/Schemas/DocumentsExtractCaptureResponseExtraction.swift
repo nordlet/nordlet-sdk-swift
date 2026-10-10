@@ -1,6 +1,7 @@
 import Foundation
 
 public struct DocumentsExtractCaptureResponseExtraction: Codable, Hashable, Sendable {
+    public let documentType: DocumentsExtractCaptureResponseExtractionDocumentType?
     public let supplier: DocumentsExtractCaptureResponseExtractionSupplier
     public let documentNumber: Nullable<String>
     public let documentDate: Nullable<CalendarDate>
@@ -11,10 +12,12 @@ public struct DocumentsExtractCaptureResponseExtraction: Codable, Hashable, Send
     public let grossTotal: Nullable<String>
     public let notes: Nullable<String>
     public let lines: [DocumentsExtractCaptureResponseExtractionLinesItem]
+    public let oppositeLines: [DocumentsExtractCaptureResponseExtractionOppositeLinesItem]?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
     public init(
+        documentType: DocumentsExtractCaptureResponseExtractionDocumentType? = nil,
         supplier: DocumentsExtractCaptureResponseExtractionSupplier,
         documentNumber: Nullable<String>,
         documentDate: Nullable<CalendarDate>,
@@ -25,8 +28,10 @@ public struct DocumentsExtractCaptureResponseExtraction: Codable, Hashable, Send
         grossTotal: Nullable<String>,
         notes: Nullable<String>,
         lines: [DocumentsExtractCaptureResponseExtractionLinesItem],
+        oppositeLines: [DocumentsExtractCaptureResponseExtractionOppositeLinesItem]? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
+        self.documentType = documentType
         self.supplier = supplier
         self.documentNumber = documentNumber
         self.documentDate = documentDate
@@ -37,11 +42,13 @@ public struct DocumentsExtractCaptureResponseExtraction: Codable, Hashable, Send
         self.grossTotal = grossTotal
         self.notes = notes
         self.lines = lines
+        self.oppositeLines = oppositeLines
         self.additionalProperties = additionalProperties
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.documentType = try container.decodeIfPresent(DocumentsExtractCaptureResponseExtractionDocumentType.self, forKey: .documentType)
         self.supplier = try container.decode(DocumentsExtractCaptureResponseExtractionSupplier.self, forKey: .supplier)
         self.documentNumber = try container.decode(Nullable<String>.self, forKey: .documentNumber)
         self.documentDate = try container.decode(Nullable<CalendarDate>.self, forKey: .documentDate)
@@ -52,12 +59,14 @@ public struct DocumentsExtractCaptureResponseExtraction: Codable, Hashable, Send
         self.grossTotal = try container.decode(Nullable<String>.self, forKey: .grossTotal)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.lines = try container.decode([DocumentsExtractCaptureResponseExtractionLinesItem].self, forKey: .lines)
+        self.oppositeLines = try container.decodeIfPresent([DocumentsExtractCaptureResponseExtractionOppositeLinesItem].self, forKey: .oppositeLines)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
     public func encode(to encoder: Encoder) throws -> Void {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try encoder.encodeAdditionalProperties(self.additionalProperties)
+        try container.encodeIfPresent(self.documentType, forKey: .documentType)
         try container.encode(self.supplier, forKey: .supplier)
         try container.encode(self.documentNumber, forKey: .documentNumber)
         try container.encode(self.documentDate, forKey: .documentDate)
@@ -68,10 +77,12 @@ public struct DocumentsExtractCaptureResponseExtraction: Codable, Hashable, Send
         try container.encode(self.grossTotal, forKey: .grossTotal)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.lines, forKey: .lines)
+        try container.encodeIfPresent(self.oppositeLines, forKey: .oppositeLines)
     }
 
     /// Keys for encoding/decoding struct properties.
     enum CodingKeys: String, CodingKey, CaseIterable {
+        case documentType
         case supplier
         case documentNumber
         case documentDate
@@ -82,5 +93,6 @@ public struct DocumentsExtractCaptureResponseExtraction: Codable, Hashable, Send
         case grossTotal
         case notes
         case lines
+        case oppositeLines
     }
 }

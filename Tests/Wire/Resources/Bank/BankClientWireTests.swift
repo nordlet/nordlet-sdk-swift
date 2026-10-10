@@ -11,6 +11,7 @@ import Api
                 {
                   "id": "id",
                   "name": "name",
+                  "type": "bank",
                   "iban": "iban",
                   "currency": "currency",
                   "accountCode": "accountCode",
@@ -28,6 +29,7 @@ import Api
         let expectedResponse = AccountsCreateBankResponse(
             id: "id",
             name: "name",
+            type: .bank,
             iban: Nullable<String>.value("iban"),
             currency: "currency",
             accountCode: "accountCode",
@@ -49,6 +51,7 @@ import Api
                 {
                   "id": "x",
                   "name": "name",
+                  "type": "bank",
                   "iban": "iban",
                   "currency": "currency",
                   "accountCode": "accountCode",
@@ -66,6 +69,7 @@ import Api
         let expectedResponse = AccountsCreateBankResponse(
             id: "x",
             name: "name",
+            type: .bank,
             iban: Nullable<String>.value("iban"),
             currency: "currency",
             accountCode: "accountCode",
@@ -89,6 +93,7 @@ import Api
                     {
                       "id": "id",
                       "name": "name",
+                      "type": "bank",
                       "iban": "iban",
                       "currency": "currency",
                       "accountCode": "accountCode",
@@ -121,6 +126,7 @@ import Api
                 AccountsListBankResponseRowsItem(
                     id: "id",
                     name: "name",
+                    type: .bank,
                     iban: Nullable<String>.value("iban"),
                     currency: "currency",
                     accountCode: "accountCode",
@@ -157,6 +163,7 @@ import Api
                     {
                       "id": "x",
                       "name": "name",
+                      "type": "bank",
                       "iban": "iban",
                       "currency": "currency",
                       "accountCode": "accountCode",
@@ -166,6 +173,7 @@ import Api
                     {
                       "id": "x",
                       "name": "name",
+                      "type": "bank",
                       "iban": "iban",
                       "currency": "currency",
                       "accountCode": "accountCode",
@@ -198,6 +206,7 @@ import Api
                 AccountsListBankResponseRowsItem(
                     id: "x",
                     name: "name",
+                    type: .bank,
                     iban: Nullable<String>.value("iban"),
                     currency: "currency",
                     accountCode: "accountCode",
@@ -207,6 +216,7 @@ import Api
                 AccountsListBankResponseRowsItem(
                     id: "x",
                     name: "name",
+                    type: .bank,
                     iban: Nullable<String>.value("iban"),
                     currency: "currency",
                     accountCode: "accountCode",
@@ -241,6 +251,7 @@ import Api
                 {
                   "id": "id",
                   "name": "name",
+                  "type": "bank",
                   "iban": "iban",
                   "currency": "currency",
                   "accountCode": "accountCode",
@@ -258,6 +269,7 @@ import Api
         let expectedResponse = AccountsUpdateBankResponse(
             id: "id",
             name: "name",
+            type: .bank,
             iban: Nullable<String>.value("iban"),
             currency: "currency",
             accountCode: "accountCode",
@@ -279,6 +291,7 @@ import Api
                 {
                   "id": "x",
                   "name": "name",
+                  "type": "bank",
                   "iban": "iban",
                   "currency": "currency",
                   "accountCode": "accountCode",
@@ -296,6 +309,7 @@ import Api
         let expectedResponse = AccountsUpdateBankResponse(
             id: "x",
             name: "name",
+            type: .bank,
             iban: Nullable<String>.value("iban"),
             currency: "currency",
             accountCode: "accountCode",
@@ -3589,6 +3603,9 @@ import Api
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
+                      "clearedNet": "clearedNet",
+                      "clearingDifference": "clearingDifference",
+                      "clearingOpenCount": 1000000,
                       "createdAt": "2026-07-01T09:30:00Z",
                       "updatedAt": "2026-07-01T09:30:00Z"
                     }
@@ -3628,6 +3645,9 @@ import Api
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
+                    clearedNet: Nullable<String>.value("clearedNet"),
+                    clearingDifference: Nullable<String>.value("clearingDifference"),
+                    clearingOpenCount: 1000000,
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
@@ -3674,6 +3694,9 @@ import Api
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
+                      "clearedNet": "clearedNet",
+                      "clearingDifference": "clearingDifference",
+                      "clearingOpenCount": 1000000,
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z"
                     },
@@ -3694,6 +3717,9 @@ import Api
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
+                      "clearedNet": "clearedNet",
+                      "clearingDifference": "clearingDifference",
+                      "clearingOpenCount": 1000000,
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z"
                     }
@@ -3733,6 +3759,9 @@ import Api
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
+                    clearedNet: Nullable<String>.value("clearedNet"),
+                    clearingDifference: Nullable<String>.value("clearingDifference"),
+                    clearingOpenCount: 1000000,
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
@@ -3753,6 +3782,9 @@ import Api
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
+                    clearedNet: Nullable<String>.value("clearedNet"),
+                    clearingDifference: Nullable<String>.value("clearingDifference"),
+                    clearingOpenCount: 1000000,
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
@@ -3792,6 +3824,9 @@ import Api
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
+                      "clearedNet": "clearedNet",
+                      "clearingDifference": "clearingDifference",
+                      "clearingOpenCount": 1000000,
                       "createdAt": "2026-07-01T09:30:00Z",
                       "updatedAt": "2026-07-01T09:30:00Z"
                     }
@@ -3835,6 +3870,9 @@ import Api
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
+                    clearedNet: Nullable<String>.value("clearedNet"),
+                    clearingDifference: Nullable<String>.value("clearingDifference"),
+                    clearingOpenCount: 1000000,
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
@@ -3882,6 +3920,9 @@ import Api
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
+                      "clearedNet": "clearedNet",
+                      "clearingDifference": "clearingDifference",
+                      "clearingOpenCount": 1000000,
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z"
                     },
@@ -3902,6 +3943,9 @@ import Api
                       "lineCount": 1000000,
                       "matchedCount": 1000000,
                       "unmatchedCount": 1000000,
+                      "clearedNet": "clearedNet",
+                      "clearingDifference": "clearingDifference",
+                      "clearingOpenCount": 1000000,
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z"
                     }
@@ -3945,6 +3989,9 @@ import Api
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
+                    clearedNet: Nullable<String>.value("clearedNet"),
+                    clearingDifference: Nullable<String>.value("clearingDifference"),
+                    clearingOpenCount: 1000000,
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
@@ -3965,6 +4012,9 @@ import Api
                     lineCount: 1000000,
                     matchedCount: 1000000,
                     unmatchedCount: 1000000,
+                    clearedNet: Nullable<String>.value("clearedNet"),
+                    clearingDifference: Nullable<String>.value("clearingDifference"),
+                    clearingOpenCount: 1000000,
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
@@ -4010,6 +4060,9 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
+                  "clearedNet": "clearedNet",
+                  "clearingDifference": "clearingDifference",
+                  "clearingOpenCount": 1000000,
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
@@ -4028,7 +4081,11 @@ import Api
                       "commissionAmount": "commissionAmount",
                       "reference": "reference",
                       "matchedInvoiceId": "matchedInvoiceId",
-                      "matchStatus": "unmatched"
+                      "matchStatus": "unmatched",
+                      "clearingBankAccountId": "clearingBankAccountId",
+                      "clearingBooked": "clearingBooked",
+                      "clearingDifference": "clearingDifference",
+                      "clearingUnposted": true
                     }
                   ]
                 }
@@ -4057,6 +4114,9 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
+            clearedNet: Nullable<String>.value("clearedNet"),
+            clearingDifference: Nullable<String>.value("clearingDifference"),
+            clearingOpenCount: 1000000,
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
@@ -4075,7 +4135,11 @@ import Api
                     commissionAmount: Nullable<String>.value("commissionAmount"),
                     reference: Nullable<String>.value("reference"),
                     matchedInvoiceId: Nullable<String>.value("matchedInvoiceId"),
-                    matchStatus: .unmatched
+                    matchStatus: .unmatched,
+                    clearingBankAccountId: Nullable<String>.value("clearingBankAccountId"),
+                    clearingBooked: Nullable<String>.value("clearingBooked"),
+                    clearingDifference: Nullable<String>.value("clearingDifference"),
+                    clearingUnposted: true
                 )
             ]
         )
@@ -4108,6 +4172,9 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
+                  "clearedNet": "clearedNet",
+                  "clearingDifference": "clearingDifference",
+                  "clearingOpenCount": 1000000,
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
@@ -4126,7 +4193,11 @@ import Api
                       "commissionAmount": "commissionAmount",
                       "reference": "reference",
                       "matchedInvoiceId": "x",
-                      "matchStatus": "unmatched"
+                      "matchStatus": "unmatched",
+                      "clearingBankAccountId": "x",
+                      "clearingBooked": "clearingBooked",
+                      "clearingDifference": "clearingDifference",
+                      "clearingUnposted": true
                     },
                     {
                       "id": "x",
@@ -4143,7 +4214,11 @@ import Api
                       "commissionAmount": "commissionAmount",
                       "reference": "reference",
                       "matchedInvoiceId": "x",
-                      "matchStatus": "unmatched"
+                      "matchStatus": "unmatched",
+                      "clearingBankAccountId": "x",
+                      "clearingBooked": "clearingBooked",
+                      "clearingDifference": "clearingDifference",
+                      "clearingUnposted": true
                     }
                   ]
                 }
@@ -4172,6 +4247,9 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
+            clearedNet: Nullable<String>.value("clearedNet"),
+            clearingDifference: Nullable<String>.value("clearingDifference"),
+            clearingOpenCount: 1000000,
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
@@ -4190,7 +4268,11 @@ import Api
                     commissionAmount: Nullable<String>.value("commissionAmount"),
                     reference: Nullable<String>.value("reference"),
                     matchedInvoiceId: Nullable<String>.value("x"),
-                    matchStatus: .unmatched
+                    matchStatus: .unmatched,
+                    clearingBankAccountId: Nullable<String>.value("x"),
+                    clearingBooked: Nullable<String>.value("clearingBooked"),
+                    clearingDifference: Nullable<String>.value("clearingDifference"),
+                    clearingUnposted: true
                 ),
                 SettlementsGetBankResponseLinesItem(
                     id: "x",
@@ -4207,7 +4289,11 @@ import Api
                     commissionAmount: Nullable<String>.value("commissionAmount"),
                     reference: Nullable<String>.value("reference"),
                     matchedInvoiceId: Nullable<String>.value("x"),
-                    matchStatus: .unmatched
+                    matchStatus: .unmatched,
+                    clearingBankAccountId: Nullable<String>.value("x"),
+                    clearingBooked: Nullable<String>.value("clearingBooked"),
+                    clearingDifference: Nullable<String>.value("clearingDifference"),
+                    clearingUnposted: true
                 )
             ]
         )
@@ -4238,7 +4324,11 @@ import Api
                   "commissionAmount": "commissionAmount",
                   "reference": "reference",
                   "matchedInvoiceId": "matchedInvoiceId",
-                  "matchStatus": "unmatched"
+                  "matchStatus": "unmatched",
+                  "clearingBankAccountId": "clearingBankAccountId",
+                  "clearingBooked": "clearingBooked",
+                  "clearingDifference": "clearingDifference",
+                  "clearingUnposted": true
                 }
                 """#.utf8
             )
@@ -4263,7 +4353,11 @@ import Api
             commissionAmount: Nullable<String>.value("commissionAmount"),
             reference: Nullable<String>.value("reference"),
             matchedInvoiceId: Nullable<String>.value("matchedInvoiceId"),
-            matchStatus: .unmatched
+            matchStatus: .unmatched,
+            clearingBankAccountId: Nullable<String>.value("clearingBankAccountId"),
+            clearingBooked: Nullable<String>.value("clearingBooked"),
+            clearingDifference: Nullable<String>.value("clearingDifference"),
+            clearingUnposted: true
         )
         let response = try await client.bank.settlementsMatch(
             request: .init(
@@ -4295,7 +4389,11 @@ import Api
                   "commissionAmount": "commissionAmount",
                   "reference": "reference",
                   "matchedInvoiceId": "x",
-                  "matchStatus": "unmatched"
+                  "matchStatus": "unmatched",
+                  "clearingBankAccountId": "x",
+                  "clearingBooked": "clearingBooked",
+                  "clearingDifference": "clearingDifference",
+                  "clearingUnposted": true
                 }
                 """#.utf8
             )
@@ -4320,7 +4418,11 @@ import Api
             commissionAmount: Nullable<String>.value("commissionAmount"),
             reference: Nullable<String>.value("reference"),
             matchedInvoiceId: Nullable<String>.value("x"),
-            matchStatus: .unmatched
+            matchStatus: .unmatched,
+            clearingBankAccountId: Nullable<String>.value("x"),
+            clearingBooked: Nullable<String>.value("clearingBooked"),
+            clearingDifference: Nullable<String>.value("clearingDifference"),
+            clearingUnposted: true
         )
         let response = try await client.bank.settlementsMatch(
             request: .init(
@@ -4352,7 +4454,11 @@ import Api
                   "commissionAmount": "commissionAmount",
                   "reference": "reference",
                   "matchedInvoiceId": "matchedInvoiceId",
-                  "matchStatus": "unmatched"
+                  "matchStatus": "unmatched",
+                  "clearingBankAccountId": "clearingBankAccountId",
+                  "clearingBooked": "clearingBooked",
+                  "clearingDifference": "clearingDifference",
+                  "clearingUnposted": true
                 }
                 """#.utf8
             )
@@ -4377,7 +4483,11 @@ import Api
             commissionAmount: Nullable<String>.value("commissionAmount"),
             reference: Nullable<String>.value("reference"),
             matchedInvoiceId: Nullable<String>.value("matchedInvoiceId"),
-            matchStatus: .unmatched
+            matchStatus: .unmatched,
+            clearingBankAccountId: Nullable<String>.value("clearingBankAccountId"),
+            clearingBooked: Nullable<String>.value("clearingBooked"),
+            clearingDifference: Nullable<String>.value("clearingDifference"),
+            clearingUnposted: true
         )
         let response = try await client.bank.settlementsCommission(
             request: .init(lineId: "lineId"),
@@ -4406,7 +4516,11 @@ import Api
                   "commissionAmount": "commissionAmount",
                   "reference": "reference",
                   "matchedInvoiceId": "x",
-                  "matchStatus": "unmatched"
+                  "matchStatus": "unmatched",
+                  "clearingBankAccountId": "x",
+                  "clearingBooked": "clearingBooked",
+                  "clearingDifference": "clearingDifference",
+                  "clearingUnposted": true
                 }
                 """#.utf8
             )
@@ -4431,7 +4545,11 @@ import Api
             commissionAmount: Nullable<String>.value("commissionAmount"),
             reference: Nullable<String>.value("reference"),
             matchedInvoiceId: Nullable<String>.value("x"),
-            matchStatus: .unmatched
+            matchStatus: .unmatched,
+            clearingBankAccountId: Nullable<String>.value("x"),
+            clearingBooked: Nullable<String>.value("clearingBooked"),
+            clearingDifference: Nullable<String>.value("clearingDifference"),
+            clearingUnposted: true
         )
         let response = try await client.bank.settlementsCommission(
             request: .init(lineId: "x"),
@@ -4462,6 +4580,9 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
+                  "clearedNet": "clearedNet",
+                  "clearingDifference": "clearingDifference",
+                  "clearingOpenCount": 1000000,
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z"
                 }
@@ -4490,6 +4611,9 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
+            clearedNet: Nullable<String>.value("clearedNet"),
+            clearingDifference: Nullable<String>.value("clearingDifference"),
+            clearingOpenCount: 1000000,
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
@@ -4525,6 +4649,9 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
+                  "clearedNet": "clearedNet",
+                  "clearingDifference": "clearingDifference",
+                  "clearingOpenCount": 1000000,
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z"
                 }
@@ -4553,6 +4680,9 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
+            clearedNet: Nullable<String>.value("clearedNet"),
+            clearingDifference: Nullable<String>.value("clearingDifference"),
+            clearingOpenCount: 1000000,
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
@@ -4588,6 +4718,9 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
+                  "clearedNet": "clearedNet",
+                  "clearingDifference": "clearingDifference",
+                  "clearingOpenCount": 1000000,
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z"
                 }
@@ -4616,6 +4749,9 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
+            clearedNet: Nullable<String>.value("clearedNet"),
+            clearingDifference: Nullable<String>.value("clearingDifference"),
+            clearingOpenCount: 1000000,
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
@@ -4648,6 +4784,9 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
+                  "clearedNet": "clearedNet",
+                  "clearingDifference": "clearingDifference",
+                  "clearingOpenCount": 1000000,
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z"
                 }
@@ -4676,6 +4815,9 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
+            clearedNet: Nullable<String>.value("clearedNet"),
+            clearingDifference: Nullable<String>.value("clearingDifference"),
+            clearingOpenCount: 1000000,
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
@@ -4708,6 +4850,9 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
+                  "clearedNet": "clearedNet",
+                  "clearingDifference": "clearingDifference",
+                  "clearingOpenCount": 1000000,
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
                   "warnings": [
@@ -4719,6 +4864,7 @@ import Api
                     "sellerAmount": "sellerAmount",
                     "feeAmount": "feeAmount",
                     "suspenseAmount": "suspenseAmount",
+                    "clearedAmount": "clearedAmount",
                     "fxRate": "fxRate",
                     "exchangeDifference": "exchangeDifference"
                   }
@@ -4748,6 +4894,9 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
+            clearedNet: Nullable<String>.value("clearedNet"),
+            clearingDifference: Nullable<String>.value("clearingDifference"),
+            clearingOpenCount: 1000000,
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             warnings: [
@@ -4759,6 +4908,7 @@ import Api
                 sellerAmount: "sellerAmount",
                 feeAmount: "feeAmount",
                 suspenseAmount: "suspenseAmount",
+                clearedAmount: "clearedAmount",
                 fxRate: "fxRate",
                 exchangeDifference: "exchangeDifference"
             )
@@ -4792,6 +4942,9 @@ import Api
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
+                  "clearedNet": "clearedNet",
+                  "clearingDifference": "clearingDifference",
+                  "clearingOpenCount": 1000000,
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
                   "warnings": [
@@ -4804,6 +4957,7 @@ import Api
                     "sellerAmount": "sellerAmount",
                     "feeAmount": "feeAmount",
                     "suspenseAmount": "suspenseAmount",
+                    "clearedAmount": "clearedAmount",
                     "fxRate": "fxRate",
                     "exchangeDifference": "exchangeDifference"
                   }
@@ -4833,6 +4987,9 @@ import Api
             lineCount: 1000000,
             matchedCount: 1000000,
             unmatchedCount: 1000000,
+            clearedNet: Nullable<String>.value("clearedNet"),
+            clearingDifference: Nullable<String>.value("clearingDifference"),
+            clearingOpenCount: 1000000,
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             warnings: [
@@ -4845,6 +5002,7 @@ import Api
                 sellerAmount: "sellerAmount",
                 feeAmount: "feeAmount",
                 suspenseAmount: "suspenseAmount",
+                clearedAmount: "clearedAmount",
                 fxRate: "fxRate",
                 exchangeDifference: "exchangeDifference"
             )

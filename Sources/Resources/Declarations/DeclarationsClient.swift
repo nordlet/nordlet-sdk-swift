@@ -167,6 +167,49 @@ public final class DeclarationsClient: Sendable {
         )
     }
 
+    public func euOwnGoodsTransfersCompute(request: Requests.EuOwnGoodsTransfersComputeDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> EuOwnGoodsTransfersComputeDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/eu/own-goods-transfers/compute",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: EuOwnGoodsTransfersComputeDeclarationsResponse.self
+        )
+    }
+
+    public func euDigitalReportingList(request: Requests.EuDigitalReportingListDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> EuDigitalReportingListDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/eu/digital-reporting/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: EuDigitalReportingListDeclarationsResponse.self
+        )
+    }
+
+    /// Which platform sellers are reportable for the year (Council Directive (EU) 2021/514, Annex V) and why the others are excluded, the data still missing, and how the company files the report in its Member State.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func euDac7Preview(request: Requests.EuDac7PreviewDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> EuDac7PreviewDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/eu/dac7/preview",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: EuDac7PreviewDeclarationsResponse.self
+        )
+    }
+
+    public func euDac7Xml(request: Requests.EuDac7XmlDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> EuDac7XmlDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/eu/dac7/xml",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: EuDac7XmlDeclarationsResponse.self
+        )
+    }
+
     public func euDistanceSalesThresholdGet(request: Requests.EuDistanceSalesThresholdGetDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> EuDistanceSalesThresholdGetDeclarationsResponse {
         return try await httpClient.performRequest(
             method: .post,
@@ -793,7 +836,7 @@ public final class DeclarationsClient: Sendable {
         )
     }
 
-    /// Generate PIT-11(29) for every person on the payroll of one year: the pay, the deductible costs, the advance withheld and the social and health contributions taken off it. One document per person, because that is how the form is filed.
+    /// Generate PIT-11(29) for every person on the payroll of one year: the pay, the deductible costs, the advance withheld and the social and health contributions taken off it. One document per person, because that is how the form is filed, addressed to the tax office of the place of residence of that person (employee field plKodUrzedu); a person without that code is refused with 422.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func plPit11Generate(request: Requests.PlPit11GenerateDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> PlPit11GenerateDeclarationsResponse {

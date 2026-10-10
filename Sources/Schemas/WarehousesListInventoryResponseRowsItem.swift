@@ -5,6 +5,7 @@ public struct WarehousesListInventoryResponseRowsItem: Codable, Hashable, Sendab
     public let code: String
     public let name: String
     public let isDefault: Bool
+    public let countryCode: Nullable<String>
     public let createdAt: Date
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -14,6 +15,7 @@ public struct WarehousesListInventoryResponseRowsItem: Codable, Hashable, Sendab
         code: String,
         name: String,
         isDefault: Bool,
+        countryCode: Nullable<String>,
         createdAt: Date,
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -21,6 +23,7 @@ public struct WarehousesListInventoryResponseRowsItem: Codable, Hashable, Sendab
         self.code = code
         self.name = name
         self.isDefault = isDefault
+        self.countryCode = countryCode
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
     }
@@ -31,6 +34,7 @@ public struct WarehousesListInventoryResponseRowsItem: Codable, Hashable, Sendab
         self.code = try container.decode(String.self, forKey: .code)
         self.name = try container.decode(String.self, forKey: .name)
         self.isDefault = try container.decode(Bool.self, forKey: .isDefault)
+        self.countryCode = try container.decode(Nullable<String>.self, forKey: .countryCode)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -42,6 +46,7 @@ public struct WarehousesListInventoryResponseRowsItem: Codable, Hashable, Sendab
         try container.encode(self.code, forKey: .code)
         try container.encode(self.name, forKey: .name)
         try container.encode(self.isDefault, forKey: .isDefault)
+        try container.encode(self.countryCode, forKey: .countryCode)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
 
@@ -51,6 +56,7 @@ public struct WarehousesListInventoryResponseRowsItem: Codable, Hashable, Sendab
         case code
         case name
         case isDefault
+        case countryCode
         case createdAt
     }
 }

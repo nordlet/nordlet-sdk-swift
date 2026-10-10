@@ -4,6 +4,7 @@ extension Requests {
     public struct JournalTransactionsCreateLedgerRequest: Codable, Hashable, Sendable {
         public let date: CalendarDate
         public let description: String?
+        public let currency: String?
         public let entries: [JournalTransactionsCreateLedgerRequestEntriesItem]
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -11,11 +12,13 @@ extension Requests {
         public init(
             date: CalendarDate,
             description: String? = nil,
+            currency: String? = nil,
             entries: [JournalTransactionsCreateLedgerRequestEntriesItem],
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.date = date
             self.description = description
+            self.currency = currency
             self.entries = entries
             self.additionalProperties = additionalProperties
         }
@@ -24,6 +27,7 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.date = try container.decode(CalendarDate.self, forKey: .date)
             self.description = try container.decodeIfPresent(String.self, forKey: .description)
+            self.currency = try container.decodeIfPresent(String.self, forKey: .currency)
             self.entries = try container.decode([JournalTransactionsCreateLedgerRequestEntriesItem].self, forKey: .entries)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -33,6 +37,7 @@ extension Requests {
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.date, forKey: .date)
             try container.encodeIfPresent(self.description, forKey: .description)
+            try container.encodeIfPresent(self.currency, forKey: .currency)
             try container.encode(self.entries, forKey: .entries)
         }
 
@@ -40,6 +45,7 @@ extension Requests {
         enum CodingKeys: String, CodingKey, CaseIterable {
             case date
             case description
+            case currency
             case entries
         }
     }

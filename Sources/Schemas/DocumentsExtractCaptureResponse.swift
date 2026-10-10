@@ -14,6 +14,7 @@ public struct DocumentsExtractCaptureResponse: Codable, Hashable, Sendable {
     public let matchedPartnerId: Nullable<String>
     public let purchaseInvoiceId: Nullable<String>
     public let error: Nullable<String>
+    public let senderId: Nullable<String>
     public let createdAt: Date
     public let updatedAt: Date
     public let rawText: Nullable<String>
@@ -34,6 +35,7 @@ public struct DocumentsExtractCaptureResponse: Codable, Hashable, Sendable {
         matchedPartnerId: Nullable<String>,
         purchaseInvoiceId: Nullable<String>,
         error: Nullable<String>,
+        senderId: Nullable<String>,
         createdAt: Date,
         updatedAt: Date,
         rawText: Nullable<String>,
@@ -52,6 +54,7 @@ public struct DocumentsExtractCaptureResponse: Codable, Hashable, Sendable {
         self.matchedPartnerId = matchedPartnerId
         self.purchaseInvoiceId = purchaseInvoiceId
         self.error = error
+        self.senderId = senderId
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.rawText = rawText
@@ -73,6 +76,7 @@ public struct DocumentsExtractCaptureResponse: Codable, Hashable, Sendable {
         self.matchedPartnerId = try container.decode(Nullable<String>.self, forKey: .matchedPartnerId)
         self.purchaseInvoiceId = try container.decode(Nullable<String>.self, forKey: .purchaseInvoiceId)
         self.error = try container.decode(Nullable<String>.self, forKey: .error)
+        self.senderId = try container.decode(Nullable<String>.self, forKey: .senderId)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.updatedAt = try container.decode(Date.self, forKey: .updatedAt)
         self.rawText = try container.decode(Nullable<String>.self, forKey: .rawText)
@@ -95,6 +99,7 @@ public struct DocumentsExtractCaptureResponse: Codable, Hashable, Sendable {
         try container.encode(self.matchedPartnerId, forKey: .matchedPartnerId)
         try container.encode(self.purchaseInvoiceId, forKey: .purchaseInvoiceId)
         try container.encode(self.error, forKey: .error)
+        try container.encode(self.senderId, forKey: .senderId)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
         try container.encode(self.rawText, forKey: .rawText)
@@ -115,6 +120,7 @@ public struct DocumentsExtractCaptureResponse: Codable, Hashable, Sendable {
         case matchedPartnerId
         case purchaseInvoiceId
         case error
+        case senderId
         case createdAt
         case updatedAt
         case rawText

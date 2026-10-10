@@ -117,6 +117,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "isDefault": true,
+                  "countryCode": "countryCode",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -132,6 +133,7 @@ import Api
             code: "code",
             name: "name",
             isDefault: true,
+            countryCode: Nullable<String>.value("countryCode"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.inventory.warehousesCreate(
@@ -154,6 +156,7 @@ import Api
                   "code": "code",
                   "name": "name",
                   "isDefault": true,
+                  "countryCode": "countryCode",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -169,6 +172,7 @@ import Api
             code: "code",
             name: "name",
             isDefault: true,
+            countryCode: Nullable<String>.value("countryCode"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.inventory.warehousesCreate(
@@ -193,6 +197,7 @@ import Api
                       "code": "code",
                       "name": "name",
                       "isDefault": true,
+                      "countryCode": "countryCode",
                       "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
@@ -223,6 +228,7 @@ import Api
                     code: "code",
                     name: "name",
                     isDefault: true,
+                    countryCode: Nullable<String>.value("countryCode"),
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
@@ -257,6 +263,7 @@ import Api
                       "code": "code",
                       "name": "name",
                       "isDefault": true,
+                      "countryCode": "countryCode",
                       "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
@@ -264,6 +271,7 @@ import Api
                       "code": "code",
                       "name": "name",
                       "isDefault": true,
+                      "countryCode": "countryCode",
                       "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
@@ -294,6 +302,7 @@ import Api
                     code: "code",
                     name: "name",
                     isDefault: true,
+                    countryCode: Nullable<String>.value("countryCode"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
                 WarehousesListInventoryResponseRowsItem(
@@ -301,6 +310,7 @@ import Api
                     code: "code",
                     name: "name",
                     isDefault: true,
+                    countryCode: Nullable<String>.value("countryCode"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
@@ -318,6 +328,78 @@ import Api
         )
         let response = try await client.inventory.warehousesList(
             request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func warehousesUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "code": "code",
+                  "name": "name",
+                  "isDefault": true,
+                  "countryCode": "countryCode",
+                  "createdAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = WarehousesUpdateInventoryResponse(
+            id: "id",
+            code: "code",
+            name: "name",
+            isDefault: true,
+            countryCode: Nullable<String>.value("countryCode"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.inventory.warehousesUpdate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func warehousesUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "code": "code",
+                  "name": "name",
+                  "isDefault": true,
+                  "countryCode": "countryCode",
+                  "createdAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = WarehousesUpdateInventoryResponse(
+            id: "x",
+            code: "code",
+            name: "name",
+            isDefault: true,
+            countryCode: Nullable<String>.value("countryCode"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.inventory.warehousesUpdate(
+            request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -1366,6 +1448,7 @@ import Api
                   "sourceInvoiceId": "sourceInvoiceId",
                   "notes": "notes",
                   "createdAt": "2026-07-01T09:30:00Z",
+                  "journalTransactionId": "journalTransactionId",
                   "lines": [
                     {
                       "movementId": "movementId",
@@ -1391,6 +1474,7 @@ import Api
             sourceInvoiceId: Nullable<String>.value("sourceInvoiceId"),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
             lines: [
                 LandedCostsCreateInventoryResponseLinesItem(
                     movementId: "movementId",
@@ -1423,6 +1507,7 @@ import Api
                   "sourceInvoiceId": "sourceInvoiceId",
                   "notes": "notes",
                   "createdAt": "2024-01-15T09:30:00Z",
+                  "journalTransactionId": "x",
                   "lines": [
                     {
                       "movementId": "x",
@@ -1453,6 +1538,7 @@ import Api
             sourceInvoiceId: Nullable<String>.value("sourceInvoiceId"),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            journalTransactionId: Nullable<String>.value("x"),
             lines: [
                 LandedCostsCreateInventoryResponseLinesItem(
                     movementId: "x",
@@ -1490,6 +1576,7 @@ import Api
                   "sourceInvoiceId": "sourceInvoiceId",
                   "notes": "notes",
                   "createdAt": "2026-07-01T09:30:00Z",
+                  "journalTransactionId": "journalTransactionId",
                   "lines": [
                     {
                       "movementId": "movementId",
@@ -1515,6 +1602,7 @@ import Api
             sourceInvoiceId: Nullable<String>.value("sourceInvoiceId"),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
             lines: [
                 LandedCostsGetInventoryResponseLinesItem(
                     movementId: "movementId",
@@ -1544,6 +1632,7 @@ import Api
                   "sourceInvoiceId": "sourceInvoiceId",
                   "notes": "notes",
                   "createdAt": "2024-01-15T09:30:00Z",
+                  "journalTransactionId": "x",
                   "lines": [
                     {
                       "movementId": "x",
@@ -1574,6 +1663,7 @@ import Api
             sourceInvoiceId: Nullable<String>.value("sourceInvoiceId"),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            journalTransactionId: Nullable<String>.value("x"),
             lines: [
                 LandedCostsGetInventoryResponseLinesItem(
                     movementId: "x",

@@ -5,12 +5,15 @@ extension Requests {
         public let id: String
         public let partnerId: String?
         public let newSupplier: DocumentsConfirmCaptureRequestNewSupplier?
+        public let type: DocumentsConfirmCaptureRequestType?
         public let documentNumber: String
         public let documentDate: CalendarDate
         public let dueDate: CalendarDate?
         public let currency: String?
         public let notes: String?
         public let lines: [DocumentsConfirmCaptureRequestLinesItem]
+        public let oppositeLines: [DocumentsConfirmCaptureRequestOppositeLinesItem]?
+        public let oppositeDocumentNumber: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -18,23 +21,29 @@ extension Requests {
             id: String,
             partnerId: String? = nil,
             newSupplier: DocumentsConfirmCaptureRequestNewSupplier? = nil,
+            type: DocumentsConfirmCaptureRequestType? = nil,
             documentNumber: String,
             documentDate: CalendarDate,
             dueDate: CalendarDate? = nil,
             currency: String? = nil,
             notes: String? = nil,
             lines: [DocumentsConfirmCaptureRequestLinesItem],
+            oppositeLines: [DocumentsConfirmCaptureRequestOppositeLinesItem]? = nil,
+            oppositeDocumentNumber: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.id = id
             self.partnerId = partnerId
             self.newSupplier = newSupplier
+            self.type = type
             self.documentNumber = documentNumber
             self.documentDate = documentDate
             self.dueDate = dueDate
             self.currency = currency
             self.notes = notes
             self.lines = lines
+            self.oppositeLines = oppositeLines
+            self.oppositeDocumentNumber = oppositeDocumentNumber
             self.additionalProperties = additionalProperties
         }
 
@@ -43,12 +52,15 @@ extension Requests {
             self.id = try container.decode(String.self, forKey: .id)
             self.partnerId = try container.decodeIfPresent(String.self, forKey: .partnerId)
             self.newSupplier = try container.decodeIfPresent(DocumentsConfirmCaptureRequestNewSupplier.self, forKey: .newSupplier)
+            self.type = try container.decodeIfPresent(DocumentsConfirmCaptureRequestType.self, forKey: .type)
             self.documentNumber = try container.decode(String.self, forKey: .documentNumber)
             self.documentDate = try container.decode(CalendarDate.self, forKey: .documentDate)
             self.dueDate = try container.decodeIfPresent(CalendarDate.self, forKey: .dueDate)
             self.currency = try container.decodeIfPresent(String.self, forKey: .currency)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.lines = try container.decode([DocumentsConfirmCaptureRequestLinesItem].self, forKey: .lines)
+            self.oppositeLines = try container.decodeIfPresent([DocumentsConfirmCaptureRequestOppositeLinesItem].self, forKey: .oppositeLines)
+            self.oppositeDocumentNumber = try container.decodeIfPresent(String.self, forKey: .oppositeDocumentNumber)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -58,12 +70,15 @@ extension Requests {
             try container.encode(self.id, forKey: .id)
             try container.encodeIfPresent(self.partnerId, forKey: .partnerId)
             try container.encodeIfPresent(self.newSupplier, forKey: .newSupplier)
+            try container.encodeIfPresent(self.type, forKey: .type)
             try container.encode(self.documentNumber, forKey: .documentNumber)
             try container.encode(self.documentDate, forKey: .documentDate)
             try container.encodeIfPresent(self.dueDate, forKey: .dueDate)
             try container.encodeIfPresent(self.currency, forKey: .currency)
             try container.encodeIfPresent(self.notes, forKey: .notes)
             try container.encode(self.lines, forKey: .lines)
+            try container.encodeIfPresent(self.oppositeLines, forKey: .oppositeLines)
+            try container.encodeIfPresent(self.oppositeDocumentNumber, forKey: .oppositeDocumentNumber)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -71,12 +86,15 @@ extension Requests {
             case id
             case partnerId
             case newSupplier
+            case type
             case documentNumber
             case documentDate
             case dueDate
             case currency
             case notes
             case lines
+            case oppositeLines
+            case oppositeDocumentNumber
         }
     }
 }

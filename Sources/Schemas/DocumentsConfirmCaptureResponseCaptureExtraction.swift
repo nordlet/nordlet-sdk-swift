@@ -1,6 +1,7 @@
 import Foundation
 
 public struct DocumentsConfirmCaptureResponseCaptureExtraction: Codable, Hashable, Sendable {
+    public let documentType: DocumentsConfirmCaptureResponseCaptureExtractionDocumentType?
     public let supplier: DocumentsConfirmCaptureResponseCaptureExtractionSupplier
     public let documentNumber: Nullable<String>
     public let documentDate: Nullable<CalendarDate>
@@ -11,10 +12,12 @@ public struct DocumentsConfirmCaptureResponseCaptureExtraction: Codable, Hashabl
     public let grossTotal: Nullable<String>
     public let notes: Nullable<String>
     public let lines: [DocumentsConfirmCaptureResponseCaptureExtractionLinesItem]
+    public let oppositeLines: [DocumentsConfirmCaptureResponseCaptureExtractionOppositeLinesItem]?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
     public init(
+        documentType: DocumentsConfirmCaptureResponseCaptureExtractionDocumentType? = nil,
         supplier: DocumentsConfirmCaptureResponseCaptureExtractionSupplier,
         documentNumber: Nullable<String>,
         documentDate: Nullable<CalendarDate>,
@@ -25,8 +28,10 @@ public struct DocumentsConfirmCaptureResponseCaptureExtraction: Codable, Hashabl
         grossTotal: Nullable<String>,
         notes: Nullable<String>,
         lines: [DocumentsConfirmCaptureResponseCaptureExtractionLinesItem],
+        oppositeLines: [DocumentsConfirmCaptureResponseCaptureExtractionOppositeLinesItem]? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
+        self.documentType = documentType
         self.supplier = supplier
         self.documentNumber = documentNumber
         self.documentDate = documentDate
@@ -37,11 +42,13 @@ public struct DocumentsConfirmCaptureResponseCaptureExtraction: Codable, Hashabl
         self.grossTotal = grossTotal
         self.notes = notes
         self.lines = lines
+        self.oppositeLines = oppositeLines
         self.additionalProperties = additionalProperties
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.documentType = try container.decodeIfPresent(DocumentsConfirmCaptureResponseCaptureExtractionDocumentType.self, forKey: .documentType)
         self.supplier = try container.decode(DocumentsConfirmCaptureResponseCaptureExtractionSupplier.self, forKey: .supplier)
         self.documentNumber = try container.decode(Nullable<String>.self, forKey: .documentNumber)
         self.documentDate = try container.decode(Nullable<CalendarDate>.self, forKey: .documentDate)
@@ -52,12 +59,14 @@ public struct DocumentsConfirmCaptureResponseCaptureExtraction: Codable, Hashabl
         self.grossTotal = try container.decode(Nullable<String>.self, forKey: .grossTotal)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.lines = try container.decode([DocumentsConfirmCaptureResponseCaptureExtractionLinesItem].self, forKey: .lines)
+        self.oppositeLines = try container.decodeIfPresent([DocumentsConfirmCaptureResponseCaptureExtractionOppositeLinesItem].self, forKey: .oppositeLines)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
     public func encode(to encoder: Encoder) throws -> Void {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try encoder.encodeAdditionalProperties(self.additionalProperties)
+        try container.encodeIfPresent(self.documentType, forKey: .documentType)
         try container.encode(self.supplier, forKey: .supplier)
         try container.encode(self.documentNumber, forKey: .documentNumber)
         try container.encode(self.documentDate, forKey: .documentDate)
@@ -68,10 +77,12 @@ public struct DocumentsConfirmCaptureResponseCaptureExtraction: Codable, Hashabl
         try container.encode(self.grossTotal, forKey: .grossTotal)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.lines, forKey: .lines)
+        try container.encodeIfPresent(self.oppositeLines, forKey: .oppositeLines)
     }
 
     /// Keys for encoding/decoding struct properties.
     enum CodingKeys: String, CodingKey, CaseIterable {
+        case documentType
         case supplier
         case documentNumber
         case documentDate
@@ -82,5 +93,6 @@ public struct DocumentsConfirmCaptureResponseCaptureExtraction: Codable, Hashabl
         case grossTotal
         case notes
         case lines
+        case oppositeLines
     }
 }

@@ -9,6 +9,7 @@ public struct LandedCostsCreateInventoryResponse: Codable, Hashable, Sendable {
     public let sourceInvoiceId: Nullable<String>
     public let notes: Nullable<String>
     public let createdAt: Date
+    public let journalTransactionId: Nullable<String>
     public let lines: [LandedCostsCreateInventoryResponseLinesItem]
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -22,6 +23,7 @@ public struct LandedCostsCreateInventoryResponse: Codable, Hashable, Sendable {
         sourceInvoiceId: Nullable<String>,
         notes: Nullable<String>,
         createdAt: Date,
+        journalTransactionId: Nullable<String>,
         lines: [LandedCostsCreateInventoryResponseLinesItem],
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -33,6 +35,7 @@ public struct LandedCostsCreateInventoryResponse: Codable, Hashable, Sendable {
         self.sourceInvoiceId = sourceInvoiceId
         self.notes = notes
         self.createdAt = createdAt
+        self.journalTransactionId = journalTransactionId
         self.lines = lines
         self.additionalProperties = additionalProperties
     }
@@ -47,6 +50,7 @@ public struct LandedCostsCreateInventoryResponse: Codable, Hashable, Sendable {
         self.sourceInvoiceId = try container.decode(Nullable<String>.self, forKey: .sourceInvoiceId)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
+        self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
         self.lines = try container.decode([LandedCostsCreateInventoryResponseLinesItem].self, forKey: .lines)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -62,6 +66,7 @@ public struct LandedCostsCreateInventoryResponse: Codable, Hashable, Sendable {
         try container.encode(self.sourceInvoiceId, forKey: .sourceInvoiceId)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.createdAt, forKey: .createdAt)
+        try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
         try container.encode(self.lines, forKey: .lines)
     }
 
@@ -75,6 +80,7 @@ public struct LandedCostsCreateInventoryResponse: Codable, Hashable, Sendable {
         case sourceInvoiceId
         case notes
         case createdAt
+        case journalTransactionId
         case lines
     }
 }

@@ -472,6 +472,7 @@ import Api
                     }
                   ],
                   "netTotal": "netTotal",
+                  "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
                   "warnings": [
@@ -553,6 +554,7 @@ import Api
                 )
             ],
             netTotal: "netTotal",
+            paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
             warnings: [
@@ -648,6 +650,7 @@ import Api
                     }
                   ],
                   "netTotal": "netTotal",
+                  "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
                   "notes": "notes",
                   "warnings": [
@@ -811,6 +814,7 @@ import Api
                 )
             ],
             netTotal: "netTotal",
+            paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
             warnings: [
@@ -974,6 +978,7 @@ import Api
                     }
                   ],
                   "netTotal": "netTotal",
+                  "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
                   "warnings": [
@@ -1055,6 +1060,7 @@ import Api
                 )
             ],
             netTotal: "netTotal",
+            paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
             warnings: [
@@ -1147,6 +1153,7 @@ import Api
                     }
                   ],
                   "netTotal": "netTotal",
+                  "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
                   "notes": "notes",
                   "warnings": [
@@ -1310,6 +1317,7 @@ import Api
                 )
             ],
             netTotal: "netTotal",
+            paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
             warnings: [
@@ -1470,6 +1478,7 @@ import Api
                         }
                       ],
                       "netTotal": "netTotal",
+                      "paidAmount": "paidAmount",
                       "journalTransactionId": "journalTransactionId",
                       "notes": "notes",
                       "warnings": [
@@ -1524,6 +1533,7 @@ import Api
                         )
                     ],
                     netTotal: "netTotal",
+                    paidAmount: "paidAmount",
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
                     notes: Nullable<String>.value("notes"),
                     warnings: [
@@ -1591,6 +1601,7 @@ import Api
                         }
                       ],
                       "netTotal": "netTotal",
+                      "paidAmount": "paidAmount",
                       "journalTransactionId": "x",
                       "notes": "notes",
                       "warnings": [
@@ -1632,6 +1643,7 @@ import Api
                         }
                       ],
                       "netTotal": "netTotal",
+                      "paidAmount": "paidAmount",
                       "journalTransactionId": "x",
                       "notes": "notes",
                       "warnings": [
@@ -1696,6 +1708,7 @@ import Api
                         )
                     ],
                     netTotal: "netTotal",
+                    paidAmount: "paidAmount",
                     journalTransactionId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
                     warnings: [
@@ -1737,6 +1750,7 @@ import Api
                         )
                     ],
                     netTotal: "netTotal",
+                    paidAmount: "paidAmount",
                     journalTransactionId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
                     warnings: [
@@ -2028,6 +2042,7 @@ import Api
                     }
                   ],
                   "netTotal": "netTotal",
+                  "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
                   "warnings": [
@@ -2069,6 +2084,7 @@ import Api
                 )
             ],
             netTotal: "netTotal",
+            paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
             warnings: [
@@ -2121,6 +2137,7 @@ import Api
                     }
                   ],
                   "netTotal": "netTotal",
+                  "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
                   "notes": "notes",
                   "warnings": [
@@ -2170,6 +2187,7 @@ import Api
                 )
             ],
             netTotal: "netTotal",
+            paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
             warnings: [
@@ -2216,6 +2234,7 @@ import Api
                     }
                   ],
                   "netTotal": "netTotal",
+                  "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",
                   "warnings": [
@@ -2257,6 +2276,7 @@ import Api
                 )
             ],
             netTotal: "netTotal",
+            paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             notes: Nullable<String>.value("notes"),
             warnings: [
@@ -2312,6 +2332,7 @@ import Api
                     }
                   ],
                   "netTotal": "netTotal",
+                  "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
                   "notes": "notes",
                   "warnings": [
@@ -2361,6 +2382,7 @@ import Api
                 )
             ],
             netTotal: "netTotal",
+            paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
             warnings: [

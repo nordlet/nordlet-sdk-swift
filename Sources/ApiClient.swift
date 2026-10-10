@@ -11,9 +11,11 @@ public final class ApiClient: Sendable {
     public let documentSeries: DocumentSeriesClient
     public let purchases: PurchasesClient
     public let capture: CaptureClient
+    public let peppol: PeppolClient
     public let declarations: DeclarationsClient
     public let ledger: LedgerClient
     public let officers: OfficersClient
+    public let platformSellers: PlatformSellersClient
     public let migration: MigrationClient
     public let assets: AssetsClient
     public let hr: HrClient
@@ -124,9 +126,11 @@ public final class ApiClient: Sendable {
         self.documentSeries = DocumentSeriesClient(config: config)
         self.purchases = PurchasesClient(config: config)
         self.capture = CaptureClient(config: config)
+        self.peppol = PeppolClient(config: config)
         self.declarations = DeclarationsClient(config: config)
         self.ledger = LedgerClient(config: config)
         self.officers = OfficersClient(config: config)
+        self.platformSellers = PlatformSellersClient(config: config)
         self.migration = MigrationClient(config: config)
         self.assets = AssetsClient(config: config)
         self.hr = HrClient(config: config)

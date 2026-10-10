@@ -3,6 +3,7 @@ import Foundation
 public struct AccountsUpdateBankResponse: Codable, Hashable, Sendable {
     public let id: String
     public let name: String
+    public let type: AccountsUpdateBankResponseType
     public let iban: Nullable<String>
     public let currency: String
     public let accountCode: String
@@ -14,6 +15,7 @@ public struct AccountsUpdateBankResponse: Codable, Hashable, Sendable {
     public init(
         id: String,
         name: String,
+        type: AccountsUpdateBankResponseType,
         iban: Nullable<String>,
         currency: String,
         accountCode: String,
@@ -23,6 +25,7 @@ public struct AccountsUpdateBankResponse: Codable, Hashable, Sendable {
     ) {
         self.id = id
         self.name = name
+        self.type = type
         self.iban = iban
         self.currency = currency
         self.accountCode = accountCode
@@ -35,6 +38,7 @@ public struct AccountsUpdateBankResponse: Codable, Hashable, Sendable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
         self.name = try container.decode(String.self, forKey: .name)
+        self.type = try container.decode(AccountsUpdateBankResponseType.self, forKey: .type)
         self.iban = try container.decode(Nullable<String>.self, forKey: .iban)
         self.currency = try container.decode(String.self, forKey: .currency)
         self.accountCode = try container.decode(String.self, forKey: .accountCode)
@@ -48,6 +52,7 @@ public struct AccountsUpdateBankResponse: Codable, Hashable, Sendable {
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.id, forKey: .id)
         try container.encode(self.name, forKey: .name)
+        try container.encode(self.type, forKey: .type)
         try container.encode(self.iban, forKey: .iban)
         try container.encode(self.currency, forKey: .currency)
         try container.encode(self.accountCode, forKey: .accountCode)
@@ -59,6 +64,7 @@ public struct AccountsUpdateBankResponse: Codable, Hashable, Sendable {
     enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case name
+        case type
         case iban
         case currency
         case accountCode

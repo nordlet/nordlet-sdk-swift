@@ -16,6 +16,10 @@ public struct SettlementsCommissionBankResponse: Codable, Hashable, Sendable {
     public let reference: Nullable<String>
     public let matchedInvoiceId: Nullable<String>
     public let matchStatus: SettlementsCommissionBankResponseMatchStatus
+    public let clearingBankAccountId: Nullable<String>
+    public let clearingBooked: Nullable<String>
+    public let clearingDifference: Nullable<String>
+    public let clearingUnposted: Bool
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -35,6 +39,10 @@ public struct SettlementsCommissionBankResponse: Codable, Hashable, Sendable {
         reference: Nullable<String>,
         matchedInvoiceId: Nullable<String>,
         matchStatus: SettlementsCommissionBankResponseMatchStatus,
+        clearingBankAccountId: Nullable<String>,
+        clearingBooked: Nullable<String>,
+        clearingDifference: Nullable<String>,
+        clearingUnposted: Bool,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -52,6 +60,10 @@ public struct SettlementsCommissionBankResponse: Codable, Hashable, Sendable {
         self.reference = reference
         self.matchedInvoiceId = matchedInvoiceId
         self.matchStatus = matchStatus
+        self.clearingBankAccountId = clearingBankAccountId
+        self.clearingBooked = clearingBooked
+        self.clearingDifference = clearingDifference
+        self.clearingUnposted = clearingUnposted
         self.additionalProperties = additionalProperties
     }
 
@@ -72,6 +84,10 @@ public struct SettlementsCommissionBankResponse: Codable, Hashable, Sendable {
         self.reference = try container.decode(Nullable<String>.self, forKey: .reference)
         self.matchedInvoiceId = try container.decode(Nullable<String>.self, forKey: .matchedInvoiceId)
         self.matchStatus = try container.decode(SettlementsCommissionBankResponseMatchStatus.self, forKey: .matchStatus)
+        self.clearingBankAccountId = try container.decode(Nullable<String>.self, forKey: .clearingBankAccountId)
+        self.clearingBooked = try container.decode(Nullable<String>.self, forKey: .clearingBooked)
+        self.clearingDifference = try container.decode(Nullable<String>.self, forKey: .clearingDifference)
+        self.clearingUnposted = try container.decode(Bool.self, forKey: .clearingUnposted)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -93,6 +109,10 @@ public struct SettlementsCommissionBankResponse: Codable, Hashable, Sendable {
         try container.encode(self.reference, forKey: .reference)
         try container.encode(self.matchedInvoiceId, forKey: .matchedInvoiceId)
         try container.encode(self.matchStatus, forKey: .matchStatus)
+        try container.encode(self.clearingBankAccountId, forKey: .clearingBankAccountId)
+        try container.encode(self.clearingBooked, forKey: .clearingBooked)
+        try container.encode(self.clearingDifference, forKey: .clearingDifference)
+        try container.encode(self.clearingUnposted, forKey: .clearingUnposted)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -112,5 +132,9 @@ public struct SettlementsCommissionBankResponse: Codable, Hashable, Sendable {
         case reference
         case matchedInvoiceId
         case matchStatus
+        case clearingBankAccountId
+        case clearingBooked
+        case clearingDifference
+        case clearingUnposted
     }
 }

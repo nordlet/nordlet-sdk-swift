@@ -5,6 +5,7 @@ extension Requests {
         public let code: String
         public let name: String
         public let isDefault: Bool?
+        public let countryCode: Nullable<String>?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -12,11 +13,13 @@ extension Requests {
             code: String,
             name: String,
             isDefault: Bool? = nil,
+            countryCode: Nullable<String>? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.code = code
             self.name = name
             self.isDefault = isDefault
+            self.countryCode = countryCode
             self.additionalProperties = additionalProperties
         }
 
@@ -25,6 +28,7 @@ extension Requests {
             self.code = try container.decode(String.self, forKey: .code)
             self.name = try container.decode(String.self, forKey: .name)
             self.isDefault = try container.decodeIfPresent(Bool.self, forKey: .isDefault)
+            self.countryCode = try container.decodeNullableIfPresent(String.self, forKey: .countryCode)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -34,6 +38,7 @@ extension Requests {
             try container.encode(self.code, forKey: .code)
             try container.encode(self.name, forKey: .name)
             try container.encodeIfPresent(self.isDefault, forKey: .isDefault)
+            try container.encodeNullableIfPresent(self.countryCode, forKey: .countryCode)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -41,6 +46,7 @@ extension Requests {
             case code
             case name
             case isDefault
+            case countryCode
         }
     }
 }

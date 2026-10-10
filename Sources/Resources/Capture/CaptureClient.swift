@@ -97,6 +97,9 @@ public final class CaptureClient: Sendable {
         )
     }
 
+    /// Creates the purchase invoice (or credit note, see `type`) from `lines`. Lines with the opposite sign go in `oppositeLines` and are saved as a second document of the opposite type for the same supplier: a purchase credit note against the new invoice, or a purchase invoice next to the new credit note. It is numbered `oppositeDocumentNumber`, by default the document number followed by "-CR" (credit note) or "-INV" (invoice).
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func documentsConfirm(request: Requests.DocumentsConfirmCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> DocumentsConfirmCaptureResponse {
         return try await httpClient.performRequest(
             method: .post,

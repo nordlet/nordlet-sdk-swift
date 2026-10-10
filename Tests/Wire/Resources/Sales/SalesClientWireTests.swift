@@ -60,8 +60,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2026-07-01T09:30:00Z",
                   "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2026-07-01T09:30:00Z",
+                  "peppolCheckedAt": "2026-07-01T09:30:00Z",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "id",
@@ -197,8 +203,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesCreateSalesResponseLinesItem(
                     id: "id",
@@ -345,8 +357,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2024-01-15T09:30:00Z",
                   "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2024-01-15T09:30:00Z",
+                  "peppolCheckedAt": "2024-01-15T09:30:00Z",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "x",
@@ -528,8 +546,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesCreateSalesResponseLinesItem(
                     id: "x",
@@ -725,8 +749,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2026-07-01T09:30:00Z",
                   "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2026-07-01T09:30:00Z",
+                  "peppolCheckedAt": "2026-07-01T09:30:00Z",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "id",
@@ -862,8 +892,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesGetSalesResponseLinesItem(
                     id: "id",
@@ -1003,8 +1039,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2024-01-15T09:30:00Z",
                   "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2024-01-15T09:30:00Z",
+                  "peppolCheckedAt": "2024-01-15T09:30:00Z",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "x",
@@ -1186,8 +1228,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesGetSalesResponseLinesItem(
                     id: "x",
@@ -1509,6 +1557,8 @@ import Api
                   "sent": true,
                   "messageId": "messageId",
                   "receiverId": "receiverId",
+                  "status": "pending",
+                  "detail": "detail",
                   "fileId": "fileId"
                 }
                 """#.utf8
@@ -1523,6 +1573,8 @@ import Api
             sent: true,
             messageId: "messageId",
             receiverId: "receiverId",
+            status: .pending,
+            detail: Nullable<String>.value("detail"),
             fileId: Nullable<String>.value("fileId")
         )
         let response = try await client.sales.invoicesPeppolSend(
@@ -1541,6 +1593,8 @@ import Api
                   "sent": true,
                   "messageId": "messageId",
                   "receiverId": "receiverId",
+                  "status": "pending",
+                  "detail": "detail",
                   "fileId": "x"
                 }
                 """#.utf8
@@ -1555,9 +1609,75 @@ import Api
             sent: true,
             messageId: "messageId",
             receiverId: "receiverId",
+            status: .pending,
+            detail: Nullable<String>.value("detail"),
             fileId: Nullable<String>.value("x")
         )
         let response = try await client.sales.invoicesPeppolSend(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesPeppolStatus1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "messageId": "messageId",
+                  "status": "pending",
+                  "detail": "detail",
+                  "checkedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesPeppolStatusSalesResponse(
+            messageId: "messageId",
+            status: .pending,
+            detail: Nullable<String>.value("detail"),
+            checkedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.invoicesPeppolStatus(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesPeppolStatus2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "messageId": "messageId",
+                  "status": "pending",
+                  "detail": "detail",
+                  "checkedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesPeppolStatusSalesResponse(
+            messageId: "messageId",
+            status: .pending,
+            detail: Nullable<String>.value("detail"),
+            checkedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.invoicesPeppolStatus(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
@@ -1873,8 +1993,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2026-07-01T09:30:00Z",
                   "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2026-07-01T09:30:00Z",
+                  "peppolCheckedAt": "2026-07-01T09:30:00Z",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "id",
@@ -2010,8 +2136,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesUpdateSalesResponseLinesItem(
                     id: "id",
@@ -2151,8 +2283,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2024-01-15T09:30:00Z",
                   "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2024-01-15T09:30:00Z",
+                  "peppolCheckedAt": "2024-01-15T09:30:00Z",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "x",
@@ -2334,8 +2472,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesUpdateSalesResponseLinesItem(
                     id: "x",
@@ -2573,8 +2717,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2026-07-01T09:30:00Z",
                   "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2026-07-01T09:30:00Z",
+                  "peppolCheckedAt": "2026-07-01T09:30:00Z",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "id",
@@ -2710,8 +2860,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesIssueSalesResponseLinesItem(
                     id: "id",
@@ -2851,8 +3007,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2024-01-15T09:30:00Z",
                   "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2024-01-15T09:30:00Z",
+                  "peppolCheckedAt": "2024-01-15T09:30:00Z",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "x",
@@ -3034,8 +3196,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesIssueSalesResponseLinesItem(
                     id: "x",
@@ -3221,8 +3389,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2026-07-01T09:30:00Z",
                   "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2026-07-01T09:30:00Z",
+                  "peppolCheckedAt": "2026-07-01T09:30:00Z",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "id",
@@ -3358,8 +3532,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesLockSalesResponseLinesItem(
                     id: "id",
@@ -3499,8 +3679,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2024-01-15T09:30:00Z",
                   "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2024-01-15T09:30:00Z",
+                  "peppolCheckedAt": "2024-01-15T09:30:00Z",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "x",
@@ -3682,8 +3868,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesLockSalesResponseLinesItem(
                     id: "x",
@@ -3869,8 +4061,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2026-07-01T09:30:00Z",
                   "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2026-07-01T09:30:00Z",
+                  "peppolCheckedAt": "2026-07-01T09:30:00Z",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "id",
@@ -4006,8 +4204,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesUnlockSalesResponseLinesItem(
                     id: "id",
@@ -4147,8 +4351,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2024-01-15T09:30:00Z",
                   "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2024-01-15T09:30:00Z",
+                  "peppolCheckedAt": "2024-01-15T09:30:00Z",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "x",
@@ -4330,8 +4540,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesUnlockSalesResponseLinesItem(
                     id: "x",
@@ -4861,8 +5077,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2026-07-01T09:30:00Z",
                   "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2026-07-01T09:30:00Z",
+                  "peppolCheckedAt": "2026-07-01T09:30:00Z",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "id",
@@ -4998,8 +5220,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesApplyAdvanceSalesResponseLinesItem(
                     id: "id",
@@ -5142,8 +5370,14 @@ import Api
                   "einvoiceDetail": "einvoiceDetail",
                   "einvoiceSentAt": "2024-01-15T09:30:00Z",
                   "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2024-01-15T09:30:00Z",
+                  "peppolCheckedAt": "2024-01-15T09:30:00Z",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
                   "lines": [
                     {
                       "id": "x",
@@ -5325,8 +5559,14 @@ import Api
             einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
             einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
             lines: [
                 InvoicesApplyAdvanceSalesResponseLinesItem(
                     id: "x",
@@ -5517,6 +5757,11 @@ import Api
                       "einvoiceDetail": "einvoiceDetail",
                       "einvoiceSentAt": "2026-07-01T09:30:00Z",
                       "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                      "peppolMessageId": "peppolMessageId",
+                      "peppolStatus": "peppolStatus",
+                      "peppolDetail": "peppolDetail",
+                      "peppolSentAt": "2026-07-01T09:30:00Z",
+                      "peppolCheckedAt": "2026-07-01T09:30:00Z",
                       "createdAt": "2026-07-01T09:30:00Z",
                       "updatedAt": "2026-07-01T09:30:00Z",
                       "partnerName": "partnerName"
@@ -5596,6 +5841,11 @@ import Api
                     einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
                     einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    peppolMessageId: Nullable<String>.value("peppolMessageId"),
+                    peppolStatus: Nullable<String>.value("peppolStatus"),
+                    peppolDetail: Nullable<String>.value("peppolDetail"),
+                    peppolSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    peppolCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                     partnerName: Nullable<String>.value("partnerName")
@@ -5679,6 +5929,11 @@ import Api
                       "einvoiceDetail": "einvoiceDetail",
                       "einvoiceSentAt": "2024-01-15T09:30:00Z",
                       "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                      "peppolMessageId": "peppolMessageId",
+                      "peppolStatus": "peppolStatus",
+                      "peppolDetail": "peppolDetail",
+                      "peppolSentAt": "2024-01-15T09:30:00Z",
+                      "peppolCheckedAt": "2024-01-15T09:30:00Z",
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z",
                       "partnerName": "partnerName"
@@ -5735,6 +5990,11 @@ import Api
                       "einvoiceDetail": "einvoiceDetail",
                       "einvoiceSentAt": "2024-01-15T09:30:00Z",
                       "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                      "peppolMessageId": "peppolMessageId",
+                      "peppolStatus": "peppolStatus",
+                      "peppolDetail": "peppolDetail",
+                      "peppolSentAt": "2024-01-15T09:30:00Z",
+                      "peppolCheckedAt": "2024-01-15T09:30:00Z",
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z",
                       "partnerName": "partnerName"
@@ -5814,6 +6074,11 @@ import Api
                     einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
                     einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    peppolMessageId: Nullable<String>.value("peppolMessageId"),
+                    peppolStatus: Nullable<String>.value("peppolStatus"),
+                    peppolDetail: Nullable<String>.value("peppolDetail"),
+                    peppolSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    peppolCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     partnerName: Nullable<String>.value("partnerName")
@@ -5870,6 +6135,11 @@ import Api
                     einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
                     einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    peppolMessageId: Nullable<String>.value("peppolMessageId"),
+                    peppolStatus: Nullable<String>.value("peppolStatus"),
+                    peppolDetail: Nullable<String>.value("peppolDetail"),
+                    peppolSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    peppolCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     partnerName: Nullable<String>.value("partnerName")
