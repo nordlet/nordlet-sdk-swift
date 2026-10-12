@@ -28,8 +28,6 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
     public let website: Nullable<String>
     public let fax: Nullable<String>
     public let eoriCode: Nullable<String>
-    public let otherCode: Nullable<String>
-    public let foreignTaxNumber: Nullable<String>
     public let autoDebtReminder: Bool
     public let lateInterestPercent: Nullable<String>
     public let firstCallDate: Nullable<CalendarDate>
@@ -73,8 +71,6 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         website: Nullable<String>,
         fax: Nullable<String>,
         eoriCode: Nullable<String>,
-        otherCode: Nullable<String>,
-        foreignTaxNumber: Nullable<String>,
         autoDebtReminder: Bool,
         lateInterestPercent: Nullable<String>,
         firstCallDate: Nullable<CalendarDate>,
@@ -116,8 +112,6 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         self.website = website
         self.fax = fax
         self.eoriCode = eoriCode
-        self.otherCode = otherCode
-        self.foreignTaxNumber = foreignTaxNumber
         self.autoDebtReminder = autoDebtReminder
         self.lateInterestPercent = lateInterestPercent
         self.firstCallDate = firstCallDate
@@ -162,8 +156,6 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         self.website = try container.decode(Nullable<String>.self, forKey: .website)
         self.fax = try container.decode(Nullable<String>.self, forKey: .fax)
         self.eoriCode = try container.decode(Nullable<String>.self, forKey: .eoriCode)
-        self.otherCode = try container.decode(Nullable<String>.self, forKey: .otherCode)
-        self.foreignTaxNumber = try container.decode(Nullable<String>.self, forKey: .foreignTaxNumber)
         self.autoDebtReminder = try container.decode(Bool.self, forKey: .autoDebtReminder)
         self.lateInterestPercent = try container.decode(Nullable<String>.self, forKey: .lateInterestPercent)
         self.firstCallDate = try container.decode(Nullable<CalendarDate>.self, forKey: .firstCallDate)
@@ -209,8 +201,6 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         try container.encode(self.website, forKey: .website)
         try container.encode(self.fax, forKey: .fax)
         try container.encode(self.eoriCode, forKey: .eoriCode)
-        try container.encode(self.otherCode, forKey: .otherCode)
-        try container.encode(self.foreignTaxNumber, forKey: .foreignTaxNumber)
         try container.encode(self.autoDebtReminder, forKey: .autoDebtReminder)
         try container.encode(self.lateInterestPercent, forKey: .lateInterestPercent)
         try container.encode(self.firstCallDate, forKey: .firstCallDate)
@@ -254,8 +244,6 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         case website
         case fax
         case eoriCode
-        case otherCode
-        case foreignTaxNumber
         case autoDebtReminder
         case lateInterestPercent
         case firstCallDate

@@ -379,6 +379,36 @@ public final class BankClient: Sendable {
         )
     }
 
+    public func securitiesImport(request: Requests.SecuritiesImportBankRequest, requestOptions: RequestOptions? = nil) async throws -> SecuritiesImportBankResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/securities/import",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: SecuritiesImportBankResponse.self
+        )
+    }
+
+    public func securitiesList(request: Requests.SecuritiesListBankRequest, requestOptions: RequestOptions? = nil) async throws -> SecuritiesListBankResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/securities/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: SecuritiesListBankResponse.self
+        )
+    }
+
+    public func securitiesGet(request: Requests.SecuritiesGetBankRequest, requestOptions: RequestOptions? = nil) async throws -> SecuritiesGetBankResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/securities/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: SecuritiesGetBankResponse.self
+        )
+    }
+
     public func feedsBanksList(request: Requests.FeedsBanksListBankRequest, requestOptions: RequestOptions? = nil) async throws -> FeedsBanksListBankResponse {
         return try await httpClient.performRequest(
             method: .post,

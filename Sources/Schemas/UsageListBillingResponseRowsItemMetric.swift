@@ -5,4 +5,5 @@ public enum UsageListBillingResponseRowsItemMetric: String, Codable, Hashable, C
     case ocrPage = "ocr_page"
     case fileStorageBytes = "file_storage_bytes"
     case databaseBytes = "database_bytes"
+    case saleInvoice = "sale_invoice"
 }

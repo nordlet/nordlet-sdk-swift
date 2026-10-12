@@ -302,6 +302,56 @@ public final class SalesClient: Sendable {
         )
     }
 
+    public func invoiceTemplatesCreate(request: Requests.InvoiceTemplatesCreateSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoiceTemplatesCreateSalesResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/invoice-templates/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: InvoiceTemplatesCreateSalesResponse.self
+        )
+    }
+
+    public func invoiceTemplatesUpdate(request: Requests.InvoiceTemplatesUpdateSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoiceTemplatesUpdateSalesResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/invoice-templates/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: InvoiceTemplatesUpdateSalesResponse.self
+        )
+    }
+
+    public func invoiceTemplatesGet(request: Requests.InvoiceTemplatesGetSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoiceTemplatesGetSalesResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/invoice-templates/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: InvoiceTemplatesGetSalesResponse.self
+        )
+    }
+
+    public func invoiceTemplatesDelete(request: Requests.InvoiceTemplatesDeleteSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoiceTemplatesDeleteSalesResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/invoice-templates/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: InvoiceTemplatesDeleteSalesResponse.self
+        )
+    }
+
+    public func invoiceTemplatesList(request: Requests.InvoiceTemplatesListSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoiceTemplatesListSalesResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/sales/invoice-templates/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: InvoiceTemplatesListSalesResponse.self
+        )
+    }
+
     public func recognitionCompute(request: Requests.RecognitionComputeSalesRequest, requestOptions: RequestOptions? = nil) async throws -> RecognitionComputeSalesResponse {
         return try await httpClient.performRequest(
             method: .post,

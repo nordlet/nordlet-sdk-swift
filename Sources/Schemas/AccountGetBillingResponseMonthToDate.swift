@@ -4,6 +4,7 @@ public struct AccountGetBillingResponseMonthToDate: Codable, Hashable, Sendable 
     public let from: String
     public let to: String
     public let apiRequests: Int64
+    public let saleInvoices: Int64
     public let ocrPages: Int64
     public let fileBytes: Double
     public let databaseBytes: Double
@@ -16,6 +17,7 @@ public struct AccountGetBillingResponseMonthToDate: Codable, Hashable, Sendable 
         from: String,
         to: String,
         apiRequests: Int64,
+        saleInvoices: Int64,
         ocrPages: Int64,
         fileBytes: Double,
         databaseBytes: Double,
@@ -26,6 +28,7 @@ public struct AccountGetBillingResponseMonthToDate: Codable, Hashable, Sendable 
         self.from = from
         self.to = to
         self.apiRequests = apiRequests
+        self.saleInvoices = saleInvoices
         self.ocrPages = ocrPages
         self.fileBytes = fileBytes
         self.databaseBytes = databaseBytes
@@ -39,6 +42,7 @@ public struct AccountGetBillingResponseMonthToDate: Codable, Hashable, Sendable 
         self.from = try container.decode(String.self, forKey: .from)
         self.to = try container.decode(String.self, forKey: .to)
         self.apiRequests = try container.decode(Int64.self, forKey: .apiRequests)
+        self.saleInvoices = try container.decode(Int64.self, forKey: .saleInvoices)
         self.ocrPages = try container.decode(Int64.self, forKey: .ocrPages)
         self.fileBytes = try container.decode(Double.self, forKey: .fileBytes)
         self.databaseBytes = try container.decode(Double.self, forKey: .databaseBytes)
@@ -53,6 +57,7 @@ public struct AccountGetBillingResponseMonthToDate: Codable, Hashable, Sendable 
         try container.encode(self.from, forKey: .from)
         try container.encode(self.to, forKey: .to)
         try container.encode(self.apiRequests, forKey: .apiRequests)
+        try container.encode(self.saleInvoices, forKey: .saleInvoices)
         try container.encode(self.ocrPages, forKey: .ocrPages)
         try container.encode(self.fileBytes, forKey: .fileBytes)
         try container.encode(self.databaseBytes, forKey: .databaseBytes)
@@ -65,6 +70,7 @@ public struct AccountGetBillingResponseMonthToDate: Codable, Hashable, Sendable 
         case from
         case to
         case apiRequests
+        case saleInvoices
         case ocrPages
         case fileBytes
         case databaseBytes

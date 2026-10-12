@@ -10,6 +10,7 @@ import Api
                 #"""
                 {
                   "plan": "starter",
+                  "accountType": "flat_rate",
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2026-07-01T09:30:00Z",
@@ -24,6 +25,7 @@ import Api
                     "from": "from",
                     "to": "to",
                     "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
                     "ocrPages": 1000000,
                     "fileBytes": 1.1,
                     "databaseBytes": 1.1,
@@ -33,16 +35,24 @@ import Api
                   "plans": {
                     "key": {
                       "monthlyFeeEur": "monthlyFeeEur",
-                      "includedRequests": 1000000,
-                      "requestOverageEur": "requestOverageEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
                       "includedDatabaseBytes": 1.1,
                       "includedFileBytes": 1.1
                     }
                   },
+                  "apiRequestEur": "apiRequestEur",
                   "topUp": {
                     "minCents": 1000000,
                     "maxCents": 1000000
                   },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
                   "trialDays": 1000000
                 }
                 """#.utf8
@@ -55,6 +65,7 @@ import Api
         )
         let expectedResponse = AccountGetBillingResponse(
             plan: .starter,
+            accountType: .flatRate,
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
@@ -69,6 +80,7 @@ import Api
                 from: "from",
                 to: "to",
                 apiRequests: 1000000,
+                saleInvoices: 1000000,
                 ocrPages: 1000000,
                 fileBytes: 1.1,
                 databaseBytes: 1.1,
@@ -78,16 +90,24 @@ import Api
             plans: [
                 "key": AccountGetBillingResponsePlansValue(
                     monthlyFeeEur: "monthlyFeeEur",
-                    includedRequests: 1000000,
-                    requestOverageEur: "requestOverageEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
                     includedDatabaseBytes: 1.1,
                     includedFileBytes: 1.1
                 )
             ],
+            apiRequestEur: "apiRequestEur",
             topUp: AccountGetBillingResponseTopUp(
                 minCents: 1000000,
                 maxCents: 1000000
             ),
+            autoTopUp: AccountGetBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
             trialDays: 1000000
         )
         let response = try await client.billing.accountGet(
@@ -104,6 +124,7 @@ import Api
                 #"""
                 {
                   "plan": "starter",
+                  "accountType": "flat_rate",
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2024-01-15T09:30:00Z",
@@ -118,6 +139,7 @@ import Api
                     "from": "from",
                     "to": "to",
                     "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
                     "ocrPages": 1000000,
                     "fileBytes": 1.1,
                     "databaseBytes": 1.1,
@@ -127,16 +149,24 @@ import Api
                   "plans": {
                     "plans": {
                       "monthlyFeeEur": "monthlyFeeEur",
-                      "includedRequests": 1000000,
-                      "requestOverageEur": "requestOverageEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
                       "includedDatabaseBytes": 1.1,
                       "includedFileBytes": 1.1
                     }
                   },
+                  "apiRequestEur": "apiRequestEur",
                   "topUp": {
                     "minCents": 1000000,
                     "maxCents": 1000000
                   },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
                   "trialDays": 1000000
                 }
                 """#.utf8
@@ -149,6 +179,7 @@ import Api
         )
         let expectedResponse = AccountGetBillingResponse(
             plan: .starter,
+            accountType: .flatRate,
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
@@ -163,6 +194,7 @@ import Api
                 from: "from",
                 to: "to",
                 apiRequests: 1000000,
+                saleInvoices: 1000000,
                 ocrPages: 1000000,
                 fileBytes: 1.1,
                 databaseBytes: 1.1,
@@ -172,16 +204,24 @@ import Api
             plans: [
                 "plans": AccountGetBillingResponsePlansValue(
                     monthlyFeeEur: "monthlyFeeEur",
-                    includedRequests: 1000000,
-                    requestOverageEur: "requestOverageEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
                     includedDatabaseBytes: 1.1,
                     includedFileBytes: 1.1
                 )
             ],
+            apiRequestEur: "apiRequestEur",
             topUp: AccountGetBillingResponseTopUp(
                 minCents: 1000000,
                 maxCents: 1000000
             ),
+            autoTopUp: AccountGetBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
             trialDays: 1000000
         )
         let response = try await client.billing.accountGet(
@@ -198,6 +238,7 @@ import Api
                 #"""
                 {
                   "plan": "starter",
+                  "accountType": "flat_rate",
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2026-07-01T09:30:00Z",
@@ -212,6 +253,7 @@ import Api
                     "from": "from",
                     "to": "to",
                     "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
                     "ocrPages": 1000000,
                     "fileBytes": 1.1,
                     "databaseBytes": 1.1,
@@ -221,16 +263,24 @@ import Api
                   "plans": {
                     "key": {
                       "monthlyFeeEur": "monthlyFeeEur",
-                      "includedRequests": 1000000,
-                      "requestOverageEur": "requestOverageEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
                       "includedDatabaseBytes": 1.1,
                       "includedFileBytes": 1.1
                     }
                   },
+                  "apiRequestEur": "apiRequestEur",
                   "topUp": {
                     "minCents": 1000000,
                     "maxCents": 1000000
                   },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
                   "trialDays": 1000000
                 }
                 """#.utf8
@@ -243,6 +293,7 @@ import Api
         )
         let expectedResponse = AccountSetPlanBillingResponse(
             plan: .starter,
+            accountType: .flatRate,
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
@@ -257,6 +308,7 @@ import Api
                 from: "from",
                 to: "to",
                 apiRequests: 1000000,
+                saleInvoices: 1000000,
                 ocrPages: 1000000,
                 fileBytes: 1.1,
                 databaseBytes: 1.1,
@@ -266,16 +318,24 @@ import Api
             plans: [
                 "key": AccountSetPlanBillingResponsePlansValue(
                     monthlyFeeEur: "monthlyFeeEur",
-                    includedRequests: 1000000,
-                    requestOverageEur: "requestOverageEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
                     includedDatabaseBytes: 1.1,
                     includedFileBytes: 1.1
                 )
             ],
+            apiRequestEur: "apiRequestEur",
             topUp: AccountSetPlanBillingResponseTopUp(
                 minCents: 1000000,
                 maxCents: 1000000
             ),
+            autoTopUp: AccountSetPlanBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
             trialDays: 1000000
         )
         let response = try await client.billing.accountSetPlan(
@@ -292,6 +352,7 @@ import Api
                 #"""
                 {
                   "plan": "starter",
+                  "accountType": "flat_rate",
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2024-01-15T09:30:00Z",
@@ -306,6 +367,7 @@ import Api
                     "from": "from",
                     "to": "to",
                     "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
                     "ocrPages": 1000000,
                     "fileBytes": 1.1,
                     "databaseBytes": 1.1,
@@ -315,16 +377,24 @@ import Api
                   "plans": {
                     "plans": {
                       "monthlyFeeEur": "monthlyFeeEur",
-                      "includedRequests": 1000000,
-                      "requestOverageEur": "requestOverageEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
                       "includedDatabaseBytes": 1.1,
                       "includedFileBytes": 1.1
                     }
                   },
+                  "apiRequestEur": "apiRequestEur",
                   "topUp": {
                     "minCents": 1000000,
                     "maxCents": 1000000
                   },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
                   "trialDays": 1000000
                 }
                 """#.utf8
@@ -337,6 +407,7 @@ import Api
         )
         let expectedResponse = AccountSetPlanBillingResponse(
             plan: .starter,
+            accountType: .flatRate,
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
@@ -351,6 +422,7 @@ import Api
                 from: "from",
                 to: "to",
                 apiRequests: 1000000,
+                saleInvoices: 1000000,
                 ocrPages: 1000000,
                 fileBytes: 1.1,
                 databaseBytes: 1.1,
@@ -360,20 +432,718 @@ import Api
             plans: [
                 "plans": AccountSetPlanBillingResponsePlansValue(
                     monthlyFeeEur: "monthlyFeeEur",
-                    includedRequests: 1000000,
-                    requestOverageEur: "requestOverageEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
                     includedDatabaseBytes: 1.1,
                     includedFileBytes: 1.1
                 )
             ],
+            apiRequestEur: "apiRequestEur",
             topUp: AccountSetPlanBillingResponseTopUp(
                 minCents: 1000000,
                 maxCents: 1000000
             ),
+            autoTopUp: AccountSetPlanBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
             trialDays: 1000000
         )
         let response = try await client.billing.accountSetPlan(
             request: .init(plan: .starter),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func accountSetAccountType1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "plan": "starter",
+                  "accountType": "flat_rate",
+                  "status": "trial",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "firstTopUpAt": "2026-07-01T09:30:00Z",
+                  "lastChargedDate": "2026-07-01",
+                  "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
+                  "paymentFailedAt": "2026-07-01T09:30:00Z",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
+                  "monthToDate": {
+                    "from": "from",
+                    "to": "to",
+                    "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
+                    "ocrPages": 1000000,
+                    "fileBytes": 1.1,
+                    "databaseBytes": 1.1,
+                    "archivedCompanies": 1000000,
+                    "estimatedTodayCents": 1000000
+                  },
+                  "plans": {
+                    "key": {
+                      "monthlyFeeEur": "monthlyFeeEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
+                      "includedDatabaseBytes": 1.1,
+                      "includedFileBytes": 1.1
+                    }
+                  },
+                  "apiRequestEur": "apiRequestEur",
+                  "topUp": {
+                    "minCents": 1000000,
+                    "maxCents": 1000000
+                  },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
+                  "trialDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AccountSetAccountTypeBillingResponse(
+            plan: .starter,
+            accountType: .flatRate,
+            status: .trial,
+            balanceCents: 1000000,
+            trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
+            paymentFailedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
+            monthToDate: AccountSetAccountTypeBillingResponseMonthToDate(
+                from: "from",
+                to: "to",
+                apiRequests: 1000000,
+                saleInvoices: 1000000,
+                ocrPages: 1000000,
+                fileBytes: 1.1,
+                databaseBytes: 1.1,
+                archivedCompanies: 1000000,
+                estimatedTodayCents: 1000000
+            ),
+            plans: [
+                "key": AccountSetAccountTypeBillingResponsePlansValue(
+                    monthlyFeeEur: "monthlyFeeEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
+                    includedDatabaseBytes: 1.1,
+                    includedFileBytes: 1.1
+                )
+            ],
+            apiRequestEur: "apiRequestEur",
+            topUp: AccountSetAccountTypeBillingResponseTopUp(
+                minCents: 1000000,
+                maxCents: 1000000
+            ),
+            autoTopUp: AccountSetAccountTypeBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
+            trialDays: 1000000
+        )
+        let response = try await client.billing.accountSetAccountType(
+            request: .init(accountType: .flatRate),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func accountSetAccountType2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "plan": "starter",
+                  "accountType": "flat_rate",
+                  "status": "trial",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "firstTopUpAt": "2024-01-15T09:30:00Z",
+                  "lastChargedDate": "2023-01-15",
+                  "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
+                  "paymentFailedAt": "2024-01-15T09:30:00Z",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
+                  "monthToDate": {
+                    "from": "from",
+                    "to": "to",
+                    "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
+                    "ocrPages": 1000000,
+                    "fileBytes": 1.1,
+                    "databaseBytes": 1.1,
+                    "archivedCompanies": 1000000,
+                    "estimatedTodayCents": 1000000
+                  },
+                  "plans": {
+                    "plans": {
+                      "monthlyFeeEur": "monthlyFeeEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
+                      "includedDatabaseBytes": 1.1,
+                      "includedFileBytes": 1.1
+                    }
+                  },
+                  "apiRequestEur": "apiRequestEur",
+                  "topUp": {
+                    "minCents": 1000000,
+                    "maxCents": 1000000
+                  },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
+                  "trialDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AccountSetAccountTypeBillingResponse(
+            plan: .starter,
+            accountType: .flatRate,
+            status: .trial,
+            balanceCents: 1000000,
+            trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
+            paymentFailedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
+            monthToDate: AccountSetAccountTypeBillingResponseMonthToDate(
+                from: "from",
+                to: "to",
+                apiRequests: 1000000,
+                saleInvoices: 1000000,
+                ocrPages: 1000000,
+                fileBytes: 1.1,
+                databaseBytes: 1.1,
+                archivedCompanies: 1000000,
+                estimatedTodayCents: 1000000
+            ),
+            plans: [
+                "plans": AccountSetAccountTypeBillingResponsePlansValue(
+                    monthlyFeeEur: "monthlyFeeEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
+                    includedDatabaseBytes: 1.1,
+                    includedFileBytes: 1.1
+                )
+            ],
+            apiRequestEur: "apiRequestEur",
+            topUp: AccountSetAccountTypeBillingResponseTopUp(
+                minCents: 1000000,
+                maxCents: 1000000
+            ),
+            autoTopUp: AccountSetAccountTypeBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
+            trialDays: 1000000
+        )
+        let response = try await client.billing.accountSetAccountType(
+            request: .init(accountType: .flatRate),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func accountSetAutoTopUp1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "plan": "starter",
+                  "accountType": "flat_rate",
+                  "status": "trial",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "firstTopUpAt": "2026-07-01T09:30:00Z",
+                  "lastChargedDate": "2026-07-01",
+                  "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
+                  "paymentFailedAt": "2026-07-01T09:30:00Z",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
+                  "monthToDate": {
+                    "from": "from",
+                    "to": "to",
+                    "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
+                    "ocrPages": 1000000,
+                    "fileBytes": 1.1,
+                    "databaseBytes": 1.1,
+                    "archivedCompanies": 1000000,
+                    "estimatedTodayCents": 1000000
+                  },
+                  "plans": {
+                    "key": {
+                      "monthlyFeeEur": "monthlyFeeEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
+                      "includedDatabaseBytes": 1.1,
+                      "includedFileBytes": 1.1
+                    }
+                  },
+                  "apiRequestEur": "apiRequestEur",
+                  "topUp": {
+                    "minCents": 1000000,
+                    "maxCents": 1000000
+                  },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
+                  "trialDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AccountSetAutoTopUpBillingResponse(
+            plan: .starter,
+            accountType: .flatRate,
+            status: .trial,
+            balanceCents: 1000000,
+            trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
+            paymentFailedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
+            monthToDate: AccountSetAutoTopUpBillingResponseMonthToDate(
+                from: "from",
+                to: "to",
+                apiRequests: 1000000,
+                saleInvoices: 1000000,
+                ocrPages: 1000000,
+                fileBytes: 1.1,
+                databaseBytes: 1.1,
+                archivedCompanies: 1000000,
+                estimatedTodayCents: 1000000
+            ),
+            plans: [
+                "key": AccountSetAutoTopUpBillingResponsePlansValue(
+                    monthlyFeeEur: "monthlyFeeEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
+                    includedDatabaseBytes: 1.1,
+                    includedFileBytes: 1.1
+                )
+            ],
+            apiRequestEur: "apiRequestEur",
+            topUp: AccountSetAutoTopUpBillingResponseTopUp(
+                minCents: 1000000,
+                maxCents: 1000000
+            ),
+            autoTopUp: AccountSetAutoTopUpBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
+            trialDays: 1000000
+        )
+        let response = try await client.billing.accountSetAutoTopUp(
+            request: .init(
+                enabled: true,
+                amountCents: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func accountSetAutoTopUp2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "plan": "starter",
+                  "accountType": "flat_rate",
+                  "status": "trial",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "firstTopUpAt": "2024-01-15T09:30:00Z",
+                  "lastChargedDate": "2023-01-15",
+                  "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
+                  "paymentFailedAt": "2024-01-15T09:30:00Z",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
+                  "monthToDate": {
+                    "from": "from",
+                    "to": "to",
+                    "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
+                    "ocrPages": 1000000,
+                    "fileBytes": 1.1,
+                    "databaseBytes": 1.1,
+                    "archivedCompanies": 1000000,
+                    "estimatedTodayCents": 1000000
+                  },
+                  "plans": {
+                    "plans": {
+                      "monthlyFeeEur": "monthlyFeeEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
+                      "includedDatabaseBytes": 1.1,
+                      "includedFileBytes": 1.1
+                    }
+                  },
+                  "apiRequestEur": "apiRequestEur",
+                  "topUp": {
+                    "minCents": 1000000,
+                    "maxCents": 1000000
+                  },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
+                  "trialDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AccountSetAutoTopUpBillingResponse(
+            plan: .starter,
+            accountType: .flatRate,
+            status: .trial,
+            balanceCents: 1000000,
+            trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
+            paymentFailedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
+            monthToDate: AccountSetAutoTopUpBillingResponseMonthToDate(
+                from: "from",
+                to: "to",
+                apiRequests: 1000000,
+                saleInvoices: 1000000,
+                ocrPages: 1000000,
+                fileBytes: 1.1,
+                databaseBytes: 1.1,
+                archivedCompanies: 1000000,
+                estimatedTodayCents: 1000000
+            ),
+            plans: [
+                "plans": AccountSetAutoTopUpBillingResponsePlansValue(
+                    monthlyFeeEur: "monthlyFeeEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
+                    includedDatabaseBytes: 1.1,
+                    includedFileBytes: 1.1
+                )
+            ],
+            apiRequestEur: "apiRequestEur",
+            topUp: AccountSetAutoTopUpBillingResponseTopUp(
+                minCents: 1000000,
+                maxCents: 1000000
+            ),
+            autoTopUp: AccountSetAutoTopUpBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
+            trialDays: 1000000
+        )
+        let response = try await client.billing.accountSetAutoTopUp(
+            request: .init(
+                enabled: true,
+                amountCents: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func accountSetOverdraftCap1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "plan": "starter",
+                  "accountType": "flat_rate",
+                  "status": "trial",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "firstTopUpAt": "2026-07-01T09:30:00Z",
+                  "lastChargedDate": "2026-07-01",
+                  "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
+                  "paymentFailedAt": "2026-07-01T09:30:00Z",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
+                  "monthToDate": {
+                    "from": "from",
+                    "to": "to",
+                    "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
+                    "ocrPages": 1000000,
+                    "fileBytes": 1.1,
+                    "databaseBytes": 1.1,
+                    "archivedCompanies": 1000000,
+                    "estimatedTodayCents": 1000000
+                  },
+                  "plans": {
+                    "key": {
+                      "monthlyFeeEur": "monthlyFeeEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
+                      "includedDatabaseBytes": 1.1,
+                      "includedFileBytes": 1.1
+                    }
+                  },
+                  "apiRequestEur": "apiRequestEur",
+                  "topUp": {
+                    "minCents": 1000000,
+                    "maxCents": 1000000
+                  },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
+                  "trialDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AccountSetOverdraftCapBillingResponse(
+            plan: .starter,
+            accountType: .flatRate,
+            status: .trial,
+            balanceCents: 1000000,
+            trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
+            paymentFailedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
+            monthToDate: AccountSetOverdraftCapBillingResponseMonthToDate(
+                from: "from",
+                to: "to",
+                apiRequests: 1000000,
+                saleInvoices: 1000000,
+                ocrPages: 1000000,
+                fileBytes: 1.1,
+                databaseBytes: 1.1,
+                archivedCompanies: 1000000,
+                estimatedTodayCents: 1000000
+            ),
+            plans: [
+                "key": AccountSetOverdraftCapBillingResponsePlansValue(
+                    monthlyFeeEur: "monthlyFeeEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
+                    includedDatabaseBytes: 1.1,
+                    includedFileBytes: 1.1
+                )
+            ],
+            apiRequestEur: "apiRequestEur",
+            topUp: AccountSetOverdraftCapBillingResponseTopUp(
+                minCents: 1000000,
+                maxCents: 1000000
+            ),
+            autoTopUp: AccountSetOverdraftCapBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
+            trialDays: 1000000
+        )
+        let response = try await client.billing.accountSetOverdraftCap(
+            request: .init(capCents: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func accountSetOverdraftCap2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "plan": "starter",
+                  "accountType": "flat_rate",
+                  "status": "trial",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "firstTopUpAt": "2024-01-15T09:30:00Z",
+                  "lastChargedDate": "2023-01-15",
+                  "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
+                  "paymentFailedAt": "2024-01-15T09:30:00Z",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
+                  "monthToDate": {
+                    "from": "from",
+                    "to": "to",
+                    "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
+                    "ocrPages": 1000000,
+                    "fileBytes": 1.1,
+                    "databaseBytes": 1.1,
+                    "archivedCompanies": 1000000,
+                    "estimatedTodayCents": 1000000
+                  },
+                  "plans": {
+                    "plans": {
+                      "monthlyFeeEur": "monthlyFeeEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
+                      "includedDatabaseBytes": 1.1,
+                      "includedFileBytes": 1.1
+                    }
+                  },
+                  "apiRequestEur": "apiRequestEur",
+                  "topUp": {
+                    "minCents": 1000000,
+                    "maxCents": 1000000
+                  },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
+                  "trialDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AccountSetOverdraftCapBillingResponse(
+            plan: .starter,
+            accountType: .flatRate,
+            status: .trial,
+            balanceCents: 1000000,
+            trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
+            paymentFailedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
+            monthToDate: AccountSetOverdraftCapBillingResponseMonthToDate(
+                from: "from",
+                to: "to",
+                apiRequests: 1000000,
+                saleInvoices: 1000000,
+                ocrPages: 1000000,
+                fileBytes: 1.1,
+                databaseBytes: 1.1,
+                archivedCompanies: 1000000,
+                estimatedTodayCents: 1000000
+            ),
+            plans: [
+                "plans": AccountSetOverdraftCapBillingResponsePlansValue(
+                    monthlyFeeEur: "monthlyFeeEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
+                    includedDatabaseBytes: 1.1,
+                    includedFileBytes: 1.1
+                )
+            ],
+            apiRequestEur: "apiRequestEur",
+            topUp: AccountSetOverdraftCapBillingResponseTopUp(
+                minCents: 1000000,
+                maxCents: 1000000
+            ),
+            autoTopUp: AccountSetOverdraftCapBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
+            trialDays: 1000000
+        )
+        let response = try await client.billing.accountSetOverdraftCap(
+            request: .init(capCents: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -430,6 +1200,518 @@ import Api
         )
         let response = try await client.billing.topupCreate(
             request: .init(amountCents: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func topupConfirm1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "plan": "starter",
+                  "accountType": "flat_rate",
+                  "status": "trial",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "firstTopUpAt": "2026-07-01T09:30:00Z",
+                  "lastChargedDate": "2026-07-01",
+                  "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
+                  "paymentFailedAt": "2026-07-01T09:30:00Z",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
+                  "monthToDate": {
+                    "from": "from",
+                    "to": "to",
+                    "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
+                    "ocrPages": 1000000,
+                    "fileBytes": 1.1,
+                    "databaseBytes": 1.1,
+                    "archivedCompanies": 1000000,
+                    "estimatedTodayCents": 1000000
+                  },
+                  "plans": {
+                    "key": {
+                      "monthlyFeeEur": "monthlyFeeEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
+                      "includedDatabaseBytes": 1.1,
+                      "includedFileBytes": 1.1
+                    }
+                  },
+                  "apiRequestEur": "apiRequestEur",
+                  "topUp": {
+                    "minCents": 1000000,
+                    "maxCents": 1000000
+                  },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
+                  "trialDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TopupConfirmBillingResponse(
+            plan: .starter,
+            accountType: .flatRate,
+            status: .trial,
+            balanceCents: 1000000,
+            trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
+            paymentFailedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
+            monthToDate: TopupConfirmBillingResponseMonthToDate(
+                from: "from",
+                to: "to",
+                apiRequests: 1000000,
+                saleInvoices: 1000000,
+                ocrPages: 1000000,
+                fileBytes: 1.1,
+                databaseBytes: 1.1,
+                archivedCompanies: 1000000,
+                estimatedTodayCents: 1000000
+            ),
+            plans: [
+                "key": TopupConfirmBillingResponsePlansValue(
+                    monthlyFeeEur: "monthlyFeeEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
+                    includedDatabaseBytes: 1.1,
+                    includedFileBytes: 1.1
+                )
+            ],
+            apiRequestEur: "apiRequestEur",
+            topUp: TopupConfirmBillingResponseTopUp(
+                minCents: 1000000,
+                maxCents: 1000000
+            ),
+            autoTopUp: TopupConfirmBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
+            trialDays: 1000000
+        )
+        let response = try await client.billing.topupConfirm(
+            request: .init(sessionId: "sessionId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func topupConfirm2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "plan": "starter",
+                  "accountType": "flat_rate",
+                  "status": "trial",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "firstTopUpAt": "2024-01-15T09:30:00Z",
+                  "lastChargedDate": "2023-01-15",
+                  "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
+                  "paymentFailedAt": "2024-01-15T09:30:00Z",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
+                  "monthToDate": {
+                    "from": "from",
+                    "to": "to",
+                    "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
+                    "ocrPages": 1000000,
+                    "fileBytes": 1.1,
+                    "databaseBytes": 1.1,
+                    "archivedCompanies": 1000000,
+                    "estimatedTodayCents": 1000000
+                  },
+                  "plans": {
+                    "plans": {
+                      "monthlyFeeEur": "monthlyFeeEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
+                      "includedDatabaseBytes": 1.1,
+                      "includedFileBytes": 1.1
+                    }
+                  },
+                  "apiRequestEur": "apiRequestEur",
+                  "topUp": {
+                    "minCents": 1000000,
+                    "maxCents": 1000000
+                  },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
+                  "trialDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TopupConfirmBillingResponse(
+            plan: .starter,
+            accountType: .flatRate,
+            status: .trial,
+            balanceCents: 1000000,
+            trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
+            paymentFailedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
+            monthToDate: TopupConfirmBillingResponseMonthToDate(
+                from: "from",
+                to: "to",
+                apiRequests: 1000000,
+                saleInvoices: 1000000,
+                ocrPages: 1000000,
+                fileBytes: 1.1,
+                databaseBytes: 1.1,
+                archivedCompanies: 1000000,
+                estimatedTodayCents: 1000000
+            ),
+            plans: [
+                "plans": TopupConfirmBillingResponsePlansValue(
+                    monthlyFeeEur: "monthlyFeeEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
+                    includedDatabaseBytes: 1.1,
+                    includedFileBytes: 1.1
+                )
+            ],
+            apiRequestEur: "apiRequestEur",
+            topUp: TopupConfirmBillingResponseTopUp(
+                minCents: 1000000,
+                maxCents: 1000000
+            ),
+            autoTopUp: TopupConfirmBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
+            trialDays: 1000000
+        )
+        let response = try await client.billing.topupConfirm(
+            request: .init(sessionId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func flatRateCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "url": "url",
+                  "sessionId": "sessionId"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = FlatRateCreateBillingResponse(
+            url: "url",
+            sessionId: "sessionId"
+        )
+        let response = try await client.billing.flatRateCreate(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func flatRateCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "url": "url",
+                  "sessionId": "sessionId"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = FlatRateCreateBillingResponse(
+            url: "url",
+            sessionId: "sessionId"
+        )
+        let response = try await client.billing.flatRateCreate(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func flatRateConfirm1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "plan": "starter",
+                  "accountType": "flat_rate",
+                  "status": "trial",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "firstTopUpAt": "2026-07-01T09:30:00Z",
+                  "lastChargedDate": "2026-07-01",
+                  "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
+                  "paymentFailedAt": "2026-07-01T09:30:00Z",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
+                  "monthToDate": {
+                    "from": "from",
+                    "to": "to",
+                    "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
+                    "ocrPages": 1000000,
+                    "fileBytes": 1.1,
+                    "databaseBytes": 1.1,
+                    "archivedCompanies": 1000000,
+                    "estimatedTodayCents": 1000000
+                  },
+                  "plans": {
+                    "key": {
+                      "monthlyFeeEur": "monthlyFeeEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
+                      "includedDatabaseBytes": 1.1,
+                      "includedFileBytes": 1.1
+                    }
+                  },
+                  "apiRequestEur": "apiRequestEur",
+                  "topUp": {
+                    "minCents": 1000000,
+                    "maxCents": 1000000
+                  },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
+                  "trialDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = FlatRateConfirmBillingResponse(
+            plan: .starter,
+            accountType: .flatRate,
+            status: .trial,
+            balanceCents: 1000000,
+            trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
+            paymentFailedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
+            monthToDate: FlatRateConfirmBillingResponseMonthToDate(
+                from: "from",
+                to: "to",
+                apiRequests: 1000000,
+                saleInvoices: 1000000,
+                ocrPages: 1000000,
+                fileBytes: 1.1,
+                databaseBytes: 1.1,
+                archivedCompanies: 1000000,
+                estimatedTodayCents: 1000000
+            ),
+            plans: [
+                "key": FlatRateConfirmBillingResponsePlansValue(
+                    monthlyFeeEur: "monthlyFeeEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
+                    includedDatabaseBytes: 1.1,
+                    includedFileBytes: 1.1
+                )
+            ],
+            apiRequestEur: "apiRequestEur",
+            topUp: FlatRateConfirmBillingResponseTopUp(
+                minCents: 1000000,
+                maxCents: 1000000
+            ),
+            autoTopUp: FlatRateConfirmBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
+            trialDays: 1000000
+        )
+        let response = try await client.billing.flatRateConfirm(
+            request: .init(sessionId: "sessionId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func flatRateConfirm2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "plan": "starter",
+                  "accountType": "flat_rate",
+                  "status": "trial",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "firstTopUpAt": "2024-01-15T09:30:00Z",
+                  "lastChargedDate": "2023-01-15",
+                  "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
+                  "paymentFailedAt": "2024-01-15T09:30:00Z",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
+                  "monthToDate": {
+                    "from": "from",
+                    "to": "to",
+                    "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
+                    "ocrPages": 1000000,
+                    "fileBytes": 1.1,
+                    "databaseBytes": 1.1,
+                    "archivedCompanies": 1000000,
+                    "estimatedTodayCents": 1000000
+                  },
+                  "plans": {
+                    "plans": {
+                      "monthlyFeeEur": "monthlyFeeEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
+                      "includedDatabaseBytes": 1.1,
+                      "includedFileBytes": 1.1
+                    }
+                  },
+                  "apiRequestEur": "apiRequestEur",
+                  "topUp": {
+                    "minCents": 1000000,
+                    "maxCents": 1000000
+                  },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
+                  "trialDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = FlatRateConfirmBillingResponse(
+            plan: .starter,
+            accountType: .flatRate,
+            status: .trial,
+            balanceCents: 1000000,
+            trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
+            paymentFailedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
+            monthToDate: FlatRateConfirmBillingResponseMonthToDate(
+                from: "from",
+                to: "to",
+                apiRequests: 1000000,
+                saleInvoices: 1000000,
+                ocrPages: 1000000,
+                fileBytes: 1.1,
+                databaseBytes: 1.1,
+                archivedCompanies: 1000000,
+                estimatedTodayCents: 1000000
+            ),
+            plans: [
+                "plans": FlatRateConfirmBillingResponsePlansValue(
+                    monthlyFeeEur: "monthlyFeeEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
+                    includedDatabaseBytes: 1.1,
+                    includedFileBytes: 1.1
+                )
+            ],
+            apiRequestEur: "apiRequestEur",
+            topUp: FlatRateConfirmBillingResponseTopUp(
+                minCents: 1000000,
+                maxCents: 1000000
+            ),
+            autoTopUp: FlatRateConfirmBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
+            trialDays: 1000000
+        )
+        let response = try await client.billing.flatRateConfirm(
+            request: .init(sessionId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

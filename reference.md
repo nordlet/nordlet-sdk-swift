@@ -8199,6 +8199,291 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoiceTemplatesCreate</a>(request: Requests.InvoiceTemplatesCreateSalesRequest, requestOptions: RequestOptions?) -> InvoiceTemplatesCreateSalesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.invoiceTemplatesCreate(request: .init(name: "name"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.InvoiceTemplatesCreateSalesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoiceTemplatesUpdate</a>(request: Requests.InvoiceTemplatesUpdateSalesRequest, requestOptions: RequestOptions?) -> InvoiceTemplatesUpdateSalesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.invoiceTemplatesUpdate(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.InvoiceTemplatesUpdateSalesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoiceTemplatesGet</a>(request: Requests.InvoiceTemplatesGetSalesRequest, requestOptions: RequestOptions?) -> InvoiceTemplatesGetSalesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.invoiceTemplatesGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.InvoiceTemplatesGetSalesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoiceTemplatesDelete</a>(request: Requests.InvoiceTemplatesDeleteSalesRequest, requestOptions: RequestOptions?) -> InvoiceTemplatesDeleteSalesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.invoiceTemplatesDelete(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.InvoiceTemplatesDeleteSalesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoiceTemplatesList</a>(request: Requests.InvoiceTemplatesListSalesRequest, requestOptions: RequestOptions?) -> InvoiceTemplatesListSalesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.invoiceTemplatesList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.InvoiceTemplatesListSalesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">recognitionCompute</a>(request: Requests.RecognitionComputeSalesRequest, requestOptions: RequestOptions?) -> RecognitionComputeSalesResponse</code></summary>
 <dl>
 <dd>
@@ -32832,6 +33117,180 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">securitiesImport</a>(request: Requests.SecuritiesImportBankRequest, requestOptions: RequestOptions?) -> SecuritiesImportBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.securitiesImport(request: .init(
+        bankAccountId: "bankAccountId",
+        content: "content"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.SecuritiesImportBankRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">securitiesList</a>(request: Requests.SecuritiesListBankRequest, requestOptions: RequestOptions?) -> SecuritiesListBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.securitiesList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.SecuritiesListBankRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">securitiesGet</a>(request: Requests.SecuritiesGetBankRequest, requestOptions: RequestOptions?) -> SecuritiesGetBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.securitiesGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.SecuritiesGetBankRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">feedsBanksList</a>(request: Requests.FeedsBanksListBankRequest, requestOptions: RequestOptions?) -> FeedsBanksListBankResponse</code></summary>
 <dl>
 <dd>
@@ -36439,6 +36898,180 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">accountSetAccountType</a>(request: Requests.AccountSetAccountTypeBillingRequest, requestOptions: RequestOptions?) -> AccountSetAccountTypeBillingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.billing.accountSetAccountType(request: .init(accountType: .flatRate))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.AccountSetAccountTypeBillingRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">accountSetAutoTopUp</a>(request: Requests.AccountSetAutoTopUpBillingRequest, requestOptions: RequestOptions?) -> AccountSetAutoTopUpBillingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.billing.accountSetAutoTopUp(request: .init(
+        enabled: true,
+        amountCents: 1000000
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.AccountSetAutoTopUpBillingRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">accountSetOverdraftCap</a>(request: Requests.AccountSetOverdraftCapBillingRequest, requestOptions: RequestOptions?) -> AccountSetOverdraftCapBillingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.billing.accountSetOverdraftCap(request: .init(capCents: 1000000))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.AccountSetOverdraftCapBillingRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">topupCreate</a>(request: Requests.TopupCreateBillingRequest, requestOptions: RequestOptions?) -> TopupCreateBillingResponse</code></summary>
 <dl>
 <dd>
@@ -36477,6 +37110,177 @@ try await main()
 <dd>
 
 **request:** `Requests.TopupCreateBillingRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">topupConfirm</a>(request: Requests.TopupConfirmBillingRequest, requestOptions: RequestOptions?) -> TopupConfirmBillingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.billing.topupConfirm(request: .init(sessionId: "sessionId"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.TopupConfirmBillingRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">flatRateCreate</a>(request: Requests.FlatRateCreateBillingRequest, requestOptions: RequestOptions?) -> FlatRateCreateBillingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.billing.flatRateCreate(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.FlatRateCreateBillingRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/Sources/Resources/Billing/BillingClient.swift">flatRateConfirm</a>(request: Requests.FlatRateConfirmBillingRequest, requestOptions: RequestOptions?) -> FlatRateConfirmBillingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.billing.flatRateConfirm(request: .init(sessionId: "sessionId"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.FlatRateConfirmBillingRequest` 
     
 </dd>
 </dl>

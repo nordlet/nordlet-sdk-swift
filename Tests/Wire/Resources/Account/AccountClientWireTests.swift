@@ -213,10 +213,13 @@ import Api
                     "status": "trial",
                     "plan": "plan",
                     "balanceCents": 1000000,
+                    "overdraftAllowanceCents": 1000000,
                     "trialEndsAt": "2026-07-01T09:30:00Z",
                     "payerUserId": "payerUserId",
                     "payerEmail": "payerEmail",
-                    "isPayer": true
+                    "isPayer": true,
+                    "planChosen": true,
+                    "flatRate": true
                   },
                   "referralPoints": 1000000,
                   "consent": {
@@ -266,10 +269,13 @@ import Api
                 status: .trial,
                 plan: "plan",
                 balanceCents: 1000000,
+                overdraftAllowanceCents: 1000000,
                 trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                 payerUserId: "payerUserId",
                 payerEmail: "payerEmail",
-                isPayer: true
+                isPayer: true,
+                planChosen: true,
+                flatRate: true
             ),
             referralPoints: 1000000,
             consent: MeAccountResponseConsent(
@@ -323,10 +329,13 @@ import Api
                     "status": "trial",
                     "plan": "plan",
                     "balanceCents": 1000000,
+                    "overdraftAllowanceCents": 1000000,
                     "trialEndsAt": "2024-01-15T09:30:00Z",
                     "payerUserId": "x",
                     "payerEmail": "payerEmail",
-                    "isPayer": true
+                    "isPayer": true,
+                    "planChosen": true,
+                    "flatRate": true
                   },
                   "referralPoints": 1000000,
                   "consent": {
@@ -386,10 +395,13 @@ import Api
                 status: .trial,
                 plan: "plan",
                 balanceCents: 1000000,
+                overdraftAllowanceCents: 1000000,
                 trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                 payerUserId: "x",
                 payerEmail: "payerEmail",
-                isPayer: true
+                isPayer: true,
+                planChosen: true,
+                flatRate: true
             ),
             referralPoints: 1000000,
             consent: MeAccountResponseConsent(

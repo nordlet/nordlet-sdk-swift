@@ -28,5 +28,13 @@ public enum PostingRulesUpdateLedgerRequestRulesItemKey: String, Codable, Hashab
     case assetsDisposalLoss = "assets.disposalLoss"
     case assetsDisposalProceeds = "assets.disposalProceeds"
     case cashAdvances = "cash.advances"
+    case securitiesInvestments = "securities.investments"
+    case securitiesGain = "securities.gain"
+    case securitiesLoss = "securities.loss"
+    case securitiesDividendIncome = "securities.dividendIncome"
+    case securitiesWithholdingTax = "securities.withholdingTax"
+    case securitiesInterestIncome = "securities.interestIncome"
+    case securitiesInterestExpense = "securities.interestExpense"
+    case securitiesFees = "securities.fees"
     case closingRetainedEarnings = "closing.retainedEarnings"
 }

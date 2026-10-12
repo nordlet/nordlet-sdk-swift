@@ -27,6 +27,36 @@ public final class BillingClient: Sendable {
         )
     }
 
+    public func accountSetAccountType(request: Requests.AccountSetAccountTypeBillingRequest, requestOptions: RequestOptions? = nil) async throws -> AccountSetAccountTypeBillingResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/billing/account/set-account-type",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: AccountSetAccountTypeBillingResponse.self
+        )
+    }
+
+    public func accountSetAutoTopUp(request: Requests.AccountSetAutoTopUpBillingRequest, requestOptions: RequestOptions? = nil) async throws -> AccountSetAutoTopUpBillingResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/billing/account/set-auto-top-up",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: AccountSetAutoTopUpBillingResponse.self
+        )
+    }
+
+    public func accountSetOverdraftCap(request: Requests.AccountSetOverdraftCapBillingRequest, requestOptions: RequestOptions? = nil) async throws -> AccountSetOverdraftCapBillingResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/billing/account/set-overdraft-cap",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: AccountSetOverdraftCapBillingResponse.self
+        )
+    }
+
     public func topupCreate(request: Requests.TopupCreateBillingRequest, requestOptions: RequestOptions? = nil) async throws -> TopupCreateBillingResponse {
         return try await httpClient.performRequest(
             method: .post,
@@ -34,6 +64,36 @@ public final class BillingClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: TopupCreateBillingResponse.self
+        )
+    }
+
+    public func topupConfirm(request: Requests.TopupConfirmBillingRequest, requestOptions: RequestOptions? = nil) async throws -> TopupConfirmBillingResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/billing/topup/confirm",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: TopupConfirmBillingResponse.self
+        )
+    }
+
+    public func flatRateCreate(request: Requests.FlatRateCreateBillingRequest, requestOptions: RequestOptions? = nil) async throws -> FlatRateCreateBillingResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/billing/flat-rate/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: FlatRateCreateBillingResponse.self
+        )
+    }
+
+    public func flatRateConfirm(request: Requests.FlatRateConfirmBillingRequest, requestOptions: RequestOptions? = nil) async throws -> FlatRateConfirmBillingResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/billing/flat-rate/confirm",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: FlatRateConfirmBillingResponse.self
         )
     }
 

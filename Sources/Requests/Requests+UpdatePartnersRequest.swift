@@ -27,8 +27,6 @@ extension Requests {
         public let website: Nullable<String>?
         public let fax: Nullable<String>?
         public let eoriCode: Nullable<String>?
-        public let otherCode: Nullable<String>?
-        public let foreignTaxNumber: Nullable<String>?
         public let autoDebtReminder: Bool?
         public let lateInterestPercent: Nullable<String>?
         public let firstCallDate: Nullable<CalendarDate>?
@@ -68,8 +66,6 @@ extension Requests {
             website: Nullable<String>? = nil,
             fax: Nullable<String>? = nil,
             eoriCode: Nullable<String>? = nil,
-            otherCode: Nullable<String>? = nil,
-            foreignTaxNumber: Nullable<String>? = nil,
             autoDebtReminder: Bool? = nil,
             lateInterestPercent: Nullable<String>? = nil,
             firstCallDate: Nullable<CalendarDate>? = nil,
@@ -107,8 +103,6 @@ extension Requests {
             self.website = website
             self.fax = fax
             self.eoriCode = eoriCode
-            self.otherCode = otherCode
-            self.foreignTaxNumber = foreignTaxNumber
             self.autoDebtReminder = autoDebtReminder
             self.lateInterestPercent = lateInterestPercent
             self.firstCallDate = firstCallDate
@@ -149,8 +143,6 @@ extension Requests {
             self.website = try container.decodeNullableIfPresent(String.self, forKey: .website)
             self.fax = try container.decodeNullableIfPresent(String.self, forKey: .fax)
             self.eoriCode = try container.decodeNullableIfPresent(String.self, forKey: .eoriCode)
-            self.otherCode = try container.decodeNullableIfPresent(String.self, forKey: .otherCode)
-            self.foreignTaxNumber = try container.decodeNullableIfPresent(String.self, forKey: .foreignTaxNumber)
             self.autoDebtReminder = try container.decodeIfPresent(Bool.self, forKey: .autoDebtReminder)
             self.lateInterestPercent = try container.decodeNullableIfPresent(String.self, forKey: .lateInterestPercent)
             self.firstCallDate = try container.decodeNullableIfPresent(CalendarDate.self, forKey: .firstCallDate)
@@ -192,8 +184,6 @@ extension Requests {
             try container.encodeNullableIfPresent(self.website, forKey: .website)
             try container.encodeNullableIfPresent(self.fax, forKey: .fax)
             try container.encodeNullableIfPresent(self.eoriCode, forKey: .eoriCode)
-            try container.encodeNullableIfPresent(self.otherCode, forKey: .otherCode)
-            try container.encodeNullableIfPresent(self.foreignTaxNumber, forKey: .foreignTaxNumber)
             try container.encodeIfPresent(self.autoDebtReminder, forKey: .autoDebtReminder)
             try container.encodeNullableIfPresent(self.lateInterestPercent, forKey: .lateInterestPercent)
             try container.encodeNullableIfPresent(self.firstCallDate, forKey: .firstCallDate)
@@ -233,8 +223,6 @@ extension Requests {
             case website
             case fax
             case eoriCode
-            case otherCode
-            case foreignTaxNumber
             case autoDebtReminder
             case lateInterestPercent
             case firstCallDate

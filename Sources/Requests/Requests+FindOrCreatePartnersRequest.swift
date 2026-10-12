@@ -26,8 +26,6 @@ extension Requests {
         public let website: String?
         public let fax: String?
         public let eoriCode: String?
-        public let otherCode: String?
-        public let foreignTaxNumber: String?
         public let autoDebtReminder: Bool?
         public let lateInterestPercent: String?
         public let firstCallDate: CalendarDate?
@@ -66,8 +64,6 @@ extension Requests {
             website: String? = nil,
             fax: String? = nil,
             eoriCode: String? = nil,
-            otherCode: String? = nil,
-            foreignTaxNumber: String? = nil,
             autoDebtReminder: Bool? = nil,
             lateInterestPercent: String? = nil,
             firstCallDate: CalendarDate? = nil,
@@ -104,8 +100,6 @@ extension Requests {
             self.website = website
             self.fax = fax
             self.eoriCode = eoriCode
-            self.otherCode = otherCode
-            self.foreignTaxNumber = foreignTaxNumber
             self.autoDebtReminder = autoDebtReminder
             self.lateInterestPercent = lateInterestPercent
             self.firstCallDate = firstCallDate
@@ -145,8 +139,6 @@ extension Requests {
             self.website = try container.decodeIfPresent(String.self, forKey: .website)
             self.fax = try container.decodeIfPresent(String.self, forKey: .fax)
             self.eoriCode = try container.decodeIfPresent(String.self, forKey: .eoriCode)
-            self.otherCode = try container.decodeIfPresent(String.self, forKey: .otherCode)
-            self.foreignTaxNumber = try container.decodeIfPresent(String.self, forKey: .foreignTaxNumber)
             self.autoDebtReminder = try container.decodeIfPresent(Bool.self, forKey: .autoDebtReminder)
             self.lateInterestPercent = try container.decodeIfPresent(String.self, forKey: .lateInterestPercent)
             self.firstCallDate = try container.decodeIfPresent(CalendarDate.self, forKey: .firstCallDate)
@@ -187,8 +179,6 @@ extension Requests {
             try container.encodeIfPresent(self.website, forKey: .website)
             try container.encodeIfPresent(self.fax, forKey: .fax)
             try container.encodeIfPresent(self.eoriCode, forKey: .eoriCode)
-            try container.encodeIfPresent(self.otherCode, forKey: .otherCode)
-            try container.encodeIfPresent(self.foreignTaxNumber, forKey: .foreignTaxNumber)
             try container.encodeIfPresent(self.autoDebtReminder, forKey: .autoDebtReminder)
             try container.encodeIfPresent(self.lateInterestPercent, forKey: .lateInterestPercent)
             try container.encodeIfPresent(self.firstCallDate, forKey: .firstCallDate)
@@ -227,8 +217,6 @@ extension Requests {
             case website
             case fax
             case eoriCode
-            case otherCode
-            case foreignTaxNumber
             case autoDebtReminder
             case lateInterestPercent
             case firstCallDate

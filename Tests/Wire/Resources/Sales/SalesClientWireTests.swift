@@ -7238,6 +7238,1082 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func invoiceTemplatesCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "documentType": "invoice",
+                  "partnerId": "partnerId",
+                  "currency": "currency",
+                  "paymentTermDays": 1000000,
+                  "vatScheme": "vatScheme",
+                  "vatCountryCode": "vatCountryCode",
+                  "agreementId": "agreementId",
+                  "operationTypeId": "operationTypeId",
+                  "documentSeriesId": "documentSeriesId",
+                  "discountPercent": "discountPercent",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "notes": "notes",
+                  "supplyType": "goods",
+                  "seriesLabel": "seriesLabel",
+                  "orderNumber": "orderNumber",
+                  "intrastatTransportMode": "intrastatTransportMode",
+                  "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                  "intrastatRegion": "intrastatRegion",
+                  "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                  "lines": [
+                    {
+                      "itemId": "itemId",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatExemptionBasis": "vatExemptionBasis",
+                      "projectId": "projectId",
+                      "unit": "unit"
+                    }
+                  ],
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoiceTemplatesCreateSalesResponse(
+            id: "id",
+            name: "name",
+            documentType: .invoice,
+            partnerId: Nullable<String>.value("partnerId"),
+            currency: Nullable<String>.value("currency"),
+            paymentTermDays: Nullable<Int64>.value(1000000),
+            vatScheme: Nullable<String>.value("vatScheme"),
+            vatCountryCode: Nullable<String>.value("vatCountryCode"),
+            agreementId: Nullable<String>.value("agreementId"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            documentSeriesId: Nullable<String>.value("documentSeriesId"),
+            discountPercent: Nullable<String>.value("discountPercent"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            notes: Nullable<String>.value("notes"),
+            supplyType: Nullable<InvoiceTemplatesCreateSalesResponseSupplyType>.value(.goods),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            orderNumber: Nullable<String>.value("orderNumber"),
+            intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+            intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+            intrastatRegion: Nullable<String>.value("intrastatRegion"),
+            intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+            lines: [
+                InvoiceTemplatesCreateSalesResponseLinesItem(
+                    itemId: Optional("itemId"),
+                    description: Optional("description"),
+                    quantity: Optional("quantity"),
+                    unitPriceExclVat: Optional("unitPriceExclVat"),
+                    vatRatePercent: Optional("vatRatePercent"),
+                    vatExemptionBasis: Optional("vatExemptionBasis"),
+                    projectId: Optional("projectId"),
+                    unit: Optional("unit")
+                )
+            ],
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.invoiceTemplatesCreate(
+            request: .init(name: "name"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoiceTemplatesCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "documentType": "invoice",
+                  "partnerId": "x",
+                  "currency": "currency",
+                  "paymentTermDays": 1000000,
+                  "vatScheme": "vatScheme",
+                  "vatCountryCode": "vatCountryCode",
+                  "agreementId": "x",
+                  "operationTypeId": "x",
+                  "documentSeriesId": "x",
+                  "discountPercent": "discountPercent",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "notes": "notes",
+                  "supplyType": "goods",
+                  "seriesLabel": "seriesLabel",
+                  "orderNumber": "orderNumber",
+                  "intrastatTransportMode": "intrastatTransportMode",
+                  "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                  "intrastatRegion": "intrastatRegion",
+                  "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                  "lines": [
+                    {
+                      "itemId": "x",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatExemptionBasis": "vatExemptionBasis",
+                      "projectId": "x",
+                      "unit": "unit"
+                    },
+                    {
+                      "itemId": "x",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatExemptionBasis": "vatExemptionBasis",
+                      "projectId": "x",
+                      "unit": "unit"
+                    }
+                  ],
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoiceTemplatesCreateSalesResponse(
+            id: "x",
+            name: "name",
+            documentType: .invoice,
+            partnerId: Nullable<String>.value("x"),
+            currency: Nullable<String>.value("currency"),
+            paymentTermDays: Nullable<Int64>.value(1000000),
+            vatScheme: Nullable<String>.value("vatScheme"),
+            vatCountryCode: Nullable<String>.value("vatCountryCode"),
+            agreementId: Nullable<String>.value("x"),
+            operationTypeId: Nullable<String>.value("x"),
+            documentSeriesId: Nullable<String>.value("x"),
+            discountPercent: Nullable<String>.value("discountPercent"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            notes: Nullable<String>.value("notes"),
+            supplyType: Nullable<InvoiceTemplatesCreateSalesResponseSupplyType>.value(.goods),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            orderNumber: Nullable<String>.value("orderNumber"),
+            intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+            intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+            intrastatRegion: Nullable<String>.value("intrastatRegion"),
+            intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+            lines: [
+                InvoiceTemplatesCreateSalesResponseLinesItem(
+                    itemId: Optional("x"),
+                    description: Optional("description"),
+                    quantity: Optional("quantity"),
+                    unitPriceExclVat: Optional("unitPriceExclVat"),
+                    vatRatePercent: Optional("vatRatePercent"),
+                    vatExemptionBasis: Optional("vatExemptionBasis"),
+                    projectId: Optional("x"),
+                    unit: Optional("unit")
+                ),
+                InvoiceTemplatesCreateSalesResponseLinesItem(
+                    itemId: Optional("x"),
+                    description: Optional("description"),
+                    quantity: Optional("quantity"),
+                    unitPriceExclVat: Optional("unitPriceExclVat"),
+                    vatRatePercent: Optional("vatRatePercent"),
+                    vatExemptionBasis: Optional("vatExemptionBasis"),
+                    projectId: Optional("x"),
+                    unit: Optional("unit")
+                )
+            ],
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.invoiceTemplatesCreate(
+            request: .init(name: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoiceTemplatesUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "documentType": "invoice",
+                  "partnerId": "partnerId",
+                  "currency": "currency",
+                  "paymentTermDays": 1000000,
+                  "vatScheme": "vatScheme",
+                  "vatCountryCode": "vatCountryCode",
+                  "agreementId": "agreementId",
+                  "operationTypeId": "operationTypeId",
+                  "documentSeriesId": "documentSeriesId",
+                  "discountPercent": "discountPercent",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "notes": "notes",
+                  "supplyType": "goods",
+                  "seriesLabel": "seriesLabel",
+                  "orderNumber": "orderNumber",
+                  "intrastatTransportMode": "intrastatTransportMode",
+                  "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                  "intrastatRegion": "intrastatRegion",
+                  "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                  "lines": [
+                    {
+                      "itemId": "itemId",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatExemptionBasis": "vatExemptionBasis",
+                      "projectId": "projectId",
+                      "unit": "unit"
+                    }
+                  ],
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoiceTemplatesUpdateSalesResponse(
+            id: "id",
+            name: "name",
+            documentType: .invoice,
+            partnerId: Nullable<String>.value("partnerId"),
+            currency: Nullable<String>.value("currency"),
+            paymentTermDays: Nullable<Int64>.value(1000000),
+            vatScheme: Nullable<String>.value("vatScheme"),
+            vatCountryCode: Nullable<String>.value("vatCountryCode"),
+            agreementId: Nullable<String>.value("agreementId"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            documentSeriesId: Nullable<String>.value("documentSeriesId"),
+            discountPercent: Nullable<String>.value("discountPercent"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            notes: Nullable<String>.value("notes"),
+            supplyType: Nullable<InvoiceTemplatesUpdateSalesResponseSupplyType>.value(.goods),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            orderNumber: Nullable<String>.value("orderNumber"),
+            intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+            intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+            intrastatRegion: Nullable<String>.value("intrastatRegion"),
+            intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+            lines: [
+                InvoiceTemplatesUpdateSalesResponseLinesItem(
+                    itemId: Optional("itemId"),
+                    description: Optional("description"),
+                    quantity: Optional("quantity"),
+                    unitPriceExclVat: Optional("unitPriceExclVat"),
+                    vatRatePercent: Optional("vatRatePercent"),
+                    vatExemptionBasis: Optional("vatExemptionBasis"),
+                    projectId: Optional("projectId"),
+                    unit: Optional("unit")
+                )
+            ],
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.invoiceTemplatesUpdate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoiceTemplatesUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "documentType": "invoice",
+                  "partnerId": "x",
+                  "currency": "currency",
+                  "paymentTermDays": 1000000,
+                  "vatScheme": "vatScheme",
+                  "vatCountryCode": "vatCountryCode",
+                  "agreementId": "x",
+                  "operationTypeId": "x",
+                  "documentSeriesId": "x",
+                  "discountPercent": "discountPercent",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "notes": "notes",
+                  "supplyType": "goods",
+                  "seriesLabel": "seriesLabel",
+                  "orderNumber": "orderNumber",
+                  "intrastatTransportMode": "intrastatTransportMode",
+                  "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                  "intrastatRegion": "intrastatRegion",
+                  "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                  "lines": [
+                    {
+                      "itemId": "x",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatExemptionBasis": "vatExemptionBasis",
+                      "projectId": "x",
+                      "unit": "unit"
+                    },
+                    {
+                      "itemId": "x",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatExemptionBasis": "vatExemptionBasis",
+                      "projectId": "x",
+                      "unit": "unit"
+                    }
+                  ],
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoiceTemplatesUpdateSalesResponse(
+            id: "x",
+            name: "name",
+            documentType: .invoice,
+            partnerId: Nullable<String>.value("x"),
+            currency: Nullable<String>.value("currency"),
+            paymentTermDays: Nullable<Int64>.value(1000000),
+            vatScheme: Nullable<String>.value("vatScheme"),
+            vatCountryCode: Nullable<String>.value("vatCountryCode"),
+            agreementId: Nullable<String>.value("x"),
+            operationTypeId: Nullable<String>.value("x"),
+            documentSeriesId: Nullable<String>.value("x"),
+            discountPercent: Nullable<String>.value("discountPercent"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            notes: Nullable<String>.value("notes"),
+            supplyType: Nullable<InvoiceTemplatesUpdateSalesResponseSupplyType>.value(.goods),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            orderNumber: Nullable<String>.value("orderNumber"),
+            intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+            intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+            intrastatRegion: Nullable<String>.value("intrastatRegion"),
+            intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+            lines: [
+                InvoiceTemplatesUpdateSalesResponseLinesItem(
+                    itemId: Optional("x"),
+                    description: Optional("description"),
+                    quantity: Optional("quantity"),
+                    unitPriceExclVat: Optional("unitPriceExclVat"),
+                    vatRatePercent: Optional("vatRatePercent"),
+                    vatExemptionBasis: Optional("vatExemptionBasis"),
+                    projectId: Optional("x"),
+                    unit: Optional("unit")
+                ),
+                InvoiceTemplatesUpdateSalesResponseLinesItem(
+                    itemId: Optional("x"),
+                    description: Optional("description"),
+                    quantity: Optional("quantity"),
+                    unitPriceExclVat: Optional("unitPriceExclVat"),
+                    vatRatePercent: Optional("vatRatePercent"),
+                    vatExemptionBasis: Optional("vatExemptionBasis"),
+                    projectId: Optional("x"),
+                    unit: Optional("unit")
+                )
+            ],
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.invoiceTemplatesUpdate(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoiceTemplatesGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "documentType": "invoice",
+                  "partnerId": "partnerId",
+                  "currency": "currency",
+                  "paymentTermDays": 1000000,
+                  "vatScheme": "vatScheme",
+                  "vatCountryCode": "vatCountryCode",
+                  "agreementId": "agreementId",
+                  "operationTypeId": "operationTypeId",
+                  "documentSeriesId": "documentSeriesId",
+                  "discountPercent": "discountPercent",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "notes": "notes",
+                  "supplyType": "goods",
+                  "seriesLabel": "seriesLabel",
+                  "orderNumber": "orderNumber",
+                  "intrastatTransportMode": "intrastatTransportMode",
+                  "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                  "intrastatRegion": "intrastatRegion",
+                  "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                  "lines": [
+                    {
+                      "itemId": "itemId",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatExemptionBasis": "vatExemptionBasis",
+                      "projectId": "projectId",
+                      "unit": "unit"
+                    }
+                  ],
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoiceTemplatesGetSalesResponse(
+            id: "id",
+            name: "name",
+            documentType: .invoice,
+            partnerId: Nullable<String>.value("partnerId"),
+            currency: Nullable<String>.value("currency"),
+            paymentTermDays: Nullable<Int64>.value(1000000),
+            vatScheme: Nullable<String>.value("vatScheme"),
+            vatCountryCode: Nullable<String>.value("vatCountryCode"),
+            agreementId: Nullable<String>.value("agreementId"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            documentSeriesId: Nullable<String>.value("documentSeriesId"),
+            discountPercent: Nullable<String>.value("discountPercent"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            notes: Nullable<String>.value("notes"),
+            supplyType: Nullable<InvoiceTemplatesGetSalesResponseSupplyType>.value(.goods),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            orderNumber: Nullable<String>.value("orderNumber"),
+            intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+            intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+            intrastatRegion: Nullable<String>.value("intrastatRegion"),
+            intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+            lines: [
+                InvoiceTemplatesGetSalesResponseLinesItem(
+                    itemId: Optional("itemId"),
+                    description: Optional("description"),
+                    quantity: Optional("quantity"),
+                    unitPriceExclVat: Optional("unitPriceExclVat"),
+                    vatRatePercent: Optional("vatRatePercent"),
+                    vatExemptionBasis: Optional("vatExemptionBasis"),
+                    projectId: Optional("projectId"),
+                    unit: Optional("unit")
+                )
+            ],
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.invoiceTemplatesGet(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoiceTemplatesGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "documentType": "invoice",
+                  "partnerId": "x",
+                  "currency": "currency",
+                  "paymentTermDays": 1000000,
+                  "vatScheme": "vatScheme",
+                  "vatCountryCode": "vatCountryCode",
+                  "agreementId": "x",
+                  "operationTypeId": "x",
+                  "documentSeriesId": "x",
+                  "discountPercent": "discountPercent",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "notes": "notes",
+                  "supplyType": "goods",
+                  "seriesLabel": "seriesLabel",
+                  "orderNumber": "orderNumber",
+                  "intrastatTransportMode": "intrastatTransportMode",
+                  "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                  "intrastatRegion": "intrastatRegion",
+                  "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                  "lines": [
+                    {
+                      "itemId": "x",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatExemptionBasis": "vatExemptionBasis",
+                      "projectId": "x",
+                      "unit": "unit"
+                    },
+                    {
+                      "itemId": "x",
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatExemptionBasis": "vatExemptionBasis",
+                      "projectId": "x",
+                      "unit": "unit"
+                    }
+                  ],
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoiceTemplatesGetSalesResponse(
+            id: "x",
+            name: "name",
+            documentType: .invoice,
+            partnerId: Nullable<String>.value("x"),
+            currency: Nullable<String>.value("currency"),
+            paymentTermDays: Nullable<Int64>.value(1000000),
+            vatScheme: Nullable<String>.value("vatScheme"),
+            vatCountryCode: Nullable<String>.value("vatCountryCode"),
+            agreementId: Nullable<String>.value("x"),
+            operationTypeId: Nullable<String>.value("x"),
+            documentSeriesId: Nullable<String>.value("x"),
+            discountPercent: Nullable<String>.value("discountPercent"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            notes: Nullable<String>.value("notes"),
+            supplyType: Nullable<InvoiceTemplatesGetSalesResponseSupplyType>.value(.goods),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            orderNumber: Nullable<String>.value("orderNumber"),
+            intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+            intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+            intrastatRegion: Nullable<String>.value("intrastatRegion"),
+            intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+            lines: [
+                InvoiceTemplatesGetSalesResponseLinesItem(
+                    itemId: Optional("x"),
+                    description: Optional("description"),
+                    quantity: Optional("quantity"),
+                    unitPriceExclVat: Optional("unitPriceExclVat"),
+                    vatRatePercent: Optional("vatRatePercent"),
+                    vatExemptionBasis: Optional("vatExemptionBasis"),
+                    projectId: Optional("x"),
+                    unit: Optional("unit")
+                ),
+                InvoiceTemplatesGetSalesResponseLinesItem(
+                    itemId: Optional("x"),
+                    description: Optional("description"),
+                    quantity: Optional("quantity"),
+                    unitPriceExclVat: Optional("unitPriceExclVat"),
+                    vatRatePercent: Optional("vatRatePercent"),
+                    vatExemptionBasis: Optional("vatExemptionBasis"),
+                    projectId: Optional("x"),
+                    unit: Optional("unit")
+                )
+            ],
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.invoiceTemplatesGet(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoiceTemplatesDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoiceTemplatesDeleteSalesResponse(
+            deleted: true
+        )
+        let response = try await client.sales.invoiceTemplatesDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoiceTemplatesDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoiceTemplatesDeleteSalesResponse(
+            deleted: true
+        )
+        let response = try await client.sales.invoiceTemplatesDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoiceTemplatesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "name": "name",
+                      "documentType": "invoice",
+                      "partnerId": "partnerId",
+                      "currency": "currency",
+                      "paymentTermDays": 1000000,
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "agreementId": "agreementId",
+                      "operationTypeId": "operationTypeId",
+                      "documentSeriesId": "documentSeriesId",
+                      "discountPercent": "discountPercent",
+                      "issuedByName": "issuedByName",
+                      "issuedByTitle": "issuedByTitle",
+                      "receivedByName": "receivedByName",
+                      "receivedByTitle": "receivedByTitle",
+                      "notes": "notes",
+                      "supplyType": "goods",
+                      "seriesLabel": "seriesLabel",
+                      "orderNumber": "orderNumber",
+                      "intrastatTransportMode": "intrastatTransportMode",
+                      "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                      "intrastatRegion": "intrastatRegion",
+                      "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                      "lines": [
+                        {}
+                      ],
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoiceTemplatesListSalesResponse(
+            rows: [
+                InvoiceTemplatesListSalesResponseRowsItem(
+                    id: "id",
+                    name: "name",
+                    documentType: .invoice,
+                    partnerId: Nullable<String>.value("partnerId"),
+                    currency: Nullable<String>.value("currency"),
+                    paymentTermDays: Nullable<Int64>.value(1000000),
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    agreementId: Nullable<String>.value("agreementId"),
+                    operationTypeId: Nullable<String>.value("operationTypeId"),
+                    documentSeriesId: Nullable<String>.value("documentSeriesId"),
+                    discountPercent: Nullable<String>.value("discountPercent"),
+                    issuedByName: Nullable<String>.value("issuedByName"),
+                    issuedByTitle: Nullable<String>.value("issuedByTitle"),
+                    receivedByName: Nullable<String>.value("receivedByName"),
+                    receivedByTitle: Nullable<String>.value("receivedByTitle"),
+                    notes: Nullable<String>.value("notes"),
+                    supplyType: Nullable<InvoiceTemplatesListSalesResponseRowsItemSupplyType>.value(.goods),
+                    seriesLabel: Nullable<String>.value("seriesLabel"),
+                    orderNumber: Nullable<String>.value("orderNumber"),
+                    intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+                    intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+                    intrastatRegion: Nullable<String>.value("intrastatRegion"),
+                    intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+                    lines: [
+                        InvoiceTemplatesListSalesResponseRowsItemLinesItem(
+
+                        )
+                    ],
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
+            ])
+        )
+        let response = try await client.sales.invoiceTemplatesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoiceTemplatesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "documentType": "invoice",
+                      "partnerId": "x",
+                      "currency": "currency",
+                      "paymentTermDays": 1000000,
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "agreementId": "x",
+                      "operationTypeId": "x",
+                      "documentSeriesId": "x",
+                      "discountPercent": "discountPercent",
+                      "issuedByName": "issuedByName",
+                      "issuedByTitle": "issuedByTitle",
+                      "receivedByName": "receivedByName",
+                      "receivedByTitle": "receivedByTitle",
+                      "notes": "notes",
+                      "supplyType": "goods",
+                      "seriesLabel": "seriesLabel",
+                      "orderNumber": "orderNumber",
+                      "intrastatTransportMode": "intrastatTransportMode",
+                      "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                      "intrastatRegion": "intrastatRegion",
+                      "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                      "lines": [
+                        {
+                          "itemId": "x",
+                          "description": "description",
+                          "quantity": "quantity",
+                          "unitPriceExclVat": "unitPriceExclVat",
+                          "vatRatePercent": "vatRatePercent",
+                          "vatExemptionBasis": "vatExemptionBasis",
+                          "projectId": "x",
+                          "unit": "unit"
+                        },
+                        {
+                          "itemId": "x",
+                          "description": "description",
+                          "quantity": "quantity",
+                          "unitPriceExclVat": "unitPriceExclVat",
+                          "vatRatePercent": "vatRatePercent",
+                          "vatExemptionBasis": "vatExemptionBasis",
+                          "projectId": "x",
+                          "unit": "unit"
+                        }
+                      ],
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "documentType": "invoice",
+                      "partnerId": "x",
+                      "currency": "currency",
+                      "paymentTermDays": 1000000,
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "agreementId": "x",
+                      "operationTypeId": "x",
+                      "documentSeriesId": "x",
+                      "discountPercent": "discountPercent",
+                      "issuedByName": "issuedByName",
+                      "issuedByTitle": "issuedByTitle",
+                      "receivedByName": "receivedByName",
+                      "receivedByTitle": "receivedByTitle",
+                      "notes": "notes",
+                      "supplyType": "goods",
+                      "seriesLabel": "seriesLabel",
+                      "orderNumber": "orderNumber",
+                      "intrastatTransportMode": "intrastatTransportMode",
+                      "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                      "intrastatRegion": "intrastatRegion",
+                      "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                      "lines": [
+                        {
+                          "itemId": "x",
+                          "description": "description",
+                          "quantity": "quantity",
+                          "unitPriceExclVat": "unitPriceExclVat",
+                          "vatRatePercent": "vatRatePercent",
+                          "vatExemptionBasis": "vatExemptionBasis",
+                          "projectId": "x",
+                          "unit": "unit"
+                        },
+                        {
+                          "itemId": "x",
+                          "description": "description",
+                          "quantity": "quantity",
+                          "unitPriceExclVat": "unitPriceExclVat",
+                          "vatRatePercent": "vatRatePercent",
+                          "vatExemptionBasis": "vatExemptionBasis",
+                          "projectId": "x",
+                          "unit": "unit"
+                        }
+                      ],
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoiceTemplatesListSalesResponse(
+            rows: [
+                InvoiceTemplatesListSalesResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    documentType: .invoice,
+                    partnerId: Nullable<String>.value("x"),
+                    currency: Nullable<String>.value("currency"),
+                    paymentTermDays: Nullable<Int64>.value(1000000),
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    agreementId: Nullable<String>.value("x"),
+                    operationTypeId: Nullable<String>.value("x"),
+                    documentSeriesId: Nullable<String>.value("x"),
+                    discountPercent: Nullable<String>.value("discountPercent"),
+                    issuedByName: Nullable<String>.value("issuedByName"),
+                    issuedByTitle: Nullable<String>.value("issuedByTitle"),
+                    receivedByName: Nullable<String>.value("receivedByName"),
+                    receivedByTitle: Nullable<String>.value("receivedByTitle"),
+                    notes: Nullable<String>.value("notes"),
+                    supplyType: Nullable<InvoiceTemplatesListSalesResponseRowsItemSupplyType>.value(.goods),
+                    seriesLabel: Nullable<String>.value("seriesLabel"),
+                    orderNumber: Nullable<String>.value("orderNumber"),
+                    intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+                    intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+                    intrastatRegion: Nullable<String>.value("intrastatRegion"),
+                    intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+                    lines: [
+                        InvoiceTemplatesListSalesResponseRowsItemLinesItem(
+                            itemId: Optional("x"),
+                            description: Optional("description"),
+                            quantity: Optional("quantity"),
+                            unitPriceExclVat: Optional("unitPriceExclVat"),
+                            vatRatePercent: Optional("vatRatePercent"),
+                            vatExemptionBasis: Optional("vatExemptionBasis"),
+                            projectId: Optional("x"),
+                            unit: Optional("unit")
+                        ),
+                        InvoiceTemplatesListSalesResponseRowsItemLinesItem(
+                            itemId: Optional("x"),
+                            description: Optional("description"),
+                            quantity: Optional("quantity"),
+                            unitPriceExclVat: Optional("unitPriceExclVat"),
+                            vatRatePercent: Optional("vatRatePercent"),
+                            vatExemptionBasis: Optional("vatExemptionBasis"),
+                            projectId: Optional("x"),
+                            unit: Optional("unit")
+                        )
+                    ],
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                InvoiceTemplatesListSalesResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    documentType: .invoice,
+                    partnerId: Nullable<String>.value("x"),
+                    currency: Nullable<String>.value("currency"),
+                    paymentTermDays: Nullable<Int64>.value(1000000),
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    agreementId: Nullable<String>.value("x"),
+                    operationTypeId: Nullable<String>.value("x"),
+                    documentSeriesId: Nullable<String>.value("x"),
+                    discountPercent: Nullable<String>.value("discountPercent"),
+                    issuedByName: Nullable<String>.value("issuedByName"),
+                    issuedByTitle: Nullable<String>.value("issuedByTitle"),
+                    receivedByName: Nullable<String>.value("receivedByName"),
+                    receivedByTitle: Nullable<String>.value("receivedByTitle"),
+                    notes: Nullable<String>.value("notes"),
+                    supplyType: Nullable<InvoiceTemplatesListSalesResponseRowsItemSupplyType>.value(.goods),
+                    seriesLabel: Nullable<String>.value("seriesLabel"),
+                    orderNumber: Nullable<String>.value("orderNumber"),
+                    intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+                    intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+                    intrastatRegion: Nullable<String>.value("intrastatRegion"),
+                    intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+                    lines: [
+                        InvoiceTemplatesListSalesResponseRowsItemLinesItem(
+                            itemId: Optional("x"),
+                            description: Optional("description"),
+                            quantity: Optional("quantity"),
+                            unitPriceExclVat: Optional("unitPriceExclVat"),
+                            vatRatePercent: Optional("vatRatePercent"),
+                            vatExemptionBasis: Optional("vatExemptionBasis"),
+                            projectId: Optional("x"),
+                            unit: Optional("unit")
+                        ),
+                        InvoiceTemplatesListSalesResponseRowsItemLinesItem(
+                            itemId: Optional("x"),
+                            description: Optional("description"),
+                            quantity: Optional("quantity"),
+                            unitPriceExclVat: Optional("unitPriceExclVat"),
+                            vatRatePercent: Optional("vatRatePercent"),
+                            vatExemptionBasis: Optional("vatExemptionBasis"),
+                            projectId: Optional("x"),
+                            unit: Optional("unit")
+                        )
+                    ],
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
+            ])
+        )
+        let response = try await client.sales.invoiceTemplatesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func recognitionCompute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

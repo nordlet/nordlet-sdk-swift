@@ -5014,6 +5014,534 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func securitiesImport1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "bankAccountId": "bankAccountId",
+                  "broker": "broker",
+                  "brokerAccount": "brokerAccount",
+                  "period": "period",
+                  "fileName": "fileName",
+                  "operationCount": 1000000,
+                  "duplicateCount": 1000000,
+                  "postedCount": 1000000,
+                  "notPostedCount": 1000000,
+                  "realizedTotal": "realizedTotal",
+                  "createdAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SecuritiesImportBankResponse(
+            id: "id",
+            bankAccountId: "bankAccountId",
+            broker: "broker",
+            brokerAccount: "brokerAccount",
+            period: "period",
+            fileName: Nullable<String>.value("fileName"),
+            operationCount: 1000000,
+            duplicateCount: 1000000,
+            postedCount: 1000000,
+            notPostedCount: 1000000,
+            realizedTotal: "realizedTotal",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.securitiesImport(
+            request: .init(
+                bankAccountId: "bankAccountId",
+                content: "content"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func securitiesImport2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "bankAccountId": "x",
+                  "broker": "broker",
+                  "brokerAccount": "brokerAccount",
+                  "period": "period",
+                  "fileName": "fileName",
+                  "operationCount": 1000000,
+                  "duplicateCount": 1000000,
+                  "postedCount": 1000000,
+                  "notPostedCount": 1000000,
+                  "realizedTotal": "realizedTotal",
+                  "createdAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SecuritiesImportBankResponse(
+            id: "x",
+            bankAccountId: "x",
+            broker: "broker",
+            brokerAccount: "brokerAccount",
+            period: "period",
+            fileName: Nullable<String>.value("fileName"),
+            operationCount: 1000000,
+            duplicateCount: 1000000,
+            postedCount: 1000000,
+            notPostedCount: 1000000,
+            realizedTotal: "realizedTotal",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.securitiesImport(
+            request: .init(
+                bankAccountId: "x",
+                content: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func securitiesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "bankAccountId": "bankAccountId",
+                      "broker": "broker",
+                      "brokerAccount": "brokerAccount",
+                      "period": "period",
+                      "fileName": "fileName",
+                      "operationCount": 1000000,
+                      "duplicateCount": 1000000,
+                      "postedCount": 1000000,
+                      "notPostedCount": 1000000,
+                      "realizedTotal": "realizedTotal",
+                      "createdAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SecuritiesListBankResponse(
+            rows: [
+                SecuritiesListBankResponseRowsItem(
+                    id: "id",
+                    bankAccountId: "bankAccountId",
+                    broker: "broker",
+                    brokerAccount: "brokerAccount",
+                    period: "period",
+                    fileName: Nullable<String>.value("fileName"),
+                    operationCount: 1000000,
+                    duplicateCount: 1000000,
+                    postedCount: 1000000,
+                    notPostedCount: 1000000,
+                    realizedTotal: "realizedTotal",
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
+            ])
+        )
+        let response = try await client.bank.securitiesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func securitiesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "bankAccountId": "x",
+                      "broker": "broker",
+                      "brokerAccount": "brokerAccount",
+                      "period": "period",
+                      "fileName": "fileName",
+                      "operationCount": 1000000,
+                      "duplicateCount": 1000000,
+                      "postedCount": 1000000,
+                      "notPostedCount": 1000000,
+                      "realizedTotal": "realizedTotal",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "bankAccountId": "x",
+                      "broker": "broker",
+                      "brokerAccount": "brokerAccount",
+                      "period": "period",
+                      "fileName": "fileName",
+                      "operationCount": 1000000,
+                      "duplicateCount": 1000000,
+                      "postedCount": 1000000,
+                      "notPostedCount": 1000000,
+                      "realizedTotal": "realizedTotal",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SecuritiesListBankResponse(
+            rows: [
+                SecuritiesListBankResponseRowsItem(
+                    id: "x",
+                    bankAccountId: "x",
+                    broker: "broker",
+                    brokerAccount: "brokerAccount",
+                    period: "period",
+                    fileName: Nullable<String>.value("fileName"),
+                    operationCount: 1000000,
+                    duplicateCount: 1000000,
+                    postedCount: 1000000,
+                    notPostedCount: 1000000,
+                    realizedTotal: "realizedTotal",
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                SecuritiesListBankResponseRowsItem(
+                    id: "x",
+                    bankAccountId: "x",
+                    broker: "broker",
+                    brokerAccount: "brokerAccount",
+                    period: "period",
+                    fileName: Nullable<String>.value("fileName"),
+                    operationCount: 1000000,
+                    duplicateCount: 1000000,
+                    postedCount: 1000000,
+                    notPostedCount: 1000000,
+                    realizedTotal: "realizedTotal",
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
+            ])
+        )
+        let response = try await client.bank.securitiesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func securitiesGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "bankAccountId": "bankAccountId",
+                  "broker": "broker",
+                  "brokerAccount": "brokerAccount",
+                  "period": "period",
+                  "fileName": "fileName",
+                  "operationCount": 1000000,
+                  "duplicateCount": 1000000,
+                  "postedCount": 1000000,
+                  "notPostedCount": 1000000,
+                  "realizedTotal": "realizedTotal",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "operations": [
+                    {
+                      "id": "id",
+                      "kind": "kind",
+                      "date": "2026-07-01",
+                      "time": "time",
+                      "assetCategory": "assetCategory",
+                      "symbol": "symbol",
+                      "description": "description",
+                      "currency": "currency",
+                      "quantity": "quantity",
+                      "price": "price",
+                      "amount": "amount",
+                      "fee": "fee",
+                      "brokerRealized": "brokerRealized",
+                      "code": "code",
+                      "fxRate": "fxRate",
+                      "cashBase": "cashBase",
+                      "costBase": "costBase",
+                      "realizedBase": "realizedBase",
+                      "status": "posted",
+                      "note": "note",
+                      "journalTransactionId": "journalTransactionId"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SecuritiesGetBankResponse(
+            id: "id",
+            bankAccountId: "bankAccountId",
+            broker: "broker",
+            brokerAccount: "brokerAccount",
+            period: "period",
+            fileName: Nullable<String>.value("fileName"),
+            operationCount: 1000000,
+            duplicateCount: 1000000,
+            postedCount: 1000000,
+            notPostedCount: 1000000,
+            realizedTotal: "realizedTotal",
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            operations: [
+                SecuritiesGetBankResponseOperationsItem(
+                    id: "id",
+                    kind: "kind",
+                    date: CalendarDate("2026-07-01")!,
+                    time: Nullable<String>.value("time"),
+                    assetCategory: Nullable<String>.value("assetCategory"),
+                    symbol: Nullable<String>.value("symbol"),
+                    description: Nullable<String>.value("description"),
+                    currency: "currency",
+                    quantity: Nullable<String>.value("quantity"),
+                    price: Nullable<String>.value("price"),
+                    amount: Nullable<String>.value("amount"),
+                    fee: Nullable<String>.value("fee"),
+                    brokerRealized: Nullable<String>.value("brokerRealized"),
+                    code: Nullable<String>.value("code"),
+                    fxRate: Nullable<String>.value("fxRate"),
+                    cashBase: Nullable<String>.value("cashBase"),
+                    costBase: Nullable<String>.value("costBase"),
+                    realizedBase: Nullable<String>.value("realizedBase"),
+                    status: .posted,
+                    note: Nullable<String>.value("note"),
+                    journalTransactionId: Nullable<String>.value("journalTransactionId")
+                )
+            ]
+        )
+        let response = try await client.bank.securitiesGet(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func securitiesGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "bankAccountId": "x",
+                  "broker": "broker",
+                  "brokerAccount": "brokerAccount",
+                  "period": "period",
+                  "fileName": "fileName",
+                  "operationCount": 1000000,
+                  "duplicateCount": 1000000,
+                  "postedCount": 1000000,
+                  "notPostedCount": 1000000,
+                  "realizedTotal": "realizedTotal",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "operations": [
+                    {
+                      "id": "x",
+                      "kind": "kind",
+                      "date": "2023-01-15",
+                      "time": "time",
+                      "assetCategory": "assetCategory",
+                      "symbol": "symbol",
+                      "description": "description",
+                      "currency": "currency",
+                      "quantity": "quantity",
+                      "price": "price",
+                      "amount": "amount",
+                      "fee": "fee",
+                      "brokerRealized": "brokerRealized",
+                      "code": "code",
+                      "fxRate": "fxRate",
+                      "cashBase": "cashBase",
+                      "costBase": "costBase",
+                      "realizedBase": "realizedBase",
+                      "status": "posted",
+                      "note": "note",
+                      "journalTransactionId": "x"
+                    },
+                    {
+                      "id": "x",
+                      "kind": "kind",
+                      "date": "2023-01-15",
+                      "time": "time",
+                      "assetCategory": "assetCategory",
+                      "symbol": "symbol",
+                      "description": "description",
+                      "currency": "currency",
+                      "quantity": "quantity",
+                      "price": "price",
+                      "amount": "amount",
+                      "fee": "fee",
+                      "brokerRealized": "brokerRealized",
+                      "code": "code",
+                      "fxRate": "fxRate",
+                      "cashBase": "cashBase",
+                      "costBase": "costBase",
+                      "realizedBase": "realizedBase",
+                      "status": "posted",
+                      "note": "note",
+                      "journalTransactionId": "x"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SecuritiesGetBankResponse(
+            id: "x",
+            bankAccountId: "x",
+            broker: "broker",
+            brokerAccount: "brokerAccount",
+            period: "period",
+            fileName: Nullable<String>.value("fileName"),
+            operationCount: 1000000,
+            duplicateCount: 1000000,
+            postedCount: 1000000,
+            notPostedCount: 1000000,
+            realizedTotal: "realizedTotal",
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            operations: [
+                SecuritiesGetBankResponseOperationsItem(
+                    id: "x",
+                    kind: "kind",
+                    date: CalendarDate("2023-01-15")!,
+                    time: Nullable<String>.value("time"),
+                    assetCategory: Nullable<String>.value("assetCategory"),
+                    symbol: Nullable<String>.value("symbol"),
+                    description: Nullable<String>.value("description"),
+                    currency: "currency",
+                    quantity: Nullable<String>.value("quantity"),
+                    price: Nullable<String>.value("price"),
+                    amount: Nullable<String>.value("amount"),
+                    fee: Nullable<String>.value("fee"),
+                    brokerRealized: Nullable<String>.value("brokerRealized"),
+                    code: Nullable<String>.value("code"),
+                    fxRate: Nullable<String>.value("fxRate"),
+                    cashBase: Nullable<String>.value("cashBase"),
+                    costBase: Nullable<String>.value("costBase"),
+                    realizedBase: Nullable<String>.value("realizedBase"),
+                    status: .posted,
+                    note: Nullable<String>.value("note"),
+                    journalTransactionId: Nullable<String>.value("x")
+                ),
+                SecuritiesGetBankResponseOperationsItem(
+                    id: "x",
+                    kind: "kind",
+                    date: CalendarDate("2023-01-15")!,
+                    time: Nullable<String>.value("time"),
+                    assetCategory: Nullable<String>.value("assetCategory"),
+                    symbol: Nullable<String>.value("symbol"),
+                    description: Nullable<String>.value("description"),
+                    currency: "currency",
+                    quantity: Nullable<String>.value("quantity"),
+                    price: Nullable<String>.value("price"),
+                    amount: Nullable<String>.value("amount"),
+                    fee: Nullable<String>.value("fee"),
+                    brokerRealized: Nullable<String>.value("brokerRealized"),
+                    code: Nullable<String>.value("code"),
+                    fxRate: Nullable<String>.value("fxRate"),
+                    cashBase: Nullable<String>.value("cashBase"),
+                    costBase: Nullable<String>.value("costBase"),
+                    realizedBase: Nullable<String>.value("realizedBase"),
+                    status: .posted,
+                    note: Nullable<String>.value("note"),
+                    journalTransactionId: Nullable<String>.value("x")
+                )
+            ]
+        )
+        let response = try await client.bank.securitiesGet(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func feedsBanksList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
