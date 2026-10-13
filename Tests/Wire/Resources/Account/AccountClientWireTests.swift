@@ -219,7 +219,8 @@ import Api
                     "payerEmail": "payerEmail",
                     "isPayer": true,
                     "planChosen": true,
-                    "flatRate": true
+                    "flatRate": true,
+                    "accountType": "flat_rate"
                   },
                   "referralPoints": 1000000,
                   "consent": {
@@ -275,7 +276,8 @@ import Api
                 payerEmail: "payerEmail",
                 isPayer: true,
                 planChosen: true,
-                flatRate: true
+                flatRate: true,
+                accountType: .flatRate
             ),
             referralPoints: 1000000,
             consent: MeAccountResponseConsent(
@@ -335,7 +337,8 @@ import Api
                     "payerEmail": "payerEmail",
                     "isPayer": true,
                     "planChosen": true,
-                    "flatRate": true
+                    "flatRate": true,
+                    "accountType": "flat_rate"
                   },
                   "referralPoints": 1000000,
                   "consent": {
@@ -401,7 +404,8 @@ import Api
                 payerEmail: "payerEmail",
                 isPayer: true,
                 planChosen: true,
-                flatRate: true
+                flatRate: true,
+                accountType: .flatRate
             ),
             referralPoints: 1000000,
             consent: MeAccountResponseConsent(

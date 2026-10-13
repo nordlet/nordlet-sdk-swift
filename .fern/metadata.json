@@ -2,9 +2,9 @@
   "cliVersion": "5.75.0",
   "generatorName": "fernapi/fern-swift-sdk",
   "generatorVersion": "0.35.16",
-  "originGitCommit": "b253657643faa72cab917297fe1ab0da2c3ffb16",
+  "originGitCommit": "228cbc2d6b1729fb02c3f1536f2029570b93b1de",
   "originGitCommitIsDirty": false,
   "invokedBy": "ci",
-  "requestedVersion": "0.4.0",
+  "requestedVersion": "0.5.0",
   "ciProvider": "github"
 }

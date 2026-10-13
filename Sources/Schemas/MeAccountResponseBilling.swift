@@ -11,6 +11,7 @@ public struct MeAccountResponseBilling: Codable, Hashable, Sendable {
     public let isPayer: Bool
     public let planChosen: Bool
     public let flatRate: Bool
+    public let accountType: MeAccountResponseBillingAccountType
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -25,6 +26,7 @@ public struct MeAccountResponseBilling: Codable, Hashable, Sendable {
         isPayer: Bool,
         planChosen: Bool,
         flatRate: Bool,
+        accountType: MeAccountResponseBillingAccountType,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.status = status
@@ -37,6 +39,7 @@ public struct MeAccountResponseBilling: Codable, Hashable, Sendable {
         self.isPayer = isPayer
         self.planChosen = planChosen
         self.flatRate = flatRate
+        self.accountType = accountType
         self.additionalProperties = additionalProperties
     }
 
@@ -52,6 +55,7 @@ public struct MeAccountResponseBilling: Codable, Hashable, Sendable {
         self.isPayer = try container.decode(Bool.self, forKey: .isPayer)
         self.planChosen = try container.decode(Bool.self, forKey: .planChosen)
         self.flatRate = try container.decode(Bool.self, forKey: .flatRate)
+        self.accountType = try container.decode(MeAccountResponseBillingAccountType.self, forKey: .accountType)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -68,6 +72,7 @@ public struct MeAccountResponseBilling: Codable, Hashable, Sendable {
         try container.encode(self.isPayer, forKey: .isPayer)
         try container.encode(self.planChosen, forKey: .planChosen)
         try container.encode(self.flatRate, forKey: .flatRate)
+        try container.encode(self.accountType, forKey: .accountType)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -82,5 +87,6 @@ public struct MeAccountResponseBilling: Codable, Hashable, Sendable {
         case isPayer
         case planChosen
         case flatRate
+        case accountType
     }
 }
