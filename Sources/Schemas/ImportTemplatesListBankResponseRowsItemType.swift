@@ -4,4 +4,5 @@ public enum ImportTemplatesListBankResponseRowsItemType: String, Codable, Hashab
     case stripe
     case iso20022
     case bankConnection = "bank_connection"
+    case revolut
 }

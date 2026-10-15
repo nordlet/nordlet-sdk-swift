@@ -17,6 +17,8 @@ public struct ImportTemplatesUpdateBankResponse: Codable, Hashable, Sendable {
     public let lenderMetaField: Nullable<String>
     public let partialRefundLabel: Nullable<String>
     public let fullRefundLabel: Nullable<String>
+    /// Provided by Nordlet for every company; it cannot be changed or deleted
+    public let builtin: Bool
     public let createdAt: Date
     public let updatedAt: Date
     /// Additional properties that are not explicitly defined in the schema
@@ -39,6 +41,7 @@ public struct ImportTemplatesUpdateBankResponse: Codable, Hashable, Sendable {
         lenderMetaField: Nullable<String>,
         partialRefundLabel: Nullable<String>,
         fullRefundLabel: Nullable<String>,
+        builtin: Bool,
         createdAt: Date,
         updatedAt: Date,
         additionalProperties: [String: JSONValue] = .init()
@@ -59,6 +62,7 @@ public struct ImportTemplatesUpdateBankResponse: Codable, Hashable, Sendable {
         self.lenderMetaField = lenderMetaField
         self.partialRefundLabel = partialRefundLabel
         self.fullRefundLabel = fullRefundLabel
+        self.builtin = builtin
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.additionalProperties = additionalProperties
@@ -82,6 +86,7 @@ public struct ImportTemplatesUpdateBankResponse: Codable, Hashable, Sendable {
         self.lenderMetaField = try container.decode(Nullable<String>.self, forKey: .lenderMetaField)
         self.partialRefundLabel = try container.decode(Nullable<String>.self, forKey: .partialRefundLabel)
         self.fullRefundLabel = try container.decode(Nullable<String>.self, forKey: .fullRefundLabel)
+        self.builtin = try container.decode(Bool.self, forKey: .builtin)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.updatedAt = try container.decode(Date.self, forKey: .updatedAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -106,6 +111,7 @@ public struct ImportTemplatesUpdateBankResponse: Codable, Hashable, Sendable {
         try container.encode(self.lenderMetaField, forKey: .lenderMetaField)
         try container.encode(self.partialRefundLabel, forKey: .partialRefundLabel)
         try container.encode(self.fullRefundLabel, forKey: .fullRefundLabel)
+        try container.encode(self.builtin, forKey: .builtin)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
     }
@@ -128,6 +134,7 @@ public struct ImportTemplatesUpdateBankResponse: Codable, Hashable, Sendable {
         case lenderMetaField
         case partialRefundLabel
         case fullRefundLabel
+        case builtin
         case createdAt
         case updatedAt
     }

@@ -31857,6 +31857,63 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">importTemplatesListBuiltin</a>(request: Requests.ImportTemplatesListBuiltinBankRequest, requestOptions: RequestOptions?) -> ImportTemplatesListBuiltinBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.importTemplatesListBuiltin(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ImportTemplatesListBuiltinBankRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">importTemplatesList</a>(request: Requests.ImportTemplatesListBankRequest, requestOptions: RequestOptions?) -> ImportTemplatesListBankResponse</code></summary>
 <dl>
 <dd>

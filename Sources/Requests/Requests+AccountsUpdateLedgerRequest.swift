@@ -4,7 +4,6 @@ extension Requests {
     public struct AccountsUpdateLedgerRequest: Codable, Hashable, Sendable {
         public let id: String
         public let name: String?
-        public let translations: Nullable<[String: Nullable<AccountsUpdateLedgerRequestTranslationsValue>]>?
         public let parentId: Nullable<String>?
         public let isPostable: Bool?
         /// Additional properties that are not explicitly defined in the schema
@@ -13,14 +12,12 @@ extension Requests {
         public init(
             id: String,
             name: String? = nil,
-            translations: Nullable<[String: Nullable<AccountsUpdateLedgerRequestTranslationsValue>]>? = nil,
             parentId: Nullable<String>? = nil,
             isPostable: Bool? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.id = id
             self.name = name
-            self.translations = translations
             self.parentId = parentId
             self.isPostable = isPostable
             self.additionalProperties = additionalProperties
@@ -30,7 +27,6 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.id = try container.decode(String.self, forKey: .id)
             self.name = try container.decodeIfPresent(String.self, forKey: .name)
-            self.translations = try container.decodeNullableIfPresent([String: Nullable<AccountsUpdateLedgerRequestTranslationsValue>].self, forKey: .translations)
             self.parentId = try container.decodeNullableIfPresent(String.self, forKey: .parentId)
             self.isPostable = try container.decodeIfPresent(Bool.self, forKey: .isPostable)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -41,7 +37,6 @@ extension Requests {
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.id, forKey: .id)
             try container.encodeIfPresent(self.name, forKey: .name)
-            try container.encodeNullableIfPresent(self.translations, forKey: .translations)
             try container.encodeNullableIfPresent(self.parentId, forKey: .parentId)
             try container.encodeIfPresent(self.isPostable, forKey: .isPostable)
         }
@@ -50,7 +45,6 @@ extension Requests {
         enum CodingKeys: String, CodingKey, CaseIterable {
             case id
             case name
-            case translations
             case parentId
             case isPostable
         }

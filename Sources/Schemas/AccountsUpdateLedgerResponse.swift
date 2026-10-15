@@ -4,7 +4,8 @@ public struct AccountsUpdateLedgerResponse: Codable, Hashable, Sendable {
     public let id: String
     public let code: String
     public let name: String
-    public let translations: Nullable<[String: Nullable<AccountsUpdateLedgerResponseTranslationsValue>]>
+    /// The name in the language of the Accept-Language header
+    public let displayName: String
     public let type: AccountsUpdateLedgerResponseType
     public let parentId: Nullable<String>
     public let isPostable: Bool
@@ -16,7 +17,7 @@ public struct AccountsUpdateLedgerResponse: Codable, Hashable, Sendable {
         id: String,
         code: String,
         name: String,
-        translations: Nullable<[String: Nullable<AccountsUpdateLedgerResponseTranslationsValue>]>,
+        displayName: String,
         type: AccountsUpdateLedgerResponseType,
         parentId: Nullable<String>,
         isPostable: Bool,
@@ -26,7 +27,7 @@ public struct AccountsUpdateLedgerResponse: Codable, Hashable, Sendable {
         self.id = id
         self.code = code
         self.name = name
-        self.translations = translations
+        self.displayName = displayName
         self.type = type
         self.parentId = parentId
         self.isPostable = isPostable
@@ -39,7 +40,7 @@ public struct AccountsUpdateLedgerResponse: Codable, Hashable, Sendable {
         self.id = try container.decode(String.self, forKey: .id)
         self.code = try container.decode(String.self, forKey: .code)
         self.name = try container.decode(String.self, forKey: .name)
-        self.translations = try container.decode(Nullable<[String: Nullable<AccountsUpdateLedgerResponseTranslationsValue>]>.self, forKey: .translations)
+        self.displayName = try container.decode(String.self, forKey: .displayName)
         self.type = try container.decode(AccountsUpdateLedgerResponseType.self, forKey: .type)
         self.parentId = try container.decode(Nullable<String>.self, forKey: .parentId)
         self.isPostable = try container.decode(Bool.self, forKey: .isPostable)
@@ -53,7 +54,7 @@ public struct AccountsUpdateLedgerResponse: Codable, Hashable, Sendable {
         try container.encode(self.id, forKey: .id)
         try container.encode(self.code, forKey: .code)
         try container.encode(self.name, forKey: .name)
-        try container.encode(self.translations, forKey: .translations)
+        try container.encode(self.displayName, forKey: .displayName)
         try container.encode(self.type, forKey: .type)
         try container.encode(self.parentId, forKey: .parentId)
         try container.encode(self.isPostable, forKey: .isPostable)
@@ -65,7 +66,7 @@ public struct AccountsUpdateLedgerResponse: Codable, Hashable, Sendable {
         case id
         case code
         case name
-        case translations
+        case displayName
         case type
         case parentId
         case isPostable

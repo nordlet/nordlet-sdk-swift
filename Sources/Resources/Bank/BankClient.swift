@@ -160,6 +160,16 @@ public final class BankClient: Sendable {
         )
     }
 
+    public func importTemplatesListBuiltin(request: Requests.ImportTemplatesListBuiltinBankRequest, requestOptions: RequestOptions? = nil) async throws -> ImportTemplatesListBuiltinBankResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/bank/import-templates/list-builtin",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: ImportTemplatesListBuiltinBankResponse.self
+        )
+    }
+
     public func importTemplatesList(request: Requests.ImportTemplatesListBankRequest, requestOptions: RequestOptions? = nil) async throws -> ImportTemplatesListBankResponse {
         return try await httpClient.performRequest(
             method: .post,

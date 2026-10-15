@@ -14,7 +14,7 @@ import Api
                       "id": "id",
                       "code": "code",
                       "name": "name",
-                      "translations": {},
+                      "displayName": "displayName",
                       "type": "asset",
                       "parentId": "parentId",
                       "isPostable": true,
@@ -47,7 +47,7 @@ import Api
                     id: "id",
                     code: "code",
                     name: "name",
-                    translations: Nullable<[String: Nullable<AccountsListLedgerResponseRowsItemTranslationsValue>]>.value([:]),
+                    displayName: "displayName",
                     type: .asset,
                     parentId: Nullable<String>.value("parentId"),
                     isPostable: true,
@@ -84,11 +84,7 @@ import Api
                       "id": "x",
                       "code": "code",
                       "name": "name",
-                      "translations": {
-                        "translations": {
-                          "name": "x"
-                        }
-                      },
+                      "displayName": "displayName",
                       "type": "asset",
                       "parentId": "x",
                       "isPostable": true,
@@ -98,11 +94,7 @@ import Api
                       "id": "x",
                       "code": "code",
                       "name": "name",
-                      "translations": {
-                        "translations": {
-                          "name": "x"
-                        }
-                      },
+                      "displayName": "displayName",
                       "type": "asset",
                       "parentId": "x",
                       "isPostable": true,
@@ -135,11 +127,7 @@ import Api
                     id: "x",
                     code: "code",
                     name: "name",
-                    translations: Nullable<[String: Nullable<AccountsListLedgerResponseRowsItemTranslationsValue>]>.value([
-                        "translations": Nullable<AccountsListLedgerResponseRowsItemTranslationsValue>.value(AccountsListLedgerResponseRowsItemTranslationsValue(
-                            name: "x"
-                        ))
-                    ]),
+                    displayName: "displayName",
                     type: .asset,
                     parentId: Nullable<String>.value("x"),
                     isPostable: true,
@@ -149,11 +137,7 @@ import Api
                     id: "x",
                     code: "code",
                     name: "name",
-                    translations: Nullable<[String: Nullable<AccountsListLedgerResponseRowsItemTranslationsValue>]>.value([
-                        "translations": Nullable<AccountsListLedgerResponseRowsItemTranslationsValue>.value(AccountsListLedgerResponseRowsItemTranslationsValue(
-                            name: "x"
-                        ))
-                    ]),
+                    displayName: "displayName",
                     type: .asset,
                     parentId: Nullable<String>.value("x"),
                     isPostable: true,
@@ -188,11 +172,7 @@ import Api
                   "id": "id",
                   "code": "code",
                   "name": "name",
-                  "translations": {
-                    "key": {
-                      "name": "name"
-                    }
-                  },
+                  "displayName": "displayName",
                   "type": "asset",
                   "parentId": "parentId",
                   "isPostable": true,
@@ -210,11 +190,7 @@ import Api
             id: "id",
             code: "code",
             name: "name",
-            translations: Nullable<[String: Nullable<AccountsCreateLedgerResponseTranslationsValue>]>.value([
-                "key": Nullable<AccountsCreateLedgerResponseTranslationsValue>.value(AccountsCreateLedgerResponseTranslationsValue(
-                    name: "name"
-                ))
-            ]),
+            displayName: "displayName",
             type: .asset,
             parentId: Nullable<String>.value("parentId"),
             isPostable: true,
@@ -240,11 +216,7 @@ import Api
                   "id": "x",
                   "code": "code",
                   "name": "name",
-                  "translations": {
-                    "translations": {
-                      "name": "x"
-                    }
-                  },
+                  "displayName": "displayName",
                   "type": "asset",
                   "parentId": "x",
                   "isPostable": true,
@@ -262,11 +234,7 @@ import Api
             id: "x",
             code: "code",
             name: "name",
-            translations: Nullable<[String: Nullable<AccountsCreateLedgerResponseTranslationsValue>]>.value([
-                "translations": Nullable<AccountsCreateLedgerResponseTranslationsValue>.value(AccountsCreateLedgerResponseTranslationsValue(
-                    name: "x"
-                ))
-            ]),
+            displayName: "displayName",
             type: .asset,
             parentId: Nullable<String>.value("x"),
             isPostable: true,
@@ -292,11 +260,7 @@ import Api
                   "id": "id",
                   "code": "code",
                   "name": "name",
-                  "translations": {
-                    "key": {
-                      "name": "name"
-                    }
-                  },
+                  "displayName": "displayName",
                   "type": "asset",
                   "parentId": "parentId",
                   "isPostable": true,
@@ -314,11 +278,7 @@ import Api
             id: "id",
             code: "code",
             name: "name",
-            translations: Nullable<[String: Nullable<AccountsUpdateLedgerResponseTranslationsValue>]>.value([
-                "key": Nullable<AccountsUpdateLedgerResponseTranslationsValue>.value(AccountsUpdateLedgerResponseTranslationsValue(
-                    name: "name"
-                ))
-            ]),
+            displayName: "displayName",
             type: .asset,
             parentId: Nullable<String>.value("parentId"),
             isPostable: true,
@@ -340,11 +300,7 @@ import Api
                   "id": "x",
                   "code": "code",
                   "name": "name",
-                  "translations": {
-                    "translations": {
-                      "name": "x"
-                    }
-                  },
+                  "displayName": "displayName",
                   "type": "asset",
                   "parentId": "x",
                   "isPostable": true,
@@ -362,11 +318,7 @@ import Api
             id: "x",
             code: "code",
             name: "name",
-            translations: Nullable<[String: Nullable<AccountsUpdateLedgerResponseTranslationsValue>]>.value([
-                "translations": Nullable<AccountsUpdateLedgerResponseTranslationsValue>.value(AccountsUpdateLedgerResponseTranslationsValue(
-                    name: "x"
-                ))
-            ]),
+            displayName: "displayName",
             type: .asset,
             parentId: Nullable<String>.value("x"),
             isPostable: true,

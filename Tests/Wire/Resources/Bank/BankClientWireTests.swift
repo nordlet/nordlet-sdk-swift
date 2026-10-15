@@ -1337,6 +1337,7 @@ import Api
                   "lenderMetaField": "lenderMetaField",
                   "partialRefundLabel": "partialRefundLabel",
                   "fullRefundLabel": "fullRefundLabel",
+                  "builtin": true,
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z"
                 }
@@ -1373,6 +1374,7 @@ import Api
             lenderMetaField: Nullable<String>.value("lenderMetaField"),
             partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
             fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
+            builtin: true,
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
@@ -1422,6 +1424,7 @@ import Api
                   "lenderMetaField": "lenderMetaField",
                   "partialRefundLabel": "partialRefundLabel",
                   "fullRefundLabel": "fullRefundLabel",
+                  "builtin": true,
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z"
                 }
@@ -1464,6 +1467,7 @@ import Api
             lenderMetaField: Nullable<String>.value("lenderMetaField"),
             partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
             fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
+            builtin: true,
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
@@ -1507,6 +1511,7 @@ import Api
                   "lenderMetaField": "lenderMetaField",
                   "partialRefundLabel": "partialRefundLabel",
                   "fullRefundLabel": "fullRefundLabel",
+                  "builtin": true,
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z"
                 }
@@ -1543,6 +1548,7 @@ import Api
             lenderMetaField: Nullable<String>.value("lenderMetaField"),
             partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
             fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
+            builtin: true,
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
@@ -1589,6 +1595,7 @@ import Api
                   "lenderMetaField": "lenderMetaField",
                   "partialRefundLabel": "partialRefundLabel",
                   "fullRefundLabel": "fullRefundLabel",
+                  "builtin": true,
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z"
                 }
@@ -1631,6 +1638,7 @@ import Api
             lenderMetaField: Nullable<String>.value("lenderMetaField"),
             partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
             fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
+            builtin: true,
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
@@ -1727,6 +1735,7 @@ import Api
                   "lenderMetaField": "lenderMetaField",
                   "partialRefundLabel": "partialRefundLabel",
                   "fullRefundLabel": "fullRefundLabel",
+                  "builtin": true,
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z"
                 }
@@ -1763,6 +1772,7 @@ import Api
             lenderMetaField: Nullable<String>.value("lenderMetaField"),
             partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
             fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
+            builtin: true,
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
@@ -1809,6 +1819,7 @@ import Api
                   "lenderMetaField": "lenderMetaField",
                   "partialRefundLabel": "partialRefundLabel",
                   "fullRefundLabel": "fullRefundLabel",
+                  "builtin": true,
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z"
                 }
@@ -1851,11 +1862,266 @@ import Api
             lenderMetaField: Nullable<String>.value("lenderMetaField"),
             partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
             fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
+            builtin: true,
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.bank.importTemplatesGet(
             request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func importTemplatesListBuiltin1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "name": "name",
+                      "type": "stripe",
+                      "fields": [
+                        {
+                          "name": "name",
+                          "accountCode": null,
+                          "createPartner": true
+                        }
+                      ],
+                      "metaFields": [
+                        "metaFields"
+                      ],
+                      "invoiceMetaField": "invoiceMetaField",
+                      "invoiceVatRatePercent": "invoiceVatRatePercent",
+                      "companyMetaField": "companyMetaField",
+                      "invoiceItemId": "invoiceItemId",
+                      "advanceInvoices": true,
+                      "authorizationOperationTypeId": "authorizationOperationTypeId",
+                      "payoutOperationTypeId": "payoutOperationTypeId",
+                      "commissionOperationTypeId": "commissionOperationTypeId",
+                      "lenderMetaField": "lenderMetaField",
+                      "partialRefundLabel": "partialRefundLabel",
+                      "fullRefundLabel": "fullRefundLabel",
+                      "builtin": true,
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ImportTemplatesListBuiltinBankResponse(
+            rows: [
+                ImportTemplatesListBuiltinBankResponseRowsItem(
+                    id: "id",
+                    name: "name",
+                    type: .stripe,
+                    fields: [
+                        ImportTemplatesListBuiltinBankResponseRowsItemFieldsItem(
+                            name: "name",
+                            accountCode: .null,
+                            createPartner: true
+                        )
+                    ],
+                    metaFields: [
+                        "metaFields"
+                    ],
+                    invoiceMetaField: Nullable<String>.value("invoiceMetaField"),
+                    invoiceVatRatePercent: Nullable<String>.value("invoiceVatRatePercent"),
+                    companyMetaField: Nullable<String>.value("companyMetaField"),
+                    invoiceItemId: Nullable<String>.value("invoiceItemId"),
+                    advanceInvoices: true,
+                    authorizationOperationTypeId: Nullable<String>.value("authorizationOperationTypeId"),
+                    payoutOperationTypeId: Nullable<String>.value("payoutOperationTypeId"),
+                    commissionOperationTypeId: Nullable<String>.value("commissionOperationTypeId"),
+                    lenderMetaField: Nullable<String>.value("lenderMetaField"),
+                    partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
+                    fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
+                    builtin: true,
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ]
+        )
+        let response = try await client.bank.importTemplatesListBuiltin(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func importTemplatesListBuiltin2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "type": "stripe",
+                      "fields": [
+                        {
+                          "name": "name",
+                          "accountCode": "accountCode",
+                          "createPartner": true
+                        },
+                        {
+                          "name": "name",
+                          "accountCode": "accountCode",
+                          "createPartner": true
+                        }
+                      ],
+                      "metaFields": [
+                        "metaFields",
+                        "metaFields"
+                      ],
+                      "invoiceMetaField": "invoiceMetaField",
+                      "invoiceVatRatePercent": "invoiceVatRatePercent",
+                      "companyMetaField": "companyMetaField",
+                      "invoiceItemId": "x",
+                      "advanceInvoices": true,
+                      "authorizationOperationTypeId": "x",
+                      "payoutOperationTypeId": "x",
+                      "commissionOperationTypeId": "x",
+                      "lenderMetaField": "lenderMetaField",
+                      "partialRefundLabel": "partialRefundLabel",
+                      "fullRefundLabel": "fullRefundLabel",
+                      "builtin": true,
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "type": "stripe",
+                      "fields": [
+                        {
+                          "name": "name",
+                          "accountCode": "accountCode",
+                          "createPartner": true
+                        },
+                        {
+                          "name": "name",
+                          "accountCode": "accountCode",
+                          "createPartner": true
+                        }
+                      ],
+                      "metaFields": [
+                        "metaFields",
+                        "metaFields"
+                      ],
+                      "invoiceMetaField": "invoiceMetaField",
+                      "invoiceVatRatePercent": "invoiceVatRatePercent",
+                      "companyMetaField": "companyMetaField",
+                      "invoiceItemId": "x",
+                      "advanceInvoices": true,
+                      "authorizationOperationTypeId": "x",
+                      "payoutOperationTypeId": "x",
+                      "commissionOperationTypeId": "x",
+                      "lenderMetaField": "lenderMetaField",
+                      "partialRefundLabel": "partialRefundLabel",
+                      "fullRefundLabel": "fullRefundLabel",
+                      "builtin": true,
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ImportTemplatesListBuiltinBankResponse(
+            rows: [
+                ImportTemplatesListBuiltinBankResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    type: .stripe,
+                    fields: [
+                        ImportTemplatesListBuiltinBankResponseRowsItemFieldsItem(
+                            name: "name",
+                            accountCode: Nullable<String>.value("accountCode"),
+                            createPartner: true
+                        ),
+                        ImportTemplatesListBuiltinBankResponseRowsItemFieldsItem(
+                            name: "name",
+                            accountCode: Nullable<String>.value("accountCode"),
+                            createPartner: true
+                        )
+                    ],
+                    metaFields: [
+                        "metaFields",
+                        "metaFields"
+                    ],
+                    invoiceMetaField: Nullable<String>.value("invoiceMetaField"),
+                    invoiceVatRatePercent: Nullable<String>.value("invoiceVatRatePercent"),
+                    companyMetaField: Nullable<String>.value("companyMetaField"),
+                    invoiceItemId: Nullable<String>.value("x"),
+                    advanceInvoices: true,
+                    authorizationOperationTypeId: Nullable<String>.value("x"),
+                    payoutOperationTypeId: Nullable<String>.value("x"),
+                    commissionOperationTypeId: Nullable<String>.value("x"),
+                    lenderMetaField: Nullable<String>.value("lenderMetaField"),
+                    partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
+                    fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
+                    builtin: true,
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                ImportTemplatesListBuiltinBankResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    type: .stripe,
+                    fields: [
+                        ImportTemplatesListBuiltinBankResponseRowsItemFieldsItem(
+                            name: "name",
+                            accountCode: Nullable<String>.value("accountCode"),
+                            createPartner: true
+                        ),
+                        ImportTemplatesListBuiltinBankResponseRowsItemFieldsItem(
+                            name: "name",
+                            accountCode: Nullable<String>.value("accountCode"),
+                            createPartner: true
+                        )
+                    ],
+                    metaFields: [
+                        "metaFields",
+                        "metaFields"
+                    ],
+                    invoiceMetaField: Nullable<String>.value("invoiceMetaField"),
+                    invoiceVatRatePercent: Nullable<String>.value("invoiceVatRatePercent"),
+                    companyMetaField: Nullable<String>.value("companyMetaField"),
+                    invoiceItemId: Nullable<String>.value("x"),
+                    advanceInvoices: true,
+                    authorizationOperationTypeId: Nullable<String>.value("x"),
+                    payoutOperationTypeId: Nullable<String>.value("x"),
+                    commissionOperationTypeId: Nullable<String>.value("x"),
+                    lenderMetaField: Nullable<String>.value("lenderMetaField"),
+                    partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
+                    fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
+                    builtin: true,
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ]
+        )
+        let response = try await client.bank.importTemplatesListBuiltin(
+            request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -1893,6 +2159,7 @@ import Api
                       "lenderMetaField": "lenderMetaField",
                       "partialRefundLabel": "partialRefundLabel",
                       "fullRefundLabel": "fullRefundLabel",
+                      "builtin": true,
                       "createdAt": "2026-07-01T09:30:00Z",
                       "updatedAt": "2026-07-01T09:30:00Z"
                     }
@@ -1944,6 +2211,7 @@ import Api
                     lenderMetaField: Nullable<String>.value("lenderMetaField"),
                     partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
                     fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
+                    builtin: true,
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
@@ -2005,6 +2273,7 @@ import Api
                       "lenderMetaField": "lenderMetaField",
                       "partialRefundLabel": "partialRefundLabel",
                       "fullRefundLabel": "fullRefundLabel",
+                      "builtin": true,
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z"
                     },
@@ -2039,6 +2308,7 @@ import Api
                       "lenderMetaField": "lenderMetaField",
                       "partialRefundLabel": "partialRefundLabel",
                       "fullRefundLabel": "fullRefundLabel",
+                      "builtin": true,
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z"
                     }
@@ -2096,6 +2366,7 @@ import Api
                     lenderMetaField: Nullable<String>.value("lenderMetaField"),
                     partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
                     fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
+                    builtin: true,
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
@@ -2130,6 +2401,7 @@ import Api
                     lenderMetaField: Nullable<String>.value("lenderMetaField"),
                     partialRefundLabel: Nullable<String>.value("partialRefundLabel"),
                     fullRefundLabel: Nullable<String>.value("fullRefundLabel"),
+                    builtin: true,
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )

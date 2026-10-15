@@ -4,4 +4,5 @@ public enum StatementsImportBankRequestFormat: String, Codable, Hashable, CaseIt
     case camt053
     case mt940
     case stripeCsv = "stripe-csv"
+    case revolutCsv = "revolut-csv"
 }
