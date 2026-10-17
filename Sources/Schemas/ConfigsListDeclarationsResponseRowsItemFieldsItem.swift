@@ -5,6 +5,7 @@ public struct ConfigsListDeclarationsResponseRowsItemFieldsItem: Codable, Hashab
     public let kind: ConfigsListDeclarationsResponseRowsItemFieldsItemKind
     public let multiline: Bool?
     public let options: [String]?
+    public let companyField: ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -13,12 +14,14 @@ public struct ConfigsListDeclarationsResponseRowsItemFieldsItem: Codable, Hashab
         kind: ConfigsListDeclarationsResponseRowsItemFieldsItemKind,
         multiline: Bool? = nil,
         options: [String]? = nil,
+        companyField: ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.key = key
         self.kind = kind
         self.multiline = multiline
         self.options = options
+        self.companyField = companyField
         self.additionalProperties = additionalProperties
     }
 
@@ -28,6 +31,7 @@ public struct ConfigsListDeclarationsResponseRowsItemFieldsItem: Codable, Hashab
         self.kind = try container.decode(ConfigsListDeclarationsResponseRowsItemFieldsItemKind.self, forKey: .kind)
         self.multiline = try container.decodeIfPresent(Bool.self, forKey: .multiline)
         self.options = try container.decodeIfPresent([String].self, forKey: .options)
+        self.companyField = try container.decodeIfPresent(ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField.self, forKey: .companyField)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -38,6 +42,7 @@ public struct ConfigsListDeclarationsResponseRowsItemFieldsItem: Codable, Hashab
         try container.encode(self.kind, forKey: .kind)
         try container.encodeIfPresent(self.multiline, forKey: .multiline)
         try container.encodeIfPresent(self.options, forKey: .options)
+        try container.encodeIfPresent(self.companyField, forKey: .companyField)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -46,5 +51,6 @@ public struct ConfigsListDeclarationsResponseRowsItemFieldsItem: Codable, Hashab
         case kind
         case multiline
         case options
+        case companyField
     }
 }

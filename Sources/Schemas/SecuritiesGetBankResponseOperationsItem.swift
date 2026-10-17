@@ -2,6 +2,7 @@ import Foundation
 
 public struct SecuritiesGetBankResponseOperationsItem: Codable, Hashable, Sendable {
     public let id: String
+    public let bankAccountId: String
     public let kind: String
     public let date: CalendarDate
     public let time: Nullable<String>
@@ -27,6 +28,7 @@ public struct SecuritiesGetBankResponseOperationsItem: Codable, Hashable, Sendab
 
     public init(
         id: String,
+        bankAccountId: String,
         kind: String,
         date: CalendarDate,
         time: Nullable<String>,
@@ -50,6 +52,7 @@ public struct SecuritiesGetBankResponseOperationsItem: Codable, Hashable, Sendab
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
+        self.bankAccountId = bankAccountId
         self.kind = kind
         self.date = date
         self.time = time
@@ -76,6 +79,7 @@ public struct SecuritiesGetBankResponseOperationsItem: Codable, Hashable, Sendab
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
+        self.bankAccountId = try container.decode(String.self, forKey: .bankAccountId)
         self.kind = try container.decode(String.self, forKey: .kind)
         self.date = try container.decode(CalendarDate.self, forKey: .date)
         self.time = try container.decode(Nullable<String>.self, forKey: .time)
@@ -103,6 +107,7 @@ public struct SecuritiesGetBankResponseOperationsItem: Codable, Hashable, Sendab
         var container = encoder.container(keyedBy: CodingKeys.self)
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.id, forKey: .id)
+        try container.encode(self.bankAccountId, forKey: .bankAccountId)
         try container.encode(self.kind, forKey: .kind)
         try container.encode(self.date, forKey: .date)
         try container.encode(self.time, forKey: .time)
@@ -128,6 +133,7 @@ public struct SecuritiesGetBankResponseOperationsItem: Codable, Hashable, Sendab
     /// Keys for encoding/decoding struct properties.
     enum CodingKeys: String, CodingKey, CaseIterable {
         case id
+        case bankAccountId
         case kind
         case date
         case time

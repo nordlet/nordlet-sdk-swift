@@ -13029,7 +13029,8 @@ import Api
                           "options": [
                             "options",
                             "options"
-                          ]
+                          ],
+                          "companyField": "code"
                         },
                         {
                           "key": "key",
@@ -13038,7 +13039,8 @@ import Api
                           "options": [
                             "options",
                             "options"
-                          ]
+                          ],
+                          "companyField": "code"
                         }
                       ],
                       "endpoints": [
@@ -13070,7 +13072,8 @@ import Api
                           "options": [
                             "options",
                             "options"
-                          ]
+                          ],
+                          "companyField": "code"
                         },
                         {
                           "key": "key",
@@ -13079,7 +13082,8 @@ import Api
                           "options": [
                             "options",
                             "options"
-                          ]
+                          ],
+                          "companyField": "code"
                         }
                       ],
                       "endpoints": [
@@ -13124,7 +13128,8 @@ import Api
                             options: Optional([
                                 "options",
                                 "options"
-                            ])
+                            ]),
+                            companyField: Optional(.code)
                         ),
                         ConfigsListDeclarationsResponseRowsItemFieldsItem(
                             key: "key",
@@ -13133,7 +13138,8 @@ import Api
                             options: Optional([
                                 "options",
                                 "options"
-                            ])
+                            ]),
+                            companyField: Optional(.code)
                         )
                     ],
                     endpoints: Optional([
@@ -13165,7 +13171,8 @@ import Api
                             options: Optional([
                                 "options",
                                 "options"
-                            ])
+                            ]),
+                            companyField: Optional(.code)
                         ),
                         ConfigsListDeclarationsResponseRowsItemFieldsItem(
                             key: "key",
@@ -13174,7 +13181,8 @@ import Api
                             options: Optional([
                                 "options",
                                 "options"
-                            ])
+                            ]),
+                            companyField: Optional(.code)
                         )
                     ],
                     endpoints: Optional([
@@ -13219,7 +13227,8 @@ import Api
                       "multiline": true,
                       "options": [
                         "options"
-                      ]
+                      ],
+                      "companyField": "code"
                     }
                   ],
                   "endpoints": [
@@ -13253,7 +13262,8 @@ import Api
                     multiline: Optional(true),
                     options: Optional([
                         "options"
-                    ])
+                    ]),
+                    companyField: Optional(.code)
                 )
             ],
             endpoints: Optional([
@@ -13297,7 +13307,8 @@ import Api
                       "options": [
                         "options",
                         "options"
-                      ]
+                      ],
+                      "companyField": "code"
                     },
                     {
                       "key": "key",
@@ -13306,7 +13317,8 @@ import Api
                       "options": [
                         "options",
                         "options"
-                      ]
+                      ],
+                      "companyField": "code"
                     }
                   ],
                   "endpoints": [
@@ -13346,7 +13358,8 @@ import Api
                     options: Optional([
                         "options",
                         "options"
-                    ])
+                    ]),
+                    companyField: Optional(.code)
                 ),
                 ConfigsUpdateDeclarationsResponseFieldsItem(
                     key: "key",
@@ -13355,7 +13368,8 @@ import Api
                     options: Optional([
                         "options",
                         "options"
-                    ])
+                    ]),
+                    companyField: Optional(.code)
                 )
             ],
             endpoints: Optional([

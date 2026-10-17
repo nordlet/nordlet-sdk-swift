@@ -5593,6 +5593,7 @@ import Api
                   "operations": [
                     {
                       "id": "id",
+                      "bankAccountId": "bankAccountId",
                       "kind": "kind",
                       "date": "2026-07-01",
                       "time": "time",
@@ -5640,6 +5641,7 @@ import Api
             operations: [
                 SecuritiesGetBankResponseOperationsItem(
                     id: "id",
+                    bankAccountId: "bankAccountId",
                     kind: "kind",
                     date: CalendarDate("2026-07-01")!,
                     time: Nullable<String>.value("time"),
@@ -5691,6 +5693,7 @@ import Api
                   "operations": [
                     {
                       "id": "x",
+                      "bankAccountId": "x",
                       "kind": "kind",
                       "date": "2023-01-15",
                       "time": "time",
@@ -5714,6 +5717,7 @@ import Api
                     },
                     {
                       "id": "x",
+                      "bankAccountId": "x",
                       "kind": "kind",
                       "date": "2023-01-15",
                       "time": "time",
@@ -5761,6 +5765,7 @@ import Api
             operations: [
                 SecuritiesGetBankResponseOperationsItem(
                     id: "x",
+                    bankAccountId: "x",
                     kind: "kind",
                     date: CalendarDate("2023-01-15")!,
                     time: Nullable<String>.value("time"),
@@ -5784,6 +5789,7 @@ import Api
                 ),
                 SecuritiesGetBankResponseOperationsItem(
                     id: "x",
+                    bankAccountId: "x",
                     kind: "kind",
                     date: CalendarDate("2023-01-15")!,
                     time: Nullable<String>.value("time"),
@@ -5809,6 +5815,250 @@ import Api
         )
         let response = try await client.bank.securitiesGet(
             request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func securitiesOperationsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "bankAccountId": "bankAccountId",
+                      "kind": "kind",
+                      "date": "2026-07-01",
+                      "time": "time",
+                      "assetCategory": "assetCategory",
+                      "symbol": "symbol",
+                      "description": "description",
+                      "currency": "currency",
+                      "quantity": "quantity",
+                      "price": "price",
+                      "amount": "amount",
+                      "fee": "fee",
+                      "brokerRealized": "brokerRealized",
+                      "code": "code",
+                      "fxRate": "fxRate",
+                      "cashBase": "cashBase",
+                      "costBase": "costBase",
+                      "realizedBase": "realizedBase",
+                      "status": "posted",
+                      "note": "note",
+                      "journalTransactionId": "journalTransactionId"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SecuritiesOperationsListBankResponse(
+            rows: [
+                SecuritiesOperationsListBankResponseRowsItem(
+                    id: "id",
+                    bankAccountId: "bankAccountId",
+                    kind: "kind",
+                    date: CalendarDate("2026-07-01")!,
+                    time: Nullable<String>.value("time"),
+                    assetCategory: Nullable<String>.value("assetCategory"),
+                    symbol: Nullable<String>.value("symbol"),
+                    description: Nullable<String>.value("description"),
+                    currency: "currency",
+                    quantity: Nullable<String>.value("quantity"),
+                    price: Nullable<String>.value("price"),
+                    amount: Nullable<String>.value("amount"),
+                    fee: Nullable<String>.value("fee"),
+                    brokerRealized: Nullable<String>.value("brokerRealized"),
+                    code: Nullable<String>.value("code"),
+                    fxRate: Nullable<String>.value("fxRate"),
+                    cashBase: Nullable<String>.value("cashBase"),
+                    costBase: Nullable<String>.value("costBase"),
+                    realizedBase: Nullable<String>.value("realizedBase"),
+                    status: .posted,
+                    note: Nullable<String>.value("note"),
+                    journalTransactionId: Nullable<String>.value("journalTransactionId")
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
+            ])
+        )
+        let response = try await client.bank.securitiesOperationsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func securitiesOperationsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "bankAccountId": "x",
+                      "kind": "kind",
+                      "date": "2023-01-15",
+                      "time": "time",
+                      "assetCategory": "assetCategory",
+                      "symbol": "symbol",
+                      "description": "description",
+                      "currency": "currency",
+                      "quantity": "quantity",
+                      "price": "price",
+                      "amount": "amount",
+                      "fee": "fee",
+                      "brokerRealized": "brokerRealized",
+                      "code": "code",
+                      "fxRate": "fxRate",
+                      "cashBase": "cashBase",
+                      "costBase": "costBase",
+                      "realizedBase": "realizedBase",
+                      "status": "posted",
+                      "note": "note",
+                      "journalTransactionId": "x"
+                    },
+                    {
+                      "id": "x",
+                      "bankAccountId": "x",
+                      "kind": "kind",
+                      "date": "2023-01-15",
+                      "time": "time",
+                      "assetCategory": "assetCategory",
+                      "symbol": "symbol",
+                      "description": "description",
+                      "currency": "currency",
+                      "quantity": "quantity",
+                      "price": "price",
+                      "amount": "amount",
+                      "fee": "fee",
+                      "brokerRealized": "brokerRealized",
+                      "code": "code",
+                      "fxRate": "fxRate",
+                      "cashBase": "cashBase",
+                      "costBase": "costBase",
+                      "realizedBase": "realizedBase",
+                      "status": "posted",
+                      "note": "note",
+                      "journalTransactionId": "x"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SecuritiesOperationsListBankResponse(
+            rows: [
+                SecuritiesOperationsListBankResponseRowsItem(
+                    id: "x",
+                    bankAccountId: "x",
+                    kind: "kind",
+                    date: CalendarDate("2023-01-15")!,
+                    time: Nullable<String>.value("time"),
+                    assetCategory: Nullable<String>.value("assetCategory"),
+                    symbol: Nullable<String>.value("symbol"),
+                    description: Nullable<String>.value("description"),
+                    currency: "currency",
+                    quantity: Nullable<String>.value("quantity"),
+                    price: Nullable<String>.value("price"),
+                    amount: Nullable<String>.value("amount"),
+                    fee: Nullable<String>.value("fee"),
+                    brokerRealized: Nullable<String>.value("brokerRealized"),
+                    code: Nullable<String>.value("code"),
+                    fxRate: Nullable<String>.value("fxRate"),
+                    cashBase: Nullable<String>.value("cashBase"),
+                    costBase: Nullable<String>.value("costBase"),
+                    realizedBase: Nullable<String>.value("realizedBase"),
+                    status: .posted,
+                    note: Nullable<String>.value("note"),
+                    journalTransactionId: Nullable<String>.value("x")
+                ),
+                SecuritiesOperationsListBankResponseRowsItem(
+                    id: "x",
+                    bankAccountId: "x",
+                    kind: "kind",
+                    date: CalendarDate("2023-01-15")!,
+                    time: Nullable<String>.value("time"),
+                    assetCategory: Nullable<String>.value("assetCategory"),
+                    symbol: Nullable<String>.value("symbol"),
+                    description: Nullable<String>.value("description"),
+                    currency: "currency",
+                    quantity: Nullable<String>.value("quantity"),
+                    price: Nullable<String>.value("price"),
+                    amount: Nullable<String>.value("amount"),
+                    fee: Nullable<String>.value("fee"),
+                    brokerRealized: Nullable<String>.value("brokerRealized"),
+                    code: Nullable<String>.value("code"),
+                    fxRate: Nullable<String>.value("fxRate"),
+                    cashBase: Nullable<String>.value("cashBase"),
+                    costBase: Nullable<String>.value("costBase"),
+                    realizedBase: Nullable<String>.value("realizedBase"),
+                    status: .posted,
+                    note: Nullable<String>.value("note"),
+                    journalTransactionId: Nullable<String>.value("x")
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
+            ])
+        )
+        let response = try await client.bank.securitiesOperationsList(
+            request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
