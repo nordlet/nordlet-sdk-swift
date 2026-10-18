@@ -8,6 +8,7 @@ public struct LtGpm312ComputeDeclarationsResponseRowsItem: Codable, Hashable, Se
     public let paymentCode: String
     public let paidAmount: String
     public let gpmWithheld: String
+    public let gpmRatePercent: String
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -19,6 +20,7 @@ public struct LtGpm312ComputeDeclarationsResponseRowsItem: Codable, Hashable, Se
         paymentCode: String,
         paidAmount: String,
         gpmWithheld: String,
+        gpmRatePercent: String,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.employeeId = employeeId
@@ -28,6 +30,7 @@ public struct LtGpm312ComputeDeclarationsResponseRowsItem: Codable, Hashable, Se
         self.paymentCode = paymentCode
         self.paidAmount = paidAmount
         self.gpmWithheld = gpmWithheld
+        self.gpmRatePercent = gpmRatePercent
         self.additionalProperties = additionalProperties
     }
 
@@ -40,6 +43,7 @@ public struct LtGpm312ComputeDeclarationsResponseRowsItem: Codable, Hashable, Se
         self.paymentCode = try container.decode(String.self, forKey: .paymentCode)
         self.paidAmount = try container.decode(String.self, forKey: .paidAmount)
         self.gpmWithheld = try container.decode(String.self, forKey: .gpmWithheld)
+        self.gpmRatePercent = try container.decode(String.self, forKey: .gpmRatePercent)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -53,6 +57,7 @@ public struct LtGpm312ComputeDeclarationsResponseRowsItem: Codable, Hashable, Se
         try container.encode(self.paymentCode, forKey: .paymentCode)
         try container.encode(self.paidAmount, forKey: .paidAmount)
         try container.encode(self.gpmWithheld, forKey: .gpmWithheld)
+        try container.encode(self.gpmRatePercent, forKey: .gpmRatePercent)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -64,5 +69,6 @@ public struct LtGpm312ComputeDeclarationsResponseRowsItem: Codable, Hashable, Se
         case paymentCode
         case paidAmount
         case gpmWithheld
+        case gpmRatePercent
     }
 }

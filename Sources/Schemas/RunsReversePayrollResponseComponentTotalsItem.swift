@@ -6,6 +6,7 @@ public struct RunsReversePayrollResponseComponentTotalsItem: Codable, Hashable, 
     public let amount: String
     public let rate: String?
     public let base: String?
+    public let paymentType: String?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -15,6 +16,7 @@ public struct RunsReversePayrollResponseComponentTotalsItem: Codable, Hashable, 
         amount: String,
         rate: String? = nil,
         base: String? = nil,
+        paymentType: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.code = code
@@ -22,6 +24,7 @@ public struct RunsReversePayrollResponseComponentTotalsItem: Codable, Hashable, 
         self.amount = amount
         self.rate = rate
         self.base = base
+        self.paymentType = paymentType
         self.additionalProperties = additionalProperties
     }
 
@@ -32,6 +35,7 @@ public struct RunsReversePayrollResponseComponentTotalsItem: Codable, Hashable, 
         self.amount = try container.decode(String.self, forKey: .amount)
         self.rate = try container.decodeIfPresent(String.self, forKey: .rate)
         self.base = try container.decodeIfPresent(String.self, forKey: .base)
+        self.paymentType = try container.decodeIfPresent(String.self, forKey: .paymentType)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -43,6 +47,7 @@ public struct RunsReversePayrollResponseComponentTotalsItem: Codable, Hashable, 
         try container.encode(self.amount, forKey: .amount)
         try container.encodeIfPresent(self.rate, forKey: .rate)
         try container.encodeIfPresent(self.base, forKey: .base)
+        try container.encodeIfPresent(self.paymentType, forKey: .paymentType)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -52,5 +57,6 @@ public struct RunsReversePayrollResponseComponentTotalsItem: Codable, Hashable, 
         case amount
         case rate
         case base
+        case paymentType
     }
 }

@@ -2013,7 +2013,8 @@ import Api
                       "lastName": "lastName",
                       "paymentCode": "paymentCode",
                       "paidAmount": "paidAmount",
-                      "gpmWithheld": "gpmWithheld"
+                      "gpmWithheld": "gpmWithheld",
+                      "gpmRatePercent": "gpmRatePercent"
                     }
                   ],
                   "totals": {
@@ -2059,7 +2060,8 @@ import Api
                     lastName: "lastName",
                     paymentCode: "paymentCode",
                     paidAmount: "paidAmount",
-                    gpmWithheld: "gpmWithheld"
+                    gpmWithheld: "gpmWithheld",
+                    gpmRatePercent: "gpmRatePercent"
                 )
             ],
             totals: LtGpm312ComputeDeclarationsResponseTotals(
@@ -2109,7 +2111,8 @@ import Api
                       "lastName": "lastName",
                       "paymentCode": "paymentCode",
                       "paidAmount": "paidAmount",
-                      "gpmWithheld": "gpmWithheld"
+                      "gpmWithheld": "gpmWithheld",
+                      "gpmRatePercent": "gpmRatePercent"
                     },
                     {
                       "employeeId": "x",
@@ -2118,7 +2121,8 @@ import Api
                       "lastName": "lastName",
                       "paymentCode": "paymentCode",
                       "paidAmount": "paidAmount",
-                      "gpmWithheld": "gpmWithheld"
+                      "gpmWithheld": "gpmWithheld",
+                      "gpmRatePercent": "gpmRatePercent"
                     }
                   ],
                   "totals": {
@@ -2166,7 +2170,8 @@ import Api
                     lastName: "lastName",
                     paymentCode: "paymentCode",
                     paidAmount: "paidAmount",
-                    gpmWithheld: "gpmWithheld"
+                    gpmWithheld: "gpmWithheld",
+                    gpmRatePercent: "gpmRatePercent"
                 ),
                 LtGpm312ComputeDeclarationsResponseRowsItem(
                     employeeId: "x",
@@ -2175,7 +2180,8 @@ import Api
                     lastName: "lastName",
                     paymentCode: "paymentCode",
                     paidAmount: "paidAmount",
-                    gpmWithheld: "gpmWithheld"
+                    gpmWithheld: "gpmWithheld",
+                    gpmRatePercent: "gpmRatePercent"
                 )
             ],
             totals: LtGpm312ComputeDeclarationsResponseTotals(

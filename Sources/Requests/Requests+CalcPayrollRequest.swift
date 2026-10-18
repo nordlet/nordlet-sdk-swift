@@ -10,6 +10,7 @@ extension Requests {
         public let fixedTerm: Bool?
         public let benefitInKind: String?
         public let options: [String: String]?
+        public let payments: [CalcPayrollRequestPaymentsItem]?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -22,6 +23,7 @@ extension Requests {
             fixedTerm: Bool? = nil,
             benefitInKind: String? = nil,
             options: [String: String]? = nil,
+            payments: [CalcPayrollRequestPaymentsItem]? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.taxableBase = taxableBase
@@ -32,6 +34,7 @@ extension Requests {
             self.fixedTerm = fixedTerm
             self.benefitInKind = benefitInKind
             self.options = options
+            self.payments = payments
             self.additionalProperties = additionalProperties
         }
 
@@ -45,6 +48,7 @@ extension Requests {
             self.fixedTerm = try container.decodeIfPresent(Bool.self, forKey: .fixedTerm)
             self.benefitInKind = try container.decodeIfPresent(String.self, forKey: .benefitInKind)
             self.options = try container.decodeIfPresent([String: String].self, forKey: .options)
+            self.payments = try container.decodeIfPresent([CalcPayrollRequestPaymentsItem].self, forKey: .payments)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -59,6 +63,7 @@ extension Requests {
             try container.encodeIfPresent(self.fixedTerm, forKey: .fixedTerm)
             try container.encodeIfPresent(self.benefitInKind, forKey: .benefitInKind)
             try container.encodeIfPresent(self.options, forKey: .options)
+            try container.encodeIfPresent(self.payments, forKey: .payments)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -71,6 +76,7 @@ extension Requests {
             case fixedTerm
             case benefitInKind
             case options
+            case payments
         }
     }
 }

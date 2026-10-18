@@ -47,6 +47,16 @@ public final class PayrollClient: Sendable {
         )
     }
 
+    public func paymentTypesList(request: Requests.PaymentTypesListPayrollRequest, requestOptions: RequestOptions? = nil) async throws -> PaymentTypesListPayrollResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/payroll/payment-types/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PaymentTypesListPayrollResponse.self
+        )
+    }
+
     public func calc(request: Requests.CalcPayrollRequest, requestOptions: RequestOptions? = nil) async throws -> CalcPayrollResponse {
         return try await httpClient.performRequest(
             method: .post,

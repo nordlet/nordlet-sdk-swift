@@ -317,6 +317,116 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func paymentTypesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "countryCode": "countryCode",
+                  "defaultPaymentType": "defaultPaymentType",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "applies": [
+                        "applies"
+                      ]
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PaymentTypesListPayrollResponse(
+            countryCode: "countryCode",
+            defaultPaymentType: Nullable<String>.value("defaultPaymentType"),
+            rows: [
+                PaymentTypesListPayrollResponseRowsItem(
+                    code: "code",
+                    name: "name",
+                    applies: [
+                        "applies"
+                    ]
+                )
+            ]
+        )
+        let response = try await client.payroll.paymentTypesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func paymentTypesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "countryCode": "countryCode",
+                  "defaultPaymentType": "defaultPaymentType",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "applies": [
+                        "applies",
+                        "applies"
+                      ]
+                    },
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "applies": [
+                        "applies",
+                        "applies"
+                      ]
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PaymentTypesListPayrollResponse(
+            countryCode: "countryCode",
+            defaultPaymentType: Nullable<String>.value("defaultPaymentType"),
+            rows: [
+                PaymentTypesListPayrollResponseRowsItem(
+                    code: "code",
+                    name: "name",
+                    applies: [
+                        "applies",
+                        "applies"
+                    ]
+                ),
+                PaymentTypesListPayrollResponseRowsItem(
+                    code: "code",
+                    name: "name",
+                    applies: [
+                        "applies",
+                        "applies"
+                    ]
+                )
+            ]
+        )
+        let response = try await client.payroll.paymentTypesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func calc1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -334,7 +444,8 @@ import Api
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "net": "net"
@@ -359,7 +470,8 @@ import Api
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 )
             ],
             net: "net"
@@ -391,14 +503,16 @@ import Api
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     },
                     {
                       "code": "code",
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "net": "net"
@@ -423,14 +537,16 @@ import Api
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 ),
                 CalcPayrollResponseComponentsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 )
             ],
             net: "net"
@@ -468,7 +584,8 @@ import Api
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "netTotal": "netTotal",
@@ -550,7 +667,8 @@ import Api
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 )
             ],
             netTotal: "netTotal",
@@ -639,14 +757,16 @@ import Api
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     },
                     {
                       "code": "code",
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "netTotal": "netTotal",
@@ -674,12 +794,16 @@ import Api
                         {
                           "name": "name",
                           "amount": "amount",
-                          "taxable": true
+                          "taxable": true,
+                          "paymentType": "paymentType",
+                          "hours": "hours"
                         },
                         {
                           "name": "name",
                           "amount": "amount",
-                          "taxable": true
+                          "taxable": true,
+                          "paymentType": "paymentType",
+                          "hours": "hours"
                         }
                       ],
                       "deductions": [
@@ -703,14 +827,16 @@ import Api
                           "kind": "allowance",
                           "amount": "amount",
                           "rate": "rate",
-                          "base": "base"
+                          "base": "base",
+                          "paymentType": "paymentType"
                         },
                         {
                           "code": "code",
                           "kind": "allowance",
                           "amount": "amount",
                           "rate": "rate",
-                          "base": "base"
+                          "base": "base",
+                          "paymentType": "paymentType"
                         }
                       ],
                       "net": "net",
@@ -730,12 +856,16 @@ import Api
                         {
                           "name": "name",
                           "amount": "amount",
-                          "taxable": true
+                          "taxable": true,
+                          "paymentType": "paymentType",
+                          "hours": "hours"
                         },
                         {
                           "name": "name",
                           "amount": "amount",
-                          "taxable": true
+                          "taxable": true,
+                          "paymentType": "paymentType",
+                          "hours": "hours"
                         }
                       ],
                       "deductions": [
@@ -759,14 +889,16 @@ import Api
                           "kind": "allowance",
                           "amount": "amount",
                           "rate": "rate",
-                          "base": "base"
+                          "base": "base",
+                          "paymentType": "paymentType"
                         },
                         {
                           "code": "code",
                           "kind": "allowance",
                           "amount": "amount",
                           "rate": "rate",
-                          "base": "base"
+                          "base": "base",
+                          "paymentType": "paymentType"
                         }
                       ],
                       "net": "net",
@@ -803,14 +935,16 @@ import Api
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 ),
                 RunsCreatePayrollResponseComponentTotalsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 )
             ],
             netTotal: "netTotal",
@@ -838,12 +972,16 @@ import Api
                         RunsCreatePayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
-                            taxable: true
+                            taxable: true,
+                            paymentType: Optional("paymentType"),
+                            hours: Optional("hours")
                         ),
                         RunsCreatePayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
-                            taxable: true
+                            taxable: true,
+                            paymentType: Optional("paymentType"),
+                            hours: Optional("hours")
                         )
                     ],
                     deductions: [
@@ -867,14 +1005,16 @@ import Api
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
-                            base: Optional("base")
+                            base: Optional("base"),
+                            paymentType: Optional("paymentType")
                         ),
                         RunsCreatePayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
-                            base: Optional("base")
+                            base: Optional("base"),
+                            paymentType: Optional("paymentType")
                         )
                     ],
                     net: "net",
@@ -894,12 +1034,16 @@ import Api
                         RunsCreatePayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
-                            taxable: true
+                            taxable: true,
+                            paymentType: Optional("paymentType"),
+                            hours: Optional("hours")
                         ),
                         RunsCreatePayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
-                            taxable: true
+                            taxable: true,
+                            paymentType: Optional("paymentType"),
+                            hours: Optional("hours")
                         )
                     ],
                     deductions: [
@@ -923,14 +1067,16 @@ import Api
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
-                            base: Optional("base")
+                            base: Optional("base"),
+                            paymentType: Optional("paymentType")
                         ),
                         RunsCreatePayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
-                            base: Optional("base")
+                            base: Optional("base"),
+                            paymentType: Optional("paymentType")
                         )
                     ],
                     net: "net",
@@ -974,7 +1120,8 @@ import Api
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "netTotal": "netTotal",
@@ -1056,7 +1203,8 @@ import Api
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 )
             ],
             netTotal: "netTotal",
@@ -1142,14 +1290,16 @@ import Api
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     },
                     {
                       "code": "code",
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "netTotal": "netTotal",
@@ -1177,12 +1327,16 @@ import Api
                         {
                           "name": "name",
                           "amount": "amount",
-                          "taxable": true
+                          "taxable": true,
+                          "paymentType": "paymentType",
+                          "hours": "hours"
                         },
                         {
                           "name": "name",
                           "amount": "amount",
-                          "taxable": true
+                          "taxable": true,
+                          "paymentType": "paymentType",
+                          "hours": "hours"
                         }
                       ],
                       "deductions": [
@@ -1206,14 +1360,16 @@ import Api
                           "kind": "allowance",
                           "amount": "amount",
                           "rate": "rate",
-                          "base": "base"
+                          "base": "base",
+                          "paymentType": "paymentType"
                         },
                         {
                           "code": "code",
                           "kind": "allowance",
                           "amount": "amount",
                           "rate": "rate",
-                          "base": "base"
+                          "base": "base",
+                          "paymentType": "paymentType"
                         }
                       ],
                       "net": "net",
@@ -1233,12 +1389,16 @@ import Api
                         {
                           "name": "name",
                           "amount": "amount",
-                          "taxable": true
+                          "taxable": true,
+                          "paymentType": "paymentType",
+                          "hours": "hours"
                         },
                         {
                           "name": "name",
                           "amount": "amount",
-                          "taxable": true
+                          "taxable": true,
+                          "paymentType": "paymentType",
+                          "hours": "hours"
                         }
                       ],
                       "deductions": [
@@ -1262,14 +1422,16 @@ import Api
                           "kind": "allowance",
                           "amount": "amount",
                           "rate": "rate",
-                          "base": "base"
+                          "base": "base",
+                          "paymentType": "paymentType"
                         },
                         {
                           "code": "code",
                           "kind": "allowance",
                           "amount": "amount",
                           "rate": "rate",
-                          "base": "base"
+                          "base": "base",
+                          "paymentType": "paymentType"
                         }
                       ],
                       "net": "net",
@@ -1306,14 +1468,16 @@ import Api
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 ),
                 RunsGetPayrollResponseComponentTotalsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 )
             ],
             netTotal: "netTotal",
@@ -1341,12 +1505,16 @@ import Api
                         RunsGetPayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
-                            taxable: true
+                            taxable: true,
+                            paymentType: Optional("paymentType"),
+                            hours: Optional("hours")
                         ),
                         RunsGetPayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
-                            taxable: true
+                            taxable: true,
+                            paymentType: Optional("paymentType"),
+                            hours: Optional("hours")
                         )
                     ],
                     deductions: [
@@ -1370,14 +1538,16 @@ import Api
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
-                            base: Optional("base")
+                            base: Optional("base"),
+                            paymentType: Optional("paymentType")
                         ),
                         RunsGetPayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
-                            base: Optional("base")
+                            base: Optional("base"),
+                            paymentType: Optional("paymentType")
                         )
                     ],
                     net: "net",
@@ -1397,12 +1567,16 @@ import Api
                         RunsGetPayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
-                            taxable: true
+                            taxable: true,
+                            paymentType: Optional("paymentType"),
+                            hours: Optional("hours")
                         ),
                         RunsGetPayrollResponseLinesItemAdditionsItem(
                             name: "name",
                             amount: "amount",
-                            taxable: true
+                            taxable: true,
+                            paymentType: Optional("paymentType"),
+                            hours: Optional("hours")
                         )
                     ],
                     deductions: [
@@ -1426,14 +1600,16 @@ import Api
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
-                            base: Optional("base")
+                            base: Optional("base"),
+                            paymentType: Optional("paymentType")
                         ),
                         RunsGetPayrollResponseLinesItemComponentsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
-                            base: Optional("base")
+                            base: Optional("base"),
+                            paymentType: Optional("paymentType")
                         )
                     ],
                     net: "net",
@@ -1590,14 +1766,16 @@ import Api
                           "kind": "allowance",
                           "amount": "amount",
                           "rate": "rate",
-                          "base": "base"
+                          "base": "base",
+                          "paymentType": "paymentType"
                         },
                         {
                           "code": "code",
                           "kind": "allowance",
                           "amount": "amount",
                           "rate": "rate",
-                          "base": "base"
+                          "base": "base",
+                          "paymentType": "paymentType"
                         }
                       ],
                       "netTotal": "netTotal",
@@ -1632,14 +1810,16 @@ import Api
                           "kind": "allowance",
                           "amount": "amount",
                           "rate": "rate",
-                          "base": "base"
+                          "base": "base",
+                          "paymentType": "paymentType"
                         },
                         {
                           "code": "code",
                           "kind": "allowance",
                           "amount": "amount",
                           "rate": "rate",
-                          "base": "base"
+                          "base": "base",
+                          "paymentType": "paymentType"
                         }
                       ],
                       "netTotal": "netTotal",
@@ -1697,14 +1877,16 @@ import Api
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
-                            base: Optional("base")
+                            base: Optional("base"),
+                            paymentType: Optional("paymentType")
                         ),
                         RunsListPayrollResponseRowsItemComponentTotalsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
-                            base: Optional("base")
+                            base: Optional("base"),
+                            paymentType: Optional("paymentType")
                         )
                     ],
                     netTotal: "netTotal",
@@ -1739,14 +1921,16 @@ import Api
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
-                            base: Optional("base")
+                            base: Optional("base"),
+                            paymentType: Optional("paymentType")
                         ),
                         RunsListPayrollResponseRowsItemComponentTotalsItem(
                             code: "code",
                             kind: .allowance,
                             amount: "amount",
                             rate: Optional("rate"),
-                            base: Optional("base")
+                            base: Optional("base"),
+                            paymentType: Optional("paymentType")
                         )
                     ],
                     netTotal: "netTotal",
@@ -1799,7 +1983,9 @@ import Api
                     {
                       "name": "name",
                       "amount": "amount",
-                      "taxable": true
+                      "taxable": true,
+                      "paymentType": "paymentType",
+                      "hours": "hours"
                     }
                   ],
                   "deductions": [
@@ -1819,7 +2005,8 @@ import Api
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "net": "net",
@@ -1847,7 +2034,9 @@ import Api
                 LinesAttendancePayrollResponseAdditionsItem(
                     name: "name",
                     amount: "amount",
-                    taxable: true
+                    taxable: true,
+                    paymentType: Optional("paymentType"),
+                    hours: Optional("hours")
                 )
             ],
             deductions: [
@@ -1867,7 +2056,8 @@ import Api
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 )
             ],
             net: "net",
@@ -1899,12 +2089,16 @@ import Api
                     {
                       "name": "name",
                       "amount": "amount",
-                      "taxable": true
+                      "taxable": true,
+                      "paymentType": "paymentType",
+                      "hours": "hours"
                     },
                     {
                       "name": "name",
                       "amount": "amount",
-                      "taxable": true
+                      "taxable": true,
+                      "paymentType": "paymentType",
+                      "hours": "hours"
                     }
                   ],
                   "deductions": [
@@ -1928,14 +2122,16 @@ import Api
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     },
                     {
                       "code": "code",
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "net": "net",
@@ -1963,12 +2159,16 @@ import Api
                 LinesAttendancePayrollResponseAdditionsItem(
                     name: "name",
                     amount: "amount",
-                    taxable: true
+                    taxable: true,
+                    paymentType: Optional("paymentType"),
+                    hours: Optional("hours")
                 ),
                 LinesAttendancePayrollResponseAdditionsItem(
                     name: "name",
                     amount: "amount",
-                    taxable: true
+                    taxable: true,
+                    paymentType: Optional("paymentType"),
+                    hours: Optional("hours")
                 )
             ],
             deductions: [
@@ -1992,14 +2192,16 @@ import Api
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 ),
                 LinesAttendancePayrollResponseComponentsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 )
             ],
             net: "net",
@@ -2038,7 +2240,8 @@ import Api
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "netTotal": "netTotal",
@@ -2080,7 +2283,8 @@ import Api
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 )
             ],
             netTotal: "netTotal",
@@ -2126,14 +2330,16 @@ import Api
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     },
                     {
                       "code": "code",
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "netTotal": "netTotal",
@@ -2176,14 +2382,16 @@ import Api
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 ),
                 RunsApprovePayrollResponseComponentTotalsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 )
             ],
             netTotal: "netTotal",
@@ -2230,7 +2438,8 @@ import Api
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "netTotal": "netTotal",
@@ -2272,7 +2481,8 @@ import Api
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 )
             ],
             netTotal: "netTotal",
@@ -2321,14 +2531,16 @@ import Api
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     },
                     {
                       "code": "code",
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "netTotal": "netTotal",
@@ -2371,14 +2583,16 @@ import Api
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 ),
                 RunsReversePayrollResponseComponentTotalsItem(
                     code: "code",
                     kind: .allowance,
                     amount: "amount",
                     rate: Optional("rate"),
-                    base: Optional("base")
+                    base: Optional("base"),
+                    paymentType: Optional("paymentType")
                 )
             ],
             netTotal: "netTotal",
