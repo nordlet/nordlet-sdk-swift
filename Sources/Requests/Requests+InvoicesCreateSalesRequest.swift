@@ -22,6 +22,8 @@ extension Requests {
         public let deemedSupplier: Bool?
         public let notes: String?
         public let documentRef: String?
+        /// Language of the PDF and of the e-mail the invoice is sent with; unset means the language asked for when the PDF is made
+        public let locale: InvoicesCreateSalesRequestLocale?
         public let operationTypeId: String?
         public let documentSeriesId: String?
         public let seriesLabel: String?
@@ -54,6 +56,7 @@ extension Requests {
             deemedSupplier: Bool? = nil,
             notes: String? = nil,
             documentRef: String? = nil,
+            locale: InvoicesCreateSalesRequestLocale? = nil,
             operationTypeId: String? = nil,
             documentSeriesId: String? = nil,
             seriesLabel: String? = nil,
@@ -84,6 +87,7 @@ extension Requests {
             self.deemedSupplier = deemedSupplier
             self.notes = notes
             self.documentRef = documentRef
+            self.locale = locale
             self.operationTypeId = operationTypeId
             self.documentSeriesId = documentSeriesId
             self.seriesLabel = seriesLabel
@@ -117,6 +121,7 @@ extension Requests {
             self.deemedSupplier = try container.decodeIfPresent(Bool.self, forKey: .deemedSupplier)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.documentRef = try container.decodeIfPresent(String.self, forKey: .documentRef)
+            self.locale = try container.decodeIfPresent(InvoicesCreateSalesRequestLocale.self, forKey: .locale)
             self.operationTypeId = try container.decodeIfPresent(String.self, forKey: .operationTypeId)
             self.documentSeriesId = try container.decodeIfPresent(String.self, forKey: .documentSeriesId)
             self.seriesLabel = try container.decodeIfPresent(String.self, forKey: .seriesLabel)
@@ -151,6 +156,7 @@ extension Requests {
             try container.encodeIfPresent(self.deemedSupplier, forKey: .deemedSupplier)
             try container.encodeIfPresent(self.notes, forKey: .notes)
             try container.encodeIfPresent(self.documentRef, forKey: .documentRef)
+            try container.encodeIfPresent(self.locale, forKey: .locale)
             try container.encodeIfPresent(self.operationTypeId, forKey: .operationTypeId)
             try container.encodeIfPresent(self.documentSeriesId, forKey: .documentSeriesId)
             try container.encodeIfPresent(self.seriesLabel, forKey: .seriesLabel)
@@ -183,6 +189,7 @@ extension Requests {
             case deemedSupplier
             case notes
             case documentRef
+            case locale
             case operationTypeId
             case documentSeriesId
             case seriesLabel

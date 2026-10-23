@@ -23,6 +23,7 @@ public enum SubscriptionsCreateWebhooksRequestEventsItem: String, Codable, Hasha
     case purchaseInvoiceRegistered = "purchase_invoice.registered"
     case purchaseOrderApproved = "purchase_order.approved"
     case purchaseOrderReceived = "purchase_order.received"
+    case recurringInvoiceGenerated = "recurring_invoice.generated"
     case refundLiabilityActual = "refund_liability.actual"
     case refundLiabilityTruedUp = "refund_liability.trued_up"
     case reportCompleted = "report.completed"

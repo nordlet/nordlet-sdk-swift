@@ -49,6 +49,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "recurringInvoiceId",
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -192,6 +194,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("recurringInvoiceId"),
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -346,6 +350,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "x",
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -535,6 +541,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("x"),
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -738,6 +746,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "recurringInvoiceId",
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -881,6 +891,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("recurringInvoiceId"),
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -1028,6 +1040,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "x",
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -1217,6 +1231,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("x"),
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -1982,6 +1998,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "recurringInvoiceId",
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -2125,6 +2143,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("recurringInvoiceId"),
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -2272,6 +2292,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "x",
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -2461,6 +2483,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("x"),
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -2706,6 +2730,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "recurringInvoiceId",
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -2849,6 +2875,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("recurringInvoiceId"),
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -2996,6 +3024,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "x",
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -3185,6 +3215,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("x"),
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -3378,6 +3410,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "recurringInvoiceId",
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -3521,6 +3555,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("recurringInvoiceId"),
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -3668,6 +3704,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "x",
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -3857,6 +3895,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("x"),
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -4050,6 +4090,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "recurringInvoiceId",
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -4193,6 +4235,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("recurringInvoiceId"),
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -4340,6 +4384,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "x",
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -4529,6 +4575,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("x"),
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -5066,6 +5114,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "recurringInvoiceId",
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -5209,6 +5259,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("recurringInvoiceId"),
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -5359,6 +5411,8 @@ import Api
                   "issuedByTitle": "issuedByTitle",
                   "receivedByName": "receivedByName",
                   "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "x",
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
@@ -5548,6 +5602,8 @@ import Api
             issuedByTitle: Nullable<String>.value("issuedByTitle"),
             receivedByName: Nullable<String>.value("receivedByName"),
             receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("x"),
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
@@ -5746,6 +5802,8 @@ import Api
                       "issuedByTitle": "issuedByTitle",
                       "receivedByName": "receivedByName",
                       "receivedByTitle": "receivedByTitle",
+                      "locale": "locale",
+                      "recurringInvoiceId": "recurringInvoiceId",
                       "lockedAt": "2026-07-01T09:30:00Z",
                       "lockedBy": "lockedBy",
                       "payToken": "payToken",
@@ -5830,6 +5888,8 @@ import Api
                     issuedByTitle: Nullable<String>.value("issuedByTitle"),
                     receivedByName: Nullable<String>.value("receivedByName"),
                     receivedByTitle: Nullable<String>.value("receivedByTitle"),
+                    locale: Nullable<String>.value("locale"),
+                    recurringInvoiceId: Nullable<String>.value("recurringInvoiceId"),
                     lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     lockedBy: Nullable<String>.value("lockedBy"),
                     payToken: Nullable<String>.value("payToken"),
@@ -5918,6 +5978,8 @@ import Api
                       "issuedByTitle": "issuedByTitle",
                       "receivedByName": "receivedByName",
                       "receivedByTitle": "receivedByTitle",
+                      "locale": "locale",
+                      "recurringInvoiceId": "x",
                       "lockedAt": "2024-01-15T09:30:00Z",
                       "lockedBy": "lockedBy",
                       "payToken": "payToken",
@@ -5979,6 +6041,8 @@ import Api
                       "issuedByTitle": "issuedByTitle",
                       "receivedByName": "receivedByName",
                       "receivedByTitle": "receivedByTitle",
+                      "locale": "locale",
+                      "recurringInvoiceId": "x",
                       "lockedAt": "2024-01-15T09:30:00Z",
                       "lockedBy": "lockedBy",
                       "payToken": "payToken",
@@ -6063,6 +6127,8 @@ import Api
                     issuedByTitle: Nullable<String>.value("issuedByTitle"),
                     receivedByName: Nullable<String>.value("receivedByName"),
                     receivedByTitle: Nullable<String>.value("receivedByTitle"),
+                    locale: Nullable<String>.value("locale"),
+                    recurringInvoiceId: Nullable<String>.value("x"),
                     lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     lockedBy: Nullable<String>.value("lockedBy"),
                     payToken: Nullable<String>.value("payToken"),
@@ -6124,6 +6190,8 @@ import Api
                     issuedByTitle: Nullable<String>.value("issuedByTitle"),
                     receivedByName: Nullable<String>.value("receivedByName"),
                     receivedByTitle: Nullable<String>.value("receivedByTitle"),
+                    locale: Nullable<String>.value("locale"),
+                    recurringInvoiceId: Nullable<String>.value("x"),
                     lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     lockedBy: Nullable<String>.value("lockedBy"),
                     payToken: Nullable<String>.value("payToken"),
@@ -8308,6 +8376,988 @@ import Api
             ])
         )
         let response = try await client.sales.invoiceTemplatesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "templateId": "templateId",
+                  "templateName": "templateName",
+                  "partnerId": "partnerId",
+                  "partnerName": "partnerName",
+                  "frequency": "weekly",
+                  "interval": 1000000,
+                  "startDate": "2026-07-01",
+                  "endDate": "2026-07-01",
+                  "nextRunDate": "2026-07-01",
+                  "status": "active",
+                  "locale": "locale",
+                  "autoIssue": true,
+                  "autoSend": true,
+                  "sendTo": "sendTo",
+                  "occurrences": 1000000,
+                  "lastRunAt": "2026-07-01T09:30:00Z",
+                  "lastInvoiceId": "lastInvoiceId",
+                  "lastError": "lastError",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesCreateSalesResponse(
+            id: "id",
+            templateId: "templateId",
+            templateName: Nullable<String>.value("templateName"),
+            partnerId: "partnerId",
+            partnerName: Nullable<String>.value("partnerName"),
+            frequency: .weekly,
+            interval: 1000000,
+            startDate: CalendarDate("2026-07-01")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            nextRunDate: CalendarDate("2026-07-01")!,
+            status: .active,
+            locale: Nullable<String>.value("locale"),
+            autoIssue: true,
+            autoSend: true,
+            sendTo: Nullable<String>.value("sendTo"),
+            occurrences: 1000000,
+            lastRunAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lastInvoiceId: Nullable<String>.value("lastInvoiceId"),
+            lastError: Nullable<String>.value("lastError"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.recurringInvoicesCreate(
+            request: .init(
+                templateId: "templateId",
+                startDate: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "templateId": "x",
+                  "templateName": "templateName",
+                  "partnerId": "x",
+                  "partnerName": "partnerName",
+                  "frequency": "weekly",
+                  "interval": 1000000,
+                  "startDate": "2023-01-15",
+                  "endDate": "2023-01-15",
+                  "nextRunDate": "2023-01-15",
+                  "status": "active",
+                  "locale": "locale",
+                  "autoIssue": true,
+                  "autoSend": true,
+                  "sendTo": "sendTo",
+                  "occurrences": 1000000,
+                  "lastRunAt": "2024-01-15T09:30:00Z",
+                  "lastInvoiceId": "x",
+                  "lastError": "lastError",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesCreateSalesResponse(
+            id: "x",
+            templateId: "x",
+            templateName: Nullable<String>.value("templateName"),
+            partnerId: "x",
+            partnerName: Nullable<String>.value("partnerName"),
+            frequency: .weekly,
+            interval: 1000000,
+            startDate: CalendarDate("2023-01-15")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            nextRunDate: CalendarDate("2023-01-15")!,
+            status: .active,
+            locale: Nullable<String>.value("locale"),
+            autoIssue: true,
+            autoSend: true,
+            sendTo: Nullable<String>.value("sendTo"),
+            occurrences: 1000000,
+            lastRunAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lastInvoiceId: Nullable<String>.value("x"),
+            lastError: Nullable<String>.value("lastError"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.recurringInvoicesCreate(
+            request: .init(
+                templateId: "x",
+                startDate: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "templateId": "templateId",
+                  "templateName": "templateName",
+                  "partnerId": "partnerId",
+                  "partnerName": "partnerName",
+                  "frequency": "weekly",
+                  "interval": 1000000,
+                  "startDate": "2026-07-01",
+                  "endDate": "2026-07-01",
+                  "nextRunDate": "2026-07-01",
+                  "status": "active",
+                  "locale": "locale",
+                  "autoIssue": true,
+                  "autoSend": true,
+                  "sendTo": "sendTo",
+                  "occurrences": 1000000,
+                  "lastRunAt": "2026-07-01T09:30:00Z",
+                  "lastInvoiceId": "lastInvoiceId",
+                  "lastError": "lastError",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesUpdateSalesResponse(
+            id: "id",
+            templateId: "templateId",
+            templateName: Nullable<String>.value("templateName"),
+            partnerId: "partnerId",
+            partnerName: Nullable<String>.value("partnerName"),
+            frequency: .weekly,
+            interval: 1000000,
+            startDate: CalendarDate("2026-07-01")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            nextRunDate: CalendarDate("2026-07-01")!,
+            status: .active,
+            locale: Nullable<String>.value("locale"),
+            autoIssue: true,
+            autoSend: true,
+            sendTo: Nullable<String>.value("sendTo"),
+            occurrences: 1000000,
+            lastRunAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lastInvoiceId: Nullable<String>.value("lastInvoiceId"),
+            lastError: Nullable<String>.value("lastError"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.recurringInvoicesUpdate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "templateId": "x",
+                  "templateName": "templateName",
+                  "partnerId": "x",
+                  "partnerName": "partnerName",
+                  "frequency": "weekly",
+                  "interval": 1000000,
+                  "startDate": "2023-01-15",
+                  "endDate": "2023-01-15",
+                  "nextRunDate": "2023-01-15",
+                  "status": "active",
+                  "locale": "locale",
+                  "autoIssue": true,
+                  "autoSend": true,
+                  "sendTo": "sendTo",
+                  "occurrences": 1000000,
+                  "lastRunAt": "2024-01-15T09:30:00Z",
+                  "lastInvoiceId": "x",
+                  "lastError": "lastError",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesUpdateSalesResponse(
+            id: "x",
+            templateId: "x",
+            templateName: Nullable<String>.value("templateName"),
+            partnerId: "x",
+            partnerName: Nullable<String>.value("partnerName"),
+            frequency: .weekly,
+            interval: 1000000,
+            startDate: CalendarDate("2023-01-15")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            nextRunDate: CalendarDate("2023-01-15")!,
+            status: .active,
+            locale: Nullable<String>.value("locale"),
+            autoIssue: true,
+            autoSend: true,
+            sendTo: Nullable<String>.value("sendTo"),
+            occurrences: 1000000,
+            lastRunAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lastInvoiceId: Nullable<String>.value("x"),
+            lastError: Nullable<String>.value("lastError"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.recurringInvoicesUpdate(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "templateId": "templateId",
+                  "templateName": "templateName",
+                  "partnerId": "partnerId",
+                  "partnerName": "partnerName",
+                  "frequency": "weekly",
+                  "interval": 1000000,
+                  "startDate": "2026-07-01",
+                  "endDate": "2026-07-01",
+                  "nextRunDate": "2026-07-01",
+                  "status": "active",
+                  "locale": "locale",
+                  "autoIssue": true,
+                  "autoSend": true,
+                  "sendTo": "sendTo",
+                  "occurrences": 1000000,
+                  "lastRunAt": "2026-07-01T09:30:00Z",
+                  "lastInvoiceId": "lastInvoiceId",
+                  "lastError": "lastError",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesGetSalesResponse(
+            id: "id",
+            templateId: "templateId",
+            templateName: Nullable<String>.value("templateName"),
+            partnerId: "partnerId",
+            partnerName: Nullable<String>.value("partnerName"),
+            frequency: .weekly,
+            interval: 1000000,
+            startDate: CalendarDate("2026-07-01")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            nextRunDate: CalendarDate("2026-07-01")!,
+            status: .active,
+            locale: Nullable<String>.value("locale"),
+            autoIssue: true,
+            autoSend: true,
+            sendTo: Nullable<String>.value("sendTo"),
+            occurrences: 1000000,
+            lastRunAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lastInvoiceId: Nullable<String>.value("lastInvoiceId"),
+            lastError: Nullable<String>.value("lastError"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.recurringInvoicesGet(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "templateId": "x",
+                  "templateName": "templateName",
+                  "partnerId": "x",
+                  "partnerName": "partnerName",
+                  "frequency": "weekly",
+                  "interval": 1000000,
+                  "startDate": "2023-01-15",
+                  "endDate": "2023-01-15",
+                  "nextRunDate": "2023-01-15",
+                  "status": "active",
+                  "locale": "locale",
+                  "autoIssue": true,
+                  "autoSend": true,
+                  "sendTo": "sendTo",
+                  "occurrences": 1000000,
+                  "lastRunAt": "2024-01-15T09:30:00Z",
+                  "lastInvoiceId": "x",
+                  "lastError": "lastError",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesGetSalesResponse(
+            id: "x",
+            templateId: "x",
+            templateName: Nullable<String>.value("templateName"),
+            partnerId: "x",
+            partnerName: Nullable<String>.value("partnerName"),
+            frequency: .weekly,
+            interval: 1000000,
+            startDate: CalendarDate("2023-01-15")!,
+            endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            nextRunDate: CalendarDate("2023-01-15")!,
+            status: .active,
+            locale: Nullable<String>.value("locale"),
+            autoIssue: true,
+            autoSend: true,
+            sendTo: Nullable<String>.value("sendTo"),
+            occurrences: 1000000,
+            lastRunAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lastInvoiceId: Nullable<String>.value("x"),
+            lastError: Nullable<String>.value("lastError"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.sales.recurringInvoicesGet(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesDeleteSalesResponse(
+            deleted: true
+        )
+        let response = try await client.sales.recurringInvoicesDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesDeleteSalesResponse(
+            deleted: true
+        )
+        let response = try await client.sales.recurringInvoicesDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesGenerate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "invoiceId": "invoiceId",
+                  "issueDate": "2026-07-01",
+                  "issued": true,
+                  "sent": true,
+                  "error": "error",
+                  "recurringInvoice": {
+                    "id": "id",
+                    "templateId": "templateId",
+                    "templateName": "templateName",
+                    "partnerId": "partnerId",
+                    "partnerName": "partnerName",
+                    "frequency": "weekly",
+                    "interval": 1000000,
+                    "startDate": "2026-07-01",
+                    "endDate": "2026-07-01",
+                    "nextRunDate": "2026-07-01",
+                    "status": "active",
+                    "locale": "locale",
+                    "autoIssue": true,
+                    "autoSend": true,
+                    "sendTo": "sendTo",
+                    "occurrences": 1000000,
+                    "lastRunAt": "2026-07-01T09:30:00Z",
+                    "lastInvoiceId": "lastInvoiceId",
+                    "lastError": "lastError",
+                    "createdAt": "2026-07-01T09:30:00Z",
+                    "updatedAt": "2026-07-01T09:30:00Z"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesGenerateSalesResponse(
+            invoiceId: "invoiceId",
+            issueDate: CalendarDate("2026-07-01")!,
+            issued: true,
+            sent: true,
+            error: Nullable<String>.value("error"),
+            recurringInvoice: RecurringInvoicesGenerateSalesResponseRecurringInvoice(
+                id: "id",
+                templateId: "templateId",
+                templateName: Nullable<String>.value("templateName"),
+                partnerId: "partnerId",
+                partnerName: Nullable<String>.value("partnerName"),
+                frequency: .weekly,
+                interval: 1000000,
+                startDate: CalendarDate("2026-07-01")!,
+                endDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                nextRunDate: CalendarDate("2026-07-01")!,
+                status: .active,
+                locale: Nullable<String>.value("locale"),
+                autoIssue: true,
+                autoSend: true,
+                sendTo: Nullable<String>.value("sendTo"),
+                occurrences: 1000000,
+                lastRunAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                lastInvoiceId: Nullable<String>.value("lastInvoiceId"),
+                lastError: Nullable<String>.value("lastError"),
+                createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+            )
+        )
+        let response = try await client.sales.recurringInvoicesGenerate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesGenerate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "invoiceId": "x",
+                  "issueDate": "2023-01-15",
+                  "issued": true,
+                  "sent": true,
+                  "error": "error",
+                  "recurringInvoice": {
+                    "id": "x",
+                    "templateId": "x",
+                    "templateName": "templateName",
+                    "partnerId": "x",
+                    "partnerName": "partnerName",
+                    "frequency": "weekly",
+                    "interval": 1000000,
+                    "startDate": "2023-01-15",
+                    "endDate": "2023-01-15",
+                    "nextRunDate": "2023-01-15",
+                    "status": "active",
+                    "locale": "locale",
+                    "autoIssue": true,
+                    "autoSend": true,
+                    "sendTo": "sendTo",
+                    "occurrences": 1000000,
+                    "lastRunAt": "2024-01-15T09:30:00Z",
+                    "lastInvoiceId": "x",
+                    "lastError": "lastError",
+                    "createdAt": "2024-01-15T09:30:00Z",
+                    "updatedAt": "2024-01-15T09:30:00Z"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesGenerateSalesResponse(
+            invoiceId: "x",
+            issueDate: CalendarDate("2023-01-15")!,
+            issued: true,
+            sent: true,
+            error: Nullable<String>.value("error"),
+            recurringInvoice: RecurringInvoicesGenerateSalesResponseRecurringInvoice(
+                id: "x",
+                templateId: "x",
+                templateName: Nullable<String>.value("templateName"),
+                partnerId: "x",
+                partnerName: Nullable<String>.value("partnerName"),
+                frequency: .weekly,
+                interval: 1000000,
+                startDate: CalendarDate("2023-01-15")!,
+                endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                nextRunDate: CalendarDate("2023-01-15")!,
+                status: .active,
+                locale: Nullable<String>.value("locale"),
+                autoIssue: true,
+                autoSend: true,
+                sendTo: Nullable<String>.value("sendTo"),
+                occurrences: 1000000,
+                lastRunAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                lastInvoiceId: Nullable<String>.value("x"),
+                lastError: Nullable<String>.value("lastError"),
+                createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+            )
+        )
+        let response = try await client.sales.recurringInvoicesGenerate(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesRun1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "generated": [
+                    {
+                      "recurringInvoiceId": "recurringInvoiceId",
+                      "invoiceId": "invoiceId",
+                      "issueDate": "2026-07-01",
+                      "issued": true,
+                      "sent": true
+                    }
+                  ],
+                  "errors": [
+                    {
+                      "recurringInvoiceId": "recurringInvoiceId",
+                      "message": "message"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesRunSalesResponse(
+            generated: [
+                RecurringInvoicesRunSalesResponseGeneratedItem(
+                    recurringInvoiceId: "recurringInvoiceId",
+                    invoiceId: "invoiceId",
+                    issueDate: CalendarDate("2026-07-01")!,
+                    issued: true,
+                    sent: true
+                )
+            ],
+            errors: [
+                RecurringInvoicesRunSalesResponseErrorsItem(
+                    recurringInvoiceId: "recurringInvoiceId",
+                    message: "message"
+                )
+            ]
+        )
+        let response = try await client.sales.recurringInvoicesRun(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesRun2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "generated": [
+                    {
+                      "recurringInvoiceId": "x",
+                      "invoiceId": "x",
+                      "issueDate": "2023-01-15",
+                      "issued": true,
+                      "sent": true
+                    },
+                    {
+                      "recurringInvoiceId": "x",
+                      "invoiceId": "x",
+                      "issueDate": "2023-01-15",
+                      "issued": true,
+                      "sent": true
+                    }
+                  ],
+                  "errors": [
+                    {
+                      "recurringInvoiceId": "x",
+                      "message": "message"
+                    },
+                    {
+                      "recurringInvoiceId": "x",
+                      "message": "message"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesRunSalesResponse(
+            generated: [
+                RecurringInvoicesRunSalesResponseGeneratedItem(
+                    recurringInvoiceId: "x",
+                    invoiceId: "x",
+                    issueDate: CalendarDate("2023-01-15")!,
+                    issued: true,
+                    sent: true
+                ),
+                RecurringInvoicesRunSalesResponseGeneratedItem(
+                    recurringInvoiceId: "x",
+                    invoiceId: "x",
+                    issueDate: CalendarDate("2023-01-15")!,
+                    issued: true,
+                    sent: true
+                )
+            ],
+            errors: [
+                RecurringInvoicesRunSalesResponseErrorsItem(
+                    recurringInvoiceId: "x",
+                    message: "message"
+                ),
+                RecurringInvoicesRunSalesResponseErrorsItem(
+                    recurringInvoiceId: "x",
+                    message: "message"
+                )
+            ]
+        )
+        let response = try await client.sales.recurringInvoicesRun(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "templateId": "templateId",
+                      "templateName": "templateName",
+                      "partnerId": "partnerId",
+                      "partnerName": "partnerName",
+                      "frequency": "weekly",
+                      "interval": 1000000,
+                      "startDate": "2026-07-01",
+                      "endDate": "2026-07-01",
+                      "nextRunDate": "2026-07-01",
+                      "status": "active",
+                      "locale": "locale",
+                      "autoIssue": true,
+                      "autoSend": true,
+                      "sendTo": "sendTo",
+                      "occurrences": 1000000,
+                      "lastRunAt": "2026-07-01T09:30:00Z",
+                      "lastInvoiceId": "lastInvoiceId",
+                      "lastError": "lastError",
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesListSalesResponse(
+            rows: [
+                RecurringInvoicesListSalesResponseRowsItem(
+                    id: "id",
+                    templateId: "templateId",
+                    templateName: Nullable<String>.value("templateName"),
+                    partnerId: "partnerId",
+                    partnerName: Nullable<String>.value("partnerName"),
+                    frequency: .weekly,
+                    interval: 1000000,
+                    startDate: CalendarDate("2026-07-01")!,
+                    endDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    nextRunDate: CalendarDate("2026-07-01")!,
+                    status: .active,
+                    locale: Nullable<String>.value("locale"),
+                    autoIssue: true,
+                    autoSend: true,
+                    sendTo: Nullable<String>.value("sendTo"),
+                    occurrences: 1000000,
+                    lastRunAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    lastInvoiceId: Nullable<String>.value("lastInvoiceId"),
+                    lastError: Nullable<String>.value("lastError"),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
+            ])
+        )
+        let response = try await client.sales.recurringInvoicesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func recurringInvoicesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "templateId": "x",
+                      "templateName": "templateName",
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "frequency": "weekly",
+                      "interval": 1000000,
+                      "startDate": "2023-01-15",
+                      "endDate": "2023-01-15",
+                      "nextRunDate": "2023-01-15",
+                      "status": "active",
+                      "locale": "locale",
+                      "autoIssue": true,
+                      "autoSend": true,
+                      "sendTo": "sendTo",
+                      "occurrences": 1000000,
+                      "lastRunAt": "2024-01-15T09:30:00Z",
+                      "lastInvoiceId": "x",
+                      "lastError": "lastError",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "templateId": "x",
+                      "templateName": "templateName",
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "frequency": "weekly",
+                      "interval": 1000000,
+                      "startDate": "2023-01-15",
+                      "endDate": "2023-01-15",
+                      "nextRunDate": "2023-01-15",
+                      "status": "active",
+                      "locale": "locale",
+                      "autoIssue": true,
+                      "autoSend": true,
+                      "sendTo": "sendTo",
+                      "occurrences": 1000000,
+                      "lastRunAt": "2024-01-15T09:30:00Z",
+                      "lastInvoiceId": "x",
+                      "lastError": "lastError",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RecurringInvoicesListSalesResponse(
+            rows: [
+                RecurringInvoicesListSalesResponseRowsItem(
+                    id: "x",
+                    templateId: "x",
+                    templateName: Nullable<String>.value("templateName"),
+                    partnerId: "x",
+                    partnerName: Nullable<String>.value("partnerName"),
+                    frequency: .weekly,
+                    interval: 1000000,
+                    startDate: CalendarDate("2023-01-15")!,
+                    endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    nextRunDate: CalendarDate("2023-01-15")!,
+                    status: .active,
+                    locale: Nullable<String>.value("locale"),
+                    autoIssue: true,
+                    autoSend: true,
+                    sendTo: Nullable<String>.value("sendTo"),
+                    occurrences: 1000000,
+                    lastRunAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    lastInvoiceId: Nullable<String>.value("x"),
+                    lastError: Nullable<String>.value("lastError"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                RecurringInvoicesListSalesResponseRowsItem(
+                    id: "x",
+                    templateId: "x",
+                    templateName: Nullable<String>.value("templateName"),
+                    partnerId: "x",
+                    partnerName: Nullable<String>.value("partnerName"),
+                    frequency: .weekly,
+                    interval: 1000000,
+                    startDate: CalendarDate("2023-01-15")!,
+                    endDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    nextRunDate: CalendarDate("2023-01-15")!,
+                    status: .active,
+                    locale: Nullable<String>.value("locale"),
+                    autoIssue: true,
+                    autoSend: true,
+                    sendTo: Nullable<String>.value("sendTo"),
+                    occurrences: 1000000,
+                    lastRunAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    lastInvoiceId: Nullable<String>.value("x"),
+                    lastError: Nullable<String>.value("lastError"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
+            ])
+        )
+        let response = try await client.sales.recurringInvoicesList(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

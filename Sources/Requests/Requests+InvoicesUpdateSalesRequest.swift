@@ -16,6 +16,7 @@ extension Requests {
         public let vatCountryCode: Nullable<String>?
         public let deemedSupplier: Bool?
         public let notes: String?
+        public let locale: Nullable<InvoicesUpdateSalesRequestLocale>?
         public let operationTypeId: Nullable<String>?
         public let documentSeriesId: Nullable<String>?
         public let seriesLabel: Nullable<String>?
@@ -44,6 +45,7 @@ extension Requests {
             vatCountryCode: Nullable<String>? = nil,
             deemedSupplier: Bool? = nil,
             notes: String? = nil,
+            locale: Nullable<InvoicesUpdateSalesRequestLocale>? = nil,
             operationTypeId: Nullable<String>? = nil,
             documentSeriesId: Nullable<String>? = nil,
             seriesLabel: Nullable<String>? = nil,
@@ -70,6 +72,7 @@ extension Requests {
             self.vatCountryCode = vatCountryCode
             self.deemedSupplier = deemedSupplier
             self.notes = notes
+            self.locale = locale
             self.operationTypeId = operationTypeId
             self.documentSeriesId = documentSeriesId
             self.seriesLabel = seriesLabel
@@ -99,6 +102,7 @@ extension Requests {
             self.vatCountryCode = try container.decodeNullableIfPresent(String.self, forKey: .vatCountryCode)
             self.deemedSupplier = try container.decodeIfPresent(Bool.self, forKey: .deemedSupplier)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
+            self.locale = try container.decodeNullableIfPresent(InvoicesUpdateSalesRequestLocale.self, forKey: .locale)
             self.operationTypeId = try container.decodeNullableIfPresent(String.self, forKey: .operationTypeId)
             self.documentSeriesId = try container.decodeNullableIfPresent(String.self, forKey: .documentSeriesId)
             self.seriesLabel = try container.decodeNullableIfPresent(String.self, forKey: .seriesLabel)
@@ -129,6 +133,7 @@ extension Requests {
             try container.encodeNullableIfPresent(self.vatCountryCode, forKey: .vatCountryCode)
             try container.encodeIfPresent(self.deemedSupplier, forKey: .deemedSupplier)
             try container.encodeIfPresent(self.notes, forKey: .notes)
+            try container.encodeNullableIfPresent(self.locale, forKey: .locale)
             try container.encodeNullableIfPresent(self.operationTypeId, forKey: .operationTypeId)
             try container.encodeNullableIfPresent(self.documentSeriesId, forKey: .documentSeriesId)
             try container.encodeNullableIfPresent(self.seriesLabel, forKey: .seriesLabel)
@@ -157,6 +162,7 @@ extension Requests {
             case vatCountryCode
             case deemedSupplier
             case notes
+            case locale
             case operationTypeId
             case documentSeriesId
             case seriesLabel

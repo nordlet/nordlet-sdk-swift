@@ -41,6 +41,8 @@ public struct InvoicesUnlockSalesResponse: Codable, Hashable, Sendable {
     public let issuedByTitle: Nullable<String>
     public let receivedByName: Nullable<String>
     public let receivedByTitle: Nullable<String>
+    public let locale: Nullable<String>
+    public let recurringInvoiceId: Nullable<String>
     public let lockedAt: Nullable<Date>
     public let lockedBy: Nullable<String>
     public let payToken: Nullable<String>
@@ -107,6 +109,8 @@ public struct InvoicesUnlockSalesResponse: Codable, Hashable, Sendable {
         issuedByTitle: Nullable<String>,
         receivedByName: Nullable<String>,
         receivedByTitle: Nullable<String>,
+        locale: Nullable<String>,
+        recurringInvoiceId: Nullable<String>,
         lockedAt: Nullable<Date>,
         lockedBy: Nullable<String>,
         payToken: Nullable<String>,
@@ -170,6 +174,8 @@ public struct InvoicesUnlockSalesResponse: Codable, Hashable, Sendable {
         self.issuedByTitle = issuedByTitle
         self.receivedByName = receivedByName
         self.receivedByTitle = receivedByTitle
+        self.locale = locale
+        self.recurringInvoiceId = recurringInvoiceId
         self.lockedAt = lockedAt
         self.lockedBy = lockedBy
         self.payToken = payToken
@@ -236,6 +242,8 @@ public struct InvoicesUnlockSalesResponse: Codable, Hashable, Sendable {
         self.issuedByTitle = try container.decode(Nullable<String>.self, forKey: .issuedByTitle)
         self.receivedByName = try container.decode(Nullable<String>.self, forKey: .receivedByName)
         self.receivedByTitle = try container.decode(Nullable<String>.self, forKey: .receivedByTitle)
+        self.locale = try container.decode(Nullable<String>.self, forKey: .locale)
+        self.recurringInvoiceId = try container.decode(Nullable<String>.self, forKey: .recurringInvoiceId)
         self.lockedAt = try container.decode(Nullable<Date>.self, forKey: .lockedAt)
         self.lockedBy = try container.decode(Nullable<String>.self, forKey: .lockedBy)
         self.payToken = try container.decode(Nullable<String>.self, forKey: .payToken)
@@ -303,6 +311,8 @@ public struct InvoicesUnlockSalesResponse: Codable, Hashable, Sendable {
         try container.encode(self.issuedByTitle, forKey: .issuedByTitle)
         try container.encode(self.receivedByName, forKey: .receivedByName)
         try container.encode(self.receivedByTitle, forKey: .receivedByTitle)
+        try container.encode(self.locale, forKey: .locale)
+        try container.encode(self.recurringInvoiceId, forKey: .recurringInvoiceId)
         try container.encode(self.lockedAt, forKey: .lockedAt)
         try container.encode(self.lockedBy, forKey: .lockedBy)
         try container.encode(self.payToken, forKey: .payToken)
@@ -368,6 +378,8 @@ public struct InvoicesUnlockSalesResponse: Codable, Hashable, Sendable {
         case issuedByTitle
         case receivedByName
         case receivedByTitle
+        case locale
+        case recurringInvoiceId
         case lockedAt
         case lockedBy
         case payToken

@@ -20,6 +20,9 @@ public final class OfficersClient: Sendable {
         )
     }
 
+    /// Add an officer to the company's register (`officers/list`); `signsAccounts` defaults to true. Refused with 422 when `resignedOn` is before `appointedOn`.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func create(request: Requests.CreateOfficersRequest, requestOptions: RequestOptions? = nil) async throws -> CreateOfficersResponse {
         return try await httpClient.performRequest(
             method: .post,
@@ -30,6 +33,9 @@ public final class OfficersClient: Sendable {
         )
     }
 
+    /// Replace the recorded data of an officer; every field is written as sent, so a field left out is cleared and `signsAccounts` falls back to true. Refused with 422 when `resignedOn` is before `appointedOn`.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func update(request: Requests.UpdateOfficersRequest, requestOptions: RequestOptions? = nil) async throws -> UpdateOfficersResponse {
         return try await httpClient.performRequest(
             method: .post,
@@ -40,6 +46,9 @@ public final class OfficersClient: Sendable {
         )
     }
 
+    /// Remove an officer from the company's register.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func delete(request: Requests.DeleteOfficersRequest, requestOptions: RequestOptions? = nil) async throws -> DeleteOfficersResponse {
         return try await httpClient.performRequest(
             method: .post,
