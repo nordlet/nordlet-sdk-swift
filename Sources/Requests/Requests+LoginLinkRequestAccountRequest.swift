@@ -7,6 +7,7 @@ extension Requests {
         public let acceptTerms: Bool?
         public let acceptDpa: Bool?
         public let referralCode: String?
+        public let app: LoginLinkRequestAccountRequestApp?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -16,6 +17,7 @@ extension Requests {
             acceptTerms: Bool? = nil,
             acceptDpa: Bool? = nil,
             referralCode: String? = nil,
+            app: LoginLinkRequestAccountRequestApp? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.email = email
@@ -23,6 +25,7 @@ extension Requests {
             self.acceptTerms = acceptTerms
             self.acceptDpa = acceptDpa
             self.referralCode = referralCode
+            self.app = app
             self.additionalProperties = additionalProperties
         }
 
@@ -33,6 +36,7 @@ extension Requests {
             self.acceptTerms = try container.decodeIfPresent(Bool.self, forKey: .acceptTerms)
             self.acceptDpa = try container.decodeIfPresent(Bool.self, forKey: .acceptDpa)
             self.referralCode = try container.decodeIfPresent(String.self, forKey: .referralCode)
+            self.app = try container.decodeIfPresent(LoginLinkRequestAccountRequestApp.self, forKey: .app)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -44,6 +48,7 @@ extension Requests {
             try container.encodeIfPresent(self.acceptTerms, forKey: .acceptTerms)
             try container.encodeIfPresent(self.acceptDpa, forKey: .acceptDpa)
             try container.encodeIfPresent(self.referralCode, forKey: .referralCode)
+            try container.encodeIfPresent(self.app, forKey: .app)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -53,6 +58,7 @@ extension Requests {
             case acceptTerms
             case acceptDpa
             case referralCode
+            case app
         }
     }
 }

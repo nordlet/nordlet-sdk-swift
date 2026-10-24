@@ -3,6 +3,7 @@ import Foundation
 public struct DebtRemindersListPartnersResponseRowsItem: Codable, Hashable, Sendable {
     public let id: String
     public let partnerId: String
+    public let kind: DebtRemindersListPartnersResponseRowsItemKind
     public let sentTo: String
     public let invoiceCount: Int64
     public let totalDue: String
@@ -16,6 +17,7 @@ public struct DebtRemindersListPartnersResponseRowsItem: Codable, Hashable, Send
     public init(
         id: String,
         partnerId: String,
+        kind: DebtRemindersListPartnersResponseRowsItemKind,
         sentTo: String,
         invoiceCount: Int64,
         totalDue: String,
@@ -27,6 +29,7 @@ public struct DebtRemindersListPartnersResponseRowsItem: Codable, Hashable, Send
     ) {
         self.id = id
         self.partnerId = partnerId
+        self.kind = kind
         self.sentTo = sentTo
         self.invoiceCount = invoiceCount
         self.totalDue = totalDue
@@ -41,6 +44,7 @@ public struct DebtRemindersListPartnersResponseRowsItem: Codable, Hashable, Send
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
         self.partnerId = try container.decode(String.self, forKey: .partnerId)
+        self.kind = try container.decode(DebtRemindersListPartnersResponseRowsItemKind.self, forKey: .kind)
         self.sentTo = try container.decode(String.self, forKey: .sentTo)
         self.invoiceCount = try container.decode(Int64.self, forKey: .invoiceCount)
         self.totalDue = try container.decode(String.self, forKey: .totalDue)
@@ -56,6 +60,7 @@ public struct DebtRemindersListPartnersResponseRowsItem: Codable, Hashable, Send
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.id, forKey: .id)
         try container.encode(self.partnerId, forKey: .partnerId)
+        try container.encode(self.kind, forKey: .kind)
         try container.encode(self.sentTo, forKey: .sentTo)
         try container.encode(self.invoiceCount, forKey: .invoiceCount)
         try container.encode(self.totalDue, forKey: .totalDue)
@@ -69,6 +74,7 @@ public struct DebtRemindersListPartnersResponseRowsItem: Codable, Hashable, Send
     enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case partnerId
+        case kind
         case sentTo
         case invoiceCount
         case totalDue

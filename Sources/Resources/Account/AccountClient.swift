@@ -7,7 +7,7 @@ public final class AccountClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    /// Create a sign-in link for the e-mail address and send it; the link is valid for 15 minutes and is consumed with `account/login-link/consume`. When an unused link was requested for the same address within the last minute, the call answers `sent` without sending another. `locale` sets the language of the e-mail and of the link; `acceptTerms`, `acceptDpa` and `referralCode` are stored with the link and used when the address has no account yet.
+    /// Create a sign-in link for the e-mail address and send it; the link is valid for 15 minutes and is consumed with `account/login-link/consume`. When an unused link was requested for the same address within the last minute, the call answers `sent` without sending another. `locale` sets the language of the e-mail and of the link; `app` set to `invoice` makes the link open the invoice app instead of the Nordlet app; `acceptTerms`, `acceptDpa` and `referralCode` are stored with the link and used when the address has no account yet.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func loginLinkRequest(request: Requests.LoginLinkRequestAccountRequest, requestOptions: RequestOptions? = nil) async throws -> LoginLinkRequestAccountResponse {

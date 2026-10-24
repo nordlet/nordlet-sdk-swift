@@ -1543,6 +1543,7 @@ import Api
                     {
                       "id": "id",
                       "partnerId": "partnerId",
+                      "kind": "before_due",
                       "sentTo": "sentTo",
                       "invoiceCount": 1000000,
                       "totalDue": "totalDue",
@@ -1579,6 +1580,7 @@ import Api
                 DebtRemindersListPartnersResponseRowsItem(
                     id: "id",
                     partnerId: "partnerId",
+                    kind: .beforeDue,
                     sentTo: "sentTo",
                     invoiceCount: 1000000,
                     totalDue: "totalDue",
@@ -1619,6 +1621,7 @@ import Api
                     {
                       "id": "x",
                       "partnerId": "x",
+                      "kind": "before_due",
                       "sentTo": "sentTo",
                       "invoiceCount": 1000000,
                       "totalDue": "totalDue",
@@ -1633,6 +1636,7 @@ import Api
                     {
                       "id": "x",
                       "partnerId": "x",
+                      "kind": "before_due",
                       "sentTo": "sentTo",
                       "invoiceCount": 1000000,
                       "totalDue": "totalDue",
@@ -1670,6 +1674,7 @@ import Api
                 DebtRemindersListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
+                    kind: .beforeDue,
                     sentTo: "sentTo",
                     invoiceCount: 1000000,
                     totalDue: "totalDue",
@@ -1684,6 +1689,7 @@ import Api
                 DebtRemindersListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
+                    kind: .beforeDue,
                     sentTo: "sentTo",
                     invoiceCount: 1000000,
                     totalDue: "totalDue",
@@ -1709,6 +1715,240 @@ import Api
             ])
         )
         let response = try await client.partners.debtRemindersList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func debtRemindersSettingsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "daysBefore": 1000000,
+                  "repeatDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DebtRemindersSettingsGetPartnersResponse(
+            daysBefore: Nullable<Int64>.value(1000000),
+            repeatDays: 1000000
+        )
+        let response = try await client.partners.debtRemindersSettingsGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func debtRemindersSettingsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "daysBefore": 1000000,
+                  "repeatDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DebtRemindersSettingsGetPartnersResponse(
+            daysBefore: Nullable<Int64>.value(1000000),
+            repeatDays: 1000000
+        )
+        let response = try await client.partners.debtRemindersSettingsGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func debtRemindersSettingsUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "daysBefore": 1000000,
+                  "repeatDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DebtRemindersSettingsUpdatePartnersResponse(
+            daysBefore: Nullable<Int64>.value(1000000),
+            repeatDays: 1000000
+        )
+        let response = try await client.partners.debtRemindersSettingsUpdate(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func debtRemindersSettingsUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "daysBefore": 1000000,
+                  "repeatDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DebtRemindersSettingsUpdatePartnersResponse(
+            daysBefore: Nullable<Int64>.value(1000000),
+            repeatDays: 1000000
+        )
+        let response = try await client.partners.debtRemindersSettingsUpdate(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func debtRemindersUpcoming1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "date": "2026-07-01",
+                      "kind": "before_due",
+                      "invoiceId": "invoiceId",
+                      "fullNumber": "fullNumber",
+                      "partnerId": "partnerId",
+                      "partnerName": "partnerName",
+                      "dueDate": "2026-07-01",
+                      "remaining": "remaining",
+                      "currency": "currency"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DebtRemindersUpcomingPartnersResponse(
+            rows: [
+                DebtRemindersUpcomingPartnersResponseRowsItem(
+                    date: CalendarDate("2026-07-01")!,
+                    kind: .beforeDue,
+                    invoiceId: "invoiceId",
+                    fullNumber: "fullNumber",
+                    partnerId: "partnerId",
+                    partnerName: "partnerName",
+                    dueDate: CalendarDate("2026-07-01")!,
+                    remaining: "remaining",
+                    currency: "currency"
+                )
+            ]
+        )
+        let response = try await client.partners.debtRemindersUpcoming(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func debtRemindersUpcoming2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "date": "2023-01-15",
+                      "kind": "before_due",
+                      "invoiceId": "x",
+                      "fullNumber": "fullNumber",
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "dueDate": "2023-01-15",
+                      "remaining": "remaining",
+                      "currency": "currency"
+                    },
+                    {
+                      "date": "2023-01-15",
+                      "kind": "before_due",
+                      "invoiceId": "x",
+                      "fullNumber": "fullNumber",
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "dueDate": "2023-01-15",
+                      "remaining": "remaining",
+                      "currency": "currency"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DebtRemindersUpcomingPartnersResponse(
+            rows: [
+                DebtRemindersUpcomingPartnersResponseRowsItem(
+                    date: CalendarDate("2023-01-15")!,
+                    kind: .beforeDue,
+                    invoiceId: "x",
+                    fullNumber: "fullNumber",
+                    partnerId: "x",
+                    partnerName: "partnerName",
+                    dueDate: CalendarDate("2023-01-15")!,
+                    remaining: "remaining",
+                    currency: "currency"
+                ),
+                DebtRemindersUpcomingPartnersResponseRowsItem(
+                    date: CalendarDate("2023-01-15")!,
+                    kind: .beforeDue,
+                    invoiceId: "x",
+                    fullNumber: "fullNumber",
+                    partnerId: "x",
+                    partnerName: "partnerName",
+                    dueDate: CalendarDate("2023-01-15")!,
+                    remaining: "remaining",
+                    currency: "currency"
+                )
+            ]
+        )
+        let response = try await client.partners.debtRemindersUpcoming(
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
