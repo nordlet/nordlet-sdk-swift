@@ -16,6 +16,18 @@ extension Requests {
         public let phone: String?
         public let iban: String?
         public let bankName: String?
+        public let bankBic: String?
+        /// Sort code, routing number, BSB, IFSC or institution number
+        public let bankCode: String?
+        /// Transit number (Canada)
+        public let bankBranchCode: String?
+        public let bankAccountNumber: String?
+        /// Prefix of the numbers of invoices issued without a document series; SF when not set
+        public let invoicePrefix: String?
+        /// Language a new invoice starts with when neither the invoice nor its partner names one
+        public let defaultInvoiceLocale: CompaniesCreateAccountRequestDefaultInvoiceLocale?
+        /// Note a new invoice, proforma or advance invoice starts with when it names no notes
+        public let defaultInvoiceNote: String?
         public let peppolId: String?
         public let sepaCreditorId: String?
         public let defaultInvoiceCurrency: String?
@@ -52,6 +64,13 @@ extension Requests {
             phone: String? = nil,
             iban: String? = nil,
             bankName: String? = nil,
+            bankBic: String? = nil,
+            bankCode: String? = nil,
+            bankBranchCode: String? = nil,
+            bankAccountNumber: String? = nil,
+            invoicePrefix: String? = nil,
+            defaultInvoiceLocale: CompaniesCreateAccountRequestDefaultInvoiceLocale? = nil,
+            defaultInvoiceNote: String? = nil,
             peppolId: String? = nil,
             sepaCreditorId: String? = nil,
             defaultInvoiceCurrency: String? = nil,
@@ -83,6 +102,13 @@ extension Requests {
             self.phone = phone
             self.iban = iban
             self.bankName = bankName
+            self.bankBic = bankBic
+            self.bankCode = bankCode
+            self.bankBranchCode = bankBranchCode
+            self.bankAccountNumber = bankAccountNumber
+            self.invoicePrefix = invoicePrefix
+            self.defaultInvoiceLocale = defaultInvoiceLocale
+            self.defaultInvoiceNote = defaultInvoiceNote
             self.peppolId = peppolId
             self.sepaCreditorId = sepaCreditorId
             self.defaultInvoiceCurrency = defaultInvoiceCurrency
@@ -117,6 +143,13 @@ extension Requests {
             self.phone = try container.decodeIfPresent(String.self, forKey: .phone)
             self.iban = try container.decodeIfPresent(String.self, forKey: .iban)
             self.bankName = try container.decodeIfPresent(String.self, forKey: .bankName)
+            self.bankBic = try container.decodeIfPresent(String.self, forKey: .bankBic)
+            self.bankCode = try container.decodeIfPresent(String.self, forKey: .bankCode)
+            self.bankBranchCode = try container.decodeIfPresent(String.self, forKey: .bankBranchCode)
+            self.bankAccountNumber = try container.decodeIfPresent(String.self, forKey: .bankAccountNumber)
+            self.invoicePrefix = try container.decodeIfPresent(String.self, forKey: .invoicePrefix)
+            self.defaultInvoiceLocale = try container.decodeIfPresent(CompaniesCreateAccountRequestDefaultInvoiceLocale.self, forKey: .defaultInvoiceLocale)
+            self.defaultInvoiceNote = try container.decodeIfPresent(String.self, forKey: .defaultInvoiceNote)
             self.peppolId = try container.decodeIfPresent(String.self, forKey: .peppolId)
             self.sepaCreditorId = try container.decodeIfPresent(String.self, forKey: .sepaCreditorId)
             self.defaultInvoiceCurrency = try container.decodeIfPresent(String.self, forKey: .defaultInvoiceCurrency)
@@ -152,6 +185,13 @@ extension Requests {
             try container.encodeIfPresent(self.phone, forKey: .phone)
             try container.encodeIfPresent(self.iban, forKey: .iban)
             try container.encodeIfPresent(self.bankName, forKey: .bankName)
+            try container.encodeIfPresent(self.bankBic, forKey: .bankBic)
+            try container.encodeIfPresent(self.bankCode, forKey: .bankCode)
+            try container.encodeIfPresent(self.bankBranchCode, forKey: .bankBranchCode)
+            try container.encodeIfPresent(self.bankAccountNumber, forKey: .bankAccountNumber)
+            try container.encodeIfPresent(self.invoicePrefix, forKey: .invoicePrefix)
+            try container.encodeIfPresent(self.defaultInvoiceLocale, forKey: .defaultInvoiceLocale)
+            try container.encodeIfPresent(self.defaultInvoiceNote, forKey: .defaultInvoiceNote)
             try container.encodeIfPresent(self.peppolId, forKey: .peppolId)
             try container.encodeIfPresent(self.sepaCreditorId, forKey: .sepaCreditorId)
             try container.encodeIfPresent(self.defaultInvoiceCurrency, forKey: .defaultInvoiceCurrency)
@@ -185,6 +225,13 @@ extension Requests {
             case phone
             case iban
             case bankName
+            case bankBic
+            case bankCode
+            case bankBranchCode
+            case bankAccountNumber
+            case invoicePrefix
+            case defaultInvoiceLocale
+            case defaultInvoiceNote
             case peppolId
             case sepaCreditorId
             case defaultInvoiceCurrency

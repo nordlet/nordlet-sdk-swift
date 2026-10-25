@@ -21,6 +21,16 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
     public let phone: Nullable<String>
     public let iban: Nullable<String>
     public let bankName: Nullable<String>
+    public let bankBic: Nullable<String>
+    public let bankCode: Nullable<String>
+    public let bankBranchCode: Nullable<String>
+    public let bankAccountNumber: Nullable<String>
+    /// Prefix of the numbers of invoices issued without a document series (SF when none was set)
+    public let invoicePrefix: String
+    /// Number the next invoice issued without a document series gets, before any country-specific format
+    public let nextInvoiceNumber: String
+    public let defaultInvoiceLocale: Nullable<String>
+    public let defaultInvoiceNote: Nullable<String>
     public let peppolId: Nullable<String>
     public let sepaCreditorId: Nullable<String>
     public let logoFileId: Nullable<String>
@@ -59,6 +69,14 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         phone: Nullable<String>,
         iban: Nullable<String>,
         bankName: Nullable<String>,
+        bankBic: Nullable<String>,
+        bankCode: Nullable<String>,
+        bankBranchCode: Nullable<String>,
+        bankAccountNumber: Nullable<String>,
+        invoicePrefix: String,
+        nextInvoiceNumber: String,
+        defaultInvoiceLocale: Nullable<String>,
+        defaultInvoiceNote: Nullable<String>,
         peppolId: Nullable<String>,
         sepaCreditorId: Nullable<String>,
         logoFileId: Nullable<String>,
@@ -95,6 +113,14 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         self.phone = phone
         self.iban = iban
         self.bankName = bankName
+        self.bankBic = bankBic
+        self.bankCode = bankCode
+        self.bankBranchCode = bankBranchCode
+        self.bankAccountNumber = bankAccountNumber
+        self.invoicePrefix = invoicePrefix
+        self.nextInvoiceNumber = nextInvoiceNumber
+        self.defaultInvoiceLocale = defaultInvoiceLocale
+        self.defaultInvoiceNote = defaultInvoiceNote
         self.peppolId = peppolId
         self.sepaCreditorId = sepaCreditorId
         self.logoFileId = logoFileId
@@ -134,6 +160,14 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         self.phone = try container.decode(Nullable<String>.self, forKey: .phone)
         self.iban = try container.decode(Nullable<String>.self, forKey: .iban)
         self.bankName = try container.decode(Nullable<String>.self, forKey: .bankName)
+        self.bankBic = try container.decode(Nullable<String>.self, forKey: .bankBic)
+        self.bankCode = try container.decode(Nullable<String>.self, forKey: .bankCode)
+        self.bankBranchCode = try container.decode(Nullable<String>.self, forKey: .bankBranchCode)
+        self.bankAccountNumber = try container.decode(Nullable<String>.self, forKey: .bankAccountNumber)
+        self.invoicePrefix = try container.decode(String.self, forKey: .invoicePrefix)
+        self.nextInvoiceNumber = try container.decode(String.self, forKey: .nextInvoiceNumber)
+        self.defaultInvoiceLocale = try container.decode(Nullable<String>.self, forKey: .defaultInvoiceLocale)
+        self.defaultInvoiceNote = try container.decode(Nullable<String>.self, forKey: .defaultInvoiceNote)
         self.peppolId = try container.decode(Nullable<String>.self, forKey: .peppolId)
         self.sepaCreditorId = try container.decode(Nullable<String>.self, forKey: .sepaCreditorId)
         self.logoFileId = try container.decode(Nullable<String>.self, forKey: .logoFileId)
@@ -174,6 +208,14 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         try container.encode(self.phone, forKey: .phone)
         try container.encode(self.iban, forKey: .iban)
         try container.encode(self.bankName, forKey: .bankName)
+        try container.encode(self.bankBic, forKey: .bankBic)
+        try container.encode(self.bankCode, forKey: .bankCode)
+        try container.encode(self.bankBranchCode, forKey: .bankBranchCode)
+        try container.encode(self.bankAccountNumber, forKey: .bankAccountNumber)
+        try container.encode(self.invoicePrefix, forKey: .invoicePrefix)
+        try container.encode(self.nextInvoiceNumber, forKey: .nextInvoiceNumber)
+        try container.encode(self.defaultInvoiceLocale, forKey: .defaultInvoiceLocale)
+        try container.encode(self.defaultInvoiceNote, forKey: .defaultInvoiceNote)
         try container.encode(self.peppolId, forKey: .peppolId)
         try container.encode(self.sepaCreditorId, forKey: .sepaCreditorId)
         try container.encode(self.logoFileId, forKey: .logoFileId)
@@ -212,6 +254,14 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         case phone
         case iban
         case bankName
+        case bankBic
+        case bankCode
+        case bankBranchCode
+        case bankAccountNumber
+        case invoicePrefix
+        case nextInvoiceNumber
+        case defaultInvoiceLocale
+        case defaultInvoiceNote
         case peppolId
         case sepaCreditorId
         case logoFileId

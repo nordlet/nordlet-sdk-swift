@@ -16,6 +16,8 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
     public let netTotal: String
     public let vatTotal: String
     public let grossTotal: String
+    public let salesTaxPercent: Nullable<String>
+    public let salesTaxTotal: String
     public let paidAmount: String
     public let journalTransactionId: Nullable<String>
     public let appliedToInvoiceId: Nullable<String>
@@ -46,6 +48,8 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
     public let lockedAt: Nullable<Date>
     public let lockedBy: Nullable<String>
     public let payToken: Nullable<String>
+    public let payLinkEnabled: Bool
+    public let debtRemindersEnabled: Bool
     public let einvoiceSystem: Nullable<String>
     public let einvoiceTransport: Nullable<String>
     public let einvoiceMessageId: Nullable<String>
@@ -84,6 +88,8 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         netTotal: String,
         vatTotal: String,
         grossTotal: String,
+        salesTaxPercent: Nullable<String>,
+        salesTaxTotal: String,
         paidAmount: String,
         journalTransactionId: Nullable<String>,
         appliedToInvoiceId: Nullable<String>,
@@ -114,6 +120,8 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         lockedAt: Nullable<Date>,
         lockedBy: Nullable<String>,
         payToken: Nullable<String>,
+        payLinkEnabled: Bool,
+        debtRemindersEnabled: Bool,
         einvoiceSystem: Nullable<String>,
         einvoiceTransport: Nullable<String>,
         einvoiceMessageId: Nullable<String>,
@@ -149,6 +157,8 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         self.netTotal = netTotal
         self.vatTotal = vatTotal
         self.grossTotal = grossTotal
+        self.salesTaxPercent = salesTaxPercent
+        self.salesTaxTotal = salesTaxTotal
         self.paidAmount = paidAmount
         self.journalTransactionId = journalTransactionId
         self.appliedToInvoiceId = appliedToInvoiceId
@@ -179,6 +189,8 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         self.lockedAt = lockedAt
         self.lockedBy = lockedBy
         self.payToken = payToken
+        self.payLinkEnabled = payLinkEnabled
+        self.debtRemindersEnabled = debtRemindersEnabled
         self.einvoiceSystem = einvoiceSystem
         self.einvoiceTransport = einvoiceTransport
         self.einvoiceMessageId = einvoiceMessageId
@@ -217,6 +229,8 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         self.netTotal = try container.decode(String.self, forKey: .netTotal)
         self.vatTotal = try container.decode(String.self, forKey: .vatTotal)
         self.grossTotal = try container.decode(String.self, forKey: .grossTotal)
+        self.salesTaxPercent = try container.decode(Nullable<String>.self, forKey: .salesTaxPercent)
+        self.salesTaxTotal = try container.decode(String.self, forKey: .salesTaxTotal)
         self.paidAmount = try container.decode(String.self, forKey: .paidAmount)
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
         self.appliedToInvoiceId = try container.decode(Nullable<String>.self, forKey: .appliedToInvoiceId)
@@ -247,6 +261,8 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         self.lockedAt = try container.decode(Nullable<Date>.self, forKey: .lockedAt)
         self.lockedBy = try container.decode(Nullable<String>.self, forKey: .lockedBy)
         self.payToken = try container.decode(Nullable<String>.self, forKey: .payToken)
+        self.payLinkEnabled = try container.decode(Bool.self, forKey: .payLinkEnabled)
+        self.debtRemindersEnabled = try container.decode(Bool.self, forKey: .debtRemindersEnabled)
         self.einvoiceSystem = try container.decode(Nullable<String>.self, forKey: .einvoiceSystem)
         self.einvoiceTransport = try container.decode(Nullable<String>.self, forKey: .einvoiceTransport)
         self.einvoiceMessageId = try container.decode(Nullable<String>.self, forKey: .einvoiceMessageId)
@@ -286,6 +302,8 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         try container.encode(self.netTotal, forKey: .netTotal)
         try container.encode(self.vatTotal, forKey: .vatTotal)
         try container.encode(self.grossTotal, forKey: .grossTotal)
+        try container.encode(self.salesTaxPercent, forKey: .salesTaxPercent)
+        try container.encode(self.salesTaxTotal, forKey: .salesTaxTotal)
         try container.encode(self.paidAmount, forKey: .paidAmount)
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
         try container.encode(self.appliedToInvoiceId, forKey: .appliedToInvoiceId)
@@ -316,6 +334,8 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         try container.encode(self.lockedAt, forKey: .lockedAt)
         try container.encode(self.lockedBy, forKey: .lockedBy)
         try container.encode(self.payToken, forKey: .payToken)
+        try container.encode(self.payLinkEnabled, forKey: .payLinkEnabled)
+        try container.encode(self.debtRemindersEnabled, forKey: .debtRemindersEnabled)
         try container.encode(self.einvoiceSystem, forKey: .einvoiceSystem)
         try container.encode(self.einvoiceTransport, forKey: .einvoiceTransport)
         try container.encode(self.einvoiceMessageId, forKey: .einvoiceMessageId)
@@ -353,6 +373,8 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         case netTotal
         case vatTotal
         case grossTotal
+        case salesTaxPercent
+        case salesTaxTotal
         case paidAmount
         case journalTransactionId
         case appliedToInvoiceId
@@ -383,6 +405,8 @@ public struct InvoicesLockSalesResponse: Codable, Hashable, Sendable {
         case lockedAt
         case lockedBy
         case payToken
+        case payLinkEnabled
+        case debtRemindersEnabled
         case einvoiceSystem
         case einvoiceTransport
         case einvoiceMessageId

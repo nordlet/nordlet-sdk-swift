@@ -24,6 +24,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
@@ -54,6 +56,8 @@ import Api
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -169,6 +173,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
@@ -199,6 +205,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -325,6 +333,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
@@ -355,6 +365,8 @@ import Api
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -516,6 +528,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
@@ -546,6 +560,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -721,6 +737,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
@@ -751,6 +769,8 @@ import Api
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -866,6 +886,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
@@ -896,6 +918,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -1015,6 +1039,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
@@ -1045,6 +1071,8 @@ import Api
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -1206,6 +1234,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
@@ -1236,6 +1266,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -1434,6 +1466,294 @@ import Api
             data: "data"
         )
         let response = try await client.sales.invoicesPdf(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesView1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "type": "invoice",
+                  "status": "draft",
+                  "paymentStatus": "unpaid",
+                  "number": "number",
+                  "issueDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
+                  "currency": "currency",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
+                  "grossTotal": "grossTotal",
+                  "paidAmount": "paidAmount",
+                  "paidOn": "paidOn",
+                  "notes": "notes",
+                  "payUrl": "payUrl",
+                  "seller": {
+                    "name": "name",
+                    "vatCode": "vatCode",
+                    "countryCode": "countryCode",
+                    "address": {
+                      "street": "street",
+                      "city": "city",
+                      "postalCode": "postalCode",
+                      "countryCode": "countryCode"
+                    },
+                    "email": "email",
+                    "iban": "iban",
+                    "bankName": "bankName",
+                    "bankBic": "bankBic",
+                    "bankCode": "bankCode",
+                    "bankBranchCode": "bankBranchCode",
+                    "bankAccountNumber": "bankAccountNumber"
+                  },
+                  "buyer": {
+                    "name": "name",
+                    "vatCode": "vatCode",
+                    "address": {
+                      "street": "street",
+                      "city": "city",
+                      "postalCode": "postalCode",
+                      "countryCode": "countryCode"
+                    },
+                    "email": "email"
+                  },
+                  "lines": [
+                    {
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitPrice": "unitPrice",
+                      "vatRatePercent": "vatRatePercent",
+                      "lineNet": "lineNet"
+                    }
+                  ],
+                  "token": "token"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesViewSalesResponse(
+            type: .invoice,
+            status: .draft,
+            paymentStatus: .unpaid,
+            number: Nullable<String>.value("number"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            currency: "currency",
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
+            grossTotal: "grossTotal",
+            paidAmount: "paidAmount",
+            paidOn: Nullable<String>.value("paidOn"),
+            notes: Nullable<String>.value("notes"),
+            payUrl: Nullable<String>.value("payUrl"),
+            seller: InvoicesViewSalesResponseSeller(
+                name: "name",
+                vatCode: Nullable<String>.value("vatCode"),
+                countryCode: Nullable<String>.value("countryCode"),
+                address: InvoicesViewSalesResponseSellerAddress(
+                    street: Nullable<String>.value("street"),
+                    city: Nullable<String>.value("city"),
+                    postalCode: Nullable<String>.value("postalCode"),
+                    countryCode: Nullable<String>.value("countryCode")
+                ),
+                email: Nullable<String>.value("email"),
+                iban: Nullable<String>.value("iban"),
+                bankName: Nullable<String>.value("bankName"),
+                bankBic: Nullable<String>.value("bankBic"),
+                bankCode: Nullable<String>.value("bankCode"),
+                bankBranchCode: Nullable<String>.value("bankBranchCode"),
+                bankAccountNumber: Nullable<String>.value("bankAccountNumber")
+            ),
+            buyer: InvoicesViewSalesResponseBuyer(
+                name: "name",
+                vatCode: Nullable<String>.value("vatCode"),
+                address: InvoicesViewSalesResponseBuyerAddress(
+                    street: Nullable<String>.value("street"),
+                    city: Nullable<String>.value("city"),
+                    postalCode: Nullable<String>.value("postalCode"),
+                    countryCode: Nullable<String>.value("countryCode")
+                ),
+                email: Nullable<String>.value("email")
+            ),
+            lines: [
+                InvoicesViewSalesResponseLinesItem(
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitPrice: Nullable<String>.value("unitPrice"),
+                    vatRatePercent: "vatRatePercent",
+                    lineNet: "lineNet"
+                )
+            ],
+            token: Nullable<String>.value("token")
+        )
+        let response = try await client.sales.invoicesView(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesView2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "type": "invoice",
+                  "status": "draft",
+                  "paymentStatus": "unpaid",
+                  "number": "number",
+                  "issueDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
+                  "currency": "currency",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
+                  "grossTotal": "grossTotal",
+                  "paidAmount": "paidAmount",
+                  "paidOn": "paidOn",
+                  "notes": "notes",
+                  "payUrl": "payUrl",
+                  "seller": {
+                    "name": "name",
+                    "vatCode": "vatCode",
+                    "countryCode": "countryCode",
+                    "address": {
+                      "street": "street",
+                      "city": "city",
+                      "postalCode": "postalCode",
+                      "countryCode": "countryCode"
+                    },
+                    "email": "email",
+                    "iban": "iban",
+                    "bankName": "bankName",
+                    "bankBic": "bankBic",
+                    "bankCode": "bankCode",
+                    "bankBranchCode": "bankBranchCode",
+                    "bankAccountNumber": "bankAccountNumber"
+                  },
+                  "buyer": {
+                    "name": "name",
+                    "vatCode": "vatCode",
+                    "address": {
+                      "street": "street",
+                      "city": "city",
+                      "postalCode": "postalCode",
+                      "countryCode": "countryCode"
+                    },
+                    "email": "email"
+                  },
+                  "lines": [
+                    {
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitPrice": "unitPrice",
+                      "vatRatePercent": "vatRatePercent",
+                      "lineNet": "lineNet"
+                    },
+                    {
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitPrice": "unitPrice",
+                      "vatRatePercent": "vatRatePercent",
+                      "lineNet": "lineNet"
+                    }
+                  ],
+                  "token": "token"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesViewSalesResponse(
+            type: .invoice,
+            status: .draft,
+            paymentStatus: .unpaid,
+            number: Nullable<String>.value("number"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            currency: "currency",
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
+            grossTotal: "grossTotal",
+            paidAmount: "paidAmount",
+            paidOn: Nullable<String>.value("paidOn"),
+            notes: Nullable<String>.value("notes"),
+            payUrl: Nullable<String>.value("payUrl"),
+            seller: InvoicesViewSalesResponseSeller(
+                name: "name",
+                vatCode: Nullable<String>.value("vatCode"),
+                countryCode: Nullable<String>.value("countryCode"),
+                address: InvoicesViewSalesResponseSellerAddress(
+                    street: Nullable<String>.value("street"),
+                    city: Nullable<String>.value("city"),
+                    postalCode: Nullable<String>.value("postalCode"),
+                    countryCode: Nullable<String>.value("countryCode")
+                ),
+                email: Nullable<String>.value("email"),
+                iban: Nullable<String>.value("iban"),
+                bankName: Nullable<String>.value("bankName"),
+                bankBic: Nullable<String>.value("bankBic"),
+                bankCode: Nullable<String>.value("bankCode"),
+                bankBranchCode: Nullable<String>.value("bankBranchCode"),
+                bankAccountNumber: Nullable<String>.value("bankAccountNumber")
+            ),
+            buyer: InvoicesViewSalesResponseBuyer(
+                name: "name",
+                vatCode: Nullable<String>.value("vatCode"),
+                address: InvoicesViewSalesResponseBuyerAddress(
+                    street: Nullable<String>.value("street"),
+                    city: Nullable<String>.value("city"),
+                    postalCode: Nullable<String>.value("postalCode"),
+                    countryCode: Nullable<String>.value("countryCode")
+                ),
+                email: Nullable<String>.value("email")
+            ),
+            lines: [
+                InvoicesViewSalesResponseLinesItem(
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitPrice: Nullable<String>.value("unitPrice"),
+                    vatRatePercent: "vatRatePercent",
+                    lineNet: "lineNet"
+                ),
+                InvoicesViewSalesResponseLinesItem(
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitPrice: Nullable<String>.value("unitPrice"),
+                    vatRatePercent: "vatRatePercent",
+                    lineNet: "lineNet"
+                )
+            ],
+            token: Nullable<String>.value("token")
+        )
+        let response = try await client.sales.invoicesView(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
@@ -1973,6 +2293,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
@@ -2003,6 +2325,8 @@ import Api
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -2118,6 +2442,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
@@ -2148,6 +2474,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -2267,6 +2595,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
@@ -2297,6 +2627,8 @@ import Api
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -2458,6 +2790,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
@@ -2488,6 +2822,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -2705,6 +3041,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
@@ -2735,6 +3073,8 @@ import Api
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -2850,6 +3190,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
@@ -2880,6 +3222,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -2999,6 +3343,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
@@ -3029,6 +3375,8 @@ import Api
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -3190,6 +3538,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
@@ -3220,6 +3570,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -3385,6 +3737,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
@@ -3415,6 +3769,8 @@ import Api
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -3530,6 +3886,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
@@ -3560,6 +3918,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -3679,6 +4039,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
@@ -3709,6 +4071,8 @@ import Api
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -3870,6 +4234,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
@@ -3900,6 +4266,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -4065,6 +4433,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
@@ -4095,6 +4465,8 @@ import Api
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -4210,6 +4582,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
@@ -4240,6 +4614,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -4359,6 +4735,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
@@ -4389,6 +4767,8 @@ import Api
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -4550,6 +4930,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
@@ -4580,6 +4962,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -4731,7 +5115,7 @@ import Api
                 #"""
                 {
                   "url": "url",
-                  "source": "template"
+                  "source": "stripe"
                 }
                 """#.utf8
             )
@@ -4743,7 +5127,7 @@ import Api
         )
         let expectedResponse = InvoicesPaymentLinkSalesResponse(
             url: Nullable<String>.value("url"),
-            source: Nullable<InvoicesPaymentLinkSalesResponseSource>.value(.template)
+            source: Nullable<InvoicesPaymentLinkSalesResponseSource>.value(.stripe)
         )
         let response = try await client.sales.invoicesPaymentLink(
             request: .init(id: "id"),
@@ -4759,7 +5143,7 @@ import Api
                 #"""
                 {
                   "url": "url",
-                  "source": "template"
+                  "source": "stripe"
                 }
                 """#.utf8
             )
@@ -4771,7 +5155,7 @@ import Api
         )
         let expectedResponse = InvoicesPaymentLinkSalesResponse(
             url: Nullable<String>.value("url"),
-            source: Nullable<InvoicesPaymentLinkSalesResponseSource>.value(.template)
+            source: Nullable<InvoicesPaymentLinkSalesResponseSource>.value(.stripe)
         )
         let response = try await client.sales.invoicesPaymentLink(
             request: .init(id: "x"),
@@ -5089,6 +5473,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
                   "appliedToInvoiceId": "appliedToInvoiceId",
@@ -5119,6 +5505,8 @@ import Api
                   "lockedAt": "2026-07-01T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -5234,6 +5622,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
@@ -5264,6 +5654,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -5386,6 +5778,8 @@ import Api
                   "netTotal": "netTotal",
                   "vatTotal": "vatTotal",
                   "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
                   "appliedToInvoiceId": "x",
@@ -5416,6 +5810,8 @@ import Api
                   "lockedAt": "2024-01-15T09:30:00Z",
                   "lockedBy": "lockedBy",
                   "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
                   "einvoiceSystem": "einvoiceSystem",
                   "einvoiceTransport": "einvoiceTransport",
                   "einvoiceMessageId": "einvoiceMessageId",
@@ -5577,6 +5973,8 @@ import Api
             netTotal: "netTotal",
             vatTotal: "vatTotal",
             grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
             appliedToInvoiceId: Nullable<String>.value("x"),
@@ -5607,6 +6005,8 @@ import Api
             lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lockedBy: Nullable<String>.value("lockedBy"),
             payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
             einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
             einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
             einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -5777,6 +6177,8 @@ import Api
                       "netTotal": "netTotal",
                       "vatTotal": "vatTotal",
                       "grossTotal": "grossTotal",
+                      "salesTaxPercent": "salesTaxPercent",
+                      "salesTaxTotal": "salesTaxTotal",
                       "paidAmount": "paidAmount",
                       "journalTransactionId": "journalTransactionId",
                       "appliedToInvoiceId": "appliedToInvoiceId",
@@ -5807,6 +6209,8 @@ import Api
                       "lockedAt": "2026-07-01T09:30:00Z",
                       "lockedBy": "lockedBy",
                       "payToken": "payToken",
+                      "payLinkEnabled": true,
+                      "debtRemindersEnabled": true,
                       "einvoiceSystem": "einvoiceSystem",
                       "einvoiceTransport": "einvoiceTransport",
                       "einvoiceMessageId": "einvoiceMessageId",
@@ -5863,6 +6267,8 @@ import Api
                     netTotal: "netTotal",
                     vatTotal: "vatTotal",
                     grossTotal: "grossTotal",
+                    salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+                    salesTaxTotal: "salesTaxTotal",
                     paidAmount: "paidAmount",
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
                     appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
@@ -5893,6 +6299,8 @@ import Api
                     lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     lockedBy: Nullable<String>.value("lockedBy"),
                     payToken: Nullable<String>.value("payToken"),
+                    payLinkEnabled: true,
+                    debtRemindersEnabled: true,
                     einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
                     einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
                     einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -5953,6 +6361,8 @@ import Api
                       "netTotal": "netTotal",
                       "vatTotal": "vatTotal",
                       "grossTotal": "grossTotal",
+                      "salesTaxPercent": "salesTaxPercent",
+                      "salesTaxTotal": "salesTaxTotal",
                       "paidAmount": "paidAmount",
                       "journalTransactionId": "x",
                       "appliedToInvoiceId": "x",
@@ -5983,6 +6393,8 @@ import Api
                       "lockedAt": "2024-01-15T09:30:00Z",
                       "lockedBy": "lockedBy",
                       "payToken": "payToken",
+                      "payLinkEnabled": true,
+                      "debtRemindersEnabled": true,
                       "einvoiceSystem": "einvoiceSystem",
                       "einvoiceTransport": "einvoiceTransport",
                       "einvoiceMessageId": "einvoiceMessageId",
@@ -6016,6 +6428,8 @@ import Api
                       "netTotal": "netTotal",
                       "vatTotal": "vatTotal",
                       "grossTotal": "grossTotal",
+                      "salesTaxPercent": "salesTaxPercent",
+                      "salesTaxTotal": "salesTaxTotal",
                       "paidAmount": "paidAmount",
                       "journalTransactionId": "x",
                       "appliedToInvoiceId": "x",
@@ -6046,6 +6460,8 @@ import Api
                       "lockedAt": "2024-01-15T09:30:00Z",
                       "lockedBy": "lockedBy",
                       "payToken": "payToken",
+                      "payLinkEnabled": true,
+                      "debtRemindersEnabled": true,
                       "einvoiceSystem": "einvoiceSystem",
                       "einvoiceTransport": "einvoiceTransport",
                       "einvoiceMessageId": "einvoiceMessageId",
@@ -6102,6 +6518,8 @@ import Api
                     netTotal: "netTotal",
                     vatTotal: "vatTotal",
                     grossTotal: "grossTotal",
+                    salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+                    salesTaxTotal: "salesTaxTotal",
                     paidAmount: "paidAmount",
                     journalTransactionId: Nullable<String>.value("x"),
                     appliedToInvoiceId: Nullable<String>.value("x"),
@@ -6132,6 +6550,8 @@ import Api
                     lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     lockedBy: Nullable<String>.value("lockedBy"),
                     payToken: Nullable<String>.value("payToken"),
+                    payLinkEnabled: true,
+                    debtRemindersEnabled: true,
                     einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
                     einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
                     einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -6165,6 +6585,8 @@ import Api
                     netTotal: "netTotal",
                     vatTotal: "vatTotal",
                     grossTotal: "grossTotal",
+                    salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+                    salesTaxTotal: "salesTaxTotal",
                     paidAmount: "paidAmount",
                     journalTransactionId: Nullable<String>.value("x"),
                     appliedToInvoiceId: Nullable<String>.value("x"),
@@ -6195,6 +6617,8 @@ import Api
                     lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     lockedBy: Nullable<String>.value("lockedBy"),
                     payToken: Nullable<String>.value("payToken"),
+                    payLinkEnabled: true,
+                    debtRemindersEnabled: true,
                     einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
                     einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
                     einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
@@ -10257,6 +10681,402 @@ import Api
                 invoiceId: "x",
                 estimatedTotal: "estimatedTotal"
             ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func paymentsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "date": "2026-07-01",
+                      "invoiceId": "invoiceId",
+                      "fullNumber": "fullNumber",
+                      "partnerId": "partnerId",
+                      "partnerName": "partnerName",
+                      "amount": "amount",
+                      "currency": "currency",
+                      "method": "bank_transfer"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totalsByCurrency": {
+                    "key": "value"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PaymentsListSalesResponse(
+            rows: [
+                PaymentsListSalesResponseRowsItem(
+                    id: "id",
+                    date: CalendarDate("2026-07-01")!,
+                    invoiceId: "invoiceId",
+                    fullNumber: Nullable<String>.value("fullNumber"),
+                    partnerId: "partnerId",
+                    partnerName: "partnerName",
+                    amount: "amount",
+                    currency: "currency",
+                    method: .bankTransfer
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totalsByCurrency: [
+                "key": "value"
+            ]
+        )
+        let response = try await client.sales.paymentsList(
+            request: .init(
+                from: CalendarDate("2026-07-01")!,
+                to: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func paymentsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "date": "2023-01-15",
+                      "invoiceId": "x",
+                      "fullNumber": "fullNumber",
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "amount": "amount",
+                      "currency": "currency",
+                      "method": "bank_transfer"
+                    },
+                    {
+                      "id": "x",
+                      "date": "2023-01-15",
+                      "invoiceId": "x",
+                      "fullNumber": "fullNumber",
+                      "partnerId": "x",
+                      "partnerName": "partnerName",
+                      "amount": "amount",
+                      "currency": "currency",
+                      "method": "bank_transfer"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totalsByCurrency": {
+                    "totalsByCurrency": "totalsByCurrency"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PaymentsListSalesResponse(
+            rows: [
+                PaymentsListSalesResponseRowsItem(
+                    id: "x",
+                    date: CalendarDate("2023-01-15")!,
+                    invoiceId: "x",
+                    fullNumber: Nullable<String>.value("fullNumber"),
+                    partnerId: "x",
+                    partnerName: "partnerName",
+                    amount: "amount",
+                    currency: "currency",
+                    method: .bankTransfer
+                ),
+                PaymentsListSalesResponseRowsItem(
+                    id: "x",
+                    date: CalendarDate("2023-01-15")!,
+                    invoiceId: "x",
+                    fullNumber: Nullable<String>.value("fullNumber"),
+                    partnerId: "x",
+                    partnerName: "partnerName",
+                    amount: "amount",
+                    currency: "currency",
+                    method: .bankTransfer
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totalsByCurrency: [
+                "totalsByCurrency": "totalsByCurrency"
+            ]
+        )
+        let response = try await client.sales.paymentsList(
+            request: .init(
+                from: CalendarDate("2023-01-15")!,
+                to: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func exportsMonth1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ExportsMonthSalesResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data"
+        )
+        let response = try await client.sales.exportsMonth(
+            request: .init(
+                month: "month",
+                format: .csv
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func exportsMonth2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ExportsMonthSalesResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data"
+        )
+        let response = try await client.sales.exportsMonth(
+            request: .init(
+                month: "month",
+                format: .csv
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesCardPaymentsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "connected": true,
+                  "chargesEnabled": true,
+                  "accountId": "accountId"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesCardPaymentsGetSalesResponse(
+            connected: true,
+            chargesEnabled: true,
+            accountId: Nullable<String>.value("accountId")
+        )
+        let response = try await client.sales.invoicesCardPaymentsGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesCardPaymentsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "connected": true,
+                  "chargesEnabled": true,
+                  "accountId": "accountId"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesCardPaymentsGetSalesResponse(
+            connected: true,
+            chargesEnabled: true,
+            accountId: Nullable<String>.value("accountId")
+        )
+        let response = try await client.sales.invoicesCardPaymentsGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesCardPaymentsConnect1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "url": "url"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesCardPaymentsConnectSalesResponse(
+            url: "url"
+        )
+        let response = try await client.sales.invoicesCardPaymentsConnect(
+            request: .init(
+                returnUrl: "returnUrl",
+                refreshUrl: "refreshUrl"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesCardPaymentsConnect2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "url": "url"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesCardPaymentsConnectSalesResponse(
+            url: "url"
+        )
+        let response = try await client.sales.invoicesCardPaymentsConnect(
+            request: .init(
+                returnUrl: "returnUrl",
+                refreshUrl: "refreshUrl"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesCardPaymentsDisconnect1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "connected": true,
+                  "chargesEnabled": true,
+                  "accountId": "accountId"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesCardPaymentsDisconnectSalesResponse(
+            connected: true,
+            chargesEnabled: true,
+            accountId: Nullable<String>.value("accountId")
+        )
+        let response = try await client.sales.invoicesCardPaymentsDisconnect(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesCardPaymentsDisconnect2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "connected": true,
+                  "chargesEnabled": true,
+                  "accountId": "accountId"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesCardPaymentsDisconnectSalesResponse(
+            connected: true,
+            chargesEnabled: true,
+            accountId: Nullable<String>.value("accountId")
+        )
+        let response = try await client.sales.invoicesCardPaymentsDisconnect(
+            request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

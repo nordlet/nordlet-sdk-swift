@@ -4,4 +4,5 @@ public enum AccountSetAutoTopUpBillingResponsePlan: String, Codable, Hashable, C
     case starter
     case business
     case scale
+    case invoicing
 }

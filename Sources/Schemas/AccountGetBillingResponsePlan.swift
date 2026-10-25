@@ -4,4 +4,5 @@ public enum AccountGetBillingResponsePlan: String, Codable, Hashable, CaseIterab
     case starter
     case business
     case scale
+    case invoicing
 }

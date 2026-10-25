@@ -14,6 +14,8 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
     public let isCustomer: Bool
     public let isSupplier: Bool
     public let paymentTermDays: Nullable<Int64>
+    public let invoiceCurrency: Nullable<String>
+    public let invoiceLocale: Nullable<String>
     public let creditLimit: Nullable<String>
     public let priceListId: Nullable<String>
     public let groupId: Nullable<String>
@@ -57,6 +59,8 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         isCustomer: Bool,
         isSupplier: Bool,
         paymentTermDays: Nullable<Int64>,
+        invoiceCurrency: Nullable<String>,
+        invoiceLocale: Nullable<String>,
         creditLimit: Nullable<String>,
         priceListId: Nullable<String>,
         groupId: Nullable<String>,
@@ -98,6 +102,8 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         self.isCustomer = isCustomer
         self.isSupplier = isSupplier
         self.paymentTermDays = paymentTermDays
+        self.invoiceCurrency = invoiceCurrency
+        self.invoiceLocale = invoiceLocale
         self.creditLimit = creditLimit
         self.priceListId = priceListId
         self.groupId = groupId
@@ -142,6 +148,8 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         self.isCustomer = try container.decode(Bool.self, forKey: .isCustomer)
         self.isSupplier = try container.decode(Bool.self, forKey: .isSupplier)
         self.paymentTermDays = try container.decode(Nullable<Int64>.self, forKey: .paymentTermDays)
+        self.invoiceCurrency = try container.decode(Nullable<String>.self, forKey: .invoiceCurrency)
+        self.invoiceLocale = try container.decode(Nullable<String>.self, forKey: .invoiceLocale)
         self.creditLimit = try container.decode(Nullable<String>.self, forKey: .creditLimit)
         self.priceListId = try container.decode(Nullable<String>.self, forKey: .priceListId)
         self.groupId = try container.decode(Nullable<String>.self, forKey: .groupId)
@@ -187,6 +195,8 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         try container.encode(self.isCustomer, forKey: .isCustomer)
         try container.encode(self.isSupplier, forKey: .isSupplier)
         try container.encode(self.paymentTermDays, forKey: .paymentTermDays)
+        try container.encode(self.invoiceCurrency, forKey: .invoiceCurrency)
+        try container.encode(self.invoiceLocale, forKey: .invoiceLocale)
         try container.encode(self.creditLimit, forKey: .creditLimit)
         try container.encode(self.priceListId, forKey: .priceListId)
         try container.encode(self.groupId, forKey: .groupId)
@@ -230,6 +240,8 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         case isCustomer
         case isSupplier
         case paymentTermDays
+        case invoiceCurrency
+        case invoiceLocale
         case creditLimit
         case priceListId
         case groupId

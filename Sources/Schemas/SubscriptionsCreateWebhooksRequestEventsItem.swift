@@ -37,6 +37,7 @@ public enum SubscriptionsCreateWebhooksRequestEventsItem: String, Codable, Hasha
     case saleInvoicePeppolFailed = "sale_invoice.peppol_failed"
     case saleInvoicePeppolRejected = "sale_invoice.peppol_rejected"
     case saleInvoicePeppolSent = "sale_invoice.peppol_sent"
+    case saleInvoiceQuoteSent = "sale_invoice.quote_sent"
     case saleInvoiceSent = "sale_invoice.sent"
     case salesOrderCreated = "sales_order.created"
     case salesOrderFulfilled = "sales_order.fulfilled"

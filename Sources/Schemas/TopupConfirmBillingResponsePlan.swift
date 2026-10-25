@@ -4,4 +4,5 @@ public enum TopupConfirmBillingResponsePlan: String, Codable, Hashable, CaseIter
     case starter
     case business
     case scale
+    case invoicing
 }

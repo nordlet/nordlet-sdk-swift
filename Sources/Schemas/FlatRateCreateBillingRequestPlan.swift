@@ -4,4 +4,5 @@ public enum FlatRateCreateBillingRequestPlan: String, Codable, Hashable, CaseIte
     case starter
     case business
     case scale
+    case invoicing
 }

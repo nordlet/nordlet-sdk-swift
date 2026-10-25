@@ -16,6 +16,18 @@ extension Requests {
         public let phone: Nullable<String>?
         public let iban: Nullable<String>?
         public let bankName: Nullable<String>?
+        public let bankBic: Nullable<String>?
+        /// Sort code, routing number, BSB, IFSC or institution number
+        public let bankCode: Nullable<String>?
+        /// Transit number (Canada)
+        public let bankBranchCode: Nullable<String>?
+        public let bankAccountNumber: Nullable<String>?
+        /// Prefix of the numbers of invoices issued without a document series; SF when not set
+        public let invoicePrefix: Nullable<String>?
+        /// Language a new invoice starts with when neither the invoice nor its partner names one
+        public let defaultInvoiceLocale: Nullable<CompaniesUpdateAccountRequestDefaultInvoiceLocale>?
+        /// Note a new invoice, proforma or advance invoice starts with when it names no notes
+        public let defaultInvoiceNote: Nullable<String>?
         public let peppolId: Nullable<String>?
         public let sepaCreditorId: Nullable<String>?
         public let defaultInvoiceCurrency: String?
@@ -47,6 +59,13 @@ extension Requests {
             phone: Nullable<String>? = nil,
             iban: Nullable<String>? = nil,
             bankName: Nullable<String>? = nil,
+            bankBic: Nullable<String>? = nil,
+            bankCode: Nullable<String>? = nil,
+            bankBranchCode: Nullable<String>? = nil,
+            bankAccountNumber: Nullable<String>? = nil,
+            invoicePrefix: Nullable<String>? = nil,
+            defaultInvoiceLocale: Nullable<CompaniesUpdateAccountRequestDefaultInvoiceLocale>? = nil,
+            defaultInvoiceNote: Nullable<String>? = nil,
             peppolId: Nullable<String>? = nil,
             sepaCreditorId: Nullable<String>? = nil,
             defaultInvoiceCurrency: String? = nil,
@@ -76,6 +95,13 @@ extension Requests {
             self.phone = phone
             self.iban = iban
             self.bankName = bankName
+            self.bankBic = bankBic
+            self.bankCode = bankCode
+            self.bankBranchCode = bankBranchCode
+            self.bankAccountNumber = bankAccountNumber
+            self.invoicePrefix = invoicePrefix
+            self.defaultInvoiceLocale = defaultInvoiceLocale
+            self.defaultInvoiceNote = defaultInvoiceNote
             self.peppolId = peppolId
             self.sepaCreditorId = sepaCreditorId
             self.defaultInvoiceCurrency = defaultInvoiceCurrency
@@ -108,6 +134,13 @@ extension Requests {
             self.phone = try container.decodeNullableIfPresent(String.self, forKey: .phone)
             self.iban = try container.decodeNullableIfPresent(String.self, forKey: .iban)
             self.bankName = try container.decodeNullableIfPresent(String.self, forKey: .bankName)
+            self.bankBic = try container.decodeNullableIfPresent(String.self, forKey: .bankBic)
+            self.bankCode = try container.decodeNullableIfPresent(String.self, forKey: .bankCode)
+            self.bankBranchCode = try container.decodeNullableIfPresent(String.self, forKey: .bankBranchCode)
+            self.bankAccountNumber = try container.decodeNullableIfPresent(String.self, forKey: .bankAccountNumber)
+            self.invoicePrefix = try container.decodeNullableIfPresent(String.self, forKey: .invoicePrefix)
+            self.defaultInvoiceLocale = try container.decodeNullableIfPresent(CompaniesUpdateAccountRequestDefaultInvoiceLocale.self, forKey: .defaultInvoiceLocale)
+            self.defaultInvoiceNote = try container.decodeNullableIfPresent(String.self, forKey: .defaultInvoiceNote)
             self.peppolId = try container.decodeNullableIfPresent(String.self, forKey: .peppolId)
             self.sepaCreditorId = try container.decodeNullableIfPresent(String.self, forKey: .sepaCreditorId)
             self.defaultInvoiceCurrency = try container.decodeIfPresent(String.self, forKey: .defaultInvoiceCurrency)
@@ -141,6 +174,13 @@ extension Requests {
             try container.encodeNullableIfPresent(self.phone, forKey: .phone)
             try container.encodeNullableIfPresent(self.iban, forKey: .iban)
             try container.encodeNullableIfPresent(self.bankName, forKey: .bankName)
+            try container.encodeNullableIfPresent(self.bankBic, forKey: .bankBic)
+            try container.encodeNullableIfPresent(self.bankCode, forKey: .bankCode)
+            try container.encodeNullableIfPresent(self.bankBranchCode, forKey: .bankBranchCode)
+            try container.encodeNullableIfPresent(self.bankAccountNumber, forKey: .bankAccountNumber)
+            try container.encodeNullableIfPresent(self.invoicePrefix, forKey: .invoicePrefix)
+            try container.encodeNullableIfPresent(self.defaultInvoiceLocale, forKey: .defaultInvoiceLocale)
+            try container.encodeNullableIfPresent(self.defaultInvoiceNote, forKey: .defaultInvoiceNote)
             try container.encodeNullableIfPresent(self.peppolId, forKey: .peppolId)
             try container.encodeNullableIfPresent(self.sepaCreditorId, forKey: .sepaCreditorId)
             try container.encodeIfPresent(self.defaultInvoiceCurrency, forKey: .defaultInvoiceCurrency)
@@ -172,6 +212,13 @@ extension Requests {
             case phone
             case iban
             case bankName
+            case bankBic
+            case bankCode
+            case bankBranchCode
+            case bankAccountNumber
+            case invoicePrefix
+            case defaultInvoiceLocale
+            case defaultInvoiceNote
             case peppolId
             case sepaCreditorId
             case defaultInvoiceCurrency

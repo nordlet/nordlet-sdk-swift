@@ -11,6 +11,8 @@ public struct AccountGetBillingResponse: Codable, Hashable, Sendable {
     public let paymentsConfigured: Bool
     public let hasPaymentAccount: Bool
     public let hasSubscription: Bool
+    /// When the Stripe subscription ends after `subscription/cancel`; null while it renews
+    public let subscriptionCancelAt: Nullable<Date>
     public let paymentFailedAt: Nullable<Date>
     public let paymentFailedInvoiceUrl: Nullable<String>
     public let monthToDate: AccountGetBillingResponseMonthToDate
@@ -35,6 +37,7 @@ public struct AccountGetBillingResponse: Codable, Hashable, Sendable {
         paymentsConfigured: Bool,
         hasPaymentAccount: Bool,
         hasSubscription: Bool,
+        subscriptionCancelAt: Nullable<Date>,
         paymentFailedAt: Nullable<Date>,
         paymentFailedInvoiceUrl: Nullable<String>,
         monthToDate: AccountGetBillingResponseMonthToDate,
@@ -57,6 +60,7 @@ public struct AccountGetBillingResponse: Codable, Hashable, Sendable {
         self.paymentsConfigured = paymentsConfigured
         self.hasPaymentAccount = hasPaymentAccount
         self.hasSubscription = hasSubscription
+        self.subscriptionCancelAt = subscriptionCancelAt
         self.paymentFailedAt = paymentFailedAt
         self.paymentFailedInvoiceUrl = paymentFailedInvoiceUrl
         self.monthToDate = monthToDate
@@ -82,6 +86,7 @@ public struct AccountGetBillingResponse: Codable, Hashable, Sendable {
         self.paymentsConfigured = try container.decode(Bool.self, forKey: .paymentsConfigured)
         self.hasPaymentAccount = try container.decode(Bool.self, forKey: .hasPaymentAccount)
         self.hasSubscription = try container.decode(Bool.self, forKey: .hasSubscription)
+        self.subscriptionCancelAt = try container.decode(Nullable<Date>.self, forKey: .subscriptionCancelAt)
         self.paymentFailedAt = try container.decode(Nullable<Date>.self, forKey: .paymentFailedAt)
         self.paymentFailedInvoiceUrl = try container.decode(Nullable<String>.self, forKey: .paymentFailedInvoiceUrl)
         self.monthToDate = try container.decode(AccountGetBillingResponseMonthToDate.self, forKey: .monthToDate)
@@ -108,6 +113,7 @@ public struct AccountGetBillingResponse: Codable, Hashable, Sendable {
         try container.encode(self.paymentsConfigured, forKey: .paymentsConfigured)
         try container.encode(self.hasPaymentAccount, forKey: .hasPaymentAccount)
         try container.encode(self.hasSubscription, forKey: .hasSubscription)
+        try container.encode(self.subscriptionCancelAt, forKey: .subscriptionCancelAt)
         try container.encode(self.paymentFailedAt, forKey: .paymentFailedAt)
         try container.encode(self.paymentFailedInvoiceUrl, forKey: .paymentFailedInvoiceUrl)
         try container.encode(self.monthToDate, forKey: .monthToDate)
@@ -132,6 +138,7 @@ public struct AccountGetBillingResponse: Codable, Hashable, Sendable {
         case paymentsConfigured
         case hasPaymentAccount
         case hasSubscription
+        case subscriptionCancelAt
         case paymentFailedAt
         case paymentFailedInvoiceUrl
         case monthToDate

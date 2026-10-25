@@ -15,6 +15,10 @@ extension Requests {
         public let isCustomer: Bool?
         public let isSupplier: Bool?
         public let paymentTermDays: Nullable<Int64>?
+        /// Currency a new invoice for this partner starts with when the invoice names none
+        public let invoiceCurrency: Nullable<UpdatePartnersRequestInvoiceCurrency>?
+        /// Language a new invoice for this partner starts with when the invoice names none
+        public let invoiceLocale: Nullable<UpdatePartnersRequestInvoiceLocale>?
         public let creditLimit: Nullable<String>?
         public let priceListId: Nullable<String>?
         public let groupId: Nullable<String>?
@@ -54,6 +58,8 @@ extension Requests {
             isCustomer: Bool? = nil,
             isSupplier: Bool? = nil,
             paymentTermDays: Nullable<Int64>? = nil,
+            invoiceCurrency: Nullable<UpdatePartnersRequestInvoiceCurrency>? = nil,
+            invoiceLocale: Nullable<UpdatePartnersRequestInvoiceLocale>? = nil,
             creditLimit: Nullable<String>? = nil,
             priceListId: Nullable<String>? = nil,
             groupId: Nullable<String>? = nil,
@@ -91,6 +97,8 @@ extension Requests {
             self.isCustomer = isCustomer
             self.isSupplier = isSupplier
             self.paymentTermDays = paymentTermDays
+            self.invoiceCurrency = invoiceCurrency
+            self.invoiceLocale = invoiceLocale
             self.creditLimit = creditLimit
             self.priceListId = priceListId
             self.groupId = groupId
@@ -131,6 +139,8 @@ extension Requests {
             self.isCustomer = try container.decodeIfPresent(Bool.self, forKey: .isCustomer)
             self.isSupplier = try container.decodeIfPresent(Bool.self, forKey: .isSupplier)
             self.paymentTermDays = try container.decodeNullableIfPresent(Int64.self, forKey: .paymentTermDays)
+            self.invoiceCurrency = try container.decodeNullableIfPresent(UpdatePartnersRequestInvoiceCurrency.self, forKey: .invoiceCurrency)
+            self.invoiceLocale = try container.decodeNullableIfPresent(UpdatePartnersRequestInvoiceLocale.self, forKey: .invoiceLocale)
             self.creditLimit = try container.decodeNullableIfPresent(String.self, forKey: .creditLimit)
             self.priceListId = try container.decodeNullableIfPresent(String.self, forKey: .priceListId)
             self.groupId = try container.decodeNullableIfPresent(String.self, forKey: .groupId)
@@ -172,6 +182,8 @@ extension Requests {
             try container.encodeIfPresent(self.isCustomer, forKey: .isCustomer)
             try container.encodeIfPresent(self.isSupplier, forKey: .isSupplier)
             try container.encodeNullableIfPresent(self.paymentTermDays, forKey: .paymentTermDays)
+            try container.encodeNullableIfPresent(self.invoiceCurrency, forKey: .invoiceCurrency)
+            try container.encodeNullableIfPresent(self.invoiceLocale, forKey: .invoiceLocale)
             try container.encodeNullableIfPresent(self.creditLimit, forKey: .creditLimit)
             try container.encodeNullableIfPresent(self.priceListId, forKey: .priceListId)
             try container.encodeNullableIfPresent(self.groupId, forKey: .groupId)
@@ -211,6 +223,8 @@ extension Requests {
             case isCustomer
             case isSupplier
             case paymentTermDays
+            case invoiceCurrency
+            case invoiceLocale
             case creditLimit
             case priceListId
             case groupId

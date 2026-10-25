@@ -5,6 +5,7 @@ extension Requests {
         public let id: String
         public let to: String?
         public let locale: InvoicesSendSalesRequestLocale?
+        public let quote: Bool?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -12,11 +13,13 @@ extension Requests {
             id: String,
             to: String? = nil,
             locale: InvoicesSendSalesRequestLocale? = nil,
+            quote: Bool? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.id = id
             self.to = to
             self.locale = locale
+            self.quote = quote
             self.additionalProperties = additionalProperties
         }
 
@@ -25,6 +28,7 @@ extension Requests {
             self.id = try container.decode(String.self, forKey: .id)
             self.to = try container.decodeIfPresent(String.self, forKey: .to)
             self.locale = try container.decodeIfPresent(InvoicesSendSalesRequestLocale.self, forKey: .locale)
+            self.quote = try container.decodeIfPresent(Bool.self, forKey: .quote)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -34,6 +38,7 @@ extension Requests {
             try container.encode(self.id, forKey: .id)
             try container.encodeIfPresent(self.to, forKey: .to)
             try container.encodeIfPresent(self.locale, forKey: .locale)
+            try container.encodeIfPresent(self.quote, forKey: .quote)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -41,6 +46,7 @@ extension Requests {
             case id
             case to
             case locale
+            case quote
         }
     }
 }

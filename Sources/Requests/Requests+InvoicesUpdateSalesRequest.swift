@@ -17,6 +17,8 @@ extension Requests {
         public let deemedSupplier: Bool?
         public let notes: String?
         public let locale: Nullable<InvoicesUpdateSalesRequestLocale>?
+        public let payLinkEnabled: Bool?
+        public let debtRemindersEnabled: Bool?
         public let operationTypeId: Nullable<String>?
         public let documentSeriesId: Nullable<String>?
         public let seriesLabel: Nullable<String>?
@@ -26,6 +28,7 @@ extension Requests {
         public let issuedByTitle: Nullable<String>?
         public let receivedByName: Nullable<String>?
         public let receivedByTitle: Nullable<String>?
+        public let salesTaxPercent: Nullable<String>?
         public let lines: [InvoicesUpdateSalesRequestLinesItem]?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -46,6 +49,8 @@ extension Requests {
             deemedSupplier: Bool? = nil,
             notes: String? = nil,
             locale: Nullable<InvoicesUpdateSalesRequestLocale>? = nil,
+            payLinkEnabled: Bool? = nil,
+            debtRemindersEnabled: Bool? = nil,
             operationTypeId: Nullable<String>? = nil,
             documentSeriesId: Nullable<String>? = nil,
             seriesLabel: Nullable<String>? = nil,
@@ -55,6 +60,7 @@ extension Requests {
             issuedByTitle: Nullable<String>? = nil,
             receivedByName: Nullable<String>? = nil,
             receivedByTitle: Nullable<String>? = nil,
+            salesTaxPercent: Nullable<String>? = nil,
             lines: [InvoicesUpdateSalesRequestLinesItem]? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -73,6 +79,8 @@ extension Requests {
             self.deemedSupplier = deemedSupplier
             self.notes = notes
             self.locale = locale
+            self.payLinkEnabled = payLinkEnabled
+            self.debtRemindersEnabled = debtRemindersEnabled
             self.operationTypeId = operationTypeId
             self.documentSeriesId = documentSeriesId
             self.seriesLabel = seriesLabel
@@ -82,6 +90,7 @@ extension Requests {
             self.issuedByTitle = issuedByTitle
             self.receivedByName = receivedByName
             self.receivedByTitle = receivedByTitle
+            self.salesTaxPercent = salesTaxPercent
             self.lines = lines
             self.additionalProperties = additionalProperties
         }
@@ -103,6 +112,8 @@ extension Requests {
             self.deemedSupplier = try container.decodeIfPresent(Bool.self, forKey: .deemedSupplier)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.locale = try container.decodeNullableIfPresent(InvoicesUpdateSalesRequestLocale.self, forKey: .locale)
+            self.payLinkEnabled = try container.decodeIfPresent(Bool.self, forKey: .payLinkEnabled)
+            self.debtRemindersEnabled = try container.decodeIfPresent(Bool.self, forKey: .debtRemindersEnabled)
             self.operationTypeId = try container.decodeNullableIfPresent(String.self, forKey: .operationTypeId)
             self.documentSeriesId = try container.decodeNullableIfPresent(String.self, forKey: .documentSeriesId)
             self.seriesLabel = try container.decodeNullableIfPresent(String.self, forKey: .seriesLabel)
@@ -112,6 +123,7 @@ extension Requests {
             self.issuedByTitle = try container.decodeNullableIfPresent(String.self, forKey: .issuedByTitle)
             self.receivedByName = try container.decodeNullableIfPresent(String.self, forKey: .receivedByName)
             self.receivedByTitle = try container.decodeNullableIfPresent(String.self, forKey: .receivedByTitle)
+            self.salesTaxPercent = try container.decodeNullableIfPresent(String.self, forKey: .salesTaxPercent)
             self.lines = try container.decodeIfPresent([InvoicesUpdateSalesRequestLinesItem].self, forKey: .lines)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -134,6 +146,8 @@ extension Requests {
             try container.encodeIfPresent(self.deemedSupplier, forKey: .deemedSupplier)
             try container.encodeIfPresent(self.notes, forKey: .notes)
             try container.encodeNullableIfPresent(self.locale, forKey: .locale)
+            try container.encodeIfPresent(self.payLinkEnabled, forKey: .payLinkEnabled)
+            try container.encodeIfPresent(self.debtRemindersEnabled, forKey: .debtRemindersEnabled)
             try container.encodeNullableIfPresent(self.operationTypeId, forKey: .operationTypeId)
             try container.encodeNullableIfPresent(self.documentSeriesId, forKey: .documentSeriesId)
             try container.encodeNullableIfPresent(self.seriesLabel, forKey: .seriesLabel)
@@ -143,6 +157,7 @@ extension Requests {
             try container.encodeNullableIfPresent(self.issuedByTitle, forKey: .issuedByTitle)
             try container.encodeNullableIfPresent(self.receivedByName, forKey: .receivedByName)
             try container.encodeNullableIfPresent(self.receivedByTitle, forKey: .receivedByTitle)
+            try container.encodeNullableIfPresent(self.salesTaxPercent, forKey: .salesTaxPercent)
             try container.encodeIfPresent(self.lines, forKey: .lines)
         }
 
@@ -163,6 +178,8 @@ extension Requests {
             case deemedSupplier
             case notes
             case locale
+            case payLinkEnabled
+            case debtRemindersEnabled
             case operationTypeId
             case documentSeriesId
             case seriesLabel
@@ -172,6 +189,7 @@ extension Requests {
             case issuedByTitle
             case receivedByName
             case receivedByTitle
+            case salesTaxPercent
             case lines
         }
     }

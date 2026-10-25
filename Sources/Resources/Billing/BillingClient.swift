@@ -98,7 +98,7 @@ public final class BillingClient: Sendable {
         )
     }
 
-    /// Open a Stripe Checkout session for a flat-rate subscription on `plan`, with the trial period of `trialDays` days, and return its URL; a Stripe customer is created for the user when there is none. Answers 409 when a flat-rate subscription is already active and 503 when online payments are not configured or the plan has no price.
+    /// Open a Stripe Checkout session for a flat-rate subscription on `plan`, with the trial period of `trialDays` days, and return its URL; a Stripe customer is created for the user when there is none. The `invoicing` plan of the invoice tool takes its trial days from the server setting `INVOICE_PLAN_TRIAL_DAYS` and returns to the invoice app. Answers 409 when a flat-rate subscription is already active and 503 when online payments are not configured, the plan has no price, or the Invoicing trial is not set.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func flatRateCreate(request: Requests.FlatRateCreateBillingRequest, requestOptions: RequestOptions? = nil) async throws -> FlatRateCreateBillingResponse {
@@ -121,6 +121,19 @@ public final class BillingClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: FlatRateConfirmBillingResponse.self
+        )
+    }
+
+    /// Cancel the user's Stripe subscription at the end of the period already paid: the plan stays active until `subscriptionCancelAt`, and Stripe then ends the subscription, which its `customer.subscription.deleted` webhook records. Answers 503 when online payments are not configured and 409 when the account has no subscription.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func subscriptionCancel(request: Requests.SubscriptionCancelBillingRequest, requestOptions: RequestOptions? = nil) async throws -> SubscriptionCancelBillingResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/billing/subscription/cancel",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: SubscriptionCancelBillingResponse.self
         )
     }
 

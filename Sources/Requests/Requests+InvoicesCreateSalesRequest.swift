@@ -24,6 +24,10 @@ extension Requests {
         public let documentRef: String?
         /// Language of the PDF and of the e-mail the invoice is sent with; unset means the language asked for when the PDF is made
         public let locale: InvoicesCreateSalesRequestLocale?
+        /// Whether the PDF and the e-mail carry the payment link of the company payment link template
+        public let payLinkEnabled: Bool?
+        /// Whether automatic debt reminders include this invoice when its partner has them turned on
+        public let debtRemindersEnabled: Bool?
         public let operationTypeId: String?
         public let documentSeriesId: String?
         public let seriesLabel: String?
@@ -33,6 +37,8 @@ extension Requests {
         public let receivedByName: String?
         public let receivedByTitle: String?
         public let discountPercent: String?
+        /// Sales tax as a percent of the net total, added to the invoice total. It is not posted to the ledger and is left out of VAT and national tax reports. Invoices only.
+        public let salesTaxPercent: String?
         public let lines: [InvoicesCreateSalesRequestLinesItem]
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -57,6 +63,8 @@ extension Requests {
             notes: String? = nil,
             documentRef: String? = nil,
             locale: InvoicesCreateSalesRequestLocale? = nil,
+            payLinkEnabled: Bool? = nil,
+            debtRemindersEnabled: Bool? = nil,
             operationTypeId: String? = nil,
             documentSeriesId: String? = nil,
             seriesLabel: String? = nil,
@@ -66,6 +74,7 @@ extension Requests {
             receivedByName: String? = nil,
             receivedByTitle: String? = nil,
             discountPercent: String? = nil,
+            salesTaxPercent: String? = nil,
             lines: [InvoicesCreateSalesRequestLinesItem],
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -88,6 +97,8 @@ extension Requests {
             self.notes = notes
             self.documentRef = documentRef
             self.locale = locale
+            self.payLinkEnabled = payLinkEnabled
+            self.debtRemindersEnabled = debtRemindersEnabled
             self.operationTypeId = operationTypeId
             self.documentSeriesId = documentSeriesId
             self.seriesLabel = seriesLabel
@@ -97,6 +108,7 @@ extension Requests {
             self.receivedByName = receivedByName
             self.receivedByTitle = receivedByTitle
             self.discountPercent = discountPercent
+            self.salesTaxPercent = salesTaxPercent
             self.lines = lines
             self.additionalProperties = additionalProperties
         }
@@ -122,6 +134,8 @@ extension Requests {
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.documentRef = try container.decodeIfPresent(String.self, forKey: .documentRef)
             self.locale = try container.decodeIfPresent(InvoicesCreateSalesRequestLocale.self, forKey: .locale)
+            self.payLinkEnabled = try container.decodeIfPresent(Bool.self, forKey: .payLinkEnabled)
+            self.debtRemindersEnabled = try container.decodeIfPresent(Bool.self, forKey: .debtRemindersEnabled)
             self.operationTypeId = try container.decodeIfPresent(String.self, forKey: .operationTypeId)
             self.documentSeriesId = try container.decodeIfPresent(String.self, forKey: .documentSeriesId)
             self.seriesLabel = try container.decodeIfPresent(String.self, forKey: .seriesLabel)
@@ -131,6 +145,7 @@ extension Requests {
             self.receivedByName = try container.decodeIfPresent(String.self, forKey: .receivedByName)
             self.receivedByTitle = try container.decodeIfPresent(String.self, forKey: .receivedByTitle)
             self.discountPercent = try container.decodeIfPresent(String.self, forKey: .discountPercent)
+            self.salesTaxPercent = try container.decodeIfPresent(String.self, forKey: .salesTaxPercent)
             self.lines = try container.decode([InvoicesCreateSalesRequestLinesItem].self, forKey: .lines)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -157,6 +172,8 @@ extension Requests {
             try container.encodeIfPresent(self.notes, forKey: .notes)
             try container.encodeIfPresent(self.documentRef, forKey: .documentRef)
             try container.encodeIfPresent(self.locale, forKey: .locale)
+            try container.encodeIfPresent(self.payLinkEnabled, forKey: .payLinkEnabled)
+            try container.encodeIfPresent(self.debtRemindersEnabled, forKey: .debtRemindersEnabled)
             try container.encodeIfPresent(self.operationTypeId, forKey: .operationTypeId)
             try container.encodeIfPresent(self.documentSeriesId, forKey: .documentSeriesId)
             try container.encodeIfPresent(self.seriesLabel, forKey: .seriesLabel)
@@ -166,6 +183,7 @@ extension Requests {
             try container.encodeIfPresent(self.receivedByName, forKey: .receivedByName)
             try container.encodeIfPresent(self.receivedByTitle, forKey: .receivedByTitle)
             try container.encodeIfPresent(self.discountPercent, forKey: .discountPercent)
+            try container.encodeIfPresent(self.salesTaxPercent, forKey: .salesTaxPercent)
             try container.encode(self.lines, forKey: .lines)
         }
 
@@ -190,6 +208,8 @@ extension Requests {
             case notes
             case documentRef
             case locale
+            case payLinkEnabled
+            case debtRemindersEnabled
             case operationTypeId
             case documentSeriesId
             case seriesLabel
@@ -199,6 +219,7 @@ extension Requests {
             case receivedByName
             case receivedByTitle
             case discountPercent
+            case salesTaxPercent
             case lines
         }
     }

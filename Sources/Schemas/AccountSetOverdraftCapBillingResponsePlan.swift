@@ -4,4 +4,5 @@ public enum AccountSetOverdraftCapBillingResponsePlan: String, Codable, Hashable
     case starter
     case business
     case scale
+    case invoicing
 }
