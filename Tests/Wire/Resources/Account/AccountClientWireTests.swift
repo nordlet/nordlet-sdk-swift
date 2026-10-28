@@ -240,6 +240,7 @@ import Api
                       "vatCode": "vatCode",
                       "role": "role",
                       "isSandbox": true,
+                      "cashBasis": true,
                       "status": "active",
                       "deletedAt": "2026-07-01T09:30:00Z"
                     }
@@ -297,6 +298,7 @@ import Api
                     vatCode: Nullable<String>.value("vatCode"),
                     role: "role",
                     isSandbox: true,
+                    cashBasis: true,
                     status: .active,
                     deletedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 )
@@ -358,6 +360,7 @@ import Api
                       "vatCode": "vatCode",
                       "role": "role",
                       "isSandbox": true,
+                      "cashBasis": true,
                       "status": "active",
                       "deletedAt": "2024-01-15T09:30:00Z"
                     },
@@ -368,6 +371,7 @@ import Api
                       "vatCode": "vatCode",
                       "role": "role",
                       "isSandbox": true,
+                      "cashBasis": true,
                       "status": "active",
                       "deletedAt": "2024-01-15T09:30:00Z"
                     }
@@ -425,6 +429,7 @@ import Api
                     vatCode: Nullable<String>.value("vatCode"),
                     role: "role",
                     isSandbox: true,
+                    cashBasis: true,
                     status: .active,
                     deletedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
@@ -435,6 +440,7 @@ import Api
                     vatCode: Nullable<String>.value("vatCode"),
                     role: "role",
                     isSandbox: true,
+                    cashBasis: true,
                     status: .active,
                     deletedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 )
@@ -1164,7 +1170,8 @@ import Api
                   "code": "code",
                   "vatCode": "vatCode",
                   "role": "role",
-                  "isSandbox": true
+                  "isSandbox": true,
+                  "cashBasis": true
                 }
                 """#.utf8
             )
@@ -1180,7 +1187,8 @@ import Api
             code: Nullable<String>.value("code"),
             vatCode: Nullable<String>.value("vatCode"),
             role: "role",
-            isSandbox: true
+            isSandbox: true,
+            cashBasis: true
         )
         let response = try await client.account.companiesCreate(
             request: .init(name: "name"),
@@ -1200,7 +1208,8 @@ import Api
                   "code": "code",
                   "vatCode": "vatCode",
                   "role": "role",
-                  "isSandbox": true
+                  "isSandbox": true,
+                  "cashBasis": true
                 }
                 """#.utf8
             )
@@ -1216,7 +1225,8 @@ import Api
             code: Nullable<String>.value("code"),
             vatCode: Nullable<String>.value("vatCode"),
             role: "role",
-            isSandbox: true
+            isSandbox: true,
+            cashBasis: true
         )
         let response = try await client.account.companiesCreate(
             request: .init(name: "x"),
@@ -1290,6 +1300,7 @@ import Api
                   "smeExemptionNumber": "smeExemptionNumber",
                   "isVatPayer": true,
                   "isSandbox": true,
+                  "cashBasis": true,
                   "countryCode": "countryCode",
                   "chartTemplate": "chartTemplate",
                   "countryChartTemplate": "countryChartTemplate",
@@ -1349,6 +1360,7 @@ import Api
             smeExemptionNumber: Nullable<String>.value("smeExemptionNumber"),
             isVatPayer: true,
             isSandbox: true,
+            cashBasis: true,
             countryCode: "countryCode",
             chartTemplate: "chartTemplate",
             countryChartTemplate: "countryChartTemplate",
@@ -1412,6 +1424,7 @@ import Api
                   "smeExemptionNumber": "smeExemptionNumber",
                   "isVatPayer": true,
                   "isSandbox": true,
+                  "cashBasis": true,
                   "countryCode": "countryCode",
                   "chartTemplate": "chartTemplate",
                   "countryChartTemplate": "countryChartTemplate",
@@ -1471,6 +1484,7 @@ import Api
             smeExemptionNumber: Nullable<String>.value("smeExemptionNumber"),
             isVatPayer: true,
             isSandbox: true,
+            cashBasis: true,
             countryCode: "countryCode",
             chartTemplate: "chartTemplate",
             countryChartTemplate: "countryChartTemplate",
@@ -1534,6 +1548,7 @@ import Api
                   "smeExemptionNumber": "smeExemptionNumber",
                   "isVatPayer": true,
                   "isSandbox": true,
+                  "cashBasis": true,
                   "countryCode": "countryCode",
                   "chartTemplate": "chartTemplate",
                   "countryChartTemplate": "countryChartTemplate",
@@ -1593,6 +1608,7 @@ import Api
             smeExemptionNumber: Nullable<String>.value("smeExemptionNumber"),
             isVatPayer: true,
             isSandbox: true,
+            cashBasis: true,
             countryCode: "countryCode",
             chartTemplate: "chartTemplate",
             countryChartTemplate: "countryChartTemplate",
@@ -1656,6 +1672,7 @@ import Api
                   "smeExemptionNumber": "smeExemptionNumber",
                   "isVatPayer": true,
                   "isSandbox": true,
+                  "cashBasis": true,
                   "countryCode": "countryCode",
                   "chartTemplate": "chartTemplate",
                   "countryChartTemplate": "countryChartTemplate",
@@ -1715,6 +1732,7 @@ import Api
             smeExemptionNumber: Nullable<String>.value("smeExemptionNumber"),
             isVatPayer: true,
             isSandbox: true,
+            cashBasis: true,
             countryCode: "countryCode",
             chartTemplate: "chartTemplate",
             countryChartTemplate: "countryChartTemplate",

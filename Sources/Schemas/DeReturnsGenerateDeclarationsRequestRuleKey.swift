@@ -8,4 +8,5 @@ public enum DeReturnsGenerateDeclarationsRequestRuleKey: String, Codable, Hashab
     case deAnnualVatReturn = "de-annual-vat-return"
     case dePayrollWithholding = "de-payroll-withholding"
     case dePayrollStatements = "de-payroll-statements"
+    case deEuer = "de-euer"
 }

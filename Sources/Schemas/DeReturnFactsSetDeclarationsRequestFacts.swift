@@ -26,6 +26,9 @@ public struct DeReturnFactsSetDeclarationsRequestFacts: Codable, Hashable, Senda
     public let representative: Nullable<DeReturnFactsSetDeclarationsRequestFactsRepresentative>?
     public let singleTransportTax: String?
     public let distanceSales: String?
+    public let euerEinkunftsart: DeReturnFactsSetDeclarationsRequestFactsEuerEinkunftsart?
+    public let euerEntnahmen: String?
+    public let euerEinlagen: String?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -55,6 +58,9 @@ public struct DeReturnFactsSetDeclarationsRequestFacts: Codable, Hashable, Senda
         representative: Nullable<DeReturnFactsSetDeclarationsRequestFactsRepresentative>? = nil,
         singleTransportTax: String? = nil,
         distanceSales: String? = nil,
+        euerEinkunftsart: DeReturnFactsSetDeclarationsRequestFactsEuerEinkunftsart? = nil,
+        euerEntnahmen: String? = nil,
+        euerEinlagen: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.changedShareholderIds = changedShareholderIds
@@ -82,6 +88,9 @@ public struct DeReturnFactsSetDeclarationsRequestFacts: Codable, Hashable, Senda
         self.representative = representative
         self.singleTransportTax = singleTransportTax
         self.distanceSales = distanceSales
+        self.euerEinkunftsart = euerEinkunftsart
+        self.euerEntnahmen = euerEntnahmen
+        self.euerEinlagen = euerEinlagen
         self.additionalProperties = additionalProperties
     }
 
@@ -112,6 +121,9 @@ public struct DeReturnFactsSetDeclarationsRequestFacts: Codable, Hashable, Senda
         self.representative = try container.decodeNullableIfPresent(DeReturnFactsSetDeclarationsRequestFactsRepresentative.self, forKey: .representative)
         self.singleTransportTax = try container.decodeIfPresent(String.self, forKey: .singleTransportTax)
         self.distanceSales = try container.decodeIfPresent(String.self, forKey: .distanceSales)
+        self.euerEinkunftsart = try container.decodeIfPresent(DeReturnFactsSetDeclarationsRequestFactsEuerEinkunftsart.self, forKey: .euerEinkunftsart)
+        self.euerEntnahmen = try container.decodeIfPresent(String.self, forKey: .euerEntnahmen)
+        self.euerEinlagen = try container.decodeIfPresent(String.self, forKey: .euerEinlagen)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -143,6 +155,9 @@ public struct DeReturnFactsSetDeclarationsRequestFacts: Codable, Hashable, Senda
         try container.encodeNullableIfPresent(self.representative, forKey: .representative)
         try container.encodeIfPresent(self.singleTransportTax, forKey: .singleTransportTax)
         try container.encodeIfPresent(self.distanceSales, forKey: .distanceSales)
+        try container.encodeIfPresent(self.euerEinkunftsart, forKey: .euerEinkunftsart)
+        try container.encodeIfPresent(self.euerEntnahmen, forKey: .euerEntnahmen)
+        try container.encodeIfPresent(self.euerEinlagen, forKey: .euerEinlagen)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -172,5 +187,8 @@ public struct DeReturnFactsSetDeclarationsRequestFacts: Codable, Hashable, Senda
         case representative
         case singleTransportTax
         case distanceSales
+        case euerEinkunftsart
+        case euerEntnahmen
+        case euerEinlagen
     }
 }

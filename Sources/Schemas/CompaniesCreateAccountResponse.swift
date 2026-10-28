@@ -7,6 +7,7 @@ public struct CompaniesCreateAccountResponse: Codable, Hashable, Sendable {
     public let vatCode: Nullable<String>
     public let role: String
     public let isSandbox: Bool
+    public let cashBasis: Bool
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -17,6 +18,7 @@ public struct CompaniesCreateAccountResponse: Codable, Hashable, Sendable {
         vatCode: Nullable<String>,
         role: String,
         isSandbox: Bool,
+        cashBasis: Bool,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -25,6 +27,7 @@ public struct CompaniesCreateAccountResponse: Codable, Hashable, Sendable {
         self.vatCode = vatCode
         self.role = role
         self.isSandbox = isSandbox
+        self.cashBasis = cashBasis
         self.additionalProperties = additionalProperties
     }
 
@@ -36,6 +39,7 @@ public struct CompaniesCreateAccountResponse: Codable, Hashable, Sendable {
         self.vatCode = try container.decode(Nullable<String>.self, forKey: .vatCode)
         self.role = try container.decode(String.self, forKey: .role)
         self.isSandbox = try container.decode(Bool.self, forKey: .isSandbox)
+        self.cashBasis = try container.decode(Bool.self, forKey: .cashBasis)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -48,6 +52,7 @@ public struct CompaniesCreateAccountResponse: Codable, Hashable, Sendable {
         try container.encode(self.vatCode, forKey: .vatCode)
         try container.encode(self.role, forKey: .role)
         try container.encode(self.isSandbox, forKey: .isSandbox)
+        try container.encode(self.cashBasis, forKey: .cashBasis)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -58,5 +63,6 @@ public struct CompaniesCreateAccountResponse: Codable, Hashable, Sendable {
         case vatCode
         case role
         case isSandbox
+        case cashBasis
     }
 }

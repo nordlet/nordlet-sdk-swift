@@ -8,6 +8,7 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
     public let smeExemptionNumber: Nullable<String>
     public let isVatPayer: Bool
     public let isSandbox: Bool
+    public let cashBasis: Bool
     public let countryCode: String
     /// Chart of accounts template the company was seeded with
     public let chartTemplate: String
@@ -58,6 +59,7 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         smeExemptionNumber: Nullable<String>,
         isVatPayer: Bool,
         isSandbox: Bool,
+        cashBasis: Bool,
         countryCode: String,
         chartTemplate: String,
         countryChartTemplate: String,
@@ -102,6 +104,7 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         self.smeExemptionNumber = smeExemptionNumber
         self.isVatPayer = isVatPayer
         self.isSandbox = isSandbox
+        self.cashBasis = cashBasis
         self.countryCode = countryCode
         self.chartTemplate = chartTemplate
         self.countryChartTemplate = countryChartTemplate
@@ -149,6 +152,7 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         self.smeExemptionNumber = try container.decode(Nullable<String>.self, forKey: .smeExemptionNumber)
         self.isVatPayer = try container.decode(Bool.self, forKey: .isVatPayer)
         self.isSandbox = try container.decode(Bool.self, forKey: .isSandbox)
+        self.cashBasis = try container.decode(Bool.self, forKey: .cashBasis)
         self.countryCode = try container.decode(String.self, forKey: .countryCode)
         self.chartTemplate = try container.decode(String.self, forKey: .chartTemplate)
         self.countryChartTemplate = try container.decode(String.self, forKey: .countryChartTemplate)
@@ -197,6 +201,7 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         try container.encode(self.smeExemptionNumber, forKey: .smeExemptionNumber)
         try container.encode(self.isVatPayer, forKey: .isVatPayer)
         try container.encode(self.isSandbox, forKey: .isSandbox)
+        try container.encode(self.cashBasis, forKey: .cashBasis)
         try container.encode(self.countryCode, forKey: .countryCode)
         try container.encode(self.chartTemplate, forKey: .chartTemplate)
         try container.encode(self.countryChartTemplate, forKey: .countryChartTemplate)
@@ -243,6 +248,7 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         case smeExemptionNumber
         case isVatPayer
         case isSandbox
+        case cashBasis
         case countryCode
         case chartTemplate
         case countryChartTemplate

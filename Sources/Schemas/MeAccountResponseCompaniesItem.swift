@@ -7,6 +7,7 @@ public struct MeAccountResponseCompaniesItem: Codable, Hashable, Sendable {
     public let vatCode: Nullable<String>
     public let role: String
     public let isSandbox: Bool
+    public let cashBasis: Bool
     public let status: MeAccountResponseCompaniesItemStatus
     public let deletedAt: Nullable<Date>
     /// Additional properties that are not explicitly defined in the schema
@@ -19,6 +20,7 @@ public struct MeAccountResponseCompaniesItem: Codable, Hashable, Sendable {
         vatCode: Nullable<String>,
         role: String,
         isSandbox: Bool,
+        cashBasis: Bool,
         status: MeAccountResponseCompaniesItemStatus,
         deletedAt: Nullable<Date>,
         additionalProperties: [String: JSONValue] = .init()
@@ -29,6 +31,7 @@ public struct MeAccountResponseCompaniesItem: Codable, Hashable, Sendable {
         self.vatCode = vatCode
         self.role = role
         self.isSandbox = isSandbox
+        self.cashBasis = cashBasis
         self.status = status
         self.deletedAt = deletedAt
         self.additionalProperties = additionalProperties
@@ -42,6 +45,7 @@ public struct MeAccountResponseCompaniesItem: Codable, Hashable, Sendable {
         self.vatCode = try container.decode(Nullable<String>.self, forKey: .vatCode)
         self.role = try container.decode(String.self, forKey: .role)
         self.isSandbox = try container.decode(Bool.self, forKey: .isSandbox)
+        self.cashBasis = try container.decode(Bool.self, forKey: .cashBasis)
         self.status = try container.decode(MeAccountResponseCompaniesItemStatus.self, forKey: .status)
         self.deletedAt = try container.decode(Nullable<Date>.self, forKey: .deletedAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -56,6 +60,7 @@ public struct MeAccountResponseCompaniesItem: Codable, Hashable, Sendable {
         try container.encode(self.vatCode, forKey: .vatCode)
         try container.encode(self.role, forKey: .role)
         try container.encode(self.isSandbox, forKey: .isSandbox)
+        try container.encode(self.cashBasis, forKey: .cashBasis)
         try container.encode(self.status, forKey: .status)
         try container.encode(self.deletedAt, forKey: .deletedAt)
     }
@@ -68,6 +73,7 @@ public struct MeAccountResponseCompaniesItem: Codable, Hashable, Sendable {
         case vatCode
         case role
         case isSandbox
+        case cashBasis
         case status
         case deletedAt
     }

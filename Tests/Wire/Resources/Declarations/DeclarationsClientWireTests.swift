@@ -7987,6 +7987,126 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func deEuerGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "rows": [
+                    {
+                      "anlage": "EÜR",
+                      "zeile": 1000000,
+                      "kennzahl": "kennzahl",
+                      "label": "label",
+                      "value": "value"
+                    }
+                  ],
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DeEuerGetDeclarationsResponse(
+            year: 1000000,
+            rows: [
+                DeEuerGetDeclarationsResponseRowsItem(
+                    anlage: .eur,
+                    zeile: 1000000,
+                    kennzahl: Nullable<String>.value("kennzahl"),
+                    label: "label",
+                    value: "value"
+                )
+            ],
+            warnings: [
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.deEuerGet(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func deEuerGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "rows": [
+                    {
+                      "anlage": "EÜR",
+                      "zeile": 1000000,
+                      "kennzahl": "kennzahl",
+                      "label": "label",
+                      "value": "value"
+                    },
+                    {
+                      "anlage": "EÜR",
+                      "zeile": 1000000,
+                      "kennzahl": "kennzahl",
+                      "label": "label",
+                      "value": "value"
+                    }
+                  ],
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = DeEuerGetDeclarationsResponse(
+            year: 1000000,
+            rows: [
+                DeEuerGetDeclarationsResponseRowsItem(
+                    anlage: .eur,
+                    zeile: 1000000,
+                    kennzahl: Nullable<String>.value("kennzahl"),
+                    label: "label",
+                    value: "value"
+                ),
+                DeEuerGetDeclarationsResponseRowsItem(
+                    anlage: .eur,
+                    zeile: 1000000,
+                    kennzahl: Nullable<String>.value("kennzahl"),
+                    label: "label",
+                    value: "value"
+                )
+            ],
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.deEuerGet(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func deReturnFactsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -8080,7 +8200,10 @@ import Api
                       "city": "city"
                     },
                     "singleTransportTax": "-121.00",
-                    "distanceSales": "-121.00"
+                    "distanceSales": "-121.00",
+                    "euerEinkunftsart": "1",
+                    "euerEntnahmen": "-121.00",
+                    "euerEinlagen": "-121.00"
                   }
                 }
                 """#.utf8
@@ -8179,7 +8302,10 @@ import Api
                     city: "city"
                 ))),
                 singleTransportTax: Optional("-121.00"),
-                distanceSales: Optional("-121.00")
+                distanceSales: Optional("-121.00"),
+                euerEinkunftsart: Optional(.one),
+                euerEntnahmen: Optional("-121.00"),
+                euerEinlagen: Optional("-121.00")
             )
         )
         let response = try await client.declarations.deReturnFactsGet(
@@ -8326,7 +8452,10 @@ import Api
                       "city": "x"
                     },
                     "singleTransportTax": "singleTransportTax",
-                    "distanceSales": "distanceSales"
+                    "distanceSales": "distanceSales",
+                    "euerEinkunftsart": "1",
+                    "euerEntnahmen": "euerEntnahmen",
+                    "euerEinlagen": "euerEinlagen"
                   }
                 }
                 """#.utf8
@@ -8469,7 +8598,10 @@ import Api
                     city: "x"
                 ))),
                 singleTransportTax: Optional("singleTransportTax"),
-                distanceSales: Optional("distanceSales")
+                distanceSales: Optional("distanceSales"),
+                euerEinkunftsart: Optional(.one),
+                euerEntnahmen: Optional("euerEntnahmen"),
+                euerEinlagen: Optional("euerEinlagen")
             )
         )
         let response = try await client.declarations.deReturnFactsGet(
@@ -8572,7 +8704,10 @@ import Api
                       "city": "city"
                     },
                     "singleTransportTax": "-121.00",
-                    "distanceSales": "-121.00"
+                    "distanceSales": "-121.00",
+                    "euerEinkunftsart": "1",
+                    "euerEntnahmen": "-121.00",
+                    "euerEinlagen": "-121.00"
                   }
                 }
                 """#.utf8
@@ -8671,7 +8806,10 @@ import Api
                     city: "city"
                 ))),
                 singleTransportTax: Optional("-121.00"),
-                distanceSales: Optional("-121.00")
+                distanceSales: Optional("-121.00"),
+                euerEinkunftsart: Optional(.one),
+                euerEntnahmen: Optional("-121.00"),
+                euerEinlagen: Optional("-121.00")
             )
         )
         let response = try await client.declarations.deReturnFactsSet(
@@ -8823,7 +8961,10 @@ import Api
                       "city": "x"
                     },
                     "singleTransportTax": "singleTransportTax",
-                    "distanceSales": "distanceSales"
+                    "distanceSales": "distanceSales",
+                    "euerEinkunftsart": "1",
+                    "euerEntnahmen": "euerEntnahmen",
+                    "euerEinlagen": "euerEinlagen"
                   }
                 }
                 """#.utf8
@@ -8966,7 +9107,10 @@ import Api
                     city: "x"
                 ))),
                 singleTransportTax: Optional("singleTransportTax"),
-                distanceSales: Optional("distanceSales")
+                distanceSales: Optional("distanceSales"),
+                euerEinkunftsart: Optional(.one),
+                euerEntnahmen: Optional("euerEntnahmen"),
+                euerEinlagen: Optional("euerEinlagen")
             )
         )
         let response = try await client.declarations.deReturnFactsSet(

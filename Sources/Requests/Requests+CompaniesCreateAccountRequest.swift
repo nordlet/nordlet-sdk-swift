@@ -46,6 +46,8 @@ extension Requests {
         public let baseCurrency: String?
         /// Sandbox companies hold test data and are purged immediately on delete (immutable after creation)
         public let isSandbox: Bool?
+        /// The company determines its profit on a cash basis (receipts and payments, in Germany the Einnahmenüberschussrechnung of § 4 Abs. 3 EStG); it gets the cash-basis returns in its filing calendar (immutable after creation)
+        public let cashBasis: Bool?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -86,6 +88,7 @@ extension Requests {
             countryCode: CompaniesCreateAccountRequestCountryCode? = nil,
             baseCurrency: String? = nil,
             isSandbox: Bool? = nil,
+            cashBasis: Bool? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.name = name
@@ -124,6 +127,7 @@ extension Requests {
             self.countryCode = countryCode
             self.baseCurrency = baseCurrency
             self.isSandbox = isSandbox
+            self.cashBasis = cashBasis
             self.additionalProperties = additionalProperties
         }
 
@@ -165,6 +169,7 @@ extension Requests {
             self.countryCode = try container.decodeIfPresent(CompaniesCreateAccountRequestCountryCode.self, forKey: .countryCode)
             self.baseCurrency = try container.decodeIfPresent(String.self, forKey: .baseCurrency)
             self.isSandbox = try container.decodeIfPresent(Bool.self, forKey: .isSandbox)
+            self.cashBasis = try container.decodeIfPresent(Bool.self, forKey: .cashBasis)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -207,6 +212,7 @@ extension Requests {
             try container.encodeIfPresent(self.countryCode, forKey: .countryCode)
             try container.encodeIfPresent(self.baseCurrency, forKey: .baseCurrency)
             try container.encodeIfPresent(self.isSandbox, forKey: .isSandbox)
+            try container.encodeIfPresent(self.cashBasis, forKey: .cashBasis)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -247,6 +253,7 @@ extension Requests {
             case countryCode
             case baseCurrency
             case isSandbox
+            case cashBasis
         }
     }
 }
