@@ -33,4 +33,5 @@ public enum RecurringInvoicesCreateSalesRequestLocale: String, Codable, Hashable
     case hi
     case ru
     case tr
+    case uk
 }

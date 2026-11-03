@@ -46,7 +46,7 @@ public final class AccountClient: Sendable {
         )
     }
 
-    /// Return the signed-in user, their active company and role in it, the companies they belong to and their consent state. `billing` is the billing account that pays for the active company (its payer, or the user when there is none or no company), with `isPayer` saying whether that is the user; `referralPoints` is the user's current points balance.
+    /// Return the signed-in user, their active company and role in it, the companies they belong to and their consent state. `billing` is the billing account of the request's site (the `x-nordlet-site` header, `app` when absent) that pays for the active company (its payer, or the user when there is none or no company), with `isPayer` saying whether that is the user; `referralPoints` is the user's current points balance. An API key may call it too: the active company is then the one named in the `x-nordlet-company` header, and `companies` lists every company the key works in.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func me(request: Requests.MeAccountRequest, requestOptions: RequestOptions? = nil) async throws -> MeAccountResponse {
@@ -98,7 +98,7 @@ public final class AccountClient: Sendable {
         )
     }
 
-    /// Remove a member from the active company; owners and admins may call it. Their sessions lose this company as the active one and the API keys they created for it are revoked. Refused with 422 for the caller themself and with 403 for the owner.
+    /// Remove a member from the active company; owners and admins may call it. Their sessions lose this company as the active one and their API keys stop working in it. Refused with 422 for the caller themself and with 403 for the owner.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func membersRemove(request: Requests.MembersRemoveAccountRequest, requestOptions: RequestOptions? = nil) async throws -> MembersRemoveAccountResponse {
@@ -202,7 +202,7 @@ public final class AccountClient: Sendable {
         )
     }
 
-    /// Make one of the caller's companies the active company of the session. Refused with 403 when the caller is not a member and with 422 when the company is archived or deleted.
+    /// Make one of the caller's companies the active company of the session. Refused with 403 when the caller is not a member, with 422 when the company is archived or deleted, and with 422 for an API key, which names the company in the `x-nordlet-company` header of each call instead.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func companiesSelect(request: Requests.CompaniesSelectAccountRequest, requestOptions: RequestOptions? = nil) async throws -> CompaniesSelectAccountResponse {
@@ -280,7 +280,7 @@ public final class AccountClient: Sendable {
         )
     }
 
-    /// Create an API key for the active company and return the key itself once; owners, admins and developers may call it. `scopes` defaults to the caller's own scopes and may not exceed them (403); without `expiresInDays` the key does not expire.
+    /// Create an API key for the signed-in person and return the key itself once. Owners, admins and developers of the active company may call it. The key works in every company the person is a member of, with the rights of their role in each; every call names the company in the `x-nordlet-company` header. `scopes` defaults to the caller's scopes in the active company and may not exceed them (403); in each company the key's scopes are further limited to the person's role there. Without `expiresInDays` the key does not expire.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func apiKeysCreate(request: Requests.ApiKeysCreateAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ApiKeysCreateAccountResponse {
@@ -293,7 +293,7 @@ public final class AccountClient: Sendable {
         )
     }
 
-    /// List the API keys of the active company, including expired and revoked ones.
+    /// List the signed-in person's API keys, including expired and revoked ones.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func apiKeysList(request: Requests.ApiKeysListAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ApiKeysListAccountResponse {
@@ -306,7 +306,7 @@ public final class AccountClient: Sendable {
         )
     }
 
-    /// Create a new key with the name and scopes of the key `id` and return it once; the old key keeps working for `overlapHours` and then expires, and its `replacedByKeyId` points to the new one. `expiresInDays` applies to the new key. Refused with 409 when the old key is revoked.
+    /// Create a new key with the name and scopes of the signed-in person's key `id` and return it once; the old key keeps working for `overlapHours` and then expires, and its `replacedByKeyId` points to the new one. `expiresInDays` applies to the new key. Refused with 409 when the old key is revoked or belongs to an app connected through OAuth, which renews its own access.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func apiKeysRotate(request: Requests.ApiKeysRotateAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ApiKeysRotateAccountResponse {
@@ -319,7 +319,7 @@ public final class AccountClient: Sendable {
         )
     }
 
-    /// Revoke an API key of the active company at once.
+    /// Revoke one of the signed-in person's API keys at once.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func apiKeysRevoke(request: Requests.ApiKeysRevokeAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ApiKeysRevokeAccountResponse {
@@ -410,7 +410,7 @@ public final class AccountClient: Sendable {
         )
     }
 
-    /// Return the user's profile, consent state, memberships, unexpired sessions, billing account, credit transactions and the audit entries they made in their companies (the most recent 5000 of each of the last two).
+    /// Return the user's profile, consent state, memberships, unexpired sessions, billing accounts (`billing` is the `app` site's, `billingAccounts` has one per site), credit transactions and the audit entries they made in their companies (the most recent 5000 of each of the last two).
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func export(request: Requests.ExportAccountRequest, requestOptions: RequestOptions? = nil) async throws -> ExportAccountResponse {
@@ -498,6 +498,45 @@ public final class AccountClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: TableSettingsListAccountResponse.self
+        )
+    }
+
+    /// Check an OAuth authorization request of an app that wants to connect to Nordlet (such as Claude) and return the name the app registered, the address the signed-in person is sent back to and the scopes asked for. Refused with 422 when the request is invalid: unknown app, redirect address not registered for it, no PKCE (S256), unknown scope or a resource other than the MCP server.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func oauthAuthorizeDescribe(request: Requests.OauthAuthorizeDescribeAccountRequest, requestOptions: RequestOptions? = nil) async throws -> OauthAuthorizeDescribeAccountResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/oauth/authorize/describe",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: OauthAuthorizeDescribeAccountResponse.self
+        )
+    }
+
+    /// Allow the app of an OAuth authorization request to act for the signed-in person and return the app's redirect address with a one-time authorization code (valid for 5 minutes). The app exchanges the code at `/oauth/token` for an access token that works like an API key of the person: in every company they are a member of, with the rights of their role there. The connection is listed among the person's API keys under the app's name and is revoked there. Refused with 422 like `account/oauth/authorize/describe`.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func oauthAuthorizeApprove(request: Requests.OauthAuthorizeApproveAccountRequest, requestOptions: RequestOptions? = nil) async throws -> OauthAuthorizeApproveAccountResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/oauth/authorize/approve",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: OauthAuthorizeApproveAccountResponse.self
+        )
+    }
+
+    /// Refuse an OAuth authorization request and return the app's redirect address with the error `access_denied`. Refused with 422 like `account/oauth/authorize/describe`.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func oauthAuthorizeDeny(request: Requests.OauthAuthorizeDenyAccountRequest, requestOptions: RequestOptions? = nil) async throws -> OauthAuthorizeDenyAccountResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/account/oauth/authorize/deny",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: OauthAuthorizeDenyAccountResponse.self
         )
     }
 }

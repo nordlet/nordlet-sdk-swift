@@ -7767,6 +7767,7 @@ import Api
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
                       "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
                       "projectId": "projectId",
                       "unit": "unit"
@@ -7815,6 +7816,7 @@ import Api
                     quantity: Optional("quantity"),
                     unitPriceExclVat: Optional("unitPriceExclVat"),
                     vatRatePercent: Optional("vatRatePercent"),
+                    vatClassifierCode: Optional("vatClassifierCode"),
                     vatExemptionBasis: Optional("vatExemptionBasis"),
                     projectId: Optional("projectId"),
                     unit: Optional("unit")
@@ -7867,6 +7869,7 @@ import Api
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
                       "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
                       "projectId": "x",
                       "unit": "unit"
@@ -7877,6 +7880,7 @@ import Api
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
                       "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
                       "projectId": "x",
                       "unit": "unit"
@@ -7925,6 +7929,7 @@ import Api
                     quantity: Optional("quantity"),
                     unitPriceExclVat: Optional("unitPriceExclVat"),
                     vatRatePercent: Optional("vatRatePercent"),
+                    vatClassifierCode: Optional("vatClassifierCode"),
                     vatExemptionBasis: Optional("vatExemptionBasis"),
                     projectId: Optional("x"),
                     unit: Optional("unit")
@@ -7935,6 +7940,7 @@ import Api
                     quantity: Optional("quantity"),
                     unitPriceExclVat: Optional("unitPriceExclVat"),
                     vatRatePercent: Optional("vatRatePercent"),
+                    vatClassifierCode: Optional("vatClassifierCode"),
                     vatExemptionBasis: Optional("vatExemptionBasis"),
                     projectId: Optional("x"),
                     unit: Optional("unit")
@@ -7987,6 +7993,7 @@ import Api
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
                       "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
                       "projectId": "projectId",
                       "unit": "unit"
@@ -8035,6 +8042,7 @@ import Api
                     quantity: Optional("quantity"),
                     unitPriceExclVat: Optional("unitPriceExclVat"),
                     vatRatePercent: Optional("vatRatePercent"),
+                    vatClassifierCode: Optional("vatClassifierCode"),
                     vatExemptionBasis: Optional("vatExemptionBasis"),
                     projectId: Optional("projectId"),
                     unit: Optional("unit")
@@ -8087,6 +8095,7 @@ import Api
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
                       "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
                       "projectId": "x",
                       "unit": "unit"
@@ -8097,6 +8106,7 @@ import Api
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
                       "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
                       "projectId": "x",
                       "unit": "unit"
@@ -8145,6 +8155,7 @@ import Api
                     quantity: Optional("quantity"),
                     unitPriceExclVat: Optional("unitPriceExclVat"),
                     vatRatePercent: Optional("vatRatePercent"),
+                    vatClassifierCode: Optional("vatClassifierCode"),
                     vatExemptionBasis: Optional("vatExemptionBasis"),
                     projectId: Optional("x"),
                     unit: Optional("unit")
@@ -8155,6 +8166,7 @@ import Api
                     quantity: Optional("quantity"),
                     unitPriceExclVat: Optional("unitPriceExclVat"),
                     vatRatePercent: Optional("vatRatePercent"),
+                    vatClassifierCode: Optional("vatClassifierCode"),
                     vatExemptionBasis: Optional("vatExemptionBasis"),
                     projectId: Optional("x"),
                     unit: Optional("unit")
@@ -8207,6 +8219,7 @@ import Api
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
                       "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
                       "projectId": "projectId",
                       "unit": "unit"
@@ -8255,6 +8268,7 @@ import Api
                     quantity: Optional("quantity"),
                     unitPriceExclVat: Optional("unitPriceExclVat"),
                     vatRatePercent: Optional("vatRatePercent"),
+                    vatClassifierCode: Optional("vatClassifierCode"),
                     vatExemptionBasis: Optional("vatExemptionBasis"),
                     projectId: Optional("projectId"),
                     unit: Optional("unit")
@@ -8307,6 +8321,7 @@ import Api
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
                       "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
                       "projectId": "x",
                       "unit": "unit"
@@ -8317,6 +8332,7 @@ import Api
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
                       "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
                       "projectId": "x",
                       "unit": "unit"
@@ -8365,6 +8381,7 @@ import Api
                     quantity: Optional("quantity"),
                     unitPriceExclVat: Optional("unitPriceExclVat"),
                     vatRatePercent: Optional("vatRatePercent"),
+                    vatClassifierCode: Optional("vatClassifierCode"),
                     vatExemptionBasis: Optional("vatExemptionBasis"),
                     projectId: Optional("x"),
                     unit: Optional("unit")
@@ -8375,6 +8392,7 @@ import Api
                     quantity: Optional("quantity"),
                     unitPriceExclVat: Optional("unitPriceExclVat"),
                     vatRatePercent: Optional("vatRatePercent"),
+                    vatClassifierCode: Optional("vatClassifierCode"),
                     vatExemptionBasis: Optional("vatExemptionBasis"),
                     projectId: Optional("x"),
                     unit: Optional("unit")
@@ -8595,6 +8613,7 @@ import Api
                           "quantity": "quantity",
                           "unitPriceExclVat": "unitPriceExclVat",
                           "vatRatePercent": "vatRatePercent",
+                          "vatClassifierCode": "vatClassifierCode",
                           "vatExemptionBasis": "vatExemptionBasis",
                           "projectId": "x",
                           "unit": "unit"
@@ -8605,6 +8624,7 @@ import Api
                           "quantity": "quantity",
                           "unitPriceExclVat": "unitPriceExclVat",
                           "vatRatePercent": "vatRatePercent",
+                          "vatClassifierCode": "vatClassifierCode",
                           "vatExemptionBasis": "vatExemptionBasis",
                           "projectId": "x",
                           "unit": "unit"
@@ -8645,6 +8665,7 @@ import Api
                           "quantity": "quantity",
                           "unitPriceExclVat": "unitPriceExclVat",
                           "vatRatePercent": "vatRatePercent",
+                          "vatClassifierCode": "vatClassifierCode",
                           "vatExemptionBasis": "vatExemptionBasis",
                           "projectId": "x",
                           "unit": "unit"
@@ -8655,6 +8676,7 @@ import Api
                           "quantity": "quantity",
                           "unitPriceExclVat": "unitPriceExclVat",
                           "vatRatePercent": "vatRatePercent",
+                          "vatClassifierCode": "vatClassifierCode",
                           "vatExemptionBasis": "vatExemptionBasis",
                           "projectId": "x",
                           "unit": "unit"
@@ -8718,6 +8740,7 @@ import Api
                             quantity: Optional("quantity"),
                             unitPriceExclVat: Optional("unitPriceExclVat"),
                             vatRatePercent: Optional("vatRatePercent"),
+                            vatClassifierCode: Optional("vatClassifierCode"),
                             vatExemptionBasis: Optional("vatExemptionBasis"),
                             projectId: Optional("x"),
                             unit: Optional("unit")
@@ -8728,6 +8751,7 @@ import Api
                             quantity: Optional("quantity"),
                             unitPriceExclVat: Optional("unitPriceExclVat"),
                             vatRatePercent: Optional("vatRatePercent"),
+                            vatClassifierCode: Optional("vatClassifierCode"),
                             vatExemptionBasis: Optional("vatExemptionBasis"),
                             projectId: Optional("x"),
                             unit: Optional("unit")
@@ -8768,6 +8792,7 @@ import Api
                             quantity: Optional("quantity"),
                             unitPriceExclVat: Optional("unitPriceExclVat"),
                             vatRatePercent: Optional("vatRatePercent"),
+                            vatClassifierCode: Optional("vatClassifierCode"),
                             vatExemptionBasis: Optional("vatExemptionBasis"),
                             projectId: Optional("x"),
                             unit: Optional("unit")
@@ -8778,6 +8803,7 @@ import Api
                             quantity: Optional("quantity"),
                             unitPriceExclVat: Optional("unitPriceExclVat"),
                             vatRatePercent: Optional("vatRatePercent"),
+                            vatClassifierCode: Optional("vatClassifierCode"),
                             vatExemptionBasis: Optional("vatExemptionBasis"),
                             projectId: Optional("x"),
                             unit: Optional("unit")

@@ -2,6 +2,7 @@ import Foundation
 
 public struct ExportAccountResponseCreditTransactionsItem: Codable, Hashable, Sendable {
     public let id: String
+    public let site: ExportAccountResponseCreditTransactionsItemSite
     public let type: String
     public let amountCents: Int64
     public let balanceAfterCents: Int64
@@ -12,6 +13,7 @@ public struct ExportAccountResponseCreditTransactionsItem: Codable, Hashable, Se
 
     public init(
         id: String,
+        site: ExportAccountResponseCreditTransactionsItemSite,
         type: String,
         amountCents: Int64,
         balanceAfterCents: Int64,
@@ -20,6 +22,7 @@ public struct ExportAccountResponseCreditTransactionsItem: Codable, Hashable, Se
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
+        self.site = site
         self.type = type
         self.amountCents = amountCents
         self.balanceAfterCents = balanceAfterCents
@@ -31,6 +34,7 @@ public struct ExportAccountResponseCreditTransactionsItem: Codable, Hashable, Se
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
+        self.site = try container.decode(ExportAccountResponseCreditTransactionsItemSite.self, forKey: .site)
         self.type = try container.decode(String.self, forKey: .type)
         self.amountCents = try container.decode(Int64.self, forKey: .amountCents)
         self.balanceAfterCents = try container.decode(Int64.self, forKey: .balanceAfterCents)
@@ -43,6 +47,7 @@ public struct ExportAccountResponseCreditTransactionsItem: Codable, Hashable, Se
         var container = encoder.container(keyedBy: CodingKeys.self)
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.id, forKey: .id)
+        try container.encode(self.site, forKey: .site)
         try container.encode(self.type, forKey: .type)
         try container.encode(self.amountCents, forKey: .amountCents)
         try container.encode(self.balanceAfterCents, forKey: .balanceAfterCents)
@@ -53,6 +58,7 @@ public struct ExportAccountResponseCreditTransactionsItem: Codable, Hashable, Se
     /// Keys for encoding/decoding struct properties.
     enum CodingKeys: String, CodingKey, CaseIterable {
         case id
+        case site
         case type
         case amountCents
         case balanceAfterCents

@@ -33,4 +33,5 @@ public enum InvoicesPdfSalesRequestLocale: String, Codable, Hashable, CaseIterab
     case hi
     case ru
     case tr
+    case uk
 }

@@ -1,6 +1,8 @@
 import Foundation
 
 public struct AccountSetPlanBillingResponse: Codable, Hashable, Sendable {
+    /// The site whose plan this is, from the `x-nordlet-site` header
+    public let site: AccountSetPlanBillingResponseSite
     public let plan: AccountSetPlanBillingResponsePlan
     public let accountType: AccountSetPlanBillingResponseAccountType
     public let status: AccountSetPlanBillingResponseStatus
@@ -27,6 +29,7 @@ public struct AccountSetPlanBillingResponse: Codable, Hashable, Sendable {
     public let additionalProperties: [String: JSONValue]
 
     public init(
+        site: AccountSetPlanBillingResponseSite,
         plan: AccountSetPlanBillingResponsePlan,
         accountType: AccountSetPlanBillingResponseAccountType,
         status: AccountSetPlanBillingResponseStatus,
@@ -50,6 +53,7 @@ public struct AccountSetPlanBillingResponse: Codable, Hashable, Sendable {
         trialDays: Int64,
         additionalProperties: [String: JSONValue] = .init()
     ) {
+        self.site = site
         self.plan = plan
         self.accountType = accountType
         self.status = status
@@ -76,6 +80,7 @@ public struct AccountSetPlanBillingResponse: Codable, Hashable, Sendable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.site = try container.decode(AccountSetPlanBillingResponseSite.self, forKey: .site)
         self.plan = try container.decode(AccountSetPlanBillingResponsePlan.self, forKey: .plan)
         self.accountType = try container.decode(AccountSetPlanBillingResponseAccountType.self, forKey: .accountType)
         self.status = try container.decode(AccountSetPlanBillingResponseStatus.self, forKey: .status)
@@ -103,6 +108,7 @@ public struct AccountSetPlanBillingResponse: Codable, Hashable, Sendable {
     public func encode(to encoder: Encoder) throws -> Void {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try encoder.encodeAdditionalProperties(self.additionalProperties)
+        try container.encode(self.site, forKey: .site)
         try container.encode(self.plan, forKey: .plan)
         try container.encode(self.accountType, forKey: .accountType)
         try container.encode(self.status, forKey: .status)
@@ -128,6 +134,7 @@ public struct AccountSetPlanBillingResponse: Codable, Hashable, Sendable {
 
     /// Keys for encoding/decoding struct properties.
     enum CodingKeys: String, CodingKey, CaseIterable {
+        case site
         case plan
         case accountType
         case status

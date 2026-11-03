@@ -334,7 +334,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPrice": "unitPrice",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -372,7 +373,8 @@ import Api
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
                     unitPrice: Nullable<String>.value("unitPrice"),
-                    vatRatePercent: Nullable<String>.value("vatRatePercent")
+                    vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -417,7 +419,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPrice": "unitPrice",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     },
                     {
                       "id": "x",
@@ -425,7 +428,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPrice": "unitPrice",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -463,7 +467,8 @@ import Api
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
                     unitPrice: Nullable<String>.value("unitPrice"),
-                    vatRatePercent: Nullable<String>.value("vatRatePercent")
+                    vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 ),
                 AgreementsCreateAgreementsResponseItemsItem(
                     id: "x",
@@ -471,7 +476,8 @@ import Api
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
                     unitPrice: Nullable<String>.value("unitPrice"),
-                    vatRatePercent: Nullable<String>.value("vatRatePercent")
+                    vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -516,7 +522,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPrice": "unitPrice",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -554,7 +561,8 @@ import Api
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
                     unitPrice: Nullable<String>.value("unitPrice"),
-                    vatRatePercent: Nullable<String>.value("vatRatePercent")
+                    vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -596,7 +604,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPrice": "unitPrice",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     },
                     {
                       "id": "x",
@@ -604,7 +613,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPrice": "unitPrice",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -642,7 +652,8 @@ import Api
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
                     unitPrice: Nullable<String>.value("unitPrice"),
-                    vatRatePercent: Nullable<String>.value("vatRatePercent")
+                    vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 ),
                 AgreementsGetAgreementsResponseItemsItem(
                     id: "x",
@@ -650,7 +661,8 @@ import Api
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
                     unitPrice: Nullable<String>.value("unitPrice"),
-                    vatRatePercent: Nullable<String>.value("vatRatePercent")
+                    vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -692,7 +704,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPrice": "unitPrice",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -730,7 +743,8 @@ import Api
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
                     unitPrice: Nullable<String>.value("unitPrice"),
-                    vatRatePercent: Nullable<String>.value("vatRatePercent")
+                    vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -772,7 +786,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPrice": "unitPrice",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     },
                     {
                       "id": "x",
@@ -780,7 +795,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPrice": "unitPrice",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -818,7 +834,8 @@ import Api
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
                     unitPrice: Nullable<String>.value("unitPrice"),
-                    vatRatePercent: Nullable<String>.value("vatRatePercent")
+                    vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 ),
                 AgreementsUpdateAgreementsResponseItemsItem(
                     id: "x",
@@ -826,7 +843,8 @@ import Api
                     description: "description",
                     quantity: Nullable<String>.value("quantity"),
                     unitPrice: Nullable<String>.value("unitPrice"),
-                    vatRatePercent: Nullable<String>.value("vatRatePercent")
+                    vatRatePercent: Nullable<String>.value("vatRatePercent"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )

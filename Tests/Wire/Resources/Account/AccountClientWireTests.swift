@@ -2049,7 +2049,6 @@ import Api
                       "lastUsedAt": "2026-07-01T09:30:00Z",
                       "expiresAt": "2026-07-01T09:30:00Z",
                       "replacedByKeyId": "replacedByKeyId",
-                      "createdByUserId": "createdByUserId",
                       "revokedAt": "2026-07-01T09:30:00Z",
                       "createdAt": "2026-07-01T09:30:00Z"
                     }
@@ -2074,7 +2073,6 @@ import Api
                     lastUsedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     expiresAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     replacedByKeyId: Nullable<String>.value("replacedByKeyId"),
-                    createdByUserId: Nullable<String>.value("createdByUserId"),
                     revokedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
@@ -2104,7 +2102,6 @@ import Api
                       "lastUsedAt": "2024-01-15T09:30:00Z",
                       "expiresAt": "2024-01-15T09:30:00Z",
                       "replacedByKeyId": "x",
-                      "createdByUserId": "x",
                       "revokedAt": "2024-01-15T09:30:00Z",
                       "createdAt": "2024-01-15T09:30:00Z"
                     },
@@ -2118,7 +2115,6 @@ import Api
                       "lastUsedAt": "2024-01-15T09:30:00Z",
                       "expiresAt": "2024-01-15T09:30:00Z",
                       "replacedByKeyId": "x",
-                      "createdByUserId": "x",
                       "revokedAt": "2024-01-15T09:30:00Z",
                       "createdAt": "2024-01-15T09:30:00Z"
                     }
@@ -2144,7 +2140,6 @@ import Api
                     lastUsedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     expiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     replacedByKeyId: Nullable<String>.value("x"),
-                    createdByUserId: Nullable<String>.value("x"),
                     revokedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
@@ -2158,7 +2153,6 @@ import Api
                     lastUsedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     expiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     replacedByKeyId: Nullable<String>.value("x"),
-                    createdByUserId: Nullable<String>.value("x"),
                     revokedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
@@ -2774,9 +2768,20 @@ import Api
                     "trialEndsAt": "2026-07-01T09:30:00Z",
                     "firstTopUpAt": "2026-07-01T09:30:00Z"
                   },
+                  "billingAccounts": [
+                    {
+                      "site": "app",
+                      "status": "status",
+                      "plan": "plan",
+                      "balanceCents": 1000000,
+                      "trialEndsAt": "2026-07-01T09:30:00Z",
+                      "firstTopUpAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
                   "creditTransactions": [
                     {
                       "id": "id",
+                      "site": "app",
                       "type": "type",
                       "amountCents": 1000000,
                       "balanceAfterCents": 1000000,
@@ -2849,9 +2854,20 @@ import Api
                 trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                 firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
             )),
+            billingAccounts: [
+                ExportAccountResponseBillingAccountsItem(
+                    site: .app,
+                    status: "status",
+                    plan: "plan",
+                    balanceCents: 1000000,
+                    trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
+                )
+            ],
             creditTransactions: [
                 ExportAccountResponseCreditTransactionsItem(
                     id: "id",
+                    site: .app,
                     type: "type",
                     amountCents: 1000000,
                     balanceAfterCents: 1000000,
@@ -2944,9 +2960,28 @@ import Api
                     "trialEndsAt": "2024-01-15T09:30:00Z",
                     "firstTopUpAt": "2024-01-15T09:30:00Z"
                   },
+                  "billingAccounts": [
+                    {
+                      "site": "app",
+                      "status": "status",
+                      "plan": "plan",
+                      "balanceCents": 1000000,
+                      "trialEndsAt": "2024-01-15T09:30:00Z",
+                      "firstTopUpAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "site": "app",
+                      "status": "status",
+                      "plan": "plan",
+                      "balanceCents": 1000000,
+                      "trialEndsAt": "2024-01-15T09:30:00Z",
+                      "firstTopUpAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
                   "creditTransactions": [
                     {
                       "id": "x",
+                      "site": "app",
                       "type": "type",
                       "amountCents": 1000000,
                       "balanceAfterCents": 1000000,
@@ -2955,6 +2990,7 @@ import Api
                     },
                     {
                       "id": "x",
+                      "site": "app",
                       "type": "type",
                       "amountCents": 1000000,
                       "balanceAfterCents": 1000000,
@@ -3051,9 +3087,28 @@ import Api
                 trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                 firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
             )),
+            billingAccounts: [
+                ExportAccountResponseBillingAccountsItem(
+                    site: .app,
+                    status: "status",
+                    plan: "plan",
+                    balanceCents: 1000000,
+                    trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+                ),
+                ExportAccountResponseBillingAccountsItem(
+                    site: .app,
+                    status: "status",
+                    plan: "plan",
+                    balanceCents: 1000000,
+                    trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+                )
+            ],
             creditTransactions: [
                 ExportAccountResponseCreditTransactionsItem(
                     id: "x",
+                    site: .app,
                     type: "type",
                     amountCents: 1000000,
                     balanceAfterCents: 1000000,
@@ -3062,6 +3117,7 @@ import Api
                 ),
                 ExportAccountResponseCreditTransactionsItem(
                     id: "x",
+                    site: .app,
                     type: "type",
                     amountCents: 1000000,
                     balanceAfterCents: 1000000,
@@ -3566,6 +3622,184 @@ import Api
         )
         let response = try await client.account.tableSettingsList(
             request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func oauthAuthorizeDescribe1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "clientName": "clientName",
+                  "redirectUri": "redirectUri",
+                  "redirectHost": "redirectHost",
+                  "scopes": [
+                    "scopes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = OauthAuthorizeDescribeAccountResponse(
+            clientName: "clientName",
+            redirectUri: "redirectUri",
+            redirectHost: "redirectHost",
+            scopes: [
+                "scopes"
+            ]
+        )
+        let response = try await client.account.oauthAuthorizeDescribe(
+            request: .init(clientId: "clientId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func oauthAuthorizeDescribe2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "clientName": "clientName",
+                  "redirectUri": "redirectUri",
+                  "redirectHost": "redirectHost",
+                  "scopes": [
+                    "scopes",
+                    "scopes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = OauthAuthorizeDescribeAccountResponse(
+            clientName: "clientName",
+            redirectUri: "redirectUri",
+            redirectHost: "redirectHost",
+            scopes: [
+                "scopes",
+                "scopes"
+            ]
+        )
+        let response = try await client.account.oauthAuthorizeDescribe(
+            request: .init(clientId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func oauthAuthorizeApprove1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "redirectTo": "redirectTo"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = OauthAuthorizeApproveAccountResponse(
+            redirectTo: "redirectTo"
+        )
+        let response = try await client.account.oauthAuthorizeApprove(
+            request: .init(clientId: "clientId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func oauthAuthorizeApprove2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "redirectTo": "redirectTo"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = OauthAuthorizeApproveAccountResponse(
+            redirectTo: "redirectTo"
+        )
+        let response = try await client.account.oauthAuthorizeApprove(
+            request: .init(clientId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func oauthAuthorizeDeny1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "redirectTo": "redirectTo"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = OauthAuthorizeDenyAccountResponse(
+            redirectTo: "redirectTo"
+        )
+        let response = try await client.account.oauthAuthorizeDeny(
+            request: .init(clientId: "clientId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func oauthAuthorizeDeny2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "redirectTo": "redirectTo"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = OauthAuthorizeDenyAccountResponse(
+            redirectTo: "redirectTo"
+        )
+        let response = try await client.account.oauthAuthorizeDeny(
+            request: .init(clientId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

@@ -7,6 +7,7 @@ public struct AgreementsCreateAgreementsResponseItemsItem: Codable, Hashable, Se
     public let quantity: Nullable<String>
     public let unitPrice: Nullable<String>
     public let vatRatePercent: Nullable<String>
+    public let vatClassifierCode: Nullable<String>
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -17,6 +18,7 @@ public struct AgreementsCreateAgreementsResponseItemsItem: Codable, Hashable, Se
         quantity: Nullable<String>,
         unitPrice: Nullable<String>,
         vatRatePercent: Nullable<String>,
+        vatClassifierCode: Nullable<String>,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -25,6 +27,7 @@ public struct AgreementsCreateAgreementsResponseItemsItem: Codable, Hashable, Se
         self.quantity = quantity
         self.unitPrice = unitPrice
         self.vatRatePercent = vatRatePercent
+        self.vatClassifierCode = vatClassifierCode
         self.additionalProperties = additionalProperties
     }
 
@@ -36,6 +39,7 @@ public struct AgreementsCreateAgreementsResponseItemsItem: Codable, Hashable, Se
         self.quantity = try container.decode(Nullable<String>.self, forKey: .quantity)
         self.unitPrice = try container.decode(Nullable<String>.self, forKey: .unitPrice)
         self.vatRatePercent = try container.decode(Nullable<String>.self, forKey: .vatRatePercent)
+        self.vatClassifierCode = try container.decode(Nullable<String>.self, forKey: .vatClassifierCode)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -48,6 +52,7 @@ public struct AgreementsCreateAgreementsResponseItemsItem: Codable, Hashable, Se
         try container.encode(self.quantity, forKey: .quantity)
         try container.encode(self.unitPrice, forKey: .unitPrice)
         try container.encode(self.vatRatePercent, forKey: .vatRatePercent)
+        try container.encode(self.vatClassifierCode, forKey: .vatClassifierCode)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -58,5 +63,6 @@ public struct AgreementsCreateAgreementsResponseItemsItem: Codable, Hashable, Se
         case quantity
         case unitPrice
         case vatRatePercent
+        case vatClassifierCode
     }
 }

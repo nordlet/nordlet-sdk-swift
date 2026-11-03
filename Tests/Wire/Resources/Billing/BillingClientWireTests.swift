@@ -9,6 +9,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -65,6 +66,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = AccountGetBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -125,6 +127,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -181,6 +184,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = AccountGetBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -241,6 +245,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -297,6 +302,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = AccountSetPlanBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -357,6 +363,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -413,6 +420,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = AccountSetPlanBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -473,6 +481,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -529,6 +538,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = AccountSetAccountTypeBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -589,6 +599,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -645,6 +656,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = AccountSetAccountTypeBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -705,6 +717,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -761,6 +774,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = AccountSetAutoTopUpBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -824,6 +838,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -880,6 +895,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = AccountSetAutoTopUpBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -943,6 +959,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -999,6 +1016,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = AccountSetOverdraftCapBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -1059,6 +1077,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -1115,6 +1134,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = AccountSetOverdraftCapBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -1231,6 +1251,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -1287,6 +1308,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = TopupConfirmBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -1347,6 +1369,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -1403,6 +1426,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = TopupConfirmBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -1519,6 +1543,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -1575,6 +1600,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = FlatRateConfirmBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -1635,6 +1661,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -1691,6 +1718,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = FlatRateConfirmBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -1751,6 +1779,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -1807,6 +1836,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = SubscriptionCancelBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -1867,6 +1897,7 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "site": "app",
                   "plan": "starter",
                   "accountType": "flat_rate",
                   "status": "trial",
@@ -1923,6 +1954,7 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = SubscriptionCancelBillingResponse(
+            site: .app,
             plan: .starter,
             accountType: .flatRate,
             status: .trial,
@@ -2154,6 +2186,7 @@ import Api
                   "rows": [
                     {
                       "companyId": "companyId",
+                      "site": "app",
                       "date": "2026-07-01",
                       "metric": "api_request",
                       "quantity": 1.1
@@ -2172,6 +2205,7 @@ import Api
             rows: [
                 UsageListBillingResponseRowsItem(
                     companyId: "companyId",
+                    site: .app,
                     date: CalendarDate("2026-07-01")!,
                     metric: .apiRequest,
                     quantity: 1.1
@@ -2197,12 +2231,14 @@ import Api
                   "rows": [
                     {
                       "companyId": "x",
+                      "site": "app",
                       "date": "2023-01-15",
                       "metric": "api_request",
                       "quantity": 1.1
                     },
                     {
                       "companyId": "x",
+                      "site": "app",
                       "date": "2023-01-15",
                       "metric": "api_request",
                       "quantity": 1.1
@@ -2221,12 +2257,14 @@ import Api
             rows: [
                 UsageListBillingResponseRowsItem(
                     companyId: "x",
+                    site: .app,
                     date: CalendarDate("2023-01-15")!,
                     metric: .apiRequest,
                     quantity: 1.1
                 ),
                 UsageListBillingResponseRowsItem(
                     companyId: "x",
+                    site: .app,
                     date: CalendarDate("2023-01-15")!,
                     metric: .apiRequest,
                     quantity: 1.1

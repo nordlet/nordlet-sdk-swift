@@ -7,6 +7,7 @@ public struct ExportAccountResponse: Codable, Hashable, Sendable {
     public let memberships: [ExportAccountResponseMembershipsItem]
     public let sessions: [ExportAccountResponseSessionsItem]
     public let billing: Nullable<ExportAccountResponseBilling>
+    public let billingAccounts: [ExportAccountResponseBillingAccountsItem]
     public let creditTransactions: [ExportAccountResponseCreditTransactionsItem]
     public let auditEntries: [ExportAccountResponseAuditEntriesItem]
     /// Additional properties that are not explicitly defined in the schema
@@ -19,6 +20,7 @@ public struct ExportAccountResponse: Codable, Hashable, Sendable {
         memberships: [ExportAccountResponseMembershipsItem],
         sessions: [ExportAccountResponseSessionsItem],
         billing: Nullable<ExportAccountResponseBilling>,
+        billingAccounts: [ExportAccountResponseBillingAccountsItem],
         creditTransactions: [ExportAccountResponseCreditTransactionsItem],
         auditEntries: [ExportAccountResponseAuditEntriesItem],
         additionalProperties: [String: JSONValue] = .init()
@@ -29,6 +31,7 @@ public struct ExportAccountResponse: Codable, Hashable, Sendable {
         self.memberships = memberships
         self.sessions = sessions
         self.billing = billing
+        self.billingAccounts = billingAccounts
         self.creditTransactions = creditTransactions
         self.auditEntries = auditEntries
         self.additionalProperties = additionalProperties
@@ -42,6 +45,7 @@ public struct ExportAccountResponse: Codable, Hashable, Sendable {
         self.memberships = try container.decode([ExportAccountResponseMembershipsItem].self, forKey: .memberships)
         self.sessions = try container.decode([ExportAccountResponseSessionsItem].self, forKey: .sessions)
         self.billing = try container.decode(Nullable<ExportAccountResponseBilling>.self, forKey: .billing)
+        self.billingAccounts = try container.decode([ExportAccountResponseBillingAccountsItem].self, forKey: .billingAccounts)
         self.creditTransactions = try container.decode([ExportAccountResponseCreditTransactionsItem].self, forKey: .creditTransactions)
         self.auditEntries = try container.decode([ExportAccountResponseAuditEntriesItem].self, forKey: .auditEntries)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -56,6 +60,7 @@ public struct ExportAccountResponse: Codable, Hashable, Sendable {
         try container.encode(self.memberships, forKey: .memberships)
         try container.encode(self.sessions, forKey: .sessions)
         try container.encode(self.billing, forKey: .billing)
+        try container.encode(self.billingAccounts, forKey: .billingAccounts)
         try container.encode(self.creditTransactions, forKey: .creditTransactions)
         try container.encode(self.auditEntries, forKey: .auditEntries)
     }
@@ -68,6 +73,7 @@ public struct ExportAccountResponse: Codable, Hashable, Sendable {
         case memberships
         case sessions
         case billing
+        case billingAccounts
         case creditTransactions
         case auditEntries
     }

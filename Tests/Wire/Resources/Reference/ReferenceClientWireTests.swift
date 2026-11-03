@@ -1256,7 +1256,14 @@ import Api
                       "code": "code",
                       "countryCode": "countryCode",
                       "name": "name",
-                      "ratePercent": "ratePercent"
+                      "nameEn": "nameEn",
+                      "ratePercent": "ratePercent",
+                      "side": "sale",
+                      "scheme": "domestic",
+                      "rateFromLine": {
+                        "sale": true,
+                        "purchase": true
+                      }
                     }
                   ],
                   "page": 1000000,
@@ -1285,7 +1292,14 @@ import Api
                     code: "code",
                     countryCode: "countryCode",
                     name: "name",
-                    ratePercent: Nullable<String>.value("ratePercent")
+                    nameEn: Nullable<String>.value("nameEn"),
+                    ratePercent: Nullable<String>.value("ratePercent"),
+                    side: .sale,
+                    scheme: Nullable<VatClassifiersListReferenceResponseRowsItemScheme>.value(.domestic),
+                    rateFromLine: VatClassifiersListReferenceResponseRowsItemRateFromLine(
+                        sale: true,
+                        purchase: true
+                    )
                 )
             ],
             page: 1000000,
@@ -1318,13 +1332,27 @@ import Api
                       "code": "code",
                       "countryCode": "countryCode",
                       "name": "name",
-                      "ratePercent": "ratePercent"
+                      "nameEn": "nameEn",
+                      "ratePercent": "ratePercent",
+                      "side": "sale",
+                      "scheme": "domestic",
+                      "rateFromLine": {
+                        "sale": true,
+                        "purchase": true
+                      }
                     },
                     {
                       "code": "code",
                       "countryCode": "countryCode",
                       "name": "name",
-                      "ratePercent": "ratePercent"
+                      "nameEn": "nameEn",
+                      "ratePercent": "ratePercent",
+                      "side": "sale",
+                      "scheme": "domestic",
+                      "rateFromLine": {
+                        "sale": true,
+                        "purchase": true
+                      }
                     }
                   ],
                   "page": 1000000,
@@ -1353,13 +1381,27 @@ import Api
                     code: "code",
                     countryCode: "countryCode",
                     name: "name",
-                    ratePercent: Nullable<String>.value("ratePercent")
+                    nameEn: Nullable<String>.value("nameEn"),
+                    ratePercent: Nullable<String>.value("ratePercent"),
+                    side: .sale,
+                    scheme: Nullable<VatClassifiersListReferenceResponseRowsItemScheme>.value(.domestic),
+                    rateFromLine: VatClassifiersListReferenceResponseRowsItemRateFromLine(
+                        sale: true,
+                        purchase: true
+                    )
                 ),
                 VatClassifiersListReferenceResponseRowsItem(
                     code: "code",
                     countryCode: "countryCode",
                     name: "name",
-                    ratePercent: Nullable<String>.value("ratePercent")
+                    nameEn: Nullable<String>.value("nameEn"),
+                    ratePercent: Nullable<String>.value("ratePercent"),
+                    side: .sale,
+                    scheme: Nullable<VatClassifiersListReferenceResponseRowsItemScheme>.value(.domestic),
+                    rateFromLine: VatClassifiersListReferenceResponseRowsItemRateFromLine(
+                        sale: true,
+                        purchase: true
+                    )
                 )
             ],
             page: 1000000,

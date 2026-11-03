@@ -34,4 +34,5 @@ public enum CreatePartnersRequestInvoiceLocale: String, Codable, Hashable, CaseI
     case hi
     case ru
     case tr
+    case uk
 }

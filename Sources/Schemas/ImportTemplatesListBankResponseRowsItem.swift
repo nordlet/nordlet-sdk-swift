@@ -8,6 +8,7 @@ public struct ImportTemplatesListBankResponseRowsItem: Codable, Hashable, Sendab
     public let metaFields: [String]
     public let invoiceMetaField: Nullable<String>
     public let invoiceVatRatePercent: Nullable<String>
+    public let invoiceVatClassifierCode: Nullable<String>
     public let companyMetaField: Nullable<String>
     public let invoiceItemId: Nullable<String>
     public let advanceInvoices: Bool
@@ -32,6 +33,7 @@ public struct ImportTemplatesListBankResponseRowsItem: Codable, Hashable, Sendab
         metaFields: [String],
         invoiceMetaField: Nullable<String>,
         invoiceVatRatePercent: Nullable<String>,
+        invoiceVatClassifierCode: Nullable<String>,
         companyMetaField: Nullable<String>,
         invoiceItemId: Nullable<String>,
         advanceInvoices: Bool,
@@ -53,6 +55,7 @@ public struct ImportTemplatesListBankResponseRowsItem: Codable, Hashable, Sendab
         self.metaFields = metaFields
         self.invoiceMetaField = invoiceMetaField
         self.invoiceVatRatePercent = invoiceVatRatePercent
+        self.invoiceVatClassifierCode = invoiceVatClassifierCode
         self.companyMetaField = companyMetaField
         self.invoiceItemId = invoiceItemId
         self.advanceInvoices = advanceInvoices
@@ -77,6 +80,7 @@ public struct ImportTemplatesListBankResponseRowsItem: Codable, Hashable, Sendab
         self.metaFields = try container.decode([String].self, forKey: .metaFields)
         self.invoiceMetaField = try container.decode(Nullable<String>.self, forKey: .invoiceMetaField)
         self.invoiceVatRatePercent = try container.decode(Nullable<String>.self, forKey: .invoiceVatRatePercent)
+        self.invoiceVatClassifierCode = try container.decode(Nullable<String>.self, forKey: .invoiceVatClassifierCode)
         self.companyMetaField = try container.decode(Nullable<String>.self, forKey: .companyMetaField)
         self.invoiceItemId = try container.decode(Nullable<String>.self, forKey: .invoiceItemId)
         self.advanceInvoices = try container.decode(Bool.self, forKey: .advanceInvoices)
@@ -102,6 +106,7 @@ public struct ImportTemplatesListBankResponseRowsItem: Codable, Hashable, Sendab
         try container.encode(self.metaFields, forKey: .metaFields)
         try container.encode(self.invoiceMetaField, forKey: .invoiceMetaField)
         try container.encode(self.invoiceVatRatePercent, forKey: .invoiceVatRatePercent)
+        try container.encode(self.invoiceVatClassifierCode, forKey: .invoiceVatClassifierCode)
         try container.encode(self.companyMetaField, forKey: .companyMetaField)
         try container.encode(self.invoiceItemId, forKey: .invoiceItemId)
         try container.encode(self.advanceInvoices, forKey: .advanceInvoices)
@@ -125,6 +130,7 @@ public struct ImportTemplatesListBankResponseRowsItem: Codable, Hashable, Sendab
         case metaFields
         case invoiceMetaField
         case invoiceVatRatePercent
+        case invoiceVatClassifierCode
         case companyMetaField
         case invoiceItemId
         case advanceInvoices

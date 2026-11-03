@@ -6,6 +6,7 @@ public struct OrdersCreateEcommerceRequestLinesItem: Codable, Hashable, Sendable
     public let quantity: String
     public let unitPriceExclVat: String
     public let vatRatePercent: String?
+    public let vatClassifierCode: String?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -15,6 +16,7 @@ public struct OrdersCreateEcommerceRequestLinesItem: Codable, Hashable, Sendable
         quantity: String,
         unitPriceExclVat: String,
         vatRatePercent: String? = nil,
+        vatClassifierCode: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.itemId = itemId
@@ -22,6 +24,7 @@ public struct OrdersCreateEcommerceRequestLinesItem: Codable, Hashable, Sendable
         self.quantity = quantity
         self.unitPriceExclVat = unitPriceExclVat
         self.vatRatePercent = vatRatePercent
+        self.vatClassifierCode = vatClassifierCode
         self.additionalProperties = additionalProperties
     }
 
@@ -32,6 +35,7 @@ public struct OrdersCreateEcommerceRequestLinesItem: Codable, Hashable, Sendable
         self.quantity = try container.decode(String.self, forKey: .quantity)
         self.unitPriceExclVat = try container.decode(String.self, forKey: .unitPriceExclVat)
         self.vatRatePercent = try container.decodeIfPresent(String.self, forKey: .vatRatePercent)
+        self.vatClassifierCode = try container.decodeIfPresent(String.self, forKey: .vatClassifierCode)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -43,6 +47,7 @@ public struct OrdersCreateEcommerceRequestLinesItem: Codable, Hashable, Sendable
         try container.encode(self.quantity, forKey: .quantity)
         try container.encode(self.unitPriceExclVat, forKey: .unitPriceExclVat)
         try container.encodeIfPresent(self.vatRatePercent, forKey: .vatRatePercent)
+        try container.encodeIfPresent(self.vatClassifierCode, forKey: .vatClassifierCode)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -52,5 +57,6 @@ public struct OrdersCreateEcommerceRequestLinesItem: Codable, Hashable, Sendable
         case quantity
         case unitPriceExclVat
         case vatRatePercent
+        case vatClassifierCode
     }
 }

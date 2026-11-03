@@ -33,4 +33,5 @@ public enum InvoicesSendSalesRequestLocale: String, Codable, Hashable, CaseItera
     case hi
     case ru
     case tr
+    case uk
 }

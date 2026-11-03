@@ -34,4 +34,5 @@ public enum CompaniesCreateAccountRequestDefaultInvoiceLocale: String, Codable, 
     case hi
     case ru
     case tr
+    case uk
 }

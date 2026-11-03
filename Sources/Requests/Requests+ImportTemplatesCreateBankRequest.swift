@@ -8,6 +8,7 @@ extension Requests {
         public let metaFields: [String]?
         public let invoiceMetaField: Nullable<String>?
         public let invoiceVatRatePercent: Nullable<String>?
+        public let invoiceVatClassifierCode: Nullable<String>?
         public let companyMetaField: Nullable<String>?
         public let invoiceItemId: Nullable<String>?
         public let advanceInvoices: Bool?
@@ -27,6 +28,7 @@ extension Requests {
             metaFields: [String]? = nil,
             invoiceMetaField: Nullable<String>? = nil,
             invoiceVatRatePercent: Nullable<String>? = nil,
+            invoiceVatClassifierCode: Nullable<String>? = nil,
             companyMetaField: Nullable<String>? = nil,
             invoiceItemId: Nullable<String>? = nil,
             advanceInvoices: Bool? = nil,
@@ -44,6 +46,7 @@ extension Requests {
             self.metaFields = metaFields
             self.invoiceMetaField = invoiceMetaField
             self.invoiceVatRatePercent = invoiceVatRatePercent
+            self.invoiceVatClassifierCode = invoiceVatClassifierCode
             self.companyMetaField = companyMetaField
             self.invoiceItemId = invoiceItemId
             self.advanceInvoices = advanceInvoices
@@ -64,6 +67,7 @@ extension Requests {
             self.metaFields = try container.decodeIfPresent([String].self, forKey: .metaFields)
             self.invoiceMetaField = try container.decodeNullableIfPresent(String.self, forKey: .invoiceMetaField)
             self.invoiceVatRatePercent = try container.decodeNullableIfPresent(String.self, forKey: .invoiceVatRatePercent)
+            self.invoiceVatClassifierCode = try container.decodeNullableIfPresent(String.self, forKey: .invoiceVatClassifierCode)
             self.companyMetaField = try container.decodeNullableIfPresent(String.self, forKey: .companyMetaField)
             self.invoiceItemId = try container.decodeNullableIfPresent(String.self, forKey: .invoiceItemId)
             self.advanceInvoices = try container.decodeIfPresent(Bool.self, forKey: .advanceInvoices)
@@ -85,6 +89,7 @@ extension Requests {
             try container.encodeIfPresent(self.metaFields, forKey: .metaFields)
             try container.encodeNullableIfPresent(self.invoiceMetaField, forKey: .invoiceMetaField)
             try container.encodeNullableIfPresent(self.invoiceVatRatePercent, forKey: .invoiceVatRatePercent)
+            try container.encodeNullableIfPresent(self.invoiceVatClassifierCode, forKey: .invoiceVatClassifierCode)
             try container.encodeNullableIfPresent(self.companyMetaField, forKey: .companyMetaField)
             try container.encodeNullableIfPresent(self.invoiceItemId, forKey: .invoiceItemId)
             try container.encodeIfPresent(self.advanceInvoices, forKey: .advanceInvoices)
@@ -104,6 +109,7 @@ extension Requests {
             case metaFields
             case invoiceMetaField
             case invoiceVatRatePercent
+            case invoiceVatClassifierCode
             case companyMetaField
             case invoiceItemId
             case advanceInvoices

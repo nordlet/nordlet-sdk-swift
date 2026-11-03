@@ -28,7 +28,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -60,7 +61,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -102,7 +104,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     },
                     {
                       "id": "x",
@@ -110,7 +113,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -142,7 +146,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 ),
                 OrdersCreateEcommerceResponseLinesItem(
                     id: "x",
@@ -150,7 +155,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -197,7 +203,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -229,7 +236,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -265,7 +273,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     },
                     {
                       "id": "x",
@@ -273,7 +282,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -305,7 +315,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 ),
                 OrdersGetEcommerceResponseLinesItem(
                     id: "x",
@@ -313,7 +324,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -533,7 +545,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -565,7 +578,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -601,7 +615,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     },
                     {
                       "id": "x",
@@ -609,7 +624,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -641,7 +657,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 ),
                 OrdersReserveEcommerceResponseLinesItem(
                     id: "x",
@@ -649,7 +666,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -685,7 +703,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -717,7 +736,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -753,7 +773,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     },
                     {
                       "id": "x",
@@ -761,7 +782,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -793,7 +815,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 ),
                 OrdersFulfillEcommerceResponseLinesItem(
                     id: "x",
@@ -801,7 +824,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -837,7 +861,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -869,7 +894,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )
@@ -905,7 +931,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     },
                     {
                       "id": "x",
@@ -913,7 +940,8 @@ import Api
                       "description": "description",
                       "quantity": "quantity",
                       "unitPriceExclVat": "unitPriceExclVat",
-                      "vatRatePercent": "vatRatePercent"
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode"
                     }
                   ]
                 }
@@ -945,7 +973,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 ),
                 OrdersCancelEcommerceResponseLinesItem(
                     id: "x",
@@ -953,7 +982,8 @@ import Api
                     description: "description",
                     quantity: "quantity",
                     unitPriceExclVat: "unitPriceExclVat",
-                    vatRatePercent: "vatRatePercent"
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode")
                 )
             ]
         )

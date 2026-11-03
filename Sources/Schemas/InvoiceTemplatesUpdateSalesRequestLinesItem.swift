@@ -6,6 +6,7 @@ public struct InvoiceTemplatesUpdateSalesRequestLinesItem: Codable, Hashable, Se
     public let quantity: String?
     public let unitPriceExclVat: String?
     public let vatRatePercent: String?
+    public let vatClassifierCode: String?
     public let vatExemptionBasis: String?
     public let projectId: String?
     public let unit: String?
@@ -18,6 +19,7 @@ public struct InvoiceTemplatesUpdateSalesRequestLinesItem: Codable, Hashable, Se
         quantity: String? = nil,
         unitPriceExclVat: String? = nil,
         vatRatePercent: String? = nil,
+        vatClassifierCode: String? = nil,
         vatExemptionBasis: String? = nil,
         projectId: String? = nil,
         unit: String? = nil,
@@ -28,6 +30,7 @@ public struct InvoiceTemplatesUpdateSalesRequestLinesItem: Codable, Hashable, Se
         self.quantity = quantity
         self.unitPriceExclVat = unitPriceExclVat
         self.vatRatePercent = vatRatePercent
+        self.vatClassifierCode = vatClassifierCode
         self.vatExemptionBasis = vatExemptionBasis
         self.projectId = projectId
         self.unit = unit
@@ -41,6 +44,7 @@ public struct InvoiceTemplatesUpdateSalesRequestLinesItem: Codable, Hashable, Se
         self.quantity = try container.decodeIfPresent(String.self, forKey: .quantity)
         self.unitPriceExclVat = try container.decodeIfPresent(String.self, forKey: .unitPriceExclVat)
         self.vatRatePercent = try container.decodeIfPresent(String.self, forKey: .vatRatePercent)
+        self.vatClassifierCode = try container.decodeIfPresent(String.self, forKey: .vatClassifierCode)
         self.vatExemptionBasis = try container.decodeIfPresent(String.self, forKey: .vatExemptionBasis)
         self.projectId = try container.decodeIfPresent(String.self, forKey: .projectId)
         self.unit = try container.decodeIfPresent(String.self, forKey: .unit)
@@ -55,6 +59,7 @@ public struct InvoiceTemplatesUpdateSalesRequestLinesItem: Codable, Hashable, Se
         try container.encodeIfPresent(self.quantity, forKey: .quantity)
         try container.encodeIfPresent(self.unitPriceExclVat, forKey: .unitPriceExclVat)
         try container.encodeIfPresent(self.vatRatePercent, forKey: .vatRatePercent)
+        try container.encodeIfPresent(self.vatClassifierCode, forKey: .vatClassifierCode)
         try container.encodeIfPresent(self.vatExemptionBasis, forKey: .vatExemptionBasis)
         try container.encodeIfPresent(self.projectId, forKey: .projectId)
         try container.encodeIfPresent(self.unit, forKey: .unit)
@@ -67,6 +72,7 @@ public struct InvoiceTemplatesUpdateSalesRequestLinesItem: Codable, Hashable, Se
         case quantity
         case unitPriceExclVat
         case vatRatePercent
+        case vatClassifierCode
         case vatExemptionBasis
         case projectId
         case unit

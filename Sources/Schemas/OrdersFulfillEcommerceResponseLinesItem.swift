@@ -7,6 +7,7 @@ public struct OrdersFulfillEcommerceResponseLinesItem: Codable, Hashable, Sendab
     public let quantity: String
     public let unitPriceExclVat: String
     public let vatRatePercent: String
+    public let vatClassifierCode: Nullable<String>
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -17,6 +18,7 @@ public struct OrdersFulfillEcommerceResponseLinesItem: Codable, Hashable, Sendab
         quantity: String,
         unitPriceExclVat: String,
         vatRatePercent: String,
+        vatClassifierCode: Nullable<String>,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -25,6 +27,7 @@ public struct OrdersFulfillEcommerceResponseLinesItem: Codable, Hashable, Sendab
         self.quantity = quantity
         self.unitPriceExclVat = unitPriceExclVat
         self.vatRatePercent = vatRatePercent
+        self.vatClassifierCode = vatClassifierCode
         self.additionalProperties = additionalProperties
     }
 
@@ -36,6 +39,7 @@ public struct OrdersFulfillEcommerceResponseLinesItem: Codable, Hashable, Sendab
         self.quantity = try container.decode(String.self, forKey: .quantity)
         self.unitPriceExclVat = try container.decode(String.self, forKey: .unitPriceExclVat)
         self.vatRatePercent = try container.decode(String.self, forKey: .vatRatePercent)
+        self.vatClassifierCode = try container.decode(Nullable<String>.self, forKey: .vatClassifierCode)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -48,6 +52,7 @@ public struct OrdersFulfillEcommerceResponseLinesItem: Codable, Hashable, Sendab
         try container.encode(self.quantity, forKey: .quantity)
         try container.encode(self.unitPriceExclVat, forKey: .unitPriceExclVat)
         try container.encode(self.vatRatePercent, forKey: .vatRatePercent)
+        try container.encode(self.vatClassifierCode, forKey: .vatClassifierCode)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -58,5 +63,6 @@ public struct OrdersFulfillEcommerceResponseLinesItem: Codable, Hashable, Sendab
         case quantity
         case unitPriceExclVat
         case vatRatePercent
+        case vatClassifierCode
     }
 }
