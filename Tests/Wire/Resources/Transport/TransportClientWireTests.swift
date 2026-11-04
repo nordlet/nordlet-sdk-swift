@@ -37,6 +37,8 @@ import Api
                       "description": "description",
                       "unit": "unit",
                       "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
                       "productCode": "productCode",
                       "sortOrder": 1000000
                     }
@@ -79,6 +81,8 @@ import Api
                     description: "description",
                     unit: "unit",
                     quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 )
@@ -130,6 +134,8 @@ import Api
                       "description": "description",
                       "unit": "unit",
                       "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
                       "productCode": "productCode",
                       "sortOrder": 1000000
                     },
@@ -139,6 +145,8 @@ import Api
                       "description": "description",
                       "unit": "unit",
                       "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
                       "productCode": "productCode",
                       "sortOrder": 1000000
                     }
@@ -181,6 +189,8 @@ import Api
                     description: "description",
                     unit: "unit",
                     quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 ),
@@ -190,6 +200,8 @@ import Api
                     description: "description",
                     unit: "unit",
                     quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 )
@@ -241,6 +253,8 @@ import Api
                       "description": "description",
                       "unit": "unit",
                       "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
                       "productCode": "productCode",
                       "sortOrder": 1000000
                     }
@@ -283,6 +297,8 @@ import Api
                     description: "description",
                     unit: "unit",
                     quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 )
@@ -329,6 +345,8 @@ import Api
                       "description": "description",
                       "unit": "unit",
                       "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
                       "productCode": "productCode",
                       "sortOrder": 1000000
                     },
@@ -338,6 +356,8 @@ import Api
                       "description": "description",
                       "unit": "unit",
                       "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
                       "productCode": "productCode",
                       "sortOrder": 1000000
                     }
@@ -380,6 +400,8 @@ import Api
                     description: "description",
                     unit: "unit",
                     quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 ),
@@ -389,6 +411,8 @@ import Api
                     description: "description",
                     unit: "unit",
                     quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 )
@@ -435,6 +459,8 @@ import Api
                       "description": "description",
                       "unit": "unit",
                       "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
                       "productCode": "productCode",
                       "sortOrder": 1000000
                     }
@@ -477,6 +503,8 @@ import Api
                     description: "description",
                     unit: "unit",
                     quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 )
@@ -523,6 +551,8 @@ import Api
                       "description": "description",
                       "unit": "unit",
                       "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
                       "productCode": "productCode",
                       "sortOrder": 1000000
                     },
@@ -532,6 +562,8 @@ import Api
                       "description": "description",
                       "unit": "unit",
                       "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
                       "productCode": "productCode",
                       "sortOrder": 1000000
                     }
@@ -574,6 +606,8 @@ import Api
                     description: "description",
                     unit: "unit",
                     quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 ),
@@ -583,6 +617,8 @@ import Api
                     description: "description",
                     unit: "unit",
                     quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 )
@@ -761,6 +797,8 @@ import Api
                       "description": "description",
                       "unit": "unit",
                       "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
                       "productCode": "productCode",
                       "sortOrder": 1000000
                     }
@@ -803,6 +841,8 @@ import Api
                     description: "description",
                     unit: "unit",
                     quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 )
@@ -849,6 +889,8 @@ import Api
                       "description": "description",
                       "unit": "unit",
                       "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
                       "productCode": "productCode",
                       "sortOrder": 1000000
                     },
@@ -858,6 +900,8 @@ import Api
                       "description": "description",
                       "unit": "unit",
                       "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
                       "productCode": "productCode",
                       "sortOrder": 1000000
                     }
@@ -900,6 +944,8 @@ import Api
                     description: "description",
                     unit: "unit",
                     quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 ),
@@ -909,6 +955,8 @@ import Api
                     description: "description",
                     unit: "unit",
                     quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
                     productCode: Nullable<String>.value("productCode"),
                     sortOrder: 1000000
                 )

@@ -15,6 +15,7 @@ extension Requests {
         public let technicalInspectionDue: Nullable<CalendarDate>?
         public let insuranceDue: Nullable<CalendarDate>?
         public let status: VehiclesUpdateFleetRequestStatus?
+        public let disposalDate: Nullable<CalendarDate>?
         public let notes: Nullable<String>?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -33,6 +34,7 @@ extension Requests {
             technicalInspectionDue: Nullable<CalendarDate>? = nil,
             insuranceDue: Nullable<CalendarDate>? = nil,
             status: VehiclesUpdateFleetRequestStatus? = nil,
+            disposalDate: Nullable<CalendarDate>? = nil,
             notes: Nullable<String>? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -49,6 +51,7 @@ extension Requests {
             self.technicalInspectionDue = technicalInspectionDue
             self.insuranceDue = insuranceDue
             self.status = status
+            self.disposalDate = disposalDate
             self.notes = notes
             self.additionalProperties = additionalProperties
         }
@@ -68,6 +71,7 @@ extension Requests {
             self.technicalInspectionDue = try container.decodeNullableIfPresent(CalendarDate.self, forKey: .technicalInspectionDue)
             self.insuranceDue = try container.decodeNullableIfPresent(CalendarDate.self, forKey: .insuranceDue)
             self.status = try container.decodeIfPresent(VehiclesUpdateFleetRequestStatus.self, forKey: .status)
+            self.disposalDate = try container.decodeNullableIfPresent(CalendarDate.self, forKey: .disposalDate)
             self.notes = try container.decodeNullableIfPresent(String.self, forKey: .notes)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -88,6 +92,7 @@ extension Requests {
             try container.encodeNullableIfPresent(self.technicalInspectionDue, forKey: .technicalInspectionDue)
             try container.encodeNullableIfPresent(self.insuranceDue, forKey: .insuranceDue)
             try container.encodeIfPresent(self.status, forKey: .status)
+            try container.encodeNullableIfPresent(self.disposalDate, forKey: .disposalDate)
             try container.encodeNullableIfPresent(self.notes, forKey: .notes)
         }
 
@@ -106,6 +111,7 @@ extension Requests {
             case technicalInspectionDue
             case insuranceDue
             case status
+            case disposalDate
             case notes
         }
     }

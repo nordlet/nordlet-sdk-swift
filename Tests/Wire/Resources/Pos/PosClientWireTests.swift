@@ -1687,6 +1687,514 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func refundsCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "shiftId": "shiftId",
+                  "receiptId": "receiptId",
+                  "date": "2026-07-01",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "cashAmount": "cashAmount",
+                  "cogsTotal": "cogsTotal",
+                  "journalTransactionId": "journalTransactionId",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "lines": [
+                    {
+                      "id": "id",
+                      "receiptLineId": "receiptLineId",
+                      "itemId": "itemId",
+                      "quantity": "quantity",
+                      "netAmount": "netAmount",
+                      "vatAmount": "vatAmount",
+                      "grossAmount": "grossAmount"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RefundsCreatePosResponse(
+            id: "id",
+            shiftId: "shiftId",
+            receiptId: "receiptId",
+            date: CalendarDate("2026-07-01")!,
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            cashAmount: "cashAmount",
+            cogsTotal: Nullable<String>.value("cogsTotal"),
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            lines: [
+                RefundsCreatePosResponseLinesItem(
+                    id: "id",
+                    receiptLineId: "receiptLineId",
+                    itemId: Nullable<String>.value("itemId"),
+                    quantity: "quantity",
+                    netAmount: "netAmount",
+                    vatAmount: "vatAmount",
+                    grossAmount: "grossAmount"
+                )
+            ]
+        )
+        let response = try await client.pos.refundsCreate(
+            request: .init(
+                shiftId: "shiftId",
+                receiptId: "receiptId",
+                lines: [
+                    RefundsCreatePosRequestLinesItem(
+                        receiptLineId: "receiptLineId",
+                        quantity: "121.0000"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func refundsCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "shiftId": "x",
+                  "receiptId": "x",
+                  "date": "2023-01-15",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "cashAmount": "cashAmount",
+                  "cogsTotal": "cogsTotal",
+                  "journalTransactionId": "x",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "lines": [
+                    {
+                      "id": "x",
+                      "receiptLineId": "x",
+                      "itemId": "x",
+                      "quantity": "quantity",
+                      "netAmount": "netAmount",
+                      "vatAmount": "vatAmount",
+                      "grossAmount": "grossAmount"
+                    },
+                    {
+                      "id": "x",
+                      "receiptLineId": "x",
+                      "itemId": "x",
+                      "quantity": "quantity",
+                      "netAmount": "netAmount",
+                      "vatAmount": "vatAmount",
+                      "grossAmount": "grossAmount"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RefundsCreatePosResponse(
+            id: "x",
+            shiftId: "x",
+            receiptId: "x",
+            date: CalendarDate("2023-01-15")!,
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            cashAmount: "cashAmount",
+            cogsTotal: Nullable<String>.value("cogsTotal"),
+            journalTransactionId: Nullable<String>.value("x"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            lines: [
+                RefundsCreatePosResponseLinesItem(
+                    id: "x",
+                    receiptLineId: "x",
+                    itemId: Nullable<String>.value("x"),
+                    quantity: "quantity",
+                    netAmount: "netAmount",
+                    vatAmount: "vatAmount",
+                    grossAmount: "grossAmount"
+                ),
+                RefundsCreatePosResponseLinesItem(
+                    id: "x",
+                    receiptLineId: "x",
+                    itemId: Nullable<String>.value("x"),
+                    quantity: "quantity",
+                    netAmount: "netAmount",
+                    vatAmount: "vatAmount",
+                    grossAmount: "grossAmount"
+                )
+            ]
+        )
+        let response = try await client.pos.refundsCreate(
+            request: .init(
+                shiftId: "x",
+                receiptId: "x",
+                lines: [
+                    RefundsCreatePosRequestLinesItem(
+                        receiptLineId: "x",
+                        quantity: "quantity"
+                    ),
+                    RefundsCreatePosRequestLinesItem(
+                        receiptLineId: "x",
+                        quantity: "quantity"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func refundsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "shiftId": "shiftId",
+                  "receiptId": "receiptId",
+                  "date": "2026-07-01",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "cashAmount": "cashAmount",
+                  "cogsTotal": "cogsTotal",
+                  "journalTransactionId": "journalTransactionId",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "lines": [
+                    {
+                      "id": "id",
+                      "receiptLineId": "receiptLineId",
+                      "itemId": "itemId",
+                      "quantity": "quantity",
+                      "netAmount": "netAmount",
+                      "vatAmount": "vatAmount",
+                      "grossAmount": "grossAmount"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RefundsGetPosResponse(
+            id: "id",
+            shiftId: "shiftId",
+            receiptId: "receiptId",
+            date: CalendarDate("2026-07-01")!,
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            cashAmount: "cashAmount",
+            cogsTotal: Nullable<String>.value("cogsTotal"),
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            lines: [
+                RefundsGetPosResponseLinesItem(
+                    id: "id",
+                    receiptLineId: "receiptLineId",
+                    itemId: Nullable<String>.value("itemId"),
+                    quantity: "quantity",
+                    netAmount: "netAmount",
+                    vatAmount: "vatAmount",
+                    grossAmount: "grossAmount"
+                )
+            ]
+        )
+        let response = try await client.pos.refundsGet(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func refundsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "shiftId": "x",
+                  "receiptId": "x",
+                  "date": "2023-01-15",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "cashAmount": "cashAmount",
+                  "cogsTotal": "cogsTotal",
+                  "journalTransactionId": "x",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "lines": [
+                    {
+                      "id": "x",
+                      "receiptLineId": "x",
+                      "itemId": "x",
+                      "quantity": "quantity",
+                      "netAmount": "netAmount",
+                      "vatAmount": "vatAmount",
+                      "grossAmount": "grossAmount"
+                    },
+                    {
+                      "id": "x",
+                      "receiptLineId": "x",
+                      "itemId": "x",
+                      "quantity": "quantity",
+                      "netAmount": "netAmount",
+                      "vatAmount": "vatAmount",
+                      "grossAmount": "grossAmount"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RefundsGetPosResponse(
+            id: "x",
+            shiftId: "x",
+            receiptId: "x",
+            date: CalendarDate("2023-01-15")!,
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            cashAmount: "cashAmount",
+            cogsTotal: Nullable<String>.value("cogsTotal"),
+            journalTransactionId: Nullable<String>.value("x"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            lines: [
+                RefundsGetPosResponseLinesItem(
+                    id: "x",
+                    receiptLineId: "x",
+                    itemId: Nullable<String>.value("x"),
+                    quantity: "quantity",
+                    netAmount: "netAmount",
+                    vatAmount: "vatAmount",
+                    grossAmount: "grossAmount"
+                ),
+                RefundsGetPosResponseLinesItem(
+                    id: "x",
+                    receiptLineId: "x",
+                    itemId: Nullable<String>.value("x"),
+                    quantity: "quantity",
+                    netAmount: "netAmount",
+                    vatAmount: "vatAmount",
+                    grossAmount: "grossAmount"
+                )
+            ]
+        )
+        let response = try await client.pos.refundsGet(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func refundsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "shiftId": "shiftId",
+                      "receiptId": "receiptId",
+                      "date": "2026-07-01",
+                      "netTotal": "netTotal",
+                      "vatTotal": "vatTotal",
+                      "grossTotal": "grossTotal",
+                      "cashAmount": "cashAmount",
+                      "cogsTotal": "cogsTotal",
+                      "journalTransactionId": "journalTransactionId",
+                      "createdAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RefundsListPosResponse(
+            rows: [
+                RefundsListPosResponseRowsItem(
+                    id: "id",
+                    shiftId: "shiftId",
+                    receiptId: "receiptId",
+                    date: CalendarDate("2026-07-01")!,
+                    netTotal: "netTotal",
+                    vatTotal: "vatTotal",
+                    grossTotal: "grossTotal",
+                    cashAmount: "cashAmount",
+                    cogsTotal: Nullable<String>.value("cogsTotal"),
+                    journalTransactionId: Nullable<String>.value("journalTransactionId"),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
+            ])
+        )
+        let response = try await client.pos.refundsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func refundsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "shiftId": "x",
+                      "receiptId": "x",
+                      "date": "2023-01-15",
+                      "netTotal": "netTotal",
+                      "vatTotal": "vatTotal",
+                      "grossTotal": "grossTotal",
+                      "cashAmount": "cashAmount",
+                      "cogsTotal": "cogsTotal",
+                      "journalTransactionId": "x",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "shiftId": "x",
+                      "receiptId": "x",
+                      "date": "2023-01-15",
+                      "netTotal": "netTotal",
+                      "vatTotal": "vatTotal",
+                      "grossTotal": "grossTotal",
+                      "cashAmount": "cashAmount",
+                      "cogsTotal": "cogsTotal",
+                      "journalTransactionId": "x",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = RefundsListPosResponse(
+            rows: [
+                RefundsListPosResponseRowsItem(
+                    id: "x",
+                    shiftId: "x",
+                    receiptId: "x",
+                    date: CalendarDate("2023-01-15")!,
+                    netTotal: "netTotal",
+                    vatTotal: "vatTotal",
+                    grossTotal: "grossTotal",
+                    cashAmount: "cashAmount",
+                    cogsTotal: Nullable<String>.value("cogsTotal"),
+                    journalTransactionId: Nullable<String>.value("x"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                RefundsListPosResponseRowsItem(
+                    id: "x",
+                    shiftId: "x",
+                    receiptId: "x",
+                    date: CalendarDate("2023-01-15")!,
+                    netTotal: "netTotal",
+                    vatTotal: "vatTotal",
+                    grossTotal: "grossTotal",
+                    cashAmount: "cashAmount",
+                    cogsTotal: Nullable<String>.value("cogsTotal"),
+                    journalTransactionId: Nullable<String>.value("x"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
+            ])
+        )
+        let response = try await client.pos.refundsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func shiftsClose1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

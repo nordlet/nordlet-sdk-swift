@@ -14301,6 +14301,7 @@ import Api
                   "nextCheckAt": "2026-07-01T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
+                  "confirmationPending": true,
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
@@ -14341,6 +14342,7 @@ import Api
             nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
+            confirmationPending: true,
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
@@ -14385,6 +14387,7 @@ import Api
                   "nextCheckAt": "2024-01-15T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
+                  "confirmationPending": true,
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
@@ -14425,6 +14428,7 @@ import Api
             nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
+            confirmationPending: true,
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
@@ -14433,6 +14437,178 @@ import Api
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.declarations.submissionsRetry(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func submissionsConfirm1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "obligation": "obligation",
+                  "periodYear": 1000000,
+                  "periodMonth": 1000000,
+                  "variant": "variant",
+                  "status": "generated",
+                  "fileName": "fileName",
+                  "fileId": "fileId",
+                  "externalRef": "externalRef",
+                  "message": "message",
+                  "ruleKey": "ruleKey",
+                  "period": "period",
+                  "documentKey": "documentKey",
+                  "amendment": 1000000,
+                  "origin": "origin",
+                  "transportSystem": "transportSystem",
+                  "environment": "test",
+                  "submittedAt": "2026-07-01T09:30:00Z",
+                  "acceptedAt": "2026-07-01T09:30:00Z",
+                  "rejectedAt": "2026-07-01T09:30:00Z",
+                  "checkedAt": "2026-07-01T09:30:00Z",
+                  "nextCheckAt": "2026-07-01T09:30:00Z",
+                  "attempts": 1000000,
+                  "deliveryError": "deliveryError",
+                  "confirmationPending": true,
+                  "sentSha256": "sentSha256",
+                  "certificateFingerprint": "certificateFingerprint",
+                  "submittedByActorType": "submittedByActorType",
+                  "submittedByActorId": "submittedByActorId",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SubmissionsConfirmDeclarationsResponse(
+            id: "id",
+            obligation: "obligation",
+            periodYear: 1000000,
+            periodMonth: Nullable<Int64>.value(1000000),
+            variant: Nullable<String>.value("variant"),
+            status: .generated,
+            fileName: "fileName",
+            fileId: Nullable<String>.value("fileId"),
+            externalRef: Nullable<String>.value("externalRef"),
+            message: Nullable<String>.value("message"),
+            ruleKey: Nullable<String>.value("ruleKey"),
+            period: Nullable<String>.value("period"),
+            documentKey: Nullable<String>.value("documentKey"),
+            amendment: 1000000,
+            origin: "origin",
+            transportSystem: Nullable<String>.value("transportSystem"),
+            environment: Nullable<SubmissionsConfirmDeclarationsResponseEnvironment>.value(.test),
+            submittedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            acceptedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            rejectedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            checkedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            attempts: 1000000,
+            deliveryError: Nullable<String>.value("deliveryError"),
+            confirmationPending: true,
+            sentSha256: Nullable<String>.value("sentSha256"),
+            certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+            submittedByActorType: Nullable<String>.value("submittedByActorType"),
+            submittedByActorId: Nullable<String>.value("submittedByActorId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.declarations.submissionsConfirm(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func submissionsConfirm2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "obligation": "obligation",
+                  "periodYear": 1000000,
+                  "periodMonth": 1000000,
+                  "variant": "variant",
+                  "status": "generated",
+                  "fileName": "fileName",
+                  "fileId": "x",
+                  "externalRef": "externalRef",
+                  "message": "message",
+                  "ruleKey": "ruleKey",
+                  "period": "period",
+                  "documentKey": "documentKey",
+                  "amendment": 1000000,
+                  "origin": "origin",
+                  "transportSystem": "transportSystem",
+                  "environment": "test",
+                  "submittedAt": "2024-01-15T09:30:00Z",
+                  "acceptedAt": "2024-01-15T09:30:00Z",
+                  "rejectedAt": "2024-01-15T09:30:00Z",
+                  "checkedAt": "2024-01-15T09:30:00Z",
+                  "nextCheckAt": "2024-01-15T09:30:00Z",
+                  "attempts": 1000000,
+                  "deliveryError": "deliveryError",
+                  "confirmationPending": true,
+                  "sentSha256": "sentSha256",
+                  "certificateFingerprint": "certificateFingerprint",
+                  "submittedByActorType": "submittedByActorType",
+                  "submittedByActorId": "submittedByActorId",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SubmissionsConfirmDeclarationsResponse(
+            id: "x",
+            obligation: "obligation",
+            periodYear: 1000000,
+            periodMonth: Nullable<Int64>.value(1000000),
+            variant: Nullable<String>.value("variant"),
+            status: .generated,
+            fileName: "fileName",
+            fileId: Nullable<String>.value("x"),
+            externalRef: Nullable<String>.value("externalRef"),
+            message: Nullable<String>.value("message"),
+            ruleKey: Nullable<String>.value("ruleKey"),
+            period: Nullable<String>.value("period"),
+            documentKey: Nullable<String>.value("documentKey"),
+            amendment: 1000000,
+            origin: "origin",
+            transportSystem: Nullable<String>.value("transportSystem"),
+            environment: Nullable<SubmissionsConfirmDeclarationsResponseEnvironment>.value(.test),
+            submittedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            acceptedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            rejectedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            checkedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            attempts: 1000000,
+            deliveryError: Nullable<String>.value("deliveryError"),
+            confirmationPending: true,
+            sentSha256: Nullable<String>.value("sentSha256"),
+            certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
+            submittedByActorType: Nullable<String>.value("submittedByActorType"),
+            submittedByActorId: Nullable<String>.value("submittedByActorId"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.declarations.submissionsConfirm(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
@@ -14469,6 +14645,7 @@ import Api
                   "nextCheckAt": "2026-07-01T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
+                  "confirmationPending": true,
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
@@ -14512,6 +14689,7 @@ import Api
             nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
+            confirmationPending: true,
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
@@ -14563,6 +14741,7 @@ import Api
                   "nextCheckAt": "2024-01-15T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
+                  "confirmationPending": true,
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
@@ -14607,6 +14786,7 @@ import Api
             nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
+            confirmationPending: true,
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
@@ -14659,6 +14839,7 @@ import Api
                   "nextCheckAt": "2026-07-01T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
+                  "confirmationPending": true,
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
@@ -14699,6 +14880,7 @@ import Api
             nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
+            confirmationPending: true,
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
@@ -14746,6 +14928,7 @@ import Api
                   "nextCheckAt": "2024-01-15T09:30:00Z",
                   "attempts": 1000000,
                   "deliveryError": "deliveryError",
+                  "confirmationPending": true,
                   "sentSha256": "sentSha256",
                   "certificateFingerprint": "certificateFingerprint",
                   "submittedByActorType": "submittedByActorType",
@@ -14786,6 +14969,7 @@ import Api
             nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             attempts: 1000000,
             deliveryError: Nullable<String>.value("deliveryError"),
+            confirmationPending: true,
             sentSha256: Nullable<String>.value("sentSha256"),
             certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
             submittedByActorType: Nullable<String>.value("submittedByActorType"),
@@ -14835,6 +15019,7 @@ import Api
                       "nextCheckAt": "2026-07-01T09:30:00Z",
                       "attempts": 1000000,
                       "deliveryError": "deliveryError",
+                      "confirmationPending": true,
                       "sentSha256": "sentSha256",
                       "certificateFingerprint": "certificateFingerprint",
                       "submittedByActorType": "submittedByActorType",
@@ -14890,6 +15075,7 @@ import Api
                     nextCheckAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     attempts: 1000000,
                     deliveryError: Nullable<String>.value("deliveryError"),
+                    confirmationPending: true,
                     sentSha256: Nullable<String>.value("sentSha256"),
                     certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                     submittedByActorType: Nullable<String>.value("submittedByActorType"),
@@ -14949,6 +15135,7 @@ import Api
                       "nextCheckAt": "2024-01-15T09:30:00Z",
                       "attempts": 1000000,
                       "deliveryError": "deliveryError",
+                      "confirmationPending": true,
                       "sentSha256": "sentSha256",
                       "certificateFingerprint": "certificateFingerprint",
                       "submittedByActorType": "submittedByActorType",
@@ -14981,6 +15168,7 @@ import Api
                       "nextCheckAt": "2024-01-15T09:30:00Z",
                       "attempts": 1000000,
                       "deliveryError": "deliveryError",
+                      "confirmationPending": true,
                       "sentSha256": "sentSha256",
                       "certificateFingerprint": "certificateFingerprint",
                       "submittedByActorType": "submittedByActorType",
@@ -15036,6 +15224,7 @@ import Api
                     nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     attempts: 1000000,
                     deliveryError: Nullable<String>.value("deliveryError"),
+                    confirmationPending: true,
                     sentSha256: Nullable<String>.value("sentSha256"),
                     certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                     submittedByActorType: Nullable<String>.value("submittedByActorType"),
@@ -15068,6 +15257,7 @@ import Api
                     nextCheckAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     attempts: 1000000,
                     deliveryError: Nullable<String>.value("deliveryError"),
+                    confirmationPending: true,
                     sentSha256: Nullable<String>.value("sentSha256"),
                     certificateFingerprint: Nullable<String>.value("certificateFingerprint"),
                     submittedByActorType: Nullable<String>.value("submittedByActorType"),

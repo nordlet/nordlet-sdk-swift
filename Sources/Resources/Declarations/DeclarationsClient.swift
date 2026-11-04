@@ -124,7 +124,7 @@ public final class DeclarationsClient: Sendable {
         )
     }
 
-    /// Builds an i.VAZ amendment message for up to 100 issued waybills, carrying their current data as TransportDocumentAmendment elements. Answers 422 when the registration code of the company is not numeric or when a waybill is not issued. With `persist`, the file is stored and a submission for `lt-ivaz-amendment` is created.
+    /// Builds an i.VAZ amendment message for up to 100 issued waybills as TransportDocumentAmendment elements. `corrections` carries corrected values per waybill: `consigneePartnerId`, `unloadAddress`, `vehiclePlate`, `trailerPlate`, `driverName`, `driverSurname` (the last three can be cleared with null) and line `quantity` by line id; the message carries the waybill with them applied, and with `persist` they are also stored on the waybill. Answers 422 when the registration code of the company is not numeric, when a waybill is not issued, or when a correction names a waybill not in `waybillIds`, a waybill twice, a line not on its waybill or a consignee partner the company does not have. With `persist`, the file is stored and a submission for `lt-ivaz-amendment` is created.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func ltIvazAmend(request: Requests.LtIvazAmendDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> LtIvazAmendDeclarationsResponse {
@@ -982,7 +982,7 @@ public final class DeclarationsClient: Sendable {
         )
     }
 
-    /// Generate CIT-8(34), the annual corporate income tax return, from the ledger of the year and the recorded tax adjustments. The tax office code and the small-taxpayer setting come from the e-Deklaracje compliance settings, the seat address from the JPK gateway settings. Names the annexes the figures would need, which are not produced.
+    /// Generate CIT-8(34), the annual corporate income tax return, from the ledger of the year and the recorded tax adjustments. The tax office code and the small-taxpayer setting come from the e-Deklaracje compliance settings, the seat address from the JPK gateway settings. Names the annexes the figures would need, which are not produced. Answers 422 for a tax year that starts before 2025-01-01, which the CIT-8(34) schema does not accept.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func plCit8Generate(request: Requests.PlCit8GenerateDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> PlCit8GenerateDeclarationsResponse {
@@ -1200,6 +1200,19 @@ public final class DeclarationsClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: SubmissionsRetryDeclarationsResponse.self
+        )
+    }
+
+    /// Sends a submission whose `confirmationPending` is true once more with the stored file and the token the administration handed back with its warnings (the advis of Erhvervsstyrelsen's Regnskab Indberet, which files the annual report only when it is sent again with that token), and returns the updated submission. Answers 409 when the submission is not waiting for a confirmation.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func submissionsConfirm(request: Requests.SubmissionsConfirmDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> SubmissionsConfirmDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/submissions/confirm",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: SubmissionsConfirmDeclarationsResponse.self
         )
     }
 

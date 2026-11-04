@@ -6,6 +6,8 @@ public struct OrdersApprovePurchasesResponseLinesItem: Codable, Hashable, Sendab
     public let description: String
     public let unit: String
     public let quantity: String
+    public let unitFactor: String
+    public let baseQuantity: String
     public let receivedQty: String
     public let remainingQty: String
     public let unitPriceExclVat: Nullable<String>
@@ -28,6 +30,8 @@ public struct OrdersApprovePurchasesResponseLinesItem: Codable, Hashable, Sendab
         description: String,
         unit: String,
         quantity: String,
+        unitFactor: String,
+        baseQuantity: String,
         receivedQty: String,
         remainingQty: String,
         unitPriceExclVat: Nullable<String>,
@@ -48,6 +52,8 @@ public struct OrdersApprovePurchasesResponseLinesItem: Codable, Hashable, Sendab
         self.description = description
         self.unit = unit
         self.quantity = quantity
+        self.unitFactor = unitFactor
+        self.baseQuantity = baseQuantity
         self.receivedQty = receivedQty
         self.remainingQty = remainingQty
         self.unitPriceExclVat = unitPriceExclVat
@@ -71,6 +77,8 @@ public struct OrdersApprovePurchasesResponseLinesItem: Codable, Hashable, Sendab
         self.description = try container.decode(String.self, forKey: .description)
         self.unit = try container.decode(String.self, forKey: .unit)
         self.quantity = try container.decode(String.self, forKey: .quantity)
+        self.unitFactor = try container.decode(String.self, forKey: .unitFactor)
+        self.baseQuantity = try container.decode(String.self, forKey: .baseQuantity)
         self.receivedQty = try container.decode(String.self, forKey: .receivedQty)
         self.remainingQty = try container.decode(String.self, forKey: .remainingQty)
         self.unitPriceExclVat = try container.decode(Nullable<String>.self, forKey: .unitPriceExclVat)
@@ -95,6 +103,8 @@ public struct OrdersApprovePurchasesResponseLinesItem: Codable, Hashable, Sendab
         try container.encode(self.description, forKey: .description)
         try container.encode(self.unit, forKey: .unit)
         try container.encode(self.quantity, forKey: .quantity)
+        try container.encode(self.unitFactor, forKey: .unitFactor)
+        try container.encode(self.baseQuantity, forKey: .baseQuantity)
         try container.encode(self.receivedQty, forKey: .receivedQty)
         try container.encode(self.remainingQty, forKey: .remainingQty)
         try container.encode(self.unitPriceExclVat, forKey: .unitPriceExclVat)
@@ -117,6 +127,8 @@ public struct OrdersApprovePurchasesResponseLinesItem: Codable, Hashable, Sendab
         case description
         case unit
         case quantity
+        case unitFactor
+        case baseQuantity
         case receivedQty
         case remainingQty
         case unitPriceExclVat

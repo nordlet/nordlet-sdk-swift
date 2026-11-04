@@ -6,6 +6,7 @@ extension Requests {
         public let type: MaintenanceCreateProductionRequestType
         public let plannedDate: CalendarDate
         public let description: String?
+        public let purchaseInvoiceId: String?
         public let notes: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -15,6 +16,7 @@ extension Requests {
             type: MaintenanceCreateProductionRequestType,
             plannedDate: CalendarDate,
             description: String? = nil,
+            purchaseInvoiceId: String? = nil,
             notes: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -22,6 +24,7 @@ extension Requests {
             self.type = type
             self.plannedDate = plannedDate
             self.description = description
+            self.purchaseInvoiceId = purchaseInvoiceId
             self.notes = notes
             self.additionalProperties = additionalProperties
         }
@@ -32,6 +35,7 @@ extension Requests {
             self.type = try container.decode(MaintenanceCreateProductionRequestType.self, forKey: .type)
             self.plannedDate = try container.decode(CalendarDate.self, forKey: .plannedDate)
             self.description = try container.decodeIfPresent(String.self, forKey: .description)
+            self.purchaseInvoiceId = try container.decodeIfPresent(String.self, forKey: .purchaseInvoiceId)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -43,6 +47,7 @@ extension Requests {
             try container.encode(self.type, forKey: .type)
             try container.encode(self.plannedDate, forKey: .plannedDate)
             try container.encodeIfPresent(self.description, forKey: .description)
+            try container.encodeIfPresent(self.purchaseInvoiceId, forKey: .purchaseInvoiceId)
             try container.encodeIfPresent(self.notes, forKey: .notes)
         }
 
@@ -52,6 +57,7 @@ extension Requests {
             case type
             case plannedDate
             case description
+            case purchaseInvoiceId
             case notes
         }
     }

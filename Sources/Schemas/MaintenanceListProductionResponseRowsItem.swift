@@ -10,6 +10,7 @@ public struct MaintenanceListProductionResponseRowsItem: Codable, Hashable, Send
     public let description: Nullable<String>
     public let downtimeHours: Nullable<String>
     public let cost: Nullable<String>
+    public let purchaseInvoiceId: Nullable<String>
     public let notes: Nullable<String>
     public let createdAt: Date
     /// Additional properties that are not explicitly defined in the schema
@@ -25,6 +26,7 @@ public struct MaintenanceListProductionResponseRowsItem: Codable, Hashable, Send
         description: Nullable<String>,
         downtimeHours: Nullable<String>,
         cost: Nullable<String>,
+        purchaseInvoiceId: Nullable<String>,
         notes: Nullable<String>,
         createdAt: Date,
         additionalProperties: [String: JSONValue] = .init()
@@ -38,6 +40,7 @@ public struct MaintenanceListProductionResponseRowsItem: Codable, Hashable, Send
         self.description = description
         self.downtimeHours = downtimeHours
         self.cost = cost
+        self.purchaseInvoiceId = purchaseInvoiceId
         self.notes = notes
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
@@ -54,6 +57,7 @@ public struct MaintenanceListProductionResponseRowsItem: Codable, Hashable, Send
         self.description = try container.decode(Nullable<String>.self, forKey: .description)
         self.downtimeHours = try container.decode(Nullable<String>.self, forKey: .downtimeHours)
         self.cost = try container.decode(Nullable<String>.self, forKey: .cost)
+        self.purchaseInvoiceId = try container.decode(Nullable<String>.self, forKey: .purchaseInvoiceId)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -71,6 +75,7 @@ public struct MaintenanceListProductionResponseRowsItem: Codable, Hashable, Send
         try container.encode(self.description, forKey: .description)
         try container.encode(self.downtimeHours, forKey: .downtimeHours)
         try container.encode(self.cost, forKey: .cost)
+        try container.encode(self.purchaseInvoiceId, forKey: .purchaseInvoiceId)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
@@ -86,6 +91,7 @@ public struct MaintenanceListProductionResponseRowsItem: Codable, Hashable, Send
         case description
         case downtimeHours
         case cost
+        case purchaseInvoiceId
         case notes
         case createdAt
     }

@@ -6,6 +6,8 @@ public struct WaybillsCreateTransportResponseLinesItem: Codable, Hashable, Senda
     public let description: String
     public let unit: String
     public let quantity: String
+    public let unitFactor: String
+    public let baseQuantity: String
     public let productCode: Nullable<String>
     public let sortOrder: Int64
     /// Additional properties that are not explicitly defined in the schema
@@ -17,6 +19,8 @@ public struct WaybillsCreateTransportResponseLinesItem: Codable, Hashable, Senda
         description: String,
         unit: String,
         quantity: String,
+        unitFactor: String,
+        baseQuantity: String,
         productCode: Nullable<String>,
         sortOrder: Int64,
         additionalProperties: [String: JSONValue] = .init()
@@ -26,6 +30,8 @@ public struct WaybillsCreateTransportResponseLinesItem: Codable, Hashable, Senda
         self.description = description
         self.unit = unit
         self.quantity = quantity
+        self.unitFactor = unitFactor
+        self.baseQuantity = baseQuantity
         self.productCode = productCode
         self.sortOrder = sortOrder
         self.additionalProperties = additionalProperties
@@ -38,6 +44,8 @@ public struct WaybillsCreateTransportResponseLinesItem: Codable, Hashable, Senda
         self.description = try container.decode(String.self, forKey: .description)
         self.unit = try container.decode(String.self, forKey: .unit)
         self.quantity = try container.decode(String.self, forKey: .quantity)
+        self.unitFactor = try container.decode(String.self, forKey: .unitFactor)
+        self.baseQuantity = try container.decode(String.self, forKey: .baseQuantity)
         self.productCode = try container.decode(Nullable<String>.self, forKey: .productCode)
         self.sortOrder = try container.decode(Int64.self, forKey: .sortOrder)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -51,6 +59,8 @@ public struct WaybillsCreateTransportResponseLinesItem: Codable, Hashable, Senda
         try container.encode(self.description, forKey: .description)
         try container.encode(self.unit, forKey: .unit)
         try container.encode(self.quantity, forKey: .quantity)
+        try container.encode(self.unitFactor, forKey: .unitFactor)
+        try container.encode(self.baseQuantity, forKey: .baseQuantity)
         try container.encode(self.productCode, forKey: .productCode)
         try container.encode(self.sortOrder, forKey: .sortOrder)
     }
@@ -62,6 +72,8 @@ public struct WaybillsCreateTransportResponseLinesItem: Codable, Hashable, Senda
         case description
         case unit
         case quantity
+        case unitFactor
+        case baseQuantity
         case productCode
         case sortOrder
     }

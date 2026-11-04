@@ -137,7 +137,7 @@ public final class CatalogClient: Sendable {
         )
     }
 
-    /// Create a unit of measure of the company's own, in addition to the global measurement units (`reference/units/list`). 409 when the code already exists.
+    /// Create a unit of measure of the company's own, in addition to the global measurement units (`reference/units/list`). `rec20Code` is the UN/ECE Recommendation 20 code e-invoices carry for the unit. 409 when the code already exists.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func unitsCreate(request: Requests.UnitsCreateCatalogRequest, requestOptions: RequestOptions? = nil) async throws -> UnitsCreateCatalogResponse {
@@ -150,7 +150,7 @@ public final class CatalogClient: Sendable {
         )
     }
 
-    /// Change the code, name or active flag of a company unit. 409 when the new code already exists.
+    /// Change the code, name, UN/ECE Recommendation 20 code or active flag of a company unit. 409 when the new code already exists.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func unitsUpdate(request: Requests.UnitsUpdateCatalogRequest, requestOptions: RequestOptions? = nil) async throws -> UnitsUpdateCatalogResponse {
@@ -290,6 +290,58 @@ public final class CatalogClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: ItemsSuppliersDeleteCatalogResponse.self
+        )
+    }
+
+    /// Add an alternative unit to an item: `factor` is how many of the item's own unit one `unitCode` holds (a box of 12 pieces has factor 12). Document lines entered in that unit keep the entered quantity and unit price and move `quantity × factor` of the item's unit in stock and filings. `isDefaultSale` and `isDefaultPurchase` mark the unit the app offers first on sale and purchase documents; setting one clears it on the item's other units. 422 when `unitCode` is the item's own unit or not a known unit; 409 when the item already has that unit.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func itemsUnitsCreate(request: Requests.ItemsUnitsCreateCatalogRequest, requestOptions: RequestOptions? = nil) async throws -> ItemsUnitsCreateCatalogResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/items/units/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: ItemsUnitsCreateCatalogResponse.self
+        )
+    }
+
+    /// Change the factor, default flags or barcode of an alternative unit. Document lines already entered keep the factor they were saved with; the new factor applies to lines entered or recalculated after the change.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func itemsUnitsUpdate(request: Requests.ItemsUnitsUpdateCatalogRequest, requestOptions: RequestOptions? = nil) async throws -> ItemsUnitsUpdateCatalogResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/items/units/update",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: ItemsUnitsUpdateCatalogResponse.self
+        )
+    }
+
+    /// Delete an alternative unit of an item. Document lines already entered in it keep their unit and factor.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func itemsUnitsDelete(request: Requests.ItemsUnitsDeleteCatalogRequest, requestOptions: RequestOptions? = nil) async throws -> ItemsUnitsDeleteCatalogResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/items/units/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: ItemsUnitsDeleteCatalogResponse.self
+        )
+    }
+
+    /// List the alternative units of an item, ordered by unit code.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func itemsUnitsList(request: Requests.ItemsUnitsListCatalogRequest, requestOptions: RequestOptions? = nil) async throws -> ItemsUnitsListCatalogResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/catalog/items/units/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: ItemsUnitsListCatalogResponse.self
         )
     }
 

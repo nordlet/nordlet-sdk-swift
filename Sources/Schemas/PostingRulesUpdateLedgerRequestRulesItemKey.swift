@@ -15,6 +15,8 @@ public enum PostingRulesUpdateLedgerRequestRulesItemKey: String, Codable, Hashab
     case inventoryStock = "inventory.stock"
     case productionLaborApplied = "production.laborApplied"
     case productionScrap = "production.scrap"
+    case posCashShortage = "pos.cashShortage"
+    case posCashSurplus = "pos.cashSurplus"
     case bankFxGain = "bank.fxGain"
     case bankFxLoss = "bank.fxLoss"
     case bankFees = "bank.fees"

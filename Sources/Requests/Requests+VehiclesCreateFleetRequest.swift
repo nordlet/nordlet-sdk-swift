@@ -13,6 +13,7 @@ extension Requests {
         public let fixedAssetId: String?
         public let technicalInspectionDue: CalendarDate?
         public let insuranceDue: CalendarDate?
+        public let disposalDate: CalendarDate?
         public let notes: String?
         public let documents: [VehiclesCreateFleetRequestDocumentsItem]?
         /// Additional properties that are not explicitly defined in the schema
@@ -30,6 +31,7 @@ extension Requests {
             fixedAssetId: String? = nil,
             technicalInspectionDue: CalendarDate? = nil,
             insuranceDue: CalendarDate? = nil,
+            disposalDate: CalendarDate? = nil,
             notes: String? = nil,
             documents: [VehiclesCreateFleetRequestDocumentsItem]? = nil,
             additionalProperties: [String: JSONValue] = .init()
@@ -45,6 +47,7 @@ extension Requests {
             self.fixedAssetId = fixedAssetId
             self.technicalInspectionDue = technicalInspectionDue
             self.insuranceDue = insuranceDue
+            self.disposalDate = disposalDate
             self.notes = notes
             self.documents = documents
             self.additionalProperties = additionalProperties
@@ -63,6 +66,7 @@ extension Requests {
             self.fixedAssetId = try container.decodeIfPresent(String.self, forKey: .fixedAssetId)
             self.technicalInspectionDue = try container.decodeIfPresent(CalendarDate.self, forKey: .technicalInspectionDue)
             self.insuranceDue = try container.decodeIfPresent(CalendarDate.self, forKey: .insuranceDue)
+            self.disposalDate = try container.decodeIfPresent(CalendarDate.self, forKey: .disposalDate)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.documents = try container.decodeIfPresent([VehiclesCreateFleetRequestDocumentsItem].self, forKey: .documents)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -82,6 +86,7 @@ extension Requests {
             try container.encodeIfPresent(self.fixedAssetId, forKey: .fixedAssetId)
             try container.encodeIfPresent(self.technicalInspectionDue, forKey: .technicalInspectionDue)
             try container.encodeIfPresent(self.insuranceDue, forKey: .insuranceDue)
+            try container.encodeIfPresent(self.disposalDate, forKey: .disposalDate)
             try container.encodeIfPresent(self.notes, forKey: .notes)
             try container.encodeIfPresent(self.documents, forKey: .documents)
         }
@@ -99,6 +104,7 @@ extension Requests {
             case fixedAssetId
             case technicalInspectionDue
             case insuranceDue
+            case disposalDate
             case notes
             case documents
         }

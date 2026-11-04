@@ -22,6 +22,7 @@ import Api
                   "technicalInspectionDue": "technicalInspectionDue",
                   "insuranceDue": "insuranceDue",
                   "status": "active",
+                  "disposalDate": "2026-07-01",
                   "notes": "notes",
                   "documents": [
                     {
@@ -61,6 +62,7 @@ import Api
             technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             notes: Nullable<String>.value("notes"),
             documents: Nullable<[VehiclesCreateFleetResponseDocumentsItem]>.value([
                 VehiclesCreateFleetResponseDocumentsItem(
@@ -108,6 +110,7 @@ import Api
                   "technicalInspectionDue": "technicalInspectionDue",
                   "insuranceDue": "insuranceDue",
                   "status": "active",
+                  "disposalDate": "2023-01-15",
                   "notes": "notes",
                   "documents": [
                     {
@@ -151,6 +154,7 @@ import Api
             technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             notes: Nullable<String>.value("notes"),
             documents: Nullable<[VehiclesCreateFleetResponseDocumentsItem]>.value([
                 VehiclesCreateFleetResponseDocumentsItem(
@@ -202,6 +206,7 @@ import Api
                   "technicalInspectionDue": "technicalInspectionDue",
                   "insuranceDue": "insuranceDue",
                   "status": "active",
+                  "disposalDate": "2026-07-01",
                   "notes": "notes",
                   "documents": [
                     {
@@ -241,6 +246,7 @@ import Api
             technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             notes: Nullable<String>.value("notes"),
             documents: Nullable<[VehiclesUpdateFleetResponseDocumentsItem]>.value([
                 VehiclesUpdateFleetResponseDocumentsItem(
@@ -284,6 +290,7 @@ import Api
                   "technicalInspectionDue": "technicalInspectionDue",
                   "insuranceDue": "insuranceDue",
                   "status": "active",
+                  "disposalDate": "2023-01-15",
                   "notes": "notes",
                   "documents": [
                     {
@@ -327,6 +334,7 @@ import Api
             technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             notes: Nullable<String>.value("notes"),
             documents: Nullable<[VehiclesUpdateFleetResponseDocumentsItem]>.value([
                 VehiclesUpdateFleetResponseDocumentsItem(
@@ -374,6 +382,7 @@ import Api
                   "technicalInspectionDue": "technicalInspectionDue",
                   "insuranceDue": "insuranceDue",
                   "status": "active",
+                  "disposalDate": "2026-07-01",
                   "notes": "notes",
                   "documents": [
                     {
@@ -413,6 +422,7 @@ import Api
             technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             notes: Nullable<String>.value("notes"),
             documents: Nullable<[VehiclesGetFleetResponseDocumentsItem]>.value([
                 VehiclesGetFleetResponseDocumentsItem(
@@ -456,6 +466,7 @@ import Api
                   "technicalInspectionDue": "technicalInspectionDue",
                   "insuranceDue": "insuranceDue",
                   "status": "active",
+                  "disposalDate": "2023-01-15",
                   "notes": "notes",
                   "documents": [
                     {
@@ -499,6 +510,7 @@ import Api
             technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
             insuranceDue: Nullable<String>.value("insuranceDue"),
             status: .active,
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             notes: Nullable<String>.value("notes"),
             documents: Nullable<[VehiclesGetFleetResponseDocumentsItem]>.value([
                 VehiclesGetFleetResponseDocumentsItem(
@@ -548,6 +560,7 @@ import Api
                       "technicalInspectionDue": "technicalInspectionDue",
                       "insuranceDue": "insuranceDue",
                       "status": "active",
+                      "disposalDate": "2026-07-01",
                       "notes": "notes",
                       "documents": [
                         {
@@ -602,6 +615,7 @@ import Api
                     technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
                     insuranceDue: Nullable<String>.value("insuranceDue"),
                     status: .active,
+                    disposalDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     notes: Nullable<String>.value("notes"),
                     documents: Nullable<[VehiclesListFleetResponseRowsItemDocumentsItem]>.value([
                         VehiclesListFleetResponseRowsItemDocumentsItem(
@@ -660,6 +674,7 @@ import Api
                       "technicalInspectionDue": "technicalInspectionDue",
                       "insuranceDue": "insuranceDue",
                       "status": "active",
+                      "disposalDate": "2023-01-15",
                       "notes": "notes",
                       "documents": [
                         {
@@ -695,6 +710,7 @@ import Api
                       "technicalInspectionDue": "technicalInspectionDue",
                       "insuranceDue": "insuranceDue",
                       "status": "active",
+                      "disposalDate": "2023-01-15",
                       "notes": "notes",
                       "documents": [
                         {
@@ -753,6 +769,7 @@ import Api
                     technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
                     insuranceDue: Nullable<String>.value("insuranceDue"),
                     status: .active,
+                    disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     notes: Nullable<String>.value("notes"),
                     documents: Nullable<[VehiclesListFleetResponseRowsItemDocumentsItem]>.value([
                         VehiclesListFleetResponseRowsItemDocumentsItem(
@@ -788,6 +805,7 @@ import Api
                     technicalInspectionDue: Nullable<String>.value("technicalInspectionDue"),
                     insuranceDue: Nullable<String>.value("insuranceDue"),
                     status: .active,
+                    disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     notes: Nullable<String>.value("notes"),
                     documents: Nullable<[VehiclesListFleetResponseRowsItemDocumentsItem]>.value([
                         VehiclesListFleetResponseRowsItemDocumentsItem(

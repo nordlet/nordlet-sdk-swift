@@ -25,6 +25,7 @@ public struct UpdateCalendarResponseSubmission: Codable, Hashable, Sendable {
     public let nextCheckAt: Nullable<Date>
     public let attempts: Int64
     public let deliveryError: Nullable<String>
+    public let confirmationPending: Bool
     public let sentSha256: Nullable<String>
     public let certificateFingerprint: Nullable<String>
     public let submittedByActorType: Nullable<String>
@@ -59,6 +60,7 @@ public struct UpdateCalendarResponseSubmission: Codable, Hashable, Sendable {
         nextCheckAt: Nullable<Date>,
         attempts: Int64,
         deliveryError: Nullable<String>,
+        confirmationPending: Bool,
         sentSha256: Nullable<String>,
         certificateFingerprint: Nullable<String>,
         submittedByActorType: Nullable<String>,
@@ -91,6 +93,7 @@ public struct UpdateCalendarResponseSubmission: Codable, Hashable, Sendable {
         self.nextCheckAt = nextCheckAt
         self.attempts = attempts
         self.deliveryError = deliveryError
+        self.confirmationPending = confirmationPending
         self.sentSha256 = sentSha256
         self.certificateFingerprint = certificateFingerprint
         self.submittedByActorType = submittedByActorType
@@ -126,6 +129,7 @@ public struct UpdateCalendarResponseSubmission: Codable, Hashable, Sendable {
         self.nextCheckAt = try container.decode(Nullable<Date>.self, forKey: .nextCheckAt)
         self.attempts = try container.decode(Int64.self, forKey: .attempts)
         self.deliveryError = try container.decode(Nullable<String>.self, forKey: .deliveryError)
+        self.confirmationPending = try container.decode(Bool.self, forKey: .confirmationPending)
         self.sentSha256 = try container.decode(Nullable<String>.self, forKey: .sentSha256)
         self.certificateFingerprint = try container.decode(Nullable<String>.self, forKey: .certificateFingerprint)
         self.submittedByActorType = try container.decode(Nullable<String>.self, forKey: .submittedByActorType)
@@ -162,6 +166,7 @@ public struct UpdateCalendarResponseSubmission: Codable, Hashable, Sendable {
         try container.encode(self.nextCheckAt, forKey: .nextCheckAt)
         try container.encode(self.attempts, forKey: .attempts)
         try container.encode(self.deliveryError, forKey: .deliveryError)
+        try container.encode(self.confirmationPending, forKey: .confirmationPending)
         try container.encode(self.sentSha256, forKey: .sentSha256)
         try container.encode(self.certificateFingerprint, forKey: .certificateFingerprint)
         try container.encode(self.submittedByActorType, forKey: .submittedByActorType)
@@ -196,6 +201,7 @@ public struct UpdateCalendarResponseSubmission: Codable, Hashable, Sendable {
         case nextCheckAt
         case attempts
         case deliveryError
+        case confirmationPending
         case sentSha256
         case certificateFingerprint
         case submittedByActorType

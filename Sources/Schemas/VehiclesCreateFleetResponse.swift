@@ -14,6 +14,7 @@ public struct VehiclesCreateFleetResponse: Codable, Hashable, Sendable {
     public let technicalInspectionDue: Nullable<String>
     public let insuranceDue: Nullable<String>
     public let status: VehiclesCreateFleetResponseStatus
+    public let disposalDate: Nullable<CalendarDate>
     public let notes: Nullable<String>
     public let documents: Nullable<[VehiclesCreateFleetResponseDocumentsItem]>
     public let currentAssignment: Nullable<VehiclesCreateFleetResponseCurrentAssignment>
@@ -35,6 +36,7 @@ public struct VehiclesCreateFleetResponse: Codable, Hashable, Sendable {
         technicalInspectionDue: Nullable<String>,
         insuranceDue: Nullable<String>,
         status: VehiclesCreateFleetResponseStatus,
+        disposalDate: Nullable<CalendarDate>,
         notes: Nullable<String>,
         documents: Nullable<[VehiclesCreateFleetResponseDocumentsItem]>,
         currentAssignment: Nullable<VehiclesCreateFleetResponseCurrentAssignment>,
@@ -54,6 +56,7 @@ public struct VehiclesCreateFleetResponse: Codable, Hashable, Sendable {
         self.technicalInspectionDue = technicalInspectionDue
         self.insuranceDue = insuranceDue
         self.status = status
+        self.disposalDate = disposalDate
         self.notes = notes
         self.documents = documents
         self.currentAssignment = currentAssignment
@@ -76,6 +79,7 @@ public struct VehiclesCreateFleetResponse: Codable, Hashable, Sendable {
         self.technicalInspectionDue = try container.decode(Nullable<String>.self, forKey: .technicalInspectionDue)
         self.insuranceDue = try container.decode(Nullable<String>.self, forKey: .insuranceDue)
         self.status = try container.decode(VehiclesCreateFleetResponseStatus.self, forKey: .status)
+        self.disposalDate = try container.decode(Nullable<CalendarDate>.self, forKey: .disposalDate)
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.documents = try container.decode(Nullable<[VehiclesCreateFleetResponseDocumentsItem]>.self, forKey: .documents)
         self.currentAssignment = try container.decode(Nullable<VehiclesCreateFleetResponseCurrentAssignment>.self, forKey: .currentAssignment)
@@ -99,6 +103,7 @@ public struct VehiclesCreateFleetResponse: Codable, Hashable, Sendable {
         try container.encode(self.technicalInspectionDue, forKey: .technicalInspectionDue)
         try container.encode(self.insuranceDue, forKey: .insuranceDue)
         try container.encode(self.status, forKey: .status)
+        try container.encode(self.disposalDate, forKey: .disposalDate)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.documents, forKey: .documents)
         try container.encode(self.currentAssignment, forKey: .currentAssignment)
@@ -120,6 +125,7 @@ public struct VehiclesCreateFleetResponse: Codable, Hashable, Sendable {
         case technicalInspectionDue
         case insuranceDue
         case status
+        case disposalDate
         case notes
         case documents
         case currentAssignment

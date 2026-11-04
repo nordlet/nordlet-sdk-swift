@@ -23,6 +23,7 @@ public struct ItemsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
     public let documentRef: Nullable<String>
     public let translations: Nullable<[String: Nullable<ItemsListCatalogResponseRowsItemTranslationsValue>]>
     public let components: [ItemsListCatalogResponseRowsItemComponentsItem]
+    public let alternativeUnits: [ItemsListCatalogResponseRowsItemAlternativeUnitsItem]
     public let kindId: Nullable<String>
     public let saleAccountCode: Nullable<String>
     public let purchaseAccountCode: Nullable<String>
@@ -78,6 +79,7 @@ public struct ItemsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         documentRef: Nullable<String>,
         translations: Nullable<[String: Nullable<ItemsListCatalogResponseRowsItemTranslationsValue>]>,
         components: [ItemsListCatalogResponseRowsItemComponentsItem],
+        alternativeUnits: [ItemsListCatalogResponseRowsItemAlternativeUnitsItem],
         kindId: Nullable<String>,
         saleAccountCode: Nullable<String>,
         purchaseAccountCode: Nullable<String>,
@@ -131,6 +133,7 @@ public struct ItemsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         self.documentRef = documentRef
         self.translations = translations
         self.components = components
+        self.alternativeUnits = alternativeUnits
         self.kindId = kindId
         self.saleAccountCode = saleAccountCode
         self.purchaseAccountCode = purchaseAccountCode
@@ -187,6 +190,7 @@ public struct ItemsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         self.documentRef = try container.decode(Nullable<String>.self, forKey: .documentRef)
         self.translations = try container.decode(Nullable<[String: Nullable<ItemsListCatalogResponseRowsItemTranslationsValue>]>.self, forKey: .translations)
         self.components = try container.decode([ItemsListCatalogResponseRowsItemComponentsItem].self, forKey: .components)
+        self.alternativeUnits = try container.decode([ItemsListCatalogResponseRowsItemAlternativeUnitsItem].self, forKey: .alternativeUnits)
         self.kindId = try container.decode(Nullable<String>.self, forKey: .kindId)
         self.saleAccountCode = try container.decode(Nullable<String>.self, forKey: .saleAccountCode)
         self.purchaseAccountCode = try container.decode(Nullable<String>.self, forKey: .purchaseAccountCode)
@@ -244,6 +248,7 @@ public struct ItemsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         try container.encode(self.documentRef, forKey: .documentRef)
         try container.encode(self.translations, forKey: .translations)
         try container.encode(self.components, forKey: .components)
+        try container.encode(self.alternativeUnits, forKey: .alternativeUnits)
         try container.encode(self.kindId, forKey: .kindId)
         try container.encode(self.saleAccountCode, forKey: .saleAccountCode)
         try container.encode(self.purchaseAccountCode, forKey: .purchaseAccountCode)
@@ -299,6 +304,7 @@ public struct ItemsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         case documentRef
         case translations
         case components
+        case alternativeUnits
         case kindId
         case saleAccountCode
         case purchaseAccountCode

@@ -6,6 +6,8 @@ public struct ActsGetSalesResponseLinesItem: Codable, Hashable, Sendable {
     public let description: String
     public let unit: String
     public let quantity: String
+    public let unitFactor: String
+    public let baseQuantity: String
     public let unitPriceExclVat: Nullable<String>
     public let lineNet: Nullable<String>
     public let sortOrder: Int64
@@ -18,6 +20,8 @@ public struct ActsGetSalesResponseLinesItem: Codable, Hashable, Sendable {
         description: String,
         unit: String,
         quantity: String,
+        unitFactor: String,
+        baseQuantity: String,
         unitPriceExclVat: Nullable<String>,
         lineNet: Nullable<String>,
         sortOrder: Int64,
@@ -28,6 +32,8 @@ public struct ActsGetSalesResponseLinesItem: Codable, Hashable, Sendable {
         self.description = description
         self.unit = unit
         self.quantity = quantity
+        self.unitFactor = unitFactor
+        self.baseQuantity = baseQuantity
         self.unitPriceExclVat = unitPriceExclVat
         self.lineNet = lineNet
         self.sortOrder = sortOrder
@@ -41,6 +47,8 @@ public struct ActsGetSalesResponseLinesItem: Codable, Hashable, Sendable {
         self.description = try container.decode(String.self, forKey: .description)
         self.unit = try container.decode(String.self, forKey: .unit)
         self.quantity = try container.decode(String.self, forKey: .quantity)
+        self.unitFactor = try container.decode(String.self, forKey: .unitFactor)
+        self.baseQuantity = try container.decode(String.self, forKey: .baseQuantity)
         self.unitPriceExclVat = try container.decode(Nullable<String>.self, forKey: .unitPriceExclVat)
         self.lineNet = try container.decode(Nullable<String>.self, forKey: .lineNet)
         self.sortOrder = try container.decode(Int64.self, forKey: .sortOrder)
@@ -55,6 +63,8 @@ public struct ActsGetSalesResponseLinesItem: Codable, Hashable, Sendable {
         try container.encode(self.description, forKey: .description)
         try container.encode(self.unit, forKey: .unit)
         try container.encode(self.quantity, forKey: .quantity)
+        try container.encode(self.unitFactor, forKey: .unitFactor)
+        try container.encode(self.baseQuantity, forKey: .baseQuantity)
         try container.encode(self.unitPriceExclVat, forKey: .unitPriceExclVat)
         try container.encode(self.lineNet, forKey: .lineNet)
         try container.encode(self.sortOrder, forKey: .sortOrder)
@@ -67,6 +77,8 @@ public struct ActsGetSalesResponseLinesItem: Codable, Hashable, Sendable {
         case description
         case unit
         case quantity
+        case unitFactor
+        case baseQuantity
         case unitPriceExclVat
         case lineNet
         case sortOrder

@@ -345,7 +345,7 @@ public final class ReportsClient: Sendable {
         )
     }
 
-    /// Net purchases per cost centre and item for a period, from the lines of registered purchase invoices (by registration date) that carry a cost centre, credit notes counting negative; `costCenterId` limits the report to one cost centre. A line without an item is reported under its description.
+    /// Net purchases in the base currency per cost centre and item for a period, from the lines of registered purchase invoices (by registration date) that carry a cost centre, credit notes counting negative; `costCenterId` limits the report to one cost centre. A line without an item is reported under its description.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func costCenterItems(request: Requests.CostCenterItemsReportsRequest, requestOptions: RequestOptions? = nil) async throws -> CostCenterItemsReportsResponse {

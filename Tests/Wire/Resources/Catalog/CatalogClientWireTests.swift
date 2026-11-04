@@ -44,6 +44,16 @@ import Api
                       "quantity": "quantity"
                     }
                   ],
+                  "alternativeUnits": [
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "salePriceExclVat": "salePriceExclVat",
+                      "purchasePriceExclVat": "purchasePriceExclVat"
+                    }
+                  ],
                   "kindId": "kindId",
                   "saleAccountCode": "saleAccountCode",
                   "purchaseAccountCode": "purchaseAccountCode",
@@ -118,6 +128,16 @@ import Api
                     itemId: "itemId",
                     itemName: "itemName",
                     quantity: "quantity"
+                )
+            ],
+            alternativeUnits: [
+                ItemsCreateCatalogResponseAlternativeUnitsItem(
+                    unitCode: "unitCode",
+                    factor: "factor",
+                    isDefaultSale: true,
+                    isDefaultPurchase: true,
+                    salePriceExclVat: Nullable<String>.value("salePriceExclVat"),
+                    purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat")
                 )
             ],
             kindId: Nullable<String>.value("kindId"),
@@ -205,6 +225,24 @@ import Api
                       "quantity": "quantity"
                     }
                   ],
+                  "alternativeUnits": [
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "salePriceExclVat": "salePriceExclVat",
+                      "purchasePriceExclVat": "purchasePriceExclVat"
+                    },
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "salePriceExclVat": "salePriceExclVat",
+                      "purchasePriceExclVat": "purchasePriceExclVat"
+                    }
+                  ],
                   "kindId": "x",
                   "saleAccountCode": "saleAccountCode",
                   "purchaseAccountCode": "purchaseAccountCode",
@@ -284,6 +322,24 @@ import Api
                     itemId: "x",
                     itemName: "itemName",
                     quantity: "quantity"
+                )
+            ],
+            alternativeUnits: [
+                ItemsCreateCatalogResponseAlternativeUnitsItem(
+                    unitCode: "unitCode",
+                    factor: "factor",
+                    isDefaultSale: true,
+                    isDefaultPurchase: true,
+                    salePriceExclVat: Nullable<String>.value("salePriceExclVat"),
+                    purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat")
+                ),
+                ItemsCreateCatalogResponseAlternativeUnitsItem(
+                    unitCode: "unitCode",
+                    factor: "factor",
+                    isDefaultSale: true,
+                    isDefaultPurchase: true,
+                    salePriceExclVat: Nullable<String>.value("salePriceExclVat"),
+                    purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat")
                 )
             ],
             kindId: Nullable<String>.value("x"),
@@ -366,6 +422,16 @@ import Api
                       "quantity": "quantity"
                     }
                   ],
+                  "alternativeUnits": [
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "salePriceExclVat": "salePriceExclVat",
+                      "purchasePriceExclVat": "purchasePriceExclVat"
+                    }
+                  ],
                   "kindId": "kindId",
                   "saleAccountCode": "saleAccountCode",
                   "purchaseAccountCode": "purchaseAccountCode",
@@ -440,6 +506,16 @@ import Api
                     itemId: "itemId",
                     itemName: "itemName",
                     quantity: "quantity"
+                )
+            ],
+            alternativeUnits: [
+                ItemsGetCatalogResponseAlternativeUnitsItem(
+                    unitCode: "unitCode",
+                    factor: "factor",
+                    isDefaultSale: true,
+                    isDefaultPurchase: true,
+                    salePriceExclVat: Nullable<String>.value("salePriceExclVat"),
+                    purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat")
                 )
             ],
             kindId: Nullable<String>.value("kindId"),
@@ -527,6 +603,24 @@ import Api
                       "quantity": "quantity"
                     }
                   ],
+                  "alternativeUnits": [
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "salePriceExclVat": "salePriceExclVat",
+                      "purchasePriceExclVat": "purchasePriceExclVat"
+                    },
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "salePriceExclVat": "salePriceExclVat",
+                      "purchasePriceExclVat": "purchasePriceExclVat"
+                    }
+                  ],
                   "kindId": "x",
                   "saleAccountCode": "saleAccountCode",
                   "purchaseAccountCode": "purchaseAccountCode",
@@ -606,6 +700,24 @@ import Api
                     itemId: "x",
                     itemName: "itemName",
                     quantity: "quantity"
+                )
+            ],
+            alternativeUnits: [
+                ItemsGetCatalogResponseAlternativeUnitsItem(
+                    unitCode: "unitCode",
+                    factor: "factor",
+                    isDefaultSale: true,
+                    isDefaultPurchase: true,
+                    salePriceExclVat: Nullable<String>.value("salePriceExclVat"),
+                    purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat")
+                ),
+                ItemsGetCatalogResponseAlternativeUnitsItem(
+                    unitCode: "unitCode",
+                    factor: "factor",
+                    isDefaultSale: true,
+                    isDefaultPurchase: true,
+                    salePriceExclVat: Nullable<String>.value("salePriceExclVat"),
+                    purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat")
                 )
             ],
             kindId: Nullable<String>.value("x"),
@@ -688,6 +800,16 @@ import Api
                       "quantity": "quantity"
                     }
                   ],
+                  "alternativeUnits": [
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "salePriceExclVat": "salePriceExclVat",
+                      "purchasePriceExclVat": "purchasePriceExclVat"
+                    }
+                  ],
                   "kindId": "kindId",
                   "saleAccountCode": "saleAccountCode",
                   "purchaseAccountCode": "purchaseAccountCode",
@@ -762,6 +884,16 @@ import Api
                     itemId: "itemId",
                     itemName: "itemName",
                     quantity: "quantity"
+                )
+            ],
+            alternativeUnits: [
+                ItemsUpdateCatalogResponseAlternativeUnitsItem(
+                    unitCode: "unitCode",
+                    factor: "factor",
+                    isDefaultSale: true,
+                    isDefaultPurchase: true,
+                    salePriceExclVat: Nullable<String>.value("salePriceExclVat"),
+                    purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat")
                 )
             ],
             kindId: Nullable<String>.value("kindId"),
@@ -849,6 +981,24 @@ import Api
                       "quantity": "quantity"
                     }
                   ],
+                  "alternativeUnits": [
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "salePriceExclVat": "salePriceExclVat",
+                      "purchasePriceExclVat": "purchasePriceExclVat"
+                    },
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "salePriceExclVat": "salePriceExclVat",
+                      "purchasePriceExclVat": "purchasePriceExclVat"
+                    }
+                  ],
                   "kindId": "x",
                   "saleAccountCode": "saleAccountCode",
                   "purchaseAccountCode": "purchaseAccountCode",
@@ -928,6 +1078,24 @@ import Api
                     itemId: "x",
                     itemName: "itemName",
                     quantity: "quantity"
+                )
+            ],
+            alternativeUnits: [
+                ItemsUpdateCatalogResponseAlternativeUnitsItem(
+                    unitCode: "unitCode",
+                    factor: "factor",
+                    isDefaultSale: true,
+                    isDefaultPurchase: true,
+                    salePriceExclVat: Nullable<String>.value("salePriceExclVat"),
+                    purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat")
+                ),
+                ItemsUpdateCatalogResponseAlternativeUnitsItem(
+                    unitCode: "unitCode",
+                    factor: "factor",
+                    isDefaultSale: true,
+                    isDefaultPurchase: true,
+                    salePriceExclVat: Nullable<String>.value("salePriceExclVat"),
+                    purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat")
                 )
             ],
             kindId: Nullable<String>.value("x"),
@@ -1057,6 +1225,16 @@ import Api
                           "quantity": "quantity"
                         }
                       ],
+                      "alternativeUnits": [
+                        {
+                          "unitCode": "unitCode",
+                          "factor": "factor",
+                          "isDefaultSale": true,
+                          "isDefaultPurchase": true,
+                          "salePriceExclVat": null,
+                          "purchasePriceExclVat": null
+                        }
+                      ],
                       "kindId": "kindId",
                       "saleAccountCode": "saleAccountCode",
                       "purchaseAccountCode": "purchaseAccountCode",
@@ -1137,6 +1315,16 @@ import Api
                             itemId: "itemId",
                             itemName: "itemName",
                             quantity: "quantity"
+                        )
+                    ],
+                    alternativeUnits: [
+                        ItemsListCatalogResponseRowsItemAlternativeUnitsItem(
+                            unitCode: "unitCode",
+                            factor: "factor",
+                            isDefaultSale: true,
+                            isDefaultPurchase: true,
+                            salePriceExclVat: .null,
+                            purchasePriceExclVat: .null
                         )
                     ],
                     kindId: Nullable<String>.value("kindId"),
@@ -1237,6 +1425,24 @@ import Api
                           "quantity": "quantity"
                         }
                       ],
+                      "alternativeUnits": [
+                        {
+                          "unitCode": "unitCode",
+                          "factor": "factor",
+                          "isDefaultSale": true,
+                          "isDefaultPurchase": true,
+                          "salePriceExclVat": "salePriceExclVat",
+                          "purchasePriceExclVat": "purchasePriceExclVat"
+                        },
+                        {
+                          "unitCode": "unitCode",
+                          "factor": "factor",
+                          "isDefaultSale": true,
+                          "isDefaultPurchase": true,
+                          "salePriceExclVat": "salePriceExclVat",
+                          "purchasePriceExclVat": "purchasePriceExclVat"
+                        }
+                      ],
                       "kindId": "x",
                       "saleAccountCode": "saleAccountCode",
                       "purchaseAccountCode": "purchaseAccountCode",
@@ -1308,6 +1514,24 @@ import Api
                           "itemId": "x",
                           "itemName": "itemName",
                           "quantity": "quantity"
+                        }
+                      ],
+                      "alternativeUnits": [
+                        {
+                          "unitCode": "unitCode",
+                          "factor": "factor",
+                          "isDefaultSale": true,
+                          "isDefaultPurchase": true,
+                          "salePriceExclVat": "salePriceExclVat",
+                          "purchasePriceExclVat": "purchasePriceExclVat"
+                        },
+                        {
+                          "unitCode": "unitCode",
+                          "factor": "factor",
+                          "isDefaultSale": true,
+                          "isDefaultPurchase": true,
+                          "salePriceExclVat": "salePriceExclVat",
+                          "purchasePriceExclVat": "purchasePriceExclVat"
                         }
                       ],
                       "kindId": "x",
@@ -1406,6 +1630,24 @@ import Api
                             quantity: "quantity"
                         )
                     ],
+                    alternativeUnits: [
+                        ItemsListCatalogResponseRowsItemAlternativeUnitsItem(
+                            unitCode: "unitCode",
+                            factor: "factor",
+                            isDefaultSale: true,
+                            isDefaultPurchase: true,
+                            salePriceExclVat: Nullable<String>.value("salePriceExclVat"),
+                            purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat")
+                        ),
+                        ItemsListCatalogResponseRowsItemAlternativeUnitsItem(
+                            unitCode: "unitCode",
+                            factor: "factor",
+                            isDefaultSale: true,
+                            isDefaultPurchase: true,
+                            salePriceExclVat: Nullable<String>.value("salePriceExclVat"),
+                            purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat")
+                        )
+                    ],
                     kindId: Nullable<String>.value("x"),
                     saleAccountCode: Nullable<String>.value("saleAccountCode"),
                     purchaseAccountCode: Nullable<String>.value("purchaseAccountCode"),
@@ -1477,6 +1719,24 @@ import Api
                             itemId: "x",
                             itemName: "itemName",
                             quantity: "quantity"
+                        )
+                    ],
+                    alternativeUnits: [
+                        ItemsListCatalogResponseRowsItemAlternativeUnitsItem(
+                            unitCode: "unitCode",
+                            factor: "factor",
+                            isDefaultSale: true,
+                            isDefaultPurchase: true,
+                            salePriceExclVat: Nullable<String>.value("salePriceExclVat"),
+                            purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat")
+                        ),
+                        ItemsListCatalogResponseRowsItemAlternativeUnitsItem(
+                            unitCode: "unitCode",
+                            factor: "factor",
+                            isDefaultSale: true,
+                            isDefaultPurchase: true,
+                            salePriceExclVat: Nullable<String>.value("salePriceExclVat"),
+                            purchasePriceExclVat: Nullable<String>.value("purchasePriceExclVat")
                         )
                     ],
                     kindId: Nullable<String>.value("x"),
@@ -1982,6 +2242,7 @@ import Api
                   "id": "id",
                   "code": "code",
                   "name": "name",
+                  "rec20Code": "rec20Code",
                   "isActive": true,
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
@@ -1997,6 +2258,7 @@ import Api
             id: "id",
             code: "code",
             name: "name",
+            rec20Code: Nullable<String>.value("rec20Code"),
             isActive: true,
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
@@ -2019,6 +2281,7 @@ import Api
                   "id": "x",
                   "code": "code",
                   "name": "name",
+                  "rec20Code": "rec20Code",
                   "isActive": true,
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
@@ -2034,6 +2297,7 @@ import Api
             id: "x",
             code: "code",
             name: "name",
+            rec20Code: Nullable<String>.value("rec20Code"),
             isActive: true,
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
@@ -2056,6 +2320,7 @@ import Api
                   "id": "id",
                   "code": "code",
                   "name": "name",
+                  "rec20Code": "rec20Code",
                   "isActive": true,
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
@@ -2071,6 +2336,7 @@ import Api
             id: "id",
             code: "code",
             name: "name",
+            rec20Code: Nullable<String>.value("rec20Code"),
             isActive: true,
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
@@ -2090,6 +2356,7 @@ import Api
                   "id": "x",
                   "code": "code",
                   "name": "name",
+                  "rec20Code": "rec20Code",
                   "isActive": true,
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
@@ -2105,6 +2372,7 @@ import Api
             id: "x",
             code: "code",
             name: "name",
+            rec20Code: Nullable<String>.value("rec20Code"),
             isActive: true,
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
@@ -2178,6 +2446,7 @@ import Api
                       "id": "id",
                       "code": "code",
                       "name": "name",
+                      "rec20Code": "rec20Code",
                       "isActive": true,
                       "createdAt": "2026-07-01T09:30:00Z"
                     }
@@ -2197,6 +2466,7 @@ import Api
                     id: "id",
                     code: "code",
                     name: "name",
+                    rec20Code: Nullable<String>.value("rec20Code"),
                     isActive: true,
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
@@ -2220,6 +2490,7 @@ import Api
                       "id": "x",
                       "code": "code",
                       "name": "name",
+                      "rec20Code": "rec20Code",
                       "isActive": true,
                       "createdAt": "2024-01-15T09:30:00Z"
                     },
@@ -2227,6 +2498,7 @@ import Api
                       "id": "x",
                       "code": "code",
                       "name": "name",
+                      "rec20Code": "rec20Code",
                       "isActive": true,
                       "createdAt": "2024-01-15T09:30:00Z"
                     }
@@ -2246,6 +2518,7 @@ import Api
                     id: "x",
                     code: "code",
                     name: "name",
+                    rec20Code: Nullable<String>.value("rec20Code"),
                     isActive: true,
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
@@ -2253,6 +2526,7 @@ import Api
                     id: "x",
                     code: "code",
                     name: "name",
+                    rec20Code: Nullable<String>.value("rec20Code"),
                     isActive: true,
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
@@ -2902,6 +3176,356 @@ import Api
         )
         let response = try await client.catalog.itemsSuppliersDelete(
             request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itemsUnitsCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "itemId": "itemId",
+                  "unitCode": "unitCode",
+                  "factor": "factor",
+                  "isDefaultSale": true,
+                  "isDefaultPurchase": true,
+                  "barcode": "barcode",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItemsUnitsCreateCatalogResponse(
+            id: "id",
+            itemId: "itemId",
+            unitCode: "unitCode",
+            factor: "factor",
+            isDefaultSale: true,
+            isDefaultPurchase: true,
+            barcode: Nullable<String>.value("barcode"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.catalog.itemsUnitsCreate(
+            request: .init(
+                itemId: "itemId",
+                unitCode: "unitCode",
+                factor: "121.000000"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itemsUnitsCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "itemId": "x",
+                  "unitCode": "unitCode",
+                  "factor": "factor",
+                  "isDefaultSale": true,
+                  "isDefaultPurchase": true,
+                  "barcode": "barcode",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItemsUnitsCreateCatalogResponse(
+            id: "x",
+            itemId: "x",
+            unitCode: "unitCode",
+            factor: "factor",
+            isDefaultSale: true,
+            isDefaultPurchase: true,
+            barcode: Nullable<String>.value("barcode"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.catalog.itemsUnitsCreate(
+            request: .init(
+                itemId: "x",
+                unitCode: "x",
+                factor: "factor"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itemsUnitsUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "itemId": "itemId",
+                  "unitCode": "unitCode",
+                  "factor": "factor",
+                  "isDefaultSale": true,
+                  "isDefaultPurchase": true,
+                  "barcode": "barcode",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItemsUnitsUpdateCatalogResponse(
+            id: "id",
+            itemId: "itemId",
+            unitCode: "unitCode",
+            factor: "factor",
+            isDefaultSale: true,
+            isDefaultPurchase: true,
+            barcode: Nullable<String>.value("barcode"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.catalog.itemsUnitsUpdate(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itemsUnitsUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "itemId": "x",
+                  "unitCode": "unitCode",
+                  "factor": "factor",
+                  "isDefaultSale": true,
+                  "isDefaultPurchase": true,
+                  "barcode": "barcode",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItemsUnitsUpdateCatalogResponse(
+            id: "x",
+            itemId: "x",
+            unitCode: "unitCode",
+            factor: "factor",
+            isDefaultSale: true,
+            isDefaultPurchase: true,
+            barcode: Nullable<String>.value("barcode"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.catalog.itemsUnitsUpdate(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itemsUnitsDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItemsUnitsDeleteCatalogResponse(
+            id: "id"
+        )
+        let response = try await client.catalog.itemsUnitsDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itemsUnitsDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItemsUnitsDeleteCatalogResponse(
+            id: "x"
+        )
+        let response = try await client.catalog.itemsUnitsDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itemsUnitsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "itemId": "itemId",
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "barcode": "barcode",
+                      "createdAt": "2026-07-01T09:30:00Z",
+                      "updatedAt": "2026-07-01T09:30:00Z"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItemsUnitsListCatalogResponse(
+            rows: [
+                ItemsUnitsListCatalogResponseRowsItem(
+                    id: "id",
+                    itemId: "itemId",
+                    unitCode: "unitCode",
+                    factor: "factor",
+                    isDefaultSale: true,
+                    isDefaultPurchase: true,
+                    barcode: Nullable<String>.value("barcode"),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ]
+        )
+        let response = try await client.catalog.itemsUnitsList(
+            request: .init(itemId: "itemId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itemsUnitsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "barcode": "barcode",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "barcode": "barcode",
+                      "createdAt": "2024-01-15T09:30:00Z",
+                      "updatedAt": "2024-01-15T09:30:00Z"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItemsUnitsListCatalogResponse(
+            rows: [
+                ItemsUnitsListCatalogResponseRowsItem(
+                    id: "x",
+                    itemId: "x",
+                    unitCode: "unitCode",
+                    factor: "factor",
+                    isDefaultSale: true,
+                    isDefaultPurchase: true,
+                    barcode: Nullable<String>.value("barcode"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                ItemsUnitsListCatalogResponseRowsItem(
+                    id: "x",
+                    itemId: "x",
+                    unitCode: "unitCode",
+                    factor: "factor",
+                    isDefaultSale: true,
+                    isDefaultPurchase: true,
+                    barcode: Nullable<String>.value("barcode"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ]
+        )
+        let response = try await client.catalog.itemsUnitsList(
+            request: .init(itemId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

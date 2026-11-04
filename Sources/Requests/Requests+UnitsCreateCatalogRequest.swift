@@ -4,6 +4,7 @@ extension Requests {
     public struct UnitsCreateCatalogRequest: Codable, Hashable, Sendable {
         public let code: String
         public let name: String
+        public let rec20Code: String?
         public let isActive: Bool?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -11,11 +12,13 @@ extension Requests {
         public init(
             code: String,
             name: String,
+            rec20Code: String? = nil,
             isActive: Bool? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.code = code
             self.name = name
+            self.rec20Code = rec20Code
             self.isActive = isActive
             self.additionalProperties = additionalProperties
         }
@@ -24,6 +27,7 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.code = try container.decode(String.self, forKey: .code)
             self.name = try container.decode(String.self, forKey: .name)
+            self.rec20Code = try container.decodeIfPresent(String.self, forKey: .rec20Code)
             self.isActive = try container.decodeIfPresent(Bool.self, forKey: .isActive)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -33,6 +37,7 @@ extension Requests {
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.code, forKey: .code)
             try container.encode(self.name, forKey: .name)
+            try container.encodeIfPresent(self.rec20Code, forKey: .rec20Code)
             try container.encodeIfPresent(self.isActive, forKey: .isActive)
         }
 
@@ -40,6 +45,7 @@ extension Requests {
         enum CodingKeys: String, CodingKey, CaseIterable {
             case code
             case name
+            case rec20Code
             case isActive
         }
     }

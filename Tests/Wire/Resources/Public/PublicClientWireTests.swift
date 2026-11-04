@@ -85,6 +85,7 @@ import Api
                   "paidOn": "paidOn",
                   "notes": "notes",
                   "payUrl": "payUrl",
+                  "cardPaymentReceived": true,
                   "seller": {
                     "name": "name",
                     "vatCode": "vatCode",
@@ -150,6 +151,7 @@ import Api
             paidOn: Nullable<String>.value("paidOn"),
             notes: Nullable<String>.value("notes"),
             payUrl: Nullable<String>.value("payUrl"),
+            cardPaymentReceived: true,
             seller: InvoicesGetPublicResponseSeller(
                 name: "name",
                 vatCode: Nullable<String>.value("vatCode"),
@@ -219,6 +221,7 @@ import Api
                   "paidOn": "paidOn",
                   "notes": "notes",
                   "payUrl": "payUrl",
+                  "cardPaymentReceived": true,
                   "seller": {
                     "name": "name",
                     "vatCode": "vatCode",
@@ -292,6 +295,7 @@ import Api
             paidOn: Nullable<String>.value("paidOn"),
             notes: Nullable<String>.value("notes"),
             payUrl: Nullable<String>.value("payUrl"),
+            cardPaymentReceived: true,
             seller: InvoicesGetPublicResponseSeller(
                 name: "name",
                 vatCode: Nullable<String>.value("vatCode"),

@@ -4,6 +4,7 @@ public struct UnitsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
     public let id: String
     public let code: String
     public let name: String
+    public let rec20Code: Nullable<String>
     public let isActive: Bool
     public let createdAt: Date
     /// Additional properties that are not explicitly defined in the schema
@@ -13,6 +14,7 @@ public struct UnitsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         id: String,
         code: String,
         name: String,
+        rec20Code: Nullable<String>,
         isActive: Bool,
         createdAt: Date,
         additionalProperties: [String: JSONValue] = .init()
@@ -20,6 +22,7 @@ public struct UnitsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         self.id = id
         self.code = code
         self.name = name
+        self.rec20Code = rec20Code
         self.isActive = isActive
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
@@ -30,6 +33,7 @@ public struct UnitsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         self.id = try container.decode(String.self, forKey: .id)
         self.code = try container.decode(String.self, forKey: .code)
         self.name = try container.decode(String.self, forKey: .name)
+        self.rec20Code = try container.decode(Nullable<String>.self, forKey: .rec20Code)
         self.isActive = try container.decode(Bool.self, forKey: .isActive)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -41,6 +45,7 @@ public struct UnitsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         try container.encode(self.id, forKey: .id)
         try container.encode(self.code, forKey: .code)
         try container.encode(self.name, forKey: .name)
+        try container.encode(self.rec20Code, forKey: .rec20Code)
         try container.encode(self.isActive, forKey: .isActive)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
@@ -50,6 +55,7 @@ public struct UnitsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         case id
         case code
         case name
+        case rec20Code
         case isActive
         case createdAt
     }

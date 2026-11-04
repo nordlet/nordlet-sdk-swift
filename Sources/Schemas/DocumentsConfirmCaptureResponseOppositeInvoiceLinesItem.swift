@@ -6,6 +6,8 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
     public let description: String
     public let unit: String
     public let quantity: String
+    public let unitFactor: String
+    public let baseQuantity: String
     public let unitPriceExclVat: Nullable<String>
     public let unitPriceInclVat: Nullable<String>
     public let vatRatePercent: String
@@ -15,6 +17,8 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
     public let accountCode: Nullable<String>
     public let deferralStartDate: Nullable<CalendarDate>
     public let deferralEndDate: Nullable<CalendarDate>
+    public let lotNumber: Nullable<String>
+    public let expiryDate: Nullable<CalendarDate>
     public let lineNet: String
     public let lineVat: String
     public let lineGross: String
@@ -28,6 +32,8 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         description: String,
         unit: String,
         quantity: String,
+        unitFactor: String,
+        baseQuantity: String,
         unitPriceExclVat: Nullable<String>,
         unitPriceInclVat: Nullable<String>,
         vatRatePercent: String,
@@ -37,6 +43,8 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         accountCode: Nullable<String>,
         deferralStartDate: Nullable<CalendarDate>,
         deferralEndDate: Nullable<CalendarDate>,
+        lotNumber: Nullable<String>,
+        expiryDate: Nullable<CalendarDate>,
         lineNet: String,
         lineVat: String,
         lineGross: String,
@@ -48,6 +56,8 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         self.description = description
         self.unit = unit
         self.quantity = quantity
+        self.unitFactor = unitFactor
+        self.baseQuantity = baseQuantity
         self.unitPriceExclVat = unitPriceExclVat
         self.unitPriceInclVat = unitPriceInclVat
         self.vatRatePercent = vatRatePercent
@@ -57,6 +67,8 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         self.accountCode = accountCode
         self.deferralStartDate = deferralStartDate
         self.deferralEndDate = deferralEndDate
+        self.lotNumber = lotNumber
+        self.expiryDate = expiryDate
         self.lineNet = lineNet
         self.lineVat = lineVat
         self.lineGross = lineGross
@@ -71,6 +83,8 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         self.description = try container.decode(String.self, forKey: .description)
         self.unit = try container.decode(String.self, forKey: .unit)
         self.quantity = try container.decode(String.self, forKey: .quantity)
+        self.unitFactor = try container.decode(String.self, forKey: .unitFactor)
+        self.baseQuantity = try container.decode(String.self, forKey: .baseQuantity)
         self.unitPriceExclVat = try container.decode(Nullable<String>.self, forKey: .unitPriceExclVat)
         self.unitPriceInclVat = try container.decode(Nullable<String>.self, forKey: .unitPriceInclVat)
         self.vatRatePercent = try container.decode(String.self, forKey: .vatRatePercent)
@@ -80,6 +94,8 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         self.accountCode = try container.decode(Nullable<String>.self, forKey: .accountCode)
         self.deferralStartDate = try container.decode(Nullable<CalendarDate>.self, forKey: .deferralStartDate)
         self.deferralEndDate = try container.decode(Nullable<CalendarDate>.self, forKey: .deferralEndDate)
+        self.lotNumber = try container.decode(Nullable<String>.self, forKey: .lotNumber)
+        self.expiryDate = try container.decode(Nullable<CalendarDate>.self, forKey: .expiryDate)
         self.lineNet = try container.decode(String.self, forKey: .lineNet)
         self.lineVat = try container.decode(String.self, forKey: .lineVat)
         self.lineGross = try container.decode(String.self, forKey: .lineGross)
@@ -95,6 +111,8 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         try container.encode(self.description, forKey: .description)
         try container.encode(self.unit, forKey: .unit)
         try container.encode(self.quantity, forKey: .quantity)
+        try container.encode(self.unitFactor, forKey: .unitFactor)
+        try container.encode(self.baseQuantity, forKey: .baseQuantity)
         try container.encode(self.unitPriceExclVat, forKey: .unitPriceExclVat)
         try container.encode(self.unitPriceInclVat, forKey: .unitPriceInclVat)
         try container.encode(self.vatRatePercent, forKey: .vatRatePercent)
@@ -104,6 +122,8 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         try container.encode(self.accountCode, forKey: .accountCode)
         try container.encode(self.deferralStartDate, forKey: .deferralStartDate)
         try container.encode(self.deferralEndDate, forKey: .deferralEndDate)
+        try container.encode(self.lotNumber, forKey: .lotNumber)
+        try container.encode(self.expiryDate, forKey: .expiryDate)
         try container.encode(self.lineNet, forKey: .lineNet)
         try container.encode(self.lineVat, forKey: .lineVat)
         try container.encode(self.lineGross, forKey: .lineGross)
@@ -117,6 +137,8 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         case description
         case unit
         case quantity
+        case unitFactor
+        case baseQuantity
         case unitPriceExclVat
         case unitPriceInclVat
         case vatRatePercent
@@ -126,6 +148,8 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         case accountCode
         case deferralStartDate
         case deferralEndDate
+        case lotNumber
+        case expiryDate
         case lineNet
         case lineVat
         case lineGross

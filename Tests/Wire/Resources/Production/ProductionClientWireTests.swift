@@ -825,6 +825,7 @@ import Api
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
+                  "purchaseInvoiceId": "purchaseInvoiceId",
                   "notes": "notes",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
@@ -846,6 +847,7 @@ import Api
             description: Nullable<String>.value("description"),
             downtimeHours: Nullable<String>.value("downtimeHours"),
             cost: Nullable<String>.value("cost"),
+            purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
@@ -875,6 +877,7 @@ import Api
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
+                  "purchaseInvoiceId": "x",
                   "notes": "notes",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
@@ -896,6 +899,7 @@ import Api
             description: Nullable<String>.value("description"),
             downtimeHours: Nullable<String>.value("downtimeHours"),
             cost: Nullable<String>.value("cost"),
+            purchaseInvoiceId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
@@ -925,6 +929,7 @@ import Api
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
+                  "purchaseInvoiceId": "purchaseInvoiceId",
                   "notes": "notes",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
@@ -946,6 +951,7 @@ import Api
             description: Nullable<String>.value("description"),
             downtimeHours: Nullable<String>.value("downtimeHours"),
             cost: Nullable<String>.value("cost"),
+            purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
@@ -974,6 +980,7 @@ import Api
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
+                  "purchaseInvoiceId": "x",
                   "notes": "notes",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
@@ -995,6 +1002,7 @@ import Api
             description: Nullable<String>.value("description"),
             downtimeHours: Nullable<String>.value("downtimeHours"),
             cost: Nullable<String>.value("cost"),
+            purchaseInvoiceId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
@@ -1023,6 +1031,7 @@ import Api
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
+                  "purchaseInvoiceId": "purchaseInvoiceId",
                   "notes": "notes",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
@@ -1044,6 +1053,7 @@ import Api
             description: Nullable<String>.value("description"),
             downtimeHours: Nullable<String>.value("downtimeHours"),
             cost: Nullable<String>.value("cost"),
+            purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
@@ -1069,6 +1079,7 @@ import Api
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
+                  "purchaseInvoiceId": "x",
                   "notes": "notes",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
@@ -1090,6 +1101,7 @@ import Api
             description: Nullable<String>.value("description"),
             downtimeHours: Nullable<String>.value("downtimeHours"),
             cost: Nullable<String>.value("cost"),
+            purchaseInvoiceId: Nullable<String>.value("x"),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
@@ -1117,6 +1129,7 @@ import Api
                       "description": "description",
                       "downtimeHours": "downtimeHours",
                       "cost": "cost",
+                      "purchaseInvoiceId": "purchaseInvoiceId",
                       "notes": "notes",
                       "createdAt": "2026-07-01T09:30:00Z"
                     }
@@ -1153,6 +1166,7 @@ import Api
                     description: Nullable<String>.value("description"),
                     downtimeHours: Nullable<String>.value("downtimeHours"),
                     cost: Nullable<String>.value("cost"),
+                    purchaseInvoiceId: Nullable<String>.value("purchaseInvoiceId"),
                     notes: Nullable<String>.value("notes"),
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
@@ -1193,6 +1207,7 @@ import Api
                       "description": "description",
                       "downtimeHours": "downtimeHours",
                       "cost": "cost",
+                      "purchaseInvoiceId": "x",
                       "notes": "notes",
                       "createdAt": "2024-01-15T09:30:00Z"
                     },
@@ -1206,6 +1221,7 @@ import Api
                       "description": "description",
                       "downtimeHours": "downtimeHours",
                       "cost": "cost",
+                      "purchaseInvoiceId": "x",
                       "notes": "notes",
                       "createdAt": "2024-01-15T09:30:00Z"
                     }
@@ -1242,6 +1258,7 @@ import Api
                     description: Nullable<String>.value("description"),
                     downtimeHours: Nullable<String>.value("downtimeHours"),
                     cost: Nullable<String>.value("cost"),
+                    purchaseInvoiceId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
@@ -1255,6 +1272,7 @@ import Api
                     description: Nullable<String>.value("description"),
                     downtimeHours: Nullable<String>.value("downtimeHours"),
                     cost: Nullable<String>.value("cost"),
+                    purchaseInvoiceId: Nullable<String>.value("x"),
                     notes: Nullable<String>.value("notes"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )

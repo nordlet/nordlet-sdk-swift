@@ -66,6 +66,8 @@ public struct InvoicesListSalesResponseRowsItem: Codable, Hashable, Sendable {
     public let createdAt: Date
     public let updatedAt: Date
     public let partnerName: Nullable<String>
+    /// Gross amount of an advance invoice not yet applied or credited; null on other documents
+    public let advanceUnappliedAmount: Nullable<String>
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -135,6 +137,7 @@ public struct InvoicesListSalesResponseRowsItem: Codable, Hashable, Sendable {
         createdAt: Date,
         updatedAt: Date,
         partnerName: Nullable<String>,
+        advanceUnappliedAmount: Nullable<String>,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -202,6 +205,7 @@ public struct InvoicesListSalesResponseRowsItem: Codable, Hashable, Sendable {
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.partnerName = partnerName
+        self.advanceUnappliedAmount = advanceUnappliedAmount
         self.additionalProperties = additionalProperties
     }
 
@@ -272,6 +276,7 @@ public struct InvoicesListSalesResponseRowsItem: Codable, Hashable, Sendable {
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.updatedAt = try container.decode(Date.self, forKey: .updatedAt)
         self.partnerName = try container.decode(Nullable<String>.self, forKey: .partnerName)
+        self.advanceUnappliedAmount = try container.decode(Nullable<String>.self, forKey: .advanceUnappliedAmount)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -343,6 +348,7 @@ public struct InvoicesListSalesResponseRowsItem: Codable, Hashable, Sendable {
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
         try container.encode(self.partnerName, forKey: .partnerName)
+        try container.encode(self.advanceUnappliedAmount, forKey: .advanceUnappliedAmount)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -412,5 +418,6 @@ public struct InvoicesListSalesResponseRowsItem: Codable, Hashable, Sendable {
         case createdAt
         case updatedAt
         case partnerName
+        case advanceUnappliedAmount
     }
 }

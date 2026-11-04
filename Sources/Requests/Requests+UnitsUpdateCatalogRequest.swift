@@ -5,6 +5,7 @@ extension Requests {
         public let id: String
         public let code: String?
         public let name: String?
+        public let rec20Code: String?
         public let isActive: Bool?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -13,12 +14,14 @@ extension Requests {
             id: String,
             code: String? = nil,
             name: String? = nil,
+            rec20Code: String? = nil,
             isActive: Bool? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.id = id
             self.code = code
             self.name = name
+            self.rec20Code = rec20Code
             self.isActive = isActive
             self.additionalProperties = additionalProperties
         }
@@ -28,6 +31,7 @@ extension Requests {
             self.id = try container.decode(String.self, forKey: .id)
             self.code = try container.decodeIfPresent(String.self, forKey: .code)
             self.name = try container.decodeIfPresent(String.self, forKey: .name)
+            self.rec20Code = try container.decodeIfPresent(String.self, forKey: .rec20Code)
             self.isActive = try container.decodeIfPresent(Bool.self, forKey: .isActive)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -38,6 +42,7 @@ extension Requests {
             try container.encode(self.id, forKey: .id)
             try container.encodeIfPresent(self.code, forKey: .code)
             try container.encodeIfPresent(self.name, forKey: .name)
+            try container.encodeIfPresent(self.rec20Code, forKey: .rec20Code)
             try container.encodeIfPresent(self.isActive, forKey: .isActive)
         }
 
@@ -46,6 +51,7 @@ extension Requests {
             case id
             case code
             case name
+            case rec20Code
             case isActive
         }
     }
