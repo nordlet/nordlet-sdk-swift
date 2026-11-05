@@ -5,5 +5,6 @@ public enum ConfigsUpdateDeclarationsResponseFieldsItemKind: String, Codable, Ha
     case secret
     case select
     case url
+    case host
     case certificate
 }

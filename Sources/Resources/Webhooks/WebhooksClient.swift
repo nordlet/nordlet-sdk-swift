@@ -7,7 +7,7 @@ public final class WebhooksClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    /// Register a webhook endpoint for the given event types (`*` for every event). The URL must be an https address that resolves to a public network (422 otherwise). The signing secret is generated unless `secret` is given, and this call is the only one that returns it.
+    /// Register a webhook endpoint for the given event types (`*` for every event). The URL must be an https address that resolves to a public network (422 otherwise). The signing secret is generated unless `secret` is given (at least 32 characters), and this call is the only one that returns it. Answers 503 when the platform encryption key is not configured.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func subscriptionsCreate(request: Requests.SubscriptionsCreateWebhooksRequest, requestOptions: RequestOptions? = nil) async throws -> SubscriptionsCreateWebhooksResponse {
@@ -30,6 +30,19 @@ public final class WebhooksClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: SubscriptionsListWebhooksResponse.self
+        )
+    }
+
+    /// Replace the signing secret of a subscription and return the new one; this call is the only one that returns it. The secret is generated unless `secret` is given (at least 32 characters). For 24 hours `x-nordlet-signature-v2` carries two `v1=` values, one with the new secret and one with the previous one, so a receiver can switch secrets without refusing deliveries; `x-nordlet-signature` uses the new secret only. Answers 404 for an unknown subscription and 503 when the platform encryption key is not configured.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func subscriptionsRotateSecret(request: Requests.SubscriptionsRotateSecretWebhooksRequest, requestOptions: RequestOptions? = nil) async throws -> SubscriptionsRotateSecretWebhooksResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/webhooks/subscriptions/rotate-secret",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: SubscriptionsRotateSecretWebhooksResponse.self
         )
     }
 

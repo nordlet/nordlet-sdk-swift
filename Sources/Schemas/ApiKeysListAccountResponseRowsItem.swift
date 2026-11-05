@@ -3,6 +3,7 @@ import Foundation
 public struct ApiKeysListAccountResponseRowsItem: Codable, Hashable, Sendable {
     public let id: String
     public let name: String
+    public let lastFour: Nullable<String>
     public let scopes: [String]
     public let lastUsedAt: Nullable<Date>
     public let expiresAt: Nullable<Date>
@@ -15,6 +16,7 @@ public struct ApiKeysListAccountResponseRowsItem: Codable, Hashable, Sendable {
     public init(
         id: String,
         name: String,
+        lastFour: Nullable<String>,
         scopes: [String],
         lastUsedAt: Nullable<Date>,
         expiresAt: Nullable<Date>,
@@ -25,6 +27,7 @@ public struct ApiKeysListAccountResponseRowsItem: Codable, Hashable, Sendable {
     ) {
         self.id = id
         self.name = name
+        self.lastFour = lastFour
         self.scopes = scopes
         self.lastUsedAt = lastUsedAt
         self.expiresAt = expiresAt
@@ -38,6 +41,7 @@ public struct ApiKeysListAccountResponseRowsItem: Codable, Hashable, Sendable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
         self.name = try container.decode(String.self, forKey: .name)
+        self.lastFour = try container.decode(Nullable<String>.self, forKey: .lastFour)
         self.scopes = try container.decode([String].self, forKey: .scopes)
         self.lastUsedAt = try container.decode(Nullable<Date>.self, forKey: .lastUsedAt)
         self.expiresAt = try container.decode(Nullable<Date>.self, forKey: .expiresAt)
@@ -52,6 +56,7 @@ public struct ApiKeysListAccountResponseRowsItem: Codable, Hashable, Sendable {
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.id, forKey: .id)
         try container.encode(self.name, forKey: .name)
+        try container.encode(self.lastFour, forKey: .lastFour)
         try container.encode(self.scopes, forKey: .scopes)
         try container.encode(self.lastUsedAt, forKey: .lastUsedAt)
         try container.encode(self.expiresAt, forKey: .expiresAt)
@@ -64,6 +69,7 @@ public struct ApiKeysListAccountResponseRowsItem: Codable, Hashable, Sendable {
     enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case name
+        case lastFour
         case scopes
         case lastUsedAt
         case expiresAt

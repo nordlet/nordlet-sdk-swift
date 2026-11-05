@@ -5,5 +5,6 @@ public enum ConfigsListDeclarationsResponseRowsItemFieldsItemKind: String, Codab
     case secret
     case select
     case url
+    case host
     case certificate
 }

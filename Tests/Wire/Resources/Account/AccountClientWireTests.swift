@@ -63,6 +63,7 @@ import Api
                 {
                   "token": "token",
                   "expiresAt": "2026-07-01T09:30:00Z",
+                  "twoFactorRequired": true,
                   "user": {
                     "id": "id",
                     "email": "email",
@@ -82,6 +83,7 @@ import Api
         let expectedResponse = LoginLinkConsumeAccountResponse(
             token: "token",
             expiresAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            twoFactorRequired: true,
             user: LoginLinkConsumeAccountResponseUser(
                 id: "id",
                 email: "email",
@@ -105,6 +107,7 @@ import Api
                 {
                   "token": "token",
                   "expiresAt": "2024-01-15T09:30:00Z",
+                  "twoFactorRequired": true,
                   "user": {
                     "id": "x",
                     "email": "email",
@@ -124,6 +127,7 @@ import Api
         let expectedResponse = LoginLinkConsumeAccountResponse(
             token: "token",
             expiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            twoFactorRequired: true,
             user: LoginLinkConsumeAccountResponseUser(
                 id: "x",
                 email: "email",
@@ -1031,6 +1035,7 @@ import Api
                 {
                   "token": "token",
                   "expiresAt": "2026-07-01T09:30:00Z",
+                  "twoFactorRequired": true,
                   "user": {
                     "id": "id",
                     "email": "email",
@@ -1049,6 +1054,7 @@ import Api
         let expectedResponse = InvitesAcceptAccountResponse(
             token: "token",
             expiresAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            twoFactorRequired: true,
             user: InvitesAcceptAccountResponseUser(
                 id: "id",
                 email: "email",
@@ -1071,6 +1077,7 @@ import Api
                 {
                   "token": "token",
                   "expiresAt": "2024-01-15T09:30:00Z",
+                  "twoFactorRequired": true,
                   "user": {
                     "id": "x",
                     "email": "email",
@@ -1089,6 +1096,7 @@ import Api
         let expectedResponse = InvitesAcceptAccountResponse(
             token: "token",
             expiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            twoFactorRequired: true,
             user: InvitesAcceptAccountResponseUser(
                 id: "x",
                 email: "email",
@@ -2043,6 +2051,7 @@ import Api
                     {
                       "id": "id",
                       "name": "name",
+                      "lastFour": "lastFour",
                       "scopes": [
                         "scopes"
                       ],
@@ -2067,6 +2076,7 @@ import Api
                 ApiKeysListAccountResponseRowsItem(
                     id: "id",
                     name: "name",
+                    lastFour: Nullable<String>.value("lastFour"),
                     scopes: [
                         "scopes"
                     ],
@@ -2095,6 +2105,7 @@ import Api
                     {
                       "id": "x",
                       "name": "name",
+                      "lastFour": "lastFour",
                       "scopes": [
                         "scopes",
                         "scopes"
@@ -2108,6 +2119,7 @@ import Api
                     {
                       "id": "x",
                       "name": "name",
+                      "lastFour": "lastFour",
                       "scopes": [
                         "scopes",
                         "scopes"
@@ -2133,6 +2145,7 @@ import Api
                 ApiKeysListAccountResponseRowsItem(
                     id: "x",
                     name: "name",
+                    lastFour: Nullable<String>.value("lastFour"),
                     scopes: [
                         "scopes",
                         "scopes"
@@ -2146,6 +2159,7 @@ import Api
                 ApiKeysListAccountResponseRowsItem(
                     id: "x",
                     name: "name",
+                    lastFour: Nullable<String>.value("lastFour"),
                     scopes: [
                         "scopes",
                         "scopes"
@@ -2798,6 +2812,43 @@ import Api
                       "entityId": "entityId",
                       "createdAt": "2026-07-01T09:30:00Z"
                     }
+                  ],
+                  "authEvents": [
+                    {
+                      "action": "action",
+                      "ipAddress": "ipAddress",
+                      "userAgent": "userAgent",
+                      "createdAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
+                  "apiKeys": [
+                    {
+                      "id": "id",
+                      "name": "name",
+                      "lastFour": "lastFour",
+                      "scopes": [
+                        "scopes"
+                      ],
+                      "lastUsedAt": "2026-07-01T09:30:00Z",
+                      "expiresAt": "2026-07-01T09:30:00Z",
+                      "revokedAt": "2026-07-01T09:30:00Z",
+                      "createdAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
+                  "oauthGrants": [
+                    {
+                      "apiKeyId": "apiKeyId",
+                      "clientId": "clientId",
+                      "clientName": "clientName",
+                      "createdAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
+                  "referralPoints": [
+                    {
+                      "points": 1000000,
+                      "reason": "reason",
+                      "createdAt": "2026-07-01T09:30:00Z"
+                    }
                   ]
                 }
                 """#.utf8
@@ -2882,6 +2933,43 @@ import Api
                     action: "action",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            authEvents: [
+                ExportAccountResponseAuthEventsItem(
+                    action: "action",
+                    ipAddress: Nullable<String>.value("ipAddress"),
+                    userAgent: Nullable<String>.value("userAgent"),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            apiKeys: [
+                ExportAccountResponseApiKeysItem(
+                    id: "id",
+                    name: "name",
+                    lastFour: Nullable<String>.value("lastFour"),
+                    scopes: [
+                        "scopes"
+                    ],
+                    lastUsedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    expiresAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    revokedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            oauthGrants: [
+                ExportAccountResponseOauthGrantsItem(
+                    apiKeyId: "apiKeyId",
+                    clientId: "clientId",
+                    clientName: "clientName",
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            referralPoints: [
+                ExportAccountResponseReferralPointsItem(
+                    points: 1000000,
+                    reason: "reason",
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ]
@@ -3015,6 +3103,74 @@ import Api
                       "entityId": "entityId",
                       "createdAt": "2024-01-15T09:30:00Z"
                     }
+                  ],
+                  "authEvents": [
+                    {
+                      "action": "action",
+                      "ipAddress": "ipAddress",
+                      "userAgent": "userAgent",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "action": "action",
+                      "ipAddress": "ipAddress",
+                      "userAgent": "userAgent",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
+                  "apiKeys": [
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "lastFour": "lastFour",
+                      "scopes": [
+                        "scopes",
+                        "scopes"
+                      ],
+                      "lastUsedAt": "2024-01-15T09:30:00Z",
+                      "expiresAt": "2024-01-15T09:30:00Z",
+                      "revokedAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "lastFour": "lastFour",
+                      "scopes": [
+                        "scopes",
+                        "scopes"
+                      ],
+                      "lastUsedAt": "2024-01-15T09:30:00Z",
+                      "expiresAt": "2024-01-15T09:30:00Z",
+                      "revokedAt": "2024-01-15T09:30:00Z",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
+                  "oauthGrants": [
+                    {
+                      "apiKeyId": "x",
+                      "clientId": "clientId",
+                      "clientName": "clientName",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "apiKeyId": "x",
+                      "clientId": "clientId",
+                      "clientName": "clientName",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
+                  "referralPoints": [
+                    {
+                      "points": 1000000,
+                      "reason": "reason",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "points": 1000000,
+                      "reason": "reason",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    }
                   ]
                 }
                 """#.utf8
@@ -3140,6 +3296,74 @@ import Api
                     action: "action",
                     entity: "entity",
                     entityId: Nullable<String>.value("entityId"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            authEvents: [
+                ExportAccountResponseAuthEventsItem(
+                    action: "action",
+                    ipAddress: Nullable<String>.value("ipAddress"),
+                    userAgent: Nullable<String>.value("userAgent"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                ExportAccountResponseAuthEventsItem(
+                    action: "action",
+                    ipAddress: Nullable<String>.value("ipAddress"),
+                    userAgent: Nullable<String>.value("userAgent"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            apiKeys: [
+                ExportAccountResponseApiKeysItem(
+                    id: "x",
+                    name: "name",
+                    lastFour: Nullable<String>.value("lastFour"),
+                    scopes: [
+                        "scopes",
+                        "scopes"
+                    ],
+                    lastUsedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    expiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    revokedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                ExportAccountResponseApiKeysItem(
+                    id: "x",
+                    name: "name",
+                    lastFour: Nullable<String>.value("lastFour"),
+                    scopes: [
+                        "scopes",
+                        "scopes"
+                    ],
+                    lastUsedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    expiresAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    revokedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            oauthGrants: [
+                ExportAccountResponseOauthGrantsItem(
+                    apiKeyId: "x",
+                    clientId: "clientId",
+                    clientName: "clientName",
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                ExportAccountResponseOauthGrantsItem(
+                    apiKeyId: "x",
+                    clientId: "clientId",
+                    clientName: "clientName",
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            referralPoints: [
+                ExportAccountResponseReferralPointsItem(
+                    points: 1000000,
+                    reason: "reason",
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                ExportAccountResponseReferralPointsItem(
+                    points: 1000000,
+                    reason: "reason",
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ]
@@ -3800,6 +4024,366 @@ import Api
         )
         let response = try await client.account.oauthAuthorizeDeny(
             request: .init(clientId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func twoFactorGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "enabled": true,
+                  "required": true,
+                  "recoveryCodesLeft": 1000000,
+                  "setup": {
+                    "secret": "secret",
+                    "otpauthUrl": "otpauthUrl"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TwoFactorGetAccountResponse(
+            enabled: true,
+            required: true,
+            recoveryCodesLeft: 1000000,
+            setup: Nullable<TwoFactorGetAccountResponseSetup>.value(TwoFactorGetAccountResponseSetup(
+                secret: "secret",
+                otpauthUrl: "otpauthUrl"
+            ))
+        )
+        let response = try await client.account.twoFactorGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func twoFactorGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "enabled": true,
+                  "required": true,
+                  "recoveryCodesLeft": 1000000,
+                  "setup": {
+                    "secret": "secret",
+                    "otpauthUrl": "otpauthUrl"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TwoFactorGetAccountResponse(
+            enabled: true,
+            required: true,
+            recoveryCodesLeft: 1000000,
+            setup: Nullable<TwoFactorGetAccountResponseSetup>.value(TwoFactorGetAccountResponseSetup(
+                secret: "secret",
+                otpauthUrl: "otpauthUrl"
+            ))
+        )
+        let response = try await client.account.twoFactorGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func twoFactorSetup1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "secret": "secret",
+                  "otpauthUrl": "otpauthUrl"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TwoFactorSetupAccountResponse(
+            secret: "secret",
+            otpauthUrl: "otpauthUrl"
+        )
+        let response = try await client.account.twoFactorSetup(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func twoFactorSetup2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "secret": "secret",
+                  "otpauthUrl": "otpauthUrl"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TwoFactorSetupAccountResponse(
+            secret: "secret",
+            otpauthUrl: "otpauthUrl"
+        )
+        let response = try await client.account.twoFactorSetup(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func twoFactorEnable1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "recoveryCodes": [
+                    "recoveryCodes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TwoFactorEnableAccountResponse(
+            recoveryCodes: [
+                "recoveryCodes"
+            ]
+        )
+        let response = try await client.account.twoFactorEnable(
+            request: .init(code: "code"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func twoFactorEnable2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "recoveryCodes": [
+                    "recoveryCodes",
+                    "recoveryCodes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TwoFactorEnableAccountResponse(
+            recoveryCodes: [
+                "recoveryCodes",
+                "recoveryCodes"
+            ]
+        )
+        let response = try await client.account.twoFactorEnable(
+            request: .init(code: "banana"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func twoFactorVerify1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "verified": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TwoFactorVerifyAccountResponse(
+            verified: true
+        )
+        let response = try await client.account.twoFactorVerify(
+            request: .init(code: "code"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func twoFactorVerify2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "verified": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TwoFactorVerifyAccountResponse(
+            verified: true
+        )
+        let response = try await client.account.twoFactorVerify(
+            request: .init(code: "banana"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func twoFactorRecoveryCodesRegenerate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "recoveryCodes": [
+                    "recoveryCodes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TwoFactorRecoveryCodesRegenerateAccountResponse(
+            recoveryCodes: [
+                "recoveryCodes"
+            ]
+        )
+        let response = try await client.account.twoFactorRecoveryCodesRegenerate(
+            request: .init(code: "code"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func twoFactorRecoveryCodesRegenerate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "recoveryCodes": [
+                    "recoveryCodes",
+                    "recoveryCodes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TwoFactorRecoveryCodesRegenerateAccountResponse(
+            recoveryCodes: [
+                "recoveryCodes",
+                "recoveryCodes"
+            ]
+        )
+        let response = try await client.account.twoFactorRecoveryCodesRegenerate(
+            request: .init(code: "banana"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func twoFactorDisable1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "enabled": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TwoFactorDisableAccountResponse(
+            enabled: true
+        )
+        let response = try await client.account.twoFactorDisable(
+            request: .init(code: "code"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func twoFactorDisable2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "enabled": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TwoFactorDisableAccountResponse(
+            enabled: true
+        )
+        let response = try await client.account.twoFactorDisable(
+            request: .init(code: "banana"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

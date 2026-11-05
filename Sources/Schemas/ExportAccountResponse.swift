@@ -10,6 +10,10 @@ public struct ExportAccountResponse: Codable, Hashable, Sendable {
     public let billingAccounts: [ExportAccountResponseBillingAccountsItem]
     public let creditTransactions: [ExportAccountResponseCreditTransactionsItem]
     public let auditEntries: [ExportAccountResponseAuditEntriesItem]
+    public let authEvents: [ExportAccountResponseAuthEventsItem]
+    public let apiKeys: [ExportAccountResponseApiKeysItem]
+    public let oauthGrants: [ExportAccountResponseOauthGrantsItem]
+    public let referralPoints: [ExportAccountResponseReferralPointsItem]
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -23,6 +27,10 @@ public struct ExportAccountResponse: Codable, Hashable, Sendable {
         billingAccounts: [ExportAccountResponseBillingAccountsItem],
         creditTransactions: [ExportAccountResponseCreditTransactionsItem],
         auditEntries: [ExportAccountResponseAuditEntriesItem],
+        authEvents: [ExportAccountResponseAuthEventsItem],
+        apiKeys: [ExportAccountResponseApiKeysItem],
+        oauthGrants: [ExportAccountResponseOauthGrantsItem],
+        referralPoints: [ExportAccountResponseReferralPointsItem],
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.generatedAt = generatedAt
@@ -34,6 +42,10 @@ public struct ExportAccountResponse: Codable, Hashable, Sendable {
         self.billingAccounts = billingAccounts
         self.creditTransactions = creditTransactions
         self.auditEntries = auditEntries
+        self.authEvents = authEvents
+        self.apiKeys = apiKeys
+        self.oauthGrants = oauthGrants
+        self.referralPoints = referralPoints
         self.additionalProperties = additionalProperties
     }
 
@@ -48,6 +60,10 @@ public struct ExportAccountResponse: Codable, Hashable, Sendable {
         self.billingAccounts = try container.decode([ExportAccountResponseBillingAccountsItem].self, forKey: .billingAccounts)
         self.creditTransactions = try container.decode([ExportAccountResponseCreditTransactionsItem].self, forKey: .creditTransactions)
         self.auditEntries = try container.decode([ExportAccountResponseAuditEntriesItem].self, forKey: .auditEntries)
+        self.authEvents = try container.decode([ExportAccountResponseAuthEventsItem].self, forKey: .authEvents)
+        self.apiKeys = try container.decode([ExportAccountResponseApiKeysItem].self, forKey: .apiKeys)
+        self.oauthGrants = try container.decode([ExportAccountResponseOauthGrantsItem].self, forKey: .oauthGrants)
+        self.referralPoints = try container.decode([ExportAccountResponseReferralPointsItem].self, forKey: .referralPoints)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -63,6 +79,10 @@ public struct ExportAccountResponse: Codable, Hashable, Sendable {
         try container.encode(self.billingAccounts, forKey: .billingAccounts)
         try container.encode(self.creditTransactions, forKey: .creditTransactions)
         try container.encode(self.auditEntries, forKey: .auditEntries)
+        try container.encode(self.authEvents, forKey: .authEvents)
+        try container.encode(self.apiKeys, forKey: .apiKeys)
+        try container.encode(self.oauthGrants, forKey: .oauthGrants)
+        try container.encode(self.referralPoints, forKey: .referralPoints)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -76,5 +96,9 @@ public struct ExportAccountResponse: Codable, Hashable, Sendable {
         case billingAccounts
         case creditTransactions
         case auditEntries
+        case authEvents
+        case apiKeys
+        case oauthGrants
+        case referralPoints
     }
 }

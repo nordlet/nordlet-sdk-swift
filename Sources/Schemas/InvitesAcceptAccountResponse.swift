@@ -3,6 +3,7 @@ import Foundation
 public struct InvitesAcceptAccountResponse: Codable, Hashable, Sendable {
     public let token: String
     public let expiresAt: Date
+    public let twoFactorRequired: Bool
     public let user: InvitesAcceptAccountResponseUser
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -10,11 +11,13 @@ public struct InvitesAcceptAccountResponse: Codable, Hashable, Sendable {
     public init(
         token: String,
         expiresAt: Date,
+        twoFactorRequired: Bool,
         user: InvitesAcceptAccountResponseUser,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.token = token
         self.expiresAt = expiresAt
+        self.twoFactorRequired = twoFactorRequired
         self.user = user
         self.additionalProperties = additionalProperties
     }
@@ -23,6 +26,7 @@ public struct InvitesAcceptAccountResponse: Codable, Hashable, Sendable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.token = try container.decode(String.self, forKey: .token)
         self.expiresAt = try container.decode(Date.self, forKey: .expiresAt)
+        self.twoFactorRequired = try container.decode(Bool.self, forKey: .twoFactorRequired)
         self.user = try container.decode(InvitesAcceptAccountResponseUser.self, forKey: .user)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -32,6 +36,7 @@ public struct InvitesAcceptAccountResponse: Codable, Hashable, Sendable {
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.token, forKey: .token)
         try container.encode(self.expiresAt, forKey: .expiresAt)
+        try container.encode(self.twoFactorRequired, forKey: .twoFactorRequired)
         try container.encode(self.user, forKey: .user)
     }
 
@@ -39,6 +44,7 @@ public struct InvitesAcceptAccountResponse: Codable, Hashable, Sendable {
     enum CodingKeys: String, CodingKey, CaseIterable {
         case token
         case expiresAt
+        case twoFactorRequired
         case user
     }
 }

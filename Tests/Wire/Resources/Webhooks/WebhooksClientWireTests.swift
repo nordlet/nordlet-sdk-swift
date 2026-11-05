@@ -294,6 +294,108 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func subscriptionsRotateSecret1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "url": "url",
+                  "events": [
+                    "events"
+                  ],
+                  "isActive": true,
+                  "consecutiveFailures": 1000000,
+                  "lastDeliveryStatus": "pending",
+                  "lastDeliveryAt": "2026-07-01T09:30:00Z",
+                  "pausedAt": "2026-07-01T09:30:00Z",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "secret": "secret",
+                  "previousSecretExpiresAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SubscriptionsRotateSecretWebhooksResponse(
+            id: "id",
+            url: "url",
+            events: [
+                "events"
+            ],
+            isActive: true,
+            consecutiveFailures: 1000000,
+            lastDeliveryStatus: Nullable<SubscriptionsRotateSecretWebhooksResponseLastDeliveryStatus>.value(.pending),
+            lastDeliveryAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            pausedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            secret: "secret",
+            previousSecretExpiresAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.webhooks.subscriptionsRotateSecret(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func subscriptionsRotateSecret2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "url": "url",
+                  "events": [
+                    "events",
+                    "events"
+                  ],
+                  "isActive": true,
+                  "consecutiveFailures": 1000000,
+                  "lastDeliveryStatus": "pending",
+                  "lastDeliveryAt": "2024-01-15T09:30:00Z",
+                  "pausedAt": "2024-01-15T09:30:00Z",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "secret": "secret",
+                  "previousSecretExpiresAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SubscriptionsRotateSecretWebhooksResponse(
+            id: "x",
+            url: "url",
+            events: [
+                "events",
+                "events"
+            ],
+            isActive: true,
+            consecutiveFailures: 1000000,
+            lastDeliveryStatus: Nullable<SubscriptionsRotateSecretWebhooksResponseLastDeliveryStatus>.value(.pending),
+            lastDeliveryAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            pausedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            secret: "secret",
+            previousSecretExpiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.webhooks.subscriptionsRotateSecret(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func subscriptionsUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
