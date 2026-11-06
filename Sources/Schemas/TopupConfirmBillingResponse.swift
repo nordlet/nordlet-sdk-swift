@@ -8,6 +8,8 @@ public struct TopupConfirmBillingResponse: Codable, Hashable, Sendable {
     public let status: TopupConfirmBillingResponseStatus
     public let balanceCents: Int64
     public let trialEndsAt: Nullable<Date>
+    /// When the free sandbox plan was started; it ends at `trialEndsAt`
+    public let freeSandboxStartedAt: Nullable<Date>
     public let firstTopUpAt: Nullable<Date>
     public let lastChargedDate: Nullable<CalendarDate>
     public let paymentsConfigured: Bool
@@ -35,6 +37,7 @@ public struct TopupConfirmBillingResponse: Codable, Hashable, Sendable {
         status: TopupConfirmBillingResponseStatus,
         balanceCents: Int64,
         trialEndsAt: Nullable<Date>,
+        freeSandboxStartedAt: Nullable<Date>,
         firstTopUpAt: Nullable<Date>,
         lastChargedDate: Nullable<CalendarDate>,
         paymentsConfigured: Bool,
@@ -59,6 +62,7 @@ public struct TopupConfirmBillingResponse: Codable, Hashable, Sendable {
         self.status = status
         self.balanceCents = balanceCents
         self.trialEndsAt = trialEndsAt
+        self.freeSandboxStartedAt = freeSandboxStartedAt
         self.firstTopUpAt = firstTopUpAt
         self.lastChargedDate = lastChargedDate
         self.paymentsConfigured = paymentsConfigured
@@ -86,6 +90,7 @@ public struct TopupConfirmBillingResponse: Codable, Hashable, Sendable {
         self.status = try container.decode(TopupConfirmBillingResponseStatus.self, forKey: .status)
         self.balanceCents = try container.decode(Int64.self, forKey: .balanceCents)
         self.trialEndsAt = try container.decode(Nullable<Date>.self, forKey: .trialEndsAt)
+        self.freeSandboxStartedAt = try container.decode(Nullable<Date>.self, forKey: .freeSandboxStartedAt)
         self.firstTopUpAt = try container.decode(Nullable<Date>.self, forKey: .firstTopUpAt)
         self.lastChargedDate = try container.decode(Nullable<CalendarDate>.self, forKey: .lastChargedDate)
         self.paymentsConfigured = try container.decode(Bool.self, forKey: .paymentsConfigured)
@@ -114,6 +119,7 @@ public struct TopupConfirmBillingResponse: Codable, Hashable, Sendable {
         try container.encode(self.status, forKey: .status)
         try container.encode(self.balanceCents, forKey: .balanceCents)
         try container.encode(self.trialEndsAt, forKey: .trialEndsAt)
+        try container.encode(self.freeSandboxStartedAt, forKey: .freeSandboxStartedAt)
         try container.encode(self.firstTopUpAt, forKey: .firstTopUpAt)
         try container.encode(self.lastChargedDate, forKey: .lastChargedDate)
         try container.encode(self.paymentsConfigured, forKey: .paymentsConfigured)
@@ -140,6 +146,7 @@ public struct TopupConfirmBillingResponse: Codable, Hashable, Sendable {
         case status
         case balanceCents
         case trialEndsAt
+        case freeSandboxStartedAt
         case firstTopUpAt
         case lastChargedDate
         case paymentsConfigured

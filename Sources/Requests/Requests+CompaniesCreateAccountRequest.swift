@@ -44,7 +44,7 @@ extension Requests {
         public let countryCode: CompaniesCreateAccountRequestCountryCode?
         /// Currency the ledger is kept in; defaults to the national currency of countryCode (immutable after creation)
         public let baseCurrency: String?
-        /// Sandbox companies hold test data and are purged immediately on delete (immutable after creation)
+        /// Sandbox companies hold test data and are purged immediately on delete; `companies/convert-to-live` turns one into a live company
         public let isSandbox: Bool?
         /// The company determines its profit on a cash basis (receipts and payments, in Germany the Einnahmenüberschussrechnung of § 4 Abs. 3 EStG); it gets the cash-basis returns in its filing calendar (immutable after creation)
         public let cashBasis: Bool?

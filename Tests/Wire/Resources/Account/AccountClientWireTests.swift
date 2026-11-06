@@ -223,6 +223,7 @@ import Api
                     "payerEmail": "payerEmail",
                     "isPayer": true,
                     "planChosen": true,
+                    "freeSandbox": true,
                     "flatRate": true,
                     "accountType": "flat_rate"
                   },
@@ -281,6 +282,7 @@ import Api
                 payerEmail: "payerEmail",
                 isPayer: true,
                 planChosen: true,
+                freeSandbox: true,
                 flatRate: true,
                 accountType: .flatRate
             ),
@@ -343,6 +345,7 @@ import Api
                     "payerEmail": "payerEmail",
                     "isPayer": true,
                     "planChosen": true,
+                    "freeSandbox": true,
                     "flatRate": true,
                     "accountType": "flat_rate"
                   },
@@ -412,6 +415,7 @@ import Api
                 payerEmail: "payerEmail",
                 isPayer: true,
                 planChosen: true,
+                freeSandbox: true,
                 flatRate: true,
                 accountType: .flatRate
             ),
@@ -1901,6 +1905,62 @@ import Api
             purgeAfter: "purgeAfter"
         )
         let response = try await client.account.companiesDelete(
+            request: .init(companyId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func companiesConvertToLive1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "isSandbox": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = CompaniesConvertToLiveAccountResponse(
+            id: "id",
+            isSandbox: true
+        )
+        let response = try await client.account.companiesConvertToLive(
+            request: .init(companyId: "companyId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func companiesConvertToLive2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "isSandbox": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = CompaniesConvertToLiveAccountResponse(
+            id: "x",
+            isSandbox: true
+        )
+        let response = try await client.account.companiesConvertToLive(
             request: .init(companyId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

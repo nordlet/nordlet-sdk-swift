@@ -5,6 +5,7 @@ extension Requests {
         public let amountCents: Int64
         public let locale: TopupCreateBillingRequestLocale?
         public let returnTo: TopupCreateBillingRequestReturnTo?
+        public let convertCompanyId: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -12,11 +13,13 @@ extension Requests {
             amountCents: Int64,
             locale: TopupCreateBillingRequestLocale? = nil,
             returnTo: TopupCreateBillingRequestReturnTo? = nil,
+            convertCompanyId: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.amountCents = amountCents
             self.locale = locale
             self.returnTo = returnTo
+            self.convertCompanyId = convertCompanyId
             self.additionalProperties = additionalProperties
         }
 
@@ -25,6 +28,7 @@ extension Requests {
             self.amountCents = try container.decode(Int64.self, forKey: .amountCents)
             self.locale = try container.decodeIfPresent(TopupCreateBillingRequestLocale.self, forKey: .locale)
             self.returnTo = try container.decodeIfPresent(TopupCreateBillingRequestReturnTo.self, forKey: .returnTo)
+            self.convertCompanyId = try container.decodeIfPresent(String.self, forKey: .convertCompanyId)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -34,6 +38,7 @@ extension Requests {
             try container.encode(self.amountCents, forKey: .amountCents)
             try container.encodeIfPresent(self.locale, forKey: .locale)
             try container.encodeIfPresent(self.returnTo, forKey: .returnTo)
+            try container.encodeIfPresent(self.convertCompanyId, forKey: .convertCompanyId)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -41,6 +46,7 @@ extension Requests {
             case amountCents
             case locale
             case returnTo
+            case convertCompanyId
         }
     }
 }

@@ -15,6 +15,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "freeSandboxStartedAt": "2026-07-01T09:30:00Z",
                   "firstTopUpAt": "2026-07-01T09:30:00Z",
                   "lastChargedDate": "2026-07-01",
                   "paymentsConfigured": true,
@@ -72,6 +73,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             paymentsConfigured: true,
@@ -133,6 +135,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "freeSandboxStartedAt": "2024-01-15T09:30:00Z",
                   "firstTopUpAt": "2024-01-15T09:30:00Z",
                   "lastChargedDate": "2023-01-15",
                   "paymentsConfigured": true,
@@ -190,6 +193,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             paymentsConfigured: true,
@@ -251,6 +255,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "freeSandboxStartedAt": "2026-07-01T09:30:00Z",
                   "firstTopUpAt": "2026-07-01T09:30:00Z",
                   "lastChargedDate": "2026-07-01",
                   "paymentsConfigured": true,
@@ -308,6 +313,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             paymentsConfigured: true,
@@ -369,6 +375,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "freeSandboxStartedAt": "2024-01-15T09:30:00Z",
                   "firstTopUpAt": "2024-01-15T09:30:00Z",
                   "lastChargedDate": "2023-01-15",
                   "paymentsConfigured": true,
@@ -426,6 +433,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             paymentsConfigured: true,
@@ -487,6 +495,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "freeSandboxStartedAt": "2026-07-01T09:30:00Z",
                   "firstTopUpAt": "2026-07-01T09:30:00Z",
                   "lastChargedDate": "2026-07-01",
                   "paymentsConfigured": true,
@@ -544,6 +553,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             paymentsConfigured: true,
@@ -605,6 +615,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "freeSandboxStartedAt": "2024-01-15T09:30:00Z",
                   "firstTopUpAt": "2024-01-15T09:30:00Z",
                   "lastChargedDate": "2023-01-15",
                   "paymentsConfigured": true,
@@ -662,6 +673,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             paymentsConfigured: true,
@@ -723,6 +735,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "freeSandboxStartedAt": "2026-07-01T09:30:00Z",
                   "firstTopUpAt": "2026-07-01T09:30:00Z",
                   "lastChargedDate": "2026-07-01",
                   "paymentsConfigured": true,
@@ -780,6 +793,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             paymentsConfigured: true,
@@ -844,6 +858,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "freeSandboxStartedAt": "2024-01-15T09:30:00Z",
                   "firstTopUpAt": "2024-01-15T09:30:00Z",
                   "lastChargedDate": "2023-01-15",
                   "paymentsConfigured": true,
@@ -901,6 +916,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             paymentsConfigured: true,
@@ -965,6 +981,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "freeSandboxStartedAt": "2026-07-01T09:30:00Z",
                   "firstTopUpAt": "2026-07-01T09:30:00Z",
                   "lastChargedDate": "2026-07-01",
                   "paymentsConfigured": true,
@@ -1022,6 +1039,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             paymentsConfigured: true,
@@ -1083,6 +1101,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "freeSandboxStartedAt": "2024-01-15T09:30:00Z",
                   "firstTopUpAt": "2024-01-15T09:30:00Z",
                   "lastChargedDate": "2023-01-15",
                   "paymentsConfigured": true,
@@ -1140,6 +1159,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             paymentsConfigured: true,
@@ -1257,6 +1277,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "freeSandboxStartedAt": "2026-07-01T09:30:00Z",
                   "firstTopUpAt": "2026-07-01T09:30:00Z",
                   "lastChargedDate": "2026-07-01",
                   "paymentsConfigured": true,
@@ -1314,6 +1335,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             paymentsConfigured: true,
@@ -1375,6 +1397,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "freeSandboxStartedAt": "2024-01-15T09:30:00Z",
                   "firstTopUpAt": "2024-01-15T09:30:00Z",
                   "lastChargedDate": "2023-01-15",
                   "paymentsConfigured": true,
@@ -1432,6 +1455,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             paymentsConfigured: true,
@@ -1476,6 +1500,246 @@ import Api
         )
         let response = try await client.billing.topupConfirm(
             request: .init(sessionId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func freeSandboxStart1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "site": "app",
+                  "plan": "starter",
+                  "accountType": "flat_rate",
+                  "status": "trial",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "freeSandboxStartedAt": "2026-07-01T09:30:00Z",
+                  "firstTopUpAt": "2026-07-01T09:30:00Z",
+                  "lastChargedDate": "2026-07-01",
+                  "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
+                  "subscriptionCancelAt": "2026-07-01T09:30:00Z",
+                  "paymentFailedAt": "2026-07-01T09:30:00Z",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
+                  "monthToDate": {
+                    "from": "from",
+                    "to": "to",
+                    "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
+                    "ocrPages": 1000000,
+                    "fileBytes": 1.1,
+                    "databaseBytes": 1.1,
+                    "archivedCompanies": 1000000,
+                    "estimatedTodayCents": 1000000
+                  },
+                  "plans": {
+                    "key": {
+                      "monthlyFeeEur": "monthlyFeeEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
+                      "includedDatabaseBytes": 1.1,
+                      "includedFileBytes": 1.1
+                    }
+                  },
+                  "apiRequestEur": "apiRequestEur",
+                  "topUp": {
+                    "minCents": 1000000,
+                    "maxCents": 1000000
+                  },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
+                  "trialDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = FreeSandboxStartBillingResponse(
+            site: .app,
+            plan: .starter,
+            accountType: .flatRate,
+            status: .trial,
+            balanceCents: 1000000,
+            trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
+            subscriptionCancelAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            paymentFailedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
+            monthToDate: FreeSandboxStartBillingResponseMonthToDate(
+                from: "from",
+                to: "to",
+                apiRequests: 1000000,
+                saleInvoices: 1000000,
+                ocrPages: 1000000,
+                fileBytes: 1.1,
+                databaseBytes: 1.1,
+                archivedCompanies: 1000000,
+                estimatedTodayCents: 1000000
+            ),
+            plans: [
+                "key": FreeSandboxStartBillingResponsePlansValue(
+                    monthlyFeeEur: "monthlyFeeEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
+                    includedDatabaseBytes: 1.1,
+                    includedFileBytes: 1.1
+                )
+            ],
+            apiRequestEur: "apiRequestEur",
+            topUp: FreeSandboxStartBillingResponseTopUp(
+                minCents: 1000000,
+                maxCents: 1000000
+            ),
+            autoTopUp: FreeSandboxStartBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
+            trialDays: 1000000
+        )
+        let response = try await client.billing.freeSandboxStart(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func freeSandboxStart2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "site": "app",
+                  "plan": "starter",
+                  "accountType": "flat_rate",
+                  "status": "trial",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "freeSandboxStartedAt": "2024-01-15T09:30:00Z",
+                  "firstTopUpAt": "2024-01-15T09:30:00Z",
+                  "lastChargedDate": "2023-01-15",
+                  "paymentsConfigured": true,
+                  "hasPaymentAccount": true,
+                  "hasSubscription": true,
+                  "subscriptionCancelAt": "2024-01-15T09:30:00Z",
+                  "paymentFailedAt": "2024-01-15T09:30:00Z",
+                  "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
+                  "monthToDate": {
+                    "from": "from",
+                    "to": "to",
+                    "apiRequests": 1000000,
+                    "saleInvoices": 1000000,
+                    "ocrPages": 1000000,
+                    "fileBytes": 1.1,
+                    "databaseBytes": 1.1,
+                    "archivedCompanies": 1000000,
+                    "estimatedTodayCents": 1000000
+                  },
+                  "plans": {
+                    "plans": {
+                      "monthlyFeeEur": "monthlyFeeEur",
+                      "includedInvoices": 1000000,
+                      "invoiceOverageEur": "invoiceOverageEur",
+                      "includedDatabaseBytes": 1.1,
+                      "includedFileBytes": 1.1
+                    }
+                  },
+                  "apiRequestEur": "apiRequestEur",
+                  "topUp": {
+                    "minCents": 1000000,
+                    "maxCents": 1000000
+                  },
+                  "autoTopUp": {
+                    "enabled": true,
+                    "amountCents": 1000000,
+                    "pending": true
+                  },
+                  "overdraftCapCents": 1000000,
+                  "overdraftCapMaxCents": 1000000,
+                  "trialDays": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = FreeSandboxStartBillingResponse(
+            site: .app,
+            plan: .starter,
+            accountType: .flatRate,
+            status: .trial,
+            balanceCents: 1000000,
+            trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            paymentsConfigured: true,
+            hasPaymentAccount: true,
+            hasSubscription: true,
+            subscriptionCancelAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            paymentFailedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            paymentFailedInvoiceUrl: Nullable<String>.value("paymentFailedInvoiceUrl"),
+            monthToDate: FreeSandboxStartBillingResponseMonthToDate(
+                from: "from",
+                to: "to",
+                apiRequests: 1000000,
+                saleInvoices: 1000000,
+                ocrPages: 1000000,
+                fileBytes: 1.1,
+                databaseBytes: 1.1,
+                archivedCompanies: 1000000,
+                estimatedTodayCents: 1000000
+            ),
+            plans: [
+                "plans": FreeSandboxStartBillingResponsePlansValue(
+                    monthlyFeeEur: "monthlyFeeEur",
+                    includedInvoices: 1000000,
+                    invoiceOverageEur: "invoiceOverageEur",
+                    includedDatabaseBytes: 1.1,
+                    includedFileBytes: 1.1
+                )
+            ],
+            apiRequestEur: "apiRequestEur",
+            topUp: FreeSandboxStartBillingResponseTopUp(
+                minCents: 1000000,
+                maxCents: 1000000
+            ),
+            autoTopUp: FreeSandboxStartBillingResponseAutoTopUp(
+                enabled: true,
+                amountCents: 1000000,
+                pending: true
+            ),
+            overdraftCapCents: 1000000,
+            overdraftCapMaxCents: 1000000,
+            trialDays: 1000000
+        )
+        let response = try await client.billing.freeSandboxStart(
+            request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -1549,6 +1813,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "freeSandboxStartedAt": "2026-07-01T09:30:00Z",
                   "firstTopUpAt": "2026-07-01T09:30:00Z",
                   "lastChargedDate": "2026-07-01",
                   "paymentsConfigured": true,
@@ -1606,6 +1871,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             paymentsConfigured: true,
@@ -1667,6 +1933,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "freeSandboxStartedAt": "2024-01-15T09:30:00Z",
                   "firstTopUpAt": "2024-01-15T09:30:00Z",
                   "lastChargedDate": "2023-01-15",
                   "paymentsConfigured": true,
@@ -1724,6 +1991,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             paymentsConfigured: true,
@@ -1785,6 +2053,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2026-07-01T09:30:00Z",
+                  "freeSandboxStartedAt": "2026-07-01T09:30:00Z",
                   "firstTopUpAt": "2026-07-01T09:30:00Z",
                   "lastChargedDate": "2026-07-01",
                   "paymentsConfigured": true,
@@ -1842,6 +2111,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             paymentsConfigured: true,
@@ -1903,6 +2173,7 @@ import Api
                   "status": "trial",
                   "balanceCents": 1000000,
                   "trialEndsAt": "2024-01-15T09:30:00Z",
+                  "freeSandboxStartedAt": "2024-01-15T09:30:00Z",
                   "firstTopUpAt": "2024-01-15T09:30:00Z",
                   "lastChargedDate": "2023-01-15",
                   "paymentsConfigured": true,
@@ -1960,6 +2231,7 @@ import Api
             status: .trial,
             balanceCents: 1000000,
             trialEndsAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            freeSandboxStartedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             firstTopUpAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             lastChargedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             paymentsConfigured: true,

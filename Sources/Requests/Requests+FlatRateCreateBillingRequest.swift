@@ -4,16 +4,19 @@ extension Requests {
     public struct FlatRateCreateBillingRequest: Codable, Hashable, Sendable {
         public let locale: FlatRateCreateBillingRequestLocale?
         public let plan: FlatRateCreateBillingRequestPlan?
+        public let convertCompanyId: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
         public init(
             locale: FlatRateCreateBillingRequestLocale? = nil,
             plan: FlatRateCreateBillingRequestPlan? = nil,
+            convertCompanyId: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.locale = locale
             self.plan = plan
+            self.convertCompanyId = convertCompanyId
             self.additionalProperties = additionalProperties
         }
 
@@ -21,6 +24,7 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.locale = try container.decodeIfPresent(FlatRateCreateBillingRequestLocale.self, forKey: .locale)
             self.plan = try container.decodeIfPresent(FlatRateCreateBillingRequestPlan.self, forKey: .plan)
+            self.convertCompanyId = try container.decodeIfPresent(String.self, forKey: .convertCompanyId)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -29,12 +33,14 @@ extension Requests {
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encodeIfPresent(self.locale, forKey: .locale)
             try container.encodeIfPresent(self.plan, forKey: .plan)
+            try container.encodeIfPresent(self.convertCompanyId, forKey: .convertCompanyId)
         }
 
         /// Keys for encoding/decoding struct properties.
         enum CodingKeys: String, CodingKey, CaseIterable {
             case locale
             case plan
+            case convertCompanyId
         }
     }
 }

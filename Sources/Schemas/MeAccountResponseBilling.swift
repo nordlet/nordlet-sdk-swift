@@ -10,6 +10,8 @@ public struct MeAccountResponseBilling: Codable, Hashable, Sendable {
     public let payerEmail: String
     public let isPayer: Bool
     public let planChosen: Bool
+    /// The payer has no paid plan and has started the free sandbox plan (running or ended)
+    public let freeSandbox: Bool
     public let flatRate: Bool
     public let accountType: MeAccountResponseBillingAccountType
     /// Additional properties that are not explicitly defined in the schema
@@ -25,6 +27,7 @@ public struct MeAccountResponseBilling: Codable, Hashable, Sendable {
         payerEmail: String,
         isPayer: Bool,
         planChosen: Bool,
+        freeSandbox: Bool,
         flatRate: Bool,
         accountType: MeAccountResponseBillingAccountType,
         additionalProperties: [String: JSONValue] = .init()
@@ -38,6 +41,7 @@ public struct MeAccountResponseBilling: Codable, Hashable, Sendable {
         self.payerEmail = payerEmail
         self.isPayer = isPayer
         self.planChosen = planChosen
+        self.freeSandbox = freeSandbox
         self.flatRate = flatRate
         self.accountType = accountType
         self.additionalProperties = additionalProperties
@@ -54,6 +58,7 @@ public struct MeAccountResponseBilling: Codable, Hashable, Sendable {
         self.payerEmail = try container.decode(String.self, forKey: .payerEmail)
         self.isPayer = try container.decode(Bool.self, forKey: .isPayer)
         self.planChosen = try container.decode(Bool.self, forKey: .planChosen)
+        self.freeSandbox = try container.decode(Bool.self, forKey: .freeSandbox)
         self.flatRate = try container.decode(Bool.self, forKey: .flatRate)
         self.accountType = try container.decode(MeAccountResponseBillingAccountType.self, forKey: .accountType)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -71,6 +76,7 @@ public struct MeAccountResponseBilling: Codable, Hashable, Sendable {
         try container.encode(self.payerEmail, forKey: .payerEmail)
         try container.encode(self.isPayer, forKey: .isPayer)
         try container.encode(self.planChosen, forKey: .planChosen)
+        try container.encode(self.freeSandbox, forKey: .freeSandbox)
         try container.encode(self.flatRate, forKey: .flatRate)
         try container.encode(self.accountType, forKey: .accountType)
     }
@@ -86,6 +92,7 @@ public struct MeAccountResponseBilling: Codable, Hashable, Sendable {
         case payerEmail
         case isPayer
         case planChosen
+        case freeSandbox
         case flatRate
         case accountType
     }
