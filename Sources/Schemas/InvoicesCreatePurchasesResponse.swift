@@ -16,6 +16,9 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
     public let grossTotal: String
     public let paidAmount: String
     public let journalTransactionId: Nullable<String>
+    public let reversedAt: Nullable<Date>
+    public let reversalJournalTransactionId: Nullable<String>
+    public let reversalReason: Nullable<String>
     public let creditedInvoiceId: Nullable<String>
     public let purchaseOrderId: Nullable<String>
     public let operationTypeId: Nullable<String>
@@ -29,6 +32,7 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
     public let createdAt: Date
     public let updatedAt: Date
     public let lines: [InvoicesCreatePurchasesResponseLinesItem]
+    public let warnings: [InvoicesCreatePurchasesResponseWarningsItem]
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -48,6 +52,9 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         grossTotal: String,
         paidAmount: String,
         journalTransactionId: Nullable<String>,
+        reversedAt: Nullable<Date>,
+        reversalJournalTransactionId: Nullable<String>,
+        reversalReason: Nullable<String>,
         creditedInvoiceId: Nullable<String>,
         purchaseOrderId: Nullable<String>,
         operationTypeId: Nullable<String>,
@@ -61,6 +68,7 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         createdAt: Date,
         updatedAt: Date,
         lines: [InvoicesCreatePurchasesResponseLinesItem],
+        warnings: [InvoicesCreatePurchasesResponseWarningsItem],
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -78,6 +86,9 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         self.grossTotal = grossTotal
         self.paidAmount = paidAmount
         self.journalTransactionId = journalTransactionId
+        self.reversedAt = reversedAt
+        self.reversalJournalTransactionId = reversalJournalTransactionId
+        self.reversalReason = reversalReason
         self.creditedInvoiceId = creditedInvoiceId
         self.purchaseOrderId = purchaseOrderId
         self.operationTypeId = operationTypeId
@@ -91,6 +102,7 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.lines = lines
+        self.warnings = warnings
         self.additionalProperties = additionalProperties
     }
 
@@ -111,6 +123,9 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         self.grossTotal = try container.decode(String.self, forKey: .grossTotal)
         self.paidAmount = try container.decode(String.self, forKey: .paidAmount)
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
+        self.reversedAt = try container.decode(Nullable<Date>.self, forKey: .reversedAt)
+        self.reversalJournalTransactionId = try container.decode(Nullable<String>.self, forKey: .reversalJournalTransactionId)
+        self.reversalReason = try container.decode(Nullable<String>.self, forKey: .reversalReason)
         self.creditedInvoiceId = try container.decode(Nullable<String>.self, forKey: .creditedInvoiceId)
         self.purchaseOrderId = try container.decode(Nullable<String>.self, forKey: .purchaseOrderId)
         self.operationTypeId = try container.decode(Nullable<String>.self, forKey: .operationTypeId)
@@ -124,6 +139,7 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.updatedAt = try container.decode(Date.self, forKey: .updatedAt)
         self.lines = try container.decode([InvoicesCreatePurchasesResponseLinesItem].self, forKey: .lines)
+        self.warnings = try container.decode([InvoicesCreatePurchasesResponseWarningsItem].self, forKey: .warnings)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -145,6 +161,9 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         try container.encode(self.grossTotal, forKey: .grossTotal)
         try container.encode(self.paidAmount, forKey: .paidAmount)
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
+        try container.encode(self.reversedAt, forKey: .reversedAt)
+        try container.encode(self.reversalJournalTransactionId, forKey: .reversalJournalTransactionId)
+        try container.encode(self.reversalReason, forKey: .reversalReason)
         try container.encode(self.creditedInvoiceId, forKey: .creditedInvoiceId)
         try container.encode(self.purchaseOrderId, forKey: .purchaseOrderId)
         try container.encode(self.operationTypeId, forKey: .operationTypeId)
@@ -158,6 +177,7 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
         try container.encode(self.lines, forKey: .lines)
+        try container.encode(self.warnings, forKey: .warnings)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -177,6 +197,9 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         case grossTotal
         case paidAmount
         case journalTransactionId
+        case reversedAt
+        case reversalJournalTransactionId
+        case reversalReason
         case creditedInvoiceId
         case purchaseOrderId
         case operationTypeId
@@ -190,5 +213,6 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         case createdAt
         case updatedAt
         case lines
+        case warnings
     }
 }

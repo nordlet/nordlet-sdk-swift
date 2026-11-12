@@ -7,72 +7,7 @@ public final class CaptureClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    /// Return the company's document capture settings: whether intake by e-mail is enabled, whether e-mailed documents are read on arrival, the company's intake e-mail address and whether a reading provider is configured. The intake token behind the address is created on the first call.
-    ///
-    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func settingsGet(request: Requests.SettingsGetCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> SettingsGetCaptureResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/capture/settings/get",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: SettingsGetCaptureResponse.self
-        )
-    }
-
-    /// Switch `intakeEnabled` (documents sent to the intake address are accepted) and `captureAutoExtract` (they are read on arrival) on or off; at least one field is required.
-    ///
-    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func settingsUpdate(request: Requests.SettingsUpdateCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> SettingsUpdateCaptureResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/capture/settings/update",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: SettingsUpdateCaptureResponse.self
-        )
-    }
-
-    /// Replace the company's intake token, so the previous intake e-mail address stops working and the settings come back with the new one.
-    ///
-    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func settingsRegenerateIntake(request: Requests.SettingsRegenerateIntakeCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> SettingsRegenerateIntakeCaptureResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/capture/settings/regenerate-intake",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: SettingsRegenerateIntakeCaptureResponse.self
-        )
-    }
-
-    /// Endpoint for the inbound e-mail provider (Postmark field names or the generic `to`, `from`, `subject` and `attachments` form). It needs the `x-inbound-secret` header and finds the company by the `intake+<token>@` recipient address (404 when unknown, 403 when intake is disabled). Every PDF, image, Word or PowerPoint attachment up to 10 MB becomes a `pending` capture (`accepted`), anything else is `skipped`; when the company has automatic reading on, is not on trial and a reading provider is configured, each capture is read at once.
-    ///
-    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func inboundEmail(request: Requests.InboundEmailCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> InboundEmailCaptureResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/capture/inbound-email",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: InboundEmailCaptureResponse.self
-        )
-    }
-
-    /// Upload a supplier document (PDF, image, Word or PowerPoint, up to 10 MB; 422 for any other type) as a capture and read it at once. The result holds the extracted supplier, dates, totals and lines, the partner matched by VAT code, then partner code, then name, the raw text, and `status` `extracted` or `failed` with `error`. Needs a configured reading provider, is refused with 402 for a company on trial until its first top-up, and counts every page read as `ocr_page` usage. The draft is reviewed and saved with `capture/documents/confirm`.
-    ///
-    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func documentsUpload(request: Requests.DocumentsUploadCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> DocumentsUploadCaptureResponse {
-        return try await httpClient.performRequest(
-            method: .post,
-            path: "/v1/capture/documents/upload",
-            body: request,
-            requestOptions: requestOptions,
-            responseType: DocumentsUploadCaptureResponse.self
-        )
-    }
-
-    /// Read a stored capture again and replace its draft (supplier, totals, lines, matched partner). A capture received over Peppol is parsed from its document again without a reading provider; any other needs the provider and, for a company on trial, the first top-up (402). Refused with 409 once the capture is linked to a purchase invoice.
+    /// Parse a capture received over Peppol from its stored document again and replace its draft (supplier, totals, lines, matched partner). Refused with 422 for a capture that was not received over Peppol and with 409 once the capture is linked to a purchase invoice.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func documentsExtract(request: Requests.DocumentsExtractCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> DocumentsExtractCaptureResponse {
@@ -85,7 +20,7 @@ public final class CaptureClient: Sendable {
         )
     }
 
-    /// Return one capture with its extraction and raw text.
+    /// Return one document received over Peppol (a capture) with its draft: supplier, dates, totals and lines.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func documentsGet(request: Requests.DocumentsGetCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> DocumentsGetCaptureResponse {
@@ -98,7 +33,7 @@ public final class CaptureClient: Sendable {
         )
     }
 
-    /// List captures without raw text. Filterable by `status`, `matchedPartnerId` and `purchaseInvoiceId`; sortable by `createdAt` and `updatedAt`.
+    /// List the documents received over Peppol (captures) with their drafts. Filterable by `status`, `matchedPartnerId` and `purchaseInvoiceId`; sortable by `createdAt` and `updatedAt`.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func documentsList(request: Requests.DocumentsListCaptureRequest, requestOptions: RequestOptions? = nil) async throws -> DocumentsListCaptureResponse {

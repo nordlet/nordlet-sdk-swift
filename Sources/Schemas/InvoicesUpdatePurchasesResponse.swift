@@ -16,6 +16,9 @@ public struct InvoicesUpdatePurchasesResponse: Codable, Hashable, Sendable {
     public let grossTotal: String
     public let paidAmount: String
     public let journalTransactionId: Nullable<String>
+    public let reversedAt: Nullable<Date>
+    public let reversalJournalTransactionId: Nullable<String>
+    public let reversalReason: Nullable<String>
     public let creditedInvoiceId: Nullable<String>
     public let purchaseOrderId: Nullable<String>
     public let operationTypeId: Nullable<String>
@@ -48,6 +51,9 @@ public struct InvoicesUpdatePurchasesResponse: Codable, Hashable, Sendable {
         grossTotal: String,
         paidAmount: String,
         journalTransactionId: Nullable<String>,
+        reversedAt: Nullable<Date>,
+        reversalJournalTransactionId: Nullable<String>,
+        reversalReason: Nullable<String>,
         creditedInvoiceId: Nullable<String>,
         purchaseOrderId: Nullable<String>,
         operationTypeId: Nullable<String>,
@@ -78,6 +84,9 @@ public struct InvoicesUpdatePurchasesResponse: Codable, Hashable, Sendable {
         self.grossTotal = grossTotal
         self.paidAmount = paidAmount
         self.journalTransactionId = journalTransactionId
+        self.reversedAt = reversedAt
+        self.reversalJournalTransactionId = reversalJournalTransactionId
+        self.reversalReason = reversalReason
         self.creditedInvoiceId = creditedInvoiceId
         self.purchaseOrderId = purchaseOrderId
         self.operationTypeId = operationTypeId
@@ -111,6 +120,9 @@ public struct InvoicesUpdatePurchasesResponse: Codable, Hashable, Sendable {
         self.grossTotal = try container.decode(String.self, forKey: .grossTotal)
         self.paidAmount = try container.decode(String.self, forKey: .paidAmount)
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
+        self.reversedAt = try container.decode(Nullable<Date>.self, forKey: .reversedAt)
+        self.reversalJournalTransactionId = try container.decode(Nullable<String>.self, forKey: .reversalJournalTransactionId)
+        self.reversalReason = try container.decode(Nullable<String>.self, forKey: .reversalReason)
         self.creditedInvoiceId = try container.decode(Nullable<String>.self, forKey: .creditedInvoiceId)
         self.purchaseOrderId = try container.decode(Nullable<String>.self, forKey: .purchaseOrderId)
         self.operationTypeId = try container.decode(Nullable<String>.self, forKey: .operationTypeId)
@@ -145,6 +157,9 @@ public struct InvoicesUpdatePurchasesResponse: Codable, Hashable, Sendable {
         try container.encode(self.grossTotal, forKey: .grossTotal)
         try container.encode(self.paidAmount, forKey: .paidAmount)
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
+        try container.encode(self.reversedAt, forKey: .reversedAt)
+        try container.encode(self.reversalJournalTransactionId, forKey: .reversalJournalTransactionId)
+        try container.encode(self.reversalReason, forKey: .reversalReason)
         try container.encode(self.creditedInvoiceId, forKey: .creditedInvoiceId)
         try container.encode(self.purchaseOrderId, forKey: .purchaseOrderId)
         try container.encode(self.operationTypeId, forKey: .operationTypeId)
@@ -177,6 +192,9 @@ public struct InvoicesUpdatePurchasesResponse: Codable, Hashable, Sendable {
         case grossTotal
         case paidAmount
         case journalTransactionId
+        case reversedAt
+        case reversalJournalTransactionId
+        case reversalReason
         case creditedInvoiceId
         case purchaseOrderId
         case operationTypeId

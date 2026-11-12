@@ -10,6 +10,7 @@ public struct JournalTransactionsGetLedgerResponse: Codable, Hashable, Sendable 
     public let status: JournalTransactionsGetLedgerResponseStatus
     public let createdAt: Date
     public let postedAt: Nullable<Date>
+    public let reversedByTransactionId: Nullable<String>
     public let entries: [JournalTransactionsGetLedgerResponseEntriesItem]
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -24,6 +25,7 @@ public struct JournalTransactionsGetLedgerResponse: Codable, Hashable, Sendable 
         status: JournalTransactionsGetLedgerResponseStatus,
         createdAt: Date,
         postedAt: Nullable<Date>,
+        reversedByTransactionId: Nullable<String>,
         entries: [JournalTransactionsGetLedgerResponseEntriesItem],
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -36,6 +38,7 @@ public struct JournalTransactionsGetLedgerResponse: Codable, Hashable, Sendable 
         self.status = status
         self.createdAt = createdAt
         self.postedAt = postedAt
+        self.reversedByTransactionId = reversedByTransactionId
         self.entries = entries
         self.additionalProperties = additionalProperties
     }
@@ -51,6 +54,7 @@ public struct JournalTransactionsGetLedgerResponse: Codable, Hashable, Sendable 
         self.status = try container.decode(JournalTransactionsGetLedgerResponseStatus.self, forKey: .status)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.postedAt = try container.decode(Nullable<Date>.self, forKey: .postedAt)
+        self.reversedByTransactionId = try container.decode(Nullable<String>.self, forKey: .reversedByTransactionId)
         self.entries = try container.decode([JournalTransactionsGetLedgerResponseEntriesItem].self, forKey: .entries)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -67,6 +71,7 @@ public struct JournalTransactionsGetLedgerResponse: Codable, Hashable, Sendable 
         try container.encode(self.status, forKey: .status)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.postedAt, forKey: .postedAt)
+        try container.encode(self.reversedByTransactionId, forKey: .reversedByTransactionId)
         try container.encode(self.entries, forKey: .entries)
     }
 
@@ -81,6 +86,7 @@ public struct JournalTransactionsGetLedgerResponse: Codable, Hashable, Sendable 
         case status
         case createdAt
         case postedAt
+        case reversedByTransactionId
         case entries
     }
 }

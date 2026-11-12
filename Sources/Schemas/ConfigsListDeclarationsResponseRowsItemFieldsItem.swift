@@ -2,15 +2,19 @@ import Foundation
 
 public struct ConfigsListDeclarationsResponseRowsItemFieldsItem: Codable, Hashable, Sendable {
     public let key: String
+    public let label: String?
     public let kind: ConfigsListDeclarationsResponseRowsItemFieldsItemKind
     public let multiline: Bool?
+    /// The allowed values of a `select` field
     public let options: [String]?
+    /// The company profile field the value is taken from; change it with `account/companies/update`
     public let companyField: ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
     public init(
         key: String,
+        label: String? = nil,
         kind: ConfigsListDeclarationsResponseRowsItemFieldsItemKind,
         multiline: Bool? = nil,
         options: [String]? = nil,
@@ -18,6 +22,7 @@ public struct ConfigsListDeclarationsResponseRowsItemFieldsItem: Codable, Hashab
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.key = key
+        self.label = label
         self.kind = kind
         self.multiline = multiline
         self.options = options
@@ -28,6 +33,7 @@ public struct ConfigsListDeclarationsResponseRowsItemFieldsItem: Codable, Hashab
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.key = try container.decode(String.self, forKey: .key)
+        self.label = try container.decodeIfPresent(String.self, forKey: .label)
         self.kind = try container.decode(ConfigsListDeclarationsResponseRowsItemFieldsItemKind.self, forKey: .kind)
         self.multiline = try container.decodeIfPresent(Bool.self, forKey: .multiline)
         self.options = try container.decodeIfPresent([String].self, forKey: .options)
@@ -39,6 +45,7 @@ public struct ConfigsListDeclarationsResponseRowsItemFieldsItem: Codable, Hashab
         var container = encoder.container(keyedBy: CodingKeys.self)
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.key, forKey: .key)
+        try container.encodeIfPresent(self.label, forKey: .label)
         try container.encode(self.kind, forKey: .kind)
         try container.encodeIfPresent(self.multiline, forKey: .multiline)
         try container.encodeIfPresent(self.options, forKey: .options)
@@ -48,6 +55,7 @@ public struct ConfigsListDeclarationsResponseRowsItemFieldsItem: Codable, Hashab
     /// Keys for encoding/decoding struct properties.
     enum CodingKeys: String, CodingKey, CaseIterable {
         case key
+        case label
         case kind
         case multiline
         case options

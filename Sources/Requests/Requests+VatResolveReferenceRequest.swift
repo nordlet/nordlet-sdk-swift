@@ -6,6 +6,7 @@ extension Requests {
         public let customerCountryCode: String?
         public let customerIsBusiness: Bool?
         public let supplyType: VatResolveReferenceRequestSupplyType?
+        public let side: VatResolveReferenceRequestSide?
         public let date: CalendarDate?
         public let belowDistanceSalesThreshold: Bool?
         public let facilitatedByMarketplace: Bool?
@@ -26,6 +27,7 @@ extension Requests {
             customerCountryCode: String? = nil,
             customerIsBusiness: Bool? = nil,
             supplyType: VatResolveReferenceRequestSupplyType? = nil,
+            side: VatResolveReferenceRequestSide? = nil,
             date: CalendarDate? = nil,
             belowDistanceSalesThreshold: Bool? = nil,
             facilitatedByMarketplace: Bool? = nil,
@@ -44,6 +46,7 @@ extension Requests {
             self.customerCountryCode = customerCountryCode
             self.customerIsBusiness = customerIsBusiness
             self.supplyType = supplyType
+            self.side = side
             self.date = date
             self.belowDistanceSalesThreshold = belowDistanceSalesThreshold
             self.facilitatedByMarketplace = facilitatedByMarketplace
@@ -65,6 +68,7 @@ extension Requests {
             self.customerCountryCode = try container.decodeIfPresent(String.self, forKey: .customerCountryCode)
             self.customerIsBusiness = try container.decodeIfPresent(Bool.self, forKey: .customerIsBusiness)
             self.supplyType = try container.decodeIfPresent(VatResolveReferenceRequestSupplyType.self, forKey: .supplyType)
+            self.side = try container.decodeIfPresent(VatResolveReferenceRequestSide.self, forKey: .side)
             self.date = try container.decodeIfPresent(CalendarDate.self, forKey: .date)
             self.belowDistanceSalesThreshold = try container.decodeIfPresent(Bool.self, forKey: .belowDistanceSalesThreshold)
             self.facilitatedByMarketplace = try container.decodeIfPresent(Bool.self, forKey: .facilitatedByMarketplace)
@@ -87,6 +91,7 @@ extension Requests {
             try container.encodeIfPresent(self.customerCountryCode, forKey: .customerCountryCode)
             try container.encodeIfPresent(self.customerIsBusiness, forKey: .customerIsBusiness)
             try container.encodeIfPresent(self.supplyType, forKey: .supplyType)
+            try container.encodeIfPresent(self.side, forKey: .side)
             try container.encodeIfPresent(self.date, forKey: .date)
             try container.encodeIfPresent(self.belowDistanceSalesThreshold, forKey: .belowDistanceSalesThreshold)
             try container.encodeIfPresent(self.facilitatedByMarketplace, forKey: .facilitatedByMarketplace)
@@ -107,6 +112,7 @@ extension Requests {
             case customerCountryCode
             case customerIsBusiness
             case supplyType
+            case side
             case date
             case belowDistanceSalesThreshold
             case facilitatedByMarketplace

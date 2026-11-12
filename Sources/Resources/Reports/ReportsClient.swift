@@ -228,6 +228,19 @@ public final class ReportsClient: Sendable {
         )
     }
 
+    /// Lists what is still open for `period`: a month (`YYYY-MM`) or the fiscal year that ends in `YYYY`. Items: draft sale documents (invoices, credit notes and advance invoices with an issue date in the period) and draft purchase documents dated in the period, bank lines dated in the period with status `new`, assets with depreciation months not posted up to the period end, expense deferral rows due by the period end and not posted, active recurring invoices whose next run date is on or before the period end, payroll runs of the period's months still in draft, and for a fiscal year the issued sale and registered purchase documents in a currency other than the base currency still open at the year end. Each item carries the `count` and the `ids` of the documents, rows, assets, recurring invoices or runs; an item with nothing open is left out. `ledger/periods/lock` returns the same items as `warnings`.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func periodChecklist(request: Requests.PeriodChecklistReportsRequest, requestOptions: RequestOptions? = nil) async throws -> PeriodChecklistReportsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/reports/period-checklist",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: PeriodChecklistReportsResponse.self
+        )
+    }
+
     /// Registered purchase invoices of a period (by registration date) from partners in another EU country, summed per partner country and VAT rate: net and VAT in the base currency and the number of documents, credit notes counting negative. The partner's country is the country code of its address, else the first two characters of its VAT number.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.

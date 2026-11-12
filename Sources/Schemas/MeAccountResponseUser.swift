@@ -7,6 +7,7 @@ public struct MeAccountResponseUser: Codable, Hashable, Sendable {
     public let locale: String
     public let plan: String
     public let isSuperAdmin: Bool
+    public let whiteLabel: Bool
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -17,6 +18,7 @@ public struct MeAccountResponseUser: Codable, Hashable, Sendable {
         locale: String,
         plan: String,
         isSuperAdmin: Bool,
+        whiteLabel: Bool,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -25,6 +27,7 @@ public struct MeAccountResponseUser: Codable, Hashable, Sendable {
         self.locale = locale
         self.plan = plan
         self.isSuperAdmin = isSuperAdmin
+        self.whiteLabel = whiteLabel
         self.additionalProperties = additionalProperties
     }
 
@@ -36,6 +39,7 @@ public struct MeAccountResponseUser: Codable, Hashable, Sendable {
         self.locale = try container.decode(String.self, forKey: .locale)
         self.plan = try container.decode(String.self, forKey: .plan)
         self.isSuperAdmin = try container.decode(Bool.self, forKey: .isSuperAdmin)
+        self.whiteLabel = try container.decode(Bool.self, forKey: .whiteLabel)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -48,6 +52,7 @@ public struct MeAccountResponseUser: Codable, Hashable, Sendable {
         try container.encode(self.locale, forKey: .locale)
         try container.encode(self.plan, forKey: .plan)
         try container.encode(self.isSuperAdmin, forKey: .isSuperAdmin)
+        try container.encode(self.whiteLabel, forKey: .whiteLabel)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -58,5 +63,6 @@ public struct MeAccountResponseUser: Codable, Hashable, Sendable {
         case locale
         case plan
         case isSuperAdmin
+        case whiteLabel
     }
 }

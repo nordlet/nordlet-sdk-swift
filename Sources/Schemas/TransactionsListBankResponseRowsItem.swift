@@ -14,6 +14,7 @@ public struct TransactionsListBankResponseRowsItem: Codable, Hashable, Sendable 
     public let matchedDocumentType: Nullable<String>
     public let matchedDocumentId: Nullable<String>
     public let journalTransactionId: Nullable<String>
+    public let ignoreReason: Nullable<String>
     public let createdAt: Date
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -32,6 +33,7 @@ public struct TransactionsListBankResponseRowsItem: Codable, Hashable, Sendable 
         matchedDocumentType: Nullable<String>,
         matchedDocumentId: Nullable<String>,
         journalTransactionId: Nullable<String>,
+        ignoreReason: Nullable<String>,
         createdAt: Date,
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -48,6 +50,7 @@ public struct TransactionsListBankResponseRowsItem: Codable, Hashable, Sendable 
         self.matchedDocumentType = matchedDocumentType
         self.matchedDocumentId = matchedDocumentId
         self.journalTransactionId = journalTransactionId
+        self.ignoreReason = ignoreReason
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
     }
@@ -67,6 +70,7 @@ public struct TransactionsListBankResponseRowsItem: Codable, Hashable, Sendable 
         self.matchedDocumentType = try container.decode(Nullable<String>.self, forKey: .matchedDocumentType)
         self.matchedDocumentId = try container.decode(Nullable<String>.self, forKey: .matchedDocumentId)
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
+        self.ignoreReason = try container.decode(Nullable<String>.self, forKey: .ignoreReason)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -87,6 +91,7 @@ public struct TransactionsListBankResponseRowsItem: Codable, Hashable, Sendable 
         try container.encode(self.matchedDocumentType, forKey: .matchedDocumentType)
         try container.encode(self.matchedDocumentId, forKey: .matchedDocumentId)
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
+        try container.encode(self.ignoreReason, forKey: .ignoreReason)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
 
@@ -105,6 +110,7 @@ public struct TransactionsListBankResponseRowsItem: Codable, Hashable, Sendable 
         case matchedDocumentType
         case matchedDocumentId
         case journalTransactionId
+        case ignoreReason
         case createdAt
     }
 }

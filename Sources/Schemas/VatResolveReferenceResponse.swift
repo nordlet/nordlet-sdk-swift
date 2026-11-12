@@ -9,6 +9,7 @@ public struct VatResolveReferenceResponse: Codable, Hashable, Sendable {
     public let rates: [VatResolveReferenceResponseRatesItem]
     public let legalBasis: String
     public let notes: [String]
+    public let vatTypeCodes: [String]
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -21,6 +22,7 @@ public struct VatResolveReferenceResponse: Codable, Hashable, Sendable {
         rates: [VatResolveReferenceResponseRatesItem],
         legalBasis: String,
         notes: [String],
+        vatTypeCodes: [String],
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.scheme = scheme
@@ -31,6 +33,7 @@ public struct VatResolveReferenceResponse: Codable, Hashable, Sendable {
         self.rates = rates
         self.legalBasis = legalBasis
         self.notes = notes
+        self.vatTypeCodes = vatTypeCodes
         self.additionalProperties = additionalProperties
     }
 
@@ -44,6 +47,7 @@ public struct VatResolveReferenceResponse: Codable, Hashable, Sendable {
         self.rates = try container.decode([VatResolveReferenceResponseRatesItem].self, forKey: .rates)
         self.legalBasis = try container.decode(String.self, forKey: .legalBasis)
         self.notes = try container.decode([String].self, forKey: .notes)
+        self.vatTypeCodes = try container.decode([String].self, forKey: .vatTypeCodes)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -58,6 +62,7 @@ public struct VatResolveReferenceResponse: Codable, Hashable, Sendable {
         try container.encode(self.rates, forKey: .rates)
         try container.encode(self.legalBasis, forKey: .legalBasis)
         try container.encode(self.notes, forKey: .notes)
+        try container.encode(self.vatTypeCodes, forKey: .vatTypeCodes)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -70,5 +75,6 @@ public struct VatResolveReferenceResponse: Codable, Hashable, Sendable {
         case rates
         case legalBasis
         case notes
+        case vatTypeCodes
     }
 }

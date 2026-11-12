@@ -18,6 +18,7 @@ public struct InvoicesGetPublicResponse: Codable, Hashable, Sendable {
     public let notes: Nullable<String>
     public let payUrl: Nullable<String>
     public let cardPaymentReceived: Bool
+    public let sentWith: Nullable<String>
     public let seller: InvoicesGetPublicResponseSeller
     public let buyer: InvoicesGetPublicResponseBuyer
     public let lines: [InvoicesGetPublicResponseLinesItem]
@@ -42,6 +43,7 @@ public struct InvoicesGetPublicResponse: Codable, Hashable, Sendable {
         notes: Nullable<String>,
         payUrl: Nullable<String>,
         cardPaymentReceived: Bool,
+        sentWith: Nullable<String>,
         seller: InvoicesGetPublicResponseSeller,
         buyer: InvoicesGetPublicResponseBuyer,
         lines: [InvoicesGetPublicResponseLinesItem],
@@ -64,6 +66,7 @@ public struct InvoicesGetPublicResponse: Codable, Hashable, Sendable {
         self.notes = notes
         self.payUrl = payUrl
         self.cardPaymentReceived = cardPaymentReceived
+        self.sentWith = sentWith
         self.seller = seller
         self.buyer = buyer
         self.lines = lines
@@ -89,6 +92,7 @@ public struct InvoicesGetPublicResponse: Codable, Hashable, Sendable {
         self.notes = try container.decode(Nullable<String>.self, forKey: .notes)
         self.payUrl = try container.decode(Nullable<String>.self, forKey: .payUrl)
         self.cardPaymentReceived = try container.decode(Bool.self, forKey: .cardPaymentReceived)
+        self.sentWith = try container.decode(Nullable<String>.self, forKey: .sentWith)
         self.seller = try container.decode(InvoicesGetPublicResponseSeller.self, forKey: .seller)
         self.buyer = try container.decode(InvoicesGetPublicResponseBuyer.self, forKey: .buyer)
         self.lines = try container.decode([InvoicesGetPublicResponseLinesItem].self, forKey: .lines)
@@ -115,6 +119,7 @@ public struct InvoicesGetPublicResponse: Codable, Hashable, Sendable {
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.payUrl, forKey: .payUrl)
         try container.encode(self.cardPaymentReceived, forKey: .cardPaymentReceived)
+        try container.encode(self.sentWith, forKey: .sentWith)
         try container.encode(self.seller, forKey: .seller)
         try container.encode(self.buyer, forKey: .buyer)
         try container.encode(self.lines, forKey: .lines)
@@ -139,6 +144,7 @@ public struct InvoicesGetPublicResponse: Codable, Hashable, Sendable {
         case notes
         case payUrl
         case cardPaymentReceived
+        case sentWith
         case seller
         case buyer
         case lines

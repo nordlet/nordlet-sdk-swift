@@ -69,6 +69,7 @@ public struct InvoicesIssueSalesResponse: Codable, Hashable, Sendable {
     public let advanceAppliedAmount: Nullable<String>
     public let lines: [InvoicesIssueSalesResponseLinesItem]
     public let vatEvidence: Nullable<InvoicesIssueSalesResponseVatEvidence>
+    public let warnings: [InvoicesIssueSalesResponseWarningsItem]
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -140,6 +141,7 @@ public struct InvoicesIssueSalesResponse: Codable, Hashable, Sendable {
         advanceAppliedAmount: Nullable<String>,
         lines: [InvoicesIssueSalesResponseLinesItem],
         vatEvidence: Nullable<InvoicesIssueSalesResponseVatEvidence>,
+        warnings: [InvoicesIssueSalesResponseWarningsItem],
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -209,6 +211,7 @@ public struct InvoicesIssueSalesResponse: Codable, Hashable, Sendable {
         self.advanceAppliedAmount = advanceAppliedAmount
         self.lines = lines
         self.vatEvidence = vatEvidence
+        self.warnings = warnings
         self.additionalProperties = additionalProperties
     }
 
@@ -281,6 +284,7 @@ public struct InvoicesIssueSalesResponse: Codable, Hashable, Sendable {
         self.advanceAppliedAmount = try container.decode(Nullable<String>.self, forKey: .advanceAppliedAmount)
         self.lines = try container.decode([InvoicesIssueSalesResponseLinesItem].self, forKey: .lines)
         self.vatEvidence = try container.decode(Nullable<InvoicesIssueSalesResponseVatEvidence>.self, forKey: .vatEvidence)
+        self.warnings = try container.decode([InvoicesIssueSalesResponseWarningsItem].self, forKey: .warnings)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -354,6 +358,7 @@ public struct InvoicesIssueSalesResponse: Codable, Hashable, Sendable {
         try container.encode(self.advanceAppliedAmount, forKey: .advanceAppliedAmount)
         try container.encode(self.lines, forKey: .lines)
         try container.encode(self.vatEvidence, forKey: .vatEvidence)
+        try container.encode(self.warnings, forKey: .warnings)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -425,5 +430,6 @@ public struct InvoicesIssueSalesResponse: Codable, Hashable, Sendable {
         case advanceAppliedAmount
         case lines
         case vatEvidence
+        case warnings
     }
 }

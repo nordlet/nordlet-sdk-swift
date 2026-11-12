@@ -6,6 +6,7 @@ extension Requests {
         public let documentType: TransactionsMatchBankRequestDocumentType
         public let documentId: String
         public let invoiceAmount: String?
+        public let remainder: TransactionsMatchBankRequestRemainder?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -14,12 +15,14 @@ extension Requests {
             documentType: TransactionsMatchBankRequestDocumentType,
             documentId: String,
             invoiceAmount: String? = nil,
+            remainder: TransactionsMatchBankRequestRemainder? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.transactionId = transactionId
             self.documentType = documentType
             self.documentId = documentId
             self.invoiceAmount = invoiceAmount
+            self.remainder = remainder
             self.additionalProperties = additionalProperties
         }
 
@@ -29,6 +32,7 @@ extension Requests {
             self.documentType = try container.decode(TransactionsMatchBankRequestDocumentType.self, forKey: .documentType)
             self.documentId = try container.decode(String.self, forKey: .documentId)
             self.invoiceAmount = try container.decodeIfPresent(String.self, forKey: .invoiceAmount)
+            self.remainder = try container.decodeIfPresent(TransactionsMatchBankRequestRemainder.self, forKey: .remainder)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -39,6 +43,7 @@ extension Requests {
             try container.encode(self.documentType, forKey: .documentType)
             try container.encode(self.documentId, forKey: .documentId)
             try container.encodeIfPresent(self.invoiceAmount, forKey: .invoiceAmount)
+            try container.encodeIfPresent(self.remainder, forKey: .remainder)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -47,6 +52,7 @@ extension Requests {
             case documentType
             case documentId
             case invoiceAmount
+            case remainder
         }
     }
 }

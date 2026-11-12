@@ -24,6 +24,9 @@ import Api
                   "grossTotal": "grossTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "purchaseOrderId": "purchaseOrderId",
                   "operationTypeId": "operationTypeId",
@@ -61,6 +64,12 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000
                     }
+                  ],
+                  "warnings": [
+                    {
+                      "code": "code",
+                      "message": "message"
+                    }
                   ]
                 }
                 """#.utf8
@@ -87,6 +96,9 @@ import Api
             grossTotal: "grossTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
             operationTypeId: Nullable<String>.value("operationTypeId"),
@@ -123,6 +135,12 @@ import Api
                     lineVat: "lineVat",
                     lineGross: "lineGross",
                     sortOrder: 1000000
+                )
+            ],
+            warnings: [
+                InvoicesCreatePurchasesResponseWarningsItem(
+                    code: "code",
+                    message: "message"
                 )
             ]
         )
@@ -163,6 +181,9 @@ import Api
                   "grossTotal": "grossTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
                   "operationTypeId": "x",
@@ -224,6 +245,16 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000
                     }
+                  ],
+                  "warnings": [
+                    {
+                      "code": "code",
+                      "message": "message"
+                    },
+                    {
+                      "code": "code",
+                      "message": "message"
+                    }
                   ]
                 }
                 """#.utf8
@@ -250,6 +281,9 @@ import Api
             grossTotal: "grossTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             creditedInvoiceId: Nullable<String>.value("x"),
             purchaseOrderId: Nullable<String>.value("x"),
             operationTypeId: Nullable<String>.value("x"),
@@ -311,6 +345,16 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 )
+            ],
+            warnings: [
+                InvoicesCreatePurchasesResponseWarningsItem(
+                    code: "code",
+                    message: "message"
+                ),
+                InvoicesCreatePurchasesResponseWarningsItem(
+                    code: "code",
+                    message: "message"
+                )
             ]
         )
         let response = try await client.purchases.invoicesCreate(
@@ -353,6 +397,9 @@ import Api
                   "grossTotal": "grossTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "purchaseOrderId": "purchaseOrderId",
                   "operationTypeId": "operationTypeId",
@@ -416,6 +463,9 @@ import Api
             grossTotal: "grossTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
             operationTypeId: Nullable<String>.value("operationTypeId"),
@@ -483,6 +533,9 @@ import Api
                   "grossTotal": "grossTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
                   "operationTypeId": "x",
@@ -570,6 +623,9 @@ import Api
             grossTotal: "grossTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             creditedInvoiceId: Nullable<String>.value("x"),
             purchaseOrderId: Nullable<String>.value("x"),
             operationTypeId: Nullable<String>.value("x"),
@@ -661,6 +717,9 @@ import Api
                   "grossTotal": "grossTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "purchaseOrderId": "purchaseOrderId",
                   "operationTypeId": "operationTypeId",
@@ -724,6 +783,9 @@ import Api
             grossTotal: "grossTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
             operationTypeId: Nullable<String>.value("operationTypeId"),
@@ -791,6 +853,9 @@ import Api
                   "grossTotal": "grossTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
                   "operationTypeId": "x",
@@ -878,6 +943,9 @@ import Api
             grossTotal: "grossTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             creditedInvoiceId: Nullable<String>.value("x"),
             purchaseOrderId: Nullable<String>.value("x"),
             operationTypeId: Nullable<String>.value("x"),
@@ -1021,6 +1089,9 @@ import Api
                   "grossTotal": "grossTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "purchaseOrderId": "purchaseOrderId",
                   "operationTypeId": "operationTypeId",
@@ -1058,6 +1129,12 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000
                     }
+                  ],
+                  "warnings": [
+                    {
+                      "code": "code",
+                      "message": "message"
+                    }
                   ]
                 }
                 """#.utf8
@@ -1084,6 +1161,9 @@ import Api
             grossTotal: "grossTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
             operationTypeId: Nullable<String>.value("operationTypeId"),
@@ -1121,6 +1201,12 @@ import Api
                     lineGross: "lineGross",
                     sortOrder: 1000000
                 )
+            ],
+            warnings: [
+                InvoicesRegisterPurchasesResponseWarningsItem(
+                    code: "code",
+                    message: "message"
+                )
             ]
         )
         let response = try await client.purchases.invoicesRegister(
@@ -1151,6 +1237,9 @@ import Api
                   "grossTotal": "grossTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
                   "operationTypeId": "x",
@@ -1212,6 +1301,16 @@ import Api
                       "lineGross": "lineGross",
                       "sortOrder": 1000000
                     }
+                  ],
+                  "warnings": [
+                    {
+                      "code": "code",
+                      "message": "message"
+                    },
+                    {
+                      "code": "code",
+                      "message": "message"
+                    }
                   ]
                 }
                 """#.utf8
@@ -1238,6 +1337,9 @@ import Api
             grossTotal: "grossTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             creditedInvoiceId: Nullable<String>.value("x"),
             purchaseOrderId: Nullable<String>.value("x"),
             operationTypeId: Nullable<String>.value("x"),
@@ -1298,6 +1400,16 @@ import Api
                     lineVat: "lineVat",
                     lineGross: "lineGross",
                     sortOrder: 1000000
+                )
+            ],
+            warnings: [
+                InvoicesRegisterPurchasesResponseWarningsItem(
+                    code: "code",
+                    message: "message"
+                ),
+                InvoicesRegisterPurchasesResponseWarningsItem(
+                    code: "code",
+                    message: "message"
                 )
             ]
         )
@@ -1573,6 +1685,9 @@ import Api
                       "grossTotal": "grossTotal",
                       "paidAmount": "paidAmount",
                       "journalTransactionId": "journalTransactionId",
+                      "reversedAt": "2026-07-01T09:30:00Z",
+                      "reversalJournalTransactionId": "reversalJournalTransactionId",
+                      "reversalReason": "reversalReason",
                       "creditedInvoiceId": "creditedInvoiceId",
                       "purchaseOrderId": "purchaseOrderId",
                       "operationTypeId": "operationTypeId",
@@ -1626,6 +1741,9 @@ import Api
                     grossTotal: "grossTotal",
                     paidAmount: "paidAmount",
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
+                    reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+                    reversalReason: Nullable<String>.value("reversalReason"),
                     creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
                     purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
                     operationTypeId: Nullable<String>.value("operationTypeId"),
@@ -1683,6 +1801,9 @@ import Api
                       "grossTotal": "grossTotal",
                       "paidAmount": "paidAmount",
                       "journalTransactionId": "x",
+                      "reversedAt": "2024-01-15T09:30:00Z",
+                      "reversalJournalTransactionId": "x",
+                      "reversalReason": "reversalReason",
                       "creditedInvoiceId": "x",
                       "purchaseOrderId": "x",
                       "operationTypeId": "x",
@@ -1713,6 +1834,9 @@ import Api
                       "grossTotal": "grossTotal",
                       "paidAmount": "paidAmount",
                       "journalTransactionId": "x",
+                      "reversedAt": "2024-01-15T09:30:00Z",
+                      "reversalJournalTransactionId": "x",
+                      "reversalReason": "reversalReason",
                       "creditedInvoiceId": "x",
                       "purchaseOrderId": "x",
                       "operationTypeId": "x",
@@ -1766,6 +1890,9 @@ import Api
                     grossTotal: "grossTotal",
                     paidAmount: "paidAmount",
                     journalTransactionId: Nullable<String>.value("x"),
+                    reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    reversalJournalTransactionId: Nullable<String>.value("x"),
+                    reversalReason: Nullable<String>.value("reversalReason"),
                     creditedInvoiceId: Nullable<String>.value("x"),
                     purchaseOrderId: Nullable<String>.value("x"),
                     operationTypeId: Nullable<String>.value("x"),
@@ -1796,6 +1923,9 @@ import Api
                     grossTotal: "grossTotal",
                     paidAmount: "paidAmount",
                     journalTransactionId: Nullable<String>.value("x"),
+                    reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    reversalJournalTransactionId: Nullable<String>.value("x"),
+                    reversalReason: Nullable<String>.value("reversalReason"),
                     creditedInvoiceId: Nullable<String>.value("x"),
                     purchaseOrderId: Nullable<String>.value("x"),
                     operationTypeId: Nullable<String>.value("x"),
@@ -1825,6 +1955,332 @@ import Api
         )
         let response = try await client.purchases.invoicesList(
             request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesReverse1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "partnerId": "partnerId",
+                  "type": "invoice",
+                  "status": "draft",
+                  "paymentStatus": "unpaid",
+                  "documentNumber": "documentNumber",
+                  "documentDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
+                  "registrationDate": "2026-07-01",
+                  "currency": "currency",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "paidAmount": "paidAmount",
+                  "journalTransactionId": "journalTransactionId",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
+                  "creditedInvoiceId": "creditedInvoiceId",
+                  "purchaseOrderId": "purchaseOrderId",
+                  "operationTypeId": "operationTypeId",
+                  "notes": "notes",
+                  "intrastatTransportMode": "intrastatTransportMode",
+                  "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                  "intrastatRegion": "intrastatRegion",
+                  "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                  "einvoiceNumber": "einvoiceNumber",
+                  "documentRef": "documentRef",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
+                  "lines": [
+                    {
+                      "id": "id",
+                      "itemId": "itemId",
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "costCenterId": "costCenterId",
+                      "projectId": "projectId",
+                      "accountCode": "accountCode",
+                      "deferralStartDate": "2026-07-01",
+                      "deferralEndDate": "2026-07-01",
+                      "lotNumber": "lotNumber",
+                      "expiryDate": "2026-07-01",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross",
+                      "sortOrder": 1000000
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesReversePurchasesResponse(
+            id: "id",
+            partnerId: "partnerId",
+            type: .invoice,
+            status: .draft,
+            paymentStatus: .unpaid,
+            documentNumber: "documentNumber",
+            documentDate: CalendarDate("2026-07-01")!,
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            registrationDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            currency: "currency",
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            paidAmount: "paidAmount",
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
+            creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            purchaseOrderId: Nullable<String>.value("purchaseOrderId"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            notes: Nullable<String>.value("notes"),
+            intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+            intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+            intrastatRegion: Nullable<String>.value("intrastatRegion"),
+            intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+            einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            documentRef: Nullable<String>.value("documentRef"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            lines: [
+                InvoicesReversePurchasesResponseLinesItem(
+                    id: "id",
+                    itemId: Nullable<String>.value("itemId"),
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
+                    unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                    unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    costCenterId: Nullable<String>.value("costCenterId"),
+                    projectId: Nullable<String>.value("projectId"),
+                    accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    lotNumber: Nullable<String>.value("lotNumber"),
+                    expiryDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    lineNet: "lineNet",
+                    lineVat: "lineVat",
+                    lineGross: "lineGross",
+                    sortOrder: 1000000
+                )
+            ]
+        )
+        let response = try await client.purchases.invoicesReverse(
+            request: .init(
+                id: "id",
+                reason: "reason"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesReverse2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "partnerId": "x",
+                  "type": "invoice",
+                  "status": "draft",
+                  "paymentStatus": "unpaid",
+                  "documentNumber": "documentNumber",
+                  "documentDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
+                  "registrationDate": "2023-01-15",
+                  "currency": "currency",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "paidAmount": "paidAmount",
+                  "journalTransactionId": "x",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
+                  "creditedInvoiceId": "x",
+                  "purchaseOrderId": "x",
+                  "operationTypeId": "x",
+                  "notes": "notes",
+                  "intrastatTransportMode": "intrastatTransportMode",
+                  "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                  "intrastatRegion": "intrastatRegion",
+                  "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                  "einvoiceNumber": "einvoiceNumber",
+                  "documentRef": "documentRef",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
+                  "lines": [
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "costCenterId": "x",
+                      "projectId": "x",
+                      "accountCode": "accountCode",
+                      "deferralStartDate": "2023-01-15",
+                      "deferralEndDate": "2023-01-15",
+                      "lotNumber": "lotNumber",
+                      "expiryDate": "2023-01-15",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross",
+                      "sortOrder": 1000000
+                    },
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "costCenterId": "x",
+                      "projectId": "x",
+                      "accountCode": "accountCode",
+                      "deferralStartDate": "2023-01-15",
+                      "deferralEndDate": "2023-01-15",
+                      "lotNumber": "lotNumber",
+                      "expiryDate": "2023-01-15",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross",
+                      "sortOrder": 1000000
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesReversePurchasesResponse(
+            id: "x",
+            partnerId: "x",
+            type: .invoice,
+            status: .draft,
+            paymentStatus: .unpaid,
+            documentNumber: "documentNumber",
+            documentDate: CalendarDate("2023-01-15")!,
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            registrationDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            currency: "currency",
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            paidAmount: "paidAmount",
+            journalTransactionId: Nullable<String>.value("x"),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
+            creditedInvoiceId: Nullable<String>.value("x"),
+            purchaseOrderId: Nullable<String>.value("x"),
+            operationTypeId: Nullable<String>.value("x"),
+            notes: Nullable<String>.value("notes"),
+            intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+            intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+            intrastatRegion: Nullable<String>.value("intrastatRegion"),
+            intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+            einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            documentRef: Nullable<String>.value("documentRef"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            lines: [
+                InvoicesReversePurchasesResponseLinesItem(
+                    id: "x",
+                    itemId: Nullable<String>.value("x"),
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
+                    unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                    unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
+                    accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    lotNumber: Nullable<String>.value("lotNumber"),
+                    expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    lineNet: "lineNet",
+                    lineVat: "lineVat",
+                    lineGross: "lineGross",
+                    sortOrder: 1000000
+                ),
+                InvoicesReversePurchasesResponseLinesItem(
+                    id: "x",
+                    itemId: Nullable<String>.value("x"),
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
+                    unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                    unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
+                    accountCode: Nullable<String>.value("accountCode"),
+                    deferralStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    lotNumber: Nullable<String>.value("lotNumber"),
+                    expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    lineNet: "lineNet",
+                    lineVat: "lineVat",
+                    lineGross: "lineGross",
+                    sortOrder: 1000000
+                )
+            ]
+        )
+        let response = try await client.purchases.invoicesReverse(
+            request: .init(
+                id: "x",
+                reason: "x"
+            ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

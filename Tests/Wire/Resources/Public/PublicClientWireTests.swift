@@ -86,6 +86,7 @@ import Api
                   "notes": "notes",
                   "payUrl": "payUrl",
                   "cardPaymentReceived": true,
+                  "sentWith": "sentWith",
                   "seller": {
                     "name": "name",
                     "vatCode": "vatCode",
@@ -152,6 +153,7 @@ import Api
             notes: Nullable<String>.value("notes"),
             payUrl: Nullable<String>.value("payUrl"),
             cardPaymentReceived: true,
+            sentWith: Nullable<String>.value("sentWith"),
             seller: InvoicesGetPublicResponseSeller(
                 name: "name",
                 vatCode: Nullable<String>.value("vatCode"),
@@ -222,6 +224,7 @@ import Api
                   "notes": "notes",
                   "payUrl": "payUrl",
                   "cardPaymentReceived": true,
+                  "sentWith": "sentWith",
                   "seller": {
                     "name": "name",
                     "vatCode": "vatCode",
@@ -296,6 +299,7 @@ import Api
             notes: Nullable<String>.value("notes"),
             payUrl: Nullable<String>.value("payUrl"),
             cardPaymentReceived: true,
+            sentWith: Nullable<String>.value("sentWith"),
             seller: InvoicesGetPublicResponseSeller(
                 name: "name",
                 vatCode: Nullable<String>.value("vatCode"),

@@ -330,7 +330,15 @@ import Api
                 #"""
                 {
                   "imported": 1000000,
-                  "skipped": 1000000
+                  "skipped": 1000000,
+                  "duplicates": [
+                    {
+                      "index": 1000000,
+                      "existingTransactionId": "existingTransactionId",
+                      "date": "2026-07-01",
+                      "amount": "amount"
+                    }
+                  ]
                 }
                 """#.utf8
             )
@@ -342,7 +350,15 @@ import Api
         )
         let expectedResponse = TransactionsImportBankResponse(
             imported: 1000000,
-            skipped: 1000000
+            skipped: 1000000,
+            duplicates: [
+                TransactionsImportBankResponseDuplicatesItem(
+                    index: 1000000,
+                    existingTransactionId: "existingTransactionId",
+                    date: CalendarDate("2026-07-01")!,
+                    amount: "amount"
+                )
+            ]
         )
         let response = try await client.bank.transactionsImport(
             request: .init(
@@ -366,7 +382,21 @@ import Api
                 #"""
                 {
                   "imported": 1000000,
-                  "skipped": 1000000
+                  "skipped": 1000000,
+                  "duplicates": [
+                    {
+                      "index": 1000000,
+                      "existingTransactionId": "x",
+                      "date": "2023-01-15",
+                      "amount": "amount"
+                    },
+                    {
+                      "index": 1000000,
+                      "existingTransactionId": "x",
+                      "date": "2023-01-15",
+                      "amount": "amount"
+                    }
+                  ]
                 }
                 """#.utf8
             )
@@ -378,7 +408,21 @@ import Api
         )
         let expectedResponse = TransactionsImportBankResponse(
             imported: 1000000,
-            skipped: 1000000
+            skipped: 1000000,
+            duplicates: [
+                TransactionsImportBankResponseDuplicatesItem(
+                    index: 1000000,
+                    existingTransactionId: "x",
+                    date: CalendarDate("2023-01-15")!,
+                    amount: "amount"
+                ),
+                TransactionsImportBankResponseDuplicatesItem(
+                    index: 1000000,
+                    existingTransactionId: "x",
+                    date: CalendarDate("2023-01-15")!,
+                    amount: "amount"
+                )
+            ]
         )
         let response = try await client.bank.transactionsImport(
             request: .init(
@@ -594,6 +638,7 @@ import Api
                       "matchedDocumentType": "matchedDocumentType",
                       "matchedDocumentId": "matchedDocumentId",
                       "journalTransactionId": "journalTransactionId",
+                      "ignoreReason": "ignoreReason",
                       "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
@@ -633,6 +678,7 @@ import Api
                     matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
                     matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
+                    ignoreReason: Nullable<String>.value("ignoreReason"),
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
@@ -676,6 +722,7 @@ import Api
                       "matchedDocumentType": "matchedDocumentType",
                       "matchedDocumentId": "x",
                       "journalTransactionId": "x",
+                      "ignoreReason": "ignoreReason",
                       "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
@@ -692,6 +739,7 @@ import Api
                       "matchedDocumentType": "matchedDocumentType",
                       "matchedDocumentId": "x",
                       "journalTransactionId": "x",
+                      "ignoreReason": "ignoreReason",
                       "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
@@ -731,6 +779,7 @@ import Api
                     matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
                     matchedDocumentId: Nullable<String>.value("x"),
                     journalTransactionId: Nullable<String>.value("x"),
+                    ignoreReason: Nullable<String>.value("ignoreReason"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
                 TransactionsListBankResponseRowsItem(
@@ -747,6 +796,7 @@ import Api
                     matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
                     matchedDocumentId: Nullable<String>.value("x"),
                     journalTransactionId: Nullable<String>.value("x"),
+                    ignoreReason: Nullable<String>.value("ignoreReason"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
@@ -788,6 +838,7 @@ import Api
                   "matchedDocumentType": "matchedDocumentType",
                   "matchedDocumentId": "matchedDocumentId",
                   "journalTransactionId": "journalTransactionId",
+                  "ignoreReason": "ignoreReason",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -812,6 +863,7 @@ import Api
             matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
             matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.bank.transactionsMatch(
@@ -844,6 +896,7 @@ import Api
                   "matchedDocumentType": "matchedDocumentType",
                   "matchedDocumentId": "x",
                   "journalTransactionId": "x",
+                  "ignoreReason": "ignoreReason",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -868,6 +921,7 @@ import Api
             matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
             matchedDocumentId: Nullable<String>.value("x"),
             journalTransactionId: Nullable<String>.value("x"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.bank.transactionsMatch(
@@ -900,6 +954,7 @@ import Api
                   "matchedDocumentType": "matchedDocumentType",
                   "matchedDocumentId": "matchedDocumentId",
                   "journalTransactionId": "journalTransactionId",
+                  "ignoreReason": "ignoreReason",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -924,6 +979,7 @@ import Api
             matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
             matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.bank.transactionsMatchMany(
@@ -961,6 +1017,7 @@ import Api
                   "matchedDocumentType": "matchedDocumentType",
                   "matchedDocumentId": "x",
                   "journalTransactionId": "x",
+                  "ignoreReason": "ignoreReason",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -985,6 +1042,7 @@ import Api
             matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
             matchedDocumentId: Nullable<String>.value("x"),
             journalTransactionId: Nullable<String>.value("x"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.bank.transactionsMatchMany(
@@ -1027,6 +1085,7 @@ import Api
                   "matchedDocumentType": "matchedDocumentType",
                   "matchedDocumentId": "matchedDocumentId",
                   "journalTransactionId": "journalTransactionId",
+                  "ignoreReason": "ignoreReason",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -1051,6 +1110,7 @@ import Api
             matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
             matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.bank.transactionsUnmatch(
@@ -1079,6 +1139,7 @@ import Api
                   "matchedDocumentType": "matchedDocumentType",
                   "matchedDocumentId": "x",
                   "journalTransactionId": "x",
+                  "ignoreReason": "ignoreReason",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -1103,10 +1164,569 @@ import Api
             matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
             matchedDocumentId: Nullable<String>.value("x"),
             journalTransactionId: Nullable<String>.value("x"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.bank.transactionsUnmatch(
             request: .init(transactionId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func transactionsPost1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "bankAccountId": "bankAccountId",
+                  "date": "2026-07-01",
+                  "amount": "amount",
+                  "currency": "currency",
+                  "counterpartyName": "counterpartyName",
+                  "counterpartyIban": "counterpartyIban",
+                  "description": "description",
+                  "externalId": "externalId",
+                  "status": "new",
+                  "matchedDocumentType": "matchedDocumentType",
+                  "matchedDocumentId": "matchedDocumentId",
+                  "journalTransactionId": "journalTransactionId",
+                  "ignoreReason": "ignoreReason",
+                  "createdAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TransactionsPostBankResponse(
+            id: "id",
+            bankAccountId: "bankAccountId",
+            date: CalendarDate("2026-07-01")!,
+            amount: "amount",
+            currency: "currency",
+            counterpartyName: Nullable<String>.value("counterpartyName"),
+            counterpartyIban: Nullable<String>.value("counterpartyIban"),
+            description: Nullable<String>.value("description"),
+            externalId: Nullable<String>.value("externalId"),
+            status: .new,
+            matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+            matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.transactionsPost(
+            request: .init(
+                transactionId: "transactionId",
+                accountCode: "accountCode"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func transactionsPost2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "bankAccountId": "x",
+                  "date": "2023-01-15",
+                  "amount": "amount",
+                  "currency": "currency",
+                  "counterpartyName": "counterpartyName",
+                  "counterpartyIban": "counterpartyIban",
+                  "description": "description",
+                  "externalId": "externalId",
+                  "status": "new",
+                  "matchedDocumentType": "matchedDocumentType",
+                  "matchedDocumentId": "x",
+                  "journalTransactionId": "x",
+                  "ignoreReason": "ignoreReason",
+                  "createdAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TransactionsPostBankResponse(
+            id: "x",
+            bankAccountId: "x",
+            date: CalendarDate("2023-01-15")!,
+            amount: "amount",
+            currency: "currency",
+            counterpartyName: Nullable<String>.value("counterpartyName"),
+            counterpartyIban: Nullable<String>.value("counterpartyIban"),
+            description: Nullable<String>.value("description"),
+            externalId: Nullable<String>.value("externalId"),
+            status: .new,
+            matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+            matchedDocumentId: Nullable<String>.value("x"),
+            journalTransactionId: Nullable<String>.value("x"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.transactionsPost(
+            request: .init(
+                transactionId: "x",
+                accountCode: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func transactionsIgnore1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "bankAccountId": "bankAccountId",
+                  "date": "2026-07-01",
+                  "amount": "amount",
+                  "currency": "currency",
+                  "counterpartyName": "counterpartyName",
+                  "counterpartyIban": "counterpartyIban",
+                  "description": "description",
+                  "externalId": "externalId",
+                  "status": "new",
+                  "matchedDocumentType": "matchedDocumentType",
+                  "matchedDocumentId": "matchedDocumentId",
+                  "journalTransactionId": "journalTransactionId",
+                  "ignoreReason": "ignoreReason",
+                  "createdAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TransactionsIgnoreBankResponse(
+            id: "id",
+            bankAccountId: "bankAccountId",
+            date: CalendarDate("2026-07-01")!,
+            amount: "amount",
+            currency: "currency",
+            counterpartyName: Nullable<String>.value("counterpartyName"),
+            counterpartyIban: Nullable<String>.value("counterpartyIban"),
+            description: Nullable<String>.value("description"),
+            externalId: Nullable<String>.value("externalId"),
+            status: .new,
+            matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+            matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.transactionsIgnore(
+            request: .init(
+                transactionId: "transactionId",
+                reason: "reason"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func transactionsIgnore2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "bankAccountId": "x",
+                  "date": "2023-01-15",
+                  "amount": "amount",
+                  "currency": "currency",
+                  "counterpartyName": "counterpartyName",
+                  "counterpartyIban": "counterpartyIban",
+                  "description": "description",
+                  "externalId": "externalId",
+                  "status": "new",
+                  "matchedDocumentType": "matchedDocumentType",
+                  "matchedDocumentId": "x",
+                  "journalTransactionId": "x",
+                  "ignoreReason": "ignoreReason",
+                  "createdAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TransactionsIgnoreBankResponse(
+            id: "x",
+            bankAccountId: "x",
+            date: CalendarDate("2023-01-15")!,
+            amount: "amount",
+            currency: "currency",
+            counterpartyName: Nullable<String>.value("counterpartyName"),
+            counterpartyIban: Nullable<String>.value("counterpartyIban"),
+            description: Nullable<String>.value("description"),
+            externalId: Nullable<String>.value("externalId"),
+            status: .new,
+            matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+            matchedDocumentId: Nullable<String>.value("x"),
+            journalTransactionId: Nullable<String>.value("x"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.transactionsIgnore(
+            request: .init(
+                transactionId: "x",
+                reason: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func transactionsUnignore1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "bankAccountId": "bankAccountId",
+                  "date": "2026-07-01",
+                  "amount": "amount",
+                  "currency": "currency",
+                  "counterpartyName": "counterpartyName",
+                  "counterpartyIban": "counterpartyIban",
+                  "description": "description",
+                  "externalId": "externalId",
+                  "status": "new",
+                  "matchedDocumentType": "matchedDocumentType",
+                  "matchedDocumentId": "matchedDocumentId",
+                  "journalTransactionId": "journalTransactionId",
+                  "ignoreReason": "ignoreReason",
+                  "createdAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TransactionsUnignoreBankResponse(
+            id: "id",
+            bankAccountId: "bankAccountId",
+            date: CalendarDate("2026-07-01")!,
+            amount: "amount",
+            currency: "currency",
+            counterpartyName: Nullable<String>.value("counterpartyName"),
+            counterpartyIban: Nullable<String>.value("counterpartyIban"),
+            description: Nullable<String>.value("description"),
+            externalId: Nullable<String>.value("externalId"),
+            status: .new,
+            matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+            matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.transactionsUnignore(
+            request: .init(transactionId: "transactionId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func transactionsUnignore2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "bankAccountId": "x",
+                  "date": "2023-01-15",
+                  "amount": "amount",
+                  "currency": "currency",
+                  "counterpartyName": "counterpartyName",
+                  "counterpartyIban": "counterpartyIban",
+                  "description": "description",
+                  "externalId": "externalId",
+                  "status": "new",
+                  "matchedDocumentType": "matchedDocumentType",
+                  "matchedDocumentId": "x",
+                  "journalTransactionId": "x",
+                  "ignoreReason": "ignoreReason",
+                  "createdAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TransactionsUnignoreBankResponse(
+            id: "x",
+            bankAccountId: "x",
+            date: CalendarDate("2023-01-15")!,
+            amount: "amount",
+            currency: "currency",
+            counterpartyName: Nullable<String>.value("counterpartyName"),
+            counterpartyIban: Nullable<String>.value("counterpartyIban"),
+            description: Nullable<String>.value("description"),
+            externalId: Nullable<String>.value("externalId"),
+            status: .new,
+            matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+            matchedDocumentId: Nullable<String>.value("x"),
+            journalTransactionId: Nullable<String>.value("x"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.transactionsUnignore(
+            request: .init(transactionId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func reconciliationGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "bankAccountId": "bankAccountId",
+                  "accountCode": "accountCode",
+                  "currency": "currency",
+                  "date": "2026-07-01",
+                  "statementBalance": "statementBalance",
+                  "statementBalanceSource": "request",
+                  "statementClosingDate": "2026-07-01",
+                  "ledgerBalance": "ledgerBalance",
+                  "difference": "difference",
+                  "unbookedCount": 1000000,
+                  "unbookedTotal": "unbookedTotal",
+                  "unbookedLines": [
+                    {
+                      "id": "id",
+                      "bankAccountId": "bankAccountId",
+                      "date": "2026-07-01",
+                      "amount": "amount",
+                      "currency": "currency",
+                      "counterpartyName": "counterpartyName",
+                      "counterpartyIban": "counterpartyIban",
+                      "description": "description",
+                      "externalId": "externalId",
+                      "status": "new",
+                      "matchedDocumentType": "matchedDocumentType",
+                      "matchedDocumentId": "matchedDocumentId",
+                      "journalTransactionId": "journalTransactionId",
+                      "ignoreReason": "ignoreReason",
+                      "createdAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ReconciliationGetBankResponse(
+            bankAccountId: "bankAccountId",
+            accountCode: "accountCode",
+            currency: "currency",
+            date: CalendarDate("2026-07-01")!,
+            statementBalance: Nullable<String>.value("statementBalance"),
+            statementBalanceSource: Nullable<ReconciliationGetBankResponseStatementBalanceSource>.value(.request),
+            statementClosingDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            ledgerBalance: "ledgerBalance",
+            difference: Nullable<String>.value("difference"),
+            unbookedCount: 1000000,
+            unbookedTotal: "unbookedTotal",
+            unbookedLines: [
+                ReconciliationGetBankResponseUnbookedLinesItem(
+                    id: "id",
+                    bankAccountId: "bankAccountId",
+                    date: CalendarDate("2026-07-01")!,
+                    amount: "amount",
+                    currency: "currency",
+                    counterpartyName: Nullable<String>.value("counterpartyName"),
+                    counterpartyIban: Nullable<String>.value("counterpartyIban"),
+                    description: Nullable<String>.value("description"),
+                    externalId: Nullable<String>.value("externalId"),
+                    status: .new,
+                    matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+                    matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
+                    journalTransactionId: Nullable<String>.value("journalTransactionId"),
+                    ignoreReason: Nullable<String>.value("ignoreReason"),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.bank.reconciliationGet(
+            request: .init(
+                bankAccountId: "bankAccountId",
+                date: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func reconciliationGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "bankAccountId": "x",
+                  "accountCode": "accountCode",
+                  "currency": "currency",
+                  "date": "2023-01-15",
+                  "statementBalance": "statementBalance",
+                  "statementBalanceSource": "request",
+                  "statementClosingDate": "2023-01-15",
+                  "ledgerBalance": "ledgerBalance",
+                  "difference": "difference",
+                  "unbookedCount": 1000000,
+                  "unbookedTotal": "unbookedTotal",
+                  "unbookedLines": [
+                    {
+                      "id": "x",
+                      "bankAccountId": "x",
+                      "date": "2023-01-15",
+                      "amount": "amount",
+                      "currency": "currency",
+                      "counterpartyName": "counterpartyName",
+                      "counterpartyIban": "counterpartyIban",
+                      "description": "description",
+                      "externalId": "externalId",
+                      "status": "new",
+                      "matchedDocumentType": "matchedDocumentType",
+                      "matchedDocumentId": "x",
+                      "journalTransactionId": "x",
+                      "ignoreReason": "ignoreReason",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "bankAccountId": "x",
+                      "date": "2023-01-15",
+                      "amount": "amount",
+                      "currency": "currency",
+                      "counterpartyName": "counterpartyName",
+                      "counterpartyIban": "counterpartyIban",
+                      "description": "description",
+                      "externalId": "externalId",
+                      "status": "new",
+                      "matchedDocumentType": "matchedDocumentType",
+                      "matchedDocumentId": "x",
+                      "journalTransactionId": "x",
+                      "ignoreReason": "ignoreReason",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ReconciliationGetBankResponse(
+            bankAccountId: "x",
+            accountCode: "accountCode",
+            currency: "currency",
+            date: CalendarDate("2023-01-15")!,
+            statementBalance: Nullable<String>.value("statementBalance"),
+            statementBalanceSource: Nullable<ReconciliationGetBankResponseStatementBalanceSource>.value(.request),
+            statementClosingDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            ledgerBalance: "ledgerBalance",
+            difference: Nullable<String>.value("difference"),
+            unbookedCount: 1000000,
+            unbookedTotal: "unbookedTotal",
+            unbookedLines: [
+                ReconciliationGetBankResponseUnbookedLinesItem(
+                    id: "x",
+                    bankAccountId: "x",
+                    date: CalendarDate("2023-01-15")!,
+                    amount: "amount",
+                    currency: "currency",
+                    counterpartyName: Nullable<String>.value("counterpartyName"),
+                    counterpartyIban: Nullable<String>.value("counterpartyIban"),
+                    description: Nullable<String>.value("description"),
+                    externalId: Nullable<String>.value("externalId"),
+                    status: .new,
+                    matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+                    matchedDocumentId: Nullable<String>.value("x"),
+                    journalTransactionId: Nullable<String>.value("x"),
+                    ignoreReason: Nullable<String>.value("ignoreReason"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                ReconciliationGetBankResponseUnbookedLinesItem(
+                    id: "x",
+                    bankAccountId: "x",
+                    date: CalendarDate("2023-01-15")!,
+                    amount: "amount",
+                    currency: "currency",
+                    counterpartyName: Nullable<String>.value("counterpartyName"),
+                    counterpartyIban: Nullable<String>.value("counterpartyIban"),
+                    description: Nullable<String>.value("description"),
+                    externalId: Nullable<String>.value("externalId"),
+                    status: .new,
+                    matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
+                    matchedDocumentId: Nullable<String>.value("x"),
+                    journalTransactionId: Nullable<String>.value("x"),
+                    ignoreReason: Nullable<String>.value("ignoreReason"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.bank.reconciliationGet(
+            request: .init(
+                bankAccountId: "x",
+                date: CalendarDate("2023-01-15")!
+            ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -1131,6 +1751,7 @@ import Api
                   "matchedDocumentType": "matchedDocumentType",
                   "matchedDocumentId": "matchedDocumentId",
                   "journalTransactionId": "journalTransactionId",
+                  "ignoreReason": "ignoreReason",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -1155,6 +1776,7 @@ import Api
             matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
             matchedDocumentId: Nullable<String>.value("matchedDocumentId"),
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.bank.transactionsRecord(
@@ -1189,6 +1811,7 @@ import Api
                   "matchedDocumentType": "matchedDocumentType",
                   "matchedDocumentId": "x",
                   "journalTransactionId": "x",
+                  "ignoreReason": "ignoreReason",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -1213,6 +1836,7 @@ import Api
             matchedDocumentType: Nullable<String>.value("matchedDocumentType"),
             matchedDocumentId: Nullable<String>.value("x"),
             journalTransactionId: Nullable<String>.value("x"),
+            ignoreReason: Nullable<String>.value("ignoreReason"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.bank.transactionsRecord(

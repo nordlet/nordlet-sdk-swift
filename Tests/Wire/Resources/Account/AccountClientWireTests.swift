@@ -207,7 +207,8 @@ import Api
                     "name": "name",
                     "locale": "locale",
                     "plan": "plan",
-                    "isSuperAdmin": true
+                    "isSuperAdmin": true,
+                    "whiteLabel": true
                   },
                   "locale": "locale",
                   "activeCompanyId": "activeCompanyId",
@@ -246,6 +247,11 @@ import Api
                       "role": "role",
                       "isSandbox": true,
                       "cashBasis": true,
+                      "countryCode": "countryCode",
+                      "baseCurrency": "baseCurrency",
+                      "isVatPayer": true,
+                      "vatPeriod": "monthly",
+                      "fiscalYearEndMonth": 1000000,
                       "status": "active",
                       "deletedAt": "2026-07-01T09:30:00Z"
                     }
@@ -266,7 +272,8 @@ import Api
                 name: Nullable<String>.value("name"),
                 locale: "locale",
                 plan: "plan",
-                isSuperAdmin: true
+                isSuperAdmin: true,
+                whiteLabel: true
             ),
             locale: "locale",
             activeCompanyId: Nullable<String>.value("activeCompanyId"),
@@ -305,6 +312,11 @@ import Api
                     role: "role",
                     isSandbox: true,
                     cashBasis: true,
+                    countryCode: "countryCode",
+                    baseCurrency: "baseCurrency",
+                    isVatPayer: true,
+                    vatPeriod: Nullable<MeAccountResponseCompaniesItemVatPeriod>.value(.monthly),
+                    fiscalYearEndMonth: Nullable<Int64>.value(1000000),
                     status: .active,
                     deletedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
                 )
@@ -329,7 +341,8 @@ import Api
                     "name": "name",
                     "locale": "locale",
                     "plan": "plan",
-                    "isSuperAdmin": true
+                    "isSuperAdmin": true,
+                    "whiteLabel": true
                   },
                   "locale": "locale",
                   "activeCompanyId": "x",
@@ -368,6 +381,11 @@ import Api
                       "role": "role",
                       "isSandbox": true,
                       "cashBasis": true,
+                      "countryCode": "countryCode",
+                      "baseCurrency": "baseCurrency",
+                      "isVatPayer": true,
+                      "vatPeriod": "monthly",
+                      "fiscalYearEndMonth": 1000000,
                       "status": "active",
                       "deletedAt": "2024-01-15T09:30:00Z"
                     },
@@ -379,6 +397,11 @@ import Api
                       "role": "role",
                       "isSandbox": true,
                       "cashBasis": true,
+                      "countryCode": "countryCode",
+                      "baseCurrency": "baseCurrency",
+                      "isVatPayer": true,
+                      "vatPeriod": "monthly",
+                      "fiscalYearEndMonth": 1000000,
                       "status": "active",
                       "deletedAt": "2024-01-15T09:30:00Z"
                     }
@@ -399,7 +422,8 @@ import Api
                 name: Nullable<String>.value("name"),
                 locale: "locale",
                 plan: "plan",
-                isSuperAdmin: true
+                isSuperAdmin: true,
+                whiteLabel: true
             ),
             locale: "locale",
             activeCompanyId: Nullable<String>.value("x"),
@@ -438,6 +462,11 @@ import Api
                     role: "role",
                     isSandbox: true,
                     cashBasis: true,
+                    countryCode: "countryCode",
+                    baseCurrency: "baseCurrency",
+                    isVatPayer: true,
+                    vatPeriod: Nullable<MeAccountResponseCompaniesItemVatPeriod>.value(.monthly),
+                    fiscalYearEndMonth: Nullable<Int64>.value(1000000),
                     status: .active,
                     deletedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 ),
@@ -449,6 +478,11 @@ import Api
                     role: "role",
                     isSandbox: true,
                     cashBasis: true,
+                    countryCode: "countryCode",
+                    baseCurrency: "baseCurrency",
+                    isVatPayer: true,
+                    vatPeriod: Nullable<MeAccountResponseCompaniesItemVatPeriod>.value(.monthly),
+                    fiscalYearEndMonth: Nullable<Int64>.value(1000000),
                     status: .active,
                     deletedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
                 )
@@ -1183,7 +1217,12 @@ import Api
                   "vatCode": "vatCode",
                   "role": "role",
                   "isSandbox": true,
-                  "cashBasis": true
+                  "cashBasis": true,
+                  "countryCode": "countryCode",
+                  "baseCurrency": "baseCurrency",
+                  "isVatPayer": true,
+                  "vatPeriod": "monthly",
+                  "fiscalYearEndMonth": 1000000
                 }
                 """#.utf8
             )
@@ -1200,7 +1239,12 @@ import Api
             vatCode: Nullable<String>.value("vatCode"),
             role: "role",
             isSandbox: true,
-            cashBasis: true
+            cashBasis: true,
+            countryCode: "countryCode",
+            baseCurrency: "baseCurrency",
+            isVatPayer: true,
+            vatPeriod: Nullable<CompaniesCreateAccountResponseVatPeriod>.value(.monthly),
+            fiscalYearEndMonth: Nullable<Int64>.value(1000000)
         )
         let response = try await client.account.companiesCreate(
             request: .init(name: "name"),
@@ -1221,7 +1265,12 @@ import Api
                   "vatCode": "vatCode",
                   "role": "role",
                   "isSandbox": true,
-                  "cashBasis": true
+                  "cashBasis": true,
+                  "countryCode": "countryCode",
+                  "baseCurrency": "baseCurrency",
+                  "isVatPayer": true,
+                  "vatPeriod": "monthly",
+                  "fiscalYearEndMonth": 1000000
                 }
                 """#.utf8
             )
@@ -1238,7 +1287,12 @@ import Api
             vatCode: Nullable<String>.value("vatCode"),
             role: "role",
             isSandbox: true,
-            cashBasis: true
+            cashBasis: true,
+            countryCode: "countryCode",
+            baseCurrency: "baseCurrency",
+            isVatPayer: true,
+            vatPeriod: Nullable<CompaniesCreateAccountResponseVatPeriod>.value(.monthly),
+            fiscalYearEndMonth: Nullable<Int64>.value(1000000)
         )
         let response = try await client.account.companiesCreate(
             request: .init(name: "x"),
@@ -2514,6 +2568,144 @@ import Api
         )
         let response = try await client.account.profileUpdate(
             request: .init(name: .null),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func brandGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "name": "name",
+                  "logoUrl": "logoUrl",
+                  "color": "color",
+                  "footer": "footer"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BrandGetAccountResponse(
+            name: Nullable<String>.value("name"),
+            logoUrl: Nullable<String>.value("logoUrl"),
+            color: Nullable<String>.value("color"),
+            footer: Nullable<String>.value("footer")
+        )
+        let response = try await client.account.brandGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func brandGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "name": "name",
+                  "logoUrl": "logoUrl",
+                  "color": "color",
+                  "footer": "footer"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BrandGetAccountResponse(
+            name: Nullable<String>.value("name"),
+            logoUrl: Nullable<String>.value("logoUrl"),
+            color: Nullable<String>.value("color"),
+            footer: Nullable<String>.value("footer")
+        )
+        let response = try await client.account.brandGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func brandUpdate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "name": "name",
+                  "logoUrl": "logoUrl",
+                  "color": "color",
+                  "footer": "footer"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BrandUpdateAccountResponse(
+            name: Nullable<String>.value("name"),
+            logoUrl: Nullable<String>.value("logoUrl"),
+            color: Nullable<String>.value("color"),
+            footer: Nullable<String>.value("footer")
+        )
+        let response = try await client.account.brandUpdate(
+            request: .init(
+                name: .null,
+                logoUrl: .null,
+                color: .null,
+                footer: .null
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func brandUpdate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "name": "name",
+                  "logoUrl": "logoUrl",
+                  "color": "color",
+                  "footer": "footer"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = BrandUpdateAccountResponse(
+            name: Nullable<String>.value("name"),
+            logoUrl: Nullable<String>.value("logoUrl"),
+            color: Nullable<String>.value("color"),
+            footer: Nullable<String>.value("footer")
+        )
+        let response = try await client.account.brandUpdate(
+            request: .init(
+                name: .null,
+                logoUrl: .null,
+                color: .null,
+                footer: .null
+            ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

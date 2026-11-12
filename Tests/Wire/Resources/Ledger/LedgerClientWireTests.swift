@@ -584,7 +584,17 @@ import Api
                   "id": "id",
                   "year": 1000000,
                   "month": 1000000,
-                  "status": "open"
+                  "status": "open",
+                  "warnings": [
+                    {
+                      "code": "draft_sale_documents",
+                      "count": 1000000,
+                      "message": "message",
+                      "ids": [
+                        "ids"
+                      ]
+                    }
+                  ]
                 }
                 """#.utf8
             )
@@ -598,7 +608,17 @@ import Api
             id: "id",
             year: 1000000,
             month: 1000000,
-            status: .open
+            status: .open,
+            warnings: [
+                PeriodsLockLedgerResponseWarningsItem(
+                    code: .draftSaleDocuments,
+                    count: 1000000,
+                    message: "message",
+                    ids: [
+                        "ids"
+                    ]
+                )
+            ]
         )
         let response = try await client.ledger.periodsLock(
             request: .init(
@@ -619,7 +639,27 @@ import Api
                   "id": "x",
                   "year": 1000000,
                   "month": 1000000,
-                  "status": "open"
+                  "status": "open",
+                  "warnings": [
+                    {
+                      "code": "draft_sale_documents",
+                      "count": 1000000,
+                      "message": "message",
+                      "ids": [
+                        "ids",
+                        "ids"
+                      ]
+                    },
+                    {
+                      "code": "draft_sale_documents",
+                      "count": 1000000,
+                      "message": "message",
+                      "ids": [
+                        "ids",
+                        "ids"
+                      ]
+                    }
+                  ]
                 }
                 """#.utf8
             )
@@ -633,7 +673,27 @@ import Api
             id: "x",
             year: 1000000,
             month: 1000000,
-            status: .open
+            status: .open,
+            warnings: [
+                PeriodsLockLedgerResponseWarningsItem(
+                    code: .draftSaleDocuments,
+                    count: 1000000,
+                    message: "message",
+                    ids: [
+                        "ids",
+                        "ids"
+                    ]
+                ),
+                PeriodsLockLedgerResponseWarningsItem(
+                    code: .draftSaleDocuments,
+                    count: 1000000,
+                    message: "message",
+                    ids: [
+                        "ids",
+                        "ids"
+                    ]
+                )
+            ]
         )
         let response = try await client.ledger.periodsLock(
             request: .init(
@@ -2268,6 +2328,7 @@ import Api
                   "status": "draft",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "postedAt": "2026-07-01T09:30:00Z",
+                  "reversedByTransactionId": "reversedByTransactionId",
                   "entries": [
                     {
                       "id": "id",
@@ -2300,6 +2361,7 @@ import Api
             status: .draft,
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             postedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversedByTransactionId: Nullable<String>.value("reversedByTransactionId"),
             entries: [
                 JournalTransactionsGetLedgerResponseEntriesItem(
                     id: "id",
@@ -2336,6 +2398,7 @@ import Api
                   "status": "draft",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "postedAt": "2024-01-15T09:30:00Z",
+                  "reversedByTransactionId": "x",
                   "entries": [
                     {
                       "id": "x",
@@ -2379,6 +2442,7 @@ import Api
             status: .draft,
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             postedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversedByTransactionId: Nullable<String>.value("x"),
             entries: [
                 JournalTransactionsGetLedgerResponseEntriesItem(
                     id: "x",
@@ -2506,6 +2570,96 @@ import Api
                         accountCode: "x"
                     )
                 ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func journalTransactionsReverse1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "date": "2026-07-01",
+                  "description": "description",
+                  "documentType": "documentType",
+                  "documentId": "documentId",
+                  "partnerId": "partnerId",
+                  "status": "draft",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "postedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = JournalTransactionsReverseLedgerResponse(
+            id: "id",
+            date: CalendarDate("2026-07-01")!,
+            description: Nullable<String>.value("description"),
+            documentType: Nullable<String>.value("documentType"),
+            documentId: Nullable<String>.value("documentId"),
+            partnerId: Nullable<String>.value("partnerId"),
+            status: .draft,
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            postedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
+        )
+        let response = try await client.ledger.journalTransactionsReverse(
+            request: .init(
+                id: "id",
+                reason: "reason"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func journalTransactionsReverse2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "date": "2023-01-15",
+                  "description": "description",
+                  "documentType": "documentType",
+                  "documentId": "x",
+                  "partnerId": "x",
+                  "status": "draft",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "postedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = JournalTransactionsReverseLedgerResponse(
+            id: "x",
+            date: CalendarDate("2023-01-15")!,
+            description: Nullable<String>.value("description"),
+            documentType: Nullable<String>.value("documentType"),
+            documentId: Nullable<String>.value("x"),
+            partnerId: Nullable<String>.value("x"),
+            status: .draft,
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            postedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+        )
+        let response = try await client.ledger.journalTransactionsReverse(
+            request: .init(
+                id: "x",
+                reason: "x"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

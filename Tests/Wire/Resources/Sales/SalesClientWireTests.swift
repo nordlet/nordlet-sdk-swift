@@ -149,7 +149,13 @@ import Api
                         "category": null
                       }
                     ]
-                  }
+                  },
+                  "warnings": [
+                    {
+                      "code": "code",
+                      "message": "message"
+                    }
+                  ]
                 }
                 """#.utf8
             )
@@ -300,7 +306,13 @@ import Api
                         category: .null
                     )
                 ]
-            ))
+            )),
+            warnings: [
+                InvoicesCreateSalesResponseWarningsItem(
+                    code: "code",
+                    message: "message"
+                )
+            ]
         )
         let response = try await client.sales.invoicesCreate(
             request: .init(
@@ -510,7 +522,17 @@ import Api
                         "category": "category"
                       }
                     ]
-                  }
+                  },
+                  "warnings": [
+                    {
+                      "code": "code",
+                      "message": "message"
+                    },
+                    {
+                      "code": "code",
+                      "message": "message"
+                    }
+                  ]
                 }
                 """#.utf8
             )
@@ -709,7 +731,17 @@ import Api
                         category: Nullable<String>.value("category")
                     )
                 ]
-            ))
+            )),
+            warnings: [
+                InvoicesCreateSalesResponseWarningsItem(
+                    code: "code",
+                    message: "message"
+                ),
+                InvoicesCreateSalesResponseWarningsItem(
+                    code: "code",
+                    message: "message"
+                )
+            ]
         )
         let response = try await client.sales.invoicesCreate(
             request: .init(
@@ -1519,6 +1551,7 @@ import Api
                   "notes": "notes",
                   "payUrl": "payUrl",
                   "cardPaymentReceived": true,
+                  "sentWith": "sentWith",
                   "seller": {
                     "name": "name",
                     "vatCode": "vatCode",
@@ -1586,6 +1619,7 @@ import Api
             notes: Nullable<String>.value("notes"),
             payUrl: Nullable<String>.value("payUrl"),
             cardPaymentReceived: true,
+            sentWith: Nullable<String>.value("sentWith"),
             seller: InvoicesViewSalesResponseSeller(
                 name: "name",
                 vatCode: Nullable<String>.value("vatCode"),
@@ -1657,6 +1691,7 @@ import Api
                   "notes": "notes",
                   "payUrl": "payUrl",
                   "cardPaymentReceived": true,
+                  "sentWith": "sentWith",
                   "seller": {
                     "name": "name",
                     "vatCode": "vatCode",
@@ -1732,6 +1767,7 @@ import Api
             notes: Nullable<String>.value("notes"),
             payUrl: Nullable<String>.value("payUrl"),
             cardPaymentReceived: true,
+            sentWith: Nullable<String>.value("sentWith"),
             seller: InvoicesViewSalesResponseSeller(
                 name: "name",
                 vatCode: Nullable<String>.value("vatCode"),
@@ -3206,7 +3242,13 @@ import Api
                         "category": null
                       }
                     ]
-                  }
+                  },
+                  "warnings": [
+                    {
+                      "code": "code",
+                      "message": "message"
+                    }
+                  ]
                 }
                 """#.utf8
             )
@@ -3357,7 +3399,13 @@ import Api
                         category: .null
                     )
                 ]
-            ))
+            )),
+            warnings: [
+                InvoicesIssueSalesResponseWarningsItem(
+                    code: "code",
+                    message: "message"
+                )
+            ]
         )
         let response = try await client.sales.invoicesIssue(
             request: .init(id: "id"),
@@ -3560,7 +3608,17 @@ import Api
                         "category": "category"
                       }
                     ]
-                  }
+                  },
+                  "warnings": [
+                    {
+                      "code": "code",
+                      "message": "message"
+                    },
+                    {
+                      "code": "code",
+                      "message": "message"
+                    }
+                  ]
                 }
                 """#.utf8
             )
@@ -3759,7 +3817,17 @@ import Api
                         category: Nullable<String>.value("category")
                     )
                 ]
-            ))
+            )),
+            warnings: [
+                InvoicesIssueSalesResponseWarningsItem(
+                    code: "code",
+                    message: "message"
+                ),
+                InvoicesIssueSalesResponseWarningsItem(
+                    code: "code",
+                    message: "message"
+                )
+            ]
         )
         let response = try await client.sales.invoicesIssue(
             request: .init(id: "x"),

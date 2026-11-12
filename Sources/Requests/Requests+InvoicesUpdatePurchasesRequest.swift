@@ -17,6 +17,9 @@ extension Requests {
         public let intrastatNatureOfTransaction: Nullable<String>?
         public let einvoiceNumber: Nullable<String>?
         public let lines: [InvoicesUpdatePurchasesRequestLinesItem]?
+        public let netTotal: String?
+        public let vatTotal: String?
+        public let grossTotal: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -36,6 +39,9 @@ extension Requests {
             intrastatNatureOfTransaction: Nullable<String>? = nil,
             einvoiceNumber: Nullable<String>? = nil,
             lines: [InvoicesUpdatePurchasesRequestLinesItem]? = nil,
+            netTotal: String? = nil,
+            vatTotal: String? = nil,
+            grossTotal: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.id = id
@@ -53,6 +59,9 @@ extension Requests {
             self.intrastatNatureOfTransaction = intrastatNatureOfTransaction
             self.einvoiceNumber = einvoiceNumber
             self.lines = lines
+            self.netTotal = netTotal
+            self.vatTotal = vatTotal
+            self.grossTotal = grossTotal
             self.additionalProperties = additionalProperties
         }
 
@@ -73,6 +82,9 @@ extension Requests {
             self.intrastatNatureOfTransaction = try container.decodeNullableIfPresent(String.self, forKey: .intrastatNatureOfTransaction)
             self.einvoiceNumber = try container.decodeNullableIfPresent(String.self, forKey: .einvoiceNumber)
             self.lines = try container.decodeIfPresent([InvoicesUpdatePurchasesRequestLinesItem].self, forKey: .lines)
+            self.netTotal = try container.decodeIfPresent(String.self, forKey: .netTotal)
+            self.vatTotal = try container.decodeIfPresent(String.self, forKey: .vatTotal)
+            self.grossTotal = try container.decodeIfPresent(String.self, forKey: .grossTotal)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -94,6 +106,9 @@ extension Requests {
             try container.encodeNullableIfPresent(self.intrastatNatureOfTransaction, forKey: .intrastatNatureOfTransaction)
             try container.encodeNullableIfPresent(self.einvoiceNumber, forKey: .einvoiceNumber)
             try container.encodeIfPresent(self.lines, forKey: .lines)
+            try container.encodeIfPresent(self.netTotal, forKey: .netTotal)
+            try container.encodeIfPresent(self.vatTotal, forKey: .vatTotal)
+            try container.encodeIfPresent(self.grossTotal, forKey: .grossTotal)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -113,6 +128,9 @@ extension Requests {
             case intrastatNatureOfTransaction
             case einvoiceNumber
             case lines
+            case netTotal
+            case vatTotal
+            case grossTotal
         }
     }
 }

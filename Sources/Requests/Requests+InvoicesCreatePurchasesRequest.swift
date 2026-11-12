@@ -19,6 +19,9 @@ extension Requests {
         public let einvoiceNumber: String?
         public let documentRef: String?
         public let lines: [InvoicesCreatePurchasesRequestLinesItem]
+        public let netTotal: String?
+        public let vatTotal: String?
+        public let grossTotal: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -40,6 +43,9 @@ extension Requests {
             einvoiceNumber: String? = nil,
             documentRef: String? = nil,
             lines: [InvoicesCreatePurchasesRequestLinesItem],
+            netTotal: String? = nil,
+            vatTotal: String? = nil,
+            grossTotal: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.partnerId = partnerId
@@ -59,6 +65,9 @@ extension Requests {
             self.einvoiceNumber = einvoiceNumber
             self.documentRef = documentRef
             self.lines = lines
+            self.netTotal = netTotal
+            self.vatTotal = vatTotal
+            self.grossTotal = grossTotal
             self.additionalProperties = additionalProperties
         }
 
@@ -81,6 +90,9 @@ extension Requests {
             self.einvoiceNumber = try container.decodeIfPresent(String.self, forKey: .einvoiceNumber)
             self.documentRef = try container.decodeIfPresent(String.self, forKey: .documentRef)
             self.lines = try container.decode([InvoicesCreatePurchasesRequestLinesItem].self, forKey: .lines)
+            self.netTotal = try container.decodeIfPresent(String.self, forKey: .netTotal)
+            self.vatTotal = try container.decodeIfPresent(String.self, forKey: .vatTotal)
+            self.grossTotal = try container.decodeIfPresent(String.self, forKey: .grossTotal)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -104,6 +116,9 @@ extension Requests {
             try container.encodeIfPresent(self.einvoiceNumber, forKey: .einvoiceNumber)
             try container.encodeIfPresent(self.documentRef, forKey: .documentRef)
             try container.encode(self.lines, forKey: .lines)
+            try container.encodeIfPresent(self.netTotal, forKey: .netTotal)
+            try container.encodeIfPresent(self.vatTotal, forKey: .vatTotal)
+            try container.encodeIfPresent(self.grossTotal, forKey: .grossTotal)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -125,6 +140,9 @@ extension Requests {
             case einvoiceNumber
             case documentRef
             case lines
+            case netTotal
+            case vatTotal
+            case grossTotal
         }
     }
 }

@@ -1729,6 +1729,9 @@ import Api
                   "legalBasis": "legalBasis",
                   "notes": [
                     "notes"
+                  ],
+                  "vatTypeCodes": [
+                    "vatTypeCodes"
                   ]
                 }
                 """#.utf8
@@ -1754,6 +1757,9 @@ import Api
             legalBasis: "legalBasis",
             notes: [
                 "notes"
+            ],
+            vatTypeCodes: [
+                "vatTypeCodes"
             ]
         )
         let response = try await client.reference.vatResolve(
@@ -1788,6 +1794,10 @@ import Api
                   "notes": [
                     "notes",
                     "notes"
+                  ],
+                  "vatTypeCodes": [
+                    "vatTypeCodes",
+                    "vatTypeCodes"
                   ]
                 }
                 """#.utf8
@@ -1818,6 +1828,10 @@ import Api
             notes: [
                 "notes",
                 "notes"
+            ],
+            vatTypeCodes: [
+                "vatTypeCodes",
+                "vatTypeCodes"
             ]
         )
         let response = try await client.reference.vatResolve(

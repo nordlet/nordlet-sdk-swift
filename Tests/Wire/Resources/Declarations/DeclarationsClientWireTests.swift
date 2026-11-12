@@ -13174,6 +13174,7 @@ import Api
                       "fields": [
                         {
                           "key": "key",
+                          "label": "label",
                           "kind": "text",
                           "multiline": true,
                           "options": [
@@ -13184,6 +13185,7 @@ import Api
                         },
                         {
                           "key": "key",
+                          "label": "label",
                           "kind": "text",
                           "multiline": true,
                           "options": [
@@ -13217,6 +13219,7 @@ import Api
                       "fields": [
                         {
                           "key": "key",
+                          "label": "label",
                           "kind": "text",
                           "multiline": true,
                           "options": [
@@ -13227,6 +13230,7 @@ import Api
                         },
                         {
                           "key": "key",
+                          "label": "label",
                           "kind": "text",
                           "multiline": true,
                           "options": [
@@ -13273,6 +13277,7 @@ import Api
                     fields: [
                         ConfigsListDeclarationsResponseRowsItemFieldsItem(
                             key: "key",
+                            label: Optional("label"),
                             kind: .text,
                             multiline: Optional(true),
                             options: Optional([
@@ -13283,6 +13288,7 @@ import Api
                         ),
                         ConfigsListDeclarationsResponseRowsItemFieldsItem(
                             key: "key",
+                            label: Optional("label"),
                             kind: .text,
                             multiline: Optional(true),
                             options: Optional([
@@ -13316,6 +13322,7 @@ import Api
                     fields: [
                         ConfigsListDeclarationsResponseRowsItemFieldsItem(
                             key: "key",
+                            label: Optional("label"),
                             kind: .text,
                             multiline: Optional(true),
                             options: Optional([
@@ -13326,6 +13333,7 @@ import Api
                         ),
                         ConfigsListDeclarationsResponseRowsItemFieldsItem(
                             key: "key",
+                            label: Optional("label"),
                             kind: .text,
                             multiline: Optional(true),
                             options: Optional([
@@ -13373,6 +13381,7 @@ import Api
                   "fields": [
                     {
                       "key": "key",
+                      "label": "label",
                       "kind": "text",
                       "multiline": true,
                       "options": [
@@ -13408,6 +13417,7 @@ import Api
             fields: [
                 ConfigsUpdateDeclarationsResponseFieldsItem(
                     key: "key",
+                    label: Optional("label"),
                     kind: .text,
                     multiline: Optional(true),
                     options: Optional([
@@ -13452,6 +13462,7 @@ import Api
                   "fields": [
                     {
                       "key": "key",
+                      "label": "label",
                       "kind": "text",
                       "multiline": true,
                       "options": [
@@ -13462,6 +13473,7 @@ import Api
                     },
                     {
                       "key": "key",
+                      "label": "label",
                       "kind": "text",
                       "multiline": true,
                       "options": [
@@ -13503,6 +13515,7 @@ import Api
             fields: [
                 ConfigsUpdateDeclarationsResponseFieldsItem(
                     key: "key",
+                    label: Optional("label"),
                     kind: .text,
                     multiline: Optional(true),
                     options: Optional([
@@ -13513,6 +13526,7 @@ import Api
                 ),
                 ConfigsUpdateDeclarationsResponseFieldsItem(
                     key: "key",
+                    label: Optional("label"),
                     kind: .text,
                     multiline: Optional(true),
                     options: Optional([

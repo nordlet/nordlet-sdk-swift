@@ -2571,6 +2571,126 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func periodChecklist1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "period": "period",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
+                  "items": [
+                    {
+                      "code": "draft_sale_documents",
+                      "count": 1000000,
+                      "message": "message",
+                      "ids": [
+                        "ids"
+                      ]
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PeriodChecklistReportsResponse(
+            period: "period",
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
+            items: [
+                PeriodChecklistReportsResponseItemsItem(
+                    code: .draftSaleDocuments,
+                    count: 1000000,
+                    message: "message",
+                    ids: [
+                        "ids"
+                    ]
+                )
+            ]
+        )
+        let response = try await client.reports.periodChecklist(
+            request: .init(period: "period"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func periodChecklist2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "period": "period",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
+                  "items": [
+                    {
+                      "code": "draft_sale_documents",
+                      "count": 1000000,
+                      "message": "message",
+                      "ids": [
+                        "ids",
+                        "ids"
+                      ]
+                    },
+                    {
+                      "code": "draft_sale_documents",
+                      "count": 1000000,
+                      "message": "message",
+                      "ids": [
+                        "ids",
+                        "ids"
+                      ]
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PeriodChecklistReportsResponse(
+            period: "period",
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
+            items: [
+                PeriodChecklistReportsResponseItemsItem(
+                    code: .draftSaleDocuments,
+                    count: 1000000,
+                    message: "message",
+                    ids: [
+                        "ids",
+                        "ids"
+                    ]
+                ),
+                PeriodChecklistReportsResponseItemsItem(
+                    code: .draftSaleDocuments,
+                    count: 1000000,
+                    message: "message",
+                    ids: [
+                        "ids",
+                        "ids"
+                    ]
+                )
+            ]
+        )
+        let response = try await client.reports.periodChecklist(
+            request: .init(period: "period"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func euPurchases1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
