@@ -72,7 +72,7 @@ public final class BankClient: Sendable {
         )
     }
 
-    /// List the bank transactions of the company. Filterable by id, bankAccountId, status, matchedDocumentId, date, amount, counterpartyIban, counterpartyName and externalId; sortable by date, createdAt and amount.
+    /// List the bank transactions of the company. Filterable by id, bankAccountId, status, matchedDocumentId, date, amount, counterpartyIban, counterpartyName, partnerId and externalId; sortable by date, createdAt and amount. `counterpartyName` is the name as the bank wrote it; `partnerId` and `partnerName` are the partner the line belongs to.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func transactionsList(request: Requests.TransactionsListBankRequest, requestOptions: RequestOptions? = nil) async throws -> TransactionsListBankResponse {

@@ -8,6 +8,8 @@ public struct ReconciliationGetBankResponseUnbookedLinesItem: Codable, Hashable,
     public let currency: String
     public let counterpartyName: Nullable<String>
     public let counterpartyIban: Nullable<String>
+    public let partnerId: Nullable<String>
+    public let partnerName: Nullable<String>
     public let description: Nullable<String>
     public let externalId: Nullable<String>
     public let status: ReconciliationGetBankResponseUnbookedLinesItemStatus
@@ -27,6 +29,8 @@ public struct ReconciliationGetBankResponseUnbookedLinesItem: Codable, Hashable,
         currency: String,
         counterpartyName: Nullable<String>,
         counterpartyIban: Nullable<String>,
+        partnerId: Nullable<String>,
+        partnerName: Nullable<String>,
         description: Nullable<String>,
         externalId: Nullable<String>,
         status: ReconciliationGetBankResponseUnbookedLinesItemStatus,
@@ -44,6 +48,8 @@ public struct ReconciliationGetBankResponseUnbookedLinesItem: Codable, Hashable,
         self.currency = currency
         self.counterpartyName = counterpartyName
         self.counterpartyIban = counterpartyIban
+        self.partnerId = partnerId
+        self.partnerName = partnerName
         self.description = description
         self.externalId = externalId
         self.status = status
@@ -64,6 +70,8 @@ public struct ReconciliationGetBankResponseUnbookedLinesItem: Codable, Hashable,
         self.currency = try container.decode(String.self, forKey: .currency)
         self.counterpartyName = try container.decode(Nullable<String>.self, forKey: .counterpartyName)
         self.counterpartyIban = try container.decode(Nullable<String>.self, forKey: .counterpartyIban)
+        self.partnerId = try container.decode(Nullable<String>.self, forKey: .partnerId)
+        self.partnerName = try container.decode(Nullable<String>.self, forKey: .partnerName)
         self.description = try container.decode(Nullable<String>.self, forKey: .description)
         self.externalId = try container.decode(Nullable<String>.self, forKey: .externalId)
         self.status = try container.decode(ReconciliationGetBankResponseUnbookedLinesItemStatus.self, forKey: .status)
@@ -85,6 +93,8 @@ public struct ReconciliationGetBankResponseUnbookedLinesItem: Codable, Hashable,
         try container.encode(self.currency, forKey: .currency)
         try container.encode(self.counterpartyName, forKey: .counterpartyName)
         try container.encode(self.counterpartyIban, forKey: .counterpartyIban)
+        try container.encode(self.partnerId, forKey: .partnerId)
+        try container.encode(self.partnerName, forKey: .partnerName)
         try container.encode(self.description, forKey: .description)
         try container.encode(self.externalId, forKey: .externalId)
         try container.encode(self.status, forKey: .status)
@@ -104,6 +114,8 @@ public struct ReconciliationGetBankResponseUnbookedLinesItem: Codable, Hashable,
         case currency
         case counterpartyName
         case counterpartyIban
+        case partnerId
+        case partnerName
         case description
         case externalId
         case status
