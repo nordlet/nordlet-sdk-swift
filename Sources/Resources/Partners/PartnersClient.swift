@@ -254,7 +254,7 @@ public final class PartnersClient: Sendable {
         )
     }
 
-    /// Lists the VAT reviews opened by VIES checks of partners' VAT codes, with reason `invalid`, `name_mismatch` or `service_error`; filterable by `partnerId`, `status` and `reason`, sortable by `createdAt`.
+    /// Lists the VAT reviews opened by VIES checks of partners' VAT codes, with reason `invalid`, `name_mismatch` or `service_error`; filterable by `partnerId`, `status`, `reason` and `vatCode`, sortable by `createdAt`.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func vatReviewsList(request: Requests.VatReviewsListPartnersRequest, requestOptions: RequestOptions? = nil) async throws -> VatReviewsListPartnersResponse {

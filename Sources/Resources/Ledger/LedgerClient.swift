@@ -7,7 +7,7 @@ public final class LedgerClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    /// Lists the company's chart of accounts. Filterable by `code`, `name`, `type` and `isPostable`; sortable by `code` and `name`.
+    /// Lists the company's chart of accounts. Filterable by `code`, `name`, `type` and `isPostable`; sortable by `code` and `name`. A `name` filter with `contains` matches the stored name and the name shown in the language of the request (`displayName`).
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func accountsList(request: Requests.AccountsListLedgerRequest, requestOptions: RequestOptions? = nil) async throws -> AccountsListLedgerResponse {

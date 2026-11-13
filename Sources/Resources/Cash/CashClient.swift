@@ -85,7 +85,7 @@ public final class CashClient: Sendable {
         )
     }
 
-    /// Lists expense reports without their lines. Filterable by `employeeId` and `date`; sortable by `date` and `number`.
+    /// Lists expense reports without their lines. Filterable by `employeeId`, `date` and `number`; sortable by `date` and `number`.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func expenseReportsList(request: Requests.ExpenseReportsListCashRequest, requestOptions: RequestOptions? = nil) async throws -> ExpenseReportsListCashResponse {

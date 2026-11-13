@@ -19,6 +19,8 @@ public enum PostingRulesUpdateLedgerRequestRulesItemKey: String, Codable, Hashab
     case posCashSurplus = "pos.cashSurplus"
     case bankFxGain = "bank.fxGain"
     case bankFxLoss = "bank.fxLoss"
+    case bankPaymentDifferenceGain = "bank.paymentDifferenceGain"
+    case bankPaymentDifferenceLoss = "bank.paymentDifferenceLoss"
     case bankFees = "bank.fees"
     case bankCardPayments = "bank.cardPayments"
     case bankTopUps = "bank.topUps"

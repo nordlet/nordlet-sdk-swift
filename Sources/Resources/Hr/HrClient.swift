@@ -293,7 +293,7 @@ public final class HrClient: Sendable {
         )
     }
 
-    /// Lists business trips; filterable by `employeeId`, `status` and `payrollRunId`, sortable by `startDate`.
+    /// Lists business trips; filterable by `employeeId`, `status`, `payrollRunId` and `purpose`, sortable by `startDate`.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func businessTripsList(request: Requests.BusinessTripsListHrRequest, requestOptions: RequestOptions? = nil) async throws -> BusinessTripsListHrResponse {
