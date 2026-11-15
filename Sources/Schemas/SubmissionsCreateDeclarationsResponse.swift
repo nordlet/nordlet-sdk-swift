@@ -15,6 +15,8 @@ public struct SubmissionsCreateDeclarationsResponse: Codable, Hashable, Sendable
     public let period: Nullable<String>
     public let documentKey: Nullable<String>
     public let amendment: Int64
+    public let authorityRef: Nullable<String>
+    public let correctionInput: Nullable<SubmissionsCreateDeclarationsResponseCorrectionInput>
     public let origin: String
     public let transportSystem: Nullable<String>
     public let environment: Nullable<SubmissionsCreateDeclarationsResponseEnvironment>
@@ -51,6 +53,8 @@ public struct SubmissionsCreateDeclarationsResponse: Codable, Hashable, Sendable
         period: Nullable<String>,
         documentKey: Nullable<String>,
         amendment: Int64,
+        authorityRef: Nullable<String>,
+        correctionInput: Nullable<SubmissionsCreateDeclarationsResponseCorrectionInput>,
         origin: String,
         transportSystem: Nullable<String>,
         environment: Nullable<SubmissionsCreateDeclarationsResponseEnvironment>,
@@ -85,6 +89,8 @@ public struct SubmissionsCreateDeclarationsResponse: Codable, Hashable, Sendable
         self.period = period
         self.documentKey = documentKey
         self.amendment = amendment
+        self.authorityRef = authorityRef
+        self.correctionInput = correctionInput
         self.origin = origin
         self.transportSystem = transportSystem
         self.environment = environment
@@ -122,6 +128,8 @@ public struct SubmissionsCreateDeclarationsResponse: Codable, Hashable, Sendable
         self.period = try container.decode(Nullable<String>.self, forKey: .period)
         self.documentKey = try container.decode(Nullable<String>.self, forKey: .documentKey)
         self.amendment = try container.decode(Int64.self, forKey: .amendment)
+        self.authorityRef = try container.decode(Nullable<String>.self, forKey: .authorityRef)
+        self.correctionInput = try container.decode(Nullable<SubmissionsCreateDeclarationsResponseCorrectionInput>.self, forKey: .correctionInput)
         self.origin = try container.decode(String.self, forKey: .origin)
         self.transportSystem = try container.decode(Nullable<String>.self, forKey: .transportSystem)
         self.environment = try container.decode(Nullable<SubmissionsCreateDeclarationsResponseEnvironment>.self, forKey: .environment)
@@ -160,6 +168,8 @@ public struct SubmissionsCreateDeclarationsResponse: Codable, Hashable, Sendable
         try container.encode(self.period, forKey: .period)
         try container.encode(self.documentKey, forKey: .documentKey)
         try container.encode(self.amendment, forKey: .amendment)
+        try container.encode(self.authorityRef, forKey: .authorityRef)
+        try container.encode(self.correctionInput, forKey: .correctionInput)
         try container.encode(self.origin, forKey: .origin)
         try container.encode(self.transportSystem, forKey: .transportSystem)
         try container.encode(self.environment, forKey: .environment)
@@ -196,6 +206,8 @@ public struct SubmissionsCreateDeclarationsResponse: Codable, Hashable, Sendable
         case period
         case documentKey
         case amendment
+        case authorityRef
+        case correctionInput
         case origin
         case transportSystem
         case environment

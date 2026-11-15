@@ -400,6 +400,7 @@ import Api
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -448,6 +449,7 @@ import Api
             disposalReason: Nullable<AssetsCreateAssetsResponseDisposalReason>.value(.sold),
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsCreate(
@@ -515,6 +517,7 @@ import Api
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -572,6 +575,7 @@ import Api
             disposalReason: Nullable<AssetsCreateAssetsResponseDisposalReason>.value(.sold),
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsCreate(
@@ -630,6 +634,7 @@ import Api
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -678,6 +683,7 @@ import Api
             disposalReason: Nullable<AssetsUpdateAssetsResponseDisposalReason>.value(.sold),
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsUpdate(
@@ -739,6 +745,7 @@ import Api
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -796,6 +803,7 @@ import Api
             disposalReason: Nullable<AssetsUpdateAssetsResponseDisposalReason>.value(.sold),
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsUpdate(
@@ -848,6 +856,7 @@ import Api
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -896,6 +905,7 @@ import Api
             disposalReason: Nullable<AssetsInputVatAssetsResponseDisposalReason>.value(.sold),
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsInputVat(
@@ -970,6 +980,7 @@ import Api
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -1027,6 +1038,7 @@ import Api
             disposalReason: Nullable<AssetsInputVatAssetsResponseDisposalReason>.value(.sold),
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsInputVat(
@@ -1097,6 +1109,7 @@ import Api
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -1145,6 +1158,7 @@ import Api
             disposalReason: Nullable<AssetsGetAssetsResponseDisposalReason>.value(.sold),
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsGet(
@@ -1206,6 +1220,7 @@ import Api
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -1263,6 +1278,7 @@ import Api
             disposalReason: Nullable<AssetsGetAssetsResponseDisposalReason>.value(.sold),
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsGet(
@@ -1317,6 +1333,7 @@ import Api
                       "disposalReason": "sold",
                       "disposalProceeds": "disposalProceeds",
                       "disposalJournalTransactionId": "disposalJournalTransactionId",
+                      "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                       "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
@@ -1380,6 +1397,7 @@ import Api
                     disposalReason: Nullable<AssetsListAssetsResponseRowsItemDisposalReason>.value(.sold),
                     disposalProceeds: Nullable<String>.value("disposalProceeds"),
                     disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+                    disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
@@ -1456,6 +1474,7 @@ import Api
                       "disposalReason": "sold",
                       "disposalProceeds": "disposalProceeds",
                       "disposalJournalTransactionId": "disposalJournalTransactionId",
+                      "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                       "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
@@ -1505,6 +1524,7 @@ import Api
                       "disposalReason": "sold",
                       "disposalProceeds": "disposalProceeds",
                       "disposalJournalTransactionId": "disposalJournalTransactionId",
+                      "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                       "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
@@ -1577,6 +1597,7 @@ import Api
                     disposalReason: Nullable<AssetsListAssetsResponseRowsItemDisposalReason>.value(.sold),
                     disposalProceeds: Nullable<String>.value("disposalProceeds"),
                     disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+                    disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
                 AssetsListAssetsResponseRowsItem(
@@ -1626,6 +1647,7 @@ import Api
                     disposalReason: Nullable<AssetsListAssetsResponseRowsItemDisposalReason>.value(.sold),
                     disposalProceeds: Nullable<String>.value("disposalProceeds"),
                     disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+                    disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
@@ -1691,6 +1713,7 @@ import Api
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -1739,6 +1762,7 @@ import Api
             disposalReason: Nullable<AssetsModernizeAssetsResponseDisposalReason>.value(.sold),
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsModernize(
@@ -1804,6 +1828,7 @@ import Api
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -1861,6 +1886,7 @@ import Api
             disposalReason: Nullable<AssetsModernizeAssetsResponseDisposalReason>.value(.sold),
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsModernize(
@@ -1917,6 +1943,7 @@ import Api
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -1965,6 +1992,7 @@ import Api
             disposalReason: Nullable<AssetsDisposeAssetsResponseDisposalReason>.value(.sold),
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsDispose(
@@ -2030,6 +2058,7 @@ import Api
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -2087,6 +2116,7 @@ import Api
             disposalReason: Nullable<AssetsDisposeAssetsResponseDisposalReason>.value(.sold),
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsDispose(

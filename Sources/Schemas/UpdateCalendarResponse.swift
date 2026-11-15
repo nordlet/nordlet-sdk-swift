@@ -15,6 +15,7 @@ public struct UpdateCalendarResponse: Codable, Hashable, Sendable {
     public let submissions: [UpdateCalendarResponseSubmissionsItem]
     public let canSubmit: Bool
     public let canAmend: Bool
+    public let correction: Nullable<UpdateCalendarResponseCorrection>
     public let canDownload: Bool
     public let automated: Bool
     /// Additional properties that are not explicitly defined in the schema
@@ -35,6 +36,7 @@ public struct UpdateCalendarResponse: Codable, Hashable, Sendable {
         submissions: [UpdateCalendarResponseSubmissionsItem],
         canSubmit: Bool,
         canAmend: Bool,
+        correction: Nullable<UpdateCalendarResponseCorrection>,
         canDownload: Bool,
         automated: Bool,
         additionalProperties: [String: JSONValue] = .init()
@@ -53,6 +55,7 @@ public struct UpdateCalendarResponse: Codable, Hashable, Sendable {
         self.submissions = submissions
         self.canSubmit = canSubmit
         self.canAmend = canAmend
+        self.correction = correction
         self.canDownload = canDownload
         self.automated = automated
         self.additionalProperties = additionalProperties
@@ -74,6 +77,7 @@ public struct UpdateCalendarResponse: Codable, Hashable, Sendable {
         self.submissions = try container.decode([UpdateCalendarResponseSubmissionsItem].self, forKey: .submissions)
         self.canSubmit = try container.decode(Bool.self, forKey: .canSubmit)
         self.canAmend = try container.decode(Bool.self, forKey: .canAmend)
+        self.correction = try container.decode(Nullable<UpdateCalendarResponseCorrection>.self, forKey: .correction)
         self.canDownload = try container.decode(Bool.self, forKey: .canDownload)
         self.automated = try container.decode(Bool.self, forKey: .automated)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -96,6 +100,7 @@ public struct UpdateCalendarResponse: Codable, Hashable, Sendable {
         try container.encode(self.submissions, forKey: .submissions)
         try container.encode(self.canSubmit, forKey: .canSubmit)
         try container.encode(self.canAmend, forKey: .canAmend)
+        try container.encode(self.correction, forKey: .correction)
         try container.encode(self.canDownload, forKey: .canDownload)
         try container.encode(self.automated, forKey: .automated)
     }
@@ -116,6 +121,7 @@ public struct UpdateCalendarResponse: Codable, Hashable, Sendable {
         case submissions
         case canSubmit
         case canAmend
+        case correction
         case canDownload
         case automated
     }

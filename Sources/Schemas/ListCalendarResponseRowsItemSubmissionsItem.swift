@@ -15,6 +15,8 @@ public struct ListCalendarResponseRowsItemSubmissionsItem: Codable, Hashable, Se
     public let period: Nullable<String>
     public let documentKey: Nullable<String>
     public let amendment: Int64
+    public let authorityRef: Nullable<String>
+    public let correctionInput: Nullable<ListCalendarResponseRowsItemSubmissionsItemCorrectionInput>
     public let origin: String
     public let transportSystem: Nullable<String>
     public let environment: Nullable<ListCalendarResponseRowsItemSubmissionsItemEnvironment>
@@ -50,6 +52,8 @@ public struct ListCalendarResponseRowsItemSubmissionsItem: Codable, Hashable, Se
         period: Nullable<String>,
         documentKey: Nullable<String>,
         amendment: Int64,
+        authorityRef: Nullable<String>,
+        correctionInput: Nullable<ListCalendarResponseRowsItemSubmissionsItemCorrectionInput>,
         origin: String,
         transportSystem: Nullable<String>,
         environment: Nullable<ListCalendarResponseRowsItemSubmissionsItemEnvironment>,
@@ -83,6 +87,8 @@ public struct ListCalendarResponseRowsItemSubmissionsItem: Codable, Hashable, Se
         self.period = period
         self.documentKey = documentKey
         self.amendment = amendment
+        self.authorityRef = authorityRef
+        self.correctionInput = correctionInput
         self.origin = origin
         self.transportSystem = transportSystem
         self.environment = environment
@@ -119,6 +125,8 @@ public struct ListCalendarResponseRowsItemSubmissionsItem: Codable, Hashable, Se
         self.period = try container.decode(Nullable<String>.self, forKey: .period)
         self.documentKey = try container.decode(Nullable<String>.self, forKey: .documentKey)
         self.amendment = try container.decode(Int64.self, forKey: .amendment)
+        self.authorityRef = try container.decode(Nullable<String>.self, forKey: .authorityRef)
+        self.correctionInput = try container.decode(Nullable<ListCalendarResponseRowsItemSubmissionsItemCorrectionInput>.self, forKey: .correctionInput)
         self.origin = try container.decode(String.self, forKey: .origin)
         self.transportSystem = try container.decode(Nullable<String>.self, forKey: .transportSystem)
         self.environment = try container.decode(Nullable<ListCalendarResponseRowsItemSubmissionsItemEnvironment>.self, forKey: .environment)
@@ -156,6 +164,8 @@ public struct ListCalendarResponseRowsItemSubmissionsItem: Codable, Hashable, Se
         try container.encode(self.period, forKey: .period)
         try container.encode(self.documentKey, forKey: .documentKey)
         try container.encode(self.amendment, forKey: .amendment)
+        try container.encode(self.authorityRef, forKey: .authorityRef)
+        try container.encode(self.correctionInput, forKey: .correctionInput)
         try container.encode(self.origin, forKey: .origin)
         try container.encode(self.transportSystem, forKey: .transportSystem)
         try container.encode(self.environment, forKey: .environment)
@@ -191,6 +201,8 @@ public struct ListCalendarResponseRowsItemSubmissionsItem: Codable, Hashable, Se
         case period
         case documentKey
         case amendment
+        case authorityRef
+        case correctionInput
         case origin
         case transportSystem
         case environment

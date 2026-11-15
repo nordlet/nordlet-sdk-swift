@@ -33,7 +33,7 @@ public final class CalendarClient: Sendable {
         )
     }
 
-    /// With amend: true the return is filed again as a correction of the one already submitted or accepted for the period; only returns whose format has a correction mark accept it.
+    /// With amend: true the return is filed again as a correction of the one already submitted or accepted for the period; only deadlines whose `calendar/get` row has `correction` accept it. `correction` carries what that row's `correction.required` and `correction.optional` name: `reason`, `reasonCode` (one of `correction.reasonCodes`), `authorityReference`, the administration's own number of the filing being corrected, and `discoveredOn`, the date the error was found (YYYY-MM-DD, not after the company's today); a missing required one answers 422 with fieldErrors. For a deadline filed as one document per person, `documentKeys` limits the correction to those documents.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func submit(request: Requests.SubmitCalendarRequest, requestOptions: RequestOptions? = nil) async throws -> SubmitCalendarResponse {

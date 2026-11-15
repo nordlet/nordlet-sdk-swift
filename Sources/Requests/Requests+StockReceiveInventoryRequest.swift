@@ -7,6 +7,7 @@ extension Requests {
         public let date: CalendarDate
         public let quantity: String
         public let unitCost: String
+        public let counterAccountCode: String?
         public let lotNumber: String?
         public let expiryDate: CalendarDate?
         public let notes: String?
@@ -19,6 +20,7 @@ extension Requests {
             date: CalendarDate,
             quantity: String,
             unitCost: String,
+            counterAccountCode: String? = nil,
             lotNumber: String? = nil,
             expiryDate: CalendarDate? = nil,
             notes: String? = nil,
@@ -29,6 +31,7 @@ extension Requests {
             self.date = date
             self.quantity = quantity
             self.unitCost = unitCost
+            self.counterAccountCode = counterAccountCode
             self.lotNumber = lotNumber
             self.expiryDate = expiryDate
             self.notes = notes
@@ -42,6 +45,7 @@ extension Requests {
             self.date = try container.decode(CalendarDate.self, forKey: .date)
             self.quantity = try container.decode(String.self, forKey: .quantity)
             self.unitCost = try container.decode(String.self, forKey: .unitCost)
+            self.counterAccountCode = try container.decodeIfPresent(String.self, forKey: .counterAccountCode)
             self.lotNumber = try container.decodeIfPresent(String.self, forKey: .lotNumber)
             self.expiryDate = try container.decodeIfPresent(CalendarDate.self, forKey: .expiryDate)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
@@ -56,6 +60,7 @@ extension Requests {
             try container.encode(self.date, forKey: .date)
             try container.encode(self.quantity, forKey: .quantity)
             try container.encode(self.unitCost, forKey: .unitCost)
+            try container.encodeIfPresent(self.counterAccountCode, forKey: .counterAccountCode)
             try container.encodeIfPresent(self.lotNumber, forKey: .lotNumber)
             try container.encodeIfPresent(self.expiryDate, forKey: .expiryDate)
             try container.encodeIfPresent(self.notes, forKey: .notes)
@@ -68,6 +73,7 @@ extension Requests {
             case date
             case quantity
             case unitCost
+            case counterAccountCode
             case lotNumber
             case expiryDate
             case notes

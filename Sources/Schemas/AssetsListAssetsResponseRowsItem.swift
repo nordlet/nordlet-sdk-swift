@@ -27,6 +27,7 @@ public struct AssetsListAssetsResponseRowsItem: Codable, Hashable, Sendable {
     public let disposalReason: Nullable<AssetsListAssetsResponseRowsItemDisposalReason>
     public let disposalProceeds: Nullable<String>
     public let disposalJournalTransactionId: Nullable<String>
+    public let disposalSaleInvoiceId: Nullable<String>
     public let createdAt: Date
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -58,6 +59,7 @@ public struct AssetsListAssetsResponseRowsItem: Codable, Hashable, Sendable {
         disposalReason: Nullable<AssetsListAssetsResponseRowsItemDisposalReason>,
         disposalProceeds: Nullable<String>,
         disposalJournalTransactionId: Nullable<String>,
+        disposalSaleInvoiceId: Nullable<String>,
         createdAt: Date,
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -87,6 +89,7 @@ public struct AssetsListAssetsResponseRowsItem: Codable, Hashable, Sendable {
         self.disposalReason = disposalReason
         self.disposalProceeds = disposalProceeds
         self.disposalJournalTransactionId = disposalJournalTransactionId
+        self.disposalSaleInvoiceId = disposalSaleInvoiceId
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
     }
@@ -119,6 +122,7 @@ public struct AssetsListAssetsResponseRowsItem: Codable, Hashable, Sendable {
         self.disposalReason = try container.decode(Nullable<AssetsListAssetsResponseRowsItemDisposalReason>.self, forKey: .disposalReason)
         self.disposalProceeds = try container.decode(Nullable<String>.self, forKey: .disposalProceeds)
         self.disposalJournalTransactionId = try container.decode(Nullable<String>.self, forKey: .disposalJournalTransactionId)
+        self.disposalSaleInvoiceId = try container.decode(Nullable<String>.self, forKey: .disposalSaleInvoiceId)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -152,6 +156,7 @@ public struct AssetsListAssetsResponseRowsItem: Codable, Hashable, Sendable {
         try container.encode(self.disposalReason, forKey: .disposalReason)
         try container.encode(self.disposalProceeds, forKey: .disposalProceeds)
         try container.encode(self.disposalJournalTransactionId, forKey: .disposalJournalTransactionId)
+        try container.encode(self.disposalSaleInvoiceId, forKey: .disposalSaleInvoiceId)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
 
@@ -183,6 +188,7 @@ public struct AssetsListAssetsResponseRowsItem: Codable, Hashable, Sendable {
         case disposalReason
         case disposalProceeds
         case disposalJournalTransactionId
+        case disposalSaleInvoiceId
         case createdAt
     }
 }

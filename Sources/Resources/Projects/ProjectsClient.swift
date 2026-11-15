@@ -46,7 +46,7 @@ public final class ProjectsClient: Sendable {
         )
     }
 
-    /// List projects. Filterable by `code`, `name`, `status` and `partnerId`; sortable by `code`, `name` and `createdAt`.
+    /// List projects. Filterable by `code`, `name`, `status` and `partnerId`; sortable by `code`, `name`, `status`, `createdAt`, and by the all-time figures of `projects/report`: `revenue`, `costs`, `profit`, `unbilledHours` and `unbilledAmount`.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func list(request: Requests.ListProjectsRequest, requestOptions: RequestOptions? = nil) async throws -> ListProjectsResponse {

@@ -33,7 +33,7 @@ public final class FilesClient: Sendable {
         )
     }
 
-    /// List the company's files. Filterable by `entity`, `entityId` and `fileName`; sortable by `createdAt`, `fileName` and `sizeBytes`.
+    /// List the company's files. Filterable by `entity`, `entityId` and `fileName`; sortable by `createdAt`, `fileName`, `sizeBytes`, `entity`, `entityId` and `mimeType`.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func list(request: Requests.ListFilesRequest, requestOptions: RequestOptions? = nil) async throws -> ListFilesResponse {

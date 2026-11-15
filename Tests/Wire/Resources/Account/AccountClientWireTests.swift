@@ -1601,6 +1601,646 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func companiesContext1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "periods": {
+                    "open": [
+                      {
+                        "year": 1000000,
+                        "month": 1000000
+                      }
+                    ],
+                    "locked": [
+                      {
+                        "year": 1000000,
+                        "month": 1000000
+                      }
+                    ]
+                  },
+                  "postingRules": {
+                    "key": "value"
+                  },
+                  "bankAccounts": [
+                    {
+                      "id": "id",
+                      "name": "name",
+                      "type": "type",
+                      "iban": "iban",
+                      "currency": "currency",
+                      "accountCode": "accountCode",
+                      "isActive": true
+                    }
+                  ],
+                  "vatTypesUsed": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "ratePercent": "ratePercent",
+                      "saleLines": 1000000,
+                      "purchaseLines": 1000000
+                    }
+                  ],
+                  "filings": [
+                    {
+                      "key": "key",
+                      "ruleKey": "ruleKey",
+                      "period": "period",
+                      "title": "title",
+                      "dueDate": "2026-07-01",
+                      "system": "system",
+                      "canDownload": true,
+                      "canSubmit": true,
+                      "missingSettings": {
+                        "operation": "declarations/configs/update",
+                        "system": "system",
+                        "keys": [
+                          "keys"
+                        ],
+                        "call": "call"
+                      }
+                    }
+                  ],
+                  "payroll": {
+                    "country": "country",
+                    "engine": true,
+                    "employeeFields": [
+                      {
+                        "key": "key",
+                        "kind": "text"
+                      }
+                    ]
+                  },
+                  "profile": {
+                    "id": "id",
+                    "name": "name",
+                    "code": "code",
+                    "vatCode": "vatCode",
+                    "smeExemptionNumber": "smeExemptionNumber",
+                    "isVatPayer": true,
+                    "isSandbox": true,
+                    "cashBasis": true,
+                    "countryCode": "countryCode",
+                    "chartTemplate": "chartTemplate",
+                    "countryChartTemplate": "countryChartTemplate",
+                    "baseCurrency": "baseCurrency",
+                    "defaultInvoiceCurrency": "defaultInvoiceCurrency",
+                    "status": "active",
+                    "address": {
+                      "street": "street",
+                      "city": "city",
+                      "postalCode": "postalCode",
+                      "countryCode": "countryCode"
+                    },
+                    "email": "email",
+                    "phone": "phone",
+                    "iban": "iban",
+                    "bankName": "bankName",
+                    "bankBic": "bankBic",
+                    "bankCode": "bankCode",
+                    "bankBranchCode": "bankBranchCode",
+                    "bankAccountNumber": "bankAccountNumber",
+                    "invoicePrefix": "invoicePrefix",
+                    "nextInvoiceNumber": "nextInvoiceNumber",
+                    "defaultInvoiceLocale": "defaultInvoiceLocale",
+                    "defaultInvoiceNote": "defaultInvoiceNote",
+                    "peppolId": "peppolId",
+                    "sepaCreditorId": "sepaCreditorId",
+                    "logoFileId": "logoFileId",
+                    "legalForm": "legalForm",
+                    "registryName": "registryName",
+                    "incorporatedOn": "incorporatedOn",
+                    "shareCapital": "shareCapital",
+                    "accountsKeptBy": "company",
+                    "vatPeriod": "monthly",
+                    "fiscalYearEndMonth": 1000000,
+                    "timeZone": "timeZone",
+                    "filingOptions": {
+                      "key": "value"
+                    },
+                    "bookkeeperName": "bookkeeperName",
+                    "auditorName": "auditorName",
+                    "auditorRegistrationNumber": "auditorRegistrationNumber",
+                    "auditRequired": true
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = CompaniesContextAccountResponse(
+            periods: CompaniesContextAccountResponsePeriods(
+                open: [
+                    CompaniesContextAccountResponsePeriodsOpenItem(
+                        year: 1000000,
+                        month: 1000000
+                    )
+                ],
+                locked: [
+                    CompaniesContextAccountResponsePeriodsLockedItem(
+                        year: 1000000,
+                        month: 1000000
+                    )
+                ]
+            ),
+            postingRules: [
+                "key": "value"
+            ],
+            bankAccounts: [
+                CompaniesContextAccountResponseBankAccountsItem(
+                    id: "id",
+                    name: "name",
+                    type: "type",
+                    iban: Nullable<String>.value("iban"),
+                    currency: "currency",
+                    accountCode: "accountCode",
+                    isActive: true
+                )
+            ],
+            vatTypesUsed: [
+                CompaniesContextAccountResponseVatTypesUsedItem(
+                    code: "code",
+                    name: Nullable<String>.value("name"),
+                    ratePercent: Nullable<String>.value("ratePercent"),
+                    saleLines: 1000000,
+                    purchaseLines: 1000000
+                )
+            ],
+            filings: [
+                CompaniesContextAccountResponseFilingsItem(
+                    key: "key",
+                    ruleKey: "ruleKey",
+                    period: "period",
+                    title: "title",
+                    dueDate: CalendarDate("2026-07-01")!,
+                    system: Nullable<String>.value("system"),
+                    canDownload: true,
+                    canSubmit: true,
+                    missingSettings: Nullable<CompaniesContextAccountResponseFilingsItemMissingSettings>.value(CompaniesContextAccountResponseFilingsItemMissingSettings(
+                        operation: .declarationsConfigsUpdate,
+                        system: "system",
+                        keys: [
+                            "keys"
+                        ],
+                        call: "call"
+                    ))
+                )
+            ],
+            payroll: CompaniesContextAccountResponsePayroll(
+                country: "country",
+                engine: true,
+                employeeFields: [
+                    CompaniesContextAccountResponsePayrollEmployeeFieldsItem(
+                        key: "key",
+                        kind: .text
+                    )
+                ]
+            ),
+            profile: CompaniesContextAccountResponseProfile(
+                id: "id",
+                name: "name",
+                code: Nullable<String>.value("code"),
+                vatCode: Nullable<String>.value("vatCode"),
+                smeExemptionNumber: Nullable<String>.value("smeExemptionNumber"),
+                isVatPayer: true,
+                isSandbox: true,
+                cashBasis: true,
+                countryCode: "countryCode",
+                chartTemplate: "chartTemplate",
+                countryChartTemplate: "countryChartTemplate",
+                baseCurrency: "baseCurrency",
+                defaultInvoiceCurrency: "defaultInvoiceCurrency",
+                status: .active,
+                address: Nullable<CompaniesContextAccountResponseProfileAddress>.value(CompaniesContextAccountResponseProfileAddress(
+                    street: Optional("street"),
+                    city: Optional("city"),
+                    postalCode: Optional("postalCode"),
+                    countryCode: Optional("countryCode")
+                )),
+                email: Nullable<String>.value("email"),
+                phone: Nullable<String>.value("phone"),
+                iban: Nullable<String>.value("iban"),
+                bankName: Nullable<String>.value("bankName"),
+                bankBic: Nullable<String>.value("bankBic"),
+                bankCode: Nullable<String>.value("bankCode"),
+                bankBranchCode: Nullable<String>.value("bankBranchCode"),
+                bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+                invoicePrefix: "invoicePrefix",
+                nextInvoiceNumber: "nextInvoiceNumber",
+                defaultInvoiceLocale: Nullable<String>.value("defaultInvoiceLocale"),
+                defaultInvoiceNote: Nullable<String>.value("defaultInvoiceNote"),
+                peppolId: Nullable<String>.value("peppolId"),
+                sepaCreditorId: Nullable<String>.value("sepaCreditorId"),
+                logoFileId: Nullable<String>.value("logoFileId"),
+                legalForm: Nullable<String>.value("legalForm"),
+                registryName: Nullable<String>.value("registryName"),
+                incorporatedOn: Nullable<String>.value("incorporatedOn"),
+                shareCapital: Nullable<String>.value("shareCapital"),
+                accountsKeptBy: Nullable<CompaniesContextAccountResponseProfileAccountsKeptBy>.value(.company),
+                vatPeriod: Nullable<CompaniesContextAccountResponseProfileVatPeriod>.value(.monthly),
+                fiscalYearEndMonth: Nullable<Int64>.value(1000000),
+                timeZone: "timeZone",
+                filingOptions: Nullable<[String: Nullable<String>]>.value([
+                    "key": Nullable<String>.value("value")
+                ]),
+                bookkeeperName: Nullable<String>.value("bookkeeperName"),
+                auditorName: Nullable<String>.value("auditorName"),
+                auditorRegistrationNumber: Nullable<String>.value("auditorRegistrationNumber"),
+                auditRequired: true
+            )
+        )
+        let response = try await client.account.companiesContext(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func companiesContext2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "periods": {
+                    "open": [
+                      {
+                        "year": 1000000,
+                        "month": 1000000
+                      },
+                      {
+                        "year": 1000000,
+                        "month": 1000000
+                      }
+                    ],
+                    "locked": [
+                      {
+                        "year": 1000000,
+                        "month": 1000000
+                      },
+                      {
+                        "year": 1000000,
+                        "month": 1000000
+                      }
+                    ]
+                  },
+                  "postingRules": {
+                    "postingRules": "postingRules"
+                  },
+                  "bankAccounts": [
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "type": "type",
+                      "iban": "iban",
+                      "currency": "currency",
+                      "accountCode": "accountCode",
+                      "isActive": true
+                    },
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "type": "type",
+                      "iban": "iban",
+                      "currency": "currency",
+                      "accountCode": "accountCode",
+                      "isActive": true
+                    }
+                  ],
+                  "vatTypesUsed": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "ratePercent": "ratePercent",
+                      "saleLines": 1000000,
+                      "purchaseLines": 1000000
+                    },
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "ratePercent": "ratePercent",
+                      "saleLines": 1000000,
+                      "purchaseLines": 1000000
+                    }
+                  ],
+                  "filings": [
+                    {
+                      "key": "key",
+                      "ruleKey": "ruleKey",
+                      "period": "period",
+                      "title": "title",
+                      "dueDate": "2023-01-15",
+                      "system": "system",
+                      "canDownload": true,
+                      "canSubmit": true,
+                      "missingSettings": {
+                        "operation": "declarations/configs/update",
+                        "system": "system",
+                        "keys": [
+                          "keys",
+                          "keys"
+                        ],
+                        "call": "call"
+                      }
+                    },
+                    {
+                      "key": "key",
+                      "ruleKey": "ruleKey",
+                      "period": "period",
+                      "title": "title",
+                      "dueDate": "2023-01-15",
+                      "system": "system",
+                      "canDownload": true,
+                      "canSubmit": true,
+                      "missingSettings": {
+                        "operation": "declarations/configs/update",
+                        "system": "system",
+                        "keys": [
+                          "keys",
+                          "keys"
+                        ],
+                        "call": "call"
+                      }
+                    }
+                  ],
+                  "payroll": {
+                    "country": "country",
+                    "engine": true,
+                    "employeeFields": [
+                      {
+                        "key": "key",
+                        "kind": "text",
+                        "options": [
+                          "options",
+                          "options"
+                        ],
+                        "maxLength": 1000000
+                      },
+                      {
+                        "key": "key",
+                        "kind": "text",
+                        "options": [
+                          "options",
+                          "options"
+                        ],
+                        "maxLength": 1000000
+                      }
+                    ]
+                  },
+                  "profile": {
+                    "id": "x",
+                    "name": "name",
+                    "code": "code",
+                    "vatCode": "vatCode",
+                    "smeExemptionNumber": "smeExemptionNumber",
+                    "isVatPayer": true,
+                    "isSandbox": true,
+                    "cashBasis": true,
+                    "countryCode": "countryCode",
+                    "chartTemplate": "chartTemplate",
+                    "countryChartTemplate": "countryChartTemplate",
+                    "baseCurrency": "baseCurrency",
+                    "defaultInvoiceCurrency": "defaultInvoiceCurrency",
+                    "status": "active",
+                    "address": {
+                      "street": "street",
+                      "city": "city",
+                      "postalCode": "postalCode",
+                      "countryCode": "xy"
+                    },
+                    "email": "email",
+                    "phone": "phone",
+                    "iban": "iban",
+                    "bankName": "bankName",
+                    "bankBic": "bankBic",
+                    "bankCode": "bankCode",
+                    "bankBranchCode": "bankBranchCode",
+                    "bankAccountNumber": "bankAccountNumber",
+                    "invoicePrefix": "invoicePrefix",
+                    "nextInvoiceNumber": "nextInvoiceNumber",
+                    "defaultInvoiceLocale": "defaultInvoiceLocale",
+                    "defaultInvoiceNote": "defaultInvoiceNote",
+                    "peppolId": "peppolId",
+                    "sepaCreditorId": "sepaCreditorId",
+                    "logoFileId": "logoFileId",
+                    "legalForm": "legalForm",
+                    "registryName": "registryName",
+                    "incorporatedOn": "incorporatedOn",
+                    "shareCapital": "shareCapital",
+                    "accountsKeptBy": "company",
+                    "vatPeriod": "monthly",
+                    "fiscalYearEndMonth": 1000000,
+                    "timeZone": "timeZone",
+                    "filingOptions": {
+                      "filingOptions": "filingOptions"
+                    },
+                    "bookkeeperName": "bookkeeperName",
+                    "auditorName": "auditorName",
+                    "auditorRegistrationNumber": "auditorRegistrationNumber",
+                    "auditRequired": true
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = CompaniesContextAccountResponse(
+            periods: CompaniesContextAccountResponsePeriods(
+                open: [
+                    CompaniesContextAccountResponsePeriodsOpenItem(
+                        year: 1000000,
+                        month: 1000000
+                    ),
+                    CompaniesContextAccountResponsePeriodsOpenItem(
+                        year: 1000000,
+                        month: 1000000
+                    )
+                ],
+                locked: [
+                    CompaniesContextAccountResponsePeriodsLockedItem(
+                        year: 1000000,
+                        month: 1000000
+                    ),
+                    CompaniesContextAccountResponsePeriodsLockedItem(
+                        year: 1000000,
+                        month: 1000000
+                    )
+                ]
+            ),
+            postingRules: [
+                "postingRules": "postingRules"
+            ],
+            bankAccounts: [
+                CompaniesContextAccountResponseBankAccountsItem(
+                    id: "x",
+                    name: "name",
+                    type: "type",
+                    iban: Nullable<String>.value("iban"),
+                    currency: "currency",
+                    accountCode: "accountCode",
+                    isActive: true
+                ),
+                CompaniesContextAccountResponseBankAccountsItem(
+                    id: "x",
+                    name: "name",
+                    type: "type",
+                    iban: Nullable<String>.value("iban"),
+                    currency: "currency",
+                    accountCode: "accountCode",
+                    isActive: true
+                )
+            ],
+            vatTypesUsed: [
+                CompaniesContextAccountResponseVatTypesUsedItem(
+                    code: "code",
+                    name: Nullable<String>.value("name"),
+                    ratePercent: Nullable<String>.value("ratePercent"),
+                    saleLines: 1000000,
+                    purchaseLines: 1000000
+                ),
+                CompaniesContextAccountResponseVatTypesUsedItem(
+                    code: "code",
+                    name: Nullable<String>.value("name"),
+                    ratePercent: Nullable<String>.value("ratePercent"),
+                    saleLines: 1000000,
+                    purchaseLines: 1000000
+                )
+            ],
+            filings: [
+                CompaniesContextAccountResponseFilingsItem(
+                    key: "key",
+                    ruleKey: "ruleKey",
+                    period: "period",
+                    title: "title",
+                    dueDate: CalendarDate("2023-01-15")!,
+                    system: Nullable<String>.value("system"),
+                    canDownload: true,
+                    canSubmit: true,
+                    missingSettings: Nullable<CompaniesContextAccountResponseFilingsItemMissingSettings>.value(CompaniesContextAccountResponseFilingsItemMissingSettings(
+                        operation: .declarationsConfigsUpdate,
+                        system: "system",
+                        keys: [
+                            "keys",
+                            "keys"
+                        ],
+                        call: "call"
+                    ))
+                ),
+                CompaniesContextAccountResponseFilingsItem(
+                    key: "key",
+                    ruleKey: "ruleKey",
+                    period: "period",
+                    title: "title",
+                    dueDate: CalendarDate("2023-01-15")!,
+                    system: Nullable<String>.value("system"),
+                    canDownload: true,
+                    canSubmit: true,
+                    missingSettings: Nullable<CompaniesContextAccountResponseFilingsItemMissingSettings>.value(CompaniesContextAccountResponseFilingsItemMissingSettings(
+                        operation: .declarationsConfigsUpdate,
+                        system: "system",
+                        keys: [
+                            "keys",
+                            "keys"
+                        ],
+                        call: "call"
+                    ))
+                )
+            ],
+            payroll: CompaniesContextAccountResponsePayroll(
+                country: "country",
+                engine: true,
+                employeeFields: [
+                    CompaniesContextAccountResponsePayrollEmployeeFieldsItem(
+                        key: "key",
+                        kind: .text,
+                        options: Optional([
+                            "options",
+                            "options"
+                        ]),
+                        maxLength: Optional(1000000)
+                    ),
+                    CompaniesContextAccountResponsePayrollEmployeeFieldsItem(
+                        key: "key",
+                        kind: .text,
+                        options: Optional([
+                            "options",
+                            "options"
+                        ]),
+                        maxLength: Optional(1000000)
+                    )
+                ]
+            ),
+            profile: CompaniesContextAccountResponseProfile(
+                id: "x",
+                name: "name",
+                code: Nullable<String>.value("code"),
+                vatCode: Nullable<String>.value("vatCode"),
+                smeExemptionNumber: Nullable<String>.value("smeExemptionNumber"),
+                isVatPayer: true,
+                isSandbox: true,
+                cashBasis: true,
+                countryCode: "countryCode",
+                chartTemplate: "chartTemplate",
+                countryChartTemplate: "countryChartTemplate",
+                baseCurrency: "baseCurrency",
+                defaultInvoiceCurrency: "defaultInvoiceCurrency",
+                status: .active,
+                address: Nullable<CompaniesContextAccountResponseProfileAddress>.value(CompaniesContextAccountResponseProfileAddress(
+                    street: Optional("street"),
+                    city: Optional("city"),
+                    postalCode: Optional("postalCode"),
+                    countryCode: Optional("xy")
+                )),
+                email: Nullable<String>.value("email"),
+                phone: Nullable<String>.value("phone"),
+                iban: Nullable<String>.value("iban"),
+                bankName: Nullable<String>.value("bankName"),
+                bankBic: Nullable<String>.value("bankBic"),
+                bankCode: Nullable<String>.value("bankCode"),
+                bankBranchCode: Nullable<String>.value("bankBranchCode"),
+                bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+                invoicePrefix: "invoicePrefix",
+                nextInvoiceNumber: "nextInvoiceNumber",
+                defaultInvoiceLocale: Nullable<String>.value("defaultInvoiceLocale"),
+                defaultInvoiceNote: Nullable<String>.value("defaultInvoiceNote"),
+                peppolId: Nullable<String>.value("peppolId"),
+                sepaCreditorId: Nullable<String>.value("sepaCreditorId"),
+                logoFileId: Nullable<String>.value("logoFileId"),
+                legalForm: Nullable<String>.value("legalForm"),
+                registryName: Nullable<String>.value("registryName"),
+                incorporatedOn: Nullable<String>.value("incorporatedOn"),
+                shareCapital: Nullable<String>.value("shareCapital"),
+                accountsKeptBy: Nullable<CompaniesContextAccountResponseProfileAccountsKeptBy>.value(.company),
+                vatPeriod: Nullable<CompaniesContextAccountResponseProfileVatPeriod>.value(.monthly),
+                fiscalYearEndMonth: Nullable<Int64>.value(1000000),
+                timeZone: "timeZone",
+                filingOptions: Nullable<[String: Nullable<String>]>.value([
+                    "filingOptions": Nullable<String>.value("filingOptions")
+                ]),
+                bookkeeperName: Nullable<String>.value("bookkeeperName"),
+                auditorName: Nullable<String>.value("auditorName"),
+                auditorRegistrationNumber: Nullable<String>.value("auditorRegistrationNumber"),
+                auditRequired: true
+            )
+        )
+        let response = try await client.account.companiesContext(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func companiesUpdate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

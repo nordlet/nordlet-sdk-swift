@@ -59,7 +59,7 @@ public final class CatalogClient: Sendable {
         )
     }
 
-    /// List the active items. Filterable: name, code, barcode, type, vatClassifierCode, groupId, kindId, externalId, manufacturer, department. Sortable: name, code, createdAt, updatedAt, salePriceExclVat; default name ascending. Rows carry no components; `catalog/items/get` returns them.
+    /// List the active items. Filterable: name, code, barcode, type, vatClassifierCode, groupId, kindId, externalId, manufacturer, department. Sortable: name, code, type, unit, vatRatePercent, createdAt, updatedAt, salePriceExclVat, purchasePriceExclVat; default name ascending. Rows carry no components; `catalog/items/get` returns them.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func itemsList(request: Requests.ItemsListCatalogRequest, requestOptions: RequestOptions? = nil) async throws -> ItemsListCatalogResponse {

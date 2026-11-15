@@ -2337,6 +2337,7 @@ import Api
                       "accountName": "accountName",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
+                      "partnerId": "partnerId",
                       "debit": "debit",
                       "credit": "credit",
                       "description": "description"
@@ -2370,6 +2371,7 @@ import Api
                     accountName: "accountName",
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
+                    partnerId: Nullable<String>.value("partnerId"),
                     debit: "debit",
                     credit: "credit",
                     description: Nullable<String>.value("description")
@@ -2407,6 +2409,7 @@ import Api
                       "accountName": "accountName",
                       "costCenterId": "x",
                       "projectId": "x",
+                      "partnerId": "x",
                       "debit": "debit",
                       "credit": "credit",
                       "description": "description"
@@ -2418,6 +2421,7 @@ import Api
                       "accountName": "accountName",
                       "costCenterId": "x",
                       "projectId": "x",
+                      "partnerId": "x",
                       "debit": "debit",
                       "credit": "credit",
                       "description": "description"
@@ -2451,6 +2455,7 @@ import Api
                     accountName: "accountName",
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
+                    partnerId: Nullable<String>.value("x"),
                     debit: "debit",
                     credit: "credit",
                     description: Nullable<String>.value("description")
@@ -2462,6 +2467,7 @@ import Api
                     accountName: "accountName",
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
+                    partnerId: Nullable<String>.value("x"),
                     debit: "debit",
                     credit: "credit",
                     description: Nullable<String>.value("description")
@@ -2661,6 +2667,351 @@ import Api
                 id: "x",
                 reason: "x"
             ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func fxRevaluationRun1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "runId": "runId",
+                  "date": "2026-07-01",
+                  "reversalDate": "2026-07-01",
+                  "journalTransactionId": "journalTransactionId",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "gain": "gain",
+                  "loss": "loss",
+                  "lines": [
+                    {
+                      "kind": "receivable",
+                      "currency": "currency",
+                      "partnerId": "partnerId",
+                      "accountCode": "accountCode",
+                      "amount": "amount"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = FxRevaluationRunLedgerResponse(
+            runId: Nullable<String>.value("runId"),
+            date: CalendarDate("2026-07-01")!,
+            reversalDate: CalendarDate("2026-07-01")!,
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            gain: "gain",
+            loss: "loss",
+            lines: [
+                FxRevaluationRunLedgerResponseLinesItem(
+                    kind: .receivable,
+                    currency: "currency",
+                    partnerId: Nullable<String>.value("partnerId"),
+                    accountCode: "accountCode",
+                    amount: "amount"
+                )
+            ]
+        )
+        let response = try await client.ledger.fxRevaluationRun(
+            request: .init(date: CalendarDate("2026-07-01")!),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func fxRevaluationRun2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "runId": "x",
+                  "date": "2023-01-15",
+                  "reversalDate": "2023-01-15",
+                  "journalTransactionId": "x",
+                  "reversalJournalTransactionId": "x",
+                  "gain": "gain",
+                  "loss": "loss",
+                  "lines": [
+                    {
+                      "kind": "receivable",
+                      "currency": "currency",
+                      "partnerId": "x",
+                      "accountCode": "accountCode",
+                      "amount": "amount"
+                    },
+                    {
+                      "kind": "receivable",
+                      "currency": "currency",
+                      "partnerId": "x",
+                      "accountCode": "accountCode",
+                      "amount": "amount"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = FxRevaluationRunLedgerResponse(
+            runId: Nullable<String>.value("x"),
+            date: CalendarDate("2023-01-15")!,
+            reversalDate: CalendarDate("2023-01-15")!,
+            journalTransactionId: Nullable<String>.value("x"),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            gain: "gain",
+            loss: "loss",
+            lines: [
+                FxRevaluationRunLedgerResponseLinesItem(
+                    kind: .receivable,
+                    currency: "currency",
+                    partnerId: Nullable<String>.value("x"),
+                    accountCode: "accountCode",
+                    amount: "amount"
+                ),
+                FxRevaluationRunLedgerResponseLinesItem(
+                    kind: .receivable,
+                    currency: "currency",
+                    partnerId: Nullable<String>.value("x"),
+                    accountCode: "accountCode",
+                    amount: "amount"
+                )
+            ]
+        )
+        let response = try await client.ledger.fxRevaluationRun(
+            request: .init(date: CalendarDate("2023-01-15")!),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func fxRevaluationReverse1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "undoJournalTransactionIds": [
+                    "undoJournalTransactionIds"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = FxRevaluationReverseLedgerResponse(
+            id: "id",
+            undoJournalTransactionIds: [
+                "undoJournalTransactionIds"
+            ]
+        )
+        let response = try await client.ledger.fxRevaluationReverse(
+            request: .init(
+                id: "id",
+                reason: "reason"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func fxRevaluationReverse2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "undoJournalTransactionIds": [
+                    "undoJournalTransactionIds",
+                    "undoJournalTransactionIds"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = FxRevaluationReverseLedgerResponse(
+            id: "x",
+            undoJournalTransactionIds: [
+                "undoJournalTransactionIds",
+                "undoJournalTransactionIds"
+            ]
+        )
+        let response = try await client.ledger.fxRevaluationReverse(
+            request: .init(
+                id: "x",
+                reason: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func accrualsCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "reversalId": "reversalId",
+                  "date": "2026-07-01",
+                  "reversalDate": "2026-07-01"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AccrualsCreateLedgerResponse(
+            id: "id",
+            reversalId: "reversalId",
+            date: CalendarDate("2026-07-01")!,
+            reversalDate: CalendarDate("2026-07-01")!
+        )
+        let response = try await client.ledger.accrualsCreate(
+            request: .init(
+                date: CalendarDate("2026-07-01")!,
+                reason: "reason",
+                lines: [
+                    AccrualsCreateLedgerRequestLinesItem(
+                        accountCode: "accountCode"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func accrualsCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "reversalId": "x",
+                  "date": "2023-01-15",
+                  "reversalDate": "2023-01-15"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AccrualsCreateLedgerResponse(
+            id: "x",
+            reversalId: "x",
+            date: CalendarDate("2023-01-15")!,
+            reversalDate: CalendarDate("2023-01-15")!
+        )
+        let response = try await client.ledger.accrualsCreate(
+            request: .init(
+                date: CalendarDate("2023-01-15")!,
+                reason: "x",
+                lines: [
+                    AccrualsCreateLedgerRequestLinesItem(
+                        accountCode: "x"
+                    ),
+                    AccrualsCreateLedgerRequestLinesItem(
+                        accountCode: "x"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func taxProvisionPost1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "date": "2026-07-01",
+                  "fiscalYear": 1000000,
+                  "amount": "amount"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TaxProvisionPostLedgerResponse(
+            id: "id",
+            date: CalendarDate("2026-07-01")!,
+            fiscalYear: 1000000,
+            amount: "amount"
+        )
+        let response = try await client.ledger.taxProvisionPost(
+            request: .init(fiscalYear: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func taxProvisionPost2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "date": "2023-01-15",
+                  "fiscalYear": 1000000,
+                  "amount": "amount"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = TaxProvisionPostLedgerResponse(
+            id: "x",
+            date: CalendarDate("2023-01-15")!,
+            fiscalYear: 1000000,
+            amount: "amount"
+        )
+        let response = try await client.ledger.taxProvisionPost(
+            request: .init(fiscalYear: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

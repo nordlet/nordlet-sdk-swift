@@ -72,7 +72,7 @@ public final class TransportClient: Sendable {
         )
     }
 
-    /// List waybills with the consignee's name. Filterable by `status`, `consigneePartnerId`, `documentDate`, `fullNumber` and `dispatchAt`; sortable by `createdAt`, `dispatchAt` and `fullNumber`.
+    /// List waybills with the consignee's name. Filterable by `status`, `consigneePartnerId`, `documentDate`, `fullNumber` and `dispatchAt`; sortable by `createdAt`, `dispatchAt`, `fullNumber`, `consigneeName` (the name of the consignee), `vehiclePlate`, `unloadAddress`, `status` and `valueEur`.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func waybillsList(request: Requests.WaybillsListTransportRequest, requestOptions: RequestOptions? = nil) async throws -> WaybillsListTransportResponse {

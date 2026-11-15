@@ -12,6 +12,8 @@ public struct InvoicesCreateSalesRequestLinesItem: Codable, Hashable, Sendable {
     public let costCenterId: String?
     public let projectId: String?
     public let recognition: InvoicesCreateSalesRequestLinesItemRecognition?
+    /// A fixed asset sold on this line: the line net is booked to the assets.disposalProceeds posting rule account and `assets/assets/dispose` takes the proceeds from the issued invoice. Only on an invoice (422), only for an asset that is not disposed, and not with revenue recognition over time.
+    public let assetId: String?
     public let vatExemptionBasis: String?
     public let standaloneSellingPrice: String?
     public let refundEstimatePercent: String?
@@ -30,6 +32,7 @@ public struct InvoicesCreateSalesRequestLinesItem: Codable, Hashable, Sendable {
         costCenterId: String? = nil,
         projectId: String? = nil,
         recognition: InvoicesCreateSalesRequestLinesItemRecognition? = nil,
+        assetId: String? = nil,
         vatExemptionBasis: String? = nil,
         standaloneSellingPrice: String? = nil,
         refundEstimatePercent: String? = nil,
@@ -46,6 +49,7 @@ public struct InvoicesCreateSalesRequestLinesItem: Codable, Hashable, Sendable {
         self.costCenterId = costCenterId
         self.projectId = projectId
         self.recognition = recognition
+        self.assetId = assetId
         self.vatExemptionBasis = vatExemptionBasis
         self.standaloneSellingPrice = standaloneSellingPrice
         self.refundEstimatePercent = refundEstimatePercent
@@ -65,6 +69,7 @@ public struct InvoicesCreateSalesRequestLinesItem: Codable, Hashable, Sendable {
         self.costCenterId = try container.decodeIfPresent(String.self, forKey: .costCenterId)
         self.projectId = try container.decodeIfPresent(String.self, forKey: .projectId)
         self.recognition = try container.decodeIfPresent(InvoicesCreateSalesRequestLinesItemRecognition.self, forKey: .recognition)
+        self.assetId = try container.decodeIfPresent(String.self, forKey: .assetId)
         self.vatExemptionBasis = try container.decodeIfPresent(String.self, forKey: .vatExemptionBasis)
         self.standaloneSellingPrice = try container.decodeIfPresent(String.self, forKey: .standaloneSellingPrice)
         self.refundEstimatePercent = try container.decodeIfPresent(String.self, forKey: .refundEstimatePercent)
@@ -85,6 +90,7 @@ public struct InvoicesCreateSalesRequestLinesItem: Codable, Hashable, Sendable {
         try container.encodeIfPresent(self.costCenterId, forKey: .costCenterId)
         try container.encodeIfPresent(self.projectId, forKey: .projectId)
         try container.encodeIfPresent(self.recognition, forKey: .recognition)
+        try container.encodeIfPresent(self.assetId, forKey: .assetId)
         try container.encodeIfPresent(self.vatExemptionBasis, forKey: .vatExemptionBasis)
         try container.encodeIfPresent(self.standaloneSellingPrice, forKey: .standaloneSellingPrice)
         try container.encodeIfPresent(self.refundEstimatePercent, forKey: .refundEstimatePercent)
@@ -103,6 +109,7 @@ public struct InvoicesCreateSalesRequestLinesItem: Codable, Hashable, Sendable {
         case costCenterId
         case projectId
         case recognition
+        case assetId
         case vatExemptionBasis
         case standaloneSellingPrice
         case refundEstimatePercent

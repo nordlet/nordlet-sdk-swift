@@ -36,6 +36,8 @@ import Api
                         "period": null,
                         "documentKey": null,
                         "amendment": 1000000,
+                        "authorityRef": null,
+                        "correctionInput": null,
                         "origin": "origin",
                         "transportSystem": null,
                         "environment": null,
@@ -70,6 +72,8 @@ import Api
                           "period": null,
                           "documentKey": null,
                           "amendment": 1000000,
+                          "authorityRef": null,
+                          "correctionInput": null,
                           "origin": "origin",
                           "transportSystem": null,
                           "environment": null,
@@ -91,6 +95,21 @@ import Api
                       ],
                       "canSubmit": true,
                       "canAmend": true,
+                      "correction": {
+                        "required": [
+                          "reason"
+                        ],
+                        "optional": [
+                          "reason"
+                        ],
+                        "reasonCodes": [
+                          {
+                            "code": "code",
+                            "label": "label"
+                          }
+                        ],
+                        "carry": true
+                      },
                       "canDownload": true,
                       "automated": true
                     }
@@ -132,6 +151,8 @@ import Api
                         period: .null,
                         documentKey: .null,
                         amendment: 1000000,
+                        authorityRef: .null,
+                        correctionInput: .null,
                         origin: "origin",
                         transportSystem: .null,
                         environment: .null,
@@ -166,6 +187,8 @@ import Api
                             period: .null,
                             documentKey: .null,
                             amendment: 1000000,
+                            authorityRef: .null,
+                            correctionInput: .null,
                             origin: "origin",
                             transportSystem: .null,
                             environment: .null,
@@ -187,6 +210,21 @@ import Api
                     ],
                     canSubmit: true,
                     canAmend: true,
+                    correction: Nullable<ListCalendarResponseRowsItemCorrection>.value(ListCalendarResponseRowsItemCorrection(
+                        required: [
+                            .reason
+                        ],
+                        optional: [
+                            .reason
+                        ],
+                        reasonCodes: [
+                            ListCalendarResponseRowsItemCorrectionReasonCodesItem(
+                                code: "code",
+                                label: "label"
+                            )
+                        ],
+                        carry: true
+                    )),
                     canDownload: true,
                     automated: true
                 )
@@ -232,6 +270,13 @@ import Api
                         "period": "period",
                         "documentKey": "documentKey",
                         "amendment": 1000000,
+                        "authorityRef": "authorityRef",
+                        "correctionInput": {
+                          "reason": "reason",
+                          "reasonCode": "reasonCode",
+                          "authorityReference": "authorityReference",
+                          "discoveredOn": "discoveredOn"
+                        },
                         "origin": "origin",
                         "transportSystem": "transportSystem",
                         "environment": "test",
@@ -266,6 +311,13 @@ import Api
                           "period": "period",
                           "documentKey": "documentKey",
                           "amendment": 1000000,
+                          "authorityRef": "authorityRef",
+                          "correctionInput": {
+                            "reason": "reason",
+                            "reasonCode": "reasonCode",
+                            "authorityReference": "authorityReference",
+                            "discoveredOn": "discoveredOn"
+                          },
                           "origin": "origin",
                           "transportSystem": "transportSystem",
                           "environment": "test",
@@ -299,6 +351,13 @@ import Api
                           "period": "period",
                           "documentKey": "documentKey",
                           "amendment": 1000000,
+                          "authorityRef": "authorityRef",
+                          "correctionInput": {
+                            "reason": "reason",
+                            "reasonCode": "reasonCode",
+                            "authorityReference": "authorityReference",
+                            "discoveredOn": "discoveredOn"
+                          },
                           "origin": "origin",
                           "transportSystem": "transportSystem",
                           "environment": "test",
@@ -320,6 +379,27 @@ import Api
                       ],
                       "canSubmit": true,
                       "canAmend": true,
+                      "correction": {
+                        "required": [
+                          "reason",
+                          "reason"
+                        ],
+                        "optional": [
+                          "reason",
+                          "reason"
+                        ],
+                        "reasonCodes": [
+                          {
+                            "code": "code",
+                            "label": "label"
+                          },
+                          {
+                            "code": "code",
+                            "label": "label"
+                          }
+                        ],
+                        "carry": true
+                      },
                       "canDownload": true,
                       "automated": true
                     },
@@ -349,6 +429,13 @@ import Api
                         "period": "period",
                         "documentKey": "documentKey",
                         "amendment": 1000000,
+                        "authorityRef": "authorityRef",
+                        "correctionInput": {
+                          "reason": "reason",
+                          "reasonCode": "reasonCode",
+                          "authorityReference": "authorityReference",
+                          "discoveredOn": "discoveredOn"
+                        },
                         "origin": "origin",
                         "transportSystem": "transportSystem",
                         "environment": "test",
@@ -383,6 +470,13 @@ import Api
                           "period": "period",
                           "documentKey": "documentKey",
                           "amendment": 1000000,
+                          "authorityRef": "authorityRef",
+                          "correctionInput": {
+                            "reason": "reason",
+                            "reasonCode": "reasonCode",
+                            "authorityReference": "authorityReference",
+                            "discoveredOn": "discoveredOn"
+                          },
                           "origin": "origin",
                           "transportSystem": "transportSystem",
                           "environment": "test",
@@ -416,6 +510,13 @@ import Api
                           "period": "period",
                           "documentKey": "documentKey",
                           "amendment": 1000000,
+                          "authorityRef": "authorityRef",
+                          "correctionInput": {
+                            "reason": "reason",
+                            "reasonCode": "reasonCode",
+                            "authorityReference": "authorityReference",
+                            "discoveredOn": "discoveredOn"
+                          },
                           "origin": "origin",
                           "transportSystem": "transportSystem",
                           "environment": "test",
@@ -437,6 +538,27 @@ import Api
                       ],
                       "canSubmit": true,
                       "canAmend": true,
+                      "correction": {
+                        "required": [
+                          "reason",
+                          "reason"
+                        ],
+                        "optional": [
+                          "reason",
+                          "reason"
+                        ],
+                        "reasonCodes": [
+                          {
+                            "code": "code",
+                            "label": "label"
+                          },
+                          {
+                            "code": "code",
+                            "label": "label"
+                          }
+                        ],
+                        "carry": true
+                      },
                       "canDownload": true,
                       "automated": true
                     }
@@ -478,6 +600,13 @@ import Api
                         period: Nullable<String>.value("period"),
                         documentKey: Nullable<String>.value("documentKey"),
                         amendment: 1000000,
+                        authorityRef: Nullable<String>.value("authorityRef"),
+                        correctionInput: Nullable<ListCalendarResponseRowsItemSubmissionCorrectionInput>.value(ListCalendarResponseRowsItemSubmissionCorrectionInput(
+                            reason: Optional("reason"),
+                            reasonCode: Optional("reasonCode"),
+                            authorityReference: Optional("authorityReference"),
+                            discoveredOn: Optional("discoveredOn")
+                        )),
                         origin: "origin",
                         transportSystem: Nullable<String>.value("transportSystem"),
                         environment: Nullable<ListCalendarResponseRowsItemSubmissionEnvironment>.value(.test),
@@ -512,6 +641,13 @@ import Api
                             period: Nullable<String>.value("period"),
                             documentKey: Nullable<String>.value("documentKey"),
                             amendment: 1000000,
+                            authorityRef: Nullable<String>.value("authorityRef"),
+                            correctionInput: Nullable<ListCalendarResponseRowsItemSubmissionsItemCorrectionInput>.value(ListCalendarResponseRowsItemSubmissionsItemCorrectionInput(
+                                reason: Optional("reason"),
+                                reasonCode: Optional("reasonCode"),
+                                authorityReference: Optional("authorityReference"),
+                                discoveredOn: Optional("discoveredOn")
+                            )),
                             origin: "origin",
                             transportSystem: Nullable<String>.value("transportSystem"),
                             environment: Nullable<ListCalendarResponseRowsItemSubmissionsItemEnvironment>.value(.test),
@@ -545,6 +681,13 @@ import Api
                             period: Nullable<String>.value("period"),
                             documentKey: Nullable<String>.value("documentKey"),
                             amendment: 1000000,
+                            authorityRef: Nullable<String>.value("authorityRef"),
+                            correctionInput: Nullable<ListCalendarResponseRowsItemSubmissionsItemCorrectionInput>.value(ListCalendarResponseRowsItemSubmissionsItemCorrectionInput(
+                                reason: Optional("reason"),
+                                reasonCode: Optional("reasonCode"),
+                                authorityReference: Optional("authorityReference"),
+                                discoveredOn: Optional("discoveredOn")
+                            )),
                             origin: "origin",
                             transportSystem: Nullable<String>.value("transportSystem"),
                             environment: Nullable<ListCalendarResponseRowsItemSubmissionsItemEnvironment>.value(.test),
@@ -566,6 +709,27 @@ import Api
                     ],
                     canSubmit: true,
                     canAmend: true,
+                    correction: Nullable<ListCalendarResponseRowsItemCorrection>.value(ListCalendarResponseRowsItemCorrection(
+                        required: [
+                            .reason,
+                            .reason
+                        ],
+                        optional: [
+                            .reason,
+                            .reason
+                        ],
+                        reasonCodes: [
+                            ListCalendarResponseRowsItemCorrectionReasonCodesItem(
+                                code: "code",
+                                label: "label"
+                            ),
+                            ListCalendarResponseRowsItemCorrectionReasonCodesItem(
+                                code: "code",
+                                label: "label"
+                            )
+                        ],
+                        carry: true
+                    )),
                     canDownload: true,
                     automated: true
                 ),
@@ -595,6 +759,13 @@ import Api
                         period: Nullable<String>.value("period"),
                         documentKey: Nullable<String>.value("documentKey"),
                         amendment: 1000000,
+                        authorityRef: Nullable<String>.value("authorityRef"),
+                        correctionInput: Nullable<ListCalendarResponseRowsItemSubmissionCorrectionInput>.value(ListCalendarResponseRowsItemSubmissionCorrectionInput(
+                            reason: Optional("reason"),
+                            reasonCode: Optional("reasonCode"),
+                            authorityReference: Optional("authorityReference"),
+                            discoveredOn: Optional("discoveredOn")
+                        )),
                         origin: "origin",
                         transportSystem: Nullable<String>.value("transportSystem"),
                         environment: Nullable<ListCalendarResponseRowsItemSubmissionEnvironment>.value(.test),
@@ -629,6 +800,13 @@ import Api
                             period: Nullable<String>.value("period"),
                             documentKey: Nullable<String>.value("documentKey"),
                             amendment: 1000000,
+                            authorityRef: Nullable<String>.value("authorityRef"),
+                            correctionInput: Nullable<ListCalendarResponseRowsItemSubmissionsItemCorrectionInput>.value(ListCalendarResponseRowsItemSubmissionsItemCorrectionInput(
+                                reason: Optional("reason"),
+                                reasonCode: Optional("reasonCode"),
+                                authorityReference: Optional("authorityReference"),
+                                discoveredOn: Optional("discoveredOn")
+                            )),
                             origin: "origin",
                             transportSystem: Nullable<String>.value("transportSystem"),
                             environment: Nullable<ListCalendarResponseRowsItemSubmissionsItemEnvironment>.value(.test),
@@ -662,6 +840,13 @@ import Api
                             period: Nullable<String>.value("period"),
                             documentKey: Nullable<String>.value("documentKey"),
                             amendment: 1000000,
+                            authorityRef: Nullable<String>.value("authorityRef"),
+                            correctionInput: Nullable<ListCalendarResponseRowsItemSubmissionsItemCorrectionInput>.value(ListCalendarResponseRowsItemSubmissionsItemCorrectionInput(
+                                reason: Optional("reason"),
+                                reasonCode: Optional("reasonCode"),
+                                authorityReference: Optional("authorityReference"),
+                                discoveredOn: Optional("discoveredOn")
+                            )),
                             origin: "origin",
                             transportSystem: Nullable<String>.value("transportSystem"),
                             environment: Nullable<ListCalendarResponseRowsItemSubmissionsItemEnvironment>.value(.test),
@@ -683,6 +868,27 @@ import Api
                     ],
                     canSubmit: true,
                     canAmend: true,
+                    correction: Nullable<ListCalendarResponseRowsItemCorrection>.value(ListCalendarResponseRowsItemCorrection(
+                        required: [
+                            .reason,
+                            .reason
+                        ],
+                        optional: [
+                            .reason,
+                            .reason
+                        ],
+                        reasonCodes: [
+                            ListCalendarResponseRowsItemCorrectionReasonCodesItem(
+                                code: "code",
+                                label: "label"
+                            ),
+                            ListCalendarResponseRowsItemCorrectionReasonCodesItem(
+                                code: "code",
+                                label: "label"
+                            )
+                        ],
+                        carry: true
+                    )),
                     canDownload: true,
                     automated: true
                 )
@@ -726,6 +932,13 @@ import Api
                     "period": "period",
                     "documentKey": "documentKey",
                     "amendment": 1000000,
+                    "authorityRef": "authorityRef",
+                    "correctionInput": {
+                      "reason": "reason",
+                      "reasonCode": "reasonCode",
+                      "authorityReference": "authorityReference",
+                      "discoveredOn": "discoveredOn"
+                    },
                     "origin": "origin",
                     "transportSystem": "transportSystem",
                     "environment": "test",
@@ -760,6 +973,8 @@ import Api
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {},
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -781,6 +996,21 @@ import Api
                   ],
                   "canSubmit": true,
                   "canAmend": true,
+                  "correction": {
+                    "required": [
+                      "reason"
+                    ],
+                    "optional": [
+                      "reason"
+                    ],
+                    "reasonCodes": [
+                      {
+                        "code": "code",
+                        "label": "label"
+                      }
+                    ],
+                    "carry": true
+                  },
                   "canDownload": true,
                   "automated": true
                 }
@@ -818,6 +1048,13 @@ import Api
                 period: Nullable<String>.value("period"),
                 documentKey: Nullable<String>.value("documentKey"),
                 amendment: 1000000,
+                authorityRef: Nullable<String>.value("authorityRef"),
+                correctionInput: Nullable<GetCalendarResponseSubmissionCorrectionInput>.value(GetCalendarResponseSubmissionCorrectionInput(
+                    reason: Optional("reason"),
+                    reasonCode: Optional("reasonCode"),
+                    authorityReference: Optional("authorityReference"),
+                    discoveredOn: Optional("discoveredOn")
+                )),
                 origin: "origin",
                 transportSystem: Nullable<String>.value("transportSystem"),
                 environment: Nullable<GetCalendarResponseSubmissionEnvironment>.value(.test),
@@ -852,6 +1089,10 @@ import Api
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
                     amendment: 1000000,
+                    authorityRef: Nullable<String>.value("authorityRef"),
+                    correctionInput: Nullable<GetCalendarResponseSubmissionsItemCorrectionInput>.value(GetCalendarResponseSubmissionsItemCorrectionInput(
+
+                    )),
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
                     environment: Nullable<GetCalendarResponseSubmissionsItemEnvironment>.value(.test),
@@ -873,6 +1114,21 @@ import Api
             ],
             canSubmit: true,
             canAmend: true,
+            correction: Nullable<GetCalendarResponseCorrection>.value(GetCalendarResponseCorrection(
+                required: [
+                    .reason
+                ],
+                optional: [
+                    .reason
+                ],
+                reasonCodes: [
+                    GetCalendarResponseCorrectionReasonCodesItem(
+                        code: "code",
+                        label: "label"
+                    )
+                ],
+                carry: true
+            )),
             canDownload: true,
             automated: true
         )
@@ -914,6 +1170,13 @@ import Api
                     "period": "period",
                     "documentKey": "documentKey",
                     "amendment": 1000000,
+                    "authorityRef": "authorityRef",
+                    "correctionInput": {
+                      "reason": "reason",
+                      "reasonCode": "reasonCode",
+                      "authorityReference": "authorityReference",
+                      "discoveredOn": "discoveredOn"
+                    },
                     "origin": "origin",
                     "transportSystem": "transportSystem",
                     "environment": "test",
@@ -948,6 +1211,13 @@ import Api
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {
+                        "reason": "reason",
+                        "reasonCode": "reasonCode",
+                        "authorityReference": "authorityReference",
+                        "discoveredOn": "discoveredOn"
+                      },
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -981,6 +1251,13 @@ import Api
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {
+                        "reason": "reason",
+                        "reasonCode": "reasonCode",
+                        "authorityReference": "authorityReference",
+                        "discoveredOn": "discoveredOn"
+                      },
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -1002,6 +1279,27 @@ import Api
                   ],
                   "canSubmit": true,
                   "canAmend": true,
+                  "correction": {
+                    "required": [
+                      "reason",
+                      "reason"
+                    ],
+                    "optional": [
+                      "reason",
+                      "reason"
+                    ],
+                    "reasonCodes": [
+                      {
+                        "code": "code",
+                        "label": "label"
+                      },
+                      {
+                        "code": "code",
+                        "label": "label"
+                      }
+                    ],
+                    "carry": true
+                  },
                   "canDownload": true,
                   "automated": true
                 }
@@ -1039,6 +1337,13 @@ import Api
                 period: Nullable<String>.value("period"),
                 documentKey: Nullable<String>.value("documentKey"),
                 amendment: 1000000,
+                authorityRef: Nullable<String>.value("authorityRef"),
+                correctionInput: Nullable<GetCalendarResponseSubmissionCorrectionInput>.value(GetCalendarResponseSubmissionCorrectionInput(
+                    reason: Optional("reason"),
+                    reasonCode: Optional("reasonCode"),
+                    authorityReference: Optional("authorityReference"),
+                    discoveredOn: Optional("discoveredOn")
+                )),
                 origin: "origin",
                 transportSystem: Nullable<String>.value("transportSystem"),
                 environment: Nullable<GetCalendarResponseSubmissionEnvironment>.value(.test),
@@ -1073,6 +1378,13 @@ import Api
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
                     amendment: 1000000,
+                    authorityRef: Nullable<String>.value("authorityRef"),
+                    correctionInput: Nullable<GetCalendarResponseSubmissionsItemCorrectionInput>.value(GetCalendarResponseSubmissionsItemCorrectionInput(
+                        reason: Optional("reason"),
+                        reasonCode: Optional("reasonCode"),
+                        authorityReference: Optional("authorityReference"),
+                        discoveredOn: Optional("discoveredOn")
+                    )),
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
                     environment: Nullable<GetCalendarResponseSubmissionsItemEnvironment>.value(.test),
@@ -1106,6 +1418,13 @@ import Api
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
                     amendment: 1000000,
+                    authorityRef: Nullable<String>.value("authorityRef"),
+                    correctionInput: Nullable<GetCalendarResponseSubmissionsItemCorrectionInput>.value(GetCalendarResponseSubmissionsItemCorrectionInput(
+                        reason: Optional("reason"),
+                        reasonCode: Optional("reasonCode"),
+                        authorityReference: Optional("authorityReference"),
+                        discoveredOn: Optional("discoveredOn")
+                    )),
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
                     environment: Nullable<GetCalendarResponseSubmissionsItemEnvironment>.value(.test),
@@ -1127,6 +1446,27 @@ import Api
             ],
             canSubmit: true,
             canAmend: true,
+            correction: Nullable<GetCalendarResponseCorrection>.value(GetCalendarResponseCorrection(
+                required: [
+                    .reason,
+                    .reason
+                ],
+                optional: [
+                    .reason,
+                    .reason
+                ],
+                reasonCodes: [
+                    GetCalendarResponseCorrectionReasonCodesItem(
+                        code: "code",
+                        label: "label"
+                    ),
+                    GetCalendarResponseCorrectionReasonCodesItem(
+                        code: "code",
+                        label: "label"
+                    )
+                ],
+                carry: true
+            )),
             canDownload: true,
             automated: true
         )
@@ -1157,6 +1497,13 @@ import Api
                   "period": "period",
                   "documentKey": "documentKey",
                   "amendment": 1000000,
+                  "authorityRef": "authorityRef",
+                  "correctionInput": {
+                    "reason": "reason",
+                    "reasonCode": "reasonCode",
+                    "authorityReference": "authorityReference",
+                    "discoveredOn": "discoveredOn"
+                  },
                   "origin": "origin",
                   "transportSystem": "transportSystem",
                   "environment": "test",
@@ -1198,6 +1545,13 @@ import Api
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
             amendment: 1000000,
+            authorityRef: Nullable<String>.value("authorityRef"),
+            correctionInput: Nullable<SubmitCalendarResponseCorrectionInput>.value(SubmitCalendarResponseCorrectionInput(
+                reason: Optional("reason"),
+                reasonCode: Optional("reasonCode"),
+                authorityReference: Optional("authorityReference"),
+                discoveredOn: Optional("discoveredOn")
+            )),
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
             environment: Nullable<SubmitCalendarResponseEnvironment>.value(.test),
@@ -1243,6 +1597,13 @@ import Api
                   "period": "period",
                   "documentKey": "documentKey",
                   "amendment": 1000000,
+                  "authorityRef": "authorityRef",
+                  "correctionInput": {
+                    "reason": "reason",
+                    "reasonCode": "reasonCode",
+                    "authorityReference": "authorityReference",
+                    "discoveredOn": "discoveredOn"
+                  },
                   "origin": "origin",
                   "transportSystem": "transportSystem",
                   "environment": "test",
@@ -1284,6 +1645,13 @@ import Api
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
             amendment: 1000000,
+            authorityRef: Nullable<String>.value("authorityRef"),
+            correctionInput: Nullable<SubmitCalendarResponseCorrectionInput>.value(SubmitCalendarResponseCorrectionInput(
+                reason: Optional("reason"),
+                reasonCode: Optional("reasonCode"),
+                authorityReference: Optional("authorityReference"),
+                discoveredOn: Optional("discoveredOn")
+            )),
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
             environment: Nullable<SubmitCalendarResponseEnvironment>.value(.test),
@@ -1422,6 +1790,13 @@ import Api
                     "period": "period",
                     "documentKey": "documentKey",
                     "amendment": 1000000,
+                    "authorityRef": "authorityRef",
+                    "correctionInput": {
+                      "reason": "reason",
+                      "reasonCode": "reasonCode",
+                      "authorityReference": "authorityReference",
+                      "discoveredOn": "discoveredOn"
+                    },
                     "origin": "origin",
                     "transportSystem": "transportSystem",
                     "environment": "test",
@@ -1456,6 +1831,8 @@ import Api
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {},
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -1477,6 +1854,21 @@ import Api
                   ],
                   "canSubmit": true,
                   "canAmend": true,
+                  "correction": {
+                    "required": [
+                      "reason"
+                    ],
+                    "optional": [
+                      "reason"
+                    ],
+                    "reasonCodes": [
+                      {
+                        "code": "code",
+                        "label": "label"
+                      }
+                    ],
+                    "carry": true
+                  },
                   "canDownload": true,
                   "automated": true
                 }
@@ -1514,6 +1906,13 @@ import Api
                 period: Nullable<String>.value("period"),
                 documentKey: Nullable<String>.value("documentKey"),
                 amendment: 1000000,
+                authorityRef: Nullable<String>.value("authorityRef"),
+                correctionInput: Nullable<CreateCalendarResponseSubmissionCorrectionInput>.value(CreateCalendarResponseSubmissionCorrectionInput(
+                    reason: Optional("reason"),
+                    reasonCode: Optional("reasonCode"),
+                    authorityReference: Optional("authorityReference"),
+                    discoveredOn: Optional("discoveredOn")
+                )),
                 origin: "origin",
                 transportSystem: Nullable<String>.value("transportSystem"),
                 environment: Nullable<CreateCalendarResponseSubmissionEnvironment>.value(.test),
@@ -1548,6 +1947,10 @@ import Api
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
                     amendment: 1000000,
+                    authorityRef: Nullable<String>.value("authorityRef"),
+                    correctionInput: Nullable<CreateCalendarResponseSubmissionsItemCorrectionInput>.value(CreateCalendarResponseSubmissionsItemCorrectionInput(
+
+                    )),
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
                     environment: Nullable<CreateCalendarResponseSubmissionsItemEnvironment>.value(.test),
@@ -1569,6 +1972,21 @@ import Api
             ],
             canSubmit: true,
             canAmend: true,
+            correction: Nullable<CreateCalendarResponseCorrection>.value(CreateCalendarResponseCorrection(
+                required: [
+                    .reason
+                ],
+                optional: [
+                    .reason
+                ],
+                reasonCodes: [
+                    CreateCalendarResponseCorrectionReasonCodesItem(
+                        code: "code",
+                        label: "label"
+                    )
+                ],
+                carry: true
+            )),
             canDownload: true,
             automated: true
         )
@@ -1613,6 +2031,13 @@ import Api
                     "period": "period",
                     "documentKey": "documentKey",
                     "amendment": 1000000,
+                    "authorityRef": "authorityRef",
+                    "correctionInput": {
+                      "reason": "reason",
+                      "reasonCode": "reasonCode",
+                      "authorityReference": "authorityReference",
+                      "discoveredOn": "discoveredOn"
+                    },
                     "origin": "origin",
                     "transportSystem": "transportSystem",
                     "environment": "test",
@@ -1647,6 +2072,13 @@ import Api
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {
+                        "reason": "reason",
+                        "reasonCode": "reasonCode",
+                        "authorityReference": "authorityReference",
+                        "discoveredOn": "discoveredOn"
+                      },
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -1680,6 +2112,13 @@ import Api
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {
+                        "reason": "reason",
+                        "reasonCode": "reasonCode",
+                        "authorityReference": "authorityReference",
+                        "discoveredOn": "discoveredOn"
+                      },
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -1701,6 +2140,27 @@ import Api
                   ],
                   "canSubmit": true,
                   "canAmend": true,
+                  "correction": {
+                    "required": [
+                      "reason",
+                      "reason"
+                    ],
+                    "optional": [
+                      "reason",
+                      "reason"
+                    ],
+                    "reasonCodes": [
+                      {
+                        "code": "code",
+                        "label": "label"
+                      },
+                      {
+                        "code": "code",
+                        "label": "label"
+                      }
+                    ],
+                    "carry": true
+                  },
                   "canDownload": true,
                   "automated": true
                 }
@@ -1738,6 +2198,13 @@ import Api
                 period: Nullable<String>.value("period"),
                 documentKey: Nullable<String>.value("documentKey"),
                 amendment: 1000000,
+                authorityRef: Nullable<String>.value("authorityRef"),
+                correctionInput: Nullable<CreateCalendarResponseSubmissionCorrectionInput>.value(CreateCalendarResponseSubmissionCorrectionInput(
+                    reason: Optional("reason"),
+                    reasonCode: Optional("reasonCode"),
+                    authorityReference: Optional("authorityReference"),
+                    discoveredOn: Optional("discoveredOn")
+                )),
                 origin: "origin",
                 transportSystem: Nullable<String>.value("transportSystem"),
                 environment: Nullable<CreateCalendarResponseSubmissionEnvironment>.value(.test),
@@ -1772,6 +2239,13 @@ import Api
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
                     amendment: 1000000,
+                    authorityRef: Nullable<String>.value("authorityRef"),
+                    correctionInput: Nullable<CreateCalendarResponseSubmissionsItemCorrectionInput>.value(CreateCalendarResponseSubmissionsItemCorrectionInput(
+                        reason: Optional("reason"),
+                        reasonCode: Optional("reasonCode"),
+                        authorityReference: Optional("authorityReference"),
+                        discoveredOn: Optional("discoveredOn")
+                    )),
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
                     environment: Nullable<CreateCalendarResponseSubmissionsItemEnvironment>.value(.test),
@@ -1805,6 +2279,13 @@ import Api
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
                     amendment: 1000000,
+                    authorityRef: Nullable<String>.value("authorityRef"),
+                    correctionInput: Nullable<CreateCalendarResponseSubmissionsItemCorrectionInput>.value(CreateCalendarResponseSubmissionsItemCorrectionInput(
+                        reason: Optional("reason"),
+                        reasonCode: Optional("reasonCode"),
+                        authorityReference: Optional("authorityReference"),
+                        discoveredOn: Optional("discoveredOn")
+                    )),
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
                     environment: Nullable<CreateCalendarResponseSubmissionsItemEnvironment>.value(.test),
@@ -1826,6 +2307,27 @@ import Api
             ],
             canSubmit: true,
             canAmend: true,
+            correction: Nullable<CreateCalendarResponseCorrection>.value(CreateCalendarResponseCorrection(
+                required: [
+                    .reason,
+                    .reason
+                ],
+                optional: [
+                    .reason,
+                    .reason
+                ],
+                reasonCodes: [
+                    CreateCalendarResponseCorrectionReasonCodesItem(
+                        code: "code",
+                        label: "label"
+                    ),
+                    CreateCalendarResponseCorrectionReasonCodesItem(
+                        code: "code",
+                        label: "label"
+                    )
+                ],
+                carry: true
+            )),
             canDownload: true,
             automated: true
         )
@@ -1870,6 +2372,13 @@ import Api
                     "period": "period",
                     "documentKey": "documentKey",
                     "amendment": 1000000,
+                    "authorityRef": "authorityRef",
+                    "correctionInput": {
+                      "reason": "reason",
+                      "reasonCode": "reasonCode",
+                      "authorityReference": "authorityReference",
+                      "discoveredOn": "discoveredOn"
+                    },
                     "origin": "origin",
                     "transportSystem": "transportSystem",
                     "environment": "test",
@@ -1904,6 +2413,8 @@ import Api
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {},
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -1925,6 +2436,21 @@ import Api
                   ],
                   "canSubmit": true,
                   "canAmend": true,
+                  "correction": {
+                    "required": [
+                      "reason"
+                    ],
+                    "optional": [
+                      "reason"
+                    ],
+                    "reasonCodes": [
+                      {
+                        "code": "code",
+                        "label": "label"
+                      }
+                    ],
+                    "carry": true
+                  },
                   "canDownload": true,
                   "automated": true
                 }
@@ -1962,6 +2488,13 @@ import Api
                 period: Nullable<String>.value("period"),
                 documentKey: Nullable<String>.value("documentKey"),
                 amendment: 1000000,
+                authorityRef: Nullable<String>.value("authorityRef"),
+                correctionInput: Nullable<UpdateCalendarResponseSubmissionCorrectionInput>.value(UpdateCalendarResponseSubmissionCorrectionInput(
+                    reason: Optional("reason"),
+                    reasonCode: Optional("reasonCode"),
+                    authorityReference: Optional("authorityReference"),
+                    discoveredOn: Optional("discoveredOn")
+                )),
                 origin: "origin",
                 transportSystem: Nullable<String>.value("transportSystem"),
                 environment: Nullable<UpdateCalendarResponseSubmissionEnvironment>.value(.test),
@@ -1996,6 +2529,10 @@ import Api
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
                     amendment: 1000000,
+                    authorityRef: Nullable<String>.value("authorityRef"),
+                    correctionInput: Nullable<UpdateCalendarResponseSubmissionsItemCorrectionInput>.value(UpdateCalendarResponseSubmissionsItemCorrectionInput(
+
+                    )),
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
                     environment: Nullable<UpdateCalendarResponseSubmissionsItemEnvironment>.value(.test),
@@ -2017,6 +2554,21 @@ import Api
             ],
             canSubmit: true,
             canAmend: true,
+            correction: Nullable<UpdateCalendarResponseCorrection>.value(UpdateCalendarResponseCorrection(
+                required: [
+                    .reason
+                ],
+                optional: [
+                    .reason
+                ],
+                reasonCodes: [
+                    UpdateCalendarResponseCorrectionReasonCodesItem(
+                        code: "code",
+                        label: "label"
+                    )
+                ],
+                carry: true
+            )),
             canDownload: true,
             automated: true
         )
@@ -2058,6 +2610,13 @@ import Api
                     "period": "period",
                     "documentKey": "documentKey",
                     "amendment": 1000000,
+                    "authorityRef": "authorityRef",
+                    "correctionInput": {
+                      "reason": "reason",
+                      "reasonCode": "reasonCode",
+                      "authorityReference": "authorityReference",
+                      "discoveredOn": "discoveredOn"
+                    },
                     "origin": "origin",
                     "transportSystem": "transportSystem",
                     "environment": "test",
@@ -2092,6 +2651,13 @@ import Api
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {
+                        "reason": "reason",
+                        "reasonCode": "reasonCode",
+                        "authorityReference": "authorityReference",
+                        "discoveredOn": "discoveredOn"
+                      },
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -2125,6 +2691,13 @@ import Api
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {
+                        "reason": "reason",
+                        "reasonCode": "reasonCode",
+                        "authorityReference": "authorityReference",
+                        "discoveredOn": "discoveredOn"
+                      },
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -2146,6 +2719,27 @@ import Api
                   ],
                   "canSubmit": true,
                   "canAmend": true,
+                  "correction": {
+                    "required": [
+                      "reason",
+                      "reason"
+                    ],
+                    "optional": [
+                      "reason",
+                      "reason"
+                    ],
+                    "reasonCodes": [
+                      {
+                        "code": "code",
+                        "label": "label"
+                      },
+                      {
+                        "code": "code",
+                        "label": "label"
+                      }
+                    ],
+                    "carry": true
+                  },
                   "canDownload": true,
                   "automated": true
                 }
@@ -2183,6 +2777,13 @@ import Api
                 period: Nullable<String>.value("period"),
                 documentKey: Nullable<String>.value("documentKey"),
                 amendment: 1000000,
+                authorityRef: Nullable<String>.value("authorityRef"),
+                correctionInput: Nullable<UpdateCalendarResponseSubmissionCorrectionInput>.value(UpdateCalendarResponseSubmissionCorrectionInput(
+                    reason: Optional("reason"),
+                    reasonCode: Optional("reasonCode"),
+                    authorityReference: Optional("authorityReference"),
+                    discoveredOn: Optional("discoveredOn")
+                )),
                 origin: "origin",
                 transportSystem: Nullable<String>.value("transportSystem"),
                 environment: Nullable<UpdateCalendarResponseSubmissionEnvironment>.value(.test),
@@ -2217,6 +2818,13 @@ import Api
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
                     amendment: 1000000,
+                    authorityRef: Nullable<String>.value("authorityRef"),
+                    correctionInput: Nullable<UpdateCalendarResponseSubmissionsItemCorrectionInput>.value(UpdateCalendarResponseSubmissionsItemCorrectionInput(
+                        reason: Optional("reason"),
+                        reasonCode: Optional("reasonCode"),
+                        authorityReference: Optional("authorityReference"),
+                        discoveredOn: Optional("discoveredOn")
+                    )),
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
                     environment: Nullable<UpdateCalendarResponseSubmissionsItemEnvironment>.value(.test),
@@ -2250,6 +2858,13 @@ import Api
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
                     amendment: 1000000,
+                    authorityRef: Nullable<String>.value("authorityRef"),
+                    correctionInput: Nullable<UpdateCalendarResponseSubmissionsItemCorrectionInput>.value(UpdateCalendarResponseSubmissionsItemCorrectionInput(
+                        reason: Optional("reason"),
+                        reasonCode: Optional("reasonCode"),
+                        authorityReference: Optional("authorityReference"),
+                        discoveredOn: Optional("discoveredOn")
+                    )),
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
                     environment: Nullable<UpdateCalendarResponseSubmissionsItemEnvironment>.value(.test),
@@ -2271,6 +2886,27 @@ import Api
             ],
             canSubmit: true,
             canAmend: true,
+            correction: Nullable<UpdateCalendarResponseCorrection>.value(UpdateCalendarResponseCorrection(
+                required: [
+                    .reason,
+                    .reason
+                ],
+                optional: [
+                    .reason,
+                    .reason
+                ],
+                reasonCodes: [
+                    UpdateCalendarResponseCorrectionReasonCodesItem(
+                        code: "code",
+                        label: "label"
+                    ),
+                    UpdateCalendarResponseCorrectionReasonCodesItem(
+                        code: "code",
+                        label: "label"
+                    )
+                ],
+                carry: true
+            )),
             canDownload: true,
             automated: true
         )

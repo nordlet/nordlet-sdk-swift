@@ -3,16 +3,19 @@ import Foundation
 public struct InvoicesCreatePurchasesResponseWarningsItem: Codable, Hashable, Sendable {
     public let code: String
     public let message: String
+    public let fix: String
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
     public init(
         code: String,
         message: String,
+        fix: String,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.code = code
         self.message = message
+        self.fix = fix
         self.additionalProperties = additionalProperties
     }
 
@@ -20,6 +23,7 @@ public struct InvoicesCreatePurchasesResponseWarningsItem: Codable, Hashable, Se
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.code = try container.decode(String.self, forKey: .code)
         self.message = try container.decode(String.self, forKey: .message)
+        self.fix = try container.decode(String.self, forKey: .fix)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -28,11 +32,13 @@ public struct InvoicesCreatePurchasesResponseWarningsItem: Codable, Hashable, Se
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.code, forKey: .code)
         try container.encode(self.message, forKey: .message)
+        try container.encode(self.fix, forKey: .fix)
     }
 
     /// Keys for encoding/decoding struct properties.
     enum CodingKeys: String, CodingKey, CaseIterable {
         case code
         case message
+        case fix
     }
 }

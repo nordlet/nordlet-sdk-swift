@@ -7,6 +7,8 @@ extension Requests {
         public let reason: AssetsDisposeAssetsRequestReason
         /// Sale price excluding VAT; 0 when scrapped or written off
         public let proceeds: String?
+        /// The issued sales invoice that sold the asset
+        public let saleInvoiceId: String?
         public let notes: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -16,6 +18,7 @@ extension Requests {
             date: CalendarDate,
             reason: AssetsDisposeAssetsRequestReason,
             proceeds: String? = nil,
+            saleInvoiceId: String? = nil,
             notes: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -23,6 +26,7 @@ extension Requests {
             self.date = date
             self.reason = reason
             self.proceeds = proceeds
+            self.saleInvoiceId = saleInvoiceId
             self.notes = notes
             self.additionalProperties = additionalProperties
         }
@@ -33,6 +37,7 @@ extension Requests {
             self.date = try container.decode(CalendarDate.self, forKey: .date)
             self.reason = try container.decode(AssetsDisposeAssetsRequestReason.self, forKey: .reason)
             self.proceeds = try container.decodeIfPresent(String.self, forKey: .proceeds)
+            self.saleInvoiceId = try container.decodeIfPresent(String.self, forKey: .saleInvoiceId)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -44,6 +49,7 @@ extension Requests {
             try container.encode(self.date, forKey: .date)
             try container.encode(self.reason, forKey: .reason)
             try container.encodeIfPresent(self.proceeds, forKey: .proceeds)
+            try container.encodeIfPresent(self.saleInvoiceId, forKey: .saleInvoiceId)
             try container.encodeIfPresent(self.notes, forKey: .notes)
         }
 
@@ -53,6 +59,7 @@ extension Requests {
             case date
             case reason
             case proceeds
+            case saleInvoiceId
             case notes
         }
     }

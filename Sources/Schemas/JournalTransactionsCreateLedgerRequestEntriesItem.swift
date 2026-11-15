@@ -4,6 +4,7 @@ public struct JournalTransactionsCreateLedgerRequestEntriesItem: Codable, Hashab
     public let accountCode: String
     public let costCenterId: String?
     public let projectId: String?
+    public let partnerId: String?
     public let debit: String?
     public let credit: String?
     public let description: String?
@@ -14,6 +15,7 @@ public struct JournalTransactionsCreateLedgerRequestEntriesItem: Codable, Hashab
         accountCode: String,
         costCenterId: String? = nil,
         projectId: String? = nil,
+        partnerId: String? = nil,
         debit: String? = nil,
         credit: String? = nil,
         description: String? = nil,
@@ -22,6 +24,7 @@ public struct JournalTransactionsCreateLedgerRequestEntriesItem: Codable, Hashab
         self.accountCode = accountCode
         self.costCenterId = costCenterId
         self.projectId = projectId
+        self.partnerId = partnerId
         self.debit = debit
         self.credit = credit
         self.description = description
@@ -33,6 +36,7 @@ public struct JournalTransactionsCreateLedgerRequestEntriesItem: Codable, Hashab
         self.accountCode = try container.decode(String.self, forKey: .accountCode)
         self.costCenterId = try container.decodeIfPresent(String.self, forKey: .costCenterId)
         self.projectId = try container.decodeIfPresent(String.self, forKey: .projectId)
+        self.partnerId = try container.decodeIfPresent(String.self, forKey: .partnerId)
         self.debit = try container.decodeIfPresent(String.self, forKey: .debit)
         self.credit = try container.decodeIfPresent(String.self, forKey: .credit)
         self.description = try container.decodeIfPresent(String.self, forKey: .description)
@@ -45,6 +49,7 @@ public struct JournalTransactionsCreateLedgerRequestEntriesItem: Codable, Hashab
         try container.encode(self.accountCode, forKey: .accountCode)
         try container.encodeIfPresent(self.costCenterId, forKey: .costCenterId)
         try container.encodeIfPresent(self.projectId, forKey: .projectId)
+        try container.encodeIfPresent(self.partnerId, forKey: .partnerId)
         try container.encodeIfPresent(self.debit, forKey: .debit)
         try container.encodeIfPresent(self.credit, forKey: .credit)
         try container.encodeIfPresent(self.description, forKey: .description)
@@ -55,6 +60,7 @@ public struct JournalTransactionsCreateLedgerRequestEntriesItem: Codable, Hashab
         case accountCode
         case costCenterId
         case projectId
+        case partnerId
         case debit
         case credit
         case description

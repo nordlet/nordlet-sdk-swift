@@ -40,6 +40,7 @@ extension Requests {
         public let isGroupMember: Bool?
         public let isActive: Bool?
         public let legalCountryClass: FindOrCreatePartnersRequestLegalCountryClass?
+        public let iban: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -80,6 +81,7 @@ extension Requests {
             isGroupMember: Bool? = nil,
             isActive: Bool? = nil,
             legalCountryClass: FindOrCreatePartnersRequestLegalCountryClass? = nil,
+            iban: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.type = type
@@ -118,6 +120,7 @@ extension Requests {
             self.isGroupMember = isGroupMember
             self.isActive = isActive
             self.legalCountryClass = legalCountryClass
+            self.iban = iban
             self.additionalProperties = additionalProperties
         }
 
@@ -159,6 +162,7 @@ extension Requests {
             self.isGroupMember = try container.decodeIfPresent(Bool.self, forKey: .isGroupMember)
             self.isActive = try container.decodeIfPresent(Bool.self, forKey: .isActive)
             self.legalCountryClass = try container.decodeIfPresent(FindOrCreatePartnersRequestLegalCountryClass.self, forKey: .legalCountryClass)
+            self.iban = try container.decodeIfPresent(String.self, forKey: .iban)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -201,6 +205,7 @@ extension Requests {
             try container.encodeIfPresent(self.isGroupMember, forKey: .isGroupMember)
             try container.encodeIfPresent(self.isActive, forKey: .isActive)
             try container.encodeIfPresent(self.legalCountryClass, forKey: .legalCountryClass)
+            try container.encodeIfPresent(self.iban, forKey: .iban)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -241,6 +246,7 @@ extension Requests {
             case isGroupMember
             case isActive
             case legalCountryClass
+            case iban
         }
     }
 }

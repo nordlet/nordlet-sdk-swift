@@ -68,7 +68,8 @@ import Api
                   "warnings": [
                     {
                       "code": "code",
-                      "message": "message"
+                      "message": "message",
+                      "fix": "fix"
                     }
                   ]
                 }
@@ -140,7 +141,8 @@ import Api
             warnings: [
                 InvoicesCreatePurchasesResponseWarningsItem(
                     code: "code",
-                    message: "message"
+                    message: "message",
+                    fix: "fix"
                 )
             ]
         )
@@ -249,11 +251,13 @@ import Api
                   "warnings": [
                     {
                       "code": "code",
-                      "message": "message"
+                      "message": "message",
+                      "fix": "x"
                     },
                     {
                       "code": "code",
-                      "message": "message"
+                      "message": "message",
+                      "fix": "x"
                     }
                   ]
                 }
@@ -349,11 +353,13 @@ import Api
             warnings: [
                 InvoicesCreatePurchasesResponseWarningsItem(
                     code: "code",
-                    message: "message"
+                    message: "message",
+                    fix: "x"
                 ),
                 InvoicesCreatePurchasesResponseWarningsItem(
                     code: "code",
-                    message: "message"
+                    message: "message",
+                    fix: "x"
                 )
             ]
         )
@@ -1133,7 +1139,8 @@ import Api
                   "warnings": [
                     {
                       "code": "code",
-                      "message": "message"
+                      "message": "message",
+                      "fix": "fix"
                     }
                   ]
                 }
@@ -1205,7 +1212,8 @@ import Api
             warnings: [
                 InvoicesRegisterPurchasesResponseWarningsItem(
                     code: "code",
-                    message: "message"
+                    message: "message",
+                    fix: "fix"
                 )
             ]
         )
@@ -1305,11 +1313,13 @@ import Api
                   "warnings": [
                     {
                       "code": "code",
-                      "message": "message"
+                      "message": "message",
+                      "fix": "x"
                     },
                     {
                       "code": "code",
-                      "message": "message"
+                      "message": "message",
+                      "fix": "x"
                     }
                   ]
                 }
@@ -1405,11 +1415,13 @@ import Api
             warnings: [
                 InvoicesRegisterPurchasesResponseWarningsItem(
                     code: "code",
-                    message: "message"
+                    message: "message",
+                    fix: "x"
                 ),
                 InvoicesRegisterPurchasesResponseWarningsItem(
                     code: "code",
-                    message: "message"
+                    message: "message",
+                    fix: "x"
                 )
             ]
         )

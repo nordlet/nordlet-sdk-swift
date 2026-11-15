@@ -4,4 +4,5 @@ public enum TransactionsMatchBankRequestDocumentType: String, Codable, Hashable,
     case saleInvoice = "sale_invoice"
     case purchaseInvoice = "purchase_invoice"
     case payrollRun = "payroll_run"
+    case expenseReport = "expense_report"
 }

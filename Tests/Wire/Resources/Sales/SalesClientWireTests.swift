@@ -28,6 +28,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -88,6 +91,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "lineNet": "lineNet",
@@ -153,7 +157,8 @@ import Api
                   "warnings": [
                     {
                       "code": "code",
-                      "message": "message"
+                      "message": "message",
+                      "fix": "fix"
                     }
                   ]
                 }
@@ -185,6 +190,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -245,6 +253,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     lineNet: "lineNet",
@@ -310,7 +319,8 @@ import Api
             warnings: [
                 InvoicesCreateSalesResponseWarningsItem(
                     code: "code",
-                    message: "message"
+                    message: "message",
+                    fix: "fix"
                 )
             ]
         )
@@ -353,6 +363,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -413,6 +426,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -451,6 +465,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -526,11 +541,13 @@ import Api
                   "warnings": [
                     {
                       "code": "code",
-                      "message": "message"
+                      "message": "message",
+                      "fix": "x"
                     },
                     {
                       "code": "code",
-                      "message": "message"
+                      "message": "message",
+                      "fix": "x"
                     }
                   ]
                 }
@@ -562,6 +579,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -622,6 +642,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -660,6 +681,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -735,11 +757,13 @@ import Api
             warnings: [
                 InvoicesCreateSalesResponseWarningsItem(
                     code: "code",
-                    message: "message"
+                    message: "message",
+                    fix: "x"
                 ),
                 InvoicesCreateSalesResponseWarningsItem(
                     code: "code",
-                    message: "message"
+                    message: "message",
+                    fix: "x"
                 )
             ]
         )
@@ -785,6 +809,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -845,6 +872,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "lineNet": "lineNet",
@@ -936,6 +964,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -996,6 +1027,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     lineNet: "lineNet",
@@ -1091,6 +1123,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -1151,6 +1186,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -1189,6 +1225,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -1290,6 +1327,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -1350,6 +1390,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -1388,6 +1429,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -2361,6 +2403,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -2421,6 +2466,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "lineNet": "lineNet",
@@ -2512,6 +2558,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -2572,6 +2621,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     lineNet: "lineNet",
@@ -2667,6 +2717,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -2727,6 +2780,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -2765,6 +2819,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -2866,6 +2921,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -2926,6 +2984,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -2964,6 +3023,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -3121,6 +3181,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -3181,6 +3244,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "lineNet": "lineNet",
@@ -3246,7 +3310,8 @@ import Api
                   "warnings": [
                     {
                       "code": "code",
-                      "message": "message"
+                      "message": "message",
+                      "fix": "fix"
                     }
                   ]
                 }
@@ -3278,6 +3343,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -3338,6 +3406,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     lineNet: "lineNet",
@@ -3403,7 +3472,8 @@ import Api
             warnings: [
                 InvoicesIssueSalesResponseWarningsItem(
                     code: "code",
-                    message: "message"
+                    message: "message",
+                    fix: "fix"
                 )
             ]
         )
@@ -3439,6 +3509,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -3499,6 +3572,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -3537,6 +3611,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -3612,11 +3687,13 @@ import Api
                   "warnings": [
                     {
                       "code": "code",
-                      "message": "message"
+                      "message": "message",
+                      "fix": "x"
                     },
                     {
                       "code": "code",
-                      "message": "message"
+                      "message": "message",
+                      "fix": "x"
                     }
                   ]
                 }
@@ -3648,6 +3725,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -3708,6 +3788,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -3746,6 +3827,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -3821,11 +3903,13 @@ import Api
             warnings: [
                 InvoicesIssueSalesResponseWarningsItem(
                     code: "code",
-                    message: "message"
+                    message: "message",
+                    fix: "x"
                 ),
                 InvoicesIssueSalesResponseWarningsItem(
                     code: "code",
-                    message: "message"
+                    message: "message",
+                    fix: "x"
                 )
             ]
         )
@@ -3836,7 +3920,7 @@ import Api
         try #require(response == expectedResponse)
     }
 
-    @Test func invoicesLock1() async throws -> Void {
+    @Test func invoicesReverse1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
             body: Foundation.Data(
@@ -3861,6 +3945,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -3921,6 +4008,739 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "assetId",
+                      "costCenterId": "costCenterId",
+                      "projectId": "projectId",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross",
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "2026-07-01",
+                      "recognitionEndDate": "2026-07-01",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "2026-07-01",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
+                    }
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "2026-07-01T09:30:00Z",
+                    "issueDate": "2026-07-01",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "id",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "2026-07-01T09:30:00Z"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "2026-07-01T09:30:00Z"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "importId",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "2026-07-01T09:30:00Z"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": null
+                      }
+                    ]
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesReverseSalesResponse(
+            id: "id",
+            partnerId: "partnerId",
+            type: .invoice,
+            status: .draft,
+            paymentStatus: .unpaid,
+            series: Nullable<String>.value("series"),
+            number: Nullable<Int64>.value(1000000),
+            fullNumber: Nullable<String>.value("fullNumber"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            currency: "currency",
+            fxRate: Nullable<String>.value("fxRate"),
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
+            paidAmount: "paidAmount",
+            journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
+            appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
+            creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            agreementId: Nullable<String>.value("agreementId"),
+            vatScheme: Nullable<InvoicesReverseSalesResponseVatScheme>.value(.domestic),
+            intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+            intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+            intrastatRegion: Nullable<String>.value("intrastatRegion"),
+            intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+            vatCountryCode: Nullable<String>.value("vatCountryCode"),
+            deemedSupplier: true,
+            notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("operationTypeId"),
+            documentSeriesId: Nullable<String>.value("documentSeriesId"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("recurringInvoiceId"),
+            lockedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
+            einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
+            einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
+            einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
+            einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
+            einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
+            lines: [
+                InvoicesReverseSalesResponseLinesItem(
+                    id: "id",
+                    itemId: Nullable<String>.value("itemId"),
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
+                    unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                    unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("assetId"),
+                    costCenterId: Nullable<String>.value("costCenterId"),
+                    projectId: Nullable<String>.value("projectId"),
+                    lineNet: "lineNet",
+                    lineVat: "lineVat",
+                    lineGross: "lineGross",
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    recognitionMilestones: Nullable<[InvoicesReverseSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesReverseSalesResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
+                )
+            ],
+            vatEvidence: Nullable<InvoicesReverseSalesResponseVatEvidence>.value(InvoicesReverseSalesResponseVatEvidence(
+                capturedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2026-07-01")!,
+                scheme: InvoicesReverseSalesResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: InvoicesReverseSalesResponseVatEvidencePartner(
+                    id: "id",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
+                ),
+                vies: Nullable<InvoicesReverseSalesResponseVatEvidenceVies>.value(InvoicesReverseSalesResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )),
+                location: InvoicesReverseSalesResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<InvoicesReverseSalesResponseVatEvidenceRateTable>.value(InvoicesReverseSalesResponseVatEvidenceRateTable(
+                    importId: "importId",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )),
+                rates: [
+                    InvoicesReverseSalesResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: .null
+                    )
+                ]
+            ))
+        )
+        let response = try await client.sales.invoicesReverse(
+            request: .init(
+                id: "id",
+                reason: "reason"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesReverse2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "partnerId": "x",
+                  "type": "invoice",
+                  "status": "draft",
+                  "paymentStatus": "unpaid",
+                  "series": "series",
+                  "number": 1000000,
+                  "fullNumber": "fullNumber",
+                  "issueDate": "2023-01-15",
+                  "dueDate": "2023-01-15",
+                  "currency": "currency",
+                  "fxRate": "fxRate",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
+                  "paidAmount": "paidAmount",
+                  "journalTransactionId": "x",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
+                  "appliedToInvoiceId": "x",
+                  "creditedInvoiceId": "x",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2023-01-15",
+                  "agreementId": "x",
+                  "vatScheme": "domestic",
+                  "intrastatTransportMode": "intrastatTransportMode",
+                  "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                  "intrastatRegion": "intrastatRegion",
+                  "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                  "vatCountryCode": "vatCountryCode",
+                  "deemedSupplier": true,
+                  "notes": "notes",
+                  "documentRef": "documentRef",
+                  "operationTypeId": "x",
+                  "documentSeriesId": "x",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "x",
+                  "lockedAt": "2024-01-15T09:30:00Z",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
+                  "einvoiceSystem": "einvoiceSystem",
+                  "einvoiceTransport": "einvoiceTransport",
+                  "einvoiceMessageId": "einvoiceMessageId",
+                  "einvoiceNumber": "einvoiceNumber",
+                  "einvoiceStatus": "einvoiceStatus",
+                  "einvoiceDetail": "einvoiceDetail",
+                  "einvoiceSentAt": "2024-01-15T09:30:00Z",
+                  "einvoiceCheckedAt": "2024-01-15T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2024-01-15T09:30:00Z",
+                  "peppolCheckedAt": "2024-01-15T09:30:00Z",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "updatedAt": "2024-01-15T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
+                  "lines": [
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
+                      "costCenterId": "x",
+                      "projectId": "x",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross",
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "2023-01-15",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "2023-01-15",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
+                    },
+                    {
+                      "id": "x",
+                      "itemId": "x",
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
+                      "costCenterId": "x",
+                      "projectId": "x",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross",
+                      "sortOrder": 1000000,
+                      "recognitionMethod": "point_in_time",
+                      "recognitionStartDate": "2023-01-15",
+                      "recognitionEndDate": "2023-01-15",
+                      "recognitionMilestones": [
+                        {
+                          "description": "description",
+                          "expectedDate": "2023-01-15",
+                          "percent": "percent"
+                        },
+                        {
+                          "description": "description",
+                          "expectedDate": "2023-01-15",
+                          "percent": "percent"
+                        }
+                      ],
+                      "standaloneSellingPrice": "standaloneSellingPrice",
+                      "allocatedNet": "allocatedNet",
+                      "refundEstimatePercent": "refundEstimatePercent"
+                    }
+                  ],
+                  "vatEvidence": {
+                    "capturedAt": "2024-01-15T09:30:00Z",
+                    "issueDate": "2023-01-15",
+                    "scheme": {
+                      "vatScheme": "vatScheme",
+                      "vatCountryCode": "vatCountryCode",
+                      "deemedSupplier": true
+                    },
+                    "partner": {
+                      "id": "x",
+                      "vatCode": "vatCode",
+                      "vatValid": true,
+                      "vatValidatedAt": "2024-01-15T09:30:00Z"
+                    },
+                    "vies": {
+                      "valid": true,
+                      "countryCode": "countryCode",
+                      "vatNumber": "vatNumber",
+                      "name": "name",
+                      "address": "address",
+                      "requestIdentifier": "requestIdentifier",
+                      "checkedAt": "2024-01-15T09:30:00Z"
+                    },
+                    "location": {
+                      "billingCountryCode": "billingCountryCode",
+                      "source": "source"
+                    },
+                    "rateTable": {
+                      "importId": "x",
+                      "situationOn": "situationOn",
+                      "trigger": "trigger",
+                      "startedAt": "2024-01-15T09:30:00Z"
+                    },
+                    "rates": [
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      },
+                      {
+                        "ratePercent": "ratePercent",
+                        "country": "country",
+                        "category": "category"
+                      }
+                    ]
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesReverseSalesResponse(
+            id: "x",
+            partnerId: "x",
+            type: .invoice,
+            status: .draft,
+            paymentStatus: .unpaid,
+            series: Nullable<String>.value("series"),
+            number: Nullable<Int64>.value(1000000),
+            fullNumber: Nullable<String>.value("fullNumber"),
+            issueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            dueDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            currency: "currency",
+            fxRate: Nullable<String>.value("fxRate"),
+            netTotal: "netTotal",
+            vatTotal: "vatTotal",
+            grossTotal: "grossTotal",
+            salesTaxPercent: Nullable<String>.value("salesTaxPercent"),
+            salesTaxTotal: "salesTaxTotal",
+            paidAmount: "paidAmount",
+            journalTransactionId: Nullable<String>.value("x"),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
+            appliedToInvoiceId: Nullable<String>.value("x"),
+            creditedInvoiceId: Nullable<String>.value("x"),
+            creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
+            creditedInvoiceDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            agreementId: Nullable<String>.value("x"),
+            vatScheme: Nullable<InvoicesReverseSalesResponseVatScheme>.value(.domestic),
+            intrastatTransportMode: Nullable<String>.value("intrastatTransportMode"),
+            intrastatDeliveryTerms: Nullable<String>.value("intrastatDeliveryTerms"),
+            intrastatRegion: Nullable<String>.value("intrastatRegion"),
+            intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
+            vatCountryCode: Nullable<String>.value("vatCountryCode"),
+            deemedSupplier: true,
+            notes: Nullable<String>.value("notes"),
+            documentRef: Nullable<String>.value("documentRef"),
+            operationTypeId: Nullable<String>.value("x"),
+            documentSeriesId: Nullable<String>.value("x"),
+            seriesLabel: Nullable<String>.value("seriesLabel"),
+            discountPercent: "discountPercent",
+            orderNumber: Nullable<String>.value("orderNumber"),
+            issuedByName: Nullable<String>.value("issuedByName"),
+            issuedByTitle: Nullable<String>.value("issuedByTitle"),
+            receivedByName: Nullable<String>.value("receivedByName"),
+            receivedByTitle: Nullable<String>.value("receivedByTitle"),
+            locale: Nullable<String>.value("locale"),
+            recurringInvoiceId: Nullable<String>.value("x"),
+            lockedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            lockedBy: Nullable<String>.value("lockedBy"),
+            payToken: Nullable<String>.value("payToken"),
+            payLinkEnabled: true,
+            debtRemindersEnabled: true,
+            einvoiceSystem: Nullable<String>.value("einvoiceSystem"),
+            einvoiceTransport: Nullable<String>.value("einvoiceTransport"),
+            einvoiceMessageId: Nullable<String>.value("einvoiceMessageId"),
+            einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            einvoiceStatus: Nullable<String>.value("einvoiceStatus"),
+            einvoiceDetail: Nullable<String>.value("einvoiceDetail"),
+            einvoiceSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            einvoiceCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolMessageId: Nullable<String>.value("peppolMessageId"),
+            peppolStatus: Nullable<String>.value("peppolStatus"),
+            peppolDetail: Nullable<String>.value("peppolDetail"),
+            peppolSentAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            peppolCheckedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            advanceAppliedAmount: Nullable<String>.value("advanceAppliedAmount"),
+            lines: [
+                InvoicesReverseSalesResponseLinesItem(
+                    id: "x",
+                    itemId: Nullable<String>.value("x"),
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
+                    unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                    unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
+                    costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
+                    lineNet: "lineNet",
+                    lineVat: "lineVat",
+                    lineGross: "lineGross",
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesReverseSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesReverseSalesResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                            percent: "percent"
+                        ),
+                        InvoicesReverseSalesResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
+                ),
+                InvoicesReverseSalesResponseLinesItem(
+                    id: "x",
+                    itemId: Nullable<String>.value("x"),
+                    description: "description",
+                    unit: "unit",
+                    quantity: "quantity",
+                    unitFactor: "unitFactor",
+                    baseQuantity: "baseQuantity",
+                    unitPriceExclVat: Nullable<String>.value("unitPriceExclVat"),
+                    unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
+                    vatRatePercent: "vatRatePercent",
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
+                    costCenterId: Nullable<String>.value("x"),
+                    projectId: Nullable<String>.value("x"),
+                    lineNet: "lineNet",
+                    lineVat: "lineVat",
+                    lineGross: "lineGross",
+                    sortOrder: 1000000,
+                    recognitionMethod: .pointInTime,
+                    recognitionStartDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    recognitionMilestones: Nullable<[InvoicesReverseSalesResponseLinesItemRecognitionMilestonesItem]>.value([
+                        InvoicesReverseSalesResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                            percent: "percent"
+                        ),
+                        InvoicesReverseSalesResponseLinesItemRecognitionMilestonesItem(
+                            description: "description",
+                            expectedDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                            percent: "percent"
+                        )
+                    ]),
+                    standaloneSellingPrice: Nullable<String>.value("standaloneSellingPrice"),
+                    allocatedNet: Nullable<String>.value("allocatedNet"),
+                    refundEstimatePercent: Nullable<String>.value("refundEstimatePercent")
+                )
+            ],
+            vatEvidence: Nullable<InvoicesReverseSalesResponseVatEvidence>.value(InvoicesReverseSalesResponseVatEvidence(
+                capturedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                issueDate: CalendarDate("2023-01-15")!,
+                scheme: InvoicesReverseSalesResponseVatEvidenceScheme(
+                    vatScheme: Nullable<String>.value("vatScheme"),
+                    vatCountryCode: Nullable<String>.value("vatCountryCode"),
+                    deemedSupplier: true
+                ),
+                partner: InvoicesReverseSalesResponseVatEvidencePartner(
+                    id: "x",
+                    vatCode: Nullable<String>.value("vatCode"),
+                    vatValid: Nullable<Bool>.value(true),
+                    vatValidatedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+                ),
+                vies: Nullable<InvoicesReverseSalesResponseVatEvidenceVies>.value(InvoicesReverseSalesResponseVatEvidenceVies(
+                    valid: true,
+                    countryCode: "countryCode",
+                    vatNumber: "vatNumber",
+                    name: Nullable<String>.value("name"),
+                    address: Nullable<String>.value("address"),
+                    requestIdentifier: Nullable<String>.value("requestIdentifier"),
+                    checkedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )),
+                location: InvoicesReverseSalesResponseVatEvidenceLocation(
+                    billingCountryCode: Nullable<String>.value("billingCountryCode"),
+                    source: Nullable<String>.value("source")
+                ),
+                rateTable: Nullable<InvoicesReverseSalesResponseVatEvidenceRateTable>.value(InvoicesReverseSalesResponseVatEvidenceRateTable(
+                    importId: "x",
+                    situationOn: "situationOn",
+                    trigger: "trigger",
+                    startedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )),
+                rates: [
+                    InvoicesReverseSalesResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    ),
+                    InvoicesReverseSalesResponseVatEvidenceRatesItem(
+                        ratePercent: "ratePercent",
+                        country: "country",
+                        category: Nullable<String>.value("category")
+                    )
+                ]
+            ))
+        )
+        let response = try await client.sales.invoicesReverse(
+            request: .init(
+                id: "x",
+                reason: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesLock1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "partnerId": "partnerId",
+                  "type": "invoice",
+                  "status": "draft",
+                  "paymentStatus": "unpaid",
+                  "series": "series",
+                  "number": 1000000,
+                  "fullNumber": "fullNumber",
+                  "issueDate": "2026-07-01",
+                  "dueDate": "2026-07-01",
+                  "currency": "currency",
+                  "fxRate": "fxRate",
+                  "netTotal": "netTotal",
+                  "vatTotal": "vatTotal",
+                  "grossTotal": "grossTotal",
+                  "salesTaxPercent": "salesTaxPercent",
+                  "salesTaxTotal": "salesTaxTotal",
+                  "paidAmount": "paidAmount",
+                  "journalTransactionId": "journalTransactionId",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
+                  "appliedToInvoiceId": "appliedToInvoiceId",
+                  "creditedInvoiceId": "creditedInvoiceId",
+                  "creditedInvoiceReference": "creditedInvoiceReference",
+                  "creditedInvoiceDate": "2026-07-01",
+                  "agreementId": "agreementId",
+                  "vatScheme": "domestic",
+                  "intrastatTransportMode": "intrastatTransportMode",
+                  "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                  "intrastatRegion": "intrastatRegion",
+                  "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                  "vatCountryCode": "vatCountryCode",
+                  "deemedSupplier": true,
+                  "notes": "notes",
+                  "documentRef": "documentRef",
+                  "operationTypeId": "operationTypeId",
+                  "documentSeriesId": "documentSeriesId",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "locale": "locale",
+                  "recurringInvoiceId": "recurringInvoiceId",
+                  "lockedAt": "2026-07-01T09:30:00Z",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
+                  "payLinkEnabled": true,
+                  "debtRemindersEnabled": true,
+                  "einvoiceSystem": "einvoiceSystem",
+                  "einvoiceTransport": "einvoiceTransport",
+                  "einvoiceMessageId": "einvoiceMessageId",
+                  "einvoiceNumber": "einvoiceNumber",
+                  "einvoiceStatus": "einvoiceStatus",
+                  "einvoiceDetail": "einvoiceDetail",
+                  "einvoiceSentAt": "2026-07-01T09:30:00Z",
+                  "einvoiceCheckedAt": "2026-07-01T09:30:00Z",
+                  "peppolMessageId": "peppolMessageId",
+                  "peppolStatus": "peppolStatus",
+                  "peppolDetail": "peppolDetail",
+                  "peppolSentAt": "2026-07-01T09:30:00Z",
+                  "peppolCheckedAt": "2026-07-01T09:30:00Z",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "updatedAt": "2026-07-01T09:30:00Z",
+                  "advanceAppliedAmount": "advanceAppliedAmount",
+                  "lines": [
+                    {
+                      "id": "id",
+                      "itemId": "itemId",
+                      "description": "description",
+                      "unit": "unit",
+                      "quantity": "quantity",
+                      "unitFactor": "unitFactor",
+                      "baseQuantity": "baseQuantity",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "unitPriceInclVat": "unitPriceInclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "lineNet": "lineNet",
@@ -4012,6 +4832,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -4072,6 +4895,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     lineNet: "lineNet",
@@ -4167,6 +4991,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -4227,6 +5054,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -4265,6 +5093,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -4366,6 +5195,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -4426,6 +5258,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -4464,6 +5297,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -4569,6 +5403,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -4629,6 +5466,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "lineNet": "lineNet",
@@ -4720,6 +5558,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -4780,6 +5621,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     lineNet: "lineNet",
@@ -4875,6 +5717,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -4935,6 +5780,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -4973,6 +5819,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -5074,6 +5921,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -5134,6 +5984,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -5172,6 +6023,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -5621,6 +6473,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
+                  "reversedAt": "2026-07-01T09:30:00Z",
+                  "reversalJournalTransactionId": "reversalJournalTransactionId",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "appliedToInvoiceId",
                   "creditedInvoiceId": "creditedInvoiceId",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -5681,6 +6536,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "lineNet": "lineNet",
@@ -5772,6 +6628,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
+            reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
             creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -5832,6 +6691,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     lineNet: "lineNet",
@@ -5930,6 +6790,9 @@ import Api
                   "salesTaxTotal": "salesTaxTotal",
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
+                  "reversedAt": "2024-01-15T09:30:00Z",
+                  "reversalJournalTransactionId": "x",
+                  "reversalReason": "reversalReason",
                   "appliedToInvoiceId": "x",
                   "creditedInvoiceId": "x",
                   "creditedInvoiceReference": "creditedInvoiceReference",
@@ -5990,6 +6853,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -6028,6 +6892,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
                       "lineNet": "lineNet",
@@ -6129,6 +6994,9 @@ import Api
             salesTaxTotal: "salesTaxTotal",
             paidAmount: "paidAmount",
             journalTransactionId: Nullable<String>.value("x"),
+            reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+            reversalJournalTransactionId: Nullable<String>.value("x"),
+            reversalReason: Nullable<String>.value("reversalReason"),
             appliedToInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceId: Nullable<String>.value("x"),
             creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -6189,6 +7057,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -6227,6 +7096,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     lineNet: "lineNet",
@@ -6337,6 +7207,9 @@ import Api
                       "salesTaxTotal": "salesTaxTotal",
                       "paidAmount": "paidAmount",
                       "journalTransactionId": "journalTransactionId",
+                      "reversedAt": "2026-07-01T09:30:00Z",
+                      "reversalJournalTransactionId": "reversalJournalTransactionId",
+                      "reversalReason": "reversalReason",
                       "appliedToInvoiceId": "appliedToInvoiceId",
                       "creditedInvoiceId": "creditedInvoiceId",
                       "creditedInvoiceReference": "creditedInvoiceReference",
@@ -6428,6 +7301,9 @@ import Api
                     salesTaxTotal: "salesTaxTotal",
                     paidAmount: "paidAmount",
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
+                    reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
+                    reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
+                    reversalReason: Nullable<String>.value("reversalReason"),
                     appliedToInvoiceId: Nullable<String>.value("appliedToInvoiceId"),
                     creditedInvoiceId: Nullable<String>.value("creditedInvoiceId"),
                     creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -6523,6 +7399,9 @@ import Api
                       "salesTaxTotal": "salesTaxTotal",
                       "paidAmount": "paidAmount",
                       "journalTransactionId": "x",
+                      "reversedAt": "2024-01-15T09:30:00Z",
+                      "reversalJournalTransactionId": "x",
+                      "reversalReason": "reversalReason",
                       "appliedToInvoiceId": "x",
                       "creditedInvoiceId": "x",
                       "creditedInvoiceReference": "creditedInvoiceReference",
@@ -6591,6 +7470,9 @@ import Api
                       "salesTaxTotal": "salesTaxTotal",
                       "paidAmount": "paidAmount",
                       "journalTransactionId": "x",
+                      "reversedAt": "2024-01-15T09:30:00Z",
+                      "reversalJournalTransactionId": "x",
+                      "reversalReason": "reversalReason",
                       "appliedToInvoiceId": "x",
                       "creditedInvoiceId": "x",
                       "creditedInvoiceReference": "creditedInvoiceReference",
@@ -6682,6 +7564,9 @@ import Api
                     salesTaxTotal: "salesTaxTotal",
                     paidAmount: "paidAmount",
                     journalTransactionId: Nullable<String>.value("x"),
+                    reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    reversalJournalTransactionId: Nullable<String>.value("x"),
+                    reversalReason: Nullable<String>.value("reversalReason"),
                     appliedToInvoiceId: Nullable<String>.value("x"),
                     creditedInvoiceId: Nullable<String>.value("x"),
                     creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),
@@ -6750,6 +7635,9 @@ import Api
                     salesTaxTotal: "salesTaxTotal",
                     paidAmount: "paidAmount",
                     journalTransactionId: Nullable<String>.value("x"),
+                    reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
+                    reversalJournalTransactionId: Nullable<String>.value("x"),
+                    reversalReason: Nullable<String>.value("reversalReason"),
                     appliedToInvoiceId: Nullable<String>.value("x"),
                     creditedInvoiceId: Nullable<String>.value("x"),
                     creditedInvoiceReference: Nullable<String>.value("creditedInvoiceReference"),

@@ -4,16 +4,22 @@ extension Requests {
     public struct SubmitCalendarRequest: Codable, Hashable, Sendable {
         public let key: String
         public let amend: Bool?
+        public let correction: SubmitCalendarRequestCorrection?
+        public let documentKeys: [String]?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
         public init(
             key: String,
             amend: Bool? = nil,
+            correction: SubmitCalendarRequestCorrection? = nil,
+            documentKeys: [String]? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.key = key
             self.amend = amend
+            self.correction = correction
+            self.documentKeys = documentKeys
             self.additionalProperties = additionalProperties
         }
 
@@ -21,6 +27,8 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.key = try container.decode(String.self, forKey: .key)
             self.amend = try container.decodeIfPresent(Bool.self, forKey: .amend)
+            self.correction = try container.decodeIfPresent(SubmitCalendarRequestCorrection.self, forKey: .correction)
+            self.documentKeys = try container.decodeIfPresent([String].self, forKey: .documentKeys)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -29,12 +37,16 @@ extension Requests {
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.key, forKey: .key)
             try container.encodeIfPresent(self.amend, forKey: .amend)
+            try container.encodeIfPresent(self.correction, forKey: .correction)
+            try container.encodeIfPresent(self.documentKeys, forKey: .documentKeys)
         }
 
         /// Keys for encoding/decoding struct properties.
         enum CodingKeys: String, CodingKey, CaseIterable {
             case key
             case amend
+            case correction
+            case documentKeys
         }
     }
 }

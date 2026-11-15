@@ -412,7 +412,15 @@ import Api
                 #"""
                 {
                   "movementId": "movementId",
-                  "totalCost": "totalCost"
+                  "totalCost": "totalCost",
+                  "journalTransactionId": "journalTransactionId",
+                  "warnings": [
+                    {
+                      "code": "code",
+                      "message": "message",
+                      "fix": "fix"
+                    }
+                  ]
                 }
                 """#.utf8
             )
@@ -424,7 +432,15 @@ import Api
         )
         let expectedResponse = StockReceiveInventoryResponse(
             movementId: "movementId",
-            totalCost: "totalCost"
+            totalCost: "totalCost",
+            journalTransactionId: Optional("journalTransactionId"),
+            warnings: [
+                StockReceiveInventoryResponseWarningsItem(
+                    code: "code",
+                    message: "message",
+                    fix: "fix"
+                )
+            ]
         )
         let response = try await client.inventory.stockReceive(
             request: .init(
@@ -446,7 +462,20 @@ import Api
                 #"""
                 {
                   "movementId": "x",
-                  "totalCost": "totalCost"
+                  "totalCost": "totalCost",
+                  "journalTransactionId": "x",
+                  "warnings": [
+                    {
+                      "code": "code",
+                      "message": "message",
+                      "fix": "x"
+                    },
+                    {
+                      "code": "code",
+                      "message": "message",
+                      "fix": "x"
+                    }
+                  ]
                 }
                 """#.utf8
             )
@@ -458,7 +487,20 @@ import Api
         )
         let expectedResponse = StockReceiveInventoryResponse(
             movementId: "x",
-            totalCost: "totalCost"
+            totalCost: "totalCost",
+            journalTransactionId: Optional("x"),
+            warnings: [
+                StockReceiveInventoryResponseWarningsItem(
+                    code: "code",
+                    message: "message",
+                    fix: "x"
+                ),
+                StockReceiveInventoryResponseWarningsItem(
+                    code: "code",
+                    message: "message",
+                    fix: "x"
+                )
+            ]
         )
         let response = try await client.inventory.stockReceive(
             request: .init(

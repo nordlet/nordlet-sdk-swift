@@ -6347,6 +6347,204 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func vatProrataSet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fiscalYear": 1000000,
+                  "percent": "percent"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = VatProrataSetDeclarationsResponse(
+            fiscalYear: 1000000,
+            percent: "percent"
+        )
+        let response = try await client.declarations.vatProrataSet(
+            request: .init(
+                fiscalYear: 1000000,
+                percent: "percent"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func vatProrataSet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fiscalYear": 1000000,
+                  "percent": "percent"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = VatProrataSetDeclarationsResponse(
+            fiscalYear: 1000000,
+            percent: "percent"
+        )
+        let response = try await client.declarations.vatProrataSet(
+            request: .init(
+                fiscalYear: 1000000,
+                percent: "percent"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func vatProrataGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fiscalYear": 1000000,
+                  "percent": "percent"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = VatProrataGetDeclarationsResponse(
+            fiscalYear: 1000000,
+            percent: "percent"
+        )
+        let response = try await client.declarations.vatProrataGet(
+            request: .init(fiscalYear: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func vatProrataGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fiscalYear": 1000000,
+                  "percent": "percent"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = VatProrataGetDeclarationsResponse(
+            fiscalYear: 1000000,
+            percent: "percent"
+        )
+        let response = try await client.declarations.vatProrataGet(
+            request: .init(fiscalYear: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func vatProrataList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "fiscalYear": 1000000,
+                      "percent": "percent"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = VatProrataListDeclarationsResponse(
+            rows: [
+                VatProrataListDeclarationsResponseRowsItem(
+                    fiscalYear: 1000000,
+                    percent: "percent"
+                )
+            ]
+        )
+        let response = try await client.declarations.vatProrataList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func vatProrataList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "fiscalYear": 1000000,
+                      "percent": "percent"
+                    },
+                    {
+                      "fiscalYear": 1000000,
+                      "percent": "percent"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = VatProrataListDeclarationsResponse(
+            rows: [
+                VatProrataListDeclarationsResponseRowsItem(
+                    fiscalYear: 1000000,
+                    percent: "percent"
+                ),
+                VatProrataListDeclarationsResponseRowsItem(
+                    fiscalYear: 1000000,
+                    percent: "percent"
+                )
+            ]
+        )
+        let response = try await client.declarations.vatProrataList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func annualAccountsGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -14305,6 +14503,13 @@ import Api
                   "period": "period",
                   "documentKey": "documentKey",
                   "amendment": 1000000,
+                  "authorityRef": "authorityRef",
+                  "correctionInput": {
+                    "reason": "reason",
+                    "reasonCode": "reasonCode",
+                    "authorityReference": "authorityReference",
+                    "discoveredOn": "discoveredOn"
+                  },
                   "origin": "origin",
                   "transportSystem": "transportSystem",
                   "environment": "test",
@@ -14346,6 +14551,13 @@ import Api
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
             amendment: 1000000,
+            authorityRef: Nullable<String>.value("authorityRef"),
+            correctionInput: Nullable<SubmissionsRetryDeclarationsResponseCorrectionInput>.value(SubmissionsRetryDeclarationsResponseCorrectionInput(
+                reason: Optional("reason"),
+                reasonCode: Optional("reasonCode"),
+                authorityReference: Optional("authorityReference"),
+                discoveredOn: Optional("discoveredOn")
+            )),
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
             environment: Nullable<SubmissionsRetryDeclarationsResponseEnvironment>.value(.test),
@@ -14391,6 +14603,13 @@ import Api
                   "period": "period",
                   "documentKey": "documentKey",
                   "amendment": 1000000,
+                  "authorityRef": "authorityRef",
+                  "correctionInput": {
+                    "reason": "reason",
+                    "reasonCode": "reasonCode",
+                    "authorityReference": "authorityReference",
+                    "discoveredOn": "discoveredOn"
+                  },
                   "origin": "origin",
                   "transportSystem": "transportSystem",
                   "environment": "test",
@@ -14432,6 +14651,13 @@ import Api
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
             amendment: 1000000,
+            authorityRef: Nullable<String>.value("authorityRef"),
+            correctionInput: Nullable<SubmissionsRetryDeclarationsResponseCorrectionInput>.value(SubmissionsRetryDeclarationsResponseCorrectionInput(
+                reason: Optional("reason"),
+                reasonCode: Optional("reasonCode"),
+                authorityReference: Optional("authorityReference"),
+                discoveredOn: Optional("discoveredOn")
+            )),
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
             environment: Nullable<SubmissionsRetryDeclarationsResponseEnvironment>.value(.test),
@@ -14477,6 +14703,13 @@ import Api
                   "period": "period",
                   "documentKey": "documentKey",
                   "amendment": 1000000,
+                  "authorityRef": "authorityRef",
+                  "correctionInput": {
+                    "reason": "reason",
+                    "reasonCode": "reasonCode",
+                    "authorityReference": "authorityReference",
+                    "discoveredOn": "discoveredOn"
+                  },
                   "origin": "origin",
                   "transportSystem": "transportSystem",
                   "environment": "test",
@@ -14518,6 +14751,13 @@ import Api
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
             amendment: 1000000,
+            authorityRef: Nullable<String>.value("authorityRef"),
+            correctionInput: Nullable<SubmissionsConfirmDeclarationsResponseCorrectionInput>.value(SubmissionsConfirmDeclarationsResponseCorrectionInput(
+                reason: Optional("reason"),
+                reasonCode: Optional("reasonCode"),
+                authorityReference: Optional("authorityReference"),
+                discoveredOn: Optional("discoveredOn")
+            )),
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
             environment: Nullable<SubmissionsConfirmDeclarationsResponseEnvironment>.value(.test),
@@ -14563,6 +14803,13 @@ import Api
                   "period": "period",
                   "documentKey": "documentKey",
                   "amendment": 1000000,
+                  "authorityRef": "authorityRef",
+                  "correctionInput": {
+                    "reason": "reason",
+                    "reasonCode": "reasonCode",
+                    "authorityReference": "authorityReference",
+                    "discoveredOn": "discoveredOn"
+                  },
                   "origin": "origin",
                   "transportSystem": "transportSystem",
                   "environment": "test",
@@ -14604,6 +14851,13 @@ import Api
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
             amendment: 1000000,
+            authorityRef: Nullable<String>.value("authorityRef"),
+            correctionInput: Nullable<SubmissionsConfirmDeclarationsResponseCorrectionInput>.value(SubmissionsConfirmDeclarationsResponseCorrectionInput(
+                reason: Optional("reason"),
+                reasonCode: Optional("reasonCode"),
+                authorityReference: Optional("authorityReference"),
+                discoveredOn: Optional("discoveredOn")
+            )),
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
             environment: Nullable<SubmissionsConfirmDeclarationsResponseEnvironment>.value(.test),
@@ -14623,6 +14877,106 @@ import Api
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.declarations.submissionsConfirm(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func submissionsCorrectionPreview1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "needed": true,
+                  "changeCount": 1000000,
+                  "changes": [
+                    {
+                      "field": "field",
+                      "line": 1000000,
+                      "filed": "filed",
+                      "current": "current"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SubmissionsCorrectionPreviewDeclarationsResponse(
+            needed: true,
+            changeCount: 1000000,
+            changes: [
+                SubmissionsCorrectionPreviewDeclarationsResponseChangesItem(
+                    field: Nullable<String>.value("field"),
+                    line: Nullable<Int64>.value(1000000),
+                    filed: Nullable<String>.value("filed"),
+                    current: Nullable<String>.value("current")
+                )
+            ]
+        )
+        let response = try await client.declarations.submissionsCorrectionPreview(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func submissionsCorrectionPreview2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "needed": true,
+                  "changeCount": 1000000,
+                  "changes": [
+                    {
+                      "field": "field",
+                      "line": 1000000,
+                      "filed": "filed",
+                      "current": "current"
+                    },
+                    {
+                      "field": "field",
+                      "line": 1000000,
+                      "filed": "filed",
+                      "current": "current"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SubmissionsCorrectionPreviewDeclarationsResponse(
+            needed: true,
+            changeCount: 1000000,
+            changes: [
+                SubmissionsCorrectionPreviewDeclarationsResponseChangesItem(
+                    field: Nullable<String>.value("field"),
+                    line: Nullable<Int64>.value(1000000),
+                    filed: Nullable<String>.value("filed"),
+                    current: Nullable<String>.value("current")
+                ),
+                SubmissionsCorrectionPreviewDeclarationsResponseChangesItem(
+                    field: Nullable<String>.value("field"),
+                    line: Nullable<Int64>.value(1000000),
+                    filed: Nullable<String>.value("filed"),
+                    current: Nullable<String>.value("current")
+                )
+            ]
+        )
+        let response = try await client.declarations.submissionsCorrectionPreview(
             request: .init(id: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
@@ -14649,6 +15003,13 @@ import Api
                   "period": "period",
                   "documentKey": "documentKey",
                   "amendment": 1000000,
+                  "authorityRef": "authorityRef",
+                  "correctionInput": {
+                    "reason": "reason",
+                    "reasonCode": "reasonCode",
+                    "authorityReference": "authorityReference",
+                    "discoveredOn": "discoveredOn"
+                  },
                   "origin": "origin",
                   "transportSystem": "transportSystem",
                   "environment": "test",
@@ -14693,6 +15054,13 @@ import Api
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
             amendment: 1000000,
+            authorityRef: Nullable<String>.value("authorityRef"),
+            correctionInput: Nullable<SubmissionsCreateDeclarationsResponseCorrectionInput>.value(SubmissionsCreateDeclarationsResponseCorrectionInput(
+                reason: Optional("reason"),
+                reasonCode: Optional("reasonCode"),
+                authorityReference: Optional("authorityReference"),
+                discoveredOn: Optional("discoveredOn")
+            )),
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
             environment: Nullable<SubmissionsCreateDeclarationsResponseEnvironment>.value(.test),
@@ -14745,6 +15113,13 @@ import Api
                   "period": "period",
                   "documentKey": "documentKey",
                   "amendment": 1000000,
+                  "authorityRef": "authorityRef",
+                  "correctionInput": {
+                    "reason": "reason",
+                    "reasonCode": "reasonCode",
+                    "authorityReference": "authorityReference",
+                    "discoveredOn": "discoveredOn"
+                  },
                   "origin": "origin",
                   "transportSystem": "transportSystem",
                   "environment": "test",
@@ -14790,6 +15165,13 @@ import Api
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
             amendment: 1000000,
+            authorityRef: Nullable<String>.value("authorityRef"),
+            correctionInput: Nullable<SubmissionsCreateDeclarationsResponseCorrectionInput>.value(SubmissionsCreateDeclarationsResponseCorrectionInput(
+                reason: Optional("reason"),
+                reasonCode: Optional("reasonCode"),
+                authorityReference: Optional("authorityReference"),
+                discoveredOn: Optional("discoveredOn")
+            )),
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
             environment: Nullable<SubmissionsCreateDeclarationsResponseEnvironment>.value(.test),
@@ -14843,6 +15225,13 @@ import Api
                   "period": "period",
                   "documentKey": "documentKey",
                   "amendment": 1000000,
+                  "authorityRef": "authorityRef",
+                  "correctionInput": {
+                    "reason": "reason",
+                    "reasonCode": "reasonCode",
+                    "authorityReference": "authorityReference",
+                    "discoveredOn": "discoveredOn"
+                  },
                   "origin": "origin",
                   "transportSystem": "transportSystem",
                   "environment": "test",
@@ -14884,6 +15273,13 @@ import Api
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
             amendment: 1000000,
+            authorityRef: Nullable<String>.value("authorityRef"),
+            correctionInput: Nullable<SubmissionsMarkDeclarationsResponseCorrectionInput>.value(SubmissionsMarkDeclarationsResponseCorrectionInput(
+                reason: Optional("reason"),
+                reasonCode: Optional("reasonCode"),
+                authorityReference: Optional("authorityReference"),
+                discoveredOn: Optional("discoveredOn")
+            )),
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
             environment: Nullable<SubmissionsMarkDeclarationsResponseEnvironment>.value(.test),
@@ -14932,6 +15328,13 @@ import Api
                   "period": "period",
                   "documentKey": "documentKey",
                   "amendment": 1000000,
+                  "authorityRef": "authorityRef",
+                  "correctionInput": {
+                    "reason": "reason",
+                    "reasonCode": "reasonCode",
+                    "authorityReference": "authorityReference",
+                    "discoveredOn": "discoveredOn"
+                  },
                   "origin": "origin",
                   "transportSystem": "transportSystem",
                   "environment": "test",
@@ -14973,6 +15376,13 @@ import Api
             period: Nullable<String>.value("period"),
             documentKey: Nullable<String>.value("documentKey"),
             amendment: 1000000,
+            authorityRef: Nullable<String>.value("authorityRef"),
+            correctionInput: Nullable<SubmissionsMarkDeclarationsResponseCorrectionInput>.value(SubmissionsMarkDeclarationsResponseCorrectionInput(
+                reason: Optional("reason"),
+                reasonCode: Optional("reasonCode"),
+                authorityReference: Optional("authorityReference"),
+                discoveredOn: Optional("discoveredOn")
+            )),
             origin: "origin",
             transportSystem: Nullable<String>.value("transportSystem"),
             environment: Nullable<SubmissionsMarkDeclarationsResponseEnvironment>.value(.test),
@@ -15023,6 +15433,8 @@ import Api
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {},
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -15039,7 +15451,23 @@ import Api
                       "submittedByActorType": "submittedByActorType",
                       "submittedByActorId": "submittedByActorId",
                       "createdAt": "2026-07-01T09:30:00Z",
-                      "updatedAt": "2026-07-01T09:30:00Z"
+                      "updatedAt": "2026-07-01T09:30:00Z",
+                      "canAmend": true,
+                      "correction": {
+                        "required": [
+                          "reason"
+                        ],
+                        "optional": [
+                          "reason"
+                        ],
+                        "reasonCodes": [
+                          {
+                            "code": "code",
+                            "label": "label"
+                          }
+                        ],
+                        "carry": true
+                      }
                     }
                   ],
                   "page": 1000000,
@@ -15079,6 +15507,10 @@ import Api
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
                     amendment: 1000000,
+                    authorityRef: Nullable<String>.value("authorityRef"),
+                    correctionInput: Nullable<SubmissionsListDeclarationsResponseRowsItemCorrectionInput>.value(SubmissionsListDeclarationsResponseRowsItemCorrectionInput(
+
+                    )),
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
                     environment: Nullable<SubmissionsListDeclarationsResponseRowsItemEnvironment>.value(.test),
@@ -15095,7 +15527,23 @@ import Api
                     submittedByActorType: Nullable<String>.value("submittedByActorType"),
                     submittedByActorId: Nullable<String>.value("submittedByActorId"),
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
-                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                    updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+                    canAmend: true,
+                    correction: Nullable<SubmissionsListDeclarationsResponseRowsItemCorrection>.value(SubmissionsListDeclarationsResponseRowsItemCorrection(
+                        required: [
+                            .reason
+                        ],
+                        optional: [
+                            .reason
+                        ],
+                        reasonCodes: [
+                            SubmissionsListDeclarationsResponseRowsItemCorrectionReasonCodesItem(
+                                code: "code",
+                                label: "label"
+                            )
+                        ],
+                        carry: true
+                    ))
                 )
             ],
             page: 1000000,
@@ -15139,6 +15587,13 @@ import Api
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {
+                        "reason": "reason",
+                        "reasonCode": "reasonCode",
+                        "authorityReference": "authorityReference",
+                        "discoveredOn": "discoveredOn"
+                      },
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -15155,7 +15610,29 @@ import Api
                       "submittedByActorType": "submittedByActorType",
                       "submittedByActorId": "submittedByActorId",
                       "createdAt": "2024-01-15T09:30:00Z",
-                      "updatedAt": "2024-01-15T09:30:00Z"
+                      "updatedAt": "2024-01-15T09:30:00Z",
+                      "canAmend": true,
+                      "correction": {
+                        "required": [
+                          "reason",
+                          "reason"
+                        ],
+                        "optional": [
+                          "reason",
+                          "reason"
+                        ],
+                        "reasonCodes": [
+                          {
+                            "code": "code",
+                            "label": "label"
+                          },
+                          {
+                            "code": "code",
+                            "label": "label"
+                          }
+                        ],
+                        "carry": true
+                      }
                     },
                     {
                       "id": "x",
@@ -15172,6 +15649,13 @@ import Api
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {
+                        "reason": "reason",
+                        "reasonCode": "reasonCode",
+                        "authorityReference": "authorityReference",
+                        "discoveredOn": "discoveredOn"
+                      },
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -15188,7 +15672,29 @@ import Api
                       "submittedByActorType": "submittedByActorType",
                       "submittedByActorId": "submittedByActorId",
                       "createdAt": "2024-01-15T09:30:00Z",
-                      "updatedAt": "2024-01-15T09:30:00Z"
+                      "updatedAt": "2024-01-15T09:30:00Z",
+                      "canAmend": true,
+                      "correction": {
+                        "required": [
+                          "reason",
+                          "reason"
+                        ],
+                        "optional": [
+                          "reason",
+                          "reason"
+                        ],
+                        "reasonCodes": [
+                          {
+                            "code": "code",
+                            "label": "label"
+                          },
+                          {
+                            "code": "code",
+                            "label": "label"
+                          }
+                        ],
+                        "carry": true
+                      }
                     }
                   ],
                   "page": 1000000,
@@ -15228,6 +15734,13 @@ import Api
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
                     amendment: 1000000,
+                    authorityRef: Nullable<String>.value("authorityRef"),
+                    correctionInput: Nullable<SubmissionsListDeclarationsResponseRowsItemCorrectionInput>.value(SubmissionsListDeclarationsResponseRowsItemCorrectionInput(
+                        reason: Optional("reason"),
+                        reasonCode: Optional("reasonCode"),
+                        authorityReference: Optional("authorityReference"),
+                        discoveredOn: Optional("discoveredOn")
+                    )),
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
                     environment: Nullable<SubmissionsListDeclarationsResponseRowsItemEnvironment>.value(.test),
@@ -15244,7 +15757,29 @@ import Api
                     submittedByActorType: Nullable<String>.value("submittedByActorType"),
                     submittedByActorId: Nullable<String>.value("submittedByActorId"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
-                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    canAmend: true,
+                    correction: Nullable<SubmissionsListDeclarationsResponseRowsItemCorrection>.value(SubmissionsListDeclarationsResponseRowsItemCorrection(
+                        required: [
+                            .reason,
+                            .reason
+                        ],
+                        optional: [
+                            .reason,
+                            .reason
+                        ],
+                        reasonCodes: [
+                            SubmissionsListDeclarationsResponseRowsItemCorrectionReasonCodesItem(
+                                code: "code",
+                                label: "label"
+                            ),
+                            SubmissionsListDeclarationsResponseRowsItemCorrectionReasonCodesItem(
+                                code: "code",
+                                label: "label"
+                            )
+                        ],
+                        carry: true
+                    ))
                 ),
                 SubmissionsListDeclarationsResponseRowsItem(
                     id: "x",
@@ -15261,6 +15796,13 @@ import Api
                     period: Nullable<String>.value("period"),
                     documentKey: Nullable<String>.value("documentKey"),
                     amendment: 1000000,
+                    authorityRef: Nullable<String>.value("authorityRef"),
+                    correctionInput: Nullable<SubmissionsListDeclarationsResponseRowsItemCorrectionInput>.value(SubmissionsListDeclarationsResponseRowsItemCorrectionInput(
+                        reason: Optional("reason"),
+                        reasonCode: Optional("reasonCode"),
+                        authorityReference: Optional("authorityReference"),
+                        discoveredOn: Optional("discoveredOn")
+                    )),
                     origin: "origin",
                     transportSystem: Nullable<String>.value("transportSystem"),
                     environment: Nullable<SubmissionsListDeclarationsResponseRowsItemEnvironment>.value(.test),
@@ -15277,7 +15819,29 @@ import Api
                     submittedByActorType: Nullable<String>.value("submittedByActorType"),
                     submittedByActorId: Nullable<String>.value("submittedByActorId"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
-                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                    updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+                    canAmend: true,
+                    correction: Nullable<SubmissionsListDeclarationsResponseRowsItemCorrection>.value(SubmissionsListDeclarationsResponseRowsItemCorrection(
+                        required: [
+                            .reason,
+                            .reason
+                        ],
+                        optional: [
+                            .reason,
+                            .reason
+                        ],
+                        reasonCodes: [
+                            SubmissionsListDeclarationsResponseRowsItemCorrectionReasonCodesItem(
+                                code: "code",
+                                label: "label"
+                            ),
+                            SubmissionsListDeclarationsResponseRowsItemCorrectionReasonCodesItem(
+                                code: "code",
+                                label: "label"
+                            )
+                        ],
+                        carry: true
+                    ))
                 )
             ],
             page: 1000000,

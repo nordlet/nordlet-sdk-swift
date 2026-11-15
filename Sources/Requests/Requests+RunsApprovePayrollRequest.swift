@@ -6,6 +6,8 @@ extension Requests {
         public let wageAccountCode: String?
         public let employerAccountCode: String?
         public let payableAccountCode: String?
+        public let incomeTaxAccountCode: String?
+        public let socialContributionsAccountCode: String?
         public let gpmAccountCode: String?
         public let sodraAccountCode: String?
         public let employerSocialAccountCode: String?
@@ -18,6 +20,8 @@ extension Requests {
             wageAccountCode: String? = nil,
             employerAccountCode: String? = nil,
             payableAccountCode: String? = nil,
+            incomeTaxAccountCode: String? = nil,
+            socialContributionsAccountCode: String? = nil,
             gpmAccountCode: String? = nil,
             sodraAccountCode: String? = nil,
             employerSocialAccountCode: String? = nil,
@@ -28,6 +32,8 @@ extension Requests {
             self.wageAccountCode = wageAccountCode
             self.employerAccountCode = employerAccountCode
             self.payableAccountCode = payableAccountCode
+            self.incomeTaxAccountCode = incomeTaxAccountCode
+            self.socialContributionsAccountCode = socialContributionsAccountCode
             self.gpmAccountCode = gpmAccountCode
             self.sodraAccountCode = sodraAccountCode
             self.employerSocialAccountCode = employerSocialAccountCode
@@ -41,6 +47,8 @@ extension Requests {
             self.wageAccountCode = try container.decodeIfPresent(String.self, forKey: .wageAccountCode)
             self.employerAccountCode = try container.decodeIfPresent(String.self, forKey: .employerAccountCode)
             self.payableAccountCode = try container.decodeIfPresent(String.self, forKey: .payableAccountCode)
+            self.incomeTaxAccountCode = try container.decodeIfPresent(String.self, forKey: .incomeTaxAccountCode)
+            self.socialContributionsAccountCode = try container.decodeIfPresent(String.self, forKey: .socialContributionsAccountCode)
             self.gpmAccountCode = try container.decodeIfPresent(String.self, forKey: .gpmAccountCode)
             self.sodraAccountCode = try container.decodeIfPresent(String.self, forKey: .sodraAccountCode)
             self.employerSocialAccountCode = try container.decodeIfPresent(String.self, forKey: .employerSocialAccountCode)
@@ -55,6 +63,8 @@ extension Requests {
             try container.encodeIfPresent(self.wageAccountCode, forKey: .wageAccountCode)
             try container.encodeIfPresent(self.employerAccountCode, forKey: .employerAccountCode)
             try container.encodeIfPresent(self.payableAccountCode, forKey: .payableAccountCode)
+            try container.encodeIfPresent(self.incomeTaxAccountCode, forKey: .incomeTaxAccountCode)
+            try container.encodeIfPresent(self.socialContributionsAccountCode, forKey: .socialContributionsAccountCode)
             try container.encodeIfPresent(self.gpmAccountCode, forKey: .gpmAccountCode)
             try container.encodeIfPresent(self.sodraAccountCode, forKey: .sodraAccountCode)
             try container.encodeIfPresent(self.employerSocialAccountCode, forKey: .employerSocialAccountCode)
@@ -67,6 +77,8 @@ extension Requests {
             case wageAccountCode
             case employerAccountCode
             case payableAccountCode
+            case incomeTaxAccountCode
+            case socialContributionsAccountCode
             case gpmAccountCode
             case sodraAccountCode
             case employerSocialAccountCode

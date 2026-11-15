@@ -17,6 +17,7 @@ public final class ApiClient: Sendable {
     public let officers: OfficersClient
     public let platformSellers: PlatformSellersClient
     public let migration: MigrationClient
+    public let review: ReviewClient
     public let assets: AssetsClient
     public let hr: HrClient
     public let fleet: FleetClient
@@ -132,6 +133,7 @@ public final class ApiClient: Sendable {
         self.officers = OfficersClient(config: config)
         self.platformSellers = PlatformSellersClient(config: config)
         self.migration = MigrationClient(config: config)
+        self.review = ReviewClient(config: config)
         self.assets = AssetsClient(config: config)
         self.hr = HrClient(config: config)
         self.fleet = FleetClient(config: config)

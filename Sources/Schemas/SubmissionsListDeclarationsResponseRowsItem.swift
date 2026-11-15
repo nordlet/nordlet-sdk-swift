@@ -15,6 +15,8 @@ public struct SubmissionsListDeclarationsResponseRowsItem: Codable, Hashable, Se
     public let period: Nullable<String>
     public let documentKey: Nullable<String>
     public let amendment: Int64
+    public let authorityRef: Nullable<String>
+    public let correctionInput: Nullable<SubmissionsListDeclarationsResponseRowsItemCorrectionInput>
     public let origin: String
     public let transportSystem: Nullable<String>
     public let environment: Nullable<SubmissionsListDeclarationsResponseRowsItemEnvironment>
@@ -32,6 +34,8 @@ public struct SubmissionsListDeclarationsResponseRowsItem: Codable, Hashable, Se
     public let submittedByActorId: Nullable<String>
     public let createdAt: Date
     public let updatedAt: Date
+    public let canAmend: Bool
+    public let correction: Nullable<SubmissionsListDeclarationsResponseRowsItemCorrection>
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -50,6 +54,8 @@ public struct SubmissionsListDeclarationsResponseRowsItem: Codable, Hashable, Se
         period: Nullable<String>,
         documentKey: Nullable<String>,
         amendment: Int64,
+        authorityRef: Nullable<String>,
+        correctionInput: Nullable<SubmissionsListDeclarationsResponseRowsItemCorrectionInput>,
         origin: String,
         transportSystem: Nullable<String>,
         environment: Nullable<SubmissionsListDeclarationsResponseRowsItemEnvironment>,
@@ -67,6 +73,8 @@ public struct SubmissionsListDeclarationsResponseRowsItem: Codable, Hashable, Se
         submittedByActorId: Nullable<String>,
         createdAt: Date,
         updatedAt: Date,
+        canAmend: Bool,
+        correction: Nullable<SubmissionsListDeclarationsResponseRowsItemCorrection>,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.id = id
@@ -83,6 +91,8 @@ public struct SubmissionsListDeclarationsResponseRowsItem: Codable, Hashable, Se
         self.period = period
         self.documentKey = documentKey
         self.amendment = amendment
+        self.authorityRef = authorityRef
+        self.correctionInput = correctionInput
         self.origin = origin
         self.transportSystem = transportSystem
         self.environment = environment
@@ -100,6 +110,8 @@ public struct SubmissionsListDeclarationsResponseRowsItem: Codable, Hashable, Se
         self.submittedByActorId = submittedByActorId
         self.createdAt = createdAt
         self.updatedAt = updatedAt
+        self.canAmend = canAmend
+        self.correction = correction
         self.additionalProperties = additionalProperties
     }
 
@@ -119,6 +131,8 @@ public struct SubmissionsListDeclarationsResponseRowsItem: Codable, Hashable, Se
         self.period = try container.decode(Nullable<String>.self, forKey: .period)
         self.documentKey = try container.decode(Nullable<String>.self, forKey: .documentKey)
         self.amendment = try container.decode(Int64.self, forKey: .amendment)
+        self.authorityRef = try container.decode(Nullable<String>.self, forKey: .authorityRef)
+        self.correctionInput = try container.decode(Nullable<SubmissionsListDeclarationsResponseRowsItemCorrectionInput>.self, forKey: .correctionInput)
         self.origin = try container.decode(String.self, forKey: .origin)
         self.transportSystem = try container.decode(Nullable<String>.self, forKey: .transportSystem)
         self.environment = try container.decode(Nullable<SubmissionsListDeclarationsResponseRowsItemEnvironment>.self, forKey: .environment)
@@ -136,6 +150,8 @@ public struct SubmissionsListDeclarationsResponseRowsItem: Codable, Hashable, Se
         self.submittedByActorId = try container.decode(Nullable<String>.self, forKey: .submittedByActorId)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.updatedAt = try container.decode(Date.self, forKey: .updatedAt)
+        self.canAmend = try container.decode(Bool.self, forKey: .canAmend)
+        self.correction = try container.decode(Nullable<SubmissionsListDeclarationsResponseRowsItemCorrection>.self, forKey: .correction)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -156,6 +172,8 @@ public struct SubmissionsListDeclarationsResponseRowsItem: Codable, Hashable, Se
         try container.encode(self.period, forKey: .period)
         try container.encode(self.documentKey, forKey: .documentKey)
         try container.encode(self.amendment, forKey: .amendment)
+        try container.encode(self.authorityRef, forKey: .authorityRef)
+        try container.encode(self.correctionInput, forKey: .correctionInput)
         try container.encode(self.origin, forKey: .origin)
         try container.encode(self.transportSystem, forKey: .transportSystem)
         try container.encode(self.environment, forKey: .environment)
@@ -173,6 +191,8 @@ public struct SubmissionsListDeclarationsResponseRowsItem: Codable, Hashable, Se
         try container.encode(self.submittedByActorId, forKey: .submittedByActorId)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
+        try container.encode(self.canAmend, forKey: .canAmend)
+        try container.encode(self.correction, forKey: .correction)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -191,6 +211,8 @@ public struct SubmissionsListDeclarationsResponseRowsItem: Codable, Hashable, Se
         case period
         case documentKey
         case amendment
+        case authorityRef
+        case correctionInput
         case origin
         case transportSystem
         case environment
@@ -208,5 +230,7 @@ public struct SubmissionsListDeclarationsResponseRowsItem: Codable, Hashable, Se
         case submittedByActorId
         case createdAt
         case updatedAt
+        case canAmend
+        case correction
     }
 }
