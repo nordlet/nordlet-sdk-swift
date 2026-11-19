@@ -11,6 +11,12 @@ extension Requests {
         public let phone: Nullable<String>?
         public let address: Nullable<EmployeesUpdateHrRequestAddress>?
         public let iban: Nullable<String>?
+        /// Sort code, routing number or other national bank code, for an account without an IBAN
+        public let bankCode: Nullable<String>?
+        /// Account number, for an account without an IBAN
+        public let bankAccountNumber: Nullable<String>?
+        /// Checking or savings account; a US ACH file needs it
+        public let bankAccountType: Nullable<EmployeesUpdateHrRequestBankAccountType>?
         public let socialInsuranceNo: Nullable<String>?
         public let socialInsuranceStart: Nullable<CalendarDate>?
         public let hireDate: Nullable<CalendarDate>?
@@ -36,6 +42,9 @@ extension Requests {
             phone: Nullable<String>? = nil,
             address: Nullable<EmployeesUpdateHrRequestAddress>? = nil,
             iban: Nullable<String>? = nil,
+            bankCode: Nullable<String>? = nil,
+            bankAccountNumber: Nullable<String>? = nil,
+            bankAccountType: Nullable<EmployeesUpdateHrRequestBankAccountType>? = nil,
             socialInsuranceNo: Nullable<String>? = nil,
             socialInsuranceStart: Nullable<CalendarDate>? = nil,
             hireDate: Nullable<CalendarDate>? = nil,
@@ -59,6 +68,9 @@ extension Requests {
             self.phone = phone
             self.address = address
             self.iban = iban
+            self.bankCode = bankCode
+            self.bankAccountNumber = bankAccountNumber
+            self.bankAccountType = bankAccountType
             self.socialInsuranceNo = socialInsuranceNo
             self.socialInsuranceStart = socialInsuranceStart
             self.hireDate = hireDate
@@ -85,6 +97,9 @@ extension Requests {
             self.phone = try container.decodeNullableIfPresent(String.self, forKey: .phone)
             self.address = try container.decodeNullableIfPresent(EmployeesUpdateHrRequestAddress.self, forKey: .address)
             self.iban = try container.decodeNullableIfPresent(String.self, forKey: .iban)
+            self.bankCode = try container.decodeNullableIfPresent(String.self, forKey: .bankCode)
+            self.bankAccountNumber = try container.decodeNullableIfPresent(String.self, forKey: .bankAccountNumber)
+            self.bankAccountType = try container.decodeNullableIfPresent(EmployeesUpdateHrRequestBankAccountType.self, forKey: .bankAccountType)
             self.socialInsuranceNo = try container.decodeNullableIfPresent(String.self, forKey: .socialInsuranceNo)
             self.socialInsuranceStart = try container.decodeNullableIfPresent(CalendarDate.self, forKey: .socialInsuranceStart)
             self.hireDate = try container.decodeNullableIfPresent(CalendarDate.self, forKey: .hireDate)
@@ -112,6 +127,9 @@ extension Requests {
             try container.encodeNullableIfPresent(self.phone, forKey: .phone)
             try container.encodeNullableIfPresent(self.address, forKey: .address)
             try container.encodeNullableIfPresent(self.iban, forKey: .iban)
+            try container.encodeNullableIfPresent(self.bankCode, forKey: .bankCode)
+            try container.encodeNullableIfPresent(self.bankAccountNumber, forKey: .bankAccountNumber)
+            try container.encodeNullableIfPresent(self.bankAccountType, forKey: .bankAccountType)
             try container.encodeNullableIfPresent(self.socialInsuranceNo, forKey: .socialInsuranceNo)
             try container.encodeNullableIfPresent(self.socialInsuranceStart, forKey: .socialInsuranceStart)
             try container.encodeNullableIfPresent(self.hireDate, forKey: .hireDate)
@@ -137,6 +155,9 @@ extension Requests {
             case phone
             case address
             case iban
+            case bankCode
+            case bankAccountNumber
+            case bankAccountType
             case socialInsuranceNo
             case socialInsuranceStart
             case hireDate

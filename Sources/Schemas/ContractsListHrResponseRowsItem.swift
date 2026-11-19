@@ -14,6 +14,7 @@ public struct ContractsListHrResponseRowsItem: Codable, Hashable, Sendable {
     public let endReason: Nullable<String>
     public let baseSalary: String
     public let salaryType: ContractsListHrResponseRowsItemSalaryType
+    public let payFrequency: ContractsListHrResponseRowsItemPayFrequency
     public let workHours: String
     public let workHoursUnit: ContractsListHrResponseRowsItemWorkHoursUnit
     public let status: ContractsListHrResponseRowsItemStatus
@@ -36,6 +37,7 @@ public struct ContractsListHrResponseRowsItem: Codable, Hashable, Sendable {
         endReason: Nullable<String>,
         baseSalary: String,
         salaryType: ContractsListHrResponseRowsItemSalaryType,
+        payFrequency: ContractsListHrResponseRowsItemPayFrequency,
         workHours: String,
         workHoursUnit: ContractsListHrResponseRowsItemWorkHoursUnit,
         status: ContractsListHrResponseRowsItemStatus,
@@ -56,6 +58,7 @@ public struct ContractsListHrResponseRowsItem: Codable, Hashable, Sendable {
         self.endReason = endReason
         self.baseSalary = baseSalary
         self.salaryType = salaryType
+        self.payFrequency = payFrequency
         self.workHours = workHours
         self.workHoursUnit = workHoursUnit
         self.status = status
@@ -79,6 +82,7 @@ public struct ContractsListHrResponseRowsItem: Codable, Hashable, Sendable {
         self.endReason = try container.decode(Nullable<String>.self, forKey: .endReason)
         self.baseSalary = try container.decode(String.self, forKey: .baseSalary)
         self.salaryType = try container.decode(ContractsListHrResponseRowsItemSalaryType.self, forKey: .salaryType)
+        self.payFrequency = try container.decode(ContractsListHrResponseRowsItemPayFrequency.self, forKey: .payFrequency)
         self.workHours = try container.decode(String.self, forKey: .workHours)
         self.workHoursUnit = try container.decode(ContractsListHrResponseRowsItemWorkHoursUnit.self, forKey: .workHoursUnit)
         self.status = try container.decode(ContractsListHrResponseRowsItemStatus.self, forKey: .status)
@@ -103,6 +107,7 @@ public struct ContractsListHrResponseRowsItem: Codable, Hashable, Sendable {
         try container.encode(self.endReason, forKey: .endReason)
         try container.encode(self.baseSalary, forKey: .baseSalary)
         try container.encode(self.salaryType, forKey: .salaryType)
+        try container.encode(self.payFrequency, forKey: .payFrequency)
         try container.encode(self.workHours, forKey: .workHours)
         try container.encode(self.workHoursUnit, forKey: .workHoursUnit)
         try container.encode(self.status, forKey: .status)
@@ -125,6 +130,7 @@ public struct ContractsListHrResponseRowsItem: Codable, Hashable, Sendable {
         case endReason
         case baseSalary
         case salaryType
+        case payFrequency
         case workHours
         case workHoursUnit
         case status

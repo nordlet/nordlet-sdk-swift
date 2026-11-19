@@ -427,6 +427,72 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func frequenciesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "countryCode": "countryCode",
+                  "frequencies": [
+                    "monthly"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = FrequenciesListPayrollResponse(
+            countryCode: "countryCode",
+            frequencies: [
+                .monthly
+            ]
+        )
+        let response = try await client.payroll.frequenciesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func frequenciesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "countryCode": "countryCode",
+                  "frequencies": [
+                    "monthly",
+                    "monthly"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = FrequenciesListPayrollResponse(
+            countryCode: "countryCode",
+            frequencies: [
+                .monthly,
+                .monthly
+            ]
+        )
+        let response = try await client.payroll.frequenciesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func calc1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -570,6 +636,11 @@ import Api
                   "id": "id",
                   "year": 1000000,
                   "month": 1000000,
+                  "frequency": "monthly",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "taxYear": 1000000,
+                  "taxPeriod": 1000000,
                   "countryCode": "countryCode",
                   "payDate": "2026-07-01",
                   "status": "draft",
@@ -653,6 +724,11 @@ import Api
             id: "id",
             year: 1000000,
             month: 1000000,
+            frequency: .monthly,
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            taxYear: 1000000,
+            taxPeriod: Nullable<Int64>.value(1000000),
             countryCode: "countryCode",
             payDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             status: .draft,
@@ -725,10 +801,7 @@ import Api
             ]
         )
         let response = try await client.payroll.runsCreate(
-            request: .init(
-                year: 1000000,
-                month: 1000000
-            ),
+            request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -743,6 +816,11 @@ import Api
                   "id": "x",
                   "year": 1000000,
                   "month": 1000000,
+                  "frequency": "monthly",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "taxYear": 1000000,
+                  "taxPeriod": 1000000,
                   "countryCode": "countryCode",
                   "payDate": "2023-01-15",
                   "status": "draft",
@@ -921,6 +999,11 @@ import Api
             id: "x",
             year: 1000000,
             month: 1000000,
+            frequency: .monthly,
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            taxYear: 1000000,
+            taxPeriod: Nullable<Int64>.value(1000000),
             countryCode: "countryCode",
             payDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             status: .draft,
@@ -1088,10 +1171,7 @@ import Api
             ]
         )
         let response = try await client.payroll.runsCreate(
-            request: .init(
-                year: 1000000,
-                month: 1000000
-            ),
+            request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -1106,6 +1186,11 @@ import Api
                   "id": "id",
                   "year": 1000000,
                   "month": 1000000,
+                  "frequency": "monthly",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "taxYear": 1000000,
+                  "taxPeriod": 1000000,
                   "countryCode": "countryCode",
                   "payDate": "2026-07-01",
                   "status": "draft",
@@ -1189,6 +1274,11 @@ import Api
             id: "id",
             year: 1000000,
             month: 1000000,
+            frequency: .monthly,
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            taxYear: 1000000,
+            taxPeriod: Nullable<Int64>.value(1000000),
             countryCode: "countryCode",
             payDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             status: .draft,
@@ -1276,6 +1366,11 @@ import Api
                   "id": "x",
                   "year": 1000000,
                   "month": 1000000,
+                  "frequency": "monthly",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "taxYear": 1000000,
+                  "taxPeriod": 1000000,
                   "countryCode": "countryCode",
                   "payDate": "2023-01-15",
                   "status": "draft",
@@ -1454,6 +1549,11 @@ import Api
             id: "x",
             year: 1000000,
             month: 1000000,
+            frequency: .monthly,
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            taxYear: 1000000,
+            taxPeriod: Nullable<Int64>.value(1000000),
             countryCode: "countryCode",
             payDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             status: .draft,
@@ -1638,6 +1738,11 @@ import Api
                       "id": "id",
                       "year": 1000000,
                       "month": 1000000,
+                      "frequency": "monthly",
+                      "periodStart": "periodStart",
+                      "periodEnd": "periodEnd",
+                      "taxYear": 1000000,
+                      "taxPeriod": 1000000,
                       "countryCode": "countryCode",
                       "payDate": "2026-07-01",
                       "status": "draft",
@@ -1693,6 +1798,11 @@ import Api
                     id: "id",
                     year: 1000000,
                     month: 1000000,
+                    frequency: .monthly,
+                    periodStart: "periodStart",
+                    periodEnd: "periodEnd",
+                    taxYear: 1000000,
+                    taxPeriod: Nullable<Int64>.value(1000000),
                     countryCode: "countryCode",
                     payDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     status: .draft,
@@ -1752,6 +1862,11 @@ import Api
                       "id": "x",
                       "year": 1000000,
                       "month": 1000000,
+                      "frequency": "monthly",
+                      "periodStart": "periodStart",
+                      "periodEnd": "periodEnd",
+                      "taxYear": 1000000,
+                      "taxPeriod": 1000000,
                       "countryCode": "countryCode",
                       "payDate": "2023-01-15",
                       "status": "draft",
@@ -1796,6 +1911,11 @@ import Api
                       "id": "x",
                       "year": 1000000,
                       "month": 1000000,
+                      "frequency": "monthly",
+                      "periodStart": "periodStart",
+                      "periodEnd": "periodEnd",
+                      "taxYear": 1000000,
+                      "taxPeriod": 1000000,
                       "countryCode": "countryCode",
                       "payDate": "2023-01-15",
                       "status": "draft",
@@ -1863,6 +1983,11 @@ import Api
                     id: "x",
                     year: 1000000,
                     month: 1000000,
+                    frequency: .monthly,
+                    periodStart: "periodStart",
+                    periodEnd: "periodEnd",
+                    taxYear: 1000000,
+                    taxPeriod: Nullable<Int64>.value(1000000),
                     countryCode: "countryCode",
                     payDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     status: .draft,
@@ -1907,6 +2032,11 @@ import Api
                     id: "x",
                     year: 1000000,
                     month: 1000000,
+                    frequency: .monthly,
+                    periodStart: "periodStart",
+                    periodEnd: "periodEnd",
+                    taxYear: 1000000,
+                    taxPeriod: Nullable<Int64>.value(1000000),
                     countryCode: "countryCode",
                     payDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     status: .draft,
@@ -2226,6 +2356,11 @@ import Api
                   "id": "id",
                   "year": 1000000,
                   "month": 1000000,
+                  "frequency": "monthly",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "taxYear": 1000000,
+                  "taxPeriod": 1000000,
                   "countryCode": "countryCode",
                   "payDate": "2026-07-01",
                   "status": "draft",
@@ -2269,6 +2404,11 @@ import Api
             id: "id",
             year: 1000000,
             month: 1000000,
+            frequency: .monthly,
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            taxYear: 1000000,
+            taxPeriod: Nullable<Int64>.value(1000000),
             countryCode: "countryCode",
             payDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             status: .draft,
@@ -2316,6 +2456,11 @@ import Api
                   "id": "x",
                   "year": 1000000,
                   "month": 1000000,
+                  "frequency": "monthly",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "taxYear": 1000000,
+                  "taxPeriod": 1000000,
                   "countryCode": "countryCode",
                   "payDate": "2023-01-15",
                   "status": "draft",
@@ -2368,6 +2513,11 @@ import Api
             id: "x",
             year: 1000000,
             month: 1000000,
+            frequency: .monthly,
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            taxYear: 1000000,
+            taxPeriod: Nullable<Int64>.value(1000000),
             countryCode: "countryCode",
             payDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             status: .draft,
@@ -2424,6 +2574,11 @@ import Api
                   "id": "id",
                   "year": 1000000,
                   "month": 1000000,
+                  "frequency": "monthly",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "taxYear": 1000000,
+                  "taxPeriod": 1000000,
                   "countryCode": "countryCode",
                   "payDate": "2026-07-01",
                   "status": "draft",
@@ -2467,6 +2622,11 @@ import Api
             id: "id",
             year: 1000000,
             month: 1000000,
+            frequency: .monthly,
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            taxYear: 1000000,
+            taxPeriod: Nullable<Int64>.value(1000000),
             countryCode: "countryCode",
             payDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
             status: .draft,
@@ -2517,6 +2677,11 @@ import Api
                   "id": "x",
                   "year": 1000000,
                   "month": 1000000,
+                  "frequency": "monthly",
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "taxYear": 1000000,
+                  "taxPeriod": 1000000,
                   "countryCode": "countryCode",
                   "payDate": "2023-01-15",
                   "status": "draft",
@@ -2569,6 +2734,11 @@ import Api
             id: "x",
             year: 1000000,
             month: 1000000,
+            frequency: .monthly,
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            taxYear: 1000000,
+            taxPeriod: Nullable<Int64>.value(1000000),
             countryCode: "countryCode",
             payDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
             status: .draft,
@@ -2677,11 +2847,13 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "format": "pain.001.001.03",
                   "messageId": "messageId",
                   "fileName": "fileName",
+                  "contentType": "contentType",
                   "transactionCount": 1000000,
                   "controlSum": "controlSum",
-                  "xml": "xml"
+                  "content": "content"
                 }
                 """#.utf8
             )
@@ -2692,11 +2864,13 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = PaymentsExportPayrollResponse(
+            format: .pain00100103,
             messageId: "messageId",
             fileName: "fileName",
+            contentType: "contentType",
             transactionCount: 1000000,
             controlSum: "controlSum",
-            xml: "xml"
+            content: "content"
         )
         let response = try await client.payroll.paymentsExport(
             request: .init(
@@ -2714,11 +2888,13 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "format": "pain.001.001.03",
                   "messageId": "messageId",
                   "fileName": "fileName",
+                  "contentType": "contentType",
                   "transactionCount": 1000000,
                   "controlSum": "controlSum",
-                  "xml": "xml"
+                  "content": "content"
                 }
                 """#.utf8
             )
@@ -2729,11 +2905,13 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = PaymentsExportPayrollResponse(
+            format: .pain00100103,
             messageId: "messageId",
             fileName: "fileName",
+            contentType: "contentType",
             transactionCount: 1000000,
             controlSum: "controlSum",
-            xml: "xml"
+            content: "content"
         )
         let response = try await client.payroll.paymentsExport(
             request: .init(

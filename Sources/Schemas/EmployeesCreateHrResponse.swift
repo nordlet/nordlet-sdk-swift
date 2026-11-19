@@ -11,6 +11,10 @@ public struct EmployeesCreateHrResponse: Codable, Hashable, Sendable {
     public let phone: Nullable<String>
     public let address: Nullable<EmployeesCreateHrResponseAddress>
     public let iban: Nullable<String>
+    public let bankCode: Nullable<String>
+    public let bankAccountNumber: Nullable<String>
+    /// Checking or savings account; a US ACH file needs it
+    public let bankAccountType: Nullable<EmployeesCreateHrResponseBankAccountType>
     public let socialInsuranceNo: Nullable<String>
     public let socialInsuranceStart: Nullable<String>
     public let hireDate: Nullable<CalendarDate>
@@ -37,6 +41,9 @@ public struct EmployeesCreateHrResponse: Codable, Hashable, Sendable {
         phone: Nullable<String>,
         address: Nullable<EmployeesCreateHrResponseAddress>,
         iban: Nullable<String>,
+        bankCode: Nullable<String>,
+        bankAccountNumber: Nullable<String>,
+        bankAccountType: Nullable<EmployeesCreateHrResponseBankAccountType>,
         socialInsuranceNo: Nullable<String>,
         socialInsuranceStart: Nullable<String>,
         hireDate: Nullable<CalendarDate>,
@@ -61,6 +68,9 @@ public struct EmployeesCreateHrResponse: Codable, Hashable, Sendable {
         self.phone = phone
         self.address = address
         self.iban = iban
+        self.bankCode = bankCode
+        self.bankAccountNumber = bankAccountNumber
+        self.bankAccountType = bankAccountType
         self.socialInsuranceNo = socialInsuranceNo
         self.socialInsuranceStart = socialInsuranceStart
         self.hireDate = hireDate
@@ -88,6 +98,9 @@ public struct EmployeesCreateHrResponse: Codable, Hashable, Sendable {
         self.phone = try container.decode(Nullable<String>.self, forKey: .phone)
         self.address = try container.decode(Nullable<EmployeesCreateHrResponseAddress>.self, forKey: .address)
         self.iban = try container.decode(Nullable<String>.self, forKey: .iban)
+        self.bankCode = try container.decode(Nullable<String>.self, forKey: .bankCode)
+        self.bankAccountNumber = try container.decode(Nullable<String>.self, forKey: .bankAccountNumber)
+        self.bankAccountType = try container.decode(Nullable<EmployeesCreateHrResponseBankAccountType>.self, forKey: .bankAccountType)
         self.socialInsuranceNo = try container.decode(Nullable<String>.self, forKey: .socialInsuranceNo)
         self.socialInsuranceStart = try container.decode(Nullable<String>.self, forKey: .socialInsuranceStart)
         self.hireDate = try container.decode(Nullable<CalendarDate>.self, forKey: .hireDate)
@@ -116,6 +129,9 @@ public struct EmployeesCreateHrResponse: Codable, Hashable, Sendable {
         try container.encode(self.phone, forKey: .phone)
         try container.encode(self.address, forKey: .address)
         try container.encode(self.iban, forKey: .iban)
+        try container.encode(self.bankCode, forKey: .bankCode)
+        try container.encode(self.bankAccountNumber, forKey: .bankAccountNumber)
+        try container.encode(self.bankAccountType, forKey: .bankAccountType)
         try container.encode(self.socialInsuranceNo, forKey: .socialInsuranceNo)
         try container.encode(self.socialInsuranceStart, forKey: .socialInsuranceStart)
         try container.encode(self.hireDate, forKey: .hireDate)
@@ -142,6 +158,9 @@ public struct EmployeesCreateHrResponse: Codable, Hashable, Sendable {
         case phone
         case address
         case iban
+        case bankCode
+        case bankAccountNumber
+        case bankAccountType
         case socialInsuranceNo
         case socialInsuranceStart
         case hireDate

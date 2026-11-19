@@ -13287,6 +13287,2435 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func gbHmrcAuthorizeUrlGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "url": "url"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbHmrcAuthorizeUrlGetDeclarationsResponse(
+            url: "url"
+        )
+        let response = try await client.declarations.gbHmrcAuthorizeUrlGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbHmrcAuthorizeUrlGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "url": "url"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbHmrcAuthorizeUrlGetDeclarationsResponse(
+            url: "url"
+        )
+        let response = try await client.declarations.gbHmrcAuthorizeUrlGet(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbHmrcConnect1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "accessTokenExpiresAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbHmrcConnectDeclarationsResponse(
+            accessTokenExpiresAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.declarations.gbHmrcConnect(
+            request: .init(
+                code: "code",
+                state: "state"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbHmrcConnect2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "accessTokenExpiresAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbHmrcConnectDeclarationsResponse(
+            accessTokenExpiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.declarations.gbHmrcConnect(
+            request: .init(
+                code: "x",
+                state: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbCorporationTaxCompute1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "days": 1.1,
+                  "taxableTotalProfits": "taxableTotalProfits",
+                  "augmentedProfits": "augmentedProfits",
+                  "parts": [
+                    {
+                      "financialYear": 1.1,
+                      "from": "from",
+                      "to": "to",
+                      "days": 1.1,
+                      "profits": "profits",
+                      "augmentedProfits": "augmentedProfits",
+                      "lowerLimit": "lowerLimit",
+                      "upperLimit": "upperLimit",
+                      "rate": "main",
+                      "taxAtMainRate": "taxAtMainRate",
+                      "marginalRelief": "marginalRelief",
+                      "tax": "tax"
+                    }
+                  ],
+                  "marginalRelief": "marginalRelief",
+                  "tax": "tax",
+                  "notes": [
+                    "notes"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbCorporationTaxComputeDeclarationsResponse(
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            days: 1.1,
+            taxableTotalProfits: "taxableTotalProfits",
+            augmentedProfits: "augmentedProfits",
+            parts: [
+                GbCorporationTaxComputeDeclarationsResponsePartsItem(
+                    financialYear: 1.1,
+                    from: "from",
+                    to: "to",
+                    days: 1.1,
+                    profits: "profits",
+                    augmentedProfits: "augmentedProfits",
+                    lowerLimit: Nullable<String>.value("lowerLimit"),
+                    upperLimit: Nullable<String>.value("upperLimit"),
+                    rate: .main,
+                    taxAtMainRate: "taxAtMainRate",
+                    marginalRelief: "marginalRelief",
+                    tax: "tax"
+                )
+            ],
+            marginalRelief: "marginalRelief",
+            tax: "tax",
+            notes: [
+                "notes"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.gbCorporationTaxCompute(
+            request: .init(
+                periodStart: CalendarDate("2026-07-01")!,
+                periodEnd: CalendarDate("2026-07-01")!,
+                taxableTotalProfits: "taxableTotalProfits"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbCorporationTaxCompute2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "days": 1.1,
+                  "taxableTotalProfits": "taxableTotalProfits",
+                  "augmentedProfits": "augmentedProfits",
+                  "parts": [
+                    {
+                      "financialYear": 1.1,
+                      "from": "from",
+                      "to": "to",
+                      "days": 1.1,
+                      "profits": "profits",
+                      "augmentedProfits": "augmentedProfits",
+                      "lowerLimit": "lowerLimit",
+                      "upperLimit": "upperLimit",
+                      "rate": "main",
+                      "taxAtMainRate": "taxAtMainRate",
+                      "marginalRelief": "marginalRelief",
+                      "tax": "tax"
+                    },
+                    {
+                      "financialYear": 1.1,
+                      "from": "from",
+                      "to": "to",
+                      "days": 1.1,
+                      "profits": "profits",
+                      "augmentedProfits": "augmentedProfits",
+                      "lowerLimit": "lowerLimit",
+                      "upperLimit": "upperLimit",
+                      "rate": "main",
+                      "taxAtMainRate": "taxAtMainRate",
+                      "marginalRelief": "marginalRelief",
+                      "tax": "tax"
+                    }
+                  ],
+                  "marginalRelief": "marginalRelief",
+                  "tax": "tax",
+                  "notes": [
+                    "notes",
+                    "notes"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbCorporationTaxComputeDeclarationsResponse(
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            days: 1.1,
+            taxableTotalProfits: "taxableTotalProfits",
+            augmentedProfits: "augmentedProfits",
+            parts: [
+                GbCorporationTaxComputeDeclarationsResponsePartsItem(
+                    financialYear: 1.1,
+                    from: "from",
+                    to: "to",
+                    days: 1.1,
+                    profits: "profits",
+                    augmentedProfits: "augmentedProfits",
+                    lowerLimit: Nullable<String>.value("lowerLimit"),
+                    upperLimit: Nullable<String>.value("upperLimit"),
+                    rate: .main,
+                    taxAtMainRate: "taxAtMainRate",
+                    marginalRelief: "marginalRelief",
+                    tax: "tax"
+                ),
+                GbCorporationTaxComputeDeclarationsResponsePartsItem(
+                    financialYear: 1.1,
+                    from: "from",
+                    to: "to",
+                    days: 1.1,
+                    profits: "profits",
+                    augmentedProfits: "augmentedProfits",
+                    lowerLimit: Nullable<String>.value("lowerLimit"),
+                    upperLimit: Nullable<String>.value("upperLimit"),
+                    rate: .main,
+                    taxAtMainRate: "taxAtMainRate",
+                    marginalRelief: "marginalRelief",
+                    tax: "tax"
+                )
+            ],
+            marginalRelief: "marginalRelief",
+            tax: "tax",
+            notes: [
+                "notes",
+                "notes"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.gbCorporationTaxCompute(
+            request: .init(
+                periodStart: CalendarDate("2023-01-15")!,
+                periodEnd: CalendarDate("2023-01-15")!,
+                taxableTotalProfits: "taxableTotalProfits"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbVatObligationsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "obligations": [
+                    {
+                      "periodKey": "periodKey",
+                      "start": "start",
+                      "end": "end",
+                      "due": "due",
+                      "status": "O",
+                      "received": "received"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbVatObligationsListDeclarationsResponse(
+            obligations: [
+                GbVatObligationsListDeclarationsResponseObligationsItem(
+                    periodKey: "periodKey",
+                    start: "start",
+                    end: "end",
+                    due: "due",
+                    status: .o,
+                    received: Optional("received")
+                )
+            ]
+        )
+        let response = try await client.declarations.gbVatObligationsList(
+            request: .init(device: GbVatObligationsListDeclarationsRequestDevice(
+                userAgent: "userAgent",
+                deviceId: "deviceId",
+                screens: [
+                    GbVatObligationsListDeclarationsRequestDeviceScreensItem(
+                        width: 1000000,
+                        height: 1000000,
+                        scalingFactor: 1.1,
+                        colourDepth: 1000000
+                    )
+                ],
+                windowSize: GbVatObligationsListDeclarationsRequestDeviceWindowSize(
+                    width: 1000000,
+                    height: 1000000
+                ),
+                timezone: "timezone"
+            )),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbVatObligationsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "obligations": [
+                    {
+                      "periodKey": "periodKey",
+                      "start": "start",
+                      "end": "end",
+                      "due": "due",
+                      "status": "O",
+                      "received": "received"
+                    },
+                    {
+                      "periodKey": "periodKey",
+                      "start": "start",
+                      "end": "end",
+                      "due": "due",
+                      "status": "O",
+                      "received": "received"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbVatObligationsListDeclarationsResponse(
+            obligations: [
+                GbVatObligationsListDeclarationsResponseObligationsItem(
+                    periodKey: "periodKey",
+                    start: "start",
+                    end: "end",
+                    due: "due",
+                    status: .o,
+                    received: Optional("received")
+                ),
+                GbVatObligationsListDeclarationsResponseObligationsItem(
+                    periodKey: "periodKey",
+                    start: "start",
+                    end: "end",
+                    due: "due",
+                    status: .o,
+                    received: Optional("received")
+                )
+            ]
+        )
+        let response = try await client.declarations.gbVatObligationsList(
+            request: .init(device: GbVatObligationsListDeclarationsRequestDevice(
+                userAgent: "x",
+                deviceId: "deviceId",
+                screens: [
+                    GbVatObligationsListDeclarationsRequestDeviceScreensItem(
+                        width: 1000000,
+                        height: 1000000,
+                        scalingFactor: 1.1,
+                        colourDepth: 1000000
+                    ),
+                    GbVatObligationsListDeclarationsRequestDeviceScreensItem(
+                        width: 1000000,
+                        height: 1000000,
+                        scalingFactor: 1.1,
+                        colourDepth: 1000000
+                    )
+                ],
+                windowSize: GbVatObligationsListDeclarationsRequestDeviceWindowSize(
+                    width: 1000000,
+                    height: 1000000
+                ),
+                timezone: "timezone"
+            )),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbVatReturnsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "periodKey": "periodKey",
+                  "vatDueSales": 1.1,
+                  "vatDueAcquisitions": 1.1,
+                  "totalVatDue": 1.1,
+                  "vatReclaimedCurrPeriod": 1.1,
+                  "netVatDue": 1.1,
+                  "totalValueSalesExVAT": 1.1,
+                  "totalValuePurchasesExVAT": 1.1,
+                  "totalValueGoodsSuppliedExVAT": 1.1,
+                  "totalAcquisitionsExVAT": 1.1
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbVatReturnsGetDeclarationsResponse(
+            periodKey: "periodKey",
+            vatDueSales: 1.1,
+            vatDueAcquisitions: 1.1,
+            totalVatDue: 1.1,
+            vatReclaimedCurrPeriod: 1.1,
+            netVatDue: 1.1,
+            totalValueSalesExVat: 1.1,
+            totalValuePurchasesExVat: 1.1,
+            totalValueGoodsSuppliedExVat: 1.1,
+            totalAcquisitionsExVat: 1.1
+        )
+        let response = try await client.declarations.gbVatReturnsGet(
+            request: .init(
+                device: GbVatReturnsGetDeclarationsRequestDevice(
+                    userAgent: "userAgent",
+                    deviceId: "deviceId",
+                    screens: [
+                        GbVatReturnsGetDeclarationsRequestDeviceScreensItem(
+                            width: 1000000,
+                            height: 1000000,
+                            scalingFactor: 1.1,
+                            colourDepth: 1000000
+                        )
+                    ],
+                    windowSize: GbVatReturnsGetDeclarationsRequestDeviceWindowSize(
+                        width: 1000000,
+                        height: 1000000
+                    ),
+                    timezone: "timezone"
+                ),
+                periodKey: "periodKey"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbVatReturnsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "periodKey": "periodKey",
+                  "vatDueSales": 1.1,
+                  "vatDueAcquisitions": 1.1,
+                  "totalVatDue": 1.1,
+                  "vatReclaimedCurrPeriod": 1.1,
+                  "netVatDue": 1.1,
+                  "totalValueSalesExVAT": 1.1,
+                  "totalValuePurchasesExVAT": 1.1,
+                  "totalValueGoodsSuppliedExVAT": 1.1,
+                  "totalAcquisitionsExVAT": 1.1
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbVatReturnsGetDeclarationsResponse(
+            periodKey: "periodKey",
+            vatDueSales: 1.1,
+            vatDueAcquisitions: 1.1,
+            totalVatDue: 1.1,
+            vatReclaimedCurrPeriod: 1.1,
+            netVatDue: 1.1,
+            totalValueSalesExVat: 1.1,
+            totalValuePurchasesExVat: 1.1,
+            totalValueGoodsSuppliedExVat: 1.1,
+            totalAcquisitionsExVat: 1.1
+        )
+        let response = try await client.declarations.gbVatReturnsGet(
+            request: .init(
+                device: GbVatReturnsGetDeclarationsRequestDevice(
+                    userAgent: "x",
+                    deviceId: "deviceId",
+                    screens: [
+                        GbVatReturnsGetDeclarationsRequestDeviceScreensItem(
+                            width: 1000000,
+                            height: 1000000,
+                            scalingFactor: 1.1,
+                            colourDepth: 1000000
+                        ),
+                        GbVatReturnsGetDeclarationsRequestDeviceScreensItem(
+                            width: 1000000,
+                            height: 1000000,
+                            scalingFactor: 1.1,
+                            colourDepth: 1000000
+                        )
+                    ],
+                    windowSize: GbVatReturnsGetDeclarationsRequestDeviceWindowSize(
+                        width: 1000000,
+                        height: 1000000
+                    ),
+                    timezone: "timezone"
+                ),
+                periodKey: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbVatLiabilitiesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "liabilities": [
+                    {
+                      "taxPeriod": {
+                        "from": "from",
+                        "to": "to"
+                      },
+                      "type": "type",
+                      "originalAmount": 1.1,
+                      "outstandingAmount": 1.1,
+                      "due": "due"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbVatLiabilitiesListDeclarationsResponse(
+            liabilities: [
+                GbVatLiabilitiesListDeclarationsResponseLiabilitiesItem(
+                    taxPeriod: Optional(GbVatLiabilitiesListDeclarationsResponseLiabilitiesItemTaxPeriod(
+                        from: "from",
+                        to: "to"
+                    )),
+                    type: "type",
+                    originalAmount: 1.1,
+                    outstandingAmount: Optional(1.1),
+                    due: Optional("due")
+                )
+            ]
+        )
+        let response = try await client.declarations.gbVatLiabilitiesList(
+            request: .init(
+                device: GbVatLiabilitiesListDeclarationsRequestDevice(
+                    userAgent: "userAgent",
+                    deviceId: "deviceId",
+                    screens: [
+                        GbVatLiabilitiesListDeclarationsRequestDeviceScreensItem(
+                            width: 1000000,
+                            height: 1000000,
+                            scalingFactor: 1.1,
+                            colourDepth: 1000000
+                        )
+                    ],
+                    windowSize: GbVatLiabilitiesListDeclarationsRequestDeviceWindowSize(
+                        width: 1000000,
+                        height: 1000000
+                    ),
+                    timezone: "timezone"
+                ),
+                from: CalendarDate("2026-07-01")!,
+                to: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbVatLiabilitiesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "liabilities": [
+                    {
+                      "taxPeriod": {
+                        "from": "from",
+                        "to": "to"
+                      },
+                      "type": "type",
+                      "originalAmount": 1.1,
+                      "outstandingAmount": 1.1,
+                      "due": "due"
+                    },
+                    {
+                      "taxPeriod": {
+                        "from": "from",
+                        "to": "to"
+                      },
+                      "type": "type",
+                      "originalAmount": 1.1,
+                      "outstandingAmount": 1.1,
+                      "due": "due"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbVatLiabilitiesListDeclarationsResponse(
+            liabilities: [
+                GbVatLiabilitiesListDeclarationsResponseLiabilitiesItem(
+                    taxPeriod: Optional(GbVatLiabilitiesListDeclarationsResponseLiabilitiesItemTaxPeriod(
+                        from: "from",
+                        to: "to"
+                    )),
+                    type: "type",
+                    originalAmount: 1.1,
+                    outstandingAmount: Optional(1.1),
+                    due: Optional("due")
+                ),
+                GbVatLiabilitiesListDeclarationsResponseLiabilitiesItem(
+                    taxPeriod: Optional(GbVatLiabilitiesListDeclarationsResponseLiabilitiesItemTaxPeriod(
+                        from: "from",
+                        to: "to"
+                    )),
+                    type: "type",
+                    originalAmount: 1.1,
+                    outstandingAmount: Optional(1.1),
+                    due: Optional("due")
+                )
+            ]
+        )
+        let response = try await client.declarations.gbVatLiabilitiesList(
+            request: .init(
+                device: GbVatLiabilitiesListDeclarationsRequestDevice(
+                    userAgent: "x",
+                    deviceId: "deviceId",
+                    screens: [
+                        GbVatLiabilitiesListDeclarationsRequestDeviceScreensItem(
+                            width: 1000000,
+                            height: 1000000,
+                            scalingFactor: 1.1,
+                            colourDepth: 1000000
+                        ),
+                        GbVatLiabilitiesListDeclarationsRequestDeviceScreensItem(
+                            width: 1000000,
+                            height: 1000000,
+                            scalingFactor: 1.1,
+                            colourDepth: 1000000
+                        )
+                    ],
+                    windowSize: GbVatLiabilitiesListDeclarationsRequestDeviceWindowSize(
+                        width: 1000000,
+                        height: 1000000
+                    ),
+                    timezone: "timezone"
+                ),
+                from: CalendarDate("2023-01-15")!,
+                to: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbVatPaymentsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "payments": [
+                    {
+                      "amount": 1.1,
+                      "received": "received"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbVatPaymentsListDeclarationsResponse(
+            payments: [
+                GbVatPaymentsListDeclarationsResponsePaymentsItem(
+                    amount: 1.1,
+                    received: Optional("received")
+                )
+            ]
+        )
+        let response = try await client.declarations.gbVatPaymentsList(
+            request: .init(
+                device: GbVatPaymentsListDeclarationsRequestDevice(
+                    userAgent: "userAgent",
+                    deviceId: "deviceId",
+                    screens: [
+                        GbVatPaymentsListDeclarationsRequestDeviceScreensItem(
+                            width: 1000000,
+                            height: 1000000,
+                            scalingFactor: 1.1,
+                            colourDepth: 1000000
+                        )
+                    ],
+                    windowSize: GbVatPaymentsListDeclarationsRequestDeviceWindowSize(
+                        width: 1000000,
+                        height: 1000000
+                    ),
+                    timezone: "timezone"
+                ),
+                from: CalendarDate("2026-07-01")!,
+                to: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbVatPaymentsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "payments": [
+                    {
+                      "amount": 1.1,
+                      "received": "received"
+                    },
+                    {
+                      "amount": 1.1,
+                      "received": "received"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbVatPaymentsListDeclarationsResponse(
+            payments: [
+                GbVatPaymentsListDeclarationsResponsePaymentsItem(
+                    amount: 1.1,
+                    received: Optional("received")
+                ),
+                GbVatPaymentsListDeclarationsResponsePaymentsItem(
+                    amount: 1.1,
+                    received: Optional("received")
+                )
+            ]
+        )
+        let response = try await client.declarations.gbVatPaymentsList(
+            request: .init(
+                device: GbVatPaymentsListDeclarationsRequestDevice(
+                    userAgent: "x",
+                    deviceId: "deviceId",
+                    screens: [
+                        GbVatPaymentsListDeclarationsRequestDeviceScreensItem(
+                            width: 1000000,
+                            height: 1000000,
+                            scalingFactor: 1.1,
+                            colourDepth: 1000000
+                        ),
+                        GbVatPaymentsListDeclarationsRequestDeviceScreensItem(
+                            width: 1000000,
+                            height: 1000000,
+                            scalingFactor: 1.1,
+                            colourDepth: 1000000
+                        )
+                    ],
+                    windowSize: GbVatPaymentsListDeclarationsRequestDeviceWindowSize(
+                        width: 1000000,
+                        height: 1000000
+                    ),
+                    timezone: "timezone"
+                ),
+                from: CalendarDate("2023-01-15")!,
+                to: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbVatPenaltiesGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "key": "value"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = [
+            "key": JSONValue.string("value")
+        ]
+        let response = try await client.declarations.gbVatPenaltiesGet(
+            request: .init(device: GbVatPenaltiesGetDeclarationsRequestDevice(
+                userAgent: "userAgent",
+                deviceId: "deviceId",
+                screens: [
+                    GbVatPenaltiesGetDeclarationsRequestDeviceScreensItem(
+                        width: 1000000,
+                        height: 1000000,
+                        scalingFactor: 1.1,
+                        colourDepth: 1000000
+                    )
+                ],
+                windowSize: GbVatPenaltiesGetDeclarationsRequestDeviceWindowSize(
+                    width: 1000000,
+                    height: 1000000
+                ),
+                timezone: "timezone"
+            )),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbVatPenaltiesGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "string": {
+                    "key": "value"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = [
+            "string": JSONValue.object(
+                [
+                    "key": JSONValue.string("value")
+                ]
+            )
+        ]
+        let response = try await client.declarations.gbVatPenaltiesGet(
+            request: .init(device: GbVatPenaltiesGetDeclarationsRequestDevice(
+                userAgent: "x",
+                deviceId: "deviceId",
+                screens: [
+                    GbVatPenaltiesGetDeclarationsRequestDeviceScreensItem(
+                        width: 1000000,
+                        height: 1000000,
+                        scalingFactor: 1.1,
+                        colourDepth: 1000000
+                    ),
+                    GbVatPenaltiesGetDeclarationsRequestDeviceScreensItem(
+                        width: 1000000,
+                        height: 1000000,
+                        scalingFactor: 1.1,
+                        colourDepth: 1000000
+                    )
+                ],
+                windowSize: GbVatPenaltiesGetDeclarationsRequestDeviceWindowSize(
+                    width: 1000000,
+                    height: 1000000
+                ),
+                timezone: "timezone"
+            )),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func us941Get1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1.1,
+                  "quarter": 1.1,
+                  "line1": 1.1,
+                  "line2": "line2",
+                  "line3": "line3",
+                  "line4": true,
+                  "line5a": {
+                    "wages": "wages",
+                    "tax": "tax"
+                  },
+                  "line5c": {
+                    "wages": "wages",
+                    "tax": "tax"
+                  },
+                  "line5d": {
+                    "wages": "wages",
+                    "tax": "tax"
+                  },
+                  "line5e": "line5e",
+                  "line6": "line6",
+                  "line7": "line7",
+                  "line10": "line10",
+                  "line12": "line12",
+                  "line13": "line13",
+                  "line14": "line14",
+                  "line15": "line15",
+                  "line16": {
+                    "months": [
+                      {
+                        "month": 1.1,
+                        "liability": "liability"
+                      }
+                    ],
+                    "total": "total"
+                  },
+                  "scheduleB": [
+                    {
+                      "payDate": "2026-07-01",
+                      "liability": "liability"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = Us941GetDeclarationsResponse(
+            year: 1.1,
+            quarter: 1.1,
+            line1: 1.1,
+            line2: "line2",
+            line3: "line3",
+            line4: true,
+            line5A: Us941GetDeclarationsResponseLine5A(
+                wages: "wages",
+                tax: "tax"
+            ),
+            line5C: Us941GetDeclarationsResponseLine5C(
+                wages: "wages",
+                tax: "tax"
+            ),
+            line5D: Us941GetDeclarationsResponseLine5D(
+                wages: "wages",
+                tax: "tax"
+            ),
+            line5E: "line5e",
+            line6: "line6",
+            line7: "line7",
+            line10: "line10",
+            line12: "line12",
+            line13: Nullable<String>.value("line13"),
+            line14: Nullable<String>.value("line14"),
+            line15: Nullable<String>.value("line15"),
+            line16: Us941GetDeclarationsResponseLine16(
+                months: [
+                    Us941GetDeclarationsResponseLine16MonthsItem(
+                        month: 1.1,
+                        liability: "liability"
+                    )
+                ],
+                total: "total"
+            ),
+            scheduleB: [
+                Us941GetDeclarationsResponseScheduleBItem(
+                    payDate: CalendarDate("2026-07-01")!,
+                    liability: "liability"
+                )
+            ]
+        )
+        let response = try await client.declarations.us941Get(
+            request: .init(
+                year: 1000000,
+                quarter: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func us941Get2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1.1,
+                  "quarter": 1.1,
+                  "line1": 1.1,
+                  "line2": "line2",
+                  "line3": "line3",
+                  "line4": true,
+                  "line5a": {
+                    "wages": "wages",
+                    "tax": "tax"
+                  },
+                  "line5c": {
+                    "wages": "wages",
+                    "tax": "tax"
+                  },
+                  "line5d": {
+                    "wages": "wages",
+                    "tax": "tax"
+                  },
+                  "line5e": "line5e",
+                  "line6": "line6",
+                  "line7": "line7",
+                  "line10": "line10",
+                  "line12": "line12",
+                  "line13": "line13",
+                  "line14": "line14",
+                  "line15": "line15",
+                  "line16": {
+                    "months": [
+                      {
+                        "month": 1.1,
+                        "liability": "liability"
+                      },
+                      {
+                        "month": 1.1,
+                        "liability": "liability"
+                      }
+                    ],
+                    "total": "total"
+                  },
+                  "scheduleB": [
+                    {
+                      "payDate": "2023-01-15",
+                      "liability": "liability"
+                    },
+                    {
+                      "payDate": "2023-01-15",
+                      "liability": "liability"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = Us941GetDeclarationsResponse(
+            year: 1.1,
+            quarter: 1.1,
+            line1: 1.1,
+            line2: "line2",
+            line3: "line3",
+            line4: true,
+            line5A: Us941GetDeclarationsResponseLine5A(
+                wages: "wages",
+                tax: "tax"
+            ),
+            line5C: Us941GetDeclarationsResponseLine5C(
+                wages: "wages",
+                tax: "tax"
+            ),
+            line5D: Us941GetDeclarationsResponseLine5D(
+                wages: "wages",
+                tax: "tax"
+            ),
+            line5E: "line5e",
+            line6: "line6",
+            line7: "line7",
+            line10: "line10",
+            line12: "line12",
+            line13: Nullable<String>.value("line13"),
+            line14: Nullable<String>.value("line14"),
+            line15: Nullable<String>.value("line15"),
+            line16: Us941GetDeclarationsResponseLine16(
+                months: [
+                    Us941GetDeclarationsResponseLine16MonthsItem(
+                        month: 1.1,
+                        liability: "liability"
+                    ),
+                    Us941GetDeclarationsResponseLine16MonthsItem(
+                        month: 1.1,
+                        liability: "liability"
+                    )
+                ],
+                total: "total"
+            ),
+            scheduleB: [
+                Us941GetDeclarationsResponseScheduleBItem(
+                    payDate: CalendarDate("2023-01-15")!,
+                    liability: "liability"
+                ),
+                Us941GetDeclarationsResponseScheduleBItem(
+                    payDate: CalendarDate("2023-01-15")!,
+                    liability: "liability"
+                )
+            ]
+        )
+        let response = try await client.declarations.us941Get(
+            request: .init(
+                year: 1000000,
+                quarter: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func us940Get1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1.1,
+                  "line1a": "line1a",
+                  "line1b": true,
+                  "line3": "line3",
+                  "line4": "line4",
+                  "line5": "line5",
+                  "line6": "line6",
+                  "line7": "line7",
+                  "line8": "line8",
+                  "line12": "line12",
+                  "part5": {
+                    "line16": [
+                      "line16"
+                    ],
+                    "line17": "line17"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = Us940GetDeclarationsResponse(
+            year: 1.1,
+            line1A: Nullable<String>.value("line1a"),
+            line1B: true,
+            line3: "line3",
+            line4: "line4",
+            line5: "line5",
+            line6: "line6",
+            line7: "line7",
+            line8: "line8",
+            line12: "line12",
+            part5: Nullable<Us940GetDeclarationsResponsePart5>.value(Us940GetDeclarationsResponsePart5(
+                line16: [
+                    "line16"
+                ],
+                line17: "line17"
+            ))
+        )
+        let response = try await client.declarations.us940Get(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func us940Get2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1.1,
+                  "line1a": "line1a",
+                  "line1b": true,
+                  "line3": "line3",
+                  "line4": "line4",
+                  "line5": "line5",
+                  "line6": "line6",
+                  "line7": "line7",
+                  "line8": "line8",
+                  "line12": "line12",
+                  "part5": {
+                    "line16": [
+                      "line16",
+                      "line16"
+                    ],
+                    "line17": "line17"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = Us940GetDeclarationsResponse(
+            year: 1.1,
+            line1A: Nullable<String>.value("line1a"),
+            line1B: true,
+            line3: "line3",
+            line4: "line4",
+            line5: "line5",
+            line6: "line6",
+            line7: "line7",
+            line8: "line8",
+            line12: "line12",
+            part5: Nullable<Us940GetDeclarationsResponsePart5>.value(Us940GetDeclarationsResponsePart5(
+                line16: [
+                    "line16",
+                    "line16"
+                ],
+                line17: "line17"
+            ))
+        )
+        let response = try await client.declarations.us940Get(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usW2List1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1.1,
+                  "forms": [
+                    {
+                      "employeeId": "employeeId",
+                      "boxA": "boxA",
+                      "boxE": {
+                        "firstName": "firstName",
+                        "lastName": "lastName"
+                      },
+                      "box1": "box1",
+                      "box2": "box2",
+                      "box3": "box3",
+                      "box4": "box4",
+                      "box5": "box5",
+                      "box6": "box6",
+                      "states": [
+                        {
+                          "box15": {
+                            "state": "state",
+                            "employerStateId": null
+                          },
+                          "box16": "box16",
+                          "box17": "box17"
+                        }
+                      ]
+                    }
+                  ],
+                  "w3": {
+                    "boxC": 1.1,
+                    "boxE": "boxE",
+                    "boxF": "boxF",
+                    "box1": "box1",
+                    "box2": "box2",
+                    "box3": "box3",
+                    "box4": "box4",
+                    "box5": "box5",
+                    "box6": "box6",
+                    "box16": "box16",
+                    "box17": "box17"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsW2ListDeclarationsResponse(
+            year: 1.1,
+            forms: [
+                UsW2ListDeclarationsResponseFormsItem(
+                    employeeId: "employeeId",
+                    boxA: Nullable<String>.value("boxA"),
+                    boxE: UsW2ListDeclarationsResponseFormsItemBoxE(
+                        firstName: "firstName",
+                        lastName: "lastName"
+                    ),
+                    box1: "box1",
+                    box2: "box2",
+                    box3: "box3",
+                    box4: "box4",
+                    box5: "box5",
+                    box6: "box6",
+                    states: [
+                        UsW2ListDeclarationsResponseFormsItemStatesItem(
+                            box15: UsW2ListDeclarationsResponseFormsItemStatesItemBox15(
+                                state: "state",
+                                employerStateId: .null
+                            ),
+                            box16: "box16",
+                            box17: "box17"
+                        )
+                    ]
+                )
+            ],
+            w3: UsW2ListDeclarationsResponseW3(
+                boxC: 1.1,
+                boxE: Nullable<String>.value("boxE"),
+                boxF: "boxF",
+                box1: "box1",
+                box2: "box2",
+                box3: "box3",
+                box4: "box4",
+                box5: "box5",
+                box6: "box6",
+                box16: "box16",
+                box17: "box17"
+            )
+        )
+        let response = try await client.declarations.usW2List(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usW2List2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1.1,
+                  "forms": [
+                    {
+                      "employeeId": "employeeId",
+                      "boxA": "boxA",
+                      "boxE": {
+                        "firstName": "firstName",
+                        "lastName": "lastName"
+                      },
+                      "box1": "box1",
+                      "box2": "box2",
+                      "box3": "box3",
+                      "box4": "box4",
+                      "box5": "box5",
+                      "box6": "box6",
+                      "states": [
+                        {
+                          "box15": {
+                            "state": "state",
+                            "employerStateId": "employerStateId"
+                          },
+                          "box16": "box16",
+                          "box17": "box17"
+                        },
+                        {
+                          "box15": {
+                            "state": "state",
+                            "employerStateId": "employerStateId"
+                          },
+                          "box16": "box16",
+                          "box17": "box17"
+                        }
+                      ]
+                    },
+                    {
+                      "employeeId": "employeeId",
+                      "boxA": "boxA",
+                      "boxE": {
+                        "firstName": "firstName",
+                        "lastName": "lastName"
+                      },
+                      "box1": "box1",
+                      "box2": "box2",
+                      "box3": "box3",
+                      "box4": "box4",
+                      "box5": "box5",
+                      "box6": "box6",
+                      "states": [
+                        {
+                          "box15": {
+                            "state": "state",
+                            "employerStateId": "employerStateId"
+                          },
+                          "box16": "box16",
+                          "box17": "box17"
+                        },
+                        {
+                          "box15": {
+                            "state": "state",
+                            "employerStateId": "employerStateId"
+                          },
+                          "box16": "box16",
+                          "box17": "box17"
+                        }
+                      ]
+                    }
+                  ],
+                  "w3": {
+                    "boxC": 1.1,
+                    "boxE": "boxE",
+                    "boxF": "boxF",
+                    "box1": "box1",
+                    "box2": "box2",
+                    "box3": "box3",
+                    "box4": "box4",
+                    "box5": "box5",
+                    "box6": "box6",
+                    "box16": "box16",
+                    "box17": "box17"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsW2ListDeclarationsResponse(
+            year: 1.1,
+            forms: [
+                UsW2ListDeclarationsResponseFormsItem(
+                    employeeId: "employeeId",
+                    boxA: Nullable<String>.value("boxA"),
+                    boxE: UsW2ListDeclarationsResponseFormsItemBoxE(
+                        firstName: "firstName",
+                        lastName: "lastName"
+                    ),
+                    box1: "box1",
+                    box2: "box2",
+                    box3: "box3",
+                    box4: "box4",
+                    box5: "box5",
+                    box6: "box6",
+                    states: [
+                        UsW2ListDeclarationsResponseFormsItemStatesItem(
+                            box15: UsW2ListDeclarationsResponseFormsItemStatesItemBox15(
+                                state: "state",
+                                employerStateId: Nullable<String>.value("employerStateId")
+                            ),
+                            box16: "box16",
+                            box17: "box17"
+                        ),
+                        UsW2ListDeclarationsResponseFormsItemStatesItem(
+                            box15: UsW2ListDeclarationsResponseFormsItemStatesItemBox15(
+                                state: "state",
+                                employerStateId: Nullable<String>.value("employerStateId")
+                            ),
+                            box16: "box16",
+                            box17: "box17"
+                        )
+                    ]
+                ),
+                UsW2ListDeclarationsResponseFormsItem(
+                    employeeId: "employeeId",
+                    boxA: Nullable<String>.value("boxA"),
+                    boxE: UsW2ListDeclarationsResponseFormsItemBoxE(
+                        firstName: "firstName",
+                        lastName: "lastName"
+                    ),
+                    box1: "box1",
+                    box2: "box2",
+                    box3: "box3",
+                    box4: "box4",
+                    box5: "box5",
+                    box6: "box6",
+                    states: [
+                        UsW2ListDeclarationsResponseFormsItemStatesItem(
+                            box15: UsW2ListDeclarationsResponseFormsItemStatesItemBox15(
+                                state: "state",
+                                employerStateId: Nullable<String>.value("employerStateId")
+                            ),
+                            box16: "box16",
+                            box17: "box17"
+                        ),
+                        UsW2ListDeclarationsResponseFormsItemStatesItem(
+                            box15: UsW2ListDeclarationsResponseFormsItemStatesItemBox15(
+                                state: "state",
+                                employerStateId: Nullable<String>.value("employerStateId")
+                            ),
+                            box16: "box16",
+                            box17: "box17"
+                        )
+                    ]
+                )
+            ],
+            w3: UsW2ListDeclarationsResponseW3(
+                boxC: 1.1,
+                boxE: Nullable<String>.value("boxE"),
+                boxF: "boxF",
+                box1: "box1",
+                box2: "box2",
+                box3: "box3",
+                box4: "box4",
+                box5: "box5",
+                box6: "box6",
+                box16: "box16",
+                box17: "box17"
+            )
+        )
+        let response = try await client.declarations.usW2List(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usDeWithholdingGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "from": "from",
+                  "to": "to",
+                  "employees": 1.1,
+                  "wages": "wages",
+                  "taxWithheld": "taxWithheld"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsDeWithholdingGetDeclarationsResponse(
+            from: "from",
+            to: "to",
+            employees: 1.1,
+            wages: "wages",
+            taxWithheld: "taxWithheld"
+        )
+        let response = try await client.declarations.usDeWithholdingGet(
+            request: .init(period: "period"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usDeWithholdingGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "from": "from",
+                  "to": "to",
+                  "employees": 1.1,
+                  "wages": "wages",
+                  "taxWithheld": "taxWithheld"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsDeWithholdingGetDeclarationsResponse(
+            from: "from",
+            to: "to",
+            employees: 1.1,
+            wages: "wages",
+            taxWithheld: "taxWithheld"
+        )
+        let response = try await client.declarations.usDeWithholdingGet(
+            request: .init(period: "period"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usDeUnemploymentGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1.1,
+                  "quarter": 1.1,
+                  "totalWages": "totalWages",
+                  "excessWages": "excessWages",
+                  "taxableWages": "taxableWages",
+                  "contributions": "contributions",
+                  "employees": [
+                    {
+                      "employeeId": "employeeId",
+                      "socialSecurityNumber": "socialSecurityNumber",
+                      "firstName": "firstName",
+                      "lastName": "lastName",
+                      "wages": "wages"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsDeUnemploymentGetDeclarationsResponse(
+            year: 1.1,
+            quarter: 1.1,
+            totalWages: "totalWages",
+            excessWages: "excessWages",
+            taxableWages: "taxableWages",
+            contributions: "contributions",
+            employees: [
+                UsDeUnemploymentGetDeclarationsResponseEmployeesItem(
+                    employeeId: "employeeId",
+                    socialSecurityNumber: Nullable<String>.value("socialSecurityNumber"),
+                    firstName: "firstName",
+                    lastName: "lastName",
+                    wages: "wages"
+                )
+            ]
+        )
+        let response = try await client.declarations.usDeUnemploymentGet(
+            request: .init(
+                year: 1000000,
+                quarter: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usDeUnemploymentGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1.1,
+                  "quarter": 1.1,
+                  "totalWages": "totalWages",
+                  "excessWages": "excessWages",
+                  "taxableWages": "taxableWages",
+                  "contributions": "contributions",
+                  "employees": [
+                    {
+                      "employeeId": "employeeId",
+                      "socialSecurityNumber": "socialSecurityNumber",
+                      "firstName": "firstName",
+                      "lastName": "lastName",
+                      "wages": "wages"
+                    },
+                    {
+                      "employeeId": "employeeId",
+                      "socialSecurityNumber": "socialSecurityNumber",
+                      "firstName": "firstName",
+                      "lastName": "lastName",
+                      "wages": "wages"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsDeUnemploymentGetDeclarationsResponse(
+            year: 1.1,
+            quarter: 1.1,
+            totalWages: "totalWages",
+            excessWages: "excessWages",
+            taxableWages: "taxableWages",
+            contributions: "contributions",
+            employees: [
+                UsDeUnemploymentGetDeclarationsResponseEmployeesItem(
+                    employeeId: "employeeId",
+                    socialSecurityNumber: Nullable<String>.value("socialSecurityNumber"),
+                    firstName: "firstName",
+                    lastName: "lastName",
+                    wages: "wages"
+                ),
+                UsDeUnemploymentGetDeclarationsResponseEmployeesItem(
+                    employeeId: "employeeId",
+                    socialSecurityNumber: Nullable<String>.value("socialSecurityNumber"),
+                    firstName: "firstName",
+                    lastName: "lastName",
+                    wages: "wages"
+                )
+            ]
+        )
+        let response = try await client.declarations.usDeUnemploymentGet(
+            request: .init(
+                year: 1000000,
+                quarter: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usDeGrossReceiptsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "from": "from",
+                  "to": "to",
+                  "activity": "activity",
+                  "grossReceipts": "grossReceipts",
+                  "excludedReceipts": "excludedReceipts",
+                  "deduction": "deduction",
+                  "taxableReceipts": "taxableReceipts",
+                  "rate": "rate",
+                  "tax": "tax",
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsDeGrossReceiptsGetDeclarationsResponse(
+            from: "from",
+            to: "to",
+            activity: "activity",
+            grossReceipts: "grossReceipts",
+            excludedReceipts: "excludedReceipts",
+            deduction: "deduction",
+            taxableReceipts: "taxableReceipts",
+            rate: "rate",
+            tax: "tax",
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.usDeGrossReceiptsGet(
+            request: .init(
+                period: "period",
+                activity: .services
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usDeGrossReceiptsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "from": "from",
+                  "to": "to",
+                  "activity": "activity",
+                  "grossReceipts": "grossReceipts",
+                  "excludedReceipts": "excludedReceipts",
+                  "deduction": "deduction",
+                  "taxableReceipts": "taxableReceipts",
+                  "rate": "rate",
+                  "tax": "tax",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsDeGrossReceiptsGetDeclarationsResponse(
+            from: "from",
+            to: "to",
+            activity: "activity",
+            grossReceipts: "grossReceipts",
+            excludedReceipts: "excludedReceipts",
+            deduction: "deduction",
+            taxableReceipts: "taxableReceipts",
+            rate: "rate",
+            tax: "tax",
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.usDeGrossReceiptsGet(
+            request: .init(
+                period: "period",
+                activity: .services
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usStateSalesGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "from": "from",
+                  "to": "to",
+                  "states": [
+                    {
+                      "state": "state",
+                      "documents": 1.1,
+                      "net": "net"
+                    }
+                  ],
+                  "withoutState": {
+                    "documents": 1.1,
+                    "net": "net"
+                  },
+                  "outsideUs": {
+                    "documents": 1.1,
+                    "net": "net"
+                  },
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsStateSalesGetDeclarationsResponse(
+            from: "from",
+            to: "to",
+            states: [
+                UsStateSalesGetDeclarationsResponseStatesItem(
+                    state: "state",
+                    documents: 1.1,
+                    net: "net"
+                )
+            ],
+            withoutState: UsStateSalesGetDeclarationsResponseWithoutState(
+                documents: 1.1,
+                net: "net"
+            ),
+            outsideUs: UsStateSalesGetDeclarationsResponseOutsideUs(
+                documents: 1.1,
+                net: "net"
+            ),
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.usStateSalesGet(
+            request: .init(
+                from: CalendarDate("2026-07-01")!,
+                to: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usStateSalesGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "from": "from",
+                  "to": "to",
+                  "states": [
+                    {
+                      "state": "state",
+                      "documents": 1.1,
+                      "net": "net"
+                    },
+                    {
+                      "state": "state",
+                      "documents": 1.1,
+                      "net": "net"
+                    }
+                  ],
+                  "withoutState": {
+                    "documents": 1.1,
+                    "net": "net"
+                  },
+                  "outsideUs": {
+                    "documents": 1.1,
+                    "net": "net"
+                  },
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsStateSalesGetDeclarationsResponse(
+            from: "from",
+            to: "to",
+            states: [
+                UsStateSalesGetDeclarationsResponseStatesItem(
+                    state: "state",
+                    documents: 1.1,
+                    net: "net"
+                ),
+                UsStateSalesGetDeclarationsResponseStatesItem(
+                    state: "state",
+                    documents: 1.1,
+                    net: "net"
+                )
+            ],
+            withoutState: UsStateSalesGetDeclarationsResponseWithoutState(
+                documents: 1.1,
+                net: "net"
+            ),
+            outsideUs: UsStateSalesGetDeclarationsResponseOutsideUs(
+                documents: 1.1,
+                net: "net"
+            ),
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.usStateSalesGet(
+            request: .init(
+                from: CalendarDate("2023-01-15")!,
+                to: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usDeFranchiseTaxCompute1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "authorizedShares": 1.1,
+                  "authorizedSharesMethodTax": "authorizedSharesMethodTax",
+                  "assumedPar": "assumedPar",
+                  "assumedParValueCapital": "assumedParValueCapital",
+                  "assumedNoParCapital": "assumedNoParCapital",
+                  "assumedParValueCapitalMethodTax": "assumedParValueCapitalMethodTax",
+                  "method": "authorized-shares",
+                  "tax": "tax",
+                  "annualReportFee": "annualReportFee"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsDeFranchiseTaxComputeDeclarationsResponse(
+            authorizedShares: 1.1,
+            authorizedSharesMethodTax: "authorizedSharesMethodTax",
+            assumedPar: Nullable<String>.value("assumedPar"),
+            assumedParValueCapital: Nullable<String>.value("assumedParValueCapital"),
+            assumedNoParCapital: Nullable<String>.value("assumedNoParCapital"),
+            assumedParValueCapitalMethodTax: Nullable<String>.value("assumedParValueCapitalMethodTax"),
+            method: .authorizedShares,
+            tax: "tax",
+            annualReportFee: "annualReportFee"
+        )
+        let response = try await client.declarations.usDeFranchiseTaxCompute(
+            request: .init(authorizedShares: [
+                UsDeFranchiseTaxComputeDeclarationsRequestAuthorizedSharesItem(
+                    shares: 1000000
+                )
+            ]),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usDeFranchiseTaxCompute2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "authorizedShares": 1.1,
+                  "authorizedSharesMethodTax": "authorizedSharesMethodTax",
+                  "assumedPar": "assumedPar",
+                  "assumedParValueCapital": "assumedParValueCapital",
+                  "assumedNoParCapital": "assumedNoParCapital",
+                  "assumedParValueCapitalMethodTax": "assumedParValueCapitalMethodTax",
+                  "method": "authorized-shares",
+                  "tax": "tax",
+                  "annualReportFee": "annualReportFee"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsDeFranchiseTaxComputeDeclarationsResponse(
+            authorizedShares: 1.1,
+            authorizedSharesMethodTax: "authorizedSharesMethodTax",
+            assumedPar: Nullable<String>.value("assumedPar"),
+            assumedParValueCapital: Nullable<String>.value("assumedParValueCapital"),
+            assumedNoParCapital: Nullable<String>.value("assumedNoParCapital"),
+            assumedParValueCapitalMethodTax: Nullable<String>.value("assumedParValueCapitalMethodTax"),
+            method: .authorizedShares,
+            tax: "tax",
+            annualReportFee: "annualReportFee"
+        )
+        let response = try await client.declarations.usDeFranchiseTaxCompute(
+            request: .init(authorizedShares: [
+                UsDeFranchiseTaxComputeDeclarationsRequestAuthorizedSharesItem(
+                    shares: 1000000
+                ),
+                UsDeFranchiseTaxComputeDeclarationsRequestAuthorizedSharesItem(
+                    shares: 1000000
+                )
+            ]),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usWorkweeksList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "from": "from",
+                  "to": "to",
+                  "employees": [
+                    {
+                      "employeeId": "employeeId",
+                      "firstName": "firstName",
+                      "lastName": "lastName",
+                      "workweekStart": "workweekStart",
+                      "exempt": true,
+                      "weeks": [
+                        {
+                          "start": "start",
+                          "end": "end",
+                          "hours": "hours",
+                          "overtimeHours": "overtimeHours",
+                          "days": [
+                            {
+                              "date": "2026-07-01",
+                              "hours": "hours"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsWorkweeksListDeclarationsResponse(
+            from: "from",
+            to: "to",
+            employees: [
+                UsWorkweeksListDeclarationsResponseEmployeesItem(
+                    employeeId: "employeeId",
+                    firstName: "firstName",
+                    lastName: "lastName",
+                    workweekStart: "workweekStart",
+                    exempt: true,
+                    weeks: [
+                        UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItem(
+                            start: "start",
+                            end: "end",
+                            hours: "hours",
+                            overtimeHours: "overtimeHours",
+                            days: [
+                                UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItemDaysItem(
+                                    date: CalendarDate("2026-07-01")!,
+                                    hours: "hours"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ],
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.usWorkweeksList(
+            request: .init(
+                from: CalendarDate("2026-07-01")!,
+                to: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usWorkweeksList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "from": "from",
+                  "to": "to",
+                  "employees": [
+                    {
+                      "employeeId": "employeeId",
+                      "firstName": "firstName",
+                      "lastName": "lastName",
+                      "workweekStart": "workweekStart",
+                      "exempt": true,
+                      "weeks": [
+                        {
+                          "start": "start",
+                          "end": "end",
+                          "hours": "hours",
+                          "overtimeHours": "overtimeHours",
+                          "days": [
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            },
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            }
+                          ]
+                        },
+                        {
+                          "start": "start",
+                          "end": "end",
+                          "hours": "hours",
+                          "overtimeHours": "overtimeHours",
+                          "days": [
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            },
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "employeeId": "employeeId",
+                      "firstName": "firstName",
+                      "lastName": "lastName",
+                      "workweekStart": "workweekStart",
+                      "exempt": true,
+                      "weeks": [
+                        {
+                          "start": "start",
+                          "end": "end",
+                          "hours": "hours",
+                          "overtimeHours": "overtimeHours",
+                          "days": [
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            },
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            }
+                          ]
+                        },
+                        {
+                          "start": "start",
+                          "end": "end",
+                          "hours": "hours",
+                          "overtimeHours": "overtimeHours",
+                          "days": [
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            },
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsWorkweeksListDeclarationsResponse(
+            from: "from",
+            to: "to",
+            employees: [
+                UsWorkweeksListDeclarationsResponseEmployeesItem(
+                    employeeId: "employeeId",
+                    firstName: "firstName",
+                    lastName: "lastName",
+                    workweekStart: "workweekStart",
+                    exempt: true,
+                    weeks: [
+                        UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItem(
+                            start: "start",
+                            end: "end",
+                            hours: "hours",
+                            overtimeHours: "overtimeHours",
+                            days: [
+                                UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                ),
+                                UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                )
+                            ]
+                        ),
+                        UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItem(
+                            start: "start",
+                            end: "end",
+                            hours: "hours",
+                            overtimeHours: "overtimeHours",
+                            days: [
+                                UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                ),
+                                UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                UsWorkweeksListDeclarationsResponseEmployeesItem(
+                    employeeId: "employeeId",
+                    firstName: "firstName",
+                    lastName: "lastName",
+                    workweekStart: "workweekStart",
+                    exempt: true,
+                    weeks: [
+                        UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItem(
+                            start: "start",
+                            end: "end",
+                            hours: "hours",
+                            overtimeHours: "overtimeHours",
+                            days: [
+                                UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                ),
+                                UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                )
+                            ]
+                        ),
+                        UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItem(
+                            start: "start",
+                            end: "end",
+                            hours: "hours",
+                            overtimeHours: "overtimeHours",
+                            days: [
+                                UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                ),
+                                UsWorkweeksListDeclarationsResponseEmployeesItemWeeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ],
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.usWorkweeksList(
+            request: .init(
+                from: CalendarDate("2023-01-15")!,
+                to: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func configsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -13379,7 +15808,7 @@ import Api
                             "options",
                             "options"
                           ],
-                          "companyField": "code"
+                          "companyField": "companyField"
                         },
                         {
                           "key": "key",
@@ -13390,7 +15819,7 @@ import Api
                             "options",
                             "options"
                           ],
-                          "companyField": "code"
+                          "companyField": "companyField"
                         }
                       ],
                       "endpoints": [
@@ -13424,7 +15853,7 @@ import Api
                             "options",
                             "options"
                           ],
-                          "companyField": "code"
+                          "companyField": "companyField"
                         },
                         {
                           "key": "key",
@@ -13435,7 +15864,7 @@ import Api
                             "options",
                             "options"
                           ],
-                          "companyField": "code"
+                          "companyField": "companyField"
                         }
                       ],
                       "endpoints": [
@@ -13482,7 +15911,7 @@ import Api
                                 "options",
                                 "options"
                             ]),
-                            companyField: Optional(.code)
+                            companyField: Optional("companyField")
                         ),
                         ConfigsListDeclarationsResponseRowsItemFieldsItem(
                             key: "key",
@@ -13493,7 +15922,7 @@ import Api
                                 "options",
                                 "options"
                             ]),
-                            companyField: Optional(.code)
+                            companyField: Optional("companyField")
                         )
                     ],
                     endpoints: Optional([
@@ -13527,7 +15956,7 @@ import Api
                                 "options",
                                 "options"
                             ]),
-                            companyField: Optional(.code)
+                            companyField: Optional("companyField")
                         ),
                         ConfigsListDeclarationsResponseRowsItemFieldsItem(
                             key: "key",
@@ -13538,7 +15967,7 @@ import Api
                                 "options",
                                 "options"
                             ]),
-                            companyField: Optional(.code)
+                            companyField: Optional("companyField")
                         )
                     ],
                     endpoints: Optional([
@@ -13585,7 +16014,7 @@ import Api
                       "options": [
                         "options"
                       ],
-                      "companyField": "code"
+                      "companyField": "companyField"
                     }
                   ],
                   "endpoints": [
@@ -13621,7 +16050,7 @@ import Api
                     options: Optional([
                         "options"
                     ]),
-                    companyField: Optional(.code)
+                    companyField: Optional("companyField")
                 )
             ],
             endpoints: Optional([
@@ -13667,7 +16096,7 @@ import Api
                         "options",
                         "options"
                       ],
-                      "companyField": "code"
+                      "companyField": "companyField"
                     },
                     {
                       "key": "key",
@@ -13678,7 +16107,7 @@ import Api
                         "options",
                         "options"
                       ],
-                      "companyField": "code"
+                      "companyField": "companyField"
                     }
                   ],
                   "endpoints": [
@@ -13720,7 +16149,7 @@ import Api
                         "options",
                         "options"
                     ]),
-                    companyField: Optional(.code)
+                    companyField: Optional("companyField")
                 ),
                 ConfigsUpdateDeclarationsResponseFieldsItem(
                     key: "key",
@@ -13731,7 +16160,7 @@ import Api
                         "options",
                         "options"
                     ]),
-                    companyField: Optional(.code)
+                    companyField: Optional("companyField")
                 )
             ],
             endpoints: Optional([

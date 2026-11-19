@@ -5,6 +5,9 @@ public struct AccountsCreateBankResponse: Codable, Hashable, Sendable {
     public let name: String
     public let type: AccountsCreateBankResponseType
     public let iban: Nullable<String>
+    public let bankCode: Nullable<String>
+    public let bankAccountNumber: Nullable<String>
+    public let paymentFileSettings: AccountsCreateBankResponsePaymentFileSettings
     public let currency: String
     public let accountCode: String
     public let isActive: Bool
@@ -17,6 +20,9 @@ public struct AccountsCreateBankResponse: Codable, Hashable, Sendable {
         name: String,
         type: AccountsCreateBankResponseType,
         iban: Nullable<String>,
+        bankCode: Nullable<String>,
+        bankAccountNumber: Nullable<String>,
+        paymentFileSettings: AccountsCreateBankResponsePaymentFileSettings,
         currency: String,
         accountCode: String,
         isActive: Bool,
@@ -27,6 +33,9 @@ public struct AccountsCreateBankResponse: Codable, Hashable, Sendable {
         self.name = name
         self.type = type
         self.iban = iban
+        self.bankCode = bankCode
+        self.bankAccountNumber = bankAccountNumber
+        self.paymentFileSettings = paymentFileSettings
         self.currency = currency
         self.accountCode = accountCode
         self.isActive = isActive
@@ -40,6 +49,9 @@ public struct AccountsCreateBankResponse: Codable, Hashable, Sendable {
         self.name = try container.decode(String.self, forKey: .name)
         self.type = try container.decode(AccountsCreateBankResponseType.self, forKey: .type)
         self.iban = try container.decode(Nullable<String>.self, forKey: .iban)
+        self.bankCode = try container.decode(Nullable<String>.self, forKey: .bankCode)
+        self.bankAccountNumber = try container.decode(Nullable<String>.self, forKey: .bankAccountNumber)
+        self.paymentFileSettings = try container.decode(AccountsCreateBankResponsePaymentFileSettings.self, forKey: .paymentFileSettings)
         self.currency = try container.decode(String.self, forKey: .currency)
         self.accountCode = try container.decode(String.self, forKey: .accountCode)
         self.isActive = try container.decode(Bool.self, forKey: .isActive)
@@ -54,6 +66,9 @@ public struct AccountsCreateBankResponse: Codable, Hashable, Sendable {
         try container.encode(self.name, forKey: .name)
         try container.encode(self.type, forKey: .type)
         try container.encode(self.iban, forKey: .iban)
+        try container.encode(self.bankCode, forKey: .bankCode)
+        try container.encode(self.bankAccountNumber, forKey: .bankAccountNumber)
+        try container.encode(self.paymentFileSettings, forKey: .paymentFileSettings)
         try container.encode(self.currency, forKey: .currency)
         try container.encode(self.accountCode, forKey: .accountCode)
         try container.encode(self.isActive, forKey: .isActive)
@@ -66,6 +81,9 @@ public struct AccountsCreateBankResponse: Codable, Hashable, Sendable {
         case name
         case type
         case iban
+        case bankCode
+        case bankAccountNumber
+        case paymentFileSettings
         case currency
         case accountCode
         case isActive

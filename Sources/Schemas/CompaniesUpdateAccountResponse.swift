@@ -5,6 +5,7 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
     public let name: String
     public let code: Nullable<String>
     public let vatCode: Nullable<String>
+    public let identifiers: [String: String]
     public let smeExemptionNumber: Nullable<String>
     public let isVatPayer: Bool
     public let isSandbox: Bool
@@ -12,8 +13,8 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
     public let countryCode: String
     /// Chart of accounts template the company was seeded with
     public let chartTemplate: String
-    /// Chart of accounts template of the company country
-    public let countryChartTemplate: String
+    /// Chart of accounts template of the company country; null when Nordlet has no chart for it
+    public let countryChartTemplate: Nullable<String>
     public let baseCurrency: String
     public let defaultInvoiceCurrency: String
     public let status: CompaniesUpdateAccountResponseStatus
@@ -41,7 +42,11 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
     public let shareCapital: Nullable<String>
     public let accountsKeptBy: Nullable<CompaniesUpdateAccountResponseAccountsKeptBy>
     public let vatPeriod: Nullable<CompaniesUpdateAccountResponseVatPeriod>
+    public let vatPeriodEndMonth: Nullable<Int64>
     public let fiscalYearEndMonth: Nullable<Int64>
+    public let fiscalYearEndDay: Nullable<Int64>
+    public let fiscalYearWeekday: Nullable<Int64>
+    public let fiscalYearWeekRule: Nullable<CompaniesUpdateAccountResponseFiscalYearWeekRule>
     public let timeZone: String
     public let filingOptions: Nullable<[String: Nullable<String>]>
     public let bookkeeperName: Nullable<String>
@@ -56,13 +61,14 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         name: String,
         code: Nullable<String>,
         vatCode: Nullable<String>,
+        identifiers: [String: String],
         smeExemptionNumber: Nullable<String>,
         isVatPayer: Bool,
         isSandbox: Bool,
         cashBasis: Bool,
         countryCode: String,
         chartTemplate: String,
-        countryChartTemplate: String,
+        countryChartTemplate: Nullable<String>,
         baseCurrency: String,
         defaultInvoiceCurrency: String,
         status: CompaniesUpdateAccountResponseStatus,
@@ -88,7 +94,11 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         shareCapital: Nullable<String>,
         accountsKeptBy: Nullable<CompaniesUpdateAccountResponseAccountsKeptBy>,
         vatPeriod: Nullable<CompaniesUpdateAccountResponseVatPeriod>,
+        vatPeriodEndMonth: Nullable<Int64>,
         fiscalYearEndMonth: Nullable<Int64>,
+        fiscalYearEndDay: Nullable<Int64>,
+        fiscalYearWeekday: Nullable<Int64>,
+        fiscalYearWeekRule: Nullable<CompaniesUpdateAccountResponseFiscalYearWeekRule>,
         timeZone: String,
         filingOptions: Nullable<[String: Nullable<String>]>,
         bookkeeperName: Nullable<String>,
@@ -101,6 +111,7 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         self.name = name
         self.code = code
         self.vatCode = vatCode
+        self.identifiers = identifiers
         self.smeExemptionNumber = smeExemptionNumber
         self.isVatPayer = isVatPayer
         self.isSandbox = isSandbox
@@ -133,7 +144,11 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         self.shareCapital = shareCapital
         self.accountsKeptBy = accountsKeptBy
         self.vatPeriod = vatPeriod
+        self.vatPeriodEndMonth = vatPeriodEndMonth
         self.fiscalYearEndMonth = fiscalYearEndMonth
+        self.fiscalYearEndDay = fiscalYearEndDay
+        self.fiscalYearWeekday = fiscalYearWeekday
+        self.fiscalYearWeekRule = fiscalYearWeekRule
         self.timeZone = timeZone
         self.filingOptions = filingOptions
         self.bookkeeperName = bookkeeperName
@@ -149,13 +164,14 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         self.name = try container.decode(String.self, forKey: .name)
         self.code = try container.decode(Nullable<String>.self, forKey: .code)
         self.vatCode = try container.decode(Nullable<String>.self, forKey: .vatCode)
+        self.identifiers = try container.decode([String: String].self, forKey: .identifiers)
         self.smeExemptionNumber = try container.decode(Nullable<String>.self, forKey: .smeExemptionNumber)
         self.isVatPayer = try container.decode(Bool.self, forKey: .isVatPayer)
         self.isSandbox = try container.decode(Bool.self, forKey: .isSandbox)
         self.cashBasis = try container.decode(Bool.self, forKey: .cashBasis)
         self.countryCode = try container.decode(String.self, forKey: .countryCode)
         self.chartTemplate = try container.decode(String.self, forKey: .chartTemplate)
-        self.countryChartTemplate = try container.decode(String.self, forKey: .countryChartTemplate)
+        self.countryChartTemplate = try container.decode(Nullable<String>.self, forKey: .countryChartTemplate)
         self.baseCurrency = try container.decode(String.self, forKey: .baseCurrency)
         self.defaultInvoiceCurrency = try container.decode(String.self, forKey: .defaultInvoiceCurrency)
         self.status = try container.decode(CompaniesUpdateAccountResponseStatus.self, forKey: .status)
@@ -181,7 +197,11 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         self.shareCapital = try container.decode(Nullable<String>.self, forKey: .shareCapital)
         self.accountsKeptBy = try container.decode(Nullable<CompaniesUpdateAccountResponseAccountsKeptBy>.self, forKey: .accountsKeptBy)
         self.vatPeriod = try container.decode(Nullable<CompaniesUpdateAccountResponseVatPeriod>.self, forKey: .vatPeriod)
+        self.vatPeriodEndMonth = try container.decode(Nullable<Int64>.self, forKey: .vatPeriodEndMonth)
         self.fiscalYearEndMonth = try container.decode(Nullable<Int64>.self, forKey: .fiscalYearEndMonth)
+        self.fiscalYearEndDay = try container.decode(Nullable<Int64>.self, forKey: .fiscalYearEndDay)
+        self.fiscalYearWeekday = try container.decode(Nullable<Int64>.self, forKey: .fiscalYearWeekday)
+        self.fiscalYearWeekRule = try container.decode(Nullable<CompaniesUpdateAccountResponseFiscalYearWeekRule>.self, forKey: .fiscalYearWeekRule)
         self.timeZone = try container.decode(String.self, forKey: .timeZone)
         self.filingOptions = try container.decode(Nullable<[String: Nullable<String>]>.self, forKey: .filingOptions)
         self.bookkeeperName = try container.decode(Nullable<String>.self, forKey: .bookkeeperName)
@@ -198,6 +218,7 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         try container.encode(self.name, forKey: .name)
         try container.encode(self.code, forKey: .code)
         try container.encode(self.vatCode, forKey: .vatCode)
+        try container.encode(self.identifiers, forKey: .identifiers)
         try container.encode(self.smeExemptionNumber, forKey: .smeExemptionNumber)
         try container.encode(self.isVatPayer, forKey: .isVatPayer)
         try container.encode(self.isSandbox, forKey: .isSandbox)
@@ -230,7 +251,11 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         try container.encode(self.shareCapital, forKey: .shareCapital)
         try container.encode(self.accountsKeptBy, forKey: .accountsKeptBy)
         try container.encode(self.vatPeriod, forKey: .vatPeriod)
+        try container.encode(self.vatPeriodEndMonth, forKey: .vatPeriodEndMonth)
         try container.encode(self.fiscalYearEndMonth, forKey: .fiscalYearEndMonth)
+        try container.encode(self.fiscalYearEndDay, forKey: .fiscalYearEndDay)
+        try container.encode(self.fiscalYearWeekday, forKey: .fiscalYearWeekday)
+        try container.encode(self.fiscalYearWeekRule, forKey: .fiscalYearWeekRule)
         try container.encode(self.timeZone, forKey: .timeZone)
         try container.encode(self.filingOptions, forKey: .filingOptions)
         try container.encode(self.bookkeeperName, forKey: .bookkeeperName)
@@ -245,6 +270,7 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         case name
         case code
         case vatCode
+        case identifiers
         case smeExemptionNumber
         case isVatPayer
         case isSandbox
@@ -277,7 +303,11 @@ public struct CompaniesUpdateAccountResponse: Codable, Hashable, Sendable {
         case shareCapital
         case accountsKeptBy
         case vatPeriod
+        case vatPeriodEndMonth
         case fiscalYearEndMonth
+        case fiscalYearEndDay
+        case fiscalYearWeekday
+        case fiscalYearWeekRule
         case timeZone
         case filingOptions
         case bookkeeperName

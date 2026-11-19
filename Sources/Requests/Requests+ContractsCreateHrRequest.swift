@@ -13,6 +13,7 @@ extension Requests {
         public let endDate: CalendarDate?
         public let baseSalary: String
         public let salaryType: ContractsCreateHrRequestSalaryType?
+        public let payFrequency: ContractsCreateHrRequestPayFrequency?
         public let workHours: String?
         public let notes: String?
         /// Additional properties that are not explicitly defined in the schema
@@ -30,6 +31,7 @@ extension Requests {
             endDate: CalendarDate? = nil,
             baseSalary: String,
             salaryType: ContractsCreateHrRequestSalaryType? = nil,
+            payFrequency: ContractsCreateHrRequestPayFrequency? = nil,
             workHours: String? = nil,
             notes: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
@@ -45,6 +47,7 @@ extension Requests {
             self.endDate = endDate
             self.baseSalary = baseSalary
             self.salaryType = salaryType
+            self.payFrequency = payFrequency
             self.workHours = workHours
             self.notes = notes
             self.additionalProperties = additionalProperties
@@ -63,6 +66,7 @@ extension Requests {
             self.endDate = try container.decodeIfPresent(CalendarDate.self, forKey: .endDate)
             self.baseSalary = try container.decode(String.self, forKey: .baseSalary)
             self.salaryType = try container.decodeIfPresent(ContractsCreateHrRequestSalaryType.self, forKey: .salaryType)
+            self.payFrequency = try container.decodeIfPresent(ContractsCreateHrRequestPayFrequency.self, forKey: .payFrequency)
             self.workHours = try container.decodeIfPresent(String.self, forKey: .workHours)
             self.notes = try container.decodeIfPresent(String.self, forKey: .notes)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -82,6 +86,7 @@ extension Requests {
             try container.encodeIfPresent(self.endDate, forKey: .endDate)
             try container.encode(self.baseSalary, forKey: .baseSalary)
             try container.encodeIfPresent(self.salaryType, forKey: .salaryType)
+            try container.encodeIfPresent(self.payFrequency, forKey: .payFrequency)
             try container.encodeIfPresent(self.workHours, forKey: .workHours)
             try container.encodeIfPresent(self.notes, forKey: .notes)
         }
@@ -99,6 +104,7 @@ extension Requests {
             case endDate
             case baseSalary
             case salaryType
+            case payFrequency
             case workHours
             case notes
         }

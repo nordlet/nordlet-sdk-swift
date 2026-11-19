@@ -11,6 +11,7 @@ public struct ListPartnersResponseRowsItem: Codable, Hashable, Sendable {
     public let phone: Nullable<String>
     public let selfEmploymentCertNo: Nullable<String>
     public let birthDate: Nullable<CalendarDate>
+    public let isBusiness: Nullable<Bool>
     public let isCustomer: Bool
     public let isSupplier: Bool
     public let paymentTermDays: Nullable<Int64>
@@ -56,6 +57,7 @@ public struct ListPartnersResponseRowsItem: Codable, Hashable, Sendable {
         phone: Nullable<String>,
         selfEmploymentCertNo: Nullable<String>,
         birthDate: Nullable<CalendarDate>,
+        isBusiness: Nullable<Bool>,
         isCustomer: Bool,
         isSupplier: Bool,
         paymentTermDays: Nullable<Int64>,
@@ -99,6 +101,7 @@ public struct ListPartnersResponseRowsItem: Codable, Hashable, Sendable {
         self.phone = phone
         self.selfEmploymentCertNo = selfEmploymentCertNo
         self.birthDate = birthDate
+        self.isBusiness = isBusiness
         self.isCustomer = isCustomer
         self.isSupplier = isSupplier
         self.paymentTermDays = paymentTermDays
@@ -145,6 +148,7 @@ public struct ListPartnersResponseRowsItem: Codable, Hashable, Sendable {
         self.phone = try container.decode(Nullable<String>.self, forKey: .phone)
         self.selfEmploymentCertNo = try container.decode(Nullable<String>.self, forKey: .selfEmploymentCertNo)
         self.birthDate = try container.decode(Nullable<CalendarDate>.self, forKey: .birthDate)
+        self.isBusiness = try container.decode(Nullable<Bool>.self, forKey: .isBusiness)
         self.isCustomer = try container.decode(Bool.self, forKey: .isCustomer)
         self.isSupplier = try container.decode(Bool.self, forKey: .isSupplier)
         self.paymentTermDays = try container.decode(Nullable<Int64>.self, forKey: .paymentTermDays)
@@ -192,6 +196,7 @@ public struct ListPartnersResponseRowsItem: Codable, Hashable, Sendable {
         try container.encode(self.phone, forKey: .phone)
         try container.encode(self.selfEmploymentCertNo, forKey: .selfEmploymentCertNo)
         try container.encode(self.birthDate, forKey: .birthDate)
+        try container.encode(self.isBusiness, forKey: .isBusiness)
         try container.encode(self.isCustomer, forKey: .isCustomer)
         try container.encode(self.isSupplier, forKey: .isSupplier)
         try container.encode(self.paymentTermDays, forKey: .paymentTermDays)
@@ -237,6 +242,7 @@ public struct ListPartnersResponseRowsItem: Codable, Hashable, Sendable {
         case phone
         case selfEmploymentCertNo
         case birthDate
+        case isBusiness
         case isCustomer
         case isSupplier
         case paymentTermDays

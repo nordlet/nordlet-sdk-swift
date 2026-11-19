@@ -6,9 +6,19 @@ extension Requests {
         public let code: String?
         public let vatCode: String?
         public let smeExemptionNumber: String?
+        /// Registration numbers of the company other than `code` and `vatCode`, by key: `utr` (GB, Corporation Tax Unique Taxpayer Reference (UTR), 10 digits); `taxOfficeNumber` (GB, PAYE tax office number, 3 digits); `taxOfficeReference` (GB, PAYE tax office reference, 1 to 10 letters, digits or punctuation, not starting with a space); `accountsOfficeReference` (GB, Accounts Office reference, 13 characters: 3 digits, P, a letter, 7 digits and a digit or X); `ein` (US, Employer Identification Number (EIN), 9 digits whose first two are a prefix the IRS assigns); `deBusinessLicense` (US, Delaware business license number); `deWithholdingAccount` (US, Delaware withholding account number, 9 digits, the federal EIN); `deUnemploymentAccount` (US, Delaware unemployment insurance account number); `deUnemploymentRate` (US, Delaware unemployment insurance tax rate (%), a percentage from 0 to 100 with at most 4 decimals); `deEntityFileNumber` (US, Delaware Division of Corporations file number (formed in Delaware)); `deForeignEntityFileNumber` (US, Delaware Division of Corporations file number (formed in another state))
+        public let identifiers: [String: String]?
         public let isVatPayer: Bool?
         public let vatPeriod: CompaniesCreateAccountRequestVatPeriod?
+        /// A month in which a VAT period ends, for VAT periods that do not follow the calendar quarters
+        public let vatPeriodEndMonth: Int64?
         public let fiscalYearEndMonth: Int64?
+        /// Day of `fiscalYearEndMonth` the fiscal year ends on; the last day of the month when omitted
+        public let fiscalYearEndDay: Int64?
+        /// For a 52-53-week fiscal year: the weekday it always ends on, 0 Sunday to 6 Saturday
+        public let fiscalYearWeekday: Int64?
+        /// With `fiscalYearWeekday`: `last` ends the year on the last such weekday of `fiscalYearEndMonth`, `nearest` on the one nearest the last day of that month
+        public let fiscalYearWeekRule: CompaniesCreateAccountRequestFiscalYearWeekRule?
         public let timeZone: String?
         public let filingOptions: [String: String]?
         public let address: CompaniesCreateAccountRequestAddress?
@@ -56,9 +66,14 @@ extension Requests {
             code: String? = nil,
             vatCode: String? = nil,
             smeExemptionNumber: String? = nil,
+            identifiers: [String: String]? = nil,
             isVatPayer: Bool? = nil,
             vatPeriod: CompaniesCreateAccountRequestVatPeriod? = nil,
+            vatPeriodEndMonth: Int64? = nil,
             fiscalYearEndMonth: Int64? = nil,
+            fiscalYearEndDay: Int64? = nil,
+            fiscalYearWeekday: Int64? = nil,
+            fiscalYearWeekRule: CompaniesCreateAccountRequestFiscalYearWeekRule? = nil,
             timeZone: String? = nil,
             filingOptions: [String: String]? = nil,
             address: CompaniesCreateAccountRequestAddress? = nil,
@@ -95,9 +110,14 @@ extension Requests {
             self.code = code
             self.vatCode = vatCode
             self.smeExemptionNumber = smeExemptionNumber
+            self.identifiers = identifiers
             self.isVatPayer = isVatPayer
             self.vatPeriod = vatPeriod
+            self.vatPeriodEndMonth = vatPeriodEndMonth
             self.fiscalYearEndMonth = fiscalYearEndMonth
+            self.fiscalYearEndDay = fiscalYearEndDay
+            self.fiscalYearWeekday = fiscalYearWeekday
+            self.fiscalYearWeekRule = fiscalYearWeekRule
             self.timeZone = timeZone
             self.filingOptions = filingOptions
             self.address = address
@@ -137,9 +157,14 @@ extension Requests {
             self.code = try container.decodeIfPresent(String.self, forKey: .code)
             self.vatCode = try container.decodeIfPresent(String.self, forKey: .vatCode)
             self.smeExemptionNumber = try container.decodeIfPresent(String.self, forKey: .smeExemptionNumber)
+            self.identifiers = try container.decodeIfPresent([String: String].self, forKey: .identifiers)
             self.isVatPayer = try container.decodeIfPresent(Bool.self, forKey: .isVatPayer)
             self.vatPeriod = try container.decodeIfPresent(CompaniesCreateAccountRequestVatPeriod.self, forKey: .vatPeriod)
+            self.vatPeriodEndMonth = try container.decodeIfPresent(Int64.self, forKey: .vatPeriodEndMonth)
             self.fiscalYearEndMonth = try container.decodeIfPresent(Int64.self, forKey: .fiscalYearEndMonth)
+            self.fiscalYearEndDay = try container.decodeIfPresent(Int64.self, forKey: .fiscalYearEndDay)
+            self.fiscalYearWeekday = try container.decodeIfPresent(Int64.self, forKey: .fiscalYearWeekday)
+            self.fiscalYearWeekRule = try container.decodeIfPresent(CompaniesCreateAccountRequestFiscalYearWeekRule.self, forKey: .fiscalYearWeekRule)
             self.timeZone = try container.decodeIfPresent(String.self, forKey: .timeZone)
             self.filingOptions = try container.decodeIfPresent([String: String].self, forKey: .filingOptions)
             self.address = try container.decodeIfPresent(CompaniesCreateAccountRequestAddress.self, forKey: .address)
@@ -180,9 +205,14 @@ extension Requests {
             try container.encodeIfPresent(self.code, forKey: .code)
             try container.encodeIfPresent(self.vatCode, forKey: .vatCode)
             try container.encodeIfPresent(self.smeExemptionNumber, forKey: .smeExemptionNumber)
+            try container.encodeIfPresent(self.identifiers, forKey: .identifiers)
             try container.encodeIfPresent(self.isVatPayer, forKey: .isVatPayer)
             try container.encodeIfPresent(self.vatPeriod, forKey: .vatPeriod)
+            try container.encodeIfPresent(self.vatPeriodEndMonth, forKey: .vatPeriodEndMonth)
             try container.encodeIfPresent(self.fiscalYearEndMonth, forKey: .fiscalYearEndMonth)
+            try container.encodeIfPresent(self.fiscalYearEndDay, forKey: .fiscalYearEndDay)
+            try container.encodeIfPresent(self.fiscalYearWeekday, forKey: .fiscalYearWeekday)
+            try container.encodeIfPresent(self.fiscalYearWeekRule, forKey: .fiscalYearWeekRule)
             try container.encodeIfPresent(self.timeZone, forKey: .timeZone)
             try container.encodeIfPresent(self.filingOptions, forKey: .filingOptions)
             try container.encodeIfPresent(self.address, forKey: .address)
@@ -221,9 +251,14 @@ extension Requests {
             case code
             case vatCode
             case smeExemptionNumber
+            case identifiers
             case isVatPayer
             case vatPeriod
+            case vatPeriodEndMonth
             case fiscalYearEndMonth
+            case fiscalYearEndDay
+            case fiscalYearWeekday
+            case fiscalYearWeekRule
             case timeZone
             case filingOptions
             case address

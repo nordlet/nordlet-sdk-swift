@@ -1,6 +1,7 @@
 import Foundation
 
 public struct ExchangeRatesListReferenceResponseRowsItem: Codable, Hashable, Sendable {
+    public let baseCurrency: String
     public let currencyCode: String
     public let date: CalendarDate
     public let rate: String
@@ -8,11 +9,13 @@ public struct ExchangeRatesListReferenceResponseRowsItem: Codable, Hashable, Sen
     public let additionalProperties: [String: JSONValue]
 
     public init(
+        baseCurrency: String,
         currencyCode: String,
         date: CalendarDate,
         rate: String,
         additionalProperties: [String: JSONValue] = .init()
     ) {
+        self.baseCurrency = baseCurrency
         self.currencyCode = currencyCode
         self.date = date
         self.rate = rate
@@ -21,6 +24,7 @@ public struct ExchangeRatesListReferenceResponseRowsItem: Codable, Hashable, Sen
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.baseCurrency = try container.decode(String.self, forKey: .baseCurrency)
         self.currencyCode = try container.decode(String.self, forKey: .currencyCode)
         self.date = try container.decode(CalendarDate.self, forKey: .date)
         self.rate = try container.decode(String.self, forKey: .rate)
@@ -30,6 +34,7 @@ public struct ExchangeRatesListReferenceResponseRowsItem: Codable, Hashable, Sen
     public func encode(to encoder: Encoder) throws -> Void {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try encoder.encodeAdditionalProperties(self.additionalProperties)
+        try container.encode(self.baseCurrency, forKey: .baseCurrency)
         try container.encode(self.currencyCode, forKey: .currencyCode)
         try container.encode(self.date, forKey: .date)
         try container.encode(self.rate, forKey: .rate)
@@ -37,6 +42,7 @@ public struct ExchangeRatesListReferenceResponseRowsItem: Codable, Hashable, Sen
 
     /// Keys for encoding/decoding struct properties.
     enum CodingKeys: String, CodingKey, CaseIterable {
+        case baseCurrency
         case currencyCode
         case date
         case rate

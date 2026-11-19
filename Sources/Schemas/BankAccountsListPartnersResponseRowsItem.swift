@@ -3,7 +3,11 @@ import Foundation
 public struct BankAccountsListPartnersResponseRowsItem: Codable, Hashable, Sendable {
     public let id: String
     public let partnerId: String
-    public let iban: String
+    public let iban: Nullable<String>
+    public let bankCode: Nullable<String>
+    public let bankAccountNumber: Nullable<String>
+    /// Checking or savings account; a US ACH file needs it
+    public let accountType: Nullable<BankAccountsListPartnersResponseRowsItemAccountType>
     public let bankName: Nullable<String>
     public let bic: Nullable<String>
     public let currency: String
@@ -15,7 +19,10 @@ public struct BankAccountsListPartnersResponseRowsItem: Codable, Hashable, Senda
     public init(
         id: String,
         partnerId: String,
-        iban: String,
+        iban: Nullable<String>,
+        bankCode: Nullable<String>,
+        bankAccountNumber: Nullable<String>,
+        accountType: Nullable<BankAccountsListPartnersResponseRowsItemAccountType>,
         bankName: Nullable<String>,
         bic: Nullable<String>,
         currency: String,
@@ -26,6 +33,9 @@ public struct BankAccountsListPartnersResponseRowsItem: Codable, Hashable, Senda
         self.id = id
         self.partnerId = partnerId
         self.iban = iban
+        self.bankCode = bankCode
+        self.bankAccountNumber = bankAccountNumber
+        self.accountType = accountType
         self.bankName = bankName
         self.bic = bic
         self.currency = currency
@@ -38,7 +48,10 @@ public struct BankAccountsListPartnersResponseRowsItem: Codable, Hashable, Senda
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
         self.partnerId = try container.decode(String.self, forKey: .partnerId)
-        self.iban = try container.decode(String.self, forKey: .iban)
+        self.iban = try container.decode(Nullable<String>.self, forKey: .iban)
+        self.bankCode = try container.decode(Nullable<String>.self, forKey: .bankCode)
+        self.bankAccountNumber = try container.decode(Nullable<String>.self, forKey: .bankAccountNumber)
+        self.accountType = try container.decode(Nullable<BankAccountsListPartnersResponseRowsItemAccountType>.self, forKey: .accountType)
         self.bankName = try container.decode(Nullable<String>.self, forKey: .bankName)
         self.bic = try container.decode(Nullable<String>.self, forKey: .bic)
         self.currency = try container.decode(String.self, forKey: .currency)
@@ -53,6 +66,9 @@ public struct BankAccountsListPartnersResponseRowsItem: Codable, Hashable, Senda
         try container.encode(self.id, forKey: .id)
         try container.encode(self.partnerId, forKey: .partnerId)
         try container.encode(self.iban, forKey: .iban)
+        try container.encode(self.bankCode, forKey: .bankCode)
+        try container.encode(self.bankAccountNumber, forKey: .bankAccountNumber)
+        try container.encode(self.accountType, forKey: .accountType)
         try container.encode(self.bankName, forKey: .bankName)
         try container.encode(self.bic, forKey: .bic)
         try container.encode(self.currency, forKey: .currency)
@@ -65,6 +81,9 @@ public struct BankAccountsListPartnersResponseRowsItem: Codable, Hashable, Senda
         case id
         case partnerId
         case iban
+        case bankCode
+        case bankAccountNumber
+        case accountType
         case bankName
         case bic
         case currency

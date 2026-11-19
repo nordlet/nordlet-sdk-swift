@@ -13,6 +13,7 @@ extension Requests {
         public let typeId: Nullable<String>?
         public let status: UpdateLeadsRequestStatus?
         public let estimatedValue: Nullable<String>?
+        /// Defaults to the company's base currency
         public let currency: String?
         public let description: Nullable<String>?
         public let assignedUserId: Nullable<String>?

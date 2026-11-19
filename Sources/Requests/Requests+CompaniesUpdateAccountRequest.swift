@@ -6,9 +6,19 @@ extension Requests {
         public let code: Nullable<String>?
         public let vatCode: Nullable<String>?
         public let smeExemptionNumber: Nullable<String>?
+        /// Registration numbers of the company other than `code` and `vatCode`, by key: `utr` (GB, Corporation Tax Unique Taxpayer Reference (UTR), 10 digits); `taxOfficeNumber` (GB, PAYE tax office number, 3 digits); `taxOfficeReference` (GB, PAYE tax office reference, 1 to 10 letters, digits or punctuation, not starting with a space); `accountsOfficeReference` (GB, Accounts Office reference, 13 characters: 3 digits, P, a letter, 7 digits and a digit or X); `ein` (US, Employer Identification Number (EIN), 9 digits whose first two are a prefix the IRS assigns); `deBusinessLicense` (US, Delaware business license number); `deWithholdingAccount` (US, Delaware withholding account number, 9 digits, the federal EIN); `deUnemploymentAccount` (US, Delaware unemployment insurance account number); `deUnemploymentRate` (US, Delaware unemployment insurance tax rate (%), a percentage from 0 to 100 with at most 4 decimals); `deEntityFileNumber` (US, Delaware Division of Corporations file number (formed in Delaware)); `deForeignEntityFileNumber` (US, Delaware Division of Corporations file number (formed in another state))
+        public let identifiers: Nullable<[String: Nullable<String>]>?
         public let isVatPayer: Bool?
         public let vatPeriod: Nullable<CompaniesUpdateAccountRequestVatPeriod>?
+        /// A month in which a VAT period ends, for VAT periods that do not follow the calendar quarters
+        public let vatPeriodEndMonth: Nullable<Int64>?
         public let fiscalYearEndMonth: Nullable<Int64>?
+        /// Day of `fiscalYearEndMonth` the fiscal year ends on; the last day of the month when omitted
+        public let fiscalYearEndDay: Nullable<Int64>?
+        /// For a 52-53-week fiscal year: the weekday it always ends on, 0 Sunday to 6 Saturday
+        public let fiscalYearWeekday: Nullable<Int64>?
+        /// With `fiscalYearWeekday`: `last` ends the year on the last such weekday of `fiscalYearEndMonth`, `nearest` on the one nearest the last day of that month
+        public let fiscalYearWeekRule: Nullable<CompaniesUpdateAccountRequestFiscalYearWeekRule>?
         public let timeZone: String?
         public let filingOptions: Nullable<[String: Nullable<String>]>?
         public let address: CompaniesUpdateAccountRequestAddress?
@@ -49,9 +59,14 @@ extension Requests {
             code: Nullable<String>? = nil,
             vatCode: Nullable<String>? = nil,
             smeExemptionNumber: Nullable<String>? = nil,
+            identifiers: Nullable<[String: Nullable<String>]>? = nil,
             isVatPayer: Bool? = nil,
             vatPeriod: Nullable<CompaniesUpdateAccountRequestVatPeriod>? = nil,
+            vatPeriodEndMonth: Nullable<Int64>? = nil,
             fiscalYearEndMonth: Nullable<Int64>? = nil,
+            fiscalYearEndDay: Nullable<Int64>? = nil,
+            fiscalYearWeekday: Nullable<Int64>? = nil,
+            fiscalYearWeekRule: Nullable<CompaniesUpdateAccountRequestFiscalYearWeekRule>? = nil,
             timeZone: String? = nil,
             filingOptions: Nullable<[String: Nullable<String>]>? = nil,
             address: CompaniesUpdateAccountRequestAddress? = nil,
@@ -85,9 +100,14 @@ extension Requests {
             self.code = code
             self.vatCode = vatCode
             self.smeExemptionNumber = smeExemptionNumber
+            self.identifiers = identifiers
             self.isVatPayer = isVatPayer
             self.vatPeriod = vatPeriod
+            self.vatPeriodEndMonth = vatPeriodEndMonth
             self.fiscalYearEndMonth = fiscalYearEndMonth
+            self.fiscalYearEndDay = fiscalYearEndDay
+            self.fiscalYearWeekday = fiscalYearWeekday
+            self.fiscalYearWeekRule = fiscalYearWeekRule
             self.timeZone = timeZone
             self.filingOptions = filingOptions
             self.address = address
@@ -124,9 +144,14 @@ extension Requests {
             self.code = try container.decodeNullableIfPresent(String.self, forKey: .code)
             self.vatCode = try container.decodeNullableIfPresent(String.self, forKey: .vatCode)
             self.smeExemptionNumber = try container.decodeNullableIfPresent(String.self, forKey: .smeExemptionNumber)
+            self.identifiers = try container.decodeNullableIfPresent([String: Nullable<String>].self, forKey: .identifiers)
             self.isVatPayer = try container.decodeIfPresent(Bool.self, forKey: .isVatPayer)
             self.vatPeriod = try container.decodeNullableIfPresent(CompaniesUpdateAccountRequestVatPeriod.self, forKey: .vatPeriod)
+            self.vatPeriodEndMonth = try container.decodeNullableIfPresent(Int64.self, forKey: .vatPeriodEndMonth)
             self.fiscalYearEndMonth = try container.decodeNullableIfPresent(Int64.self, forKey: .fiscalYearEndMonth)
+            self.fiscalYearEndDay = try container.decodeNullableIfPresent(Int64.self, forKey: .fiscalYearEndDay)
+            self.fiscalYearWeekday = try container.decodeNullableIfPresent(Int64.self, forKey: .fiscalYearWeekday)
+            self.fiscalYearWeekRule = try container.decodeNullableIfPresent(CompaniesUpdateAccountRequestFiscalYearWeekRule.self, forKey: .fiscalYearWeekRule)
             self.timeZone = try container.decodeIfPresent(String.self, forKey: .timeZone)
             self.filingOptions = try container.decodeNullableIfPresent([String: Nullable<String>].self, forKey: .filingOptions)
             self.address = try container.decodeIfPresent(CompaniesUpdateAccountRequestAddress.self, forKey: .address)
@@ -164,9 +189,14 @@ extension Requests {
             try container.encodeNullableIfPresent(self.code, forKey: .code)
             try container.encodeNullableIfPresent(self.vatCode, forKey: .vatCode)
             try container.encodeNullableIfPresent(self.smeExemptionNumber, forKey: .smeExemptionNumber)
+            try container.encodeNullableIfPresent(self.identifiers, forKey: .identifiers)
             try container.encodeIfPresent(self.isVatPayer, forKey: .isVatPayer)
             try container.encodeNullableIfPresent(self.vatPeriod, forKey: .vatPeriod)
+            try container.encodeNullableIfPresent(self.vatPeriodEndMonth, forKey: .vatPeriodEndMonth)
             try container.encodeNullableIfPresent(self.fiscalYearEndMonth, forKey: .fiscalYearEndMonth)
+            try container.encodeNullableIfPresent(self.fiscalYearEndDay, forKey: .fiscalYearEndDay)
+            try container.encodeNullableIfPresent(self.fiscalYearWeekday, forKey: .fiscalYearWeekday)
+            try container.encodeNullableIfPresent(self.fiscalYearWeekRule, forKey: .fiscalYearWeekRule)
             try container.encodeIfPresent(self.timeZone, forKey: .timeZone)
             try container.encodeNullableIfPresent(self.filingOptions, forKey: .filingOptions)
             try container.encodeIfPresent(self.address, forKey: .address)
@@ -202,9 +232,14 @@ extension Requests {
             case code
             case vatCode
             case smeExemptionNumber
+            case identifiers
             case isVatPayer
             case vatPeriod
+            case vatPeriodEndMonth
             case fiscalYearEndMonth
+            case fiscalYearEndDay
+            case fiscalYearWeekday
+            case fiscalYearWeekRule
             case timeZone
             case filingOptions
             case address

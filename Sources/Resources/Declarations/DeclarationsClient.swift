@@ -241,7 +241,7 @@ public final class DeclarationsClient: Sendable {
         )
     }
 
-    /// Which platform sellers are reportable for the year (Council Directive (EU) 2021/514, Annex V) and why the others are excluded, the data still missing, and how the company files the report in its Member State.
+    /// Which platform sellers are reportable for the year (Council Directive (EU) 2021/514, Annex V; for a UK company, the HMRC digital platform reporting rules and the jurisdictions HMRC lists as reportable for the year) and why the others are excluded, the data still missing, and how the company files the report in its Member State or with HMRC.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func euDac7Preview(request: Requests.EuDac7PreviewDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> EuDac7PreviewDeclarationsResponse {
@@ -254,7 +254,7 @@ public final class DeclarationsClient: Sendable {
         )
     }
 
-    /// Builds the DAC7 (DPI) XML report of a year for the Member State of the company and returns it base64-encoded with the file name the administration expects. Answers 422 when no DAC7 filing channel exists for the company country. The sellers and the missing data behind it come from `declarations/eu/dac7/preview`.
+    /// Builds the DAC7 (DPI) XML report of a year for the Member State of the company, or the HMRC digital platform report (OECD DPI XML 1.0, file name equal to the MessageRefId) for a UK company, and returns it base64-encoded with the file name the administration expects. Answers 422 when no DAC7 filing channel exists for the company country. The sellers and the missing data behind it come from `declarations/eu/dac7/preview`.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func euDac7Xml(request: Requests.EuDac7XmlDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> EuDac7XmlDeclarationsResponse {
@@ -1135,6 +1135,227 @@ public final class DeclarationsClient: Sendable {
             body: request,
             requestOptions: requestOptions,
             responseType: LiLohnlistenGenerateDeclarationsResponse.self
+        )
+    }
+
+    /// Starts connecting the company to HMRC's VAT (MTD) API: returns the HMRC sign-in address the user opens in the browser to grant Nordlet the `read:vat` and `write:vat` scopes. HMRC sends the browser back to Nordlet's registered address with `code` and `state`, which are passed to `declarations/gb/hmrc/connect`. Answers 503 when Nordlet's HMRC application is not set up.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func gbHmrcAuthorizeUrlGet(request: Requests.GbHmrcAuthorizeUrlGetDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> GbHmrcAuthorizeUrlGetDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/gb/hmrc/authorize-url/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: GbHmrcAuthorizeUrlGetDeclarationsResponse.self
+        )
+    }
+
+    /// Finishes connecting the company to HMRC: trades the `code` HMRC returned for the company's tokens and stores them in the `gb-hmrc-vat` settings. `state` must be the one of the sign-in address from `declarations/gb/hmrc/authorize-url/get`, else 422. HMRC lets the connection last 18 months; Nordlet renews the 4-hour access token itself.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func gbHmrcConnect(request: Requests.GbHmrcConnectDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> GbHmrcConnectDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/gb/hmrc/connect",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: GbHmrcConnectDeclarationsResponse.self
+        )
+    }
+
+    /// Computes UK Corporation Tax for an accounting period of at most 12 months from its taxable total profits: the small profits rate when the augmented profits (taxable total profits plus `exemptDistributions`) do not exceed the lower limit, the main rate less marginal relief between the limits, the main rate above the upper limit. The limits are reduced by days for a period shorter than 12 months and divided by one plus `associatedCompanies` (those that carried on a trade or business in the period). A period that straddles 1 April of a year whose limits differ is split into parts by financial year. A `closeInvestmentHolding` company pays the main rate. Financial years 2022 to 2026 are known; another answers 422.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func gbCorporationTaxCompute(request: Requests.GbCorporationTaxComputeDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> GbCorporationTaxComputeDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/gb/corporation-tax/compute",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: GbCorporationTaxComputeDeclarationsResponse.self
+        )
+    }
+
+    /// Lists the company's VAT return periods as HMRC holds them: open (`status` O) or fulfilled (F). Without `status`, `from` and `to` are required and at most 366 days apart. `device` carries the facts of the user's browser that HMRC requires.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func gbVatObligationsList(request: Requests.GbVatObligationsListDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> GbVatObligationsListDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/gb/vat/obligations/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: GbVatObligationsListDeclarationsResponse.self
+        )
+    }
+
+    /// Reads a VAT return the company submitted to HMRC, by the `periodKey` of its obligation. Answers 404 when HMRC has no return for the period.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func gbVatReturnsGet(request: Requests.GbVatReturnsGetDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> GbVatReturnsGetDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/gb/vat/returns/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: GbVatReturnsGetDeclarationsResponse.self
+        )
+    }
+
+    /// Lists the company's VAT liabilities HMRC holds whose period ends between `from` (2017-12-01 or later) and `to` (today or earlier), at most 365 days apart.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func gbVatLiabilitiesList(request: Requests.GbVatLiabilitiesListDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> GbVatLiabilitiesListDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/gb/vat/liabilities/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: GbVatLiabilitiesListDeclarationsResponse.self
+        )
+    }
+
+    /// Lists the VAT payments HMRC received from the company between `from` (2017-12-01 or later) and `to` (today or earlier), at most 365 days apart.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func gbVatPaymentsList(request: Requests.GbVatPaymentsListDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> GbVatPaymentsListDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/gb/vat/payments/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: GbVatPaymentsListDeclarationsResponse.self
+        )
+    }
+
+    /// Returns the penalties HMRC applied to the company's VAT account in the last 24 months as HMRC answers them: `totalisations`, `lateSubmissionPenalty` and `latePaymentPenalty`.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func gbVatPenaltiesGet(request: Requests.GbVatPenaltiesGetDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> [String: JSONValue] {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/gb/vat/penalties/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: [String: JSONValue].self
+        )
+    }
+
+    /// The Form 941 figures of a quarter from the approved US payroll runs whose pay date (the period end without one) falls in it: line 1 the employees paid for the pay period that includes the 12th of the quarter's last month, line 2 the wages, line 3 the federal income tax withheld, lines 5a, 5c and 5d the social security, Medicare and Additional Medicare wages with their tax at 12.4%, 2.9% and 0.9%, line 7 the fractions of cents between those and the amounts withheld and owed, lines 10 and 12, and line 16 the liability of each month by pay date with the liability of each pay date for Schedule B. `deposits` (the deposits made for the quarter) fills line 13 and line 14 or 15. Lines 5b, 5f, 8, 9 and 11 are not filled. Answers 422 for a company outside the US.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func us941Get(request: Requests.Us941GetDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> Us941GetDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/us/941/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: Us941GetDeclarationsResponse.self
+        )
+    }
+
+    /// The Form 940 figures of a year from the approved US payroll runs paid in it: line 1a the state of the employees paid (the `usWorkState` employee option) or line 1b when there are several, line 3 the payments to employees, line 5 the part of each employee's payments above $7,000, line 7 the taxable FUTA wages, line 8 at 0.6%, line 12, and Part 5 with the liability of each quarter when line 12 is more than $500. Exempt payments (line 4), the state unemployment tax adjustments (lines 9 and 10) and the credit reduction of Schedule A (line 11) are not filled. Answers 422 for a company outside the US.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func us940Get(request: Requests.Us940GetDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> Us940GetDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/us/940/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: Us940GetDeclarationsResponse.self
+        )
+    }
+
+    /// The Forms W-2 of a year, one per employee paid in an approved US payroll run of the year, and the Form W-3 totals: box a the employee's `personalCode` (the social security number), box e the name, boxes 1 to 6 the wages, the federal income tax, the social security wages and tax and the Medicare wages and tax (with the Additional Medicare Tax), and boxes 15 to 17 for Delaware with the company's `deWithholdingAccount`; W-3 box c the number of forms and box e the company's `ein`. Answers 422 for a company outside the US.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func usW2List(request: Requests.UsW2ListDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> UsW2ListDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/us/w2/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: UsW2ListDeclarationsResponse.self
+        )
+    }
+
+    /// The Delaware withholding of a month (YYYY-MM), a quarter (YYYY-Qn) or a year (YYYY, for the annual reconciliation) from the approved US payroll runs paid in it: the employees with Delaware income tax withheld, their wages and the tax withheld. Answers 422 for a company outside the US.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func usDeWithholdingGet(request: Requests.UsDeWithholdingGetDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> UsDeWithholdingGetDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/us/de/withholding/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: UsDeWithholdingGetDeclarationsResponse.self
+        )
+    }
+
+    /// The Delaware unemployment insurance figures of a quarter from the approved US payroll runs paid in it, for the employees charged Delaware unemployment insurance: the total wages, the wages above each employee's yearly wage base, the taxable wages, the contributions, and each employee with the social security number (`personalCode`) and the wages of the quarter. Answers 422 for a company outside the US.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func usDeUnemploymentGet(request: Requests.UsDeUnemploymentGetDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> UsDeUnemploymentGetDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/us/de/unemployment/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: UsDeUnemploymentGetDeclarationsResponse.self
+        )
+    }
+
+    /// The Delaware gross receipts tax of a month (YYYY-MM) or a quarter (YYYY-Qn) for one business activity of the company's license: the net amounts of the sale invoices issued in the period (credit notes subtracted, advance invoices left out because the final invoice carries the sale, amounts in another currency at the rate stored on the invoice), less `excludedReceipts` (receipts from outside Delaware and from related entities, which the caller states), less the monthly or quarterly deduction of the activity, at the rate of the activity in 30 Del. C. chapters 23, 25, 27 and 29. An invoice in another currency without a stored rate is left out with a warning. Answers 422 for a company outside the US.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func usDeGrossReceiptsGet(request: Requests.UsDeGrossReceiptsGetDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> UsDeGrossReceiptsGetDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/us/de/gross-receipts/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: UsDeGrossReceiptsGetDeclarationsResponse.self
+        )
+    }
+
+    /// The sales of a US company per state between two issue dates, to see where its sales may oblige it to collect a state's sales tax: the number and net amount of the issued sale invoices and credit notes (subtracted) by the state of the customer's address (`subdivision`, since invoices carry no delivery address), the sales to customers in the US without a state, and the sales to customers outside the US. Advance invoices are left out because the final invoice carries the sale; amounts in another currency are at the rate stored on the invoice, and an invoice without one is left out with a warning. Answers 422 for a company outside the US.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func usStateSalesGet(request: Requests.UsStateSalesGetDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> UsStateSalesGetDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/us/state-sales/get",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: UsStateSalesGetDeclarationsResponse.self
+        )
+    }
+
+    /// The Delaware franchise tax of a domestic corporation for its annual franchise tax report, by 8 Del. C. § 503: the authorized shares method on the total of `authorizedShares`, and, when `issuedShares` and `totalGrossAssets` (the total assets of Form 1120 Schedule L) are given, the assumed par value capital method, where a share class without `parValue` has no par value; `tax` is the lesser of the two (at least $175 and $400, at most $200,000), or $250,000 for a Large Corporate Filer. `annualReportFee` is the filing fee of a non-exempt domestic corporation, paid with the report. Answers 422 for a company outside the US.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func usDeFranchiseTaxCompute(request: Requests.UsDeFranchiseTaxComputeDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> UsDeFranchiseTaxComputeDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/us/de/franchise-tax/compute",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: UsDeFranchiseTaxComputeDeclarationsResponse.self
+        )
+    }
+
+    /// The hours worked in each workweek that touches the period, per employee of a US company (or the one `employeeId`), for the overtime and records of the Fair Labor Standards Act: the workweek starts on the employee's `usWorkweekStart` day and runs 7 days; the hours are those entered on the work and business-trip days of the timesheets; `overtimeHours` are the hours above 40 in the workweek, 0 for an employee whose `usFlsaExempt` is yes. An employee without `usWorkweekStart` is left out with a warning. Overtime pay is entered on the payroll run as an addition of payment type `overtime-pay` with its hours. Answers 422 for a company outside the US.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func usWorkweeksList(request: Requests.UsWorkweeksListDeclarationsRequest, requestOptions: RequestOptions? = nil) async throws -> UsWorkweeksListDeclarationsResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/declarations/us/workweeks/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: UsWorkweeksListDeclarationsResponse.self
         )
     }
 

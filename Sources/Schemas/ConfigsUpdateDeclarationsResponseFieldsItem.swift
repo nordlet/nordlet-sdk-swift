@@ -7,8 +7,8 @@ public struct ConfigsUpdateDeclarationsResponseFieldsItem: Codable, Hashable, Se
     public let multiline: Bool?
     /// The allowed values of a `select` field
     public let options: [String]?
-    /// The company profile field the value is taken from; change it with `account/companies/update`
-    public let companyField: ConfigsUpdateDeclarationsResponseFieldsItemCompanyField?
+    /// The company profile field the value is taken from: `code`, `vatCode`, or `identifiers.<key>` for an entry of `identifiers`; change it with `account/companies/update`
+    public let companyField: String?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -18,7 +18,7 @@ public struct ConfigsUpdateDeclarationsResponseFieldsItem: Codable, Hashable, Se
         kind: ConfigsUpdateDeclarationsResponseFieldsItemKind,
         multiline: Bool? = nil,
         options: [String]? = nil,
-        companyField: ConfigsUpdateDeclarationsResponseFieldsItemCompanyField? = nil,
+        companyField: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.key = key
@@ -37,7 +37,7 @@ public struct ConfigsUpdateDeclarationsResponseFieldsItem: Codable, Hashable, Se
         self.kind = try container.decode(ConfigsUpdateDeclarationsResponseFieldsItemKind.self, forKey: .kind)
         self.multiline = try container.decodeIfPresent(Bool.self, forKey: .multiline)
         self.options = try container.decodeIfPresent([String].self, forKey: .options)
-        self.companyField = try container.decodeIfPresent(ConfigsUpdateDeclarationsResponseFieldsItemCompanyField.self, forKey: .companyField)
+        self.companyField = try container.decodeIfPresent(String.self, forKey: .companyField)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 

@@ -10,6 +10,7 @@ import Api
                 #"""
                 {
                   "date": "2026-07-01",
+                  "baseCurrency": "baseCurrency",
                   "imported": 1000000
                 }
                 """#.utf8
@@ -22,6 +23,7 @@ import Api
         )
         let expectedResponse = ExchangeRatesSyncReferenceResponse(
             date: CalendarDate("2026-07-01")!,
+            baseCurrency: "baseCurrency",
             imported: 1000000
         )
         let response = try await client.reference.exchangeRatesSync(
@@ -38,6 +40,7 @@ import Api
                 #"""
                 {
                   "date": "2023-01-15",
+                  "baseCurrency": "baseCurrency",
                   "imported": 1000000
                 }
                 """#.utf8
@@ -50,6 +53,7 @@ import Api
         )
         let expectedResponse = ExchangeRatesSyncReferenceResponse(
             date: CalendarDate("2023-01-15")!,
+            baseCurrency: "baseCurrency",
             imported: 1000000
         )
         let response = try await client.reference.exchangeRatesSync(
@@ -67,6 +71,7 @@ import Api
                 {
                   "rows": [
                     {
+                      "baseCurrency": "baseCurrency",
                       "currencyCode": "currencyCode",
                       "date": "2026-07-01",
                       "rate": "rate"
@@ -95,6 +100,7 @@ import Api
         let expectedResponse = ExchangeRatesListReferenceResponse(
             rows: [
                 ExchangeRatesListReferenceResponseRowsItem(
+                    baseCurrency: "baseCurrency",
                     currencyCode: "currencyCode",
                     date: CalendarDate("2026-07-01")!,
                     rate: "rate"
@@ -127,11 +133,13 @@ import Api
                 {
                   "rows": [
                     {
+                      "baseCurrency": "baseCurrency",
                       "currencyCode": "currencyCode",
                       "date": "2023-01-15",
                       "rate": "rate"
                     },
                     {
+                      "baseCurrency": "baseCurrency",
                       "currencyCode": "currencyCode",
                       "date": "2023-01-15",
                       "rate": "rate"
@@ -160,11 +168,13 @@ import Api
         let expectedResponse = ExchangeRatesListReferenceResponse(
             rows: [
                 ExchangeRatesListReferenceResponseRowsItem(
+                    baseCurrency: "baseCurrency",
                     currencyCode: "currencyCode",
                     date: CalendarDate("2023-01-15")!,
                     rate: "rate"
                 ),
                 ExchangeRatesListReferenceResponseRowsItem(
+                    baseCurrency: "baseCurrency",
                     currencyCode: "currencyCode",
                     date: CalendarDate("2023-01-15")!,
                     rate: "rate"

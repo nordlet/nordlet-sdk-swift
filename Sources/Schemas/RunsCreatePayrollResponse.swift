@@ -4,6 +4,11 @@ public struct RunsCreatePayrollResponse: Codable, Hashable, Sendable {
     public let id: String
     public let year: Int64
     public let month: Int64
+    public let frequency: RunsCreatePayrollResponseFrequency
+    public let periodStart: String
+    public let periodEnd: String
+    public let taxYear: Int64
+    public let taxPeriod: Nullable<Int64>
     public let countryCode: String
     public let payDate: Nullable<CalendarDate>
     public let status: RunsCreatePayrollResponseStatus
@@ -31,6 +36,11 @@ public struct RunsCreatePayrollResponse: Codable, Hashable, Sendable {
         id: String,
         year: Int64,
         month: Int64,
+        frequency: RunsCreatePayrollResponseFrequency,
+        periodStart: String,
+        periodEnd: String,
+        taxYear: Int64,
+        taxPeriod: Nullable<Int64>,
         countryCode: String,
         payDate: Nullable<CalendarDate>,
         status: RunsCreatePayrollResponseStatus,
@@ -56,6 +66,11 @@ public struct RunsCreatePayrollResponse: Codable, Hashable, Sendable {
         self.id = id
         self.year = year
         self.month = month
+        self.frequency = frequency
+        self.periodStart = periodStart
+        self.periodEnd = periodEnd
+        self.taxYear = taxYear
+        self.taxPeriod = taxPeriod
         self.countryCode = countryCode
         self.payDate = payDate
         self.status = status
@@ -84,6 +99,11 @@ public struct RunsCreatePayrollResponse: Codable, Hashable, Sendable {
         self.id = try container.decode(String.self, forKey: .id)
         self.year = try container.decode(Int64.self, forKey: .year)
         self.month = try container.decode(Int64.self, forKey: .month)
+        self.frequency = try container.decode(RunsCreatePayrollResponseFrequency.self, forKey: .frequency)
+        self.periodStart = try container.decode(String.self, forKey: .periodStart)
+        self.periodEnd = try container.decode(String.self, forKey: .periodEnd)
+        self.taxYear = try container.decode(Int64.self, forKey: .taxYear)
+        self.taxPeriod = try container.decode(Nullable<Int64>.self, forKey: .taxPeriod)
         self.countryCode = try container.decode(String.self, forKey: .countryCode)
         self.payDate = try container.decode(Nullable<CalendarDate>.self, forKey: .payDate)
         self.status = try container.decode(RunsCreatePayrollResponseStatus.self, forKey: .status)
@@ -113,6 +133,11 @@ public struct RunsCreatePayrollResponse: Codable, Hashable, Sendable {
         try container.encode(self.id, forKey: .id)
         try container.encode(self.year, forKey: .year)
         try container.encode(self.month, forKey: .month)
+        try container.encode(self.frequency, forKey: .frequency)
+        try container.encode(self.periodStart, forKey: .periodStart)
+        try container.encode(self.periodEnd, forKey: .periodEnd)
+        try container.encode(self.taxYear, forKey: .taxYear)
+        try container.encode(self.taxPeriod, forKey: .taxPeriod)
         try container.encode(self.countryCode, forKey: .countryCode)
         try container.encode(self.payDate, forKey: .payDate)
         try container.encode(self.status, forKey: .status)
@@ -140,6 +165,11 @@ public struct RunsCreatePayrollResponse: Codable, Hashable, Sendable {
         case id
         case year
         case month
+        case frequency
+        case periodStart
+        case periodEnd
+        case taxYear
+        case taxPeriod
         case countryCode
         case payDate
         case status

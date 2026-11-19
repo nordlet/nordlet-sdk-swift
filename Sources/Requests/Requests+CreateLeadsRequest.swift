@@ -12,6 +12,7 @@ extension Requests {
         public let typeId: String?
         public let status: CreateLeadsRequestStatus?
         public let estimatedValue: String?
+        /// Defaults to the company's base currency
         public let currency: String?
         public let description: String?
         public let assignedUserId: String?

@@ -14,6 +14,7 @@ extension Requests {
         public let autoRenew: Bool?
         public let value: String?
         public let billingPeriod: AgreementsCreateAgreementsRequestBillingPeriod?
+        /// Defaults to the company's base currency
         public let currency: String?
         public let status: AgreementsCreateAgreementsRequestStatus?
         public let notes: String?

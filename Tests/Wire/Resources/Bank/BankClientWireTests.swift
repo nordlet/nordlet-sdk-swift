@@ -13,6 +13,18 @@ import Api
                   "name": "name",
                   "type": "bank",
                   "iban": "iban",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "paymentFileSettings": {
+                    "serviceUserNumber": "serviceUserNumber",
+                    "serviceUserName": "serviceUserName",
+                    "odfiRoutingNumber": "odfiRoutingNumber",
+                    "immediateOrigin": "immediateOrigin",
+                    "immediateDestinationName": "immediateDestinationName",
+                    "companyIdentification": "companyIdentification",
+                    "companyName": "companyName",
+                    "companyDiscretionaryData": "companyDiscretionaryData"
+                  },
                   "currency": "currency",
                   "accountCode": "accountCode",
                   "isActive": true,
@@ -31,6 +43,18 @@ import Api
             name: "name",
             type: .bank,
             iban: Nullable<String>.value("iban"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            paymentFileSettings: AccountsCreateBankResponsePaymentFileSettings(
+                serviceUserNumber: Optional("serviceUserNumber"),
+                serviceUserName: Optional("serviceUserName"),
+                odfiRoutingNumber: Optional("odfiRoutingNumber"),
+                immediateOrigin: Optional("immediateOrigin"),
+                immediateDestinationName: Optional("immediateDestinationName"),
+                companyIdentification: Optional("companyIdentification"),
+                companyName: Optional("companyName"),
+                companyDiscretionaryData: Optional("companyDiscretionaryData")
+            ),
             currency: "currency",
             accountCode: "accountCode",
             isActive: true,
@@ -53,6 +77,18 @@ import Api
                   "name": "name",
                   "type": "bank",
                   "iban": "iban",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "paymentFileSettings": {
+                    "serviceUserNumber": "serviceUserNumber",
+                    "serviceUserName": "x",
+                    "odfiRoutingNumber": "odfiRoutingNumber",
+                    "immediateOrigin": "immediateOrigin",
+                    "immediateDestinationName": "immediateDestinationName",
+                    "companyIdentification": "companyIdentification",
+                    "companyName": "x",
+                    "companyDiscretionaryData": "companyDiscretionaryData"
+                  },
                   "currency": "currency",
                   "accountCode": "accountCode",
                   "isActive": true,
@@ -71,6 +107,18 @@ import Api
             name: "name",
             type: .bank,
             iban: Nullable<String>.value("iban"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            paymentFileSettings: AccountsCreateBankResponsePaymentFileSettings(
+                serviceUserNumber: Optional("serviceUserNumber"),
+                serviceUserName: Optional("x"),
+                odfiRoutingNumber: Optional("odfiRoutingNumber"),
+                immediateOrigin: Optional("immediateOrigin"),
+                immediateDestinationName: Optional("immediateDestinationName"),
+                companyIdentification: Optional("companyIdentification"),
+                companyName: Optional("x"),
+                companyDiscretionaryData: Optional("companyDiscretionaryData")
+            ),
             currency: "currency",
             accountCode: "accountCode",
             isActive: true,
@@ -95,6 +143,9 @@ import Api
                       "name": "name",
                       "type": "bank",
                       "iban": "iban",
+                      "bankCode": "bankCode",
+                      "bankAccountNumber": "bankAccountNumber",
+                      "paymentFileSettings": {},
                       "currency": "currency",
                       "accountCode": "accountCode",
                       "isActive": true,
@@ -128,6 +179,11 @@ import Api
                     name: "name",
                     type: .bank,
                     iban: Nullable<String>.value("iban"),
+                    bankCode: Nullable<String>.value("bankCode"),
+                    bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+                    paymentFileSettings: AccountsListBankResponseRowsItemPaymentFileSettings(
+
+                    ),
                     currency: "currency",
                     accountCode: "accountCode",
                     isActive: true,
@@ -165,6 +221,18 @@ import Api
                       "name": "name",
                       "type": "bank",
                       "iban": "iban",
+                      "bankCode": "bankCode",
+                      "bankAccountNumber": "bankAccountNumber",
+                      "paymentFileSettings": {
+                        "serviceUserNumber": "serviceUserNumber",
+                        "serviceUserName": "x",
+                        "odfiRoutingNumber": "odfiRoutingNumber",
+                        "immediateOrigin": "immediateOrigin",
+                        "immediateDestinationName": "immediateDestinationName",
+                        "companyIdentification": "companyIdentification",
+                        "companyName": "x",
+                        "companyDiscretionaryData": "companyDiscretionaryData"
+                      },
                       "currency": "currency",
                       "accountCode": "accountCode",
                       "isActive": true,
@@ -175,6 +243,18 @@ import Api
                       "name": "name",
                       "type": "bank",
                       "iban": "iban",
+                      "bankCode": "bankCode",
+                      "bankAccountNumber": "bankAccountNumber",
+                      "paymentFileSettings": {
+                        "serviceUserNumber": "serviceUserNumber",
+                        "serviceUserName": "x",
+                        "odfiRoutingNumber": "odfiRoutingNumber",
+                        "immediateOrigin": "immediateOrigin",
+                        "immediateDestinationName": "immediateDestinationName",
+                        "companyIdentification": "companyIdentification",
+                        "companyName": "x",
+                        "companyDiscretionaryData": "companyDiscretionaryData"
+                      },
                       "currency": "currency",
                       "accountCode": "accountCode",
                       "isActive": true,
@@ -208,6 +288,18 @@ import Api
                     name: "name",
                     type: .bank,
                     iban: Nullable<String>.value("iban"),
+                    bankCode: Nullable<String>.value("bankCode"),
+                    bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+                    paymentFileSettings: AccountsListBankResponseRowsItemPaymentFileSettings(
+                        serviceUserNumber: Optional("serviceUserNumber"),
+                        serviceUserName: Optional("x"),
+                        odfiRoutingNumber: Optional("odfiRoutingNumber"),
+                        immediateOrigin: Optional("immediateOrigin"),
+                        immediateDestinationName: Optional("immediateDestinationName"),
+                        companyIdentification: Optional("companyIdentification"),
+                        companyName: Optional("x"),
+                        companyDiscretionaryData: Optional("companyDiscretionaryData")
+                    ),
                     currency: "currency",
                     accountCode: "accountCode",
                     isActive: true,
@@ -218,6 +310,18 @@ import Api
                     name: "name",
                     type: .bank,
                     iban: Nullable<String>.value("iban"),
+                    bankCode: Nullable<String>.value("bankCode"),
+                    bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+                    paymentFileSettings: AccountsListBankResponseRowsItemPaymentFileSettings(
+                        serviceUserNumber: Optional("serviceUserNumber"),
+                        serviceUserName: Optional("x"),
+                        odfiRoutingNumber: Optional("odfiRoutingNumber"),
+                        immediateOrigin: Optional("immediateOrigin"),
+                        immediateDestinationName: Optional("immediateDestinationName"),
+                        companyIdentification: Optional("companyIdentification"),
+                        companyName: Optional("x"),
+                        companyDiscretionaryData: Optional("companyDiscretionaryData")
+                    ),
                     currency: "currency",
                     accountCode: "accountCode",
                     isActive: true,
@@ -253,6 +357,18 @@ import Api
                   "name": "name",
                   "type": "bank",
                   "iban": "iban",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "paymentFileSettings": {
+                    "serviceUserNumber": "serviceUserNumber",
+                    "serviceUserName": "serviceUserName",
+                    "odfiRoutingNumber": "odfiRoutingNumber",
+                    "immediateOrigin": "immediateOrigin",
+                    "immediateDestinationName": "immediateDestinationName",
+                    "companyIdentification": "companyIdentification",
+                    "companyName": "companyName",
+                    "companyDiscretionaryData": "companyDiscretionaryData"
+                  },
                   "currency": "currency",
                   "accountCode": "accountCode",
                   "isActive": true,
@@ -271,6 +387,18 @@ import Api
             name: "name",
             type: .bank,
             iban: Nullable<String>.value("iban"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            paymentFileSettings: AccountsUpdateBankResponsePaymentFileSettings(
+                serviceUserNumber: Optional("serviceUserNumber"),
+                serviceUserName: Optional("serviceUserName"),
+                odfiRoutingNumber: Optional("odfiRoutingNumber"),
+                immediateOrigin: Optional("immediateOrigin"),
+                immediateDestinationName: Optional("immediateDestinationName"),
+                companyIdentification: Optional("companyIdentification"),
+                companyName: Optional("companyName"),
+                companyDiscretionaryData: Optional("companyDiscretionaryData")
+            ),
             currency: "currency",
             accountCode: "accountCode",
             isActive: true,
@@ -293,6 +421,18 @@ import Api
                   "name": "name",
                   "type": "bank",
                   "iban": "iban",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "paymentFileSettings": {
+                    "serviceUserNumber": "serviceUserNumber",
+                    "serviceUserName": "x",
+                    "odfiRoutingNumber": "odfiRoutingNumber",
+                    "immediateOrigin": "immediateOrigin",
+                    "immediateDestinationName": "immediateDestinationName",
+                    "companyIdentification": "companyIdentification",
+                    "companyName": "x",
+                    "companyDiscretionaryData": "companyDiscretionaryData"
+                  },
                   "currency": "currency",
                   "accountCode": "accountCode",
                   "isActive": true,
@@ -311,6 +451,18 @@ import Api
             name: "name",
             type: .bank,
             iban: Nullable<String>.value("iban"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            paymentFileSettings: AccountsUpdateBankResponsePaymentFileSettings(
+                serviceUserNumber: Optional("serviceUserNumber"),
+                serviceUserName: Optional("x"),
+                odfiRoutingNumber: Optional("odfiRoutingNumber"),
+                immediateOrigin: Optional("immediateOrigin"),
+                immediateDestinationName: Optional("immediateDestinationName"),
+                companyIdentification: Optional("companyIdentification"),
+                companyName: Optional("x"),
+                companyDiscretionaryData: Optional("companyDiscretionaryData")
+            ),
             currency: "currency",
             accountCode: "accountCode",
             isActive: true,
@@ -1938,11 +2090,13 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "format": "pain.001.001.03",
                   "messageId": "messageId",
                   "fileName": "fileName",
+                  "contentType": "contentType",
                   "transactionCount": 1000000,
                   "controlSum": "controlSum",
-                  "xml": "xml"
+                  "content": "content"
                 }
                 """#.utf8
             )
@@ -1953,11 +2107,13 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = PaymentsExportBankResponse(
+            format: .pain00100103,
             messageId: "messageId",
             fileName: "fileName",
+            contentType: "contentType",
             transactionCount: 1000000,
             controlSum: "controlSum",
-            xml: "xml"
+            content: "content"
         )
         let response = try await client.bank.paymentsExport(
             request: .init(
@@ -1977,11 +2133,13 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "format": "pain.001.001.03",
                   "messageId": "messageId",
                   "fileName": "fileName",
+                  "contentType": "contentType",
                   "transactionCount": 1000000,
                   "controlSum": "controlSum",
-                  "xml": "xml"
+                  "content": "content"
                 }
                 """#.utf8
             )
@@ -1992,11 +2150,13 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = PaymentsExportBankResponse(
+            format: .pain00100103,
             messageId: "messageId",
             fileName: "fileName",
+            contentType: "contentType",
             transactionCount: 1000000,
             controlSum: "controlSum",
-            xml: "xml"
+            content: "content"
         )
         let response = try await client.bank.paymentsExport(
             request: .init(
@@ -3516,10 +3676,15 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "accountType": "checking",
                   "signatureDate": "2026-07-01",
                   "collectionsCount": 1000000,
                   "lastCollectionDate": "2026-07-01",
                   "expiresOn": "expiresOn",
+                  "lodgedOn": "lodgedOn",
+                  "cancellationLodgedOn": "cancellationLodgedOn",
                   "cancelledAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
                   "createdAt": "2026-07-01T09:30:00Z"
@@ -3540,12 +3705,17 @@ import Api
             sequenceType: .recurrent,
             status: .active,
             debtorName: "debtorName",
-            iban: "iban",
+            iban: Nullable<String>.value("iban"),
             bic: Nullable<String>.value("bic"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            accountType: Nullable<MandatesCreateBankResponseAccountType>.value(.checking),
             signatureDate: CalendarDate("2026-07-01")!,
             collectionsCount: 1000000,
             lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
-            expiresOn: "expiresOn",
+            expiresOn: Nullable<String>.value("expiresOn"),
+            lodgedOn: Nullable<String>.value("lodgedOn"),
+            cancellationLodgedOn: Nullable<String>.value("cancellationLodgedOn"),
             cancelledAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
@@ -3553,7 +3723,6 @@ import Api
         let response = try await client.bank.mandatesCreate(
             request: .init(
                 partnerId: "partnerId",
-                iban: "iban",
                 signatureDate: CalendarDate("2026-07-01")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -3576,10 +3745,15 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "accountType": "checking",
                   "signatureDate": "2023-01-15",
                   "collectionsCount": 1000000,
                   "lastCollectionDate": "2023-01-15",
                   "expiresOn": "expiresOn",
+                  "lodgedOn": "lodgedOn",
+                  "cancellationLodgedOn": "cancellationLodgedOn",
                   "cancelledAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
                   "createdAt": "2024-01-15T09:30:00Z"
@@ -3600,12 +3774,17 @@ import Api
             sequenceType: .recurrent,
             status: .active,
             debtorName: "debtorName",
-            iban: "iban",
+            iban: Nullable<String>.value("iban"),
             bic: Nullable<String>.value("bic"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            accountType: Nullable<MandatesCreateBankResponseAccountType>.value(.checking),
             signatureDate: CalendarDate("2023-01-15")!,
             collectionsCount: 1000000,
             lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
-            expiresOn: "expiresOn",
+            expiresOn: Nullable<String>.value("expiresOn"),
+            lodgedOn: Nullable<String>.value("lodgedOn"),
+            cancellationLodgedOn: Nullable<String>.value("cancellationLodgedOn"),
             cancelledAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
@@ -3613,7 +3792,6 @@ import Api
         let response = try await client.bank.mandatesCreate(
             request: .init(
                 partnerId: "x",
-                iban: "blackcurrant...",
                 signatureDate: CalendarDate("2023-01-15")!
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
@@ -3636,10 +3814,15 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "accountType": "checking",
                   "signatureDate": "2026-07-01",
                   "collectionsCount": 1000000,
                   "lastCollectionDate": "2026-07-01",
                   "expiresOn": "expiresOn",
+                  "lodgedOn": "lodgedOn",
+                  "cancellationLodgedOn": "cancellationLodgedOn",
                   "cancelledAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
                   "createdAt": "2026-07-01T09:30:00Z"
@@ -3660,12 +3843,17 @@ import Api
             sequenceType: .recurrent,
             status: .active,
             debtorName: "debtorName",
-            iban: "iban",
+            iban: Nullable<String>.value("iban"),
             bic: Nullable<String>.value("bic"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            accountType: Nullable<MandatesUpdateBankResponseAccountType>.value(.checking),
             signatureDate: CalendarDate("2026-07-01")!,
             collectionsCount: 1000000,
             lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
-            expiresOn: "expiresOn",
+            expiresOn: Nullable<String>.value("expiresOn"),
+            lodgedOn: Nullable<String>.value("lodgedOn"),
+            cancellationLodgedOn: Nullable<String>.value("cancellationLodgedOn"),
             cancelledAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
@@ -3692,10 +3880,15 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "accountType": "checking",
                   "signatureDate": "2023-01-15",
                   "collectionsCount": 1000000,
                   "lastCollectionDate": "2023-01-15",
                   "expiresOn": "expiresOn",
+                  "lodgedOn": "lodgedOn",
+                  "cancellationLodgedOn": "cancellationLodgedOn",
                   "cancelledAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
                   "createdAt": "2024-01-15T09:30:00Z"
@@ -3716,12 +3909,17 @@ import Api
             sequenceType: .recurrent,
             status: .active,
             debtorName: "debtorName",
-            iban: "iban",
+            iban: Nullable<String>.value("iban"),
             bic: Nullable<String>.value("bic"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            accountType: Nullable<MandatesUpdateBankResponseAccountType>.value(.checking),
             signatureDate: CalendarDate("2023-01-15")!,
             collectionsCount: 1000000,
             lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
-            expiresOn: "expiresOn",
+            expiresOn: Nullable<String>.value("expiresOn"),
+            lodgedOn: Nullable<String>.value("lodgedOn"),
+            cancellationLodgedOn: Nullable<String>.value("cancellationLodgedOn"),
             cancelledAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
@@ -3748,10 +3946,15 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "accountType": "checking",
                   "signatureDate": "2026-07-01",
                   "collectionsCount": 1000000,
                   "lastCollectionDate": "2026-07-01",
                   "expiresOn": "expiresOn",
+                  "lodgedOn": "lodgedOn",
+                  "cancellationLodgedOn": "cancellationLodgedOn",
                   "cancelledAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
                   "createdAt": "2026-07-01T09:30:00Z"
@@ -3772,12 +3975,17 @@ import Api
             sequenceType: .recurrent,
             status: .active,
             debtorName: "debtorName",
-            iban: "iban",
+            iban: Nullable<String>.value("iban"),
             bic: Nullable<String>.value("bic"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            accountType: Nullable<MandatesCancelBankResponseAccountType>.value(.checking),
             signatureDate: CalendarDate("2026-07-01")!,
             collectionsCount: 1000000,
             lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
-            expiresOn: "expiresOn",
+            expiresOn: Nullable<String>.value("expiresOn"),
+            lodgedOn: Nullable<String>.value("lodgedOn"),
+            cancellationLodgedOn: Nullable<String>.value("cancellationLodgedOn"),
             cancelledAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
@@ -3804,10 +4012,15 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "accountType": "checking",
                   "signatureDate": "2023-01-15",
                   "collectionsCount": 1000000,
                   "lastCollectionDate": "2023-01-15",
                   "expiresOn": "expiresOn",
+                  "lodgedOn": "lodgedOn",
+                  "cancellationLodgedOn": "cancellationLodgedOn",
                   "cancelledAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
                   "createdAt": "2024-01-15T09:30:00Z"
@@ -3828,12 +4041,17 @@ import Api
             sequenceType: .recurrent,
             status: .active,
             debtorName: "debtorName",
-            iban: "iban",
+            iban: Nullable<String>.value("iban"),
             bic: Nullable<String>.value("bic"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            accountType: Nullable<MandatesCancelBankResponseAccountType>.value(.checking),
             signatureDate: CalendarDate("2023-01-15")!,
             collectionsCount: 1000000,
             lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
-            expiresOn: "expiresOn",
+            expiresOn: Nullable<String>.value("expiresOn"),
+            lodgedOn: Nullable<String>.value("lodgedOn"),
+            cancellationLodgedOn: Nullable<String>.value("cancellationLodgedOn"),
             cancelledAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
@@ -3860,10 +4078,15 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "accountType": "checking",
                   "signatureDate": "2026-07-01",
                   "collectionsCount": 1000000,
                   "lastCollectionDate": "2026-07-01",
                   "expiresOn": "expiresOn",
+                  "lodgedOn": "lodgedOn",
+                  "cancellationLodgedOn": "cancellationLodgedOn",
                   "cancelledAt": "2026-07-01T09:30:00Z",
                   "notes": "notes",
                   "createdAt": "2026-07-01T09:30:00Z"
@@ -3884,12 +4107,17 @@ import Api
             sequenceType: .recurrent,
             status: .active,
             debtorName: "debtorName",
-            iban: "iban",
+            iban: Nullable<String>.value("iban"),
             bic: Nullable<String>.value("bic"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            accountType: Nullable<MandatesGetBankResponseAccountType>.value(.checking),
             signatureDate: CalendarDate("2026-07-01")!,
             collectionsCount: 1000000,
             lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
-            expiresOn: "expiresOn",
+            expiresOn: Nullable<String>.value("expiresOn"),
+            lodgedOn: Nullable<String>.value("lodgedOn"),
+            cancellationLodgedOn: Nullable<String>.value("cancellationLodgedOn"),
             cancelledAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
@@ -3916,10 +4144,15 @@ import Api
                   "debtorName": "debtorName",
                   "iban": "iban",
                   "bic": "bic",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "accountType": "checking",
                   "signatureDate": "2023-01-15",
                   "collectionsCount": 1000000,
                   "lastCollectionDate": "2023-01-15",
                   "expiresOn": "expiresOn",
+                  "lodgedOn": "lodgedOn",
+                  "cancellationLodgedOn": "cancellationLodgedOn",
                   "cancelledAt": "2024-01-15T09:30:00Z",
                   "notes": "notes",
                   "createdAt": "2024-01-15T09:30:00Z"
@@ -3940,12 +4173,17 @@ import Api
             sequenceType: .recurrent,
             status: .active,
             debtorName: "debtorName",
-            iban: "iban",
+            iban: Nullable<String>.value("iban"),
             bic: Nullable<String>.value("bic"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            accountType: Nullable<MandatesGetBankResponseAccountType>.value(.checking),
             signatureDate: CalendarDate("2023-01-15")!,
             collectionsCount: 1000000,
             lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
-            expiresOn: "expiresOn",
+            expiresOn: Nullable<String>.value("expiresOn"),
+            lodgedOn: Nullable<String>.value("lodgedOn"),
+            cancellationLodgedOn: Nullable<String>.value("cancellationLodgedOn"),
             cancelledAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             notes: Nullable<String>.value("notes"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
@@ -3974,10 +4212,15 @@ import Api
                       "debtorName": "debtorName",
                       "iban": "iban",
                       "bic": "bic",
+                      "bankCode": "bankCode",
+                      "bankAccountNumber": "bankAccountNumber",
+                      "accountType": "checking",
                       "signatureDate": "2026-07-01",
                       "collectionsCount": 1000000,
                       "lastCollectionDate": "2026-07-01",
                       "expiresOn": "expiresOn",
+                      "lodgedOn": "lodgedOn",
+                      "cancellationLodgedOn": "cancellationLodgedOn",
                       "cancelledAt": "2026-07-01T09:30:00Z",
                       "notes": "notes",
                       "createdAt": "2026-07-01T09:30:00Z"
@@ -4013,12 +4256,17 @@ import Api
                     sequenceType: .recurrent,
                     status: .active,
                     debtorName: "debtorName",
-                    iban: "iban",
+                    iban: Nullable<String>.value("iban"),
                     bic: Nullable<String>.value("bic"),
+                    bankCode: Nullable<String>.value("bankCode"),
+                    bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+                    accountType: Nullable<MandatesListBankResponseRowsItemAccountType>.value(.checking),
                     signatureDate: CalendarDate("2026-07-01")!,
                     collectionsCount: 1000000,
                     lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
-                    expiresOn: "expiresOn",
+                    expiresOn: Nullable<String>.value("expiresOn"),
+                    lodgedOn: Nullable<String>.value("lodgedOn"),
+                    cancellationLodgedOn: Nullable<String>.value("cancellationLodgedOn"),
                     cancelledAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     notes: Nullable<String>.value("notes"),
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
@@ -4060,10 +4308,15 @@ import Api
                       "debtorName": "debtorName",
                       "iban": "iban",
                       "bic": "bic",
+                      "bankCode": "bankCode",
+                      "bankAccountNumber": "bankAccountNumber",
+                      "accountType": "checking",
                       "signatureDate": "2023-01-15",
                       "collectionsCount": 1000000,
                       "lastCollectionDate": "2023-01-15",
                       "expiresOn": "expiresOn",
+                      "lodgedOn": "lodgedOn",
+                      "cancellationLodgedOn": "cancellationLodgedOn",
                       "cancelledAt": "2024-01-15T09:30:00Z",
                       "notes": "notes",
                       "createdAt": "2024-01-15T09:30:00Z"
@@ -4078,10 +4331,15 @@ import Api
                       "debtorName": "debtorName",
                       "iban": "iban",
                       "bic": "bic",
+                      "bankCode": "bankCode",
+                      "bankAccountNumber": "bankAccountNumber",
+                      "accountType": "checking",
                       "signatureDate": "2023-01-15",
                       "collectionsCount": 1000000,
                       "lastCollectionDate": "2023-01-15",
                       "expiresOn": "expiresOn",
+                      "lodgedOn": "lodgedOn",
+                      "cancellationLodgedOn": "cancellationLodgedOn",
                       "cancelledAt": "2024-01-15T09:30:00Z",
                       "notes": "notes",
                       "createdAt": "2024-01-15T09:30:00Z"
@@ -4117,12 +4375,17 @@ import Api
                     sequenceType: .recurrent,
                     status: .active,
                     debtorName: "debtorName",
-                    iban: "iban",
+                    iban: Nullable<String>.value("iban"),
                     bic: Nullable<String>.value("bic"),
+                    bankCode: Nullable<String>.value("bankCode"),
+                    bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+                    accountType: Nullable<MandatesListBankResponseRowsItemAccountType>.value(.checking),
                     signatureDate: CalendarDate("2023-01-15")!,
                     collectionsCount: 1000000,
                     lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
-                    expiresOn: "expiresOn",
+                    expiresOn: Nullable<String>.value("expiresOn"),
+                    lodgedOn: Nullable<String>.value("lodgedOn"),
+                    cancellationLodgedOn: Nullable<String>.value("cancellationLodgedOn"),
                     cancelledAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     notes: Nullable<String>.value("notes"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
@@ -4135,12 +4398,17 @@ import Api
                     sequenceType: .recurrent,
                     status: .active,
                     debtorName: "debtorName",
-                    iban: "iban",
+                    iban: Nullable<String>.value("iban"),
                     bic: Nullable<String>.value("bic"),
+                    bankCode: Nullable<String>.value("bankCode"),
+                    bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+                    accountType: Nullable<MandatesListBankResponseRowsItemAccountType>.value(.checking),
                     signatureDate: CalendarDate("2023-01-15")!,
                     collectionsCount: 1000000,
                     lastCollectionDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
-                    expiresOn: "expiresOn",
+                    expiresOn: Nullable<String>.value("expiresOn"),
+                    lodgedOn: Nullable<String>.value("lodgedOn"),
+                    cancellationLodgedOn: Nullable<String>.value("cancellationLodgedOn"),
                     cancelledAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     notes: Nullable<String>.value("notes"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
@@ -4361,11 +4629,14 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "format": "pain.001.001.03",
                   "messageId": "messageId",
                   "fileName": "fileName",
+                  "contentType": "contentType",
                   "transactionCount": 1000000,
                   "controlSum": "controlSum",
-                  "xml": "xml"
+                  "content": "content",
+                  "collectionDate": "2026-07-01"
                 }
                 """#.utf8
             )
@@ -4376,11 +4647,14 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = DirectDebitsExportBankResponse(
+            format: .pain00100103,
             messageId: "messageId",
             fileName: "fileName",
+            contentType: "contentType",
             transactionCount: 1000000,
             controlSum: "controlSum",
-            xml: "xml"
+            content: "content",
+            collectionDate: CalendarDate("2026-07-01")!
         )
         let response = try await client.bank.directDebitsExport(
             request: .init(
@@ -4400,11 +4674,14 @@ import Api
             body: Foundation.Data(
                 #"""
                 {
+                  "format": "pain.001.001.03",
                   "messageId": "messageId",
                   "fileName": "fileName",
+                  "contentType": "contentType",
                   "transactionCount": 1000000,
                   "controlSum": "controlSum",
-                  "xml": "xml"
+                  "content": "content",
+                  "collectionDate": "2023-01-15"
                 }
                 """#.utf8
             )
@@ -4415,11 +4692,14 @@ import Api
             urlSession: stub.urlSession
         )
         let expectedResponse = DirectDebitsExportBankResponse(
+            format: .pain00100103,
             messageId: "messageId",
             fileName: "fileName",
+            contentType: "contentType",
             transactionCount: 1000000,
             controlSum: "controlSum",
-            xml: "xml"
+            content: "content",
+            collectionDate: CalendarDate("2023-01-15")!
         )
         let response = try await client.bank.directDebitsExport(
             request: .init(
@@ -4429,6 +4709,114 @@ import Api
                     "saleInvoiceIds"
                 ]
             ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func mandatesAuddisExport1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "format": "pain.001.001.03",
+                  "messageId": "messageId",
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "transactionCount": 1000000,
+                  "controlSum": "controlSum",
+                  "content": "content",
+                  "processingDate": "2026-07-01",
+                  "lodged": [
+                    "lodged"
+                  ],
+                  "cancelled": [
+                    "cancelled"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = MandatesAuddisExportBankResponse(
+            format: .pain00100103,
+            messageId: "messageId",
+            fileName: "fileName",
+            contentType: "contentType",
+            transactionCount: 1000000,
+            controlSum: "controlSum",
+            content: "content",
+            processingDate: CalendarDate("2026-07-01")!,
+            lodged: [
+                "lodged"
+            ],
+            cancelled: [
+                "cancelled"
+            ]
+        )
+        let response = try await client.bank.mandatesAuddisExport(
+            request: .init(bankAccountId: "bankAccountId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func mandatesAuddisExport2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "format": "pain.001.001.03",
+                  "messageId": "messageId",
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "transactionCount": 1000000,
+                  "controlSum": "controlSum",
+                  "content": "content",
+                  "processingDate": "2023-01-15",
+                  "lodged": [
+                    "lodged",
+                    "lodged"
+                  ],
+                  "cancelled": [
+                    "cancelled",
+                    "cancelled"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = MandatesAuddisExportBankResponse(
+            format: .pain00100103,
+            messageId: "messageId",
+            fileName: "fileName",
+            contentType: "contentType",
+            transactionCount: 1000000,
+            controlSum: "controlSum",
+            content: "content",
+            processingDate: CalendarDate("2023-01-15")!,
+            lodged: [
+                "lodged",
+                "lodged"
+            ],
+            cancelled: [
+                "cancelled",
+                "cancelled"
+            ]
+        )
+        let response = try await client.bank.mandatesAuddisExport(
+            request: .init(bankAccountId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

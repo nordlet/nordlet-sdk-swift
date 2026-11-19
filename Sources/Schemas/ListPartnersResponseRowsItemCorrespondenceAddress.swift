@@ -7,6 +7,8 @@ public struct ListPartnersResponseRowsItemCorrespondenceAddress: Codable, Hashab
     public let county: String?
     public let postalCode: String?
     public let countryCode: String?
+    /// ISO 3166-2 code of the state, province or UK nation, such as US-CA or GB-SCT
+    public let subdivision: String?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -17,6 +19,7 @@ public struct ListPartnersResponseRowsItemCorrespondenceAddress: Codable, Hashab
         county: String? = nil,
         postalCode: String? = nil,
         countryCode: String? = nil,
+        subdivision: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.street = street
@@ -25,6 +28,7 @@ public struct ListPartnersResponseRowsItemCorrespondenceAddress: Codable, Hashab
         self.county = county
         self.postalCode = postalCode
         self.countryCode = countryCode
+        self.subdivision = subdivision
         self.additionalProperties = additionalProperties
     }
 
@@ -36,6 +40,7 @@ public struct ListPartnersResponseRowsItemCorrespondenceAddress: Codable, Hashab
         self.county = try container.decodeIfPresent(String.self, forKey: .county)
         self.postalCode = try container.decodeIfPresent(String.self, forKey: .postalCode)
         self.countryCode = try container.decodeIfPresent(String.self, forKey: .countryCode)
+        self.subdivision = try container.decodeIfPresent(String.self, forKey: .subdivision)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -48,6 +53,7 @@ public struct ListPartnersResponseRowsItemCorrespondenceAddress: Codable, Hashab
         try container.encodeIfPresent(self.county, forKey: .county)
         try container.encodeIfPresent(self.postalCode, forKey: .postalCode)
         try container.encodeIfPresent(self.countryCode, forKey: .countryCode)
+        try container.encodeIfPresent(self.subdivision, forKey: .subdivision)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -58,5 +64,6 @@ public struct ListPartnersResponseRowsItemCorrespondenceAddress: Codable, Hashab
         case county
         case postalCode
         case countryCode
+        case subdivision
     }
 }

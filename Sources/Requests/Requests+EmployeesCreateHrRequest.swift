@@ -11,6 +11,12 @@ extension Requests {
         public let phone: String?
         public let address: EmployeesCreateHrRequestAddress?
         public let iban: String?
+        /// Sort code, routing number or other national bank code, for an account without an IBAN
+        public let bankCode: String?
+        /// Account number, for an account without an IBAN
+        public let bankAccountNumber: String?
+        /// Checking or savings account; a US ACH file needs it
+        public let bankAccountType: EmployeesCreateHrRequestBankAccountType?
         public let socialInsuranceNo: String?
         public let socialInsuranceStart: CalendarDate?
         public let hireDate: CalendarDate?
@@ -33,6 +39,9 @@ extension Requests {
             phone: String? = nil,
             address: EmployeesCreateHrRequestAddress? = nil,
             iban: String? = nil,
+            bankCode: String? = nil,
+            bankAccountNumber: String? = nil,
+            bankAccountType: EmployeesCreateHrRequestBankAccountType? = nil,
             socialInsuranceNo: String? = nil,
             socialInsuranceStart: CalendarDate? = nil,
             hireDate: CalendarDate? = nil,
@@ -53,6 +62,9 @@ extension Requests {
             self.phone = phone
             self.address = address
             self.iban = iban
+            self.bankCode = bankCode
+            self.bankAccountNumber = bankAccountNumber
+            self.bankAccountType = bankAccountType
             self.socialInsuranceNo = socialInsuranceNo
             self.socialInsuranceStart = socialInsuranceStart
             self.hireDate = hireDate
@@ -76,6 +88,9 @@ extension Requests {
             self.phone = try container.decodeIfPresent(String.self, forKey: .phone)
             self.address = try container.decodeIfPresent(EmployeesCreateHrRequestAddress.self, forKey: .address)
             self.iban = try container.decodeIfPresent(String.self, forKey: .iban)
+            self.bankCode = try container.decodeIfPresent(String.self, forKey: .bankCode)
+            self.bankAccountNumber = try container.decodeIfPresent(String.self, forKey: .bankAccountNumber)
+            self.bankAccountType = try container.decodeIfPresent(EmployeesCreateHrRequestBankAccountType.self, forKey: .bankAccountType)
             self.socialInsuranceNo = try container.decodeIfPresent(String.self, forKey: .socialInsuranceNo)
             self.socialInsuranceStart = try container.decodeIfPresent(CalendarDate.self, forKey: .socialInsuranceStart)
             self.hireDate = try container.decodeIfPresent(CalendarDate.self, forKey: .hireDate)
@@ -100,6 +115,9 @@ extension Requests {
             try container.encodeIfPresent(self.phone, forKey: .phone)
             try container.encodeIfPresent(self.address, forKey: .address)
             try container.encodeIfPresent(self.iban, forKey: .iban)
+            try container.encodeIfPresent(self.bankCode, forKey: .bankCode)
+            try container.encodeIfPresent(self.bankAccountNumber, forKey: .bankAccountNumber)
+            try container.encodeIfPresent(self.bankAccountType, forKey: .bankAccountType)
             try container.encodeIfPresent(self.socialInsuranceNo, forKey: .socialInsuranceNo)
             try container.encodeIfPresent(self.socialInsuranceStart, forKey: .socialInsuranceStart)
             try container.encodeIfPresent(self.hireDate, forKey: .hireDate)
@@ -122,6 +140,9 @@ extension Requests {
             case phone
             case address
             case iban
+            case bankCode
+            case bankAccountNumber
+            case bankAccountType
             case socialInsuranceNo
             case socialInsuranceStart
             case hireDate

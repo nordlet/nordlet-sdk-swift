@@ -12,6 +12,8 @@ extension Requests {
         public let phone: Nullable<String>?
         public let selfEmploymentCertNo: Nullable<String>?
         public let birthDate: Nullable<CalendarDate>?
+        /// Whether the partner acts as a business for VAT; when not set, a partner with a VAT code is a business. Regulation (EU) 282/2011 art. 18 lets a customer without a VAT number be treated as a business on other proof
+        public let isBusiness: Nullable<Bool>?
         public let isCustomer: Bool?
         public let isSupplier: Bool?
         public let paymentTermDays: Nullable<Int64>?
@@ -55,6 +57,7 @@ extension Requests {
             phone: Nullable<String>? = nil,
             selfEmploymentCertNo: Nullable<String>? = nil,
             birthDate: Nullable<CalendarDate>? = nil,
+            isBusiness: Nullable<Bool>? = nil,
             isCustomer: Bool? = nil,
             isSupplier: Bool? = nil,
             paymentTermDays: Nullable<Int64>? = nil,
@@ -94,6 +97,7 @@ extension Requests {
             self.phone = phone
             self.selfEmploymentCertNo = selfEmploymentCertNo
             self.birthDate = birthDate
+            self.isBusiness = isBusiness
             self.isCustomer = isCustomer
             self.isSupplier = isSupplier
             self.paymentTermDays = paymentTermDays
@@ -136,6 +140,7 @@ extension Requests {
             self.phone = try container.decodeNullableIfPresent(String.self, forKey: .phone)
             self.selfEmploymentCertNo = try container.decodeNullableIfPresent(String.self, forKey: .selfEmploymentCertNo)
             self.birthDate = try container.decodeNullableIfPresent(CalendarDate.self, forKey: .birthDate)
+            self.isBusiness = try container.decodeNullableIfPresent(Bool.self, forKey: .isBusiness)
             self.isCustomer = try container.decodeIfPresent(Bool.self, forKey: .isCustomer)
             self.isSupplier = try container.decodeIfPresent(Bool.self, forKey: .isSupplier)
             self.paymentTermDays = try container.decodeNullableIfPresent(Int64.self, forKey: .paymentTermDays)
@@ -179,6 +184,7 @@ extension Requests {
             try container.encodeNullableIfPresent(self.phone, forKey: .phone)
             try container.encodeNullableIfPresent(self.selfEmploymentCertNo, forKey: .selfEmploymentCertNo)
             try container.encodeNullableIfPresent(self.birthDate, forKey: .birthDate)
+            try container.encodeNullableIfPresent(self.isBusiness, forKey: .isBusiness)
             try container.encodeIfPresent(self.isCustomer, forKey: .isCustomer)
             try container.encodeIfPresent(self.isSupplier, forKey: .isSupplier)
             try container.encodeNullableIfPresent(self.paymentTermDays, forKey: .paymentTermDays)
@@ -220,6 +226,7 @@ extension Requests {
             case phone
             case selfEmploymentCertNo
             case birthDate
+            case isBusiness
             case isCustomer
             case isSupplier
             case paymentTermDays

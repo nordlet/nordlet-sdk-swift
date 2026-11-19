@@ -7,7 +7,7 @@ public final class ReferenceClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    /// Fetches the euro exchange rates the Bank of Lithuania web service publishes for `date` (default: the company's current date) and stores them in the rate table shared by all companies, replacing the rates already stored for that date. Answers 404 when no rates are published for the date.
+    /// Fetches the official exchange rates for `date` (default: the company's current date) quoted against the company's base currency and stores them in the rate table shared by all companies, replacing the rates already stored for the same base, currency and date. A company that keeps its books in GBP gets the HMRC monthly rates of the month of `date` (units per 1 GBP, dated the first day of the month), one in USD the Federal Reserve H.10 rates of the two weeks up to `date` (units per 1 USD), and every other company the euro rates the Bank of Lithuania publishes for `date` (units per 1 EUR). `baseCurrency` in the answer names the base the rates are quoted against. Answers 404 when no rates are published for the date.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func exchangeRatesSync(request: Requests.ExchangeRatesSyncReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> ExchangeRatesSyncReferenceResponse {
@@ -20,7 +20,7 @@ public final class ReferenceClient: Sendable {
         )
     }
 
-    /// Lists the stored euro exchange rates, which are shared by all companies. Filterable by `currencyCode` and `date`; sortable by `date` and `currencyCode`.
+    /// Lists the stored official exchange rates, which are shared by all companies. `rate` is the units of `currencyCode` per one unit of `baseCurrency`: EUR rates come from the Bank of Lithuania, GBP rates from HMRC, USD rates from the Federal Reserve. Filterable by `baseCurrency`, `currencyCode` and `date`; sortable by `date`, `baseCurrency` and `currencyCode`.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func exchangeRatesList(request: Requests.ExchangeRatesListReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> ExchangeRatesListReferenceResponse {
@@ -215,7 +215,7 @@ public final class ReferenceClient: Sendable {
         )
     }
 
-    /// Replace the VAT rate mapping this company uses for one EU country. Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
+    /// Replace the VAT rate mapping this company uses for one EU country, or for a country outside the EEA whose rates come from its VAT types (GB). Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func euVatRatesSetOverrides(request: Requests.EuVatRatesSetOverridesReferenceRequest, requestOptions: RequestOptions? = nil) async throws -> EuVatRatesSetOverridesReferenceResponse {

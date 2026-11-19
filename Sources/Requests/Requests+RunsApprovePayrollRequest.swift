@@ -8,8 +8,6 @@ extension Requests {
         public let payableAccountCode: String?
         public let incomeTaxAccountCode: String?
         public let socialContributionsAccountCode: String?
-        public let gpmAccountCode: String?
-        public let sodraAccountCode: String?
         public let employerSocialAccountCode: String?
         public let deductionAccountCode: String?
         /// Additional properties that are not explicitly defined in the schema
@@ -22,8 +20,6 @@ extension Requests {
             payableAccountCode: String? = nil,
             incomeTaxAccountCode: String? = nil,
             socialContributionsAccountCode: String? = nil,
-            gpmAccountCode: String? = nil,
-            sodraAccountCode: String? = nil,
             employerSocialAccountCode: String? = nil,
             deductionAccountCode: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
@@ -34,8 +30,6 @@ extension Requests {
             self.payableAccountCode = payableAccountCode
             self.incomeTaxAccountCode = incomeTaxAccountCode
             self.socialContributionsAccountCode = socialContributionsAccountCode
-            self.gpmAccountCode = gpmAccountCode
-            self.sodraAccountCode = sodraAccountCode
             self.employerSocialAccountCode = employerSocialAccountCode
             self.deductionAccountCode = deductionAccountCode
             self.additionalProperties = additionalProperties
@@ -49,8 +43,6 @@ extension Requests {
             self.payableAccountCode = try container.decodeIfPresent(String.self, forKey: .payableAccountCode)
             self.incomeTaxAccountCode = try container.decodeIfPresent(String.self, forKey: .incomeTaxAccountCode)
             self.socialContributionsAccountCode = try container.decodeIfPresent(String.self, forKey: .socialContributionsAccountCode)
-            self.gpmAccountCode = try container.decodeIfPresent(String.self, forKey: .gpmAccountCode)
-            self.sodraAccountCode = try container.decodeIfPresent(String.self, forKey: .sodraAccountCode)
             self.employerSocialAccountCode = try container.decodeIfPresent(String.self, forKey: .employerSocialAccountCode)
             self.deductionAccountCode = try container.decodeIfPresent(String.self, forKey: .deductionAccountCode)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -65,8 +57,6 @@ extension Requests {
             try container.encodeIfPresent(self.payableAccountCode, forKey: .payableAccountCode)
             try container.encodeIfPresent(self.incomeTaxAccountCode, forKey: .incomeTaxAccountCode)
             try container.encodeIfPresent(self.socialContributionsAccountCode, forKey: .socialContributionsAccountCode)
-            try container.encodeIfPresent(self.gpmAccountCode, forKey: .gpmAccountCode)
-            try container.encodeIfPresent(self.sodraAccountCode, forKey: .sodraAccountCode)
             try container.encodeIfPresent(self.employerSocialAccountCode, forKey: .employerSocialAccountCode)
             try container.encodeIfPresent(self.deductionAccountCode, forKey: .deductionAccountCode)
         }
@@ -79,8 +69,6 @@ extension Requests {
             case payableAccountCode
             case incomeTaxAccountCode
             case socialContributionsAccountCode
-            case gpmAccountCode
-            case sodraAccountCode
             case employerSocialAccountCode
             case deductionAccountCode
         }

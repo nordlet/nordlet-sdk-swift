@@ -2,8 +2,10 @@ import Foundation
 
 extension Requests {
     public struct RunsCreatePayrollRequest: Codable, Hashable, Sendable {
-        public let year: Int64
-        public let month: Int64
+        public let frequency: RunsCreatePayrollRequestFrequency?
+        public let year: Int64?
+        public let month: Int64?
+        public let periodStart: CalendarDate?
         public let includeNatura: Bool?
         public let grossOverrides: [RunsCreatePayrollRequestGrossOverridesItem]?
         public let lines: [RunsCreatePayrollRequestLinesItem]?
@@ -13,8 +15,10 @@ extension Requests {
         public let additionalProperties: [String: JSONValue]
 
         public init(
-            year: Int64,
-            month: Int64,
+            frequency: RunsCreatePayrollRequestFrequency? = nil,
+            year: Int64? = nil,
+            month: Int64? = nil,
+            periodStart: CalendarDate? = nil,
             includeNatura: Bool? = nil,
             grossOverrides: [RunsCreatePayrollRequestGrossOverridesItem]? = nil,
             lines: [RunsCreatePayrollRequestLinesItem]? = nil,
@@ -22,8 +26,10 @@ extension Requests {
             payDate: CalendarDate? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
+            self.frequency = frequency
             self.year = year
             self.month = month
+            self.periodStart = periodStart
             self.includeNatura = includeNatura
             self.grossOverrides = grossOverrides
             self.lines = lines
@@ -34,8 +40,10 @@ extension Requests {
 
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            self.year = try container.decode(Int64.self, forKey: .year)
-            self.month = try container.decode(Int64.self, forKey: .month)
+            self.frequency = try container.decodeIfPresent(RunsCreatePayrollRequestFrequency.self, forKey: .frequency)
+            self.year = try container.decodeIfPresent(Int64.self, forKey: .year)
+            self.month = try container.decodeIfPresent(Int64.self, forKey: .month)
+            self.periodStart = try container.decodeIfPresent(CalendarDate.self, forKey: .periodStart)
             self.includeNatura = try container.decodeIfPresent(Bool.self, forKey: .includeNatura)
             self.grossOverrides = try container.decodeIfPresent([RunsCreatePayrollRequestGrossOverridesItem].self, forKey: .grossOverrides)
             self.lines = try container.decodeIfPresent([RunsCreatePayrollRequestLinesItem].self, forKey: .lines)
@@ -47,8 +55,10 @@ extension Requests {
         public func encode(to encoder: Encoder) throws -> Void {
             var container = encoder.container(keyedBy: CodingKeys.self)
             try encoder.encodeAdditionalProperties(self.additionalProperties)
-            try container.encode(self.year, forKey: .year)
-            try container.encode(self.month, forKey: .month)
+            try container.encodeIfPresent(self.frequency, forKey: .frequency)
+            try container.encodeIfPresent(self.year, forKey: .year)
+            try container.encodeIfPresent(self.month, forKey: .month)
+            try container.encodeIfPresent(self.periodStart, forKey: .periodStart)
             try container.encodeIfPresent(self.includeNatura, forKey: .includeNatura)
             try container.encodeIfPresent(self.grossOverrides, forKey: .grossOverrides)
             try container.encodeIfPresent(self.lines, forKey: .lines)
@@ -58,8 +68,10 @@ extension Requests {
 
         /// Keys for encoding/decoding struct properties.
         enum CodingKeys: String, CodingKey, CaseIterable {
+            case frequency
             case year
             case month
+            case periodStart
             case includeNatura
             case grossOverrides
             case lines

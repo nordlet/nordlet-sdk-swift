@@ -11,6 +11,8 @@ extension Requests {
         public let phone: String?
         public let selfEmploymentCertNo: String?
         public let birthDate: CalendarDate?
+        /// Whether the partner acts as a business for VAT; when not set, a partner with a VAT code is a business. Regulation (EU) 282/2011 art. 18 lets a customer without a VAT number be treated as a business on other proof
+        public let isBusiness: Bool?
         public let isCustomer: Bool?
         public let isSupplier: Bool?
         public let paymentTermDays: Int64?
@@ -53,6 +55,7 @@ extension Requests {
             phone: String? = nil,
             selfEmploymentCertNo: String? = nil,
             birthDate: CalendarDate? = nil,
+            isBusiness: Bool? = nil,
             isCustomer: Bool? = nil,
             isSupplier: Bool? = nil,
             paymentTermDays: Int64? = nil,
@@ -91,6 +94,7 @@ extension Requests {
             self.phone = phone
             self.selfEmploymentCertNo = selfEmploymentCertNo
             self.birthDate = birthDate
+            self.isBusiness = isBusiness
             self.isCustomer = isCustomer
             self.isSupplier = isSupplier
             self.paymentTermDays = paymentTermDays
@@ -132,6 +136,7 @@ extension Requests {
             self.phone = try container.decodeIfPresent(String.self, forKey: .phone)
             self.selfEmploymentCertNo = try container.decodeIfPresent(String.self, forKey: .selfEmploymentCertNo)
             self.birthDate = try container.decodeIfPresent(CalendarDate.self, forKey: .birthDate)
+            self.isBusiness = try container.decodeIfPresent(Bool.self, forKey: .isBusiness)
             self.isCustomer = try container.decodeIfPresent(Bool.self, forKey: .isCustomer)
             self.isSupplier = try container.decodeIfPresent(Bool.self, forKey: .isSupplier)
             self.paymentTermDays = try container.decodeIfPresent(Int64.self, forKey: .paymentTermDays)
@@ -174,6 +179,7 @@ extension Requests {
             try container.encodeIfPresent(self.phone, forKey: .phone)
             try container.encodeIfPresent(self.selfEmploymentCertNo, forKey: .selfEmploymentCertNo)
             try container.encodeIfPresent(self.birthDate, forKey: .birthDate)
+            try container.encodeIfPresent(self.isBusiness, forKey: .isBusiness)
             try container.encodeIfPresent(self.isCustomer, forKey: .isCustomer)
             try container.encodeIfPresent(self.isSupplier, forKey: .isSupplier)
             try container.encodeIfPresent(self.paymentTermDays, forKey: .paymentTermDays)
@@ -214,6 +220,7 @@ extension Requests {
             case phone
             case selfEmploymentCertNo
             case birthDate
+            case isBusiness
             case isCustomer
             case isSupplier
             case paymentTermDays

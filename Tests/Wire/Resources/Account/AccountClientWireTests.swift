@@ -1363,6 +1363,9 @@ import Api
                   "name": "name",
                   "code": "code",
                   "vatCode": "vatCode",
+                  "identifiers": {
+                    "key": "value"
+                  },
                   "smeExemptionNumber": "smeExemptionNumber",
                   "isVatPayer": true,
                   "isSandbox": true,
@@ -1377,7 +1380,8 @@ import Api
                     "street": "street",
                     "city": "city",
                     "postalCode": "postalCode",
-                    "countryCode": "countryCode"
+                    "countryCode": "countryCode",
+                    "subdivision": "subdivision"
                   },
                   "email": "email",
                   "phone": "phone",
@@ -1400,7 +1404,11 @@ import Api
                   "shareCapital": "shareCapital",
                   "accountsKeptBy": "company",
                   "vatPeriod": "monthly",
+                  "vatPeriodEndMonth": 1000000,
                   "fiscalYearEndMonth": 1000000,
+                  "fiscalYearEndDay": 1000000,
+                  "fiscalYearWeekday": 1000000,
+                  "fiscalYearWeekRule": "last",
                   "timeZone": "timeZone",
                   "filingOptions": {
                     "key": "value"
@@ -1423,13 +1431,16 @@ import Api
             name: "name",
             code: Nullable<String>.value("code"),
             vatCode: Nullable<String>.value("vatCode"),
+            identifiers: [
+                "key": "value"
+            ],
             smeExemptionNumber: Nullable<String>.value("smeExemptionNumber"),
             isVatPayer: true,
             isSandbox: true,
             cashBasis: true,
             countryCode: "countryCode",
             chartTemplate: "chartTemplate",
-            countryChartTemplate: "countryChartTemplate",
+            countryChartTemplate: Nullable<String>.value("countryChartTemplate"),
             baseCurrency: "baseCurrency",
             defaultInvoiceCurrency: "defaultInvoiceCurrency",
             status: .active,
@@ -1437,7 +1448,8 @@ import Api
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("countryCode")
+                countryCode: Optional("countryCode"),
+                subdivision: Optional("subdivision")
             )),
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
@@ -1460,7 +1472,11 @@ import Api
             shareCapital: Nullable<String>.value("shareCapital"),
             accountsKeptBy: Nullable<CompaniesProfileAccountResponseAccountsKeptBy>.value(.company),
             vatPeriod: Nullable<CompaniesProfileAccountResponseVatPeriod>.value(.monthly),
+            vatPeriodEndMonth: Nullable<Int64>.value(1000000),
             fiscalYearEndMonth: Nullable<Int64>.value(1000000),
+            fiscalYearEndDay: Nullable<Int64>.value(1000000),
+            fiscalYearWeekday: Nullable<Int64>.value(1000000),
+            fiscalYearWeekRule: Nullable<CompaniesProfileAccountResponseFiscalYearWeekRule>.value(.last),
             timeZone: "timeZone",
             filingOptions: Nullable<[String: Nullable<String>]>.value([
                 "key": Nullable<String>.value("value")
@@ -1487,6 +1503,9 @@ import Api
                   "name": "name",
                   "code": "code",
                   "vatCode": "vatCode",
+                  "identifiers": {
+                    "identifiers": "identifiers"
+                  },
                   "smeExemptionNumber": "smeExemptionNumber",
                   "isVatPayer": true,
                   "isSandbox": true,
@@ -1501,7 +1520,8 @@ import Api
                     "street": "street",
                     "city": "city",
                     "postalCode": "postalCode",
-                    "countryCode": "xy"
+                    "countryCode": "xy",
+                    "subdivision": "subdivision"
                   },
                   "email": "email",
                   "phone": "phone",
@@ -1524,7 +1544,11 @@ import Api
                   "shareCapital": "shareCapital",
                   "accountsKeptBy": "company",
                   "vatPeriod": "monthly",
+                  "vatPeriodEndMonth": 1000000,
                   "fiscalYearEndMonth": 1000000,
+                  "fiscalYearEndDay": 1000000,
+                  "fiscalYearWeekday": 1000000,
+                  "fiscalYearWeekRule": "last",
                   "timeZone": "timeZone",
                   "filingOptions": {
                     "filingOptions": "filingOptions"
@@ -1547,13 +1571,16 @@ import Api
             name: "name",
             code: Nullable<String>.value("code"),
             vatCode: Nullable<String>.value("vatCode"),
+            identifiers: [
+                "identifiers": "identifiers"
+            ],
             smeExemptionNumber: Nullable<String>.value("smeExemptionNumber"),
             isVatPayer: true,
             isSandbox: true,
             cashBasis: true,
             countryCode: "countryCode",
             chartTemplate: "chartTemplate",
-            countryChartTemplate: "countryChartTemplate",
+            countryChartTemplate: Nullable<String>.value("countryChartTemplate"),
             baseCurrency: "baseCurrency",
             defaultInvoiceCurrency: "defaultInvoiceCurrency",
             status: .active,
@@ -1561,7 +1588,8 @@ import Api
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("xy")
+                countryCode: Optional("xy"),
+                subdivision: Optional("subdivision")
             )),
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
@@ -1584,7 +1612,11 @@ import Api
             shareCapital: Nullable<String>.value("shareCapital"),
             accountsKeptBy: Nullable<CompaniesProfileAccountResponseAccountsKeptBy>.value(.company),
             vatPeriod: Nullable<CompaniesProfileAccountResponseVatPeriod>.value(.monthly),
+            vatPeriodEndMonth: Nullable<Int64>.value(1000000),
             fiscalYearEndMonth: Nullable<Int64>.value(1000000),
+            fiscalYearEndDay: Nullable<Int64>.value(1000000),
+            fiscalYearWeekday: Nullable<Int64>.value(1000000),
+            fiscalYearWeekRule: Nullable<CompaniesProfileAccountResponseFiscalYearWeekRule>.value(.last),
             timeZone: "timeZone",
             filingOptions: Nullable<[String: Nullable<String>]>.value([
                 "filingOptions": Nullable<String>.value("filingOptions")
@@ -1679,6 +1711,9 @@ import Api
                     "name": "name",
                     "code": "code",
                     "vatCode": "vatCode",
+                    "identifiers": {
+                      "key": "value"
+                    },
                     "smeExemptionNumber": "smeExemptionNumber",
                     "isVatPayer": true,
                     "isSandbox": true,
@@ -1693,7 +1728,8 @@ import Api
                       "street": "street",
                       "city": "city",
                       "postalCode": "postalCode",
-                      "countryCode": "countryCode"
+                      "countryCode": "countryCode",
+                      "subdivision": "subdivision"
                     },
                     "email": "email",
                     "phone": "phone",
@@ -1716,7 +1752,11 @@ import Api
                     "shareCapital": "shareCapital",
                     "accountsKeptBy": "company",
                     "vatPeriod": "monthly",
+                    "vatPeriodEndMonth": 1000000,
                     "fiscalYearEndMonth": 1000000,
+                    "fiscalYearEndDay": 1000000,
+                    "fiscalYearWeekday": 1000000,
+                    "fiscalYearWeekRule": "last",
                     "timeZone": "timeZone",
                     "filingOptions": {
                       "key": "value"
@@ -1808,13 +1848,16 @@ import Api
                 name: "name",
                 code: Nullable<String>.value("code"),
                 vatCode: Nullable<String>.value("vatCode"),
+                identifiers: [
+                    "key": "value"
+                ],
                 smeExemptionNumber: Nullable<String>.value("smeExemptionNumber"),
                 isVatPayer: true,
                 isSandbox: true,
                 cashBasis: true,
                 countryCode: "countryCode",
                 chartTemplate: "chartTemplate",
-                countryChartTemplate: "countryChartTemplate",
+                countryChartTemplate: Nullable<String>.value("countryChartTemplate"),
                 baseCurrency: "baseCurrency",
                 defaultInvoiceCurrency: "defaultInvoiceCurrency",
                 status: .active,
@@ -1822,7 +1865,8 @@ import Api
                     street: Optional("street"),
                     city: Optional("city"),
                     postalCode: Optional("postalCode"),
-                    countryCode: Optional("countryCode")
+                    countryCode: Optional("countryCode"),
+                    subdivision: Optional("subdivision")
                 )),
                 email: Nullable<String>.value("email"),
                 phone: Nullable<String>.value("phone"),
@@ -1845,7 +1889,11 @@ import Api
                 shareCapital: Nullable<String>.value("shareCapital"),
                 accountsKeptBy: Nullable<CompaniesContextAccountResponseProfileAccountsKeptBy>.value(.company),
                 vatPeriod: Nullable<CompaniesContextAccountResponseProfileVatPeriod>.value(.monthly),
+                vatPeriodEndMonth: Nullable<Int64>.value(1000000),
                 fiscalYearEndMonth: Nullable<Int64>.value(1000000),
+                fiscalYearEndDay: Nullable<Int64>.value(1000000),
+                fiscalYearWeekday: Nullable<Int64>.value(1000000),
+                fiscalYearWeekRule: Nullable<CompaniesContextAccountResponseProfileFiscalYearWeekRule>.value(.last),
                 timeZone: "timeZone",
                 filingOptions: Nullable<[String: Nullable<String>]>.value([
                     "key": Nullable<String>.value("value")
@@ -1999,6 +2047,9 @@ import Api
                     "name": "name",
                     "code": "code",
                     "vatCode": "vatCode",
+                    "identifiers": {
+                      "identifiers": "identifiers"
+                    },
                     "smeExemptionNumber": "smeExemptionNumber",
                     "isVatPayer": true,
                     "isSandbox": true,
@@ -2013,7 +2064,8 @@ import Api
                       "street": "street",
                       "city": "city",
                       "postalCode": "postalCode",
-                      "countryCode": "xy"
+                      "countryCode": "xy",
+                      "subdivision": "subdivision"
                     },
                     "email": "email",
                     "phone": "phone",
@@ -2036,7 +2088,11 @@ import Api
                     "shareCapital": "shareCapital",
                     "accountsKeptBy": "company",
                     "vatPeriod": "monthly",
+                    "vatPeriodEndMonth": 1000000,
                     "fiscalYearEndMonth": 1000000,
+                    "fiscalYearEndDay": 1000000,
+                    "fiscalYearWeekday": 1000000,
+                    "fiscalYearWeekRule": "last",
                     "timeZone": "timeZone",
                     "filingOptions": {
                       "filingOptions": "filingOptions"
@@ -2186,13 +2242,16 @@ import Api
                 name: "name",
                 code: Nullable<String>.value("code"),
                 vatCode: Nullable<String>.value("vatCode"),
+                identifiers: [
+                    "identifiers": "identifiers"
+                ],
                 smeExemptionNumber: Nullable<String>.value("smeExemptionNumber"),
                 isVatPayer: true,
                 isSandbox: true,
                 cashBasis: true,
                 countryCode: "countryCode",
                 chartTemplate: "chartTemplate",
-                countryChartTemplate: "countryChartTemplate",
+                countryChartTemplate: Nullable<String>.value("countryChartTemplate"),
                 baseCurrency: "baseCurrency",
                 defaultInvoiceCurrency: "defaultInvoiceCurrency",
                 status: .active,
@@ -2200,7 +2259,8 @@ import Api
                     street: Optional("street"),
                     city: Optional("city"),
                     postalCode: Optional("postalCode"),
-                    countryCode: Optional("xy")
+                    countryCode: Optional("xy"),
+                    subdivision: Optional("subdivision")
                 )),
                 email: Nullable<String>.value("email"),
                 phone: Nullable<String>.value("phone"),
@@ -2223,7 +2283,11 @@ import Api
                 shareCapital: Nullable<String>.value("shareCapital"),
                 accountsKeptBy: Nullable<CompaniesContextAccountResponseProfileAccountsKeptBy>.value(.company),
                 vatPeriod: Nullable<CompaniesContextAccountResponseProfileVatPeriod>.value(.monthly),
+                vatPeriodEndMonth: Nullable<Int64>.value(1000000),
                 fiscalYearEndMonth: Nullable<Int64>.value(1000000),
+                fiscalYearEndDay: Nullable<Int64>.value(1000000),
+                fiscalYearWeekday: Nullable<Int64>.value(1000000),
+                fiscalYearWeekRule: Nullable<CompaniesContextAccountResponseProfileFiscalYearWeekRule>.value(.last),
                 timeZone: "timeZone",
                 filingOptions: Nullable<[String: Nullable<String>]>.value([
                     "filingOptions": Nullable<String>.value("filingOptions")
@@ -2251,6 +2315,9 @@ import Api
                   "name": "name",
                   "code": "code",
                   "vatCode": "vatCode",
+                  "identifiers": {
+                    "key": "value"
+                  },
                   "smeExemptionNumber": "smeExemptionNumber",
                   "isVatPayer": true,
                   "isSandbox": true,
@@ -2265,7 +2332,8 @@ import Api
                     "street": "street",
                     "city": "city",
                     "postalCode": "postalCode",
-                    "countryCode": "countryCode"
+                    "countryCode": "countryCode",
+                    "subdivision": "subdivision"
                   },
                   "email": "email",
                   "phone": "phone",
@@ -2288,7 +2356,11 @@ import Api
                   "shareCapital": "shareCapital",
                   "accountsKeptBy": "company",
                   "vatPeriod": "monthly",
+                  "vatPeriodEndMonth": 1000000,
                   "fiscalYearEndMonth": 1000000,
+                  "fiscalYearEndDay": 1000000,
+                  "fiscalYearWeekday": 1000000,
+                  "fiscalYearWeekRule": "last",
                   "timeZone": "timeZone",
                   "filingOptions": {
                     "key": "value"
@@ -2311,13 +2383,16 @@ import Api
             name: "name",
             code: Nullable<String>.value("code"),
             vatCode: Nullable<String>.value("vatCode"),
+            identifiers: [
+                "key": "value"
+            ],
             smeExemptionNumber: Nullable<String>.value("smeExemptionNumber"),
             isVatPayer: true,
             isSandbox: true,
             cashBasis: true,
             countryCode: "countryCode",
             chartTemplate: "chartTemplate",
-            countryChartTemplate: "countryChartTemplate",
+            countryChartTemplate: Nullable<String>.value("countryChartTemplate"),
             baseCurrency: "baseCurrency",
             defaultInvoiceCurrency: "defaultInvoiceCurrency",
             status: .active,
@@ -2325,7 +2400,8 @@ import Api
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("countryCode")
+                countryCode: Optional("countryCode"),
+                subdivision: Optional("subdivision")
             )),
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
@@ -2348,7 +2424,11 @@ import Api
             shareCapital: Nullable<String>.value("shareCapital"),
             accountsKeptBy: Nullable<CompaniesUpdateAccountResponseAccountsKeptBy>.value(.company),
             vatPeriod: Nullable<CompaniesUpdateAccountResponseVatPeriod>.value(.monthly),
+            vatPeriodEndMonth: Nullable<Int64>.value(1000000),
             fiscalYearEndMonth: Nullable<Int64>.value(1000000),
+            fiscalYearEndDay: Nullable<Int64>.value(1000000),
+            fiscalYearWeekday: Nullable<Int64>.value(1000000),
+            fiscalYearWeekRule: Nullable<CompaniesUpdateAccountResponseFiscalYearWeekRule>.value(.last),
             timeZone: "timeZone",
             filingOptions: Nullable<[String: Nullable<String>]>.value([
                 "key": Nullable<String>.value("value")
@@ -2375,6 +2455,9 @@ import Api
                   "name": "name",
                   "code": "code",
                   "vatCode": "vatCode",
+                  "identifiers": {
+                    "identifiers": "identifiers"
+                  },
                   "smeExemptionNumber": "smeExemptionNumber",
                   "isVatPayer": true,
                   "isSandbox": true,
@@ -2389,7 +2472,8 @@ import Api
                     "street": "street",
                     "city": "city",
                     "postalCode": "postalCode",
-                    "countryCode": "xy"
+                    "countryCode": "xy",
+                    "subdivision": "subdivision"
                   },
                   "email": "email",
                   "phone": "phone",
@@ -2412,7 +2496,11 @@ import Api
                   "shareCapital": "shareCapital",
                   "accountsKeptBy": "company",
                   "vatPeriod": "monthly",
+                  "vatPeriodEndMonth": 1000000,
                   "fiscalYearEndMonth": 1000000,
+                  "fiscalYearEndDay": 1000000,
+                  "fiscalYearWeekday": 1000000,
+                  "fiscalYearWeekRule": "last",
                   "timeZone": "timeZone",
                   "filingOptions": {
                     "filingOptions": "filingOptions"
@@ -2435,13 +2523,16 @@ import Api
             name: "name",
             code: Nullable<String>.value("code"),
             vatCode: Nullable<String>.value("vatCode"),
+            identifiers: [
+                "identifiers": "identifiers"
+            ],
             smeExemptionNumber: Nullable<String>.value("smeExemptionNumber"),
             isVatPayer: true,
             isSandbox: true,
             cashBasis: true,
             countryCode: "countryCode",
             chartTemplate: "chartTemplate",
-            countryChartTemplate: "countryChartTemplate",
+            countryChartTemplate: Nullable<String>.value("countryChartTemplate"),
             baseCurrency: "baseCurrency",
             defaultInvoiceCurrency: "defaultInvoiceCurrency",
             status: .active,
@@ -2449,7 +2540,8 @@ import Api
                 street: Optional("street"),
                 city: Optional("city"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("xy")
+                countryCode: Optional("xy"),
+                subdivision: Optional("subdivision")
             )),
             email: Nullable<String>.value("email"),
             phone: Nullable<String>.value("phone"),
@@ -2472,7 +2564,11 @@ import Api
             shareCapital: Nullable<String>.value("shareCapital"),
             accountsKeptBy: Nullable<CompaniesUpdateAccountResponseAccountsKeptBy>.value(.company),
             vatPeriod: Nullable<CompaniesUpdateAccountResponseVatPeriod>.value(.monthly),
+            vatPeriodEndMonth: Nullable<Int64>.value(1000000),
             fiscalYearEndMonth: Nullable<Int64>.value(1000000),
+            fiscalYearEndDay: Nullable<Int64>.value(1000000),
+            fiscalYearWeekday: Nullable<Int64>.value(1000000),
+            fiscalYearWeekRule: Nullable<CompaniesUpdateAccountResponseFiscalYearWeekRule>.value(.last),
             timeZone: "timeZone",
             filingOptions: Nullable<[String: Nullable<String>]>.value([
                 "filingOptions": Nullable<String>.value("filingOptions")

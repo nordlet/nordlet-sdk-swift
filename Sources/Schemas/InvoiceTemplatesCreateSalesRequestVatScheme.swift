@@ -5,6 +5,7 @@ public enum InvoiceTemplatesCreateSalesRequestVatScheme: String, Codable, Hashab
     case intraEuB2B = "intra_eu_b2b"
     case reverseCharge = "reverse_charge"
     case ossUnion = "oss_union"
+    case ossNonUnion = "oss_non_union"
     case ioss
     case marketplaceDeemed = "marketplace_deemed"
     case export

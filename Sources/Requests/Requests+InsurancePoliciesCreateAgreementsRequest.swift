@@ -8,6 +8,7 @@ extension Requests {
         public let fromDate: CalendarDate
         public let toDate: CalendarDate
         public let premium: String?
+        /// Defaults to the company's base currency
         public let currency: String?
         public let notes: String?
         /// Additional properties that are not explicitly defined in the schema

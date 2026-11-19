@@ -776,6 +776,9 @@ import Api
                   "id": "id",
                   "partnerId": "partnerId",
                   "iban": "iban",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "accountType": "checking",
                   "bankName": "bankName",
                   "bic": "bic",
                   "currency": "currency",
@@ -793,7 +796,10 @@ import Api
         let expectedResponse = BankAccountsCreatePartnersResponse(
             id: "id",
             partnerId: "partnerId",
-            iban: "iban",
+            iban: Nullable<String>.value("iban"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            accountType: Nullable<BankAccountsCreatePartnersResponseAccountType>.value(.checking),
             bankName: Nullable<String>.value("bankName"),
             bic: Nullable<String>.value("bic"),
             currency: "currency",
@@ -801,10 +807,7 @@ import Api
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.partners.bankAccountsCreate(
-            request: .init(
-                iban: "iban",
-                partnerId: "partnerId"
-            ),
+            request: .init(partnerId: "partnerId"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -819,6 +822,9 @@ import Api
                   "id": "x",
                   "partnerId": "x",
                   "iban": "iban",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "accountType": "checking",
                   "bankName": "bankName",
                   "bic": "bic",
                   "currency": "currency",
@@ -836,7 +842,10 @@ import Api
         let expectedResponse = BankAccountsCreatePartnersResponse(
             id: "x",
             partnerId: "x",
-            iban: "iban",
+            iban: Nullable<String>.value("iban"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            accountType: Nullable<BankAccountsCreatePartnersResponseAccountType>.value(.checking),
             bankName: Nullable<String>.value("bankName"),
             bic: Nullable<String>.value("bic"),
             currency: "currency",
@@ -844,10 +853,7 @@ import Api
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.partners.bankAccountsCreate(
-            request: .init(
-                iban: "alpha",
-                partnerId: "x"
-            ),
+            request: .init(partnerId: "x"),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -862,6 +868,9 @@ import Api
                   "id": "id",
                   "partnerId": "partnerId",
                   "iban": "iban",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "accountType": "checking",
                   "bankName": "bankName",
                   "bic": "bic",
                   "currency": "currency",
@@ -879,7 +888,10 @@ import Api
         let expectedResponse = BankAccountsUpdatePartnersResponse(
             id: "id",
             partnerId: "partnerId",
-            iban: "iban",
+            iban: Nullable<String>.value("iban"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            accountType: Nullable<BankAccountsUpdatePartnersResponseAccountType>.value(.checking),
             bankName: Nullable<String>.value("bankName"),
             bic: Nullable<String>.value("bic"),
             currency: "currency",
@@ -902,6 +914,9 @@ import Api
                   "id": "x",
                   "partnerId": "x",
                   "iban": "iban",
+                  "bankCode": "bankCode",
+                  "bankAccountNumber": "bankAccountNumber",
+                  "accountType": "checking",
                   "bankName": "bankName",
                   "bic": "bic",
                   "currency": "currency",
@@ -919,7 +934,10 @@ import Api
         let expectedResponse = BankAccountsUpdatePartnersResponse(
             id: "x",
             partnerId: "x",
-            iban: "iban",
+            iban: Nullable<String>.value("iban"),
+            bankCode: Nullable<String>.value("bankCode"),
+            bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+            accountType: Nullable<BankAccountsUpdatePartnersResponseAccountType>.value(.checking),
             bankName: Nullable<String>.value("bankName"),
             bic: Nullable<String>.value("bic"),
             currency: "currency",
@@ -996,6 +1014,9 @@ import Api
                       "id": "id",
                       "partnerId": "partnerId",
                       "iban": "iban",
+                      "bankCode": "bankCode",
+                      "bankAccountNumber": "bankAccountNumber",
+                      "accountType": "checking",
                       "bankName": "bankName",
                       "bic": "bic",
                       "currency": "currency",
@@ -1028,7 +1049,10 @@ import Api
                 BankAccountsListPartnersResponseRowsItem(
                     id: "id",
                     partnerId: "partnerId",
-                    iban: "iban",
+                    iban: Nullable<String>.value("iban"),
+                    bankCode: Nullable<String>.value("bankCode"),
+                    bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+                    accountType: Nullable<BankAccountsListPartnersResponseRowsItemAccountType>.value(.checking),
                     bankName: Nullable<String>.value("bankName"),
                     bic: Nullable<String>.value("bic"),
                     currency: "currency",
@@ -1066,6 +1090,9 @@ import Api
                       "id": "x",
                       "partnerId": "x",
                       "iban": "iban",
+                      "bankCode": "bankCode",
+                      "bankAccountNumber": "bankAccountNumber",
+                      "accountType": "checking",
                       "bankName": "bankName",
                       "bic": "bic",
                       "currency": "currency",
@@ -1076,6 +1103,9 @@ import Api
                       "id": "x",
                       "partnerId": "x",
                       "iban": "iban",
+                      "bankCode": "bankCode",
+                      "bankAccountNumber": "bankAccountNumber",
+                      "accountType": "checking",
                       "bankName": "bankName",
                       "bic": "bic",
                       "currency": "currency",
@@ -1108,7 +1138,10 @@ import Api
                 BankAccountsListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
-                    iban: "iban",
+                    iban: Nullable<String>.value("iban"),
+                    bankCode: Nullable<String>.value("bankCode"),
+                    bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+                    accountType: Nullable<BankAccountsListPartnersResponseRowsItemAccountType>.value(.checking),
                     bankName: Nullable<String>.value("bankName"),
                     bic: Nullable<String>.value("bic"),
                     currency: "currency",
@@ -1118,7 +1151,10 @@ import Api
                 BankAccountsListPartnersResponseRowsItem(
                     id: "x",
                     partnerId: "x",
-                    iban: "iban",
+                    iban: Nullable<String>.value("iban"),
+                    bankCode: Nullable<String>.value("bankCode"),
+                    bankAccountNumber: Nullable<String>.value("bankAccountNumber"),
+                    accountType: Nullable<BankAccountsListPartnersResponseRowsItemAccountType>.value(.checking),
                     bankName: Nullable<String>.value("bankName"),
                     bic: Nullable<String>.value("bic"),
                     currency: "currency",
@@ -2031,6 +2067,152 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func companiesHouseGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "companyNumber": "companyNumber",
+                  "name": "name",
+                  "status": "status",
+                  "type": "type",
+                  "jurisdiction": "jurisdiction",
+                  "incorporatedOn": "incorporatedOn",
+                  "ceasedOn": "ceasedOn",
+                  "address": {
+                    "street": "street",
+                    "city": "city",
+                    "county": "county",
+                    "postalCode": "postalCode",
+                    "countryCode": "GB",
+                    "subdivision": "subdivision"
+                  },
+                  "accountingReferenceDate": {
+                    "day": 1000000,
+                    "month": 1000000
+                  },
+                  "nextAccountsDue": "nextAccountsDue",
+                  "nextConfirmationStatementDue": "nextConfirmationStatementDue",
+                  "sicCodes": [
+                    "sicCodes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = CompaniesHouseGetPartnersResponse(
+            companyNumber: "companyNumber",
+            name: "name",
+            status: Nullable<String>.value("status"),
+            type: Nullable<String>.value("type"),
+            jurisdiction: Nullable<String>.value("jurisdiction"),
+            incorporatedOn: Nullable<String>.value("incorporatedOn"),
+            ceasedOn: Nullable<String>.value("ceasedOn"),
+            address: Nullable<CompaniesHouseGetPartnersResponseAddress>.value(CompaniesHouseGetPartnersResponseAddress(
+                street: Nullable<String>.value("street"),
+                city: Nullable<String>.value("city"),
+                county: Nullable<String>.value("county"),
+                postalCode: Nullable<String>.value("postalCode"),
+                countryCode: .gb,
+                subdivision: Nullable<String>.value("subdivision")
+            )),
+            accountingReferenceDate: Nullable<CompaniesHouseGetPartnersResponseAccountingReferenceDate>.value(CompaniesHouseGetPartnersResponseAccountingReferenceDate(
+                day: 1000000,
+                month: 1000000
+            )),
+            nextAccountsDue: Nullable<String>.value("nextAccountsDue"),
+            nextConfirmationStatementDue: Nullable<String>.value("nextConfirmationStatementDue"),
+            sicCodes: [
+                "sicCodes"
+            ]
+        )
+        let response = try await client.partners.companiesHouseGet(
+            request: .init(companyNumber: "companyNumber"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func companiesHouseGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "companyNumber": "companyNumber",
+                  "name": "name",
+                  "status": "status",
+                  "type": "type",
+                  "jurisdiction": "jurisdiction",
+                  "incorporatedOn": "incorporatedOn",
+                  "ceasedOn": "ceasedOn",
+                  "address": {
+                    "street": "street",
+                    "city": "city",
+                    "county": "county",
+                    "postalCode": "postalCode",
+                    "countryCode": "GB",
+                    "subdivision": "subdivision"
+                  },
+                  "accountingReferenceDate": {
+                    "day": 1000000,
+                    "month": 1000000
+                  },
+                  "nextAccountsDue": "nextAccountsDue",
+                  "nextConfirmationStatementDue": "nextConfirmationStatementDue",
+                  "sicCodes": [
+                    "sicCodes",
+                    "sicCodes"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = CompaniesHouseGetPartnersResponse(
+            companyNumber: "companyNumber",
+            name: "name",
+            status: Nullable<String>.value("status"),
+            type: Nullable<String>.value("type"),
+            jurisdiction: Nullable<String>.value("jurisdiction"),
+            incorporatedOn: Nullable<String>.value("incorporatedOn"),
+            ceasedOn: Nullable<String>.value("ceasedOn"),
+            address: Nullable<CompaniesHouseGetPartnersResponseAddress>.value(CompaniesHouseGetPartnersResponseAddress(
+                street: Nullable<String>.value("street"),
+                city: Nullable<String>.value("city"),
+                county: Nullable<String>.value("county"),
+                postalCode: Nullable<String>.value("postalCode"),
+                countryCode: .gb,
+                subdivision: Nullable<String>.value("subdivision")
+            )),
+            accountingReferenceDate: Nullable<CompaniesHouseGetPartnersResponseAccountingReferenceDate>.value(CompaniesHouseGetPartnersResponseAccountingReferenceDate(
+                day: 1000000,
+                month: 1000000
+            )),
+            nextAccountsDue: Nullable<String>.value("nextAccountsDue"),
+            nextConfirmationStatementDue: Nullable<String>.value("nextConfirmationStatementDue"),
+            sicCodes: [
+                "sicCodes",
+                "sicCodes"
+            ]
+        )
+        let response = try await client.partners.companiesHouseGet(
+            request: .init(companyNumber: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func vatReviewsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -2373,6 +2555,7 @@ import Api
                   "phone": "phone",
                   "selfEmploymentCertNo": "selfEmploymentCertNo",
                   "birthDate": "2026-07-01",
+                  "isBusiness": true,
                   "isCustomer": true,
                   "isSupplier": true,
                   "paymentTermDays": 1000000,
@@ -2390,7 +2573,8 @@ import Api
                     "municipality": "municipality",
                     "county": "county",
                     "postalCode": "postalCode",
-                    "countryCode": "countryCode"
+                    "countryCode": "countryCode",
+                    "subdivision": "subdivision"
                   },
                   "correspondenceAddress": {
                     "street": "street",
@@ -2398,7 +2582,8 @@ import Api
                     "municipality": "municipality",
                     "county": "county",
                     "postalCode": "postalCode",
-                    "countryCode": "countryCode"
+                    "countryCode": "countryCode",
+                    "subdivision": "subdivision"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
@@ -2438,6 +2623,7 @@ import Api
             phone: Nullable<String>.value("phone"),
             selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
             birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            isBusiness: Nullable<Bool>.value(true),
             isCustomer: true,
             isSupplier: true,
             paymentTermDays: Nullable<Int64>.value(1000000),
@@ -2455,7 +2641,8 @@ import Api
                 municipality: Optional("municipality"),
                 county: Optional("county"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("countryCode")
+                countryCode: Optional("countryCode"),
+                subdivision: Optional("subdivision")
             )),
             correspondenceAddress: Nullable<CreatePartnersResponseCorrespondenceAddress>.value(CreatePartnersResponseCorrespondenceAddress(
                 street: Optional("street"),
@@ -2463,7 +2650,8 @@ import Api
                 municipality: Optional("municipality"),
                 county: Optional("county"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("countryCode")
+                countryCode: Optional("countryCode"),
+                subdivision: Optional("subdivision")
             )),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
@@ -2507,6 +2695,7 @@ import Api
                   "phone": "phone",
                   "selfEmploymentCertNo": "selfEmploymentCertNo",
                   "birthDate": "2023-01-15",
+                  "isBusiness": true,
                   "isCustomer": true,
                   "isSupplier": true,
                   "paymentTermDays": 1000000,
@@ -2524,7 +2713,8 @@ import Api
                     "municipality": "municipality",
                     "county": "county",
                     "postalCode": "postalCode",
-                    "countryCode": "xy"
+                    "countryCode": "xy",
+                    "subdivision": "subdivision"
                   },
                   "correspondenceAddress": {
                     "street": "street",
@@ -2532,7 +2722,8 @@ import Api
                     "municipality": "municipality",
                     "county": "county",
                     "postalCode": "postalCode",
-                    "countryCode": "xy"
+                    "countryCode": "xy",
+                    "subdivision": "subdivision"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
@@ -2572,6 +2763,7 @@ import Api
             phone: Nullable<String>.value("phone"),
             selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
             birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            isBusiness: Nullable<Bool>.value(true),
             isCustomer: true,
             isSupplier: true,
             paymentTermDays: Nullable<Int64>.value(1000000),
@@ -2589,7 +2781,8 @@ import Api
                 municipality: Optional("municipality"),
                 county: Optional("county"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("xy")
+                countryCode: Optional("xy"),
+                subdivision: Optional("subdivision")
             )),
             correspondenceAddress: Nullable<CreatePartnersResponseCorrespondenceAddress>.value(CreatePartnersResponseCorrespondenceAddress(
                 street: Optional("street"),
@@ -2597,7 +2790,8 @@ import Api
                 municipality: Optional("municipality"),
                 county: Optional("county"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("xy")
+                countryCode: Optional("xy"),
+                subdivision: Optional("subdivision")
             )),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
@@ -2643,6 +2837,7 @@ import Api
                     "phone": "phone",
                     "selfEmploymentCertNo": "selfEmploymentCertNo",
                     "birthDate": "2026-07-01",
+                    "isBusiness": true,
                     "isCustomer": true,
                     "isSupplier": true,
                     "paymentTermDays": 1000000,
@@ -2660,7 +2855,8 @@ import Api
                       "municipality": "municipality",
                       "county": "county",
                       "postalCode": "postalCode",
-                      "countryCode": "countryCode"
+                      "countryCode": "countryCode",
+                      "subdivision": "subdivision"
                     },
                     "correspondenceAddress": {
                       "street": "street",
@@ -2668,7 +2864,8 @@ import Api
                       "municipality": "municipality",
                       "county": "county",
                       "postalCode": "postalCode",
-                      "countryCode": "countryCode"
+                      "countryCode": "countryCode",
+                      "subdivision": "subdivision"
                     },
                     "notes": "notes",
                     "documentRef": "documentRef",
@@ -2711,6 +2908,7 @@ import Api
                 phone: Nullable<String>.value("phone"),
                 selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
                 birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                isBusiness: Nullable<Bool>.value(true),
                 isCustomer: true,
                 isSupplier: true,
                 paymentTermDays: Nullable<Int64>.value(1000000),
@@ -2728,7 +2926,8 @@ import Api
                     municipality: Optional("municipality"),
                     county: Optional("county"),
                     postalCode: Optional("postalCode"),
-                    countryCode: Optional("countryCode")
+                    countryCode: Optional("countryCode"),
+                    subdivision: Optional("subdivision")
                 )),
                 correspondenceAddress: Nullable<FindOrCreatePartnersResponsePartnerCorrespondenceAddress>.value(FindOrCreatePartnersResponsePartnerCorrespondenceAddress(
                     street: Optional("street"),
@@ -2736,7 +2935,8 @@ import Api
                     municipality: Optional("municipality"),
                     county: Optional("county"),
                     postalCode: Optional("postalCode"),
-                    countryCode: Optional("countryCode")
+                    countryCode: Optional("countryCode"),
+                    subdivision: Optional("subdivision")
                 )),
                 notes: Nullable<String>.value("notes"),
                 documentRef: Nullable<String>.value("documentRef"),
@@ -2783,6 +2983,7 @@ import Api
                     "phone": "phone",
                     "selfEmploymentCertNo": "selfEmploymentCertNo",
                     "birthDate": "2023-01-15",
+                    "isBusiness": true,
                     "isCustomer": true,
                     "isSupplier": true,
                     "paymentTermDays": 1000000,
@@ -2800,7 +3001,8 @@ import Api
                       "municipality": "municipality",
                       "county": "county",
                       "postalCode": "postalCode",
-                      "countryCode": "xy"
+                      "countryCode": "xy",
+                      "subdivision": "subdivision"
                     },
                     "correspondenceAddress": {
                       "street": "street",
@@ -2808,7 +3010,8 @@ import Api
                       "municipality": "municipality",
                       "county": "county",
                       "postalCode": "postalCode",
-                      "countryCode": "xy"
+                      "countryCode": "xy",
+                      "subdivision": "subdivision"
                     },
                     "notes": "notes",
                     "documentRef": "documentRef",
@@ -2851,6 +3054,7 @@ import Api
                 phone: Nullable<String>.value("phone"),
                 selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
                 birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                isBusiness: Nullable<Bool>.value(true),
                 isCustomer: true,
                 isSupplier: true,
                 paymentTermDays: Nullable<Int64>.value(1000000),
@@ -2868,7 +3072,8 @@ import Api
                     municipality: Optional("municipality"),
                     county: Optional("county"),
                     postalCode: Optional("postalCode"),
-                    countryCode: Optional("xy")
+                    countryCode: Optional("xy"),
+                    subdivision: Optional("subdivision")
                 )),
                 correspondenceAddress: Nullable<FindOrCreatePartnersResponsePartnerCorrespondenceAddress>.value(FindOrCreatePartnersResponsePartnerCorrespondenceAddress(
                     street: Optional("street"),
@@ -2876,7 +3081,8 @@ import Api
                     municipality: Optional("municipality"),
                     county: Optional("county"),
                     postalCode: Optional("postalCode"),
-                    countryCode: Optional("xy")
+                    countryCode: Optional("xy"),
+                    subdivision: Optional("subdivision")
                 )),
                 notes: Nullable<String>.value("notes"),
                 documentRef: Nullable<String>.value("documentRef"),
@@ -2921,6 +3127,7 @@ import Api
                   "phone": "phone",
                   "selfEmploymentCertNo": "selfEmploymentCertNo",
                   "birthDate": "2026-07-01",
+                  "isBusiness": true,
                   "isCustomer": true,
                   "isSupplier": true,
                   "paymentTermDays": 1000000,
@@ -2938,7 +3145,8 @@ import Api
                     "municipality": "municipality",
                     "county": "county",
                     "postalCode": "postalCode",
-                    "countryCode": "countryCode"
+                    "countryCode": "countryCode",
+                    "subdivision": "subdivision"
                   },
                   "correspondenceAddress": {
                     "street": "street",
@@ -2946,7 +3154,8 @@ import Api
                     "municipality": "municipality",
                     "county": "county",
                     "postalCode": "postalCode",
-                    "countryCode": "countryCode"
+                    "countryCode": "countryCode",
+                    "subdivision": "subdivision"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
@@ -2986,6 +3195,7 @@ import Api
             phone: Nullable<String>.value("phone"),
             selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
             birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            isBusiness: Nullable<Bool>.value(true),
             isCustomer: true,
             isSupplier: true,
             paymentTermDays: Nullable<Int64>.value(1000000),
@@ -3003,7 +3213,8 @@ import Api
                 municipality: Optional("municipality"),
                 county: Optional("county"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("countryCode")
+                countryCode: Optional("countryCode"),
+                subdivision: Optional("subdivision")
             )),
             correspondenceAddress: Nullable<GetPartnersResponseCorrespondenceAddress>.value(GetPartnersResponseCorrespondenceAddress(
                 street: Optional("street"),
@@ -3011,7 +3222,8 @@ import Api
                 municipality: Optional("municipality"),
                 county: Optional("county"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("countryCode")
+                countryCode: Optional("countryCode"),
+                subdivision: Optional("subdivision")
             )),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
@@ -3055,6 +3267,7 @@ import Api
                   "phone": "phone",
                   "selfEmploymentCertNo": "selfEmploymentCertNo",
                   "birthDate": "2023-01-15",
+                  "isBusiness": true,
                   "isCustomer": true,
                   "isSupplier": true,
                   "paymentTermDays": 1000000,
@@ -3072,7 +3285,8 @@ import Api
                     "municipality": "municipality",
                     "county": "county",
                     "postalCode": "postalCode",
-                    "countryCode": "xy"
+                    "countryCode": "xy",
+                    "subdivision": "subdivision"
                   },
                   "correspondenceAddress": {
                     "street": "street",
@@ -3080,7 +3294,8 @@ import Api
                     "municipality": "municipality",
                     "county": "county",
                     "postalCode": "postalCode",
-                    "countryCode": "xy"
+                    "countryCode": "xy",
+                    "subdivision": "subdivision"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
@@ -3120,6 +3335,7 @@ import Api
             phone: Nullable<String>.value("phone"),
             selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
             birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            isBusiness: Nullable<Bool>.value(true),
             isCustomer: true,
             isSupplier: true,
             paymentTermDays: Nullable<Int64>.value(1000000),
@@ -3137,7 +3353,8 @@ import Api
                 municipality: Optional("municipality"),
                 county: Optional("county"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("xy")
+                countryCode: Optional("xy"),
+                subdivision: Optional("subdivision")
             )),
             correspondenceAddress: Nullable<GetPartnersResponseCorrespondenceAddress>.value(GetPartnersResponseCorrespondenceAddress(
                 street: Optional("street"),
@@ -3145,7 +3362,8 @@ import Api
                 municipality: Optional("municipality"),
                 county: Optional("county"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("xy")
+                countryCode: Optional("xy"),
+                subdivision: Optional("subdivision")
             )),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
@@ -3189,6 +3407,7 @@ import Api
                   "phone": "phone",
                   "selfEmploymentCertNo": "selfEmploymentCertNo",
                   "birthDate": "2026-07-01",
+                  "isBusiness": true,
                   "isCustomer": true,
                   "isSupplier": true,
                   "paymentTermDays": 1000000,
@@ -3206,7 +3425,8 @@ import Api
                     "municipality": "municipality",
                     "county": "county",
                     "postalCode": "postalCode",
-                    "countryCode": "countryCode"
+                    "countryCode": "countryCode",
+                    "subdivision": "subdivision"
                   },
                   "correspondenceAddress": {
                     "street": "street",
@@ -3214,7 +3434,8 @@ import Api
                     "municipality": "municipality",
                     "county": "county",
                     "postalCode": "postalCode",
-                    "countryCode": "countryCode"
+                    "countryCode": "countryCode",
+                    "subdivision": "subdivision"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
@@ -3254,6 +3475,7 @@ import Api
             phone: Nullable<String>.value("phone"),
             selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
             birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            isBusiness: Nullable<Bool>.value(true),
             isCustomer: true,
             isSupplier: true,
             paymentTermDays: Nullable<Int64>.value(1000000),
@@ -3271,7 +3493,8 @@ import Api
                 municipality: Optional("municipality"),
                 county: Optional("county"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("countryCode")
+                countryCode: Optional("countryCode"),
+                subdivision: Optional("subdivision")
             )),
             correspondenceAddress: Nullable<UpdatePartnersResponseCorrespondenceAddress>.value(UpdatePartnersResponseCorrespondenceAddress(
                 street: Optional("street"),
@@ -3279,7 +3502,8 @@ import Api
                 municipality: Optional("municipality"),
                 county: Optional("county"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("countryCode")
+                countryCode: Optional("countryCode"),
+                subdivision: Optional("subdivision")
             )),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
@@ -3323,6 +3547,7 @@ import Api
                   "phone": "phone",
                   "selfEmploymentCertNo": "selfEmploymentCertNo",
                   "birthDate": "2023-01-15",
+                  "isBusiness": true,
                   "isCustomer": true,
                   "isSupplier": true,
                   "paymentTermDays": 1000000,
@@ -3340,7 +3565,8 @@ import Api
                     "municipality": "municipality",
                     "county": "county",
                     "postalCode": "postalCode",
-                    "countryCode": "xy"
+                    "countryCode": "xy",
+                    "subdivision": "subdivision"
                   },
                   "correspondenceAddress": {
                     "street": "street",
@@ -3348,7 +3574,8 @@ import Api
                     "municipality": "municipality",
                     "county": "county",
                     "postalCode": "postalCode",
-                    "countryCode": "xy"
+                    "countryCode": "xy",
+                    "subdivision": "subdivision"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
@@ -3388,6 +3615,7 @@ import Api
             phone: Nullable<String>.value("phone"),
             selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
             birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            isBusiness: Nullable<Bool>.value(true),
             isCustomer: true,
             isSupplier: true,
             paymentTermDays: Nullable<Int64>.value(1000000),
@@ -3405,7 +3633,8 @@ import Api
                 municipality: Optional("municipality"),
                 county: Optional("county"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("xy")
+                countryCode: Optional("xy"),
+                subdivision: Optional("subdivision")
             )),
             correspondenceAddress: Nullable<UpdatePartnersResponseCorrespondenceAddress>.value(UpdatePartnersResponseCorrespondenceAddress(
                 street: Optional("street"),
@@ -3413,7 +3642,8 @@ import Api
                 municipality: Optional("municipality"),
                 county: Optional("county"),
                 postalCode: Optional("postalCode"),
-                countryCode: Optional("xy")
+                countryCode: Optional("xy"),
+                subdivision: Optional("subdivision")
             )),
             notes: Nullable<String>.value("notes"),
             documentRef: Nullable<String>.value("documentRef"),
@@ -3667,6 +3897,7 @@ import Api
                       "phone": "phone",
                       "selfEmploymentCertNo": "selfEmploymentCertNo",
                       "birthDate": "2026-07-01",
+                      "isBusiness": true,
                       "isCustomer": true,
                       "isSupplier": true,
                       "paymentTermDays": 1000000,
@@ -3733,6 +3964,7 @@ import Api
                     phone: Nullable<String>.value("phone"),
                     selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
                     birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    isBusiness: Nullable<Bool>.value(true),
                     isCustomer: true,
                     isSupplier: true,
                     paymentTermDays: Nullable<Int64>.value(1000000),
@@ -3807,6 +4039,7 @@ import Api
                       "phone": "phone",
                       "selfEmploymentCertNo": "selfEmploymentCertNo",
                       "birthDate": "2023-01-15",
+                      "isBusiness": true,
                       "isCustomer": true,
                       "isSupplier": true,
                       "paymentTermDays": 1000000,
@@ -3824,7 +4057,8 @@ import Api
                         "municipality": "municipality",
                         "county": "county",
                         "postalCode": "postalCode",
-                        "countryCode": "xy"
+                        "countryCode": "xy",
+                        "subdivision": "subdivision"
                       },
                       "correspondenceAddress": {
                         "street": "street",
@@ -3832,7 +4066,8 @@ import Api
                         "municipality": "municipality",
                         "county": "county",
                         "postalCode": "postalCode",
-                        "countryCode": "xy"
+                        "countryCode": "xy",
+                        "subdivision": "subdivision"
                       },
                       "notes": "notes",
                       "documentRef": "documentRef",
@@ -3864,6 +4099,7 @@ import Api
                       "phone": "phone",
                       "selfEmploymentCertNo": "selfEmploymentCertNo",
                       "birthDate": "2023-01-15",
+                      "isBusiness": true,
                       "isCustomer": true,
                       "isSupplier": true,
                       "paymentTermDays": 1000000,
@@ -3881,7 +4117,8 @@ import Api
                         "municipality": "municipality",
                         "county": "county",
                         "postalCode": "postalCode",
-                        "countryCode": "xy"
+                        "countryCode": "xy",
+                        "subdivision": "subdivision"
                       },
                       "correspondenceAddress": {
                         "street": "street",
@@ -3889,7 +4126,8 @@ import Api
                         "municipality": "municipality",
                         "county": "county",
                         "postalCode": "postalCode",
-                        "countryCode": "xy"
+                        "countryCode": "xy",
+                        "subdivision": "subdivision"
                       },
                       "notes": "notes",
                       "documentRef": "documentRef",
@@ -3944,6 +4182,7 @@ import Api
                     phone: Nullable<String>.value("phone"),
                     selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
                     birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    isBusiness: Nullable<Bool>.value(true),
                     isCustomer: true,
                     isSupplier: true,
                     paymentTermDays: Nullable<Int64>.value(1000000),
@@ -3961,7 +4200,8 @@ import Api
                         municipality: Optional("municipality"),
                         county: Optional("county"),
                         postalCode: Optional("postalCode"),
-                        countryCode: Optional("xy")
+                        countryCode: Optional("xy"),
+                        subdivision: Optional("subdivision")
                     )),
                     correspondenceAddress: Nullable<ListPartnersResponseRowsItemCorrespondenceAddress>.value(ListPartnersResponseRowsItemCorrespondenceAddress(
                         street: Optional("street"),
@@ -3969,7 +4209,8 @@ import Api
                         municipality: Optional("municipality"),
                         county: Optional("county"),
                         postalCode: Optional("postalCode"),
-                        countryCode: Optional("xy")
+                        countryCode: Optional("xy"),
+                        subdivision: Optional("subdivision")
                     )),
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
@@ -4001,6 +4242,7 @@ import Api
                     phone: Nullable<String>.value("phone"),
                     selfEmploymentCertNo: Nullable<String>.value("selfEmploymentCertNo"),
                     birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    isBusiness: Nullable<Bool>.value(true),
                     isCustomer: true,
                     isSupplier: true,
                     paymentTermDays: Nullable<Int64>.value(1000000),
@@ -4018,7 +4260,8 @@ import Api
                         municipality: Optional("municipality"),
                         county: Optional("county"),
                         postalCode: Optional("postalCode"),
-                        countryCode: Optional("xy")
+                        countryCode: Optional("xy"),
+                        subdivision: Optional("subdivision")
                     )),
                     correspondenceAddress: Nullable<ListPartnersResponseRowsItemCorrespondenceAddress>.value(ListPartnersResponseRowsItemCorrespondenceAddress(
                         street: Optional("street"),
@@ -4026,7 +4269,8 @@ import Api
                         municipality: Optional("municipality"),
                         county: Optional("county"),
                         postalCode: Optional("postalCode"),
-                        countryCode: Optional("xy")
+                        countryCode: Optional("xy"),
+                        subdivision: Optional("subdivision")
                     )),
                     notes: Nullable<String>.value("notes"),
                     documentRef: Nullable<String>.value("documentRef"),
