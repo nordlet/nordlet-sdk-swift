@@ -42,6 +42,8 @@ extension Requests {
         public let isGroupMember: Bool?
         public let isActive: Bool?
         public let legalCountryClass: FindOrCreatePartnersRequestLegalCountryClass?
+        /// Tax data of the partner by key, checked against the company's country: `tin` (US, Taxpayer identification number (TIN) from Form W-9, 9 digits); `tinType` (US, Type of the taxpayer identification number, SSN, EIN, ITIN or ATIN); `taxClassification` (US, Federal tax classification (Form W-9, line 3a), individual, c-corporation, s-corporation, partnership, trust-estate, llc-c, llc-s, llc-p, other); `nonemployeeCompensation` (US, Paid for services as nonemployee compensation (Form 1099-NEC, box 1), yes or no)
+        public let identifiers: [String: String]?
         public let iban: String?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -84,6 +86,7 @@ extension Requests {
             isGroupMember: Bool? = nil,
             isActive: Bool? = nil,
             legalCountryClass: FindOrCreatePartnersRequestLegalCountryClass? = nil,
+            identifiers: [String: String]? = nil,
             iban: String? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -124,6 +127,7 @@ extension Requests {
             self.isGroupMember = isGroupMember
             self.isActive = isActive
             self.legalCountryClass = legalCountryClass
+            self.identifiers = identifiers
             self.iban = iban
             self.additionalProperties = additionalProperties
         }
@@ -167,6 +171,7 @@ extension Requests {
             self.isGroupMember = try container.decodeIfPresent(Bool.self, forKey: .isGroupMember)
             self.isActive = try container.decodeIfPresent(Bool.self, forKey: .isActive)
             self.legalCountryClass = try container.decodeIfPresent(FindOrCreatePartnersRequestLegalCountryClass.self, forKey: .legalCountryClass)
+            self.identifiers = try container.decodeIfPresent([String: String].self, forKey: .identifiers)
             self.iban = try container.decodeIfPresent(String.self, forKey: .iban)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -211,6 +216,7 @@ extension Requests {
             try container.encodeIfPresent(self.isGroupMember, forKey: .isGroupMember)
             try container.encodeIfPresent(self.isActive, forKey: .isActive)
             try container.encodeIfPresent(self.legalCountryClass, forKey: .legalCountryClass)
+            try container.encodeIfPresent(self.identifiers, forKey: .identifiers)
             try container.encodeIfPresent(self.iban, forKey: .iban)
         }
 
@@ -253,6 +259,7 @@ extension Requests {
             case isGroupMember
             case isActive
             case legalCountryClass
+            case identifiers
             case iban
         }
     }

@@ -13591,6 +13591,978 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func gbReturnFactsGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "facts": {
+                    "companyType": 1000000,
+                    "associatedCompanies": 1000000,
+                    "partnerInFirm": true,
+                    "smallCompaniesRegime": true,
+                    "auditExemptionSection477": true,
+                    "depreciation": "121.00",
+                    "amortisation": "121.00",
+                    "lossOrProfitOnSale": "-121.00",
+                    "entertaining": "121.00",
+                    "otherAdditions": "121.00",
+                    "nonTradingLoanCredits": "121.00",
+                    "nonTradingLoanDebits": "121.00",
+                    "nonTaxableIncome": "121.00",
+                    "exemptDistributions": "121.00",
+                    "capitalAllowances": {
+                      "fullExpensing": "121.00",
+                      "annualInvestmentAllowance": "121.00",
+                      "specialRatePool": "121.00",
+                      "mainPool": "121.00",
+                      "structuresAndBuildings": "121.00",
+                      "other": "121.00"
+                    },
+                    "balancingCharges": {
+                      "fullExpensing": "121.00",
+                      "specialRatePool": "121.00",
+                      "mainPool": "121.00",
+                      "other": "121.00"
+                    },
+                    "tradingLossesBroughtForward": "121.00",
+                    "grossChargeableGains": "121.00",
+                    "allowableLosses": "121.00",
+                    "qualifyingDonations": "121.00",
+                    "taxAlreadyPaid": "121.00",
+                    "declarantName": "declarantName",
+                    "declarantStatus": "declarantStatus",
+                    "seniorStatutoryAuditor": "seniorStatutoryAuditor"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbReturnFactsGetDeclarationsResponse(
+            year: 1000000,
+            facts: GbReturnFactsGetDeclarationsResponseFacts(
+                companyType: Optional(1000000),
+                associatedCompanies: Optional(1000000),
+                partnerInFirm: Optional(true),
+                smallCompaniesRegime: Optional(true),
+                auditExemptionSection477: Optional(true),
+                depreciation: Optional("121.00"),
+                amortisation: Optional("121.00"),
+                lossOrProfitOnSale: Optional("-121.00"),
+                entertaining: Optional("121.00"),
+                otherAdditions: Optional("121.00"),
+                nonTradingLoanCredits: Optional("121.00"),
+                nonTradingLoanDebits: Optional("121.00"),
+                nonTaxableIncome: Optional("121.00"),
+                exemptDistributions: Optional("121.00"),
+                capitalAllowances: Optional(GbReturnFactsGetDeclarationsResponseFactsCapitalAllowances(
+                    fullExpensing: Optional("121.00"),
+                    annualInvestmentAllowance: Optional("121.00"),
+                    specialRatePool: Optional("121.00"),
+                    mainPool: Optional("121.00"),
+                    structuresAndBuildings: Optional("121.00"),
+                    other: Optional("121.00")
+                )),
+                balancingCharges: Optional(GbReturnFactsGetDeclarationsResponseFactsBalancingCharges(
+                    fullExpensing: Optional("121.00"),
+                    specialRatePool: Optional("121.00"),
+                    mainPool: Optional("121.00"),
+                    other: Optional("121.00")
+                )),
+                tradingLossesBroughtForward: Optional("121.00"),
+                grossChargeableGains: Optional("121.00"),
+                allowableLosses: Optional("121.00"),
+                qualifyingDonations: Optional("121.00"),
+                taxAlreadyPaid: Optional("121.00"),
+                declarantName: Optional("declarantName"),
+                declarantStatus: Optional("declarantStatus"),
+                seniorStatutoryAuditor: Optional("seniorStatutoryAuditor")
+            )
+        )
+        let response = try await client.declarations.gbReturnFactsGet(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbReturnFactsGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "facts": {
+                    "companyType": 1000000,
+                    "associatedCompanies": 1000000,
+                    "partnerInFirm": true,
+                    "smallCompaniesRegime": true,
+                    "auditExemptionSection477": true,
+                    "depreciation": "depreciation",
+                    "amortisation": "amortisation",
+                    "lossOrProfitOnSale": "lossOrProfitOnSale",
+                    "entertaining": "entertaining",
+                    "otherAdditions": "otherAdditions",
+                    "nonTradingLoanCredits": "nonTradingLoanCredits",
+                    "nonTradingLoanDebits": "nonTradingLoanDebits",
+                    "nonTaxableIncome": "nonTaxableIncome",
+                    "exemptDistributions": "exemptDistributions",
+                    "capitalAllowances": {
+                      "fullExpensing": "fullExpensing",
+                      "annualInvestmentAllowance": "annualInvestmentAllowance",
+                      "specialRatePool": "specialRatePool",
+                      "mainPool": "mainPool",
+                      "structuresAndBuildings": "structuresAndBuildings",
+                      "other": "other"
+                    },
+                    "balancingCharges": {
+                      "fullExpensing": "fullExpensing",
+                      "specialRatePool": "specialRatePool",
+                      "mainPool": "mainPool",
+                      "other": "other"
+                    },
+                    "tradingLossesBroughtForward": "tradingLossesBroughtForward",
+                    "grossChargeableGains": "grossChargeableGains",
+                    "allowableLosses": "allowableLosses",
+                    "qualifyingDonations": "qualifyingDonations",
+                    "taxAlreadyPaid": "taxAlreadyPaid",
+                    "declarantName": "xy",
+                    "declarantStatus": "xy",
+                    "seniorStatutoryAuditor": "xy"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbReturnFactsGetDeclarationsResponse(
+            year: 1000000,
+            facts: GbReturnFactsGetDeclarationsResponseFacts(
+                companyType: Optional(1000000),
+                associatedCompanies: Optional(1000000),
+                partnerInFirm: Optional(true),
+                smallCompaniesRegime: Optional(true),
+                auditExemptionSection477: Optional(true),
+                depreciation: Optional("depreciation"),
+                amortisation: Optional("amortisation"),
+                lossOrProfitOnSale: Optional("lossOrProfitOnSale"),
+                entertaining: Optional("entertaining"),
+                otherAdditions: Optional("otherAdditions"),
+                nonTradingLoanCredits: Optional("nonTradingLoanCredits"),
+                nonTradingLoanDebits: Optional("nonTradingLoanDebits"),
+                nonTaxableIncome: Optional("nonTaxableIncome"),
+                exemptDistributions: Optional("exemptDistributions"),
+                capitalAllowances: Optional(GbReturnFactsGetDeclarationsResponseFactsCapitalAllowances(
+                    fullExpensing: Optional("fullExpensing"),
+                    annualInvestmentAllowance: Optional("annualInvestmentAllowance"),
+                    specialRatePool: Optional("specialRatePool"),
+                    mainPool: Optional("mainPool"),
+                    structuresAndBuildings: Optional("structuresAndBuildings"),
+                    other: Optional("other")
+                )),
+                balancingCharges: Optional(GbReturnFactsGetDeclarationsResponseFactsBalancingCharges(
+                    fullExpensing: Optional("fullExpensing"),
+                    specialRatePool: Optional("specialRatePool"),
+                    mainPool: Optional("mainPool"),
+                    other: Optional("other")
+                )),
+                tradingLossesBroughtForward: Optional("tradingLossesBroughtForward"),
+                grossChargeableGains: Optional("grossChargeableGains"),
+                allowableLosses: Optional("allowableLosses"),
+                qualifyingDonations: Optional("qualifyingDonations"),
+                taxAlreadyPaid: Optional("taxAlreadyPaid"),
+                declarantName: Optional("xy"),
+                declarantStatus: Optional("xy"),
+                seniorStatutoryAuditor: Optional("xy")
+            )
+        )
+        let response = try await client.declarations.gbReturnFactsGet(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbReturnFactsSet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "facts": {
+                    "companyType": 1000000,
+                    "associatedCompanies": 1000000,
+                    "partnerInFirm": true,
+                    "smallCompaniesRegime": true,
+                    "auditExemptionSection477": true,
+                    "depreciation": "121.00",
+                    "amortisation": "121.00",
+                    "lossOrProfitOnSale": "-121.00",
+                    "entertaining": "121.00",
+                    "otherAdditions": "121.00",
+                    "nonTradingLoanCredits": "121.00",
+                    "nonTradingLoanDebits": "121.00",
+                    "nonTaxableIncome": "121.00",
+                    "exemptDistributions": "121.00",
+                    "capitalAllowances": {
+                      "fullExpensing": "121.00",
+                      "annualInvestmentAllowance": "121.00",
+                      "specialRatePool": "121.00",
+                      "mainPool": "121.00",
+                      "structuresAndBuildings": "121.00",
+                      "other": "121.00"
+                    },
+                    "balancingCharges": {
+                      "fullExpensing": "121.00",
+                      "specialRatePool": "121.00",
+                      "mainPool": "121.00",
+                      "other": "121.00"
+                    },
+                    "tradingLossesBroughtForward": "121.00",
+                    "grossChargeableGains": "121.00",
+                    "allowableLosses": "121.00",
+                    "qualifyingDonations": "121.00",
+                    "taxAlreadyPaid": "121.00",
+                    "declarantName": "declarantName",
+                    "declarantStatus": "declarantStatus",
+                    "seniorStatutoryAuditor": "seniorStatutoryAuditor"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbReturnFactsSetDeclarationsResponse(
+            year: 1000000,
+            facts: GbReturnFactsSetDeclarationsResponseFacts(
+                companyType: Optional(1000000),
+                associatedCompanies: Optional(1000000),
+                partnerInFirm: Optional(true),
+                smallCompaniesRegime: Optional(true),
+                auditExemptionSection477: Optional(true),
+                depreciation: Optional("121.00"),
+                amortisation: Optional("121.00"),
+                lossOrProfitOnSale: Optional("-121.00"),
+                entertaining: Optional("121.00"),
+                otherAdditions: Optional("121.00"),
+                nonTradingLoanCredits: Optional("121.00"),
+                nonTradingLoanDebits: Optional("121.00"),
+                nonTaxableIncome: Optional("121.00"),
+                exemptDistributions: Optional("121.00"),
+                capitalAllowances: Optional(GbReturnFactsSetDeclarationsResponseFactsCapitalAllowances(
+                    fullExpensing: Optional("121.00"),
+                    annualInvestmentAllowance: Optional("121.00"),
+                    specialRatePool: Optional("121.00"),
+                    mainPool: Optional("121.00"),
+                    structuresAndBuildings: Optional("121.00"),
+                    other: Optional("121.00")
+                )),
+                balancingCharges: Optional(GbReturnFactsSetDeclarationsResponseFactsBalancingCharges(
+                    fullExpensing: Optional("121.00"),
+                    specialRatePool: Optional("121.00"),
+                    mainPool: Optional("121.00"),
+                    other: Optional("121.00")
+                )),
+                tradingLossesBroughtForward: Optional("121.00"),
+                grossChargeableGains: Optional("121.00"),
+                allowableLosses: Optional("121.00"),
+                qualifyingDonations: Optional("121.00"),
+                taxAlreadyPaid: Optional("121.00"),
+                declarantName: Optional("declarantName"),
+                declarantStatus: Optional("declarantStatus"),
+                seniorStatutoryAuditor: Optional("seniorStatutoryAuditor")
+            )
+        )
+        let response = try await client.declarations.gbReturnFactsSet(
+            request: .init(
+                year: 1000000,
+                facts: GbReturnFactsSetDeclarationsRequestFacts(
+
+                )
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbReturnFactsSet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "facts": {
+                    "companyType": 1000000,
+                    "associatedCompanies": 1000000,
+                    "partnerInFirm": true,
+                    "smallCompaniesRegime": true,
+                    "auditExemptionSection477": true,
+                    "depreciation": "depreciation",
+                    "amortisation": "amortisation",
+                    "lossOrProfitOnSale": "lossOrProfitOnSale",
+                    "entertaining": "entertaining",
+                    "otherAdditions": "otherAdditions",
+                    "nonTradingLoanCredits": "nonTradingLoanCredits",
+                    "nonTradingLoanDebits": "nonTradingLoanDebits",
+                    "nonTaxableIncome": "nonTaxableIncome",
+                    "exemptDistributions": "exemptDistributions",
+                    "capitalAllowances": {
+                      "fullExpensing": "fullExpensing",
+                      "annualInvestmentAllowance": "annualInvestmentAllowance",
+                      "specialRatePool": "specialRatePool",
+                      "mainPool": "mainPool",
+                      "structuresAndBuildings": "structuresAndBuildings",
+                      "other": "other"
+                    },
+                    "balancingCharges": {
+                      "fullExpensing": "fullExpensing",
+                      "specialRatePool": "specialRatePool",
+                      "mainPool": "mainPool",
+                      "other": "other"
+                    },
+                    "tradingLossesBroughtForward": "tradingLossesBroughtForward",
+                    "grossChargeableGains": "grossChargeableGains",
+                    "allowableLosses": "allowableLosses",
+                    "qualifyingDonations": "qualifyingDonations",
+                    "taxAlreadyPaid": "taxAlreadyPaid",
+                    "declarantName": "xy",
+                    "declarantStatus": "xy",
+                    "seniorStatutoryAuditor": "xy"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbReturnFactsSetDeclarationsResponse(
+            year: 1000000,
+            facts: GbReturnFactsSetDeclarationsResponseFacts(
+                companyType: Optional(1000000),
+                associatedCompanies: Optional(1000000),
+                partnerInFirm: Optional(true),
+                smallCompaniesRegime: Optional(true),
+                auditExemptionSection477: Optional(true),
+                depreciation: Optional("depreciation"),
+                amortisation: Optional("amortisation"),
+                lossOrProfitOnSale: Optional("lossOrProfitOnSale"),
+                entertaining: Optional("entertaining"),
+                otherAdditions: Optional("otherAdditions"),
+                nonTradingLoanCredits: Optional("nonTradingLoanCredits"),
+                nonTradingLoanDebits: Optional("nonTradingLoanDebits"),
+                nonTaxableIncome: Optional("nonTaxableIncome"),
+                exemptDistributions: Optional("exemptDistributions"),
+                capitalAllowances: Optional(GbReturnFactsSetDeclarationsResponseFactsCapitalAllowances(
+                    fullExpensing: Optional("fullExpensing"),
+                    annualInvestmentAllowance: Optional("annualInvestmentAllowance"),
+                    specialRatePool: Optional("specialRatePool"),
+                    mainPool: Optional("mainPool"),
+                    structuresAndBuildings: Optional("structuresAndBuildings"),
+                    other: Optional("other")
+                )),
+                balancingCharges: Optional(GbReturnFactsSetDeclarationsResponseFactsBalancingCharges(
+                    fullExpensing: Optional("fullExpensing"),
+                    specialRatePool: Optional("specialRatePool"),
+                    mainPool: Optional("mainPool"),
+                    other: Optional("other")
+                )),
+                tradingLossesBroughtForward: Optional("tradingLossesBroughtForward"),
+                grossChargeableGains: Optional("grossChargeableGains"),
+                allowableLosses: Optional("allowableLosses"),
+                qualifyingDonations: Optional("qualifyingDonations"),
+                taxAlreadyPaid: Optional("taxAlreadyPaid"),
+                declarantName: Optional("xy"),
+                declarantStatus: Optional("xy"),
+                seniorStatutoryAuditor: Optional("xy")
+            )
+        )
+        let response = try await client.declarations.gbReturnFactsSet(
+            request: .init(
+                year: 1000000,
+                facts: GbReturnFactsSetDeclarationsRequestFacts(
+
+                )
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbP11DItemsCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "employeeId": "employeeId",
+                  "taxYear": 1.1,
+                  "section": "section",
+                  "class1A": true,
+                  "cashEquivalent": "cashEquivalent",
+                  "item": {
+                    "asset": "cars",
+                    "otherDescription": "otherDescription",
+                    "cost": "121.00",
+                    "madeGood": "121.00",
+                    "type": "asset-transferred"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbP11DItemsCreateDeclarationsResponse(
+            id: "id",
+            employeeId: "employeeId",
+            taxYear: 1.1,
+            section: "section",
+            class1A: true,
+            cashEquivalent: "cashEquivalent",
+            item: GbP11DItemsCreateDeclarationsResponseItem.assetTransferred(
+                .init(
+                    asset: .cars,
+                    otherDescription: Optional("otherDescription"),
+                    cost: "121.00",
+                    madeGood: "121.00",
+                    additionalProperties: [
+                        "type": JSONValue.string("asset-transferred")
+                    ]
+                )
+            )
+        )
+        let response = try await client.declarations.gbP11DItemsCreate(
+            request: .init(
+                employeeId: "employeeId",
+                taxYear: 1000000,
+                item: GbP11DItemsCreateDeclarationsRequestItem.assetTransferred(
+                    GbP11DItemsCreateDeclarationsRequestItemAssetTransferred(
+                        asset: .cars,
+                        cost: "121.00",
+                        madeGood: "121.00"
+                    )
+                )
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbP11DItemsCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "employeeId": "employeeId",
+                  "taxYear": 1.1,
+                  "section": "section",
+                  "class1A": true,
+                  "cashEquivalent": "cashEquivalent",
+                  "item": {
+                    "type": "asset-transferred",
+                    "asset": "cars",
+                    "otherDescription": "x",
+                    "cost": "cost",
+                    "madeGood": "madeGood"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbP11DItemsCreateDeclarationsResponse(
+            id: "id",
+            employeeId: "employeeId",
+            taxYear: 1.1,
+            section: "section",
+            class1A: true,
+            cashEquivalent: "cashEquivalent",
+            item: GbP11DItemsCreateDeclarationsResponseItem.assetTransferred(
+                .init(
+                    asset: .cars,
+                    otherDescription: Optional("x"),
+                    cost: "cost",
+                    madeGood: "madeGood",
+                    additionalProperties: [
+                        "type": JSONValue.string("asset-transferred")
+                    ]
+                )
+            )
+        )
+        let response = try await client.declarations.gbP11DItemsCreate(
+            request: .init(
+                employeeId: "employeeId",
+                taxYear: 1000000,
+                item: GbP11DItemsCreateDeclarationsRequestItem.assetTransferred(
+                    GbP11DItemsCreateDeclarationsRequestItemAssetTransferred(
+                        asset: .cars,
+                        cost: "cost",
+                        madeGood: "madeGood"
+                    )
+                )
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbP11DItemsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "items": [
+                    {
+                      "id": "id",
+                      "employeeId": "employeeId",
+                      "taxYear": 1.1,
+                      "section": "section",
+                      "class1A": true,
+                      "cashEquivalent": "cashEquivalent",
+                      "item": {
+                        "asset": "cars",
+                        "cost": "121.00",
+                        "madeGood": "121.00",
+                        "type": "asset-transferred"
+                      }
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbP11DItemsListDeclarationsResponse(
+            items: [
+                GbP11DItemsListDeclarationsResponseItemsItem(
+                    id: "id",
+                    employeeId: "employeeId",
+                    taxYear: 1.1,
+                    section: "section",
+                    class1A: true,
+                    cashEquivalent: "cashEquivalent",
+                    item: GbP11DItemsListDeclarationsResponseItemsItemItem.assetTransferred(
+                        .init(
+                            asset: .cars,
+                            cost: "121.00",
+                            madeGood: "121.00",
+                            additionalProperties: [
+                                "type": JSONValue.string("asset-transferred")
+                            ]
+                        )
+                    )
+                )
+            ]
+        )
+        let response = try await client.declarations.gbP11DItemsList(
+            request: .init(taxYear: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbP11DItemsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "items": [
+                    {
+                      "id": "id",
+                      "employeeId": "employeeId",
+                      "taxYear": 1.1,
+                      "section": "section",
+                      "class1A": true,
+                      "cashEquivalent": "cashEquivalent",
+                      "item": {
+                        "type": "asset-transferred",
+                        "asset": "cars",
+                        "otherDescription": "x",
+                        "cost": "cost",
+                        "madeGood": "madeGood"
+                      }
+                    },
+                    {
+                      "id": "id",
+                      "employeeId": "employeeId",
+                      "taxYear": 1.1,
+                      "section": "section",
+                      "class1A": true,
+                      "cashEquivalent": "cashEquivalent",
+                      "item": {
+                        "type": "asset-transferred",
+                        "asset": "cars",
+                        "otherDescription": "x",
+                        "cost": "cost",
+                        "madeGood": "madeGood"
+                      }
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbP11DItemsListDeclarationsResponse(
+            items: [
+                GbP11DItemsListDeclarationsResponseItemsItem(
+                    id: "id",
+                    employeeId: "employeeId",
+                    taxYear: 1.1,
+                    section: "section",
+                    class1A: true,
+                    cashEquivalent: "cashEquivalent",
+                    item: GbP11DItemsListDeclarationsResponseItemsItemItem.assetTransferred(
+                        .init(
+                            asset: .cars,
+                            otherDescription: Optional("x"),
+                            cost: "cost",
+                            madeGood: "madeGood",
+                            additionalProperties: [
+                                "type": JSONValue.string("asset-transferred")
+                            ]
+                        )
+                    )
+                ),
+                GbP11DItemsListDeclarationsResponseItemsItem(
+                    id: "id",
+                    employeeId: "employeeId",
+                    taxYear: 1.1,
+                    section: "section",
+                    class1A: true,
+                    cashEquivalent: "cashEquivalent",
+                    item: GbP11DItemsListDeclarationsResponseItemsItemItem.assetTransferred(
+                        .init(
+                            asset: .cars,
+                            otherDescription: Optional("x"),
+                            cost: "cost",
+                            madeGood: "madeGood",
+                            additionalProperties: [
+                                "type": JSONValue.string("asset-transferred")
+                            ]
+                        )
+                    )
+                )
+            ]
+        )
+        let response = try await client.declarations.gbP11DItemsList(
+            request: .init(taxYear: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbP11DItemsDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "ok": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbP11DItemsDeleteDeclarationsResponse(
+            ok: true
+        )
+        let response = try await client.declarations.gbP11DItemsDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbP11DItemsDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "ok": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbP11DItemsDeleteDeclarationsResponse(
+            ok: true
+        )
+        let response = try await client.declarations.gbP11DItemsDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbP45Get1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "taxYear": 1.1,
+                  "completedOn": "completedOn",
+                  "employer": {
+                    "officeNumber": "officeNumber",
+                    "reference": "reference",
+                    "name": "name",
+                    "address": [
+                      "address"
+                    ],
+                    "postcode": "postcode"
+                  },
+                  "employee": {
+                    "nino": "nino",
+                    "surname": "surname",
+                    "firstNames": "firstNames",
+                    "leavingDate": "2026-07-01",
+                    "payrollNumber": "payrollNumber",
+                    "gender": "M",
+                    "dateOfBirth": "dateOfBirth",
+                    "address": [
+                      "address"
+                    ],
+                    "postcode": "postcode"
+                  },
+                  "studentLoanDeductionsToContinue": true,
+                  "taxCode": "taxCode",
+                  "week1Month1": true,
+                  "lastEntries": {
+                    "weekNumber": 1.1,
+                    "monthNumber": 1.1,
+                    "totalPayToDate": "2026-07-01",
+                    "totalTaxToDate": "2026-07-01"
+                  },
+                  "thisEmployment": {
+                    "totalPay": "totalPay",
+                    "totalTax": "totalTax"
+                  },
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbP45GetDeclarationsResponse(
+            taxYear: 1.1,
+            completedOn: "completedOn",
+            employer: GbP45GetDeclarationsResponseEmployer(
+                officeNumber: "officeNumber",
+                reference: "reference",
+                name: "name",
+                address: [
+                    "address"
+                ],
+                postcode: Nullable<String>.value("postcode")
+            ),
+            employee: GbP45GetDeclarationsResponseEmployee(
+                nino: Nullable<String>.value("nino"),
+                surname: "surname",
+                firstNames: "firstNames",
+                leavingDate: CalendarDate("2026-07-01")!,
+                payrollNumber: Nullable<String>.value("payrollNumber"),
+                gender: Nullable<GbP45GetDeclarationsResponseEmployeeGender>.value(.m),
+                dateOfBirth: Nullable<String>.value("dateOfBirth"),
+                address: [
+                    "address"
+                ],
+                postcode: Nullable<String>.value("postcode")
+            ),
+            studentLoanDeductionsToContinue: true,
+            taxCode: "taxCode",
+            week1Month1: true,
+            lastEntries: Nullable<GbP45GetDeclarationsResponseLastEntries>.value(GbP45GetDeclarationsResponseLastEntries(
+                weekNumber: Nullable<Double>.value(1.1),
+                monthNumber: Nullable<Double>.value(1.1),
+                totalPayToDate: CalendarDate("2026-07-01")!,
+                totalTaxToDate: CalendarDate("2026-07-01")!
+            )),
+            thisEmployment: Nullable<GbP45GetDeclarationsResponseThisEmployment>.value(GbP45GetDeclarationsResponseThisEmployment(
+                totalPay: "totalPay",
+                totalTax: "totalTax"
+            )),
+            warnings: [
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.gbP45Get(
+            request: .init(employeeId: "employeeId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func gbP45Get2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "taxYear": 1.1,
+                  "completedOn": "completedOn",
+                  "employer": {
+                    "officeNumber": "officeNumber",
+                    "reference": "reference",
+                    "name": "name",
+                    "address": [
+                      "address",
+                      "address"
+                    ],
+                    "postcode": "postcode"
+                  },
+                  "employee": {
+                    "nino": "nino",
+                    "surname": "surname",
+                    "firstNames": "firstNames",
+                    "leavingDate": "2023-01-15",
+                    "payrollNumber": "payrollNumber",
+                    "gender": "M",
+                    "dateOfBirth": "dateOfBirth",
+                    "address": [
+                      "address",
+                      "address"
+                    ],
+                    "postcode": "postcode"
+                  },
+                  "studentLoanDeductionsToContinue": true,
+                  "taxCode": "taxCode",
+                  "week1Month1": true,
+                  "lastEntries": {
+                    "weekNumber": 1.1,
+                    "monthNumber": 1.1,
+                    "totalPayToDate": "2023-01-15",
+                    "totalTaxToDate": "2023-01-15"
+                  },
+                  "thisEmployment": {
+                    "totalPay": "totalPay",
+                    "totalTax": "totalTax"
+                  },
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = GbP45GetDeclarationsResponse(
+            taxYear: 1.1,
+            completedOn: "completedOn",
+            employer: GbP45GetDeclarationsResponseEmployer(
+                officeNumber: "officeNumber",
+                reference: "reference",
+                name: "name",
+                address: [
+                    "address",
+                    "address"
+                ],
+                postcode: Nullable<String>.value("postcode")
+            ),
+            employee: GbP45GetDeclarationsResponseEmployee(
+                nino: Nullable<String>.value("nino"),
+                surname: "surname",
+                firstNames: "firstNames",
+                leavingDate: CalendarDate("2023-01-15")!,
+                payrollNumber: Nullable<String>.value("payrollNumber"),
+                gender: Nullable<GbP45GetDeclarationsResponseEmployeeGender>.value(.m),
+                dateOfBirth: Nullable<String>.value("dateOfBirth"),
+                address: [
+                    "address",
+                    "address"
+                ],
+                postcode: Nullable<String>.value("postcode")
+            ),
+            studentLoanDeductionsToContinue: true,
+            taxCode: "taxCode",
+            week1Month1: true,
+            lastEntries: Nullable<GbP45GetDeclarationsResponseLastEntries>.value(GbP45GetDeclarationsResponseLastEntries(
+                weekNumber: Nullable<Double>.value(1.1),
+                monthNumber: Nullable<Double>.value(1.1),
+                totalPayToDate: CalendarDate("2023-01-15")!,
+                totalTaxToDate: CalendarDate("2023-01-15")!
+            )),
+            thisEmployment: Nullable<GbP45GetDeclarationsResponseThisEmployment>.value(GbP45GetDeclarationsResponseThisEmployment(
+                totalPay: "totalPay",
+                totalTax: "totalTax"
+            )),
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.gbP45Get(
+            request: .init(employeeId: "employeeId"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func gbVatObligationsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -14885,6 +15857,380 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func usIncomeTaxReturnGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "form": "1065",
+                  "scheme": "scheme",
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
+                  "page1": [
+                    {
+                      "line": "line",
+                      "label": "label",
+                      "amount": "amount"
+                    }
+                  ],
+                  "scheduleL": [
+                    {
+                      "line": "line",
+                      "label": "label",
+                      "beginning": "beginning",
+                      "end": "end"
+                    }
+                  ],
+                  "otherLines": [
+                    {
+                      "line": "line",
+                      "label": "label",
+                      "amount": "amount"
+                    }
+                  ],
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsIncomeTaxReturnGetDeclarationsResponse(
+            form: .oneThousandSixtyFive,
+            scheme: "scheme",
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
+            page1: [
+                UsIncomeTaxReturnGetDeclarationsResponsePage1Item(
+                    line: "line",
+                    label: "label",
+                    amount: "amount"
+                )
+            ],
+            scheduleL: [
+                UsIncomeTaxReturnGetDeclarationsResponseScheduleLItem(
+                    line: "line",
+                    label: "label",
+                    beginning: "beginning",
+                    end: "end"
+                )
+            ],
+            otherLines: [
+                UsIncomeTaxReturnGetDeclarationsResponseOtherLinesItem(
+                    line: "line",
+                    label: "label",
+                    amount: "amount"
+                )
+            ],
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.usIncomeTaxReturnGet(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usIncomeTaxReturnGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "form": "1065",
+                  "scheme": "scheme",
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
+                  "page1": [
+                    {
+                      "line": "line",
+                      "label": "label",
+                      "amount": "amount"
+                    },
+                    {
+                      "line": "line",
+                      "label": "label",
+                      "amount": "amount"
+                    }
+                  ],
+                  "scheduleL": [
+                    {
+                      "line": "line",
+                      "label": "label",
+                      "beginning": "beginning",
+                      "end": "end"
+                    },
+                    {
+                      "line": "line",
+                      "label": "label",
+                      "beginning": "beginning",
+                      "end": "end"
+                    }
+                  ],
+                  "otherLines": [
+                    {
+                      "line": "line",
+                      "label": "label",
+                      "amount": "amount"
+                    },
+                    {
+                      "line": "line",
+                      "label": "label",
+                      "amount": "amount"
+                    }
+                  ],
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsIncomeTaxReturnGetDeclarationsResponse(
+            form: .oneThousandSixtyFive,
+            scheme: "scheme",
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
+            page1: [
+                UsIncomeTaxReturnGetDeclarationsResponsePage1Item(
+                    line: "line",
+                    label: "label",
+                    amount: "amount"
+                ),
+                UsIncomeTaxReturnGetDeclarationsResponsePage1Item(
+                    line: "line",
+                    label: "label",
+                    amount: "amount"
+                )
+            ],
+            scheduleL: [
+                UsIncomeTaxReturnGetDeclarationsResponseScheduleLItem(
+                    line: "line",
+                    label: "label",
+                    beginning: "beginning",
+                    end: "end"
+                ),
+                UsIncomeTaxReturnGetDeclarationsResponseScheduleLItem(
+                    line: "line",
+                    label: "label",
+                    beginning: "beginning",
+                    end: "end"
+                )
+            ],
+            otherLines: [
+                UsIncomeTaxReturnGetDeclarationsResponseOtherLinesItem(
+                    line: "line",
+                    label: "label",
+                    amount: "amount"
+                ),
+                UsIncomeTaxReturnGetDeclarationsResponseOtherLinesItem(
+                    line: "line",
+                    label: "label",
+                    amount: "amount"
+                )
+            ],
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.usIncomeTaxReturnGet(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func us1099NecList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1.1,
+                  "threshold": "threshold",
+                  "forms": [
+                    {
+                      "partnerId": "partnerId",
+                      "name": "name",
+                      "nameType": "B",
+                      "tinType": "tinType",
+                      "tin": "tin",
+                      "taxClassification": "taxClassification",
+                      "box1": "box1"
+                    }
+                  ],
+                  "excluded": [
+                    {
+                      "partnerId": "partnerId",
+                      "name": "name",
+                      "paid": "paid",
+                      "reason": "reason"
+                    }
+                  ],
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = Us1099NecListDeclarationsResponse(
+            year: 1.1,
+            threshold: "threshold",
+            forms: [
+                Us1099NecListDeclarationsResponseFormsItem(
+                    partnerId: "partnerId",
+                    name: "name",
+                    nameType: .b,
+                    tinType: Nullable<String>.value("tinType"),
+                    tin: Nullable<String>.value("tin"),
+                    taxClassification: Nullable<String>.value("taxClassification"),
+                    box1: "box1"
+                )
+            ],
+            excluded: [
+                Us1099NecListDeclarationsResponseExcludedItem(
+                    partnerId: "partnerId",
+                    name: "name",
+                    paid: "paid",
+                    reason: "reason"
+                )
+            ],
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.us1099NecList(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func us1099NecList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1.1,
+                  "threshold": "threshold",
+                  "forms": [
+                    {
+                      "partnerId": "partnerId",
+                      "name": "name",
+                      "nameType": "B",
+                      "tinType": "tinType",
+                      "tin": "tin",
+                      "taxClassification": "taxClassification",
+                      "box1": "box1"
+                    },
+                    {
+                      "partnerId": "partnerId",
+                      "name": "name",
+                      "nameType": "B",
+                      "tinType": "tinType",
+                      "tin": "tin",
+                      "taxClassification": "taxClassification",
+                      "box1": "box1"
+                    }
+                  ],
+                  "excluded": [
+                    {
+                      "partnerId": "partnerId",
+                      "name": "name",
+                      "paid": "paid",
+                      "reason": "reason"
+                    },
+                    {
+                      "partnerId": "partnerId",
+                      "name": "name",
+                      "paid": "paid",
+                      "reason": "reason"
+                    }
+                  ],
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = Us1099NecListDeclarationsResponse(
+            year: 1.1,
+            threshold: "threshold",
+            forms: [
+                Us1099NecListDeclarationsResponseFormsItem(
+                    partnerId: "partnerId",
+                    name: "name",
+                    nameType: .b,
+                    tinType: Nullable<String>.value("tinType"),
+                    tin: Nullable<String>.value("tin"),
+                    taxClassification: Nullable<String>.value("taxClassification"),
+                    box1: "box1"
+                ),
+                Us1099NecListDeclarationsResponseFormsItem(
+                    partnerId: "partnerId",
+                    name: "name",
+                    nameType: .b,
+                    tinType: Nullable<String>.value("tinType"),
+                    tin: Nullable<String>.value("tin"),
+                    taxClassification: Nullable<String>.value("taxClassification"),
+                    box1: "box1"
+                )
+            ],
+            excluded: [
+                Us1099NecListDeclarationsResponseExcludedItem(
+                    partnerId: "partnerId",
+                    name: "name",
+                    paid: "paid",
+                    reason: "reason"
+                ),
+                Us1099NecListDeclarationsResponseExcludedItem(
+                    partnerId: "partnerId",
+                    name: "name",
+                    paid: "paid",
+                    reason: "reason"
+                )
+            ],
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.us1099NecList(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func usDeWithholdingGet1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -14895,7 +16241,14 @@ import Api
                   "to": "to",
                   "employees": 1.1,
                   "wages": "wages",
-                  "taxWithheld": "taxWithheld"
+                  "taxWithheld": "taxWithheld",
+                  "wthTax": {
+                    "taxpayerId": "taxpayerId",
+                    "taxPeriodBeginning": "taxPeriodBeginning",
+                    "taxPeriodEnding": "taxPeriodEnding",
+                    "line1": "line1",
+                    "line2": "line2"
+                  }
                 }
                 """#.utf8
             )
@@ -14910,7 +16263,14 @@ import Api
             to: "to",
             employees: 1.1,
             wages: "wages",
-            taxWithheld: "taxWithheld"
+            taxWithheld: "taxWithheld",
+            wthTax: UsDeWithholdingGetDeclarationsResponseWthTax(
+                taxpayerId: Nullable<String>.value("taxpayerId"),
+                taxPeriodBeginning: "taxPeriodBeginning",
+                taxPeriodEnding: "taxPeriodEnding",
+                line1: "line1",
+                line2: "line2"
+            )
         )
         let response = try await client.declarations.usDeWithholdingGet(
             request: .init(period: "period"),
@@ -14929,7 +16289,14 @@ import Api
                   "to": "to",
                   "employees": 1.1,
                   "wages": "wages",
-                  "taxWithheld": "taxWithheld"
+                  "taxWithheld": "taxWithheld",
+                  "wthTax": {
+                    "taxpayerId": "taxpayerId",
+                    "taxPeriodBeginning": "taxPeriodBeginning",
+                    "taxPeriodEnding": "taxPeriodEnding",
+                    "line1": "line1",
+                    "line2": "line2"
+                  }
                 }
                 """#.utf8
             )
@@ -14944,10 +16311,159 @@ import Api
             to: "to",
             employees: 1.1,
             wages: "wages",
-            taxWithheld: "taxWithheld"
+            taxWithheld: "taxWithheld",
+            wthTax: UsDeWithholdingGetDeclarationsResponseWthTax(
+                taxpayerId: Nullable<String>.value("taxpayerId"),
+                taxPeriodBeginning: "taxPeriodBeginning",
+                taxPeriodEnding: "taxPeriodEnding",
+                line1: "line1",
+                line2: "line2"
+            )
         )
         let response = try await client.declarations.usDeWithholdingGet(
             request: .init(period: "period"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usDeWithholdingReconciliationGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1.1,
+                  "taxpayerId": "taxpayerId",
+                  "taxPeriodStarting": "taxPeriodStarting",
+                  "taxPeriodEnding": "taxPeriodEnding",
+                  "line1": "line1",
+                  "line2": 1.1,
+                  "line3": "line3",
+                  "line4": "line4",
+                  "line5a": "line5a",
+                  "line5b": "line5b",
+                  "line6": "line6",
+                  "worksheet": [
+                    {
+                      "month": 1.1,
+                      "taxPaid": "taxPaid",
+                      "taxWithheld": "taxWithheld"
+                    }
+                  ],
+                  "totalTaxPaid": "totalTaxPaid",
+                  "totalTaxWithheld": "totalTaxWithheld",
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsDeWithholdingReconciliationGetDeclarationsResponse(
+            year: 1.1,
+            taxpayerId: Nullable<String>.value("taxpayerId"),
+            taxPeriodStarting: "taxPeriodStarting",
+            taxPeriodEnding: "taxPeriodEnding",
+            line1: "line1",
+            line2: 1.1,
+            line3: "line3",
+            line4: Nullable<String>.value("line4"),
+            line5A: Nullable<String>.value("line5a"),
+            line5B: Nullable<String>.value("line5b"),
+            line6: Nullable<String>.value("line6"),
+            worksheet: [
+                UsDeWithholdingReconciliationGetDeclarationsResponseWorksheetItem(
+                    month: 1.1,
+                    taxPaid: Nullable<String>.value("taxPaid"),
+                    taxWithheld: "taxWithheld"
+                )
+            ],
+            totalTaxPaid: Nullable<String>.value("totalTaxPaid"),
+            totalTaxWithheld: "totalTaxWithheld",
+            source: "source"
+        )
+        let response = try await client.declarations.usDeWithholdingReconciliationGet(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usDeWithholdingReconciliationGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1.1,
+                  "taxpayerId": "taxpayerId",
+                  "taxPeriodStarting": "taxPeriodStarting",
+                  "taxPeriodEnding": "taxPeriodEnding",
+                  "line1": "line1",
+                  "line2": 1.1,
+                  "line3": "line3",
+                  "line4": "line4",
+                  "line5a": "line5a",
+                  "line5b": "line5b",
+                  "line6": "line6",
+                  "worksheet": [
+                    {
+                      "month": 1.1,
+                      "taxPaid": "taxPaid",
+                      "taxWithheld": "taxWithheld"
+                    },
+                    {
+                      "month": 1.1,
+                      "taxPaid": "taxPaid",
+                      "taxWithheld": "taxWithheld"
+                    }
+                  ],
+                  "totalTaxPaid": "totalTaxPaid",
+                  "totalTaxWithheld": "totalTaxWithheld",
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsDeWithholdingReconciliationGetDeclarationsResponse(
+            year: 1.1,
+            taxpayerId: Nullable<String>.value("taxpayerId"),
+            taxPeriodStarting: "taxPeriodStarting",
+            taxPeriodEnding: "taxPeriodEnding",
+            line1: "line1",
+            line2: 1.1,
+            line3: "line3",
+            line4: Nullable<String>.value("line4"),
+            line5A: Nullable<String>.value("line5a"),
+            line5B: Nullable<String>.value("line5b"),
+            line6: Nullable<String>.value("line6"),
+            worksheet: [
+                UsDeWithholdingReconciliationGetDeclarationsResponseWorksheetItem(
+                    month: 1.1,
+                    taxPaid: Nullable<String>.value("taxPaid"),
+                    taxWithheld: "taxWithheld"
+                ),
+                UsDeWithholdingReconciliationGetDeclarationsResponseWorksheetItem(
+                    month: 1.1,
+                    taxPaid: Nullable<String>.value("taxPaid"),
+                    taxWithheld: "taxWithheld"
+                )
+            ],
+            totalTaxPaid: Nullable<String>.value("totalTaxPaid"),
+            totalTaxWithheld: "totalTaxWithheld",
+            source: "source"
+        )
+        let response = try await client.declarations.usDeWithholdingReconciliationGet(
+            request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -14973,7 +16489,48 @@ import Api
                       "lastName": "lastName",
                       "wages": "wages"
                     }
-                  ]
+                  ],
+                  "uc8": {
+                    "reportingPeriod": "reportingPeriod",
+                    "accountNo": "accountNo",
+                    "federalIdNumber": "federalIdNumber",
+                    "taxRate": "taxRate",
+                    "line1": [
+                      1.1
+                    ],
+                    "line2": "line2",
+                    "line3": "line3",
+                    "line4": "line4",
+                    "line5": "line5",
+                    "line6": "line6",
+                    "line7": "line7",
+                    "line8": "line8",
+                    "line9": "line9",
+                    "line10": "line10"
+                  },
+                  "uc8a": {
+                    "pages": [
+                      {
+                        "rows": [
+                          {
+                            "line": 1.1,
+                            "socialSecurityNumber": null,
+                            "firstInitial": "firstInitial",
+                            "middleInitial": null,
+                            "lastName": "lastName",
+                            "grossCoveredWages": "grossCoveredWages"
+                          }
+                        ],
+                        "line31": "line31"
+                      }
+                    ],
+                    "line32": "line32",
+                    "line33": "line33"
+                  },
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "source": "source"
                 }
                 """#.utf8
             )
@@ -14998,7 +16555,48 @@ import Api
                     lastName: "lastName",
                     wages: "wages"
                 )
-            ]
+            ],
+            uc8: UsDeUnemploymentGetDeclarationsResponseUc8(
+                reportingPeriod: "reportingPeriod",
+                accountNo: Nullable<String>.value("accountNo"),
+                federalIdNumber: Nullable<String>.value("federalIdNumber"),
+                taxRate: Nullable<String>.value("taxRate"),
+                line1: [
+                    1.1
+                ],
+                line2: "line2",
+                line3: "line3",
+                line4: "line4",
+                line5: "line5",
+                line6: Nullable<String>.value("line6"),
+                line7: "line7",
+                line8: Nullable<String>.value("line8"),
+                line9: Nullable<String>.value("line9"),
+                line10: "line10"
+            ),
+            uc8A: UsDeUnemploymentGetDeclarationsResponseUc8A(
+                pages: [
+                    UsDeUnemploymentGetDeclarationsResponseUc8APagesItem(
+                        rows: [
+                            UsDeUnemploymentGetDeclarationsResponseUc8APagesItemRowsItem(
+                                line: 1.1,
+                                socialSecurityNumber: .null,
+                                firstInitial: "firstInitial",
+                                middleInitial: .null,
+                                lastName: "lastName",
+                                grossCoveredWages: "grossCoveredWages"
+                            )
+                        ],
+                        line31: "line31"
+                    )
+                ],
+                line32: "line32",
+                line33: "line33"
+            ),
+            warnings: [
+                "warnings"
+            ],
+            source: "source"
         )
         let response = try await client.declarations.usDeUnemploymentGet(
             request: .init(
@@ -15037,7 +16635,79 @@ import Api
                       "lastName": "lastName",
                       "wages": "wages"
                     }
-                  ]
+                  ],
+                  "uc8": {
+                    "reportingPeriod": "reportingPeriod",
+                    "accountNo": "accountNo",
+                    "federalIdNumber": "federalIdNumber",
+                    "taxRate": "taxRate",
+                    "line1": [
+                      1.1,
+                      1.1
+                    ],
+                    "line2": "line2",
+                    "line3": "line3",
+                    "line4": "line4",
+                    "line5": "line5",
+                    "line6": "line6",
+                    "line7": "line7",
+                    "line8": "line8",
+                    "line9": "line9",
+                    "line10": "line10"
+                  },
+                  "uc8a": {
+                    "pages": [
+                      {
+                        "rows": [
+                          {
+                            "line": 1.1,
+                            "socialSecurityNumber": "socialSecurityNumber",
+                            "firstInitial": "firstInitial",
+                            "middleInitial": "middleInitial",
+                            "lastName": "lastName",
+                            "grossCoveredWages": "grossCoveredWages"
+                          },
+                          {
+                            "line": 1.1,
+                            "socialSecurityNumber": "socialSecurityNumber",
+                            "firstInitial": "firstInitial",
+                            "middleInitial": "middleInitial",
+                            "lastName": "lastName",
+                            "grossCoveredWages": "grossCoveredWages"
+                          }
+                        ],
+                        "line31": "line31"
+                      },
+                      {
+                        "rows": [
+                          {
+                            "line": 1.1,
+                            "socialSecurityNumber": "socialSecurityNumber",
+                            "firstInitial": "firstInitial",
+                            "middleInitial": "middleInitial",
+                            "lastName": "lastName",
+                            "grossCoveredWages": "grossCoveredWages"
+                          },
+                          {
+                            "line": 1.1,
+                            "socialSecurityNumber": "socialSecurityNumber",
+                            "firstInitial": "firstInitial",
+                            "middleInitial": "middleInitial",
+                            "lastName": "lastName",
+                            "grossCoveredWages": "grossCoveredWages"
+                          }
+                        ],
+                        "line31": "line31"
+                      }
+                    ],
+                    "line32": "line32",
+                    "line33": "line33"
+                  },
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "source": "source"
                 }
                 """#.utf8
             )
@@ -15069,7 +16739,79 @@ import Api
                     lastName: "lastName",
                     wages: "wages"
                 )
-            ]
+            ],
+            uc8: UsDeUnemploymentGetDeclarationsResponseUc8(
+                reportingPeriod: "reportingPeriod",
+                accountNo: Nullable<String>.value("accountNo"),
+                federalIdNumber: Nullable<String>.value("federalIdNumber"),
+                taxRate: Nullable<String>.value("taxRate"),
+                line1: [
+                    1.1,
+                    1.1
+                ],
+                line2: "line2",
+                line3: "line3",
+                line4: "line4",
+                line5: "line5",
+                line6: Nullable<String>.value("line6"),
+                line7: "line7",
+                line8: Nullable<String>.value("line8"),
+                line9: Nullable<String>.value("line9"),
+                line10: "line10"
+            ),
+            uc8A: UsDeUnemploymentGetDeclarationsResponseUc8A(
+                pages: [
+                    UsDeUnemploymentGetDeclarationsResponseUc8APagesItem(
+                        rows: [
+                            UsDeUnemploymentGetDeclarationsResponseUc8APagesItemRowsItem(
+                                line: 1.1,
+                                socialSecurityNumber: Nullable<String>.value("socialSecurityNumber"),
+                                firstInitial: "firstInitial",
+                                middleInitial: Nullable<String>.value("middleInitial"),
+                                lastName: "lastName",
+                                grossCoveredWages: "grossCoveredWages"
+                            ),
+                            UsDeUnemploymentGetDeclarationsResponseUc8APagesItemRowsItem(
+                                line: 1.1,
+                                socialSecurityNumber: Nullable<String>.value("socialSecurityNumber"),
+                                firstInitial: "firstInitial",
+                                middleInitial: Nullable<String>.value("middleInitial"),
+                                lastName: "lastName",
+                                grossCoveredWages: "grossCoveredWages"
+                            )
+                        ],
+                        line31: "line31"
+                    ),
+                    UsDeUnemploymentGetDeclarationsResponseUc8APagesItem(
+                        rows: [
+                            UsDeUnemploymentGetDeclarationsResponseUc8APagesItemRowsItem(
+                                line: 1.1,
+                                socialSecurityNumber: Nullable<String>.value("socialSecurityNumber"),
+                                firstInitial: "firstInitial",
+                                middleInitial: Nullable<String>.value("middleInitial"),
+                                lastName: "lastName",
+                                grossCoveredWages: "grossCoveredWages"
+                            ),
+                            UsDeUnemploymentGetDeclarationsResponseUc8APagesItemRowsItem(
+                                line: 1.1,
+                                socialSecurityNumber: Nullable<String>.value("socialSecurityNumber"),
+                                firstInitial: "firstInitial",
+                                middleInitial: Nullable<String>.value("middleInitial"),
+                                lastName: "lastName",
+                                grossCoveredWages: "grossCoveredWages"
+                            )
+                        ],
+                        line31: "line31"
+                    )
+                ],
+                line32: "line32",
+                line33: "line33"
+            ),
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            source: "source"
         )
         let response = try await client.declarations.usDeUnemploymentGet(
             request: .init(
@@ -15322,6 +17064,136 @@ import Api
             ]
         )
         let response = try await client.declarations.usStateSalesGet(
+            request: .init(
+                from: CalendarDate("2023-01-15")!,
+                to: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usSalesTaxGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "from": "from",
+                  "to": "to",
+                  "jurisdictions": [
+                    {
+                      "jurisdiction": "jurisdiction",
+                      "documents": 1.1,
+                      "taxableSales": "taxableSales",
+                      "exemptSales": "exemptSales",
+                      "salesTax": "salesTax"
+                    }
+                  ],
+                  "salesTax": "salesTax",
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsSalesTaxGetDeclarationsResponse(
+            from: "from",
+            to: "to",
+            jurisdictions: [
+                UsSalesTaxGetDeclarationsResponseJurisdictionsItem(
+                    jurisdiction: "jurisdiction",
+                    documents: 1.1,
+                    taxableSales: "taxableSales",
+                    exemptSales: "exemptSales",
+                    salesTax: "salesTax"
+                )
+            ],
+            salesTax: "salesTax",
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.usSalesTaxGet(
+            request: .init(
+                from: CalendarDate("2026-07-01")!,
+                to: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usSalesTaxGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "from": "from",
+                  "to": "to",
+                  "jurisdictions": [
+                    {
+                      "jurisdiction": "jurisdiction",
+                      "documents": 1.1,
+                      "taxableSales": "taxableSales",
+                      "exemptSales": "exemptSales",
+                      "salesTax": "salesTax"
+                    },
+                    {
+                      "jurisdiction": "jurisdiction",
+                      "documents": 1.1,
+                      "taxableSales": "taxableSales",
+                      "exemptSales": "exemptSales",
+                      "salesTax": "salesTax"
+                    }
+                  ],
+                  "salesTax": "salesTax",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsSalesTaxGetDeclarationsResponse(
+            from: "from",
+            to: "to",
+            jurisdictions: [
+                UsSalesTaxGetDeclarationsResponseJurisdictionsItem(
+                    jurisdiction: "jurisdiction",
+                    documents: 1.1,
+                    taxableSales: "taxableSales",
+                    exemptSales: "exemptSales",
+                    salesTax: "salesTax"
+                ),
+                UsSalesTaxGetDeclarationsResponseJurisdictionsItem(
+                    jurisdiction: "jurisdiction",
+                    documents: 1.1,
+                    taxableSales: "taxableSales",
+                    exemptSales: "exemptSales",
+                    salesTax: "salesTax"
+                )
+            ],
+            salesTax: "salesTax",
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.usSalesTaxGet(
             request: .init(
                 from: CalendarDate("2023-01-15")!,
                 to: CalendarDate("2023-01-15")!
@@ -15707,6 +17579,794 @@ import Api
             ]
         )
         let response = try await client.declarations.usWorkweeksList(
+            request: .init(
+                from: CalendarDate("2023-01-15")!,
+                to: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usFlsaRecordsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "from": "from",
+                  "to": "to",
+                  "employees": [
+                    {
+                      "employeeId": "employeeId",
+                      "code": "code",
+                      "firstName": "firstName",
+                      "lastName": "lastName",
+                      "address": {
+                        "street": null,
+                        "city": null,
+                        "subdivision": null,
+                        "postalCode": null
+                      },
+                      "birthDate": "2026-07-01",
+                      "sex": "M",
+                      "occupation": "occupation",
+                      "workweekStart": {
+                        "day": "day",
+                        "time": null
+                      },
+                      "exempt": true,
+                      "workweeks": [
+                        {
+                          "start": "start",
+                          "end": "end",
+                          "hours": "hours",
+                          "overtimeHours": "overtimeHours",
+                          "days": [
+                            {
+                              "date": "2026-07-01",
+                              "hours": "hours"
+                            }
+                          ],
+                          "regularRate": null,
+                          "straightTimeEarnings": null
+                        }
+                      ],
+                      "payPeriods": [
+                        {
+                          "runId": "runId",
+                          "periodStart": "periodStart",
+                          "periodEnd": "periodEnd",
+                          "payDate": "2026-07-01",
+                          "basisOfPay": null,
+                          "hoursWorked": null,
+                          "regularPay": "regularPay",
+                          "overtimePay": "overtimePay",
+                          "overtimeHours": "overtimeHours",
+                          "straightTimeEarnings": null,
+                          "overtimePremium": null,
+                          "additions": [
+                            {
+                              "name": "name",
+                              "paymentType": null,
+                              "amount": "amount",
+                              "hours": null
+                            }
+                          ],
+                          "deductions": [
+                            {
+                              "name": "name",
+                              "amount": "amount"
+                            }
+                          ],
+                          "totalWages": "totalWages"
+                        }
+                      ]
+                    }
+                  ],
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsFlsaRecordsListDeclarationsResponse(
+            from: "from",
+            to: "to",
+            employees: [
+                UsFlsaRecordsListDeclarationsResponseEmployeesItem(
+                    employeeId: "employeeId",
+                    code: Nullable<String>.value("code"),
+                    firstName: "firstName",
+                    lastName: "lastName",
+                    address: UsFlsaRecordsListDeclarationsResponseEmployeesItemAddress(
+                        street: .null,
+                        city: .null,
+                        subdivision: .null,
+                        postalCode: .null
+                    ),
+                    birthDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    sex: Nullable<UsFlsaRecordsListDeclarationsResponseEmployeesItemSex>.value(.m),
+                    occupation: Nullable<String>.value("occupation"),
+                    workweekStart: UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweekStart(
+                        day: "day",
+                        time: .null
+                    ),
+                    exempt: true,
+                    workweeks: [
+                        UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItem(
+                            start: "start",
+                            end: "end",
+                            hours: "hours",
+                            overtimeHours: "overtimeHours",
+                            days: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItemDaysItem(
+                                    date: CalendarDate("2026-07-01")!,
+                                    hours: "hours"
+                                )
+                            ],
+                            regularRate: .null,
+                            straightTimeEarnings: .null
+                        )
+                    ],
+                    payPeriods: [
+                        UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItem(
+                            runId: "runId",
+                            periodStart: "periodStart",
+                            periodEnd: "periodEnd",
+                            payDate: CalendarDate("2026-07-01")!,
+                            basisOfPay: .null,
+                            hoursWorked: .null,
+                            regularPay: "regularPay",
+                            overtimePay: "overtimePay",
+                            overtimeHours: "overtimeHours",
+                            straightTimeEarnings: .null,
+                            overtimePremium: .null,
+                            additions: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemAdditionsItem(
+                                    name: "name",
+                                    paymentType: .null,
+                                    amount: "amount",
+                                    hours: .null
+                                )
+                            ],
+                            deductions: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemDeductionsItem(
+                                    name: "name",
+                                    amount: "amount"
+                                )
+                            ],
+                            totalWages: "totalWages"
+                        )
+                    ]
+                )
+            ],
+            warnings: [
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.usFlsaRecordsList(
+            request: .init(
+                from: CalendarDate("2026-07-01")!,
+                to: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func usFlsaRecordsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "from": "from",
+                  "to": "to",
+                  "employees": [
+                    {
+                      "employeeId": "employeeId",
+                      "code": "code",
+                      "firstName": "firstName",
+                      "lastName": "lastName",
+                      "address": {
+                        "street": "street",
+                        "city": "city",
+                        "subdivision": "subdivision",
+                        "postalCode": "postalCode"
+                      },
+                      "birthDate": "2023-01-15",
+                      "sex": "M",
+                      "occupation": "occupation",
+                      "workweekStart": {
+                        "day": "day",
+                        "time": "time"
+                      },
+                      "exempt": true,
+                      "workweeks": [
+                        {
+                          "start": "start",
+                          "end": "end",
+                          "hours": "hours",
+                          "overtimeHours": "overtimeHours",
+                          "days": [
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            },
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            }
+                          ],
+                          "regularRate": "regularRate",
+                          "straightTimeEarnings": "straightTimeEarnings"
+                        },
+                        {
+                          "start": "start",
+                          "end": "end",
+                          "hours": "hours",
+                          "overtimeHours": "overtimeHours",
+                          "days": [
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            },
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            }
+                          ],
+                          "regularRate": "regularRate",
+                          "straightTimeEarnings": "straightTimeEarnings"
+                        }
+                      ],
+                      "payPeriods": [
+                        {
+                          "runId": "runId",
+                          "periodStart": "periodStart",
+                          "periodEnd": "periodEnd",
+                          "payDate": "2023-01-15",
+                          "basisOfPay": {
+                            "salaryType": "salaryType",
+                            "rate": "rate"
+                          },
+                          "hoursWorked": "hoursWorked",
+                          "regularPay": "regularPay",
+                          "overtimePay": "overtimePay",
+                          "overtimeHours": "overtimeHours",
+                          "straightTimeEarnings": "straightTimeEarnings",
+                          "overtimePremium": "overtimePremium",
+                          "additions": [
+                            {
+                              "name": "name",
+                              "paymentType": "paymentType",
+                              "amount": "amount",
+                              "hours": "hours"
+                            },
+                            {
+                              "name": "name",
+                              "paymentType": "paymentType",
+                              "amount": "amount",
+                              "hours": "hours"
+                            }
+                          ],
+                          "deductions": [
+                            {
+                              "name": "name",
+                              "amount": "amount"
+                            },
+                            {
+                              "name": "name",
+                              "amount": "amount"
+                            }
+                          ],
+                          "totalWages": "totalWages"
+                        },
+                        {
+                          "runId": "runId",
+                          "periodStart": "periodStart",
+                          "periodEnd": "periodEnd",
+                          "payDate": "2023-01-15",
+                          "basisOfPay": {
+                            "salaryType": "salaryType",
+                            "rate": "rate"
+                          },
+                          "hoursWorked": "hoursWorked",
+                          "regularPay": "regularPay",
+                          "overtimePay": "overtimePay",
+                          "overtimeHours": "overtimeHours",
+                          "straightTimeEarnings": "straightTimeEarnings",
+                          "overtimePremium": "overtimePremium",
+                          "additions": [
+                            {
+                              "name": "name",
+                              "paymentType": "paymentType",
+                              "amount": "amount",
+                              "hours": "hours"
+                            },
+                            {
+                              "name": "name",
+                              "paymentType": "paymentType",
+                              "amount": "amount",
+                              "hours": "hours"
+                            }
+                          ],
+                          "deductions": [
+                            {
+                              "name": "name",
+                              "amount": "amount"
+                            },
+                            {
+                              "name": "name",
+                              "amount": "amount"
+                            }
+                          ],
+                          "totalWages": "totalWages"
+                        }
+                      ]
+                    },
+                    {
+                      "employeeId": "employeeId",
+                      "code": "code",
+                      "firstName": "firstName",
+                      "lastName": "lastName",
+                      "address": {
+                        "street": "street",
+                        "city": "city",
+                        "subdivision": "subdivision",
+                        "postalCode": "postalCode"
+                      },
+                      "birthDate": "2023-01-15",
+                      "sex": "M",
+                      "occupation": "occupation",
+                      "workweekStart": {
+                        "day": "day",
+                        "time": "time"
+                      },
+                      "exempt": true,
+                      "workweeks": [
+                        {
+                          "start": "start",
+                          "end": "end",
+                          "hours": "hours",
+                          "overtimeHours": "overtimeHours",
+                          "days": [
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            },
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            }
+                          ],
+                          "regularRate": "regularRate",
+                          "straightTimeEarnings": "straightTimeEarnings"
+                        },
+                        {
+                          "start": "start",
+                          "end": "end",
+                          "hours": "hours",
+                          "overtimeHours": "overtimeHours",
+                          "days": [
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            },
+                            {
+                              "date": "2023-01-15",
+                              "hours": "hours"
+                            }
+                          ],
+                          "regularRate": "regularRate",
+                          "straightTimeEarnings": "straightTimeEarnings"
+                        }
+                      ],
+                      "payPeriods": [
+                        {
+                          "runId": "runId",
+                          "periodStart": "periodStart",
+                          "periodEnd": "periodEnd",
+                          "payDate": "2023-01-15",
+                          "basisOfPay": {
+                            "salaryType": "salaryType",
+                            "rate": "rate"
+                          },
+                          "hoursWorked": "hoursWorked",
+                          "regularPay": "regularPay",
+                          "overtimePay": "overtimePay",
+                          "overtimeHours": "overtimeHours",
+                          "straightTimeEarnings": "straightTimeEarnings",
+                          "overtimePremium": "overtimePremium",
+                          "additions": [
+                            {
+                              "name": "name",
+                              "paymentType": "paymentType",
+                              "amount": "amount",
+                              "hours": "hours"
+                            },
+                            {
+                              "name": "name",
+                              "paymentType": "paymentType",
+                              "amount": "amount",
+                              "hours": "hours"
+                            }
+                          ],
+                          "deductions": [
+                            {
+                              "name": "name",
+                              "amount": "amount"
+                            },
+                            {
+                              "name": "name",
+                              "amount": "amount"
+                            }
+                          ],
+                          "totalWages": "totalWages"
+                        },
+                        {
+                          "runId": "runId",
+                          "periodStart": "periodStart",
+                          "periodEnd": "periodEnd",
+                          "payDate": "2023-01-15",
+                          "basisOfPay": {
+                            "salaryType": "salaryType",
+                            "rate": "rate"
+                          },
+                          "hoursWorked": "hoursWorked",
+                          "regularPay": "regularPay",
+                          "overtimePay": "overtimePay",
+                          "overtimeHours": "overtimeHours",
+                          "straightTimeEarnings": "straightTimeEarnings",
+                          "overtimePremium": "overtimePremium",
+                          "additions": [
+                            {
+                              "name": "name",
+                              "paymentType": "paymentType",
+                              "amount": "amount",
+                              "hours": "hours"
+                            },
+                            {
+                              "name": "name",
+                              "paymentType": "paymentType",
+                              "amount": "amount",
+                              "hours": "hours"
+                            }
+                          ],
+                          "deductions": [
+                            {
+                              "name": "name",
+                              "amount": "amount"
+                            },
+                            {
+                              "name": "name",
+                              "amount": "amount"
+                            }
+                          ],
+                          "totalWages": "totalWages"
+                        }
+                      ]
+                    }
+                  ],
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UsFlsaRecordsListDeclarationsResponse(
+            from: "from",
+            to: "to",
+            employees: [
+                UsFlsaRecordsListDeclarationsResponseEmployeesItem(
+                    employeeId: "employeeId",
+                    code: Nullable<String>.value("code"),
+                    firstName: "firstName",
+                    lastName: "lastName",
+                    address: UsFlsaRecordsListDeclarationsResponseEmployeesItemAddress(
+                        street: Nullable<String>.value("street"),
+                        city: Nullable<String>.value("city"),
+                        subdivision: Nullable<String>.value("subdivision"),
+                        postalCode: Nullable<String>.value("postalCode")
+                    ),
+                    birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    sex: Nullable<UsFlsaRecordsListDeclarationsResponseEmployeesItemSex>.value(.m),
+                    occupation: Nullable<String>.value("occupation"),
+                    workweekStart: UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweekStart(
+                        day: "day",
+                        time: Nullable<String>.value("time")
+                    ),
+                    exempt: true,
+                    workweeks: [
+                        UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItem(
+                            start: "start",
+                            end: "end",
+                            hours: "hours",
+                            overtimeHours: "overtimeHours",
+                            days: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                ),
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                )
+                            ],
+                            regularRate: Nullable<String>.value("regularRate"),
+                            straightTimeEarnings: Nullable<String>.value("straightTimeEarnings")
+                        ),
+                        UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItem(
+                            start: "start",
+                            end: "end",
+                            hours: "hours",
+                            overtimeHours: "overtimeHours",
+                            days: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                ),
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                )
+                            ],
+                            regularRate: Nullable<String>.value("regularRate"),
+                            straightTimeEarnings: Nullable<String>.value("straightTimeEarnings")
+                        )
+                    ],
+                    payPeriods: [
+                        UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItem(
+                            runId: "runId",
+                            periodStart: "periodStart",
+                            periodEnd: "periodEnd",
+                            payDate: CalendarDate("2023-01-15")!,
+                            basisOfPay: Nullable<UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemBasisOfPay>.value(UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemBasisOfPay(
+                                salaryType: "salaryType",
+                                rate: "rate"
+                            )),
+                            hoursWorked: Nullable<String>.value("hoursWorked"),
+                            regularPay: "regularPay",
+                            overtimePay: "overtimePay",
+                            overtimeHours: "overtimeHours",
+                            straightTimeEarnings: Nullable<String>.value("straightTimeEarnings"),
+                            overtimePremium: Nullable<String>.value("overtimePremium"),
+                            additions: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemAdditionsItem(
+                                    name: "name",
+                                    paymentType: Nullable<String>.value("paymentType"),
+                                    amount: "amount",
+                                    hours: Nullable<String>.value("hours")
+                                ),
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemAdditionsItem(
+                                    name: "name",
+                                    paymentType: Nullable<String>.value("paymentType"),
+                                    amount: "amount",
+                                    hours: Nullable<String>.value("hours")
+                                )
+                            ],
+                            deductions: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemDeductionsItem(
+                                    name: "name",
+                                    amount: "amount"
+                                ),
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemDeductionsItem(
+                                    name: "name",
+                                    amount: "amount"
+                                )
+                            ],
+                            totalWages: "totalWages"
+                        ),
+                        UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItem(
+                            runId: "runId",
+                            periodStart: "periodStart",
+                            periodEnd: "periodEnd",
+                            payDate: CalendarDate("2023-01-15")!,
+                            basisOfPay: Nullable<UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemBasisOfPay>.value(UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemBasisOfPay(
+                                salaryType: "salaryType",
+                                rate: "rate"
+                            )),
+                            hoursWorked: Nullable<String>.value("hoursWorked"),
+                            regularPay: "regularPay",
+                            overtimePay: "overtimePay",
+                            overtimeHours: "overtimeHours",
+                            straightTimeEarnings: Nullable<String>.value("straightTimeEarnings"),
+                            overtimePremium: Nullable<String>.value("overtimePremium"),
+                            additions: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemAdditionsItem(
+                                    name: "name",
+                                    paymentType: Nullable<String>.value("paymentType"),
+                                    amount: "amount",
+                                    hours: Nullable<String>.value("hours")
+                                ),
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemAdditionsItem(
+                                    name: "name",
+                                    paymentType: Nullable<String>.value("paymentType"),
+                                    amount: "amount",
+                                    hours: Nullable<String>.value("hours")
+                                )
+                            ],
+                            deductions: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemDeductionsItem(
+                                    name: "name",
+                                    amount: "amount"
+                                ),
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemDeductionsItem(
+                                    name: "name",
+                                    amount: "amount"
+                                )
+                            ],
+                            totalWages: "totalWages"
+                        )
+                    ]
+                ),
+                UsFlsaRecordsListDeclarationsResponseEmployeesItem(
+                    employeeId: "employeeId",
+                    code: Nullable<String>.value("code"),
+                    firstName: "firstName",
+                    lastName: "lastName",
+                    address: UsFlsaRecordsListDeclarationsResponseEmployeesItemAddress(
+                        street: Nullable<String>.value("street"),
+                        city: Nullable<String>.value("city"),
+                        subdivision: Nullable<String>.value("subdivision"),
+                        postalCode: Nullable<String>.value("postalCode")
+                    ),
+                    birthDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    sex: Nullable<UsFlsaRecordsListDeclarationsResponseEmployeesItemSex>.value(.m),
+                    occupation: Nullable<String>.value("occupation"),
+                    workweekStart: UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweekStart(
+                        day: "day",
+                        time: Nullable<String>.value("time")
+                    ),
+                    exempt: true,
+                    workweeks: [
+                        UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItem(
+                            start: "start",
+                            end: "end",
+                            hours: "hours",
+                            overtimeHours: "overtimeHours",
+                            days: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                ),
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                )
+                            ],
+                            regularRate: Nullable<String>.value("regularRate"),
+                            straightTimeEarnings: Nullable<String>.value("straightTimeEarnings")
+                        ),
+                        UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItem(
+                            start: "start",
+                            end: "end",
+                            hours: "hours",
+                            overtimeHours: "overtimeHours",
+                            days: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                ),
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemWorkweeksItemDaysItem(
+                                    date: CalendarDate("2023-01-15")!,
+                                    hours: "hours"
+                                )
+                            ],
+                            regularRate: Nullable<String>.value("regularRate"),
+                            straightTimeEarnings: Nullable<String>.value("straightTimeEarnings")
+                        )
+                    ],
+                    payPeriods: [
+                        UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItem(
+                            runId: "runId",
+                            periodStart: "periodStart",
+                            periodEnd: "periodEnd",
+                            payDate: CalendarDate("2023-01-15")!,
+                            basisOfPay: Nullable<UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemBasisOfPay>.value(UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemBasisOfPay(
+                                salaryType: "salaryType",
+                                rate: "rate"
+                            )),
+                            hoursWorked: Nullable<String>.value("hoursWorked"),
+                            regularPay: "regularPay",
+                            overtimePay: "overtimePay",
+                            overtimeHours: "overtimeHours",
+                            straightTimeEarnings: Nullable<String>.value("straightTimeEarnings"),
+                            overtimePremium: Nullable<String>.value("overtimePremium"),
+                            additions: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemAdditionsItem(
+                                    name: "name",
+                                    paymentType: Nullable<String>.value("paymentType"),
+                                    amount: "amount",
+                                    hours: Nullable<String>.value("hours")
+                                ),
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemAdditionsItem(
+                                    name: "name",
+                                    paymentType: Nullable<String>.value("paymentType"),
+                                    amount: "amount",
+                                    hours: Nullable<String>.value("hours")
+                                )
+                            ],
+                            deductions: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemDeductionsItem(
+                                    name: "name",
+                                    amount: "amount"
+                                ),
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemDeductionsItem(
+                                    name: "name",
+                                    amount: "amount"
+                                )
+                            ],
+                            totalWages: "totalWages"
+                        ),
+                        UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItem(
+                            runId: "runId",
+                            periodStart: "periodStart",
+                            periodEnd: "periodEnd",
+                            payDate: CalendarDate("2023-01-15")!,
+                            basisOfPay: Nullable<UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemBasisOfPay>.value(UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemBasisOfPay(
+                                salaryType: "salaryType",
+                                rate: "rate"
+                            )),
+                            hoursWorked: Nullable<String>.value("hoursWorked"),
+                            regularPay: "regularPay",
+                            overtimePay: "overtimePay",
+                            overtimeHours: "overtimeHours",
+                            straightTimeEarnings: Nullable<String>.value("straightTimeEarnings"),
+                            overtimePremium: Nullable<String>.value("overtimePremium"),
+                            additions: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemAdditionsItem(
+                                    name: "name",
+                                    paymentType: Nullable<String>.value("paymentType"),
+                                    amount: "amount",
+                                    hours: Nullable<String>.value("hours")
+                                ),
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemAdditionsItem(
+                                    name: "name",
+                                    paymentType: Nullable<String>.value("paymentType"),
+                                    amount: "amount",
+                                    hours: Nullable<String>.value("hours")
+                                )
+                            ],
+                            deductions: [
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemDeductionsItem(
+                                    name: "name",
+                                    amount: "amount"
+                                ),
+                                UsFlsaRecordsListDeclarationsResponseEmployeesItemPayPeriodsItemDeductionsItem(
+                                    name: "name",
+                                    amount: "amount"
+                                )
+                            ],
+                            totalWages: "totalWages"
+                        )
+                    ]
+                )
+            ],
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.usFlsaRecordsList(
             request: .init(
                 from: CalendarDate("2023-01-15")!,
                 to: CalendarDate("2023-01-15")!

@@ -43,6 +43,8 @@ extension Requests {
         public let isGroupMember: Bool?
         public let isActive: Bool?
         public let legalCountryClass: Nullable<UpdatePartnersRequestLegalCountryClass>?
+        /// Tax data of the partner by key, checked against the company's country: `tin` (US, Taxpayer identification number (TIN) from Form W-9, 9 digits); `tinType` (US, Type of the taxpayer identification number, SSN, EIN, ITIN or ATIN); `taxClassification` (US, Federal tax classification (Form W-9, line 3a), individual, c-corporation, s-corporation, partnership, trust-estate, llc-c, llc-s, llc-p, other); `nonemployeeCompensation` (US, Paid for services as nonemployee compensation (Form 1099-NEC, box 1), yes or no)
+        public let identifiers: Nullable<[String: Nullable<String>]>?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -85,6 +87,7 @@ extension Requests {
             isGroupMember: Bool? = nil,
             isActive: Bool? = nil,
             legalCountryClass: Nullable<UpdatePartnersRequestLegalCountryClass>? = nil,
+            identifiers: Nullable<[String: Nullable<String>]>? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.id = id
@@ -125,6 +128,7 @@ extension Requests {
             self.isGroupMember = isGroupMember
             self.isActive = isActive
             self.legalCountryClass = legalCountryClass
+            self.identifiers = identifiers
             self.additionalProperties = additionalProperties
         }
 
@@ -168,6 +172,7 @@ extension Requests {
             self.isGroupMember = try container.decodeIfPresent(Bool.self, forKey: .isGroupMember)
             self.isActive = try container.decodeIfPresent(Bool.self, forKey: .isActive)
             self.legalCountryClass = try container.decodeNullableIfPresent(UpdatePartnersRequestLegalCountryClass.self, forKey: .legalCountryClass)
+            self.identifiers = try container.decodeNullableIfPresent([String: Nullable<String>].self, forKey: .identifiers)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -212,6 +217,7 @@ extension Requests {
             try container.encodeIfPresent(self.isGroupMember, forKey: .isGroupMember)
             try container.encodeIfPresent(self.isActive, forKey: .isActive)
             try container.encodeNullableIfPresent(self.legalCountryClass, forKey: .legalCountryClass)
+            try container.encodeNullableIfPresent(self.identifiers, forKey: .identifiers)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -254,6 +260,7 @@ extension Requests {
             case isGroupMember
             case isActive
             case legalCountryClass
+            case identifiers
         }
     }
 }

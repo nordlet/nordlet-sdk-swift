@@ -18,6 +18,9 @@ public struct InvoicesListSalesResponseRowsItem: Codable, Hashable, Sendable {
     public let grossTotal: String
     public let salesTaxPercent: Nullable<String>
     public let salesTaxTotal: String
+    public let salesTaxJurisdiction: Nullable<String>
+    public let salesTaxExemptionId: Nullable<String>
+    public let deliveryAddress: Nullable<InvoicesListSalesResponseRowsItemDeliveryAddress>
     public let paidAmount: String
     public let journalTransactionId: Nullable<String>
     public let reversedAt: Nullable<Date>
@@ -92,6 +95,9 @@ public struct InvoicesListSalesResponseRowsItem: Codable, Hashable, Sendable {
         grossTotal: String,
         salesTaxPercent: Nullable<String>,
         salesTaxTotal: String,
+        salesTaxJurisdiction: Nullable<String>,
+        salesTaxExemptionId: Nullable<String>,
+        deliveryAddress: Nullable<InvoicesListSalesResponseRowsItemDeliveryAddress>,
         paidAmount: String,
         journalTransactionId: Nullable<String>,
         reversedAt: Nullable<Date>,
@@ -163,6 +169,9 @@ public struct InvoicesListSalesResponseRowsItem: Codable, Hashable, Sendable {
         self.grossTotal = grossTotal
         self.salesTaxPercent = salesTaxPercent
         self.salesTaxTotal = salesTaxTotal
+        self.salesTaxJurisdiction = salesTaxJurisdiction
+        self.salesTaxExemptionId = salesTaxExemptionId
+        self.deliveryAddress = deliveryAddress
         self.paidAmount = paidAmount
         self.journalTransactionId = journalTransactionId
         self.reversedAt = reversedAt
@@ -237,6 +246,9 @@ public struct InvoicesListSalesResponseRowsItem: Codable, Hashable, Sendable {
         self.grossTotal = try container.decode(String.self, forKey: .grossTotal)
         self.salesTaxPercent = try container.decode(Nullable<String>.self, forKey: .salesTaxPercent)
         self.salesTaxTotal = try container.decode(String.self, forKey: .salesTaxTotal)
+        self.salesTaxJurisdiction = try container.decode(Nullable<String>.self, forKey: .salesTaxJurisdiction)
+        self.salesTaxExemptionId = try container.decode(Nullable<String>.self, forKey: .salesTaxExemptionId)
+        self.deliveryAddress = try container.decode(Nullable<InvoicesListSalesResponseRowsItemDeliveryAddress>.self, forKey: .deliveryAddress)
         self.paidAmount = try container.decode(String.self, forKey: .paidAmount)
         self.journalTransactionId = try container.decode(Nullable<String>.self, forKey: .journalTransactionId)
         self.reversedAt = try container.decode(Nullable<Date>.self, forKey: .reversedAt)
@@ -312,6 +324,9 @@ public struct InvoicesListSalesResponseRowsItem: Codable, Hashable, Sendable {
         try container.encode(self.grossTotal, forKey: .grossTotal)
         try container.encode(self.salesTaxPercent, forKey: .salesTaxPercent)
         try container.encode(self.salesTaxTotal, forKey: .salesTaxTotal)
+        try container.encode(self.salesTaxJurisdiction, forKey: .salesTaxJurisdiction)
+        try container.encode(self.salesTaxExemptionId, forKey: .salesTaxExemptionId)
+        try container.encode(self.deliveryAddress, forKey: .deliveryAddress)
         try container.encode(self.paidAmount, forKey: .paidAmount)
         try container.encode(self.journalTransactionId, forKey: .journalTransactionId)
         try container.encode(self.reversedAt, forKey: .reversedAt)
@@ -385,6 +400,9 @@ public struct InvoicesListSalesResponseRowsItem: Codable, Hashable, Sendable {
         case grossTotal
         case salesTaxPercent
         case salesTaxTotal
+        case salesTaxJurisdiction
+        case salesTaxExemptionId
+        case deliveryAddress
         case paidAmount
         case journalTransactionId
         case reversedAt

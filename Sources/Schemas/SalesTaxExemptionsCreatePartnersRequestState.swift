@@ -1,0 +1,28 @@
+import Foundation
+
+public enum SalesTaxExemptionsCreatePartnersRequestState: String, Codable, Hashable, CaseIterable, Sendable {
+    case usAr = "US-AR"
+    case usGa = "US-GA"
+    case usIa = "US-IA"
+    case usIn = "US-IN"
+    case usKs = "US-KS"
+    case usKy = "US-KY"
+    case usMi = "US-MI"
+    case usMn = "US-MN"
+    case usNc = "US-NC"
+    case usNd = "US-ND"
+    case usNe = "US-NE"
+    case usNj = "US-NJ"
+    case usNv = "US-NV"
+    case usOh = "US-OH"
+    case usOk = "US-OK"
+    case usRi = "US-RI"
+    case usSd = "US-SD"
+    case usTn = "US-TN"
+    case usUt = "US-UT"
+    case usVt = "US-VT"
+    case usWa = "US-WA"
+    case usWi = "US-WI"
+    case usWv = "US-WV"
+    case usWy = "US-WY"
+}

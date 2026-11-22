@@ -8,6 +8,10 @@ public struct UsDeUnemploymentGetDeclarationsResponse: Codable, Hashable, Sendab
     public let taxableWages: String
     public let contributions: String
     public let employees: [UsDeUnemploymentGetDeclarationsResponseEmployeesItem]
+    public let uc8: UsDeUnemploymentGetDeclarationsResponseUc8
+    public let uc8A: UsDeUnemploymentGetDeclarationsResponseUc8A
+    public let warnings: [String]
+    public let source: String
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -19,6 +23,10 @@ public struct UsDeUnemploymentGetDeclarationsResponse: Codable, Hashable, Sendab
         taxableWages: String,
         contributions: String,
         employees: [UsDeUnemploymentGetDeclarationsResponseEmployeesItem],
+        uc8: UsDeUnemploymentGetDeclarationsResponseUc8,
+        uc8A: UsDeUnemploymentGetDeclarationsResponseUc8A,
+        warnings: [String],
+        source: String,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.year = year
@@ -28,6 +36,10 @@ public struct UsDeUnemploymentGetDeclarationsResponse: Codable, Hashable, Sendab
         self.taxableWages = taxableWages
         self.contributions = contributions
         self.employees = employees
+        self.uc8 = uc8
+        self.uc8A = uc8A
+        self.warnings = warnings
+        self.source = source
         self.additionalProperties = additionalProperties
     }
 
@@ -40,6 +52,10 @@ public struct UsDeUnemploymentGetDeclarationsResponse: Codable, Hashable, Sendab
         self.taxableWages = try container.decode(String.self, forKey: .taxableWages)
         self.contributions = try container.decode(String.self, forKey: .contributions)
         self.employees = try container.decode([UsDeUnemploymentGetDeclarationsResponseEmployeesItem].self, forKey: .employees)
+        self.uc8 = try container.decode(UsDeUnemploymentGetDeclarationsResponseUc8.self, forKey: .uc8)
+        self.uc8A = try container.decode(UsDeUnemploymentGetDeclarationsResponseUc8A.self, forKey: .uc8A)
+        self.warnings = try container.decode([String].self, forKey: .warnings)
+        self.source = try container.decode(String.self, forKey: .source)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -53,6 +69,10 @@ public struct UsDeUnemploymentGetDeclarationsResponse: Codable, Hashable, Sendab
         try container.encode(self.taxableWages, forKey: .taxableWages)
         try container.encode(self.contributions, forKey: .contributions)
         try container.encode(self.employees, forKey: .employees)
+        try container.encode(self.uc8, forKey: .uc8)
+        try container.encode(self.uc8A, forKey: .uc8A)
+        try container.encode(self.warnings, forKey: .warnings)
+        try container.encode(self.source, forKey: .source)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -64,5 +84,9 @@ public struct UsDeUnemploymentGetDeclarationsResponse: Codable, Hashable, Sendab
         case taxableWages
         case contributions
         case employees
+        case uc8
+        case uc8A = "uc8a"
+        case warnings
+        case source
     }
 }

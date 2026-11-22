@@ -150,7 +150,7 @@ public final class SalesClient: Sendable {
         )
     }
 
-    /// Change a draft sale document. Fields left out keep their value, `lines` replaces every line, a changed `discountPercent` recomputes the existing lines, and `salesTaxPercent` (invoices only, null removes it) recomputes the sales tax and the total. Answers 409 when the document is issued or locked, and 422 under the checks of `sales/invoices/create` (the credited document's partner and currency, the OSS and IOSS country, VAT on the lines, the operation type and document series).
+    /// Change a draft sale document. Fields left out keep their value, `lines` replaces every line, a changed `discountPercent` recomputes the existing lines, and `salesTaxPercent` (US companies, invoices and credit notes only, null removes it) recomputes the sales tax and the total; `salesTaxJurisdiction` is resolved again as in `sales/invoices/create` when the partner, the delivery address, the percent or the jurisdiction changes; `deliveryAddress` null removes it. Answers 409 when the document is issued or locked, and 422 under the checks of `sales/invoices/create` (the credited document's partner and currency, the OSS and IOSS country, VAT on the lines, the operation type and document series).
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func invoicesUpdate(request: Requests.InvoicesUpdateSalesRequest, requestOptions: RequestOptions? = nil) async throws -> InvoicesUpdateSalesResponse {

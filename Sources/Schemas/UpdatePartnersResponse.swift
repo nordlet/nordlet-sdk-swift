@@ -41,6 +41,7 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
     public let isGroupMember: Bool
     public let isActive: Bool
     public let legalCountryClass: Nullable<UpdatePartnersResponseLegalCountryClass>
+    public let identifiers: [String: String]
     public let createdAt: Date
     public let updatedAt: Date
     /// Additional properties that are not explicitly defined in the schema
@@ -87,6 +88,7 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         isGroupMember: Bool,
         isActive: Bool,
         legalCountryClass: Nullable<UpdatePartnersResponseLegalCountryClass>,
+        identifiers: [String: String],
         createdAt: Date,
         updatedAt: Date,
         additionalProperties: [String: JSONValue] = .init()
@@ -131,6 +133,7 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         self.isGroupMember = isGroupMember
         self.isActive = isActive
         self.legalCountryClass = legalCountryClass
+        self.identifiers = identifiers
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.additionalProperties = additionalProperties
@@ -178,6 +181,7 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         self.isGroupMember = try container.decode(Bool.self, forKey: .isGroupMember)
         self.isActive = try container.decode(Bool.self, forKey: .isActive)
         self.legalCountryClass = try container.decode(Nullable<UpdatePartnersResponseLegalCountryClass>.self, forKey: .legalCountryClass)
+        self.identifiers = try container.decode([String: String].self, forKey: .identifiers)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.updatedAt = try container.decode(Date.self, forKey: .updatedAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -226,6 +230,7 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         try container.encode(self.isGroupMember, forKey: .isGroupMember)
         try container.encode(self.isActive, forKey: .isActive)
         try container.encode(self.legalCountryClass, forKey: .legalCountryClass)
+        try container.encode(self.identifiers, forKey: .identifiers)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
     }
@@ -272,6 +277,7 @@ public struct UpdatePartnersResponse: Codable, Hashable, Sendable {
         case isGroupMember
         case isActive
         case legalCountryClass
+        case identifiers
         case createdAt
         case updatedAt
     }

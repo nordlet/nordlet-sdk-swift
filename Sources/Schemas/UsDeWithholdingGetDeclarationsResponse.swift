@@ -6,6 +6,7 @@ public struct UsDeWithholdingGetDeclarationsResponse: Codable, Hashable, Sendabl
     public let employees: Double
     public let wages: String
     public let taxWithheld: String
+    public let wthTax: UsDeWithholdingGetDeclarationsResponseWthTax
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -15,6 +16,7 @@ public struct UsDeWithholdingGetDeclarationsResponse: Codable, Hashable, Sendabl
         employees: Double,
         wages: String,
         taxWithheld: String,
+        wthTax: UsDeWithholdingGetDeclarationsResponseWthTax,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.from = from
@@ -22,6 +24,7 @@ public struct UsDeWithholdingGetDeclarationsResponse: Codable, Hashable, Sendabl
         self.employees = employees
         self.wages = wages
         self.taxWithheld = taxWithheld
+        self.wthTax = wthTax
         self.additionalProperties = additionalProperties
     }
 
@@ -32,6 +35,7 @@ public struct UsDeWithholdingGetDeclarationsResponse: Codable, Hashable, Sendabl
         self.employees = try container.decode(Double.self, forKey: .employees)
         self.wages = try container.decode(String.self, forKey: .wages)
         self.taxWithheld = try container.decode(String.self, forKey: .taxWithheld)
+        self.wthTax = try container.decode(UsDeWithholdingGetDeclarationsResponseWthTax.self, forKey: .wthTax)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -43,6 +47,7 @@ public struct UsDeWithholdingGetDeclarationsResponse: Codable, Hashable, Sendabl
         try container.encode(self.employees, forKey: .employees)
         try container.encode(self.wages, forKey: .wages)
         try container.encode(self.taxWithheld, forKey: .taxWithheld)
+        try container.encode(self.wthTax, forKey: .wthTax)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -52,5 +57,6 @@ public struct UsDeWithholdingGetDeclarationsResponse: Codable, Hashable, Sendabl
         case employees
         case wages
         case taxWithheld
+        case wthTax
     }
 }

@@ -37,8 +37,12 @@ extension Requests {
         public let receivedByName: String?
         public let receivedByTitle: String?
         public let discountPercent: String?
-        /// Sales tax as a percent of the net total, added to the invoice total. It is not posted to the ledger and is left out of VAT and national tax reports. Invoices only.
+        /// Sales tax as a percent of the net total, added to the document total and posted to the sales tax payable account when the document is issued. US companies only (422 otherwise); invoices and credit notes only.
         public let salesTaxPercent: String?
+        /// The US state the sales tax is collected for, as an ISO 3166-2 code such as `US-CA`; unset means the state of `deliveryAddress` (422 when it has none), else the credited invoice's state for a credit note, else the state of the customer's address (422 without one). When the customer has a certificate of exemption for that state (`partners/sales-tax-exemptions/create`) that covers the sale, no sales tax is charged and the document keeps the certificate's id in `salesTaxExemptionId`.
+        public let salesTaxJurisdiction: String?
+        /// Where the goods or services are delivered, when not at the customer's address; it decides the state of the sales tax when `salesTaxJurisdiction` is not given.
+        public let deliveryAddress: InvoicesCreateSalesRequestDeliveryAddress?
         public let lines: [InvoicesCreateSalesRequestLinesItem]
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -75,6 +79,8 @@ extension Requests {
             receivedByTitle: String? = nil,
             discountPercent: String? = nil,
             salesTaxPercent: String? = nil,
+            salesTaxJurisdiction: String? = nil,
+            deliveryAddress: InvoicesCreateSalesRequestDeliveryAddress? = nil,
             lines: [InvoicesCreateSalesRequestLinesItem],
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -109,6 +115,8 @@ extension Requests {
             self.receivedByTitle = receivedByTitle
             self.discountPercent = discountPercent
             self.salesTaxPercent = salesTaxPercent
+            self.salesTaxJurisdiction = salesTaxJurisdiction
+            self.deliveryAddress = deliveryAddress
             self.lines = lines
             self.additionalProperties = additionalProperties
         }
@@ -146,6 +154,8 @@ extension Requests {
             self.receivedByTitle = try container.decodeIfPresent(String.self, forKey: .receivedByTitle)
             self.discountPercent = try container.decodeIfPresent(String.self, forKey: .discountPercent)
             self.salesTaxPercent = try container.decodeIfPresent(String.self, forKey: .salesTaxPercent)
+            self.salesTaxJurisdiction = try container.decodeIfPresent(String.self, forKey: .salesTaxJurisdiction)
+            self.deliveryAddress = try container.decodeIfPresent(InvoicesCreateSalesRequestDeliveryAddress.self, forKey: .deliveryAddress)
             self.lines = try container.decode([InvoicesCreateSalesRequestLinesItem].self, forKey: .lines)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -184,6 +194,8 @@ extension Requests {
             try container.encodeIfPresent(self.receivedByTitle, forKey: .receivedByTitle)
             try container.encodeIfPresent(self.discountPercent, forKey: .discountPercent)
             try container.encodeIfPresent(self.salesTaxPercent, forKey: .salesTaxPercent)
+            try container.encodeIfPresent(self.salesTaxJurisdiction, forKey: .salesTaxJurisdiction)
+            try container.encodeIfPresent(self.deliveryAddress, forKey: .deliveryAddress)
             try container.encode(self.lines, forKey: .lines)
         }
 
@@ -220,6 +232,8 @@ extension Requests {
             case receivedByTitle
             case discountPercent
             case salesTaxPercent
+            case salesTaxJurisdiction
+            case deliveryAddress
             case lines
         }
     }

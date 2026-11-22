@@ -2213,6 +2213,457 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func salesTaxExemptionsCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "partnerId": "partnerId",
+                  "state": "state",
+                  "reasons": [
+                    "reasons"
+                  ],
+                  "otherReason": "otherReason",
+                  "reasonDetail": "reasonDetail",
+                  "businessType": "businessType",
+                  "otherBusinessType": "otherBusinessType",
+                  "idNumber": "idNumber",
+                  "idIssuedBy": "idIssuedBy",
+                  "singlePurchaseReference": "singlePurchaseReference",
+                  "signedBy": "signedBy",
+                  "signerTitle": "signerTitle",
+                  "signedOn": "signedOn",
+                  "receivedOn": "receivedOn",
+                  "cancelledOn": "cancelledOn"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SalesTaxExemptionsCreatePartnersResponse(
+            id: "id",
+            partnerId: "partnerId",
+            state: "state",
+            reasons: [
+                "reasons"
+            ],
+            otherReason: Nullable<String>.value("otherReason"),
+            reasonDetail: Nullable<String>.value("reasonDetail"),
+            businessType: "businessType",
+            otherBusinessType: Nullable<String>.value("otherBusinessType"),
+            idNumber: "idNumber",
+            idIssuedBy: "idIssuedBy",
+            singlePurchaseReference: Nullable<String>.value("singlePurchaseReference"),
+            signedBy: Nullable<String>.value("signedBy"),
+            signerTitle: Nullable<String>.value("signerTitle"),
+            signedOn: Nullable<String>.value("signedOn"),
+            receivedOn: "receivedOn",
+            cancelledOn: Nullable<String>.value("cancelledOn")
+        )
+        let response = try await client.partners.salesTaxExemptionsCreate(
+            request: .init(
+                partnerId: "partnerId",
+                state: .usAr,
+                reasons: [
+                    .a
+                ],
+                businessType: .ten,
+                idNumber: "idNumber",
+                idIssuedBy: "idIssuedBy",
+                receivedOn: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func salesTaxExemptionsCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "partnerId": "x",
+                  "state": "state",
+                  "reasons": [
+                    "reasons",
+                    "reasons"
+                  ],
+                  "otherReason": "otherReason",
+                  "reasonDetail": "reasonDetail",
+                  "businessType": "businessType",
+                  "otherBusinessType": "otherBusinessType",
+                  "idNumber": "idNumber",
+                  "idIssuedBy": "idIssuedBy",
+                  "singlePurchaseReference": "singlePurchaseReference",
+                  "signedBy": "signedBy",
+                  "signerTitle": "signerTitle",
+                  "signedOn": "signedOn",
+                  "receivedOn": "receivedOn",
+                  "cancelledOn": "cancelledOn"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SalesTaxExemptionsCreatePartnersResponse(
+            id: "x",
+            partnerId: "x",
+            state: "state",
+            reasons: [
+                "reasons",
+                "reasons"
+            ],
+            otherReason: Nullable<String>.value("otherReason"),
+            reasonDetail: Nullable<String>.value("reasonDetail"),
+            businessType: "businessType",
+            otherBusinessType: Nullable<String>.value("otherBusinessType"),
+            idNumber: "idNumber",
+            idIssuedBy: "idIssuedBy",
+            singlePurchaseReference: Nullable<String>.value("singlePurchaseReference"),
+            signedBy: Nullable<String>.value("signedBy"),
+            signerTitle: Nullable<String>.value("signerTitle"),
+            signedOn: Nullable<String>.value("signedOn"),
+            receivedOn: "receivedOn",
+            cancelledOn: Nullable<String>.value("cancelledOn")
+        )
+        let response = try await client.partners.salesTaxExemptionsCreate(
+            request: .init(
+                partnerId: "x",
+                state: .usAr,
+                reasons: [
+                    .a,
+                    .a
+                ],
+                businessType: .ten,
+                idNumber: "x",
+                idIssuedBy: "xy",
+                receivedOn: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func salesTaxExemptionsList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "items": [
+                    {
+                      "id": "id",
+                      "partnerId": "partnerId",
+                      "state": "state",
+                      "reasons": [
+                        "reasons"
+                      ],
+                      "otherReason": "otherReason",
+                      "reasonDetail": "reasonDetail",
+                      "businessType": "businessType",
+                      "otherBusinessType": "otherBusinessType",
+                      "idNumber": "idNumber",
+                      "idIssuedBy": "idIssuedBy",
+                      "singlePurchaseReference": "singlePurchaseReference",
+                      "signedBy": "signedBy",
+                      "signerTitle": "signerTitle",
+                      "signedOn": "signedOn",
+                      "receivedOn": "receivedOn",
+                      "cancelledOn": "cancelledOn"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SalesTaxExemptionsListPartnersResponse(
+            items: [
+                SalesTaxExemptionsListPartnersResponseItemsItem(
+                    id: "id",
+                    partnerId: "partnerId",
+                    state: "state",
+                    reasons: [
+                        "reasons"
+                    ],
+                    otherReason: Nullable<String>.value("otherReason"),
+                    reasonDetail: Nullable<String>.value("reasonDetail"),
+                    businessType: "businessType",
+                    otherBusinessType: Nullable<String>.value("otherBusinessType"),
+                    idNumber: "idNumber",
+                    idIssuedBy: "idIssuedBy",
+                    singlePurchaseReference: Nullable<String>.value("singlePurchaseReference"),
+                    signedBy: Nullable<String>.value("signedBy"),
+                    signerTitle: Nullable<String>.value("signerTitle"),
+                    signedOn: Nullable<String>.value("signedOn"),
+                    receivedOn: "receivedOn",
+                    cancelledOn: Nullable<String>.value("cancelledOn")
+                )
+            ]
+        )
+        let response = try await client.partners.salesTaxExemptionsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func salesTaxExemptionsList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "items": [
+                    {
+                      "id": "x",
+                      "partnerId": "x",
+                      "state": "state",
+                      "reasons": [
+                        "reasons",
+                        "reasons"
+                      ],
+                      "otherReason": "otherReason",
+                      "reasonDetail": "reasonDetail",
+                      "businessType": "businessType",
+                      "otherBusinessType": "otherBusinessType",
+                      "idNumber": "idNumber",
+                      "idIssuedBy": "idIssuedBy",
+                      "singlePurchaseReference": "singlePurchaseReference",
+                      "signedBy": "signedBy",
+                      "signerTitle": "signerTitle",
+                      "signedOn": "signedOn",
+                      "receivedOn": "receivedOn",
+                      "cancelledOn": "cancelledOn"
+                    },
+                    {
+                      "id": "x",
+                      "partnerId": "x",
+                      "state": "state",
+                      "reasons": [
+                        "reasons",
+                        "reasons"
+                      ],
+                      "otherReason": "otherReason",
+                      "reasonDetail": "reasonDetail",
+                      "businessType": "businessType",
+                      "otherBusinessType": "otherBusinessType",
+                      "idNumber": "idNumber",
+                      "idIssuedBy": "idIssuedBy",
+                      "singlePurchaseReference": "singlePurchaseReference",
+                      "signedBy": "signedBy",
+                      "signerTitle": "signerTitle",
+                      "signedOn": "signedOn",
+                      "receivedOn": "receivedOn",
+                      "cancelledOn": "cancelledOn"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SalesTaxExemptionsListPartnersResponse(
+            items: [
+                SalesTaxExemptionsListPartnersResponseItemsItem(
+                    id: "x",
+                    partnerId: "x",
+                    state: "state",
+                    reasons: [
+                        "reasons",
+                        "reasons"
+                    ],
+                    otherReason: Nullable<String>.value("otherReason"),
+                    reasonDetail: Nullable<String>.value("reasonDetail"),
+                    businessType: "businessType",
+                    otherBusinessType: Nullable<String>.value("otherBusinessType"),
+                    idNumber: "idNumber",
+                    idIssuedBy: "idIssuedBy",
+                    singlePurchaseReference: Nullable<String>.value("singlePurchaseReference"),
+                    signedBy: Nullable<String>.value("signedBy"),
+                    signerTitle: Nullable<String>.value("signerTitle"),
+                    signedOn: Nullable<String>.value("signedOn"),
+                    receivedOn: "receivedOn",
+                    cancelledOn: Nullable<String>.value("cancelledOn")
+                ),
+                SalesTaxExemptionsListPartnersResponseItemsItem(
+                    id: "x",
+                    partnerId: "x",
+                    state: "state",
+                    reasons: [
+                        "reasons",
+                        "reasons"
+                    ],
+                    otherReason: Nullable<String>.value("otherReason"),
+                    reasonDetail: Nullable<String>.value("reasonDetail"),
+                    businessType: "businessType",
+                    otherBusinessType: Nullable<String>.value("otherBusinessType"),
+                    idNumber: "idNumber",
+                    idIssuedBy: "idIssuedBy",
+                    singlePurchaseReference: Nullable<String>.value("singlePurchaseReference"),
+                    signedBy: Nullable<String>.value("signedBy"),
+                    signerTitle: Nullable<String>.value("signerTitle"),
+                    signedOn: Nullable<String>.value("signedOn"),
+                    receivedOn: "receivedOn",
+                    cancelledOn: Nullable<String>.value("cancelledOn")
+                )
+            ]
+        )
+        let response = try await client.partners.salesTaxExemptionsList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func salesTaxExemptionsCancel1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "partnerId": "partnerId",
+                  "state": "state",
+                  "reasons": [
+                    "reasons"
+                  ],
+                  "otherReason": "otherReason",
+                  "reasonDetail": "reasonDetail",
+                  "businessType": "businessType",
+                  "otherBusinessType": "otherBusinessType",
+                  "idNumber": "idNumber",
+                  "idIssuedBy": "idIssuedBy",
+                  "singlePurchaseReference": "singlePurchaseReference",
+                  "signedBy": "signedBy",
+                  "signerTitle": "signerTitle",
+                  "signedOn": "signedOn",
+                  "receivedOn": "receivedOn",
+                  "cancelledOn": "cancelledOn"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SalesTaxExemptionsCancelPartnersResponse(
+            id: "id",
+            partnerId: "partnerId",
+            state: "state",
+            reasons: [
+                "reasons"
+            ],
+            otherReason: Nullable<String>.value("otherReason"),
+            reasonDetail: Nullable<String>.value("reasonDetail"),
+            businessType: "businessType",
+            otherBusinessType: Nullable<String>.value("otherBusinessType"),
+            idNumber: "idNumber",
+            idIssuedBy: "idIssuedBy",
+            singlePurchaseReference: Nullable<String>.value("singlePurchaseReference"),
+            signedBy: Nullable<String>.value("signedBy"),
+            signerTitle: Nullable<String>.value("signerTitle"),
+            signedOn: Nullable<String>.value("signedOn"),
+            receivedOn: "receivedOn",
+            cancelledOn: Nullable<String>.value("cancelledOn")
+        )
+        let response = try await client.partners.salesTaxExemptionsCancel(
+            request: .init(
+                id: "id",
+                cancelledOn: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func salesTaxExemptionsCancel2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "partnerId": "x",
+                  "state": "state",
+                  "reasons": [
+                    "reasons",
+                    "reasons"
+                  ],
+                  "otherReason": "otherReason",
+                  "reasonDetail": "reasonDetail",
+                  "businessType": "businessType",
+                  "otherBusinessType": "otherBusinessType",
+                  "idNumber": "idNumber",
+                  "idIssuedBy": "idIssuedBy",
+                  "singlePurchaseReference": "singlePurchaseReference",
+                  "signedBy": "signedBy",
+                  "signerTitle": "signerTitle",
+                  "signedOn": "signedOn",
+                  "receivedOn": "receivedOn",
+                  "cancelledOn": "cancelledOn"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SalesTaxExemptionsCancelPartnersResponse(
+            id: "x",
+            partnerId: "x",
+            state: "state",
+            reasons: [
+                "reasons",
+                "reasons"
+            ],
+            otherReason: Nullable<String>.value("otherReason"),
+            reasonDetail: Nullable<String>.value("reasonDetail"),
+            businessType: "businessType",
+            otherBusinessType: Nullable<String>.value("otherBusinessType"),
+            idNumber: "idNumber",
+            idIssuedBy: "idIssuedBy",
+            singlePurchaseReference: Nullable<String>.value("singlePurchaseReference"),
+            signedBy: Nullable<String>.value("signedBy"),
+            signerTitle: Nullable<String>.value("signerTitle"),
+            signedOn: Nullable<String>.value("signedOn"),
+            receivedOn: "receivedOn",
+            cancelledOn: Nullable<String>.value("cancelledOn")
+        )
+        let response = try await client.partners.salesTaxExemptionsCancel(
+            request: .init(
+                id: "x",
+                cancelledOn: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func vatReviewsList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -2601,6 +3052,9 @@ import Api
                   "isGroupMember": true,
                   "isActive": true,
                   "legalCountryClass": "lt",
+                  "identifiers": {
+                    "key": "value"
+                  },
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z"
                 }
@@ -2669,6 +3123,9 @@ import Api
             isGroupMember: true,
             isActive: true,
             legalCountryClass: Nullable<CreatePartnersResponseLegalCountryClass>.value(.lt),
+            identifiers: [
+                "key": "value"
+            ],
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
@@ -2741,6 +3198,9 @@ import Api
                   "isGroupMember": true,
                   "isActive": true,
                   "legalCountryClass": "lt",
+                  "identifiers": {
+                    "identifiers": "identifiers"
+                  },
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z"
                 }
@@ -2809,6 +3269,9 @@ import Api
             isGroupMember: true,
             isActive: true,
             legalCountryClass: Nullable<CreatePartnersResponseLegalCountryClass>.value(.lt),
+            identifiers: [
+                "identifiers": "identifiers"
+            ],
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
@@ -2883,6 +3346,9 @@ import Api
                     "isGroupMember": true,
                     "isActive": true,
                     "legalCountryClass": "lt",
+                    "identifiers": {
+                      "key": "value"
+                    },
                     "createdAt": "2026-07-01T09:30:00Z",
                     "updatedAt": "2026-07-01T09:30:00Z"
                   }
@@ -2954,6 +3420,9 @@ import Api
                 isGroupMember: true,
                 isActive: true,
                 legalCountryClass: Nullable<FindOrCreatePartnersResponsePartnerLegalCountryClass>.value(.lt),
+                identifiers: [
+                    "key": "value"
+                ],
                 createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                 updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
             )
@@ -3029,6 +3498,9 @@ import Api
                     "isGroupMember": true,
                     "isActive": true,
                     "legalCountryClass": "lt",
+                    "identifiers": {
+                      "identifiers": "identifiers"
+                    },
                     "createdAt": "2024-01-15T09:30:00Z",
                     "updatedAt": "2024-01-15T09:30:00Z"
                   }
@@ -3100,6 +3572,9 @@ import Api
                 isGroupMember: true,
                 isActive: true,
                 legalCountryClass: Nullable<FindOrCreatePartnersResponsePartnerLegalCountryClass>.value(.lt),
+                identifiers: [
+                    "identifiers": "identifiers"
+                ],
                 createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                 updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
             )
@@ -3173,6 +3648,9 @@ import Api
                   "isGroupMember": true,
                   "isActive": true,
                   "legalCountryClass": "lt",
+                  "identifiers": {
+                    "key": "value"
+                  },
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z"
                 }
@@ -3241,6 +3719,9 @@ import Api
             isGroupMember: true,
             isActive: true,
             legalCountryClass: Nullable<GetPartnersResponseLegalCountryClass>.value(.lt),
+            identifiers: [
+                "key": "value"
+            ],
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
@@ -3313,6 +3794,9 @@ import Api
                   "isGroupMember": true,
                   "isActive": true,
                   "legalCountryClass": "lt",
+                  "identifiers": {
+                    "identifiers": "identifiers"
+                  },
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z"
                 }
@@ -3381,6 +3865,9 @@ import Api
             isGroupMember: true,
             isActive: true,
             legalCountryClass: Nullable<GetPartnersResponseLegalCountryClass>.value(.lt),
+            identifiers: [
+                "identifiers": "identifiers"
+            ],
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
@@ -3453,6 +3940,9 @@ import Api
                   "isGroupMember": true,
                   "isActive": true,
                   "legalCountryClass": "lt",
+                  "identifiers": {
+                    "key": "value"
+                  },
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z"
                 }
@@ -3521,6 +4011,9 @@ import Api
             isGroupMember: true,
             isActive: true,
             legalCountryClass: Nullable<UpdatePartnersResponseLegalCountryClass>.value(.lt),
+            identifiers: [
+                "key": "value"
+            ],
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
@@ -3593,6 +4086,9 @@ import Api
                   "isGroupMember": true,
                   "isActive": true,
                   "legalCountryClass": "lt",
+                  "identifiers": {
+                    "identifiers": "identifiers"
+                  },
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z"
                 }
@@ -3661,6 +4157,9 @@ import Api
             isGroupMember: true,
             isActive: true,
             legalCountryClass: Nullable<UpdatePartnersResponseLegalCountryClass>.value(.lt),
+            identifiers: [
+                "identifiers": "identifiers"
+            ],
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
@@ -3927,6 +4426,9 @@ import Api
                       "isGroupMember": true,
                       "isActive": true,
                       "legalCountryClass": "lt",
+                      "identifiers": {
+                        "key": "value"
+                      },
                       "createdAt": "2026-07-01T09:30:00Z",
                       "updatedAt": "2026-07-01T09:30:00Z"
                     }
@@ -3998,6 +4500,9 @@ import Api
                     isGroupMember: true,
                     isActive: true,
                     legalCountryClass: Nullable<ListPartnersResponseRowsItemLegalCountryClass>.value(.lt),
+                    identifiers: [
+                        "key": "value"
+                    ],
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
@@ -4085,6 +4590,9 @@ import Api
                       "isGroupMember": true,
                       "isActive": true,
                       "legalCountryClass": "lt",
+                      "identifiers": {
+                        "identifiers": "identifiers"
+                      },
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z"
                     },
@@ -4145,6 +4653,9 @@ import Api
                       "isGroupMember": true,
                       "isActive": true,
                       "legalCountryClass": "lt",
+                      "identifiers": {
+                        "identifiers": "identifiers"
+                      },
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z"
                     }
@@ -4228,6 +4739,9 @@ import Api
                     isGroupMember: true,
                     isActive: true,
                     legalCountryClass: Nullable<ListPartnersResponseRowsItemLegalCountryClass>.value(.lt),
+                    identifiers: [
+                        "identifiers": "identifiers"
+                    ],
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
@@ -4288,6 +4802,9 @@ import Api
                     isGroupMember: true,
                     isActive: true,
                     legalCountryClass: Nullable<ListPartnersResponseRowsItemLegalCountryClass>.value(.lt),
+                    identifiers: [
+                        "identifiers": "identifiers"
+                    ],
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )

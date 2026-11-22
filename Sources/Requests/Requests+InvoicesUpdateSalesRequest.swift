@@ -29,6 +29,9 @@ extension Requests {
         public let receivedByName: Nullable<String>?
         public let receivedByTitle: Nullable<String>?
         public let salesTaxPercent: Nullable<String>?
+        /// The US state the sales tax is collected for, as an ISO 3166-2 code such as `US-CA`
+        public let salesTaxJurisdiction: Nullable<String>?
+        public let deliveryAddress: Nullable<InvoicesUpdateSalesRequestDeliveryAddress>?
         public let lines: [InvoicesUpdateSalesRequestLinesItem]?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
@@ -61,6 +64,8 @@ extension Requests {
             receivedByName: Nullable<String>? = nil,
             receivedByTitle: Nullable<String>? = nil,
             salesTaxPercent: Nullable<String>? = nil,
+            salesTaxJurisdiction: Nullable<String>? = nil,
+            deliveryAddress: Nullable<InvoicesUpdateSalesRequestDeliveryAddress>? = nil,
             lines: [InvoicesUpdateSalesRequestLinesItem]? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
@@ -91,6 +96,8 @@ extension Requests {
             self.receivedByName = receivedByName
             self.receivedByTitle = receivedByTitle
             self.salesTaxPercent = salesTaxPercent
+            self.salesTaxJurisdiction = salesTaxJurisdiction
+            self.deliveryAddress = deliveryAddress
             self.lines = lines
             self.additionalProperties = additionalProperties
         }
@@ -124,6 +131,8 @@ extension Requests {
             self.receivedByName = try container.decodeNullableIfPresent(String.self, forKey: .receivedByName)
             self.receivedByTitle = try container.decodeNullableIfPresent(String.self, forKey: .receivedByTitle)
             self.salesTaxPercent = try container.decodeNullableIfPresent(String.self, forKey: .salesTaxPercent)
+            self.salesTaxJurisdiction = try container.decodeNullableIfPresent(String.self, forKey: .salesTaxJurisdiction)
+            self.deliveryAddress = try container.decodeNullableIfPresent(InvoicesUpdateSalesRequestDeliveryAddress.self, forKey: .deliveryAddress)
             self.lines = try container.decodeIfPresent([InvoicesUpdateSalesRequestLinesItem].self, forKey: .lines)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
@@ -158,6 +167,8 @@ extension Requests {
             try container.encodeNullableIfPresent(self.receivedByName, forKey: .receivedByName)
             try container.encodeNullableIfPresent(self.receivedByTitle, forKey: .receivedByTitle)
             try container.encodeNullableIfPresent(self.salesTaxPercent, forKey: .salesTaxPercent)
+            try container.encodeNullableIfPresent(self.salesTaxJurisdiction, forKey: .salesTaxJurisdiction)
+            try container.encodeNullableIfPresent(self.deliveryAddress, forKey: .deliveryAddress)
             try container.encodeIfPresent(self.lines, forKey: .lines)
         }
 
@@ -190,6 +201,8 @@ extension Requests {
             case receivedByName
             case receivedByTitle
             case salesTaxPercent
+            case salesTaxJurisdiction
+            case deliveryAddress
             case lines
         }
     }
