@@ -17,6 +17,10 @@ public struct AccountsCreateBankResponsePaymentFileSettings: Codable, Hashable, 
     public let companyName: String?
     /// Nacha: the Company Discretionary Data the bank asks for
     public let companyDiscretionaryData: String?
+    /// pain.001: the BIC of the bank that holds this account, written as the debtor agent; required for a SEK supplier file from a Swedish account
+    public let bic: String?
+    /// pain.001: the identifier the bank gave the company for file payments (at Swedbank the agreement ID), written as InitgPty/Id/OrgId/Othr with scheme BANK
+    public let initiatingPartyBankId: String?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -29,6 +33,8 @@ public struct AccountsCreateBankResponsePaymentFileSettings: Codable, Hashable, 
         companyIdentification: String? = nil,
         companyName: String? = nil,
         companyDiscretionaryData: String? = nil,
+        bic: String? = nil,
+        initiatingPartyBankId: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.serviceUserNumber = serviceUserNumber
@@ -39,6 +45,8 @@ public struct AccountsCreateBankResponsePaymentFileSettings: Codable, Hashable, 
         self.companyIdentification = companyIdentification
         self.companyName = companyName
         self.companyDiscretionaryData = companyDiscretionaryData
+        self.bic = bic
+        self.initiatingPartyBankId = initiatingPartyBankId
         self.additionalProperties = additionalProperties
     }
 
@@ -52,6 +60,8 @@ public struct AccountsCreateBankResponsePaymentFileSettings: Codable, Hashable, 
         self.companyIdentification = try container.decodeIfPresent(String.self, forKey: .companyIdentification)
         self.companyName = try container.decodeIfPresent(String.self, forKey: .companyName)
         self.companyDiscretionaryData = try container.decodeIfPresent(String.self, forKey: .companyDiscretionaryData)
+        self.bic = try container.decodeIfPresent(String.self, forKey: .bic)
+        self.initiatingPartyBankId = try container.decodeIfPresent(String.self, forKey: .initiatingPartyBankId)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -66,6 +76,8 @@ public struct AccountsCreateBankResponsePaymentFileSettings: Codable, Hashable, 
         try container.encodeIfPresent(self.companyIdentification, forKey: .companyIdentification)
         try container.encodeIfPresent(self.companyName, forKey: .companyName)
         try container.encodeIfPresent(self.companyDiscretionaryData, forKey: .companyDiscretionaryData)
+        try container.encodeIfPresent(self.bic, forKey: .bic)
+        try container.encodeIfPresent(self.initiatingPartyBankId, forKey: .initiatingPartyBankId)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -78,5 +90,7 @@ public struct AccountsCreateBankResponsePaymentFileSettings: Codable, Hashable, 
         case companyIdentification
         case companyName
         case companyDiscretionaryData
+        case bic
+        case initiatingPartyBankId
     }
 }

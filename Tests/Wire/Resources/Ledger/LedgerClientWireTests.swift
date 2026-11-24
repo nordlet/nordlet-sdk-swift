@@ -2582,6 +2582,515 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func journalTemplatesCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "name": "name",
+                  "description": "description",
+                  "lines": [
+                    {
+                      "accountCode": "accountCode",
+                      "side": "debit",
+                      "description": "description",
+                      "costCenterId": "costCenterId",
+                      "projectId": "projectId",
+                      "partnerId": "partnerId"
+                    }
+                  ],
+                  "createdAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = JournalTemplatesCreateLedgerResponse(
+            id: "id",
+            name: "name",
+            description: Nullable<String>.value("description"),
+            lines: [
+                JournalTemplatesCreateLedgerResponseLinesItem(
+                    accountCode: "accountCode",
+                    side: .debit,
+                    description: Optional("description"),
+                    costCenterId: Optional("costCenterId"),
+                    projectId: Optional("projectId"),
+                    partnerId: Optional("partnerId")
+                )
+            ],
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.ledger.journalTemplatesCreate(
+            request: .init(
+                name: "name",
+                lines: [
+                    JournalTemplatesCreateLedgerRequestLinesItem(
+                        accountCode: "accountCode",
+                        side: .debit
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func journalTemplatesCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "name": "name",
+                  "description": "description",
+                  "lines": [
+                    {
+                      "accountCode": "x",
+                      "side": "debit",
+                      "description": "description",
+                      "costCenterId": "x",
+                      "projectId": "x",
+                      "partnerId": "x"
+                    },
+                    {
+                      "accountCode": "x",
+                      "side": "debit",
+                      "description": "description",
+                      "costCenterId": "x",
+                      "projectId": "x",
+                      "partnerId": "x"
+                    }
+                  ],
+                  "createdAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = JournalTemplatesCreateLedgerResponse(
+            id: "x",
+            name: "name",
+            description: Nullable<String>.value("description"),
+            lines: [
+                JournalTemplatesCreateLedgerResponseLinesItem(
+                    accountCode: "x",
+                    side: .debit,
+                    description: Optional("description"),
+                    costCenterId: Optional("x"),
+                    projectId: Optional("x"),
+                    partnerId: Optional("x")
+                ),
+                JournalTemplatesCreateLedgerResponseLinesItem(
+                    accountCode: "x",
+                    side: .debit,
+                    description: Optional("description"),
+                    costCenterId: Optional("x"),
+                    projectId: Optional("x"),
+                    partnerId: Optional("x")
+                )
+            ],
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.ledger.journalTemplatesCreate(
+            request: .init(
+                name: "x",
+                lines: [
+                    JournalTemplatesCreateLedgerRequestLinesItem(
+                        accountCode: "x",
+                        side: .debit
+                    ),
+                    JournalTemplatesCreateLedgerRequestLinesItem(
+                        accountCode: "x",
+                        side: .debit
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func journalTemplatesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "name": "name",
+                      "description": "description",
+                      "lines": [
+                        {
+                          "accountCode": "accountCode",
+                          "side": "debit"
+                        }
+                      ],
+                      "createdAt": "2026-07-01T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "key": "value"
+                  },
+                  "totalsByCurrency": {
+                    "key": {
+                      "key": "value"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = JournalTemplatesListLedgerResponse(
+            rows: [
+                JournalTemplatesListLedgerResponseRowsItem(
+                    id: "id",
+                    name: "name",
+                    description: Nullable<String>.value("description"),
+                    lines: [
+                        JournalTemplatesListLedgerResponseRowsItemLinesItem(
+                            accountCode: "accountCode",
+                            side: .debit
+                        )
+                    ],
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "key": "value"
+            ]),
+            totalsByCurrency: Optional([
+                "key": [
+                    "key": "value"
+                ]
+            ])
+        )
+        let response = try await client.ledger.journalTemplatesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func journalTemplatesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "description": "description",
+                      "lines": [
+                        {
+                          "accountCode": "x",
+                          "side": "debit",
+                          "description": "description",
+                          "costCenterId": "x",
+                          "projectId": "x",
+                          "partnerId": "x"
+                        },
+                        {
+                          "accountCode": "x",
+                          "side": "debit",
+                          "description": "description",
+                          "costCenterId": "x",
+                          "projectId": "x",
+                          "partnerId": "x"
+                        }
+                      ],
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "name": "name",
+                      "description": "description",
+                      "lines": [
+                        {
+                          "accountCode": "x",
+                          "side": "debit",
+                          "description": "description",
+                          "costCenterId": "x",
+                          "projectId": "x",
+                          "partnerId": "x"
+                        },
+                        {
+                          "accountCode": "x",
+                          "side": "debit",
+                          "description": "description",
+                          "costCenterId": "x",
+                          "projectId": "x",
+                          "partnerId": "x"
+                        }
+                      ],
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    }
+                  ],
+                  "page": 1000000,
+                  "pageSize": 1000000,
+                  "total": 1000000,
+                  "totals": {
+                    "totals": "totals"
+                  },
+                  "totalsByCurrency": {
+                    "totalsByCurrency": {
+                      "totalsByCurrency": "totalsByCurrency"
+                    }
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = JournalTemplatesListLedgerResponse(
+            rows: [
+                JournalTemplatesListLedgerResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    description: Nullable<String>.value("description"),
+                    lines: [
+                        JournalTemplatesListLedgerResponseRowsItemLinesItem(
+                            accountCode: "x",
+                            side: .debit,
+                            description: Optional("description"),
+                            costCenterId: Optional("x"),
+                            projectId: Optional("x"),
+                            partnerId: Optional("x")
+                        ),
+                        JournalTemplatesListLedgerResponseRowsItemLinesItem(
+                            accountCode: "x",
+                            side: .debit,
+                            description: Optional("description"),
+                            costCenterId: Optional("x"),
+                            projectId: Optional("x"),
+                            partnerId: Optional("x")
+                        )
+                    ],
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                JournalTemplatesListLedgerResponseRowsItem(
+                    id: "x",
+                    name: "name",
+                    description: Nullable<String>.value("description"),
+                    lines: [
+                        JournalTemplatesListLedgerResponseRowsItemLinesItem(
+                            accountCode: "x",
+                            side: .debit,
+                            description: Optional("description"),
+                            costCenterId: Optional("x"),
+                            projectId: Optional("x"),
+                            partnerId: Optional("x")
+                        ),
+                        JournalTemplatesListLedgerResponseRowsItemLinesItem(
+                            accountCode: "x",
+                            side: .debit,
+                            description: Optional("description"),
+                            costCenterId: Optional("x"),
+                            projectId: Optional("x"),
+                            partnerId: Optional("x")
+                        )
+                    ],
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ],
+            page: 1000000,
+            pageSize: 1000000,
+            total: 1000000,
+            totals: Optional([
+                "totals": "totals"
+            ]),
+            totalsByCurrency: Optional([
+                "totalsByCurrency": [
+                    "totalsByCurrency": "totalsByCurrency"
+                ]
+            ])
+        )
+        let response = try await client.ledger.journalTemplatesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func journalTemplatesDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = JournalTemplatesDeleteLedgerResponse(
+            deleted: true
+        )
+        let response = try await client.ledger.journalTemplatesDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func journalTemplatesDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "deleted": true
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = JournalTemplatesDeleteLedgerResponse(
+            deleted: true
+        )
+        let response = try await client.ledger.journalTemplatesDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func journalTemplatesPost1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "date": "2026-07-01",
+                  "description": "description",
+                  "documentType": "documentType",
+                  "documentId": "documentId",
+                  "partnerId": "partnerId",
+                  "status": "draft",
+                  "createdAt": "2026-07-01T09:30:00Z",
+                  "postedAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = JournalTemplatesPostLedgerResponse(
+            id: "id",
+            date: CalendarDate("2026-07-01")!,
+            description: Nullable<String>.value("description"),
+            documentType: Nullable<String>.value("documentType"),
+            documentId: Nullable<String>.value("documentId"),
+            partnerId: Nullable<String>.value("partnerId"),
+            status: .draft,
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
+            postedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601))
+        )
+        let response = try await client.ledger.journalTemplatesPost(
+            request: .init(
+                id: "id",
+                date: CalendarDate("2026-07-01")!,
+                amounts: [
+                    "121.0000"
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func journalTemplatesPost2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "date": "2023-01-15",
+                  "description": "description",
+                  "documentType": "documentType",
+                  "documentId": "x",
+                  "partnerId": "x",
+                  "status": "draft",
+                  "createdAt": "2024-01-15T09:30:00Z",
+                  "postedAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = JournalTemplatesPostLedgerResponse(
+            id: "x",
+            date: CalendarDate("2023-01-15")!,
+            description: Nullable<String>.value("description"),
+            documentType: Nullable<String>.value("documentType"),
+            documentId: Nullable<String>.value("x"),
+            partnerId: Nullable<String>.value("x"),
+            status: .draft,
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
+            postedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601))
+        )
+        let response = try await client.ledger.journalTemplatesPost(
+            request: .init(
+                id: "x",
+                date: CalendarDate("2023-01-15")!,
+                amounts: [
+                    "amounts",
+                    "amounts"
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func journalTransactionsReverse1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

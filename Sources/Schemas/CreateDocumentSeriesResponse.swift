@@ -13,6 +13,7 @@ public struct CreateDocumentSeriesResponse: Codable, Hashable, Sendable {
     public let allocatedTo: Nullable<Int64>
     public let warehouseId: Nullable<String>
     public let printSeries: Bool
+    public let suffix: String
     public let isDefault: Bool
     public let isActive: Bool
     public let createdAt: Date
@@ -33,6 +34,7 @@ public struct CreateDocumentSeriesResponse: Codable, Hashable, Sendable {
         allocatedTo: Nullable<Int64>,
         warehouseId: Nullable<String>,
         printSeries: Bool,
+        suffix: String,
         isDefault: Bool,
         isActive: Bool,
         createdAt: Date,
@@ -51,6 +53,7 @@ public struct CreateDocumentSeriesResponse: Codable, Hashable, Sendable {
         self.allocatedTo = allocatedTo
         self.warehouseId = warehouseId
         self.printSeries = printSeries
+        self.suffix = suffix
         self.isDefault = isDefault
         self.isActive = isActive
         self.createdAt = createdAt
@@ -72,6 +75,7 @@ public struct CreateDocumentSeriesResponse: Codable, Hashable, Sendable {
         self.allocatedTo = try container.decode(Nullable<Int64>.self, forKey: .allocatedTo)
         self.warehouseId = try container.decode(Nullable<String>.self, forKey: .warehouseId)
         self.printSeries = try container.decode(Bool.self, forKey: .printSeries)
+        self.suffix = try container.decode(String.self, forKey: .suffix)
         self.isDefault = try container.decode(Bool.self, forKey: .isDefault)
         self.isActive = try container.decode(Bool.self, forKey: .isActive)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
@@ -94,6 +98,7 @@ public struct CreateDocumentSeriesResponse: Codable, Hashable, Sendable {
         try container.encode(self.allocatedTo, forKey: .allocatedTo)
         try container.encode(self.warehouseId, forKey: .warehouseId)
         try container.encode(self.printSeries, forKey: .printSeries)
+        try container.encode(self.suffix, forKey: .suffix)
         try container.encode(self.isDefault, forKey: .isDefault)
         try container.encode(self.isActive, forKey: .isActive)
         try container.encode(self.createdAt, forKey: .createdAt)
@@ -114,6 +119,7 @@ public struct CreateDocumentSeriesResponse: Codable, Hashable, Sendable {
         case allocatedTo
         case warehouseId
         case printSeries
+        case suffix
         case isDefault
         case isActive
         case createdAt

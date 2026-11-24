@@ -1,0 +1,50 @@
+import Foundation
+
+public struct EeTsdAnnexesSetDeclarationsResponse: Codable, Hashable, Sendable {
+    public let year: Int64
+    public let month: Int64
+    public let input: EeTsdAnnexesSetDeclarationsResponseInput
+    public let annexes: Nullable<EeTsdAnnexesSetDeclarationsResponseAnnexes>
+    /// Additional properties that are not explicitly defined in the schema
+    public let additionalProperties: [String: JSONValue]
+
+    public init(
+        year: Int64,
+        month: Int64,
+        input: EeTsdAnnexesSetDeclarationsResponseInput,
+        annexes: Nullable<EeTsdAnnexesSetDeclarationsResponseAnnexes>,
+        additionalProperties: [String: JSONValue] = .init()
+    ) {
+        self.year = year
+        self.month = month
+        self.input = input
+        self.annexes = annexes
+        self.additionalProperties = additionalProperties
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.year = try container.decode(Int64.self, forKey: .year)
+        self.month = try container.decode(Int64.self, forKey: .month)
+        self.input = try container.decode(EeTsdAnnexesSetDeclarationsResponseInput.self, forKey: .input)
+        self.annexes = try container.decode(Nullable<EeTsdAnnexesSetDeclarationsResponseAnnexes>.self, forKey: .annexes)
+        self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
+    }
+
+    public func encode(to encoder: Encoder) throws -> Void {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try encoder.encodeAdditionalProperties(self.additionalProperties)
+        try container.encode(self.year, forKey: .year)
+        try container.encode(self.month, forKey: .month)
+        try container.encode(self.input, forKey: .input)
+        try container.encode(self.annexes, forKey: .annexes)
+    }
+
+    /// Keys for encoding/decoding struct properties.
+    enum CodingKeys: String, CodingKey, CaseIterable {
+        case year
+        case month
+        case input
+        case annexes
+    }
+}

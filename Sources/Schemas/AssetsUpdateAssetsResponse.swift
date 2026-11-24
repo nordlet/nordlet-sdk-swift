@@ -28,6 +28,7 @@ public struct AssetsUpdateAssetsResponse: Codable, Hashable, Sendable {
     public let disposalProceeds: Nullable<String>
     public let disposalJournalTransactionId: Nullable<String>
     public let disposalSaleInvoiceId: Nullable<String>
+    public let purchaseInvoiceLineId: Nullable<String>
     public let createdAt: Date
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
@@ -60,6 +61,7 @@ public struct AssetsUpdateAssetsResponse: Codable, Hashable, Sendable {
         disposalProceeds: Nullable<String>,
         disposalJournalTransactionId: Nullable<String>,
         disposalSaleInvoiceId: Nullable<String>,
+        purchaseInvoiceLineId: Nullable<String>,
         createdAt: Date,
         additionalProperties: [String: JSONValue] = .init()
     ) {
@@ -90,6 +92,7 @@ public struct AssetsUpdateAssetsResponse: Codable, Hashable, Sendable {
         self.disposalProceeds = disposalProceeds
         self.disposalJournalTransactionId = disposalJournalTransactionId
         self.disposalSaleInvoiceId = disposalSaleInvoiceId
+        self.purchaseInvoiceLineId = purchaseInvoiceLineId
         self.createdAt = createdAt
         self.additionalProperties = additionalProperties
     }
@@ -123,6 +126,7 @@ public struct AssetsUpdateAssetsResponse: Codable, Hashable, Sendable {
         self.disposalProceeds = try container.decode(Nullable<String>.self, forKey: .disposalProceeds)
         self.disposalJournalTransactionId = try container.decode(Nullable<String>.self, forKey: .disposalJournalTransactionId)
         self.disposalSaleInvoiceId = try container.decode(Nullable<String>.self, forKey: .disposalSaleInvoiceId)
+        self.purchaseInvoiceLineId = try container.decode(Nullable<String>.self, forKey: .purchaseInvoiceLineId)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
@@ -157,6 +161,7 @@ public struct AssetsUpdateAssetsResponse: Codable, Hashable, Sendable {
         try container.encode(self.disposalProceeds, forKey: .disposalProceeds)
         try container.encode(self.disposalJournalTransactionId, forKey: .disposalJournalTransactionId)
         try container.encode(self.disposalSaleInvoiceId, forKey: .disposalSaleInvoiceId)
+        try container.encode(self.purchaseInvoiceLineId, forKey: .purchaseInvoiceLineId)
         try container.encode(self.createdAt, forKey: .createdAt)
     }
 
@@ -189,6 +194,7 @@ public struct AssetsUpdateAssetsResponse: Codable, Hashable, Sendable {
         case disposalProceeds
         case disposalJournalTransactionId
         case disposalSaleInvoiceId
+        case purchaseInvoiceLineId
         case createdAt
     }
 }

@@ -5,6 +5,7 @@ public enum PostingRulesUpdateLedgerRequestRulesItemKey: String, Codable, Hashab
     case salesRevenueProducts = "sales.revenueProducts"
     case salesRevenueServices = "sales.revenueServices"
     case salesVatPayable = "sales.vatPayable"
+    case salesOssVatPayable = "sales.ossVatPayable"
     case salesAdvancesReceived = "sales.advancesReceived"
     case purchasesPayables = "purchases.payables"
     case purchasesAdvancesPaid = "purchases.advancesPaid"

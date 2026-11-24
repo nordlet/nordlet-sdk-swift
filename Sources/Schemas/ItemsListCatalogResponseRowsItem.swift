@@ -13,6 +13,7 @@ public struct ItemsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
     public let salePriceExclVat: Nullable<String>
     public let purchasePriceExclVat: Nullable<String>
     public let cnCode: Nullable<String>
+    public let cpaCode: Nullable<String>
     public let originCountry: Nullable<String>
     public let netMassKg: Nullable<String>
     public let supplementaryUnit: Nullable<String>
@@ -69,6 +70,7 @@ public struct ItemsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         salePriceExclVat: Nullable<String>,
         purchasePriceExclVat: Nullable<String>,
         cnCode: Nullable<String>,
+        cpaCode: Nullable<String>,
         originCountry: Nullable<String>,
         netMassKg: Nullable<String>,
         supplementaryUnit: Nullable<String>,
@@ -123,6 +125,7 @@ public struct ItemsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         self.salePriceExclVat = salePriceExclVat
         self.purchasePriceExclVat = purchasePriceExclVat
         self.cnCode = cnCode
+        self.cpaCode = cpaCode
         self.originCountry = originCountry
         self.netMassKg = netMassKg
         self.supplementaryUnit = supplementaryUnit
@@ -180,6 +183,7 @@ public struct ItemsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         self.salePriceExclVat = try container.decode(Nullable<String>.self, forKey: .salePriceExclVat)
         self.purchasePriceExclVat = try container.decode(Nullable<String>.self, forKey: .purchasePriceExclVat)
         self.cnCode = try container.decode(Nullable<String>.self, forKey: .cnCode)
+        self.cpaCode = try container.decode(Nullable<String>.self, forKey: .cpaCode)
         self.originCountry = try container.decode(Nullable<String>.self, forKey: .originCountry)
         self.netMassKg = try container.decode(Nullable<String>.self, forKey: .netMassKg)
         self.supplementaryUnit = try container.decode(Nullable<String>.self, forKey: .supplementaryUnit)
@@ -238,6 +242,7 @@ public struct ItemsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         try container.encode(self.salePriceExclVat, forKey: .salePriceExclVat)
         try container.encode(self.purchasePriceExclVat, forKey: .purchasePriceExclVat)
         try container.encode(self.cnCode, forKey: .cnCode)
+        try container.encode(self.cpaCode, forKey: .cpaCode)
         try container.encode(self.originCountry, forKey: .originCountry)
         try container.encode(self.netMassKg, forKey: .netMassKg)
         try container.encode(self.supplementaryUnit, forKey: .supplementaryUnit)
@@ -294,6 +299,7 @@ public struct ItemsListCatalogResponseRowsItem: Codable, Hashable, Sendable {
         case salePriceExclVat
         case purchasePriceExclVat
         case cnCode
+        case cpaCode
         case originCountry
         case netMassKg
         case supplementaryUnit

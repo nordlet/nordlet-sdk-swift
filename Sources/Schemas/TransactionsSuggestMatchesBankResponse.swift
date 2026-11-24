@@ -2,20 +2,28 @@ import Foundation
 
 public struct TransactionsSuggestMatchesBankResponse: Codable, Hashable, Sendable {
     public let suggestions: [TransactionsSuggestMatchesBankResponseSuggestionsItem]
+    public let allocations: Nullable<[TransactionsSuggestMatchesBankResponseAllocationsItem]>
+    public let postingRules: [TransactionsSuggestMatchesBankResponsePostingRulesItem]
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
     public init(
         suggestions: [TransactionsSuggestMatchesBankResponseSuggestionsItem],
+        allocations: Nullable<[TransactionsSuggestMatchesBankResponseAllocationsItem]>,
+        postingRules: [TransactionsSuggestMatchesBankResponsePostingRulesItem],
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.suggestions = suggestions
+        self.allocations = allocations
+        self.postingRules = postingRules
         self.additionalProperties = additionalProperties
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.suggestions = try container.decode([TransactionsSuggestMatchesBankResponseSuggestionsItem].self, forKey: .suggestions)
+        self.allocations = try container.decode(Nullable<[TransactionsSuggestMatchesBankResponseAllocationsItem]>.self, forKey: .allocations)
+        self.postingRules = try container.decode([TransactionsSuggestMatchesBankResponsePostingRulesItem].self, forKey: .postingRules)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -23,10 +31,14 @@ public struct TransactionsSuggestMatchesBankResponse: Codable, Hashable, Sendabl
         var container = encoder.container(keyedBy: CodingKeys.self)
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.suggestions, forKey: .suggestions)
+        try container.encode(self.allocations, forKey: .allocations)
+        try container.encode(self.postingRules, forKey: .postingRules)
     }
 
     /// Keys for encoding/decoding struct properties.
     enum CodingKeys: String, CodingKey, CaseIterable {
         case suggestions
+        case allocations
+        case postingRules
     }
 }

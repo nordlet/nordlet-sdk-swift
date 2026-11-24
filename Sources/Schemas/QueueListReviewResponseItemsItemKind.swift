@@ -5,4 +5,5 @@ public enum QueueListReviewResponseItemsItemKind: String, Codable, Hashable, Cas
     case bankTransactionUnbooked = "bank_transaction_unbooked"
     case partnerVatInvalid = "partner_vat_invalid"
     case filingSettingsMissing = "filing_settings_missing"
+    case fileUnattached = "file_unattached"
 }

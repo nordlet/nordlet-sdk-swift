@@ -10,4 +10,7 @@ public enum PeriodChecklistReportsResponseItemsItemCode: String, Codable, Hashab
     case payrollRunsNotApproved = "payroll_runs_not_approved"
     case openFxReceivables = "open_fx_receivables"
     case openFxPayables = "open_fx_payables"
+    case bankLedgerDiffersFromStatement = "bank_ledger_differs_from_statement"
+    case vatOutsideReturns = "vat_outside_returns"
+    case filingSettingsMissing = "filing_settings_missing"
 }

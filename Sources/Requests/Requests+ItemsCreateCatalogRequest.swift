@@ -7,12 +7,15 @@ extension Requests {
         public let name: String
         public let code: String?
         public let barcode: String?
+        /// Unit of measure; without it `vnt` for a Lithuanian company and `pcs` for any other
         public let unit: String?
         public let vatClassifierCode: String?
         public let vatRatePercent: String?
         public let salePriceExclVat: String?
         public let purchasePriceExclVat: String?
         public let cnCode: String?
+        /// CPA code of a service, six digits without dots (62.01.11 is 620111); the Italian Intrastat list of services needs it
+        public let cpaCode: String?
         public let originCountry: String?
         public let netMassKg: String?
         public let supplementaryUnit: String?
@@ -65,6 +68,7 @@ extension Requests {
             salePriceExclVat: String? = nil,
             purchasePriceExclVat: String? = nil,
             cnCode: String? = nil,
+            cpaCode: String? = nil,
             originCountry: String? = nil,
             netMassKg: String? = nil,
             supplementaryUnit: String? = nil,
@@ -115,6 +119,7 @@ extension Requests {
             self.salePriceExclVat = salePriceExclVat
             self.purchasePriceExclVat = purchasePriceExclVat
             self.cnCode = cnCode
+            self.cpaCode = cpaCode
             self.originCountry = originCountry
             self.netMassKg = netMassKg
             self.supplementaryUnit = supplementaryUnit
@@ -168,6 +173,7 @@ extension Requests {
             self.salePriceExclVat = try container.decodeIfPresent(String.self, forKey: .salePriceExclVat)
             self.purchasePriceExclVat = try container.decodeIfPresent(String.self, forKey: .purchasePriceExclVat)
             self.cnCode = try container.decodeIfPresent(String.self, forKey: .cnCode)
+            self.cpaCode = try container.decodeIfPresent(String.self, forKey: .cpaCode)
             self.originCountry = try container.decodeIfPresent(String.self, forKey: .originCountry)
             self.netMassKg = try container.decodeIfPresent(String.self, forKey: .netMassKg)
             self.supplementaryUnit = try container.decodeIfPresent(String.self, forKey: .supplementaryUnit)
@@ -222,6 +228,7 @@ extension Requests {
             try container.encodeIfPresent(self.salePriceExclVat, forKey: .salePriceExclVat)
             try container.encodeIfPresent(self.purchasePriceExclVat, forKey: .purchasePriceExclVat)
             try container.encodeIfPresent(self.cnCode, forKey: .cnCode)
+            try container.encodeIfPresent(self.cpaCode, forKey: .cpaCode)
             try container.encodeIfPresent(self.originCountry, forKey: .originCountry)
             try container.encodeIfPresent(self.netMassKg, forKey: .netMassKg)
             try container.encodeIfPresent(self.supplementaryUnit, forKey: .supplementaryUnit)
@@ -274,6 +281,7 @@ extension Requests {
             case salePriceExclVat
             case purchasePriceExclVat
             case cnCode
+            case cpaCode
             case originCountry
             case netMassKg
             case supplementaryUnit

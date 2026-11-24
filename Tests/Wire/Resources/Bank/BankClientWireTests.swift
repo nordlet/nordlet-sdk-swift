@@ -23,7 +23,9 @@ import Api
                     "immediateDestinationName": "immediateDestinationName",
                     "companyIdentification": "companyIdentification",
                     "companyName": "companyName",
-                    "companyDiscretionaryData": "companyDiscretionaryData"
+                    "companyDiscretionaryData": "companyDiscretionaryData",
+                    "bic": "bic",
+                    "initiatingPartyBankId": "initiatingPartyBankId"
                   },
                   "currency": "currency",
                   "accountCode": "accountCode",
@@ -53,7 +55,9 @@ import Api
                 immediateDestinationName: Optional("immediateDestinationName"),
                 companyIdentification: Optional("companyIdentification"),
                 companyName: Optional("companyName"),
-                companyDiscretionaryData: Optional("companyDiscretionaryData")
+                companyDiscretionaryData: Optional("companyDiscretionaryData"),
+                bic: Optional("bic"),
+                initiatingPartyBankId: Optional("initiatingPartyBankId")
             ),
             currency: "currency",
             accountCode: "accountCode",
@@ -87,7 +91,9 @@ import Api
                     "immediateDestinationName": "immediateDestinationName",
                     "companyIdentification": "companyIdentification",
                     "companyName": "x",
-                    "companyDiscretionaryData": "companyDiscretionaryData"
+                    "companyDiscretionaryData": "companyDiscretionaryData",
+                    "bic": "bic",
+                    "initiatingPartyBankId": "x"
                   },
                   "currency": "currency",
                   "accountCode": "accountCode",
@@ -117,7 +123,9 @@ import Api
                 immediateDestinationName: Optional("immediateDestinationName"),
                 companyIdentification: Optional("companyIdentification"),
                 companyName: Optional("x"),
-                companyDiscretionaryData: Optional("companyDiscretionaryData")
+                companyDiscretionaryData: Optional("companyDiscretionaryData"),
+                bic: Optional("bic"),
+                initiatingPartyBankId: Optional("x")
             ),
             currency: "currency",
             accountCode: "accountCode",
@@ -231,7 +239,9 @@ import Api
                         "immediateDestinationName": "immediateDestinationName",
                         "companyIdentification": "companyIdentification",
                         "companyName": "x",
-                        "companyDiscretionaryData": "companyDiscretionaryData"
+                        "companyDiscretionaryData": "companyDiscretionaryData",
+                        "bic": "bic",
+                        "initiatingPartyBankId": "x"
                       },
                       "currency": "currency",
                       "accountCode": "accountCode",
@@ -253,7 +263,9 @@ import Api
                         "immediateDestinationName": "immediateDestinationName",
                         "companyIdentification": "companyIdentification",
                         "companyName": "x",
-                        "companyDiscretionaryData": "companyDiscretionaryData"
+                        "companyDiscretionaryData": "companyDiscretionaryData",
+                        "bic": "bic",
+                        "initiatingPartyBankId": "x"
                       },
                       "currency": "currency",
                       "accountCode": "accountCode",
@@ -298,7 +310,9 @@ import Api
                         immediateDestinationName: Optional("immediateDestinationName"),
                         companyIdentification: Optional("companyIdentification"),
                         companyName: Optional("x"),
-                        companyDiscretionaryData: Optional("companyDiscretionaryData")
+                        companyDiscretionaryData: Optional("companyDiscretionaryData"),
+                        bic: Optional("bic"),
+                        initiatingPartyBankId: Optional("x")
                     ),
                     currency: "currency",
                     accountCode: "accountCode",
@@ -320,7 +334,9 @@ import Api
                         immediateDestinationName: Optional("immediateDestinationName"),
                         companyIdentification: Optional("companyIdentification"),
                         companyName: Optional("x"),
-                        companyDiscretionaryData: Optional("companyDiscretionaryData")
+                        companyDiscretionaryData: Optional("companyDiscretionaryData"),
+                        bic: Optional("bic"),
+                        initiatingPartyBankId: Optional("x")
                     ),
                     currency: "currency",
                     accountCode: "accountCode",
@@ -367,7 +383,9 @@ import Api
                     "immediateDestinationName": "immediateDestinationName",
                     "companyIdentification": "companyIdentification",
                     "companyName": "companyName",
-                    "companyDiscretionaryData": "companyDiscretionaryData"
+                    "companyDiscretionaryData": "companyDiscretionaryData",
+                    "bic": "bic",
+                    "initiatingPartyBankId": "initiatingPartyBankId"
                   },
                   "currency": "currency",
                   "accountCode": "accountCode",
@@ -397,7 +415,9 @@ import Api
                 immediateDestinationName: Optional("immediateDestinationName"),
                 companyIdentification: Optional("companyIdentification"),
                 companyName: Optional("companyName"),
-                companyDiscretionaryData: Optional("companyDiscretionaryData")
+                companyDiscretionaryData: Optional("companyDiscretionaryData"),
+                bic: Optional("bic"),
+                initiatingPartyBankId: Optional("initiatingPartyBankId")
             ),
             currency: "currency",
             accountCode: "accountCode",
@@ -431,7 +451,9 @@ import Api
                     "immediateDestinationName": "immediateDestinationName",
                     "companyIdentification": "companyIdentification",
                     "companyName": "x",
-                    "companyDiscretionaryData": "companyDiscretionaryData"
+                    "companyDiscretionaryData": "companyDiscretionaryData",
+                    "bic": "bic",
+                    "initiatingPartyBankId": "x"
                   },
                   "currency": "currency",
                   "accountCode": "accountCode",
@@ -461,7 +483,9 @@ import Api
                 immediateDestinationName: Optional("immediateDestinationName"),
                 companyIdentification: Optional("companyIdentification"),
                 companyName: Optional("x"),
-                companyDiscretionaryData: Optional("companyDiscretionaryData")
+                companyDiscretionaryData: Optional("companyDiscretionaryData"),
+                bic: Optional("bic"),
+                initiatingPartyBankId: Optional("x")
             ),
             currency: "currency",
             accountCode: "accountCode",
@@ -3661,6 +3685,234 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func postingRulesCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "counterpartyContains": "counterpartyContains",
+                  "descriptionContains": "descriptionContains",
+                  "accountCode": "accountCode",
+                  "partnerId": "partnerId",
+                  "createdAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostingRulesCreateBankResponse(
+            id: "id",
+            counterpartyContains: Nullable<String>.value("counterpartyContains"),
+            descriptionContains: Nullable<String>.value("descriptionContains"),
+            accountCode: "accountCode",
+            partnerId: Nullable<String>.value("partnerId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.postingRulesCreate(
+            request: .init(accountCode: "accountCode"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postingRulesCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "counterpartyContains": "counterpartyContains",
+                  "descriptionContains": "descriptionContains",
+                  "accountCode": "accountCode",
+                  "partnerId": "x",
+                  "createdAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostingRulesCreateBankResponse(
+            id: "x",
+            counterpartyContains: Nullable<String>.value("counterpartyContains"),
+            descriptionContains: Nullable<String>.value("descriptionContains"),
+            accountCode: "accountCode",
+            partnerId: Nullable<String>.value("x"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.bank.postingRulesCreate(
+            request: .init(accountCode: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postingRulesList1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "id",
+                      "counterpartyContains": "counterpartyContains",
+                      "descriptionContains": "descriptionContains",
+                      "accountCode": "accountCode",
+                      "partnerId": "partnerId",
+                      "createdAt": "2026-07-01T09:30:00Z"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostingRulesListBankResponse(
+            rows: [
+                PostingRulesListBankResponseRowsItem(
+                    id: "id",
+                    counterpartyContains: Nullable<String>.value("counterpartyContains"),
+                    descriptionContains: Nullable<String>.value("descriptionContains"),
+                    accountCode: "accountCode",
+                    partnerId: Nullable<String>.value("partnerId"),
+                    createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+                )
+            ]
+        )
+        let response = try await client.bank.postingRulesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postingRulesList2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "rows": [
+                    {
+                      "id": "x",
+                      "counterpartyContains": "counterpartyContains",
+                      "descriptionContains": "descriptionContains",
+                      "accountCode": "accountCode",
+                      "partnerId": "x",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    },
+                    {
+                      "id": "x",
+                      "counterpartyContains": "counterpartyContains",
+                      "descriptionContains": "descriptionContains",
+                      "accountCode": "accountCode",
+                      "partnerId": "x",
+                      "createdAt": "2024-01-15T09:30:00Z"
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostingRulesListBankResponse(
+            rows: [
+                PostingRulesListBankResponseRowsItem(
+                    id: "x",
+                    counterpartyContains: Nullable<String>.value("counterpartyContains"),
+                    descriptionContains: Nullable<String>.value("descriptionContains"),
+                    accountCode: "accountCode",
+                    partnerId: Nullable<String>.value("x"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                ),
+                PostingRulesListBankResponseRowsItem(
+                    id: "x",
+                    counterpartyContains: Nullable<String>.value("counterpartyContains"),
+                    descriptionContains: Nullable<String>.value("descriptionContains"),
+                    accountCode: "accountCode",
+                    partnerId: Nullable<String>.value("x"),
+                    createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+                )
+            ]
+        )
+        let response = try await client.bank.postingRulesList(
+            request: .init(),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postingRulesDelete1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostingRulesDeleteBankResponse(
+            id: "id"
+        )
+        let response = try await client.bank.postingRulesDelete(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func postingRulesDelete2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = PostingRulesDeleteBankResponse(
+            id: "x"
+        )
+        let response = try await client.bank.postingRulesDelete(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func mandatesCreate1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -4842,6 +5094,21 @@ import Api
                         "reasons"
                       ]
                     }
+                  ],
+                  "allocations": [
+                    {
+                      "documentType": "sale_invoice",
+                      "documentId": "documentId",
+                      "number": "number",
+                      "amount": "amount"
+                    }
+                  ],
+                  "postingRules": [
+                    {
+                      "ruleId": "ruleId",
+                      "accountCode": "accountCode",
+                      "partnerId": "partnerId"
+                    }
                   ]
                 }
                 """#.utf8
@@ -4866,6 +5133,21 @@ import Api
                     reasons: [
                         "reasons"
                     ]
+                )
+            ],
+            allocations: Nullable<[TransactionsSuggestMatchesBankResponseAllocationsItem]>.value([
+                TransactionsSuggestMatchesBankResponseAllocationsItem(
+                    documentType: .saleInvoice,
+                    documentId: "documentId",
+                    number: "number",
+                    amount: "amount"
+                )
+            ]),
+            postingRules: [
+                TransactionsSuggestMatchesBankResponsePostingRulesItem(
+                    ruleId: "ruleId",
+                    accountCode: "accountCode",
+                    partnerId: Nullable<String>.value("partnerId")
                 )
             ]
         )
@@ -4911,6 +5193,32 @@ import Api
                         "reasons"
                       ]
                     }
+                  ],
+                  "allocations": [
+                    {
+                      "documentType": "sale_invoice",
+                      "documentId": "x",
+                      "number": "number",
+                      "amount": "amount"
+                    },
+                    {
+                      "documentType": "sale_invoice",
+                      "documentId": "x",
+                      "number": "number",
+                      "amount": "amount"
+                    }
+                  ],
+                  "postingRules": [
+                    {
+                      "ruleId": "x",
+                      "accountCode": "accountCode",
+                      "partnerId": "x"
+                    },
+                    {
+                      "ruleId": "x",
+                      "accountCode": "accountCode",
+                      "partnerId": "x"
+                    }
                   ]
                 }
                 """#.utf8
@@ -4950,6 +5258,32 @@ import Api
                         "reasons",
                         "reasons"
                     ]
+                )
+            ],
+            allocations: Nullable<[TransactionsSuggestMatchesBankResponseAllocationsItem]>.value([
+                TransactionsSuggestMatchesBankResponseAllocationsItem(
+                    documentType: .saleInvoice,
+                    documentId: "x",
+                    number: "number",
+                    amount: "amount"
+                ),
+                TransactionsSuggestMatchesBankResponseAllocationsItem(
+                    documentType: .saleInvoice,
+                    documentId: "x",
+                    number: "number",
+                    amount: "amount"
+                )
+            ]),
+            postingRules: [
+                TransactionsSuggestMatchesBankResponsePostingRulesItem(
+                    ruleId: "x",
+                    accountCode: "accountCode",
+                    partnerId: Nullable<String>.value("x")
+                ),
+                TransactionsSuggestMatchesBankResponsePostingRulesItem(
+                    ruleId: "x",
+                    accountCode: "accountCode",
+                    partnerId: Nullable<String>.value("x")
                 )
             ]
         )

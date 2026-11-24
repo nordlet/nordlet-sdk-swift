@@ -551,8 +551,11 @@ import Api
                       "description": "description",
                       "documentNumber": "documentNumber",
                       "accountCode": "accountCode",
+                      "partnerId": "partnerId",
+                      "vatClassifierCode": "vatClassifierCode",
                       "netAmount": "netAmount",
-                      "vatAmount": "vatAmount"
+                      "vatAmount": "vatAmount",
+                      "deductibleVat": "deductibleVat"
                     }
                   ]
                 }
@@ -581,8 +584,11 @@ import Api
                     description: "description",
                     documentNumber: Nullable<String>.value("documentNumber"),
                     accountCode: "accountCode",
+                    partnerId: Nullable<String>.value("partnerId"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     netAmount: "netAmount",
-                    vatAmount: "vatAmount"
+                    vatAmount: "vatAmount",
+                    deductibleVat: Nullable<String>.value("deductibleVat")
                 )
             ]
         )
@@ -625,16 +631,22 @@ import Api
                       "description": "description",
                       "documentNumber": "documentNumber",
                       "accountCode": "accountCode",
+                      "partnerId": "x",
+                      "vatClassifierCode": "vatClassifierCode",
                       "netAmount": "netAmount",
-                      "vatAmount": "vatAmount"
+                      "vatAmount": "vatAmount",
+                      "deductibleVat": "deductibleVat"
                     },
                     {
                       "id": "x",
                       "description": "description",
                       "documentNumber": "documentNumber",
                       "accountCode": "accountCode",
+                      "partnerId": "x",
+                      "vatClassifierCode": "vatClassifierCode",
                       "netAmount": "netAmount",
-                      "vatAmount": "vatAmount"
+                      "vatAmount": "vatAmount",
+                      "deductibleVat": "deductibleVat"
                     }
                   ]
                 }
@@ -663,16 +675,22 @@ import Api
                     description: "description",
                     documentNumber: Nullable<String>.value("documentNumber"),
                     accountCode: "accountCode",
+                    partnerId: Nullable<String>.value("x"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     netAmount: "netAmount",
-                    vatAmount: "vatAmount"
+                    vatAmount: "vatAmount",
+                    deductibleVat: Nullable<String>.value("deductibleVat")
                 ),
                 ExpenseReportsCreateCashResponseLinesItem(
                     id: "x",
                     description: "description",
                     documentNumber: Nullable<String>.value("documentNumber"),
                     accountCode: "accountCode",
+                    partnerId: Nullable<String>.value("x"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     netAmount: "netAmount",
-                    vatAmount: "vatAmount"
+                    vatAmount: "vatAmount",
+                    deductibleVat: Nullable<String>.value("deductibleVat")
                 )
             ]
         )
@@ -720,8 +738,11 @@ import Api
                       "description": "description",
                       "documentNumber": "documentNumber",
                       "accountCode": "accountCode",
+                      "partnerId": "partnerId",
+                      "vatClassifierCode": "vatClassifierCode",
                       "netAmount": "netAmount",
-                      "vatAmount": "vatAmount"
+                      "vatAmount": "vatAmount",
+                      "deductibleVat": "deductibleVat"
                     }
                   ]
                 }
@@ -750,8 +771,11 @@ import Api
                     description: "description",
                     documentNumber: Nullable<String>.value("documentNumber"),
                     accountCode: "accountCode",
+                    partnerId: Nullable<String>.value("partnerId"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     netAmount: "netAmount",
-                    vatAmount: "vatAmount"
+                    vatAmount: "vatAmount",
+                    deductibleVat: Nullable<String>.value("deductibleVat")
                 )
             ]
         )
@@ -784,16 +808,22 @@ import Api
                       "description": "description",
                       "documentNumber": "documentNumber",
                       "accountCode": "accountCode",
+                      "partnerId": "x",
+                      "vatClassifierCode": "vatClassifierCode",
                       "netAmount": "netAmount",
-                      "vatAmount": "vatAmount"
+                      "vatAmount": "vatAmount",
+                      "deductibleVat": "deductibleVat"
                     },
                     {
                       "id": "x",
                       "description": "description",
                       "documentNumber": "documentNumber",
                       "accountCode": "accountCode",
+                      "partnerId": "x",
+                      "vatClassifierCode": "vatClassifierCode",
                       "netAmount": "netAmount",
-                      "vatAmount": "vatAmount"
+                      "vatAmount": "vatAmount",
+                      "deductibleVat": "deductibleVat"
                     }
                   ]
                 }
@@ -822,16 +852,22 @@ import Api
                     description: "description",
                     documentNumber: Nullable<String>.value("documentNumber"),
                     accountCode: "accountCode",
+                    partnerId: Nullable<String>.value("x"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     netAmount: "netAmount",
-                    vatAmount: "vatAmount"
+                    vatAmount: "vatAmount",
+                    deductibleVat: Nullable<String>.value("deductibleVat")
                 ),
                 ExpenseReportsGetCashResponseLinesItem(
                     id: "x",
                     description: "description",
                     documentNumber: Nullable<String>.value("documentNumber"),
                     accountCode: "accountCode",
+                    partnerId: Nullable<String>.value("x"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     netAmount: "netAmount",
-                    vatAmount: "vatAmount"
+                    vatAmount: "vatAmount",
+                    deductibleVat: Nullable<String>.value("deductibleVat")
                 )
             ]
         )

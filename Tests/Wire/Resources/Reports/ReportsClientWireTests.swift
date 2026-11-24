@@ -162,6 +162,7 @@ import Api
                     "avgEmployees": 1000000
                   },
                   "category": "micro",
+                  "currency": "currency",
                   "thresholds": {
                     "key": {
                       "totalAssets": 1.1,
@@ -186,6 +187,7 @@ import Api
                 avgEmployees: 1000000
             ),
             category: .micro,
+            currency: "currency",
             thresholds: [
                 "key": SizeCategoryReportsResponseThresholdsValue(
                     totalAssets: 1.1,
@@ -214,6 +216,7 @@ import Api
                     "avgEmployees": 1000000
                   },
                   "category": "micro",
+                  "currency": "currency",
                   "thresholds": {
                     "thresholds": {
                       "totalAssets": 1.1,
@@ -238,6 +241,7 @@ import Api
                 avgEmployees: 1000000
             ),
             category: .micro,
+            currency: "currency",
             thresholds: [
                 "thresholds": SizeCategoryReportsResponseThresholdsValue(
                     totalAssets: 1.1,
@@ -2565,6 +2569,344 @@ import Api
             request: .init(
                 fromDate: CalendarDate("2023-01-15")!,
                 toDate: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func saftNo1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "version": "version",
+                  "source": "source",
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SaftNoReportsResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            version: "version",
+            source: "source",
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.reports.saftNo(
+            request: .init(
+                fromDate: CalendarDate("2026-07-01")!,
+                toDate: CalendarDate("2026-07-01")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func saftNo2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "version": "version",
+                  "source": "source",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = SaftNoReportsResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            version: "version",
+            source: "source",
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.reports.saftNo(
+            request: .init(
+                fromDate: CalendarDate("2023-01-15")!,
+                toDate: CalendarDate("2023-01-15")!
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func vatAccounts1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
+                  "accounts": [
+                    {
+                      "accountCode": "accountCode",
+                      "rules": [
+                        "sales.vatPayable"
+                      ],
+                      "side": "payable",
+                      "posted": "posted",
+                      "expected": "expected",
+                      "difference": "difference",
+                      "settlements": "settlements",
+                      "byDocumentType": [
+                        {
+                          "documentType": "documentType",
+                          "debit": "debit",
+                          "credit": "credit",
+                          "transactions": 1000000
+                        }
+                      ]
+                    }
+                  ],
+                  "documents": {
+                    "outputVat": "outputVat",
+                    "ossVat": "ossVat",
+                    "selfAssessedVat": "selfAssessedVat",
+                    "deductibleVat": "deductibleVat"
+                  },
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = VatAccountsReportsResponse(
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
+            accounts: [
+                VatAccountsReportsResponseAccountsItem(
+                    accountCode: "accountCode",
+                    rules: [
+                        .salesVatPayable
+                    ],
+                    side: .payable,
+                    posted: "posted",
+                    expected: "expected",
+                    difference: "difference",
+                    settlements: "settlements",
+                    byDocumentType: [
+                        VatAccountsReportsResponseAccountsItemByDocumentTypeItem(
+                            documentType: "documentType",
+                            debit: "debit",
+                            credit: "credit",
+                            transactions: 1000000
+                        )
+                    ]
+                )
+            ],
+            documents: VatAccountsReportsResponseDocuments(
+                outputVat: "outputVat",
+                ossVat: "ossVat",
+                selfAssessedVat: "selfAssessedVat",
+                deductibleVat: "deductibleVat"
+            ),
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.reports.vatAccounts(
+            request: .init(
+                year: 1000000,
+                month: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func vatAccounts2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
+                  "accounts": [
+                    {
+                      "accountCode": "accountCode",
+                      "rules": [
+                        "sales.vatPayable",
+                        "sales.vatPayable"
+                      ],
+                      "side": "payable",
+                      "posted": "posted",
+                      "expected": "expected",
+                      "difference": "difference",
+                      "settlements": "settlements",
+                      "byDocumentType": [
+                        {
+                          "documentType": "documentType",
+                          "debit": "debit",
+                          "credit": "credit",
+                          "transactions": 1000000
+                        },
+                        {
+                          "documentType": "documentType",
+                          "debit": "debit",
+                          "credit": "credit",
+                          "transactions": 1000000
+                        }
+                      ]
+                    },
+                    {
+                      "accountCode": "accountCode",
+                      "rules": [
+                        "sales.vatPayable",
+                        "sales.vatPayable"
+                      ],
+                      "side": "payable",
+                      "posted": "posted",
+                      "expected": "expected",
+                      "difference": "difference",
+                      "settlements": "settlements",
+                      "byDocumentType": [
+                        {
+                          "documentType": "documentType",
+                          "debit": "debit",
+                          "credit": "credit",
+                          "transactions": 1000000
+                        },
+                        {
+                          "documentType": "documentType",
+                          "debit": "debit",
+                          "credit": "credit",
+                          "transactions": 1000000
+                        }
+                      ]
+                    }
+                  ],
+                  "documents": {
+                    "outputVat": "outputVat",
+                    "ossVat": "ossVat",
+                    "selfAssessedVat": "selfAssessedVat",
+                    "deductibleVat": "deductibleVat"
+                  },
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = VatAccountsReportsResponse(
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
+            accounts: [
+                VatAccountsReportsResponseAccountsItem(
+                    accountCode: "accountCode",
+                    rules: [
+                        .salesVatPayable,
+                        .salesVatPayable
+                    ],
+                    side: .payable,
+                    posted: "posted",
+                    expected: "expected",
+                    difference: "difference",
+                    settlements: "settlements",
+                    byDocumentType: [
+                        VatAccountsReportsResponseAccountsItemByDocumentTypeItem(
+                            documentType: "documentType",
+                            debit: "debit",
+                            credit: "credit",
+                            transactions: 1000000
+                        ),
+                        VatAccountsReportsResponseAccountsItemByDocumentTypeItem(
+                            documentType: "documentType",
+                            debit: "debit",
+                            credit: "credit",
+                            transactions: 1000000
+                        )
+                    ]
+                ),
+                VatAccountsReportsResponseAccountsItem(
+                    accountCode: "accountCode",
+                    rules: [
+                        .salesVatPayable,
+                        .salesVatPayable
+                    ],
+                    side: .payable,
+                    posted: "posted",
+                    expected: "expected",
+                    difference: "difference",
+                    settlements: "settlements",
+                    byDocumentType: [
+                        VatAccountsReportsResponseAccountsItemByDocumentTypeItem(
+                            documentType: "documentType",
+                            debit: "debit",
+                            credit: "credit",
+                            transactions: 1000000
+                        ),
+                        VatAccountsReportsResponseAccountsItemByDocumentTypeItem(
+                            documentType: "documentType",
+                            debit: "debit",
+                            credit: "credit",
+                            transactions: 1000000
+                        )
+                    ]
+                )
+            ],
+            documents: VatAccountsReportsResponseDocuments(
+                outputVat: "outputVat",
+                ossVat: "ossVat",
+                selfAssessedVat: "selfAssessedVat",
+                deductibleVat: "deductibleVat"
+            ),
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.reports.vatAccounts(
+            request: .init(
+                year: 1000000,
+                month: 1000000
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

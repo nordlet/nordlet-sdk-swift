@@ -28,7 +28,10 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
     public let intrastatRegion: Nullable<String>
     public let intrastatNatureOfTransaction: Nullable<String>
     public let einvoiceNumber: Nullable<String>
+    public let paymentReference: Nullable<String>
     public let documentRef: Nullable<String>
+    public let agreementId: Nullable<String>
+    public let agreementPeriodStart: Nullable<String>
     public let createdAt: Date
     public let updatedAt: Date
     public let lines: [InvoicesCreatePurchasesResponseLinesItem]
@@ -64,7 +67,10 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         intrastatRegion: Nullable<String>,
         intrastatNatureOfTransaction: Nullable<String>,
         einvoiceNumber: Nullable<String>,
+        paymentReference: Nullable<String>,
         documentRef: Nullable<String>,
+        agreementId: Nullable<String>,
+        agreementPeriodStart: Nullable<String>,
         createdAt: Date,
         updatedAt: Date,
         lines: [InvoicesCreatePurchasesResponseLinesItem],
@@ -98,7 +104,10 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         self.intrastatRegion = intrastatRegion
         self.intrastatNatureOfTransaction = intrastatNatureOfTransaction
         self.einvoiceNumber = einvoiceNumber
+        self.paymentReference = paymentReference
         self.documentRef = documentRef
+        self.agreementId = agreementId
+        self.agreementPeriodStart = agreementPeriodStart
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.lines = lines
@@ -135,7 +144,10 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         self.intrastatRegion = try container.decode(Nullable<String>.self, forKey: .intrastatRegion)
         self.intrastatNatureOfTransaction = try container.decode(Nullable<String>.self, forKey: .intrastatNatureOfTransaction)
         self.einvoiceNumber = try container.decode(Nullable<String>.self, forKey: .einvoiceNumber)
+        self.paymentReference = try container.decode(Nullable<String>.self, forKey: .paymentReference)
         self.documentRef = try container.decode(Nullable<String>.self, forKey: .documentRef)
+        self.agreementId = try container.decode(Nullable<String>.self, forKey: .agreementId)
+        self.agreementPeriodStart = try container.decode(Nullable<String>.self, forKey: .agreementPeriodStart)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.updatedAt = try container.decode(Date.self, forKey: .updatedAt)
         self.lines = try container.decode([InvoicesCreatePurchasesResponseLinesItem].self, forKey: .lines)
@@ -173,7 +185,10 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         try container.encode(self.intrastatRegion, forKey: .intrastatRegion)
         try container.encode(self.intrastatNatureOfTransaction, forKey: .intrastatNatureOfTransaction)
         try container.encode(self.einvoiceNumber, forKey: .einvoiceNumber)
+        try container.encode(self.paymentReference, forKey: .paymentReference)
         try container.encode(self.documentRef, forKey: .documentRef)
+        try container.encode(self.agreementId, forKey: .agreementId)
+        try container.encode(self.agreementPeriodStart, forKey: .agreementPeriodStart)
         try container.encode(self.createdAt, forKey: .createdAt)
         try container.encode(self.updatedAt, forKey: .updatedAt)
         try container.encode(self.lines, forKey: .lines)
@@ -209,7 +224,10 @@ public struct InvoicesCreatePurchasesResponse: Codable, Hashable, Sendable {
         case intrastatRegion
         case intrastatNatureOfTransaction
         case einvoiceNumber
+        case paymentReference
         case documentRef
+        case agreementId
+        case agreementPeriodStart
         case createdAt
         case updatedAt
         case lines

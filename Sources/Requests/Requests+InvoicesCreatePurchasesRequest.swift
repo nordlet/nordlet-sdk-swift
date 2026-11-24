@@ -17,7 +17,10 @@ extension Requests {
         public let intrastatRegion: String?
         public let intrastatNatureOfTransaction: String?
         public let einvoiceNumber: String?
+        public let paymentReference: String?
         public let documentRef: String?
+        public let agreementId: String?
+        public let agreementPeriodStart: CalendarDate?
         public let lines: [InvoicesCreatePurchasesRequestLinesItem]
         public let netTotal: String?
         public let vatTotal: String?
@@ -41,7 +44,10 @@ extension Requests {
             intrastatRegion: String? = nil,
             intrastatNatureOfTransaction: String? = nil,
             einvoiceNumber: String? = nil,
+            paymentReference: String? = nil,
             documentRef: String? = nil,
+            agreementId: String? = nil,
+            agreementPeriodStart: CalendarDate? = nil,
             lines: [InvoicesCreatePurchasesRequestLinesItem],
             netTotal: String? = nil,
             vatTotal: String? = nil,
@@ -63,7 +69,10 @@ extension Requests {
             self.intrastatRegion = intrastatRegion
             self.intrastatNatureOfTransaction = intrastatNatureOfTransaction
             self.einvoiceNumber = einvoiceNumber
+            self.paymentReference = paymentReference
             self.documentRef = documentRef
+            self.agreementId = agreementId
+            self.agreementPeriodStart = agreementPeriodStart
             self.lines = lines
             self.netTotal = netTotal
             self.vatTotal = vatTotal
@@ -88,7 +97,10 @@ extension Requests {
             self.intrastatRegion = try container.decodeIfPresent(String.self, forKey: .intrastatRegion)
             self.intrastatNatureOfTransaction = try container.decodeIfPresent(String.self, forKey: .intrastatNatureOfTransaction)
             self.einvoiceNumber = try container.decodeIfPresent(String.self, forKey: .einvoiceNumber)
+            self.paymentReference = try container.decodeIfPresent(String.self, forKey: .paymentReference)
             self.documentRef = try container.decodeIfPresent(String.self, forKey: .documentRef)
+            self.agreementId = try container.decodeIfPresent(String.self, forKey: .agreementId)
+            self.agreementPeriodStart = try container.decodeIfPresent(CalendarDate.self, forKey: .agreementPeriodStart)
             self.lines = try container.decode([InvoicesCreatePurchasesRequestLinesItem].self, forKey: .lines)
             self.netTotal = try container.decodeIfPresent(String.self, forKey: .netTotal)
             self.vatTotal = try container.decodeIfPresent(String.self, forKey: .vatTotal)
@@ -114,7 +126,10 @@ extension Requests {
             try container.encodeIfPresent(self.intrastatRegion, forKey: .intrastatRegion)
             try container.encodeIfPresent(self.intrastatNatureOfTransaction, forKey: .intrastatNatureOfTransaction)
             try container.encodeIfPresent(self.einvoiceNumber, forKey: .einvoiceNumber)
+            try container.encodeIfPresent(self.paymentReference, forKey: .paymentReference)
             try container.encodeIfPresent(self.documentRef, forKey: .documentRef)
+            try container.encodeIfPresent(self.agreementId, forKey: .agreementId)
+            try container.encodeIfPresent(self.agreementPeriodStart, forKey: .agreementPeriodStart)
             try container.encode(self.lines, forKey: .lines)
             try container.encodeIfPresent(self.netTotal, forKey: .netTotal)
             try container.encodeIfPresent(self.vatTotal, forKey: .vatTotal)
@@ -138,7 +153,10 @@ extension Requests {
             case intrastatRegion
             case intrastatNatureOfTransaction
             case einvoiceNumber
+            case paymentReference
             case documentRef
+            case agreementId
+            case agreementPeriodStart
             case lines
             case netTotal
             case vatTotal

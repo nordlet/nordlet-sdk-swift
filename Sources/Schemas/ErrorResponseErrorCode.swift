@@ -10,5 +10,6 @@ public enum ErrorResponseErrorCode: String, Codable, Hashable, CaseIterable, Sen
     case idempotencyInProgress = "idempotency_in_progress"
     case rateLimited = "rate_limited"
     case paymentRequired = "payment_required"
+    case confirmationRequired = "confirmation_required"
     case `internal`
 }

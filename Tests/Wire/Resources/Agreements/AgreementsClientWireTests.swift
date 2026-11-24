@@ -1197,6 +1197,495 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func agreementsExpectedInvoices1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "agreementId": "agreementId",
+                  "number": "number",
+                  "currency": "currency",
+                  "periods": [
+                    {
+                      "periodStart": "periodStart",
+                      "periodEnd": "periodEnd",
+                      "expectedNet": "expectedNet",
+                      "missing": true,
+                      "purchaseInvoices": [
+                        {
+                          "id": "id",
+                          "documentNumber": "documentNumber",
+                          "documentDate": "2026-07-01",
+                          "status": "draft",
+                          "type": "invoice",
+                          "netTotal": "netTotal",
+                          "currency": "currency"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AgreementsExpectedInvoicesAgreementsResponse(
+            agreementId: "agreementId",
+            number: "number",
+            currency: "currency",
+            periods: [
+                AgreementsExpectedInvoicesAgreementsResponsePeriodsItem(
+                    periodStart: "periodStart",
+                    periodEnd: "periodEnd",
+                    expectedNet: Nullable<String>.value("expectedNet"),
+                    missing: true,
+                    purchaseInvoices: [
+                        AgreementsExpectedInvoicesAgreementsResponsePeriodsItemPurchaseInvoicesItem(
+                            id: "id",
+                            documentNumber: "documentNumber",
+                            documentDate: CalendarDate("2026-07-01")!,
+                            status: .draft,
+                            type: .invoice,
+                            netTotal: "netTotal",
+                            currency: "currency"
+                        )
+                    ]
+                )
+            ]
+        )
+        let response = try await client.agreements.agreementsExpectedInvoices(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func agreementsExpectedInvoices2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "agreementId": "x",
+                  "number": "number",
+                  "currency": "currency",
+                  "periods": [
+                    {
+                      "periodStart": "periodStart",
+                      "periodEnd": "periodEnd",
+                      "expectedNet": "expectedNet",
+                      "missing": true,
+                      "purchaseInvoices": [
+                        {
+                          "id": "x",
+                          "documentNumber": "documentNumber",
+                          "documentDate": "2023-01-15",
+                          "status": "draft",
+                          "type": "invoice",
+                          "netTotal": "netTotal",
+                          "currency": "currency"
+                        },
+                        {
+                          "id": "x",
+                          "documentNumber": "documentNumber",
+                          "documentDate": "2023-01-15",
+                          "status": "draft",
+                          "type": "invoice",
+                          "netTotal": "netTotal",
+                          "currency": "currency"
+                        }
+                      ]
+                    },
+                    {
+                      "periodStart": "periodStart",
+                      "periodEnd": "periodEnd",
+                      "expectedNet": "expectedNet",
+                      "missing": true,
+                      "purchaseInvoices": [
+                        {
+                          "id": "x",
+                          "documentNumber": "documentNumber",
+                          "documentDate": "2023-01-15",
+                          "status": "draft",
+                          "type": "invoice",
+                          "netTotal": "netTotal",
+                          "currency": "currency"
+                        },
+                        {
+                          "id": "x",
+                          "documentNumber": "documentNumber",
+                          "documentDate": "2023-01-15",
+                          "status": "draft",
+                          "type": "invoice",
+                          "netTotal": "netTotal",
+                          "currency": "currency"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AgreementsExpectedInvoicesAgreementsResponse(
+            agreementId: "x",
+            number: "number",
+            currency: "currency",
+            periods: [
+                AgreementsExpectedInvoicesAgreementsResponsePeriodsItem(
+                    periodStart: "periodStart",
+                    periodEnd: "periodEnd",
+                    expectedNet: Nullable<String>.value("expectedNet"),
+                    missing: true,
+                    purchaseInvoices: [
+                        AgreementsExpectedInvoicesAgreementsResponsePeriodsItemPurchaseInvoicesItem(
+                            id: "x",
+                            documentNumber: "documentNumber",
+                            documentDate: CalendarDate("2023-01-15")!,
+                            status: .draft,
+                            type: .invoice,
+                            netTotal: "netTotal",
+                            currency: "currency"
+                        ),
+                        AgreementsExpectedInvoicesAgreementsResponsePeriodsItemPurchaseInvoicesItem(
+                            id: "x",
+                            documentNumber: "documentNumber",
+                            documentDate: CalendarDate("2023-01-15")!,
+                            status: .draft,
+                            type: .invoice,
+                            netTotal: "netTotal",
+                            currency: "currency"
+                        )
+                    ]
+                ),
+                AgreementsExpectedInvoicesAgreementsResponsePeriodsItem(
+                    periodStart: "periodStart",
+                    periodEnd: "periodEnd",
+                    expectedNet: Nullable<String>.value("expectedNet"),
+                    missing: true,
+                    purchaseInvoices: [
+                        AgreementsExpectedInvoicesAgreementsResponsePeriodsItemPurchaseInvoicesItem(
+                            id: "x",
+                            documentNumber: "documentNumber",
+                            documentDate: CalendarDate("2023-01-15")!,
+                            status: .draft,
+                            type: .invoice,
+                            netTotal: "netTotal",
+                            currency: "currency"
+                        ),
+                        AgreementsExpectedInvoicesAgreementsResponsePeriodsItemPurchaseInvoicesItem(
+                            id: "x",
+                            documentNumber: "documentNumber",
+                            documentDate: CalendarDate("2023-01-15")!,
+                            status: .draft,
+                            type: .invoice,
+                            netTotal: "netTotal",
+                            currency: "currency"
+                        )
+                    ]
+                )
+            ]
+        )
+        let response = try await client.agreements.agreementsExpectedInvoices(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func agreementsPaymentScheduleSet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "agreementId": "agreementId",
+                  "currency": "currency",
+                  "value": "value",
+                  "rows": [
+                    {
+                      "dueDate": "2026-07-01",
+                      "principal": "principal",
+                      "interest": "interest",
+                      "total": "total",
+                      "principalOutstanding": "principalOutstanding"
+                    }
+                  ],
+                  "totals": {
+                    "principal": "principal",
+                    "interest": "interest",
+                    "total": "total"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AgreementsPaymentScheduleSetAgreementsResponse(
+            agreementId: "agreementId",
+            currency: "currency",
+            value: Nullable<String>.value("value"),
+            rows: [
+                AgreementsPaymentScheduleSetAgreementsResponseRowsItem(
+                    dueDate: CalendarDate("2026-07-01")!,
+                    principal: "principal",
+                    interest: "interest",
+                    total: "total",
+                    principalOutstanding: Nullable<String>.value("principalOutstanding")
+                )
+            ],
+            totals: AgreementsPaymentScheduleSetAgreementsResponseTotals(
+                principal: "principal",
+                interest: "interest",
+                total: "total"
+            )
+        )
+        let response = try await client.agreements.agreementsPaymentScheduleSet(
+            request: .init(
+                id: "id",
+                rows: [
+                    AgreementsPaymentScheduleSetAgreementsRequestRowsItem(
+                        dueDate: CalendarDate("2026-07-01")!,
+                        principal: "121.0000",
+                        interest: "121.0000"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func agreementsPaymentScheduleSet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "agreementId": "x",
+                  "currency": "currency",
+                  "value": "value",
+                  "rows": [
+                    {
+                      "dueDate": "2023-01-15",
+                      "principal": "principal",
+                      "interest": "interest",
+                      "total": "total",
+                      "principalOutstanding": "principalOutstanding"
+                    },
+                    {
+                      "dueDate": "2023-01-15",
+                      "principal": "principal",
+                      "interest": "interest",
+                      "total": "total",
+                      "principalOutstanding": "principalOutstanding"
+                    }
+                  ],
+                  "totals": {
+                    "principal": "principal",
+                    "interest": "interest",
+                    "total": "total"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AgreementsPaymentScheduleSetAgreementsResponse(
+            agreementId: "x",
+            currency: "currency",
+            value: Nullable<String>.value("value"),
+            rows: [
+                AgreementsPaymentScheduleSetAgreementsResponseRowsItem(
+                    dueDate: CalendarDate("2023-01-15")!,
+                    principal: "principal",
+                    interest: "interest",
+                    total: "total",
+                    principalOutstanding: Nullable<String>.value("principalOutstanding")
+                ),
+                AgreementsPaymentScheduleSetAgreementsResponseRowsItem(
+                    dueDate: CalendarDate("2023-01-15")!,
+                    principal: "principal",
+                    interest: "interest",
+                    total: "total",
+                    principalOutstanding: Nullable<String>.value("principalOutstanding")
+                )
+            ],
+            totals: AgreementsPaymentScheduleSetAgreementsResponseTotals(
+                principal: "principal",
+                interest: "interest",
+                total: "total"
+            )
+        )
+        let response = try await client.agreements.agreementsPaymentScheduleSet(
+            request: .init(
+                id: "x",
+                rows: [
+                    AgreementsPaymentScheduleSetAgreementsRequestRowsItem(
+                        dueDate: CalendarDate("2023-01-15")!,
+                        principal: "principal",
+                        interest: "interest"
+                    ),
+                    AgreementsPaymentScheduleSetAgreementsRequestRowsItem(
+                        dueDate: CalendarDate("2023-01-15")!,
+                        principal: "principal",
+                        interest: "interest"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func agreementsPaymentScheduleGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "agreementId": "agreementId",
+                  "currency": "currency",
+                  "value": "value",
+                  "rows": [
+                    {
+                      "dueDate": "2026-07-01",
+                      "principal": "principal",
+                      "interest": "interest",
+                      "total": "total",
+                      "principalOutstanding": "principalOutstanding"
+                    }
+                  ],
+                  "totals": {
+                    "principal": "principal",
+                    "interest": "interest",
+                    "total": "total"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AgreementsPaymentScheduleGetAgreementsResponse(
+            agreementId: "agreementId",
+            currency: "currency",
+            value: Nullable<String>.value("value"),
+            rows: [
+                AgreementsPaymentScheduleGetAgreementsResponseRowsItem(
+                    dueDate: CalendarDate("2026-07-01")!,
+                    principal: "principal",
+                    interest: "interest",
+                    total: "total",
+                    principalOutstanding: Nullable<String>.value("principalOutstanding")
+                )
+            ],
+            totals: AgreementsPaymentScheduleGetAgreementsResponseTotals(
+                principal: "principal",
+                interest: "interest",
+                total: "total"
+            )
+        )
+        let response = try await client.agreements.agreementsPaymentScheduleGet(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func agreementsPaymentScheduleGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "agreementId": "x",
+                  "currency": "currency",
+                  "value": "value",
+                  "rows": [
+                    {
+                      "dueDate": "2023-01-15",
+                      "principal": "principal",
+                      "interest": "interest",
+                      "total": "total",
+                      "principalOutstanding": "principalOutstanding"
+                    },
+                    {
+                      "dueDate": "2023-01-15",
+                      "principal": "principal",
+                      "interest": "interest",
+                      "total": "total",
+                      "principalOutstanding": "principalOutstanding"
+                    }
+                  ],
+                  "totals": {
+                    "principal": "principal",
+                    "interest": "interest",
+                    "total": "total"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AgreementsPaymentScheduleGetAgreementsResponse(
+            agreementId: "x",
+            currency: "currency",
+            value: Nullable<String>.value("value"),
+            rows: [
+                AgreementsPaymentScheduleGetAgreementsResponseRowsItem(
+                    dueDate: CalendarDate("2023-01-15")!,
+                    principal: "principal",
+                    interest: "interest",
+                    total: "total",
+                    principalOutstanding: Nullable<String>.value("principalOutstanding")
+                ),
+                AgreementsPaymentScheduleGetAgreementsResponseRowsItem(
+                    dueDate: CalendarDate("2023-01-15")!,
+                    principal: "principal",
+                    interest: "interest",
+                    total: "total",
+                    principalOutstanding: Nullable<String>.value("principalOutstanding")
+                )
+            ],
+            totals: AgreementsPaymentScheduleGetAgreementsResponseTotals(
+                principal: "principal",
+                interest: "interest",
+                total: "total"
+            )
+        )
+        let response = try await client.agreements.agreementsPaymentScheduleGet(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func agreementsBillingRun1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

@@ -10,6 +10,7 @@ extension Requests {
         public let projectId: String?
         public let description: String?
         public let vatClassifierCode: String?
+        public let saveRule: TransactionsPostBankRequestSaveRule?
         /// Additional properties that are not explicitly defined in the schema
         public let additionalProperties: [String: JSONValue]
 
@@ -22,6 +23,7 @@ extension Requests {
             projectId: String? = nil,
             description: String? = nil,
             vatClassifierCode: String? = nil,
+            saveRule: TransactionsPostBankRequestSaveRule? = nil,
             additionalProperties: [String: JSONValue] = .init()
         ) {
             self.transactionId = transactionId
@@ -32,6 +34,7 @@ extension Requests {
             self.projectId = projectId
             self.description = description
             self.vatClassifierCode = vatClassifierCode
+            self.saveRule = saveRule
             self.additionalProperties = additionalProperties
         }
 
@@ -45,6 +48,7 @@ extension Requests {
             self.projectId = try container.decodeIfPresent(String.self, forKey: .projectId)
             self.description = try container.decodeIfPresent(String.self, forKey: .description)
             self.vatClassifierCode = try container.decodeIfPresent(String.self, forKey: .vatClassifierCode)
+            self.saveRule = try container.decodeIfPresent(TransactionsPostBankRequestSaveRule.self, forKey: .saveRule)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
         }
 
@@ -59,6 +63,7 @@ extension Requests {
             try container.encodeIfPresent(self.projectId, forKey: .projectId)
             try container.encodeIfPresent(self.description, forKey: .description)
             try container.encodeIfPresent(self.vatClassifierCode, forKey: .vatClassifierCode)
+            try container.encodeIfPresent(self.saveRule, forKey: .saveRule)
         }
 
         /// Keys for encoding/decoding struct properties.
@@ -71,6 +76,7 @@ extension Requests {
             case projectId
             case description
             case vatClassifierCode
+            case saveRule
         }
     }
 }

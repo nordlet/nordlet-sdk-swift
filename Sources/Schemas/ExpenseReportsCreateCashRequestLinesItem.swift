@@ -4,6 +4,8 @@ public struct ExpenseReportsCreateCashRequestLinesItem: Codable, Hashable, Senda
     public let description: String
     public let documentNumber: String?
     public let accountCode: String
+    public let partnerId: String?
+    public let vatClassifierCode: String?
     public let netAmount: String
     public let vatAmount: String?
     /// Additional properties that are not explicitly defined in the schema
@@ -13,6 +15,8 @@ public struct ExpenseReportsCreateCashRequestLinesItem: Codable, Hashable, Senda
         description: String,
         documentNumber: String? = nil,
         accountCode: String,
+        partnerId: String? = nil,
+        vatClassifierCode: String? = nil,
         netAmount: String,
         vatAmount: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
@@ -20,6 +24,8 @@ public struct ExpenseReportsCreateCashRequestLinesItem: Codable, Hashable, Senda
         self.description = description
         self.documentNumber = documentNumber
         self.accountCode = accountCode
+        self.partnerId = partnerId
+        self.vatClassifierCode = vatClassifierCode
         self.netAmount = netAmount
         self.vatAmount = vatAmount
         self.additionalProperties = additionalProperties
@@ -30,6 +36,8 @@ public struct ExpenseReportsCreateCashRequestLinesItem: Codable, Hashable, Senda
         self.description = try container.decode(String.self, forKey: .description)
         self.documentNumber = try container.decodeIfPresent(String.self, forKey: .documentNumber)
         self.accountCode = try container.decode(String.self, forKey: .accountCode)
+        self.partnerId = try container.decodeIfPresent(String.self, forKey: .partnerId)
+        self.vatClassifierCode = try container.decodeIfPresent(String.self, forKey: .vatClassifierCode)
         self.netAmount = try container.decode(String.self, forKey: .netAmount)
         self.vatAmount = try container.decodeIfPresent(String.self, forKey: .vatAmount)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -41,6 +49,8 @@ public struct ExpenseReportsCreateCashRequestLinesItem: Codable, Hashable, Senda
         try container.encode(self.description, forKey: .description)
         try container.encodeIfPresent(self.documentNumber, forKey: .documentNumber)
         try container.encode(self.accountCode, forKey: .accountCode)
+        try container.encodeIfPresent(self.partnerId, forKey: .partnerId)
+        try container.encodeIfPresent(self.vatClassifierCode, forKey: .vatClassifierCode)
         try container.encode(self.netAmount, forKey: .netAmount)
         try container.encodeIfPresent(self.vatAmount, forKey: .vatAmount)
     }
@@ -50,6 +60,8 @@ public struct ExpenseReportsCreateCashRequestLinesItem: Codable, Hashable, Senda
         case description
         case documentNumber
         case accountCode
+        case partnerId
+        case vatClassifierCode
         case netAmount
         case vatAmount
     }

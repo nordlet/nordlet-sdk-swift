@@ -8,12 +8,15 @@ extension Requests {
         public let name: String?
         public let code: Nullable<String>?
         public let barcode: Nullable<String>?
+        /// Unit of measure; without it `vnt` for a Lithuanian company and `pcs` for any other
         public let unit: String?
         public let vatClassifierCode: Nullable<String>?
         public let vatRatePercent: Nullable<String>?
         public let salePriceExclVat: Nullable<String>?
         public let purchasePriceExclVat: Nullable<String>?
         public let cnCode: Nullable<String>?
+        /// CPA code of a service, six digits without dots (62.01.11 is 620111); the Italian Intrastat list of services needs it
+        public let cpaCode: Nullable<String>?
         public let originCountry: Nullable<String>?
         public let netMassKg: Nullable<String>?
         public let supplementaryUnit: Nullable<String>?
@@ -67,6 +70,7 @@ extension Requests {
             salePriceExclVat: Nullable<String>? = nil,
             purchasePriceExclVat: Nullable<String>? = nil,
             cnCode: Nullable<String>? = nil,
+            cpaCode: Nullable<String>? = nil,
             originCountry: Nullable<String>? = nil,
             netMassKg: Nullable<String>? = nil,
             supplementaryUnit: Nullable<String>? = nil,
@@ -118,6 +122,7 @@ extension Requests {
             self.salePriceExclVat = salePriceExclVat
             self.purchasePriceExclVat = purchasePriceExclVat
             self.cnCode = cnCode
+            self.cpaCode = cpaCode
             self.originCountry = originCountry
             self.netMassKg = netMassKg
             self.supplementaryUnit = supplementaryUnit
@@ -172,6 +177,7 @@ extension Requests {
             self.salePriceExclVat = try container.decodeNullableIfPresent(String.self, forKey: .salePriceExclVat)
             self.purchasePriceExclVat = try container.decodeNullableIfPresent(String.self, forKey: .purchasePriceExclVat)
             self.cnCode = try container.decodeNullableIfPresent(String.self, forKey: .cnCode)
+            self.cpaCode = try container.decodeNullableIfPresent(String.self, forKey: .cpaCode)
             self.originCountry = try container.decodeNullableIfPresent(String.self, forKey: .originCountry)
             self.netMassKg = try container.decodeNullableIfPresent(String.self, forKey: .netMassKg)
             self.supplementaryUnit = try container.decodeNullableIfPresent(String.self, forKey: .supplementaryUnit)
@@ -227,6 +233,7 @@ extension Requests {
             try container.encodeNullableIfPresent(self.salePriceExclVat, forKey: .salePriceExclVat)
             try container.encodeNullableIfPresent(self.purchasePriceExclVat, forKey: .purchasePriceExclVat)
             try container.encodeNullableIfPresent(self.cnCode, forKey: .cnCode)
+            try container.encodeNullableIfPresent(self.cpaCode, forKey: .cpaCode)
             try container.encodeNullableIfPresent(self.originCountry, forKey: .originCountry)
             try container.encodeNullableIfPresent(self.netMassKg, forKey: .netMassKg)
             try container.encodeNullableIfPresent(self.supplementaryUnit, forKey: .supplementaryUnit)
@@ -280,6 +287,7 @@ extension Requests {
             case salePriceExclVat
             case purchasePriceExclVat
             case cnCode
+            case cpaCode
             case originCountry
             case netMassKg
             case supplementaryUnit

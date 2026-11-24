@@ -36,6 +36,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "journalTransactionId",
                   "reversedAt": "2026-07-01T09:30:00Z",
                   "reversalJournalTransactionId": "reversalJournalTransactionId",
@@ -100,6 +101,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
@@ -207,6 +209,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
@@ -271,6 +274,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
@@ -389,6 +393,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "x",
                   "reversedAt": "2024-01-15T09:30:00Z",
                   "reversalJournalTransactionId": "x",
@@ -453,6 +458,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -492,6 +498,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -614,6 +621,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("x"),
             reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("x"),
@@ -678,6 +686,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -717,6 +726,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -853,6 +863,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "journalTransactionId",
                   "reversedAt": "2026-07-01T09:30:00Z",
                   "reversalJournalTransactionId": "reversalJournalTransactionId",
@@ -917,6 +928,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
@@ -1017,6 +1029,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
@@ -1081,6 +1094,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
@@ -1185,6 +1199,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "x",
                   "reversedAt": "2024-01-15T09:30:00Z",
                   "reversalJournalTransactionId": "x",
@@ -1249,6 +1264,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -1288,6 +1304,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -1398,6 +1415,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("x"),
             reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("x"),
@@ -1462,6 +1480,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -1501,6 +1520,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -2280,6 +2300,80 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func invoicesZugferdPdf1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesZugferdPdfSalesResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.sales.invoicesZugferdPdf(
+            request: .init(id: "id"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesZugferdPdf2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesZugferdPdfSalesResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.sales.invoicesZugferdPdf(
+            request: .init(id: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func invoicesEinvoiceSend1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -2483,6 +2577,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "journalTransactionId",
                   "reversedAt": "2026-07-01T09:30:00Z",
                   "reversalJournalTransactionId": "reversalJournalTransactionId",
@@ -2547,6 +2642,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
@@ -2647,6 +2743,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
@@ -2711,6 +2808,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
@@ -2815,6 +2913,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "x",
                   "reversedAt": "2024-01-15T09:30:00Z",
                   "reversalJournalTransactionId": "x",
@@ -2879,6 +2978,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -2918,6 +3018,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -3028,6 +3129,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("x"),
             reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("x"),
@@ -3092,6 +3194,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -3131,6 +3234,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -3297,6 +3401,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "journalTransactionId",
                   "reversedAt": "2026-07-01T09:30:00Z",
                   "reversalJournalTransactionId": "reversalJournalTransactionId",
@@ -3361,6 +3466,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
@@ -3468,6 +3574,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
@@ -3532,6 +3639,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
@@ -3643,6 +3751,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "x",
                   "reversedAt": "2024-01-15T09:30:00Z",
                   "reversalJournalTransactionId": "x",
@@ -3707,6 +3816,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -3746,6 +3856,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -3868,6 +3979,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("x"),
             reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("x"),
@@ -3932,6 +4044,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -3971,6 +4084,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -4097,6 +4211,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "journalTransactionId",
                   "reversedAt": "2026-07-01T09:30:00Z",
                   "reversalJournalTransactionId": "reversalJournalTransactionId",
@@ -4161,6 +4276,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
@@ -4261,6 +4377,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
@@ -4325,6 +4442,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
@@ -4432,6 +4550,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "x",
                   "reversedAt": "2024-01-15T09:30:00Z",
                   "reversalJournalTransactionId": "x",
@@ -4496,6 +4615,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -4535,6 +4655,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -4645,6 +4766,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("x"),
             reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("x"),
@@ -4709,6 +4831,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -4748,6 +4871,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -4865,6 +4989,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "journalTransactionId",
                   "reversedAt": "2026-07-01T09:30:00Z",
                   "reversalJournalTransactionId": "reversalJournalTransactionId",
@@ -4929,6 +5054,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
@@ -5029,6 +5155,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
@@ -5093,6 +5220,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
@@ -5197,6 +5325,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "x",
                   "reversedAt": "2024-01-15T09:30:00Z",
                   "reversalJournalTransactionId": "x",
@@ -5261,6 +5390,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -5300,6 +5430,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -5410,6 +5541,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("x"),
             reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("x"),
@@ -5474,6 +5606,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -5513,6 +5646,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -5627,6 +5761,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "journalTransactionId",
                   "reversedAt": "2026-07-01T09:30:00Z",
                   "reversalJournalTransactionId": "reversalJournalTransactionId",
@@ -5691,6 +5826,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
@@ -5791,6 +5927,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
@@ -5855,6 +5992,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
@@ -5959,6 +6097,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "x",
                   "reversedAt": "2024-01-15T09:30:00Z",
                   "reversalJournalTransactionId": "x",
@@ -6023,6 +6162,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -6062,6 +6202,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -6172,6 +6313,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("x"),
             reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("x"),
@@ -6236,6 +6378,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -6275,6 +6418,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -6733,6 +6877,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "journalTransactionId",
                   "reversedAt": "2026-07-01T09:30:00Z",
                   "reversalJournalTransactionId": "reversalJournalTransactionId",
@@ -6797,6 +6942,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "assetId",
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
@@ -6897,6 +7043,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("journalTransactionId"),
             reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
@@ -6961,6 +7108,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("assetId"),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
@@ -7068,6 +7216,7 @@ import Api
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "x",
                   "reversedAt": "2024-01-15T09:30:00Z",
                   "reversalJournalTransactionId": "x",
@@ -7132,6 +7281,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -7171,6 +7321,7 @@ import Api
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
                       "vatExemptionBasis": "vatExemptionBasis",
+                      "accountCode": "accountCode",
                       "assetId": "x",
                       "costCenterId": "x",
                       "projectId": "x",
@@ -7281,6 +7432,7 @@ import Api
                 subdivision: Optional("subdivision")
             )),
             paidAmount: "paidAmount",
+            advanceVatOnPayment: true,
             journalTransactionId: Nullable<String>.value("x"),
             reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
             reversalJournalTransactionId: Nullable<String>.value("x"),
@@ -7345,6 +7497,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -7384,6 +7537,7 @@ import Api
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
                     vatExemptionBasis: Nullable<String>.value("vatExemptionBasis"),
+                    accountCode: Nullable<String>.value("accountCode"),
                     assetId: Nullable<String>.value("x"),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
@@ -7497,6 +7651,7 @@ import Api
                       "salesTaxExemptionId": "salesTaxExemptionId",
                       "deliveryAddress": {},
                       "paidAmount": "paidAmount",
+                      "advanceVatOnPayment": true,
                       "journalTransactionId": "journalTransactionId",
                       "reversedAt": "2026-07-01T09:30:00Z",
                       "reversalJournalTransactionId": "reversalJournalTransactionId",
@@ -7596,6 +7751,7 @@ import Api
 
                     )),
                     paidAmount: "paidAmount",
+                    advanceVatOnPayment: true,
                     journalTransactionId: Nullable<String>.value("journalTransactionId"),
                     reversedAt: Nullable<Date>.value(try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)),
                     reversalJournalTransactionId: Nullable<String>.value("reversalJournalTransactionId"),
@@ -7703,6 +7859,7 @@ import Api
                         "subdivision": "subdivision"
                       },
                       "paidAmount": "paidAmount",
+                      "advanceVatOnPayment": true,
                       "journalTransactionId": "x",
                       "reversedAt": "2024-01-15T09:30:00Z",
                       "reversalJournalTransactionId": "x",
@@ -7783,6 +7940,7 @@ import Api
                         "subdivision": "subdivision"
                       },
                       "paidAmount": "paidAmount",
+                      "advanceVatOnPayment": true,
                       "journalTransactionId": "x",
                       "reversedAt": "2024-01-15T09:30:00Z",
                       "reversalJournalTransactionId": "x",
@@ -7886,6 +8044,7 @@ import Api
                         subdivision: Optional("subdivision")
                     )),
                     paidAmount: "paidAmount",
+                    advanceVatOnPayment: true,
                     journalTransactionId: Nullable<String>.value("x"),
                     reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     reversalJournalTransactionId: Nullable<String>.value("x"),
@@ -7966,6 +8125,7 @@ import Api
                         subdivision: Optional("subdivision")
                     )),
                     paidAmount: "paidAmount",
+                    advanceVatOnPayment: true,
                     journalTransactionId: Nullable<String>.value("x"),
                     reversedAt: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                     reversalJournalTransactionId: Nullable<String>.value("x"),

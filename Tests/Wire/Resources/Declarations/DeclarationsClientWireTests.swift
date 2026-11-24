@@ -2707,6 +2707,246 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func euOssNonUnionCompute1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "periodYear": 1000000,
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
+                  "memberStateOfIdentification": "memberStateOfIdentification",
+                  "rows": [
+                    {
+                      "countryCode": "countryCode",
+                      "rateType": "STANDARD",
+                      "vatRatePercent": "vatRatePercent",
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "documents": 1000000
+                    }
+                  ],
+                  "totals": {
+                    "taxableAmount": "taxableAmount",
+                    "vatAmount": "vatAmount"
+                  },
+                  "corrections": [
+                    {
+                      "countryCode": "countryCode",
+                      "periodYear": 1000000,
+                      "periodQuarter": 1000000,
+                      "periodMonth": 1000000,
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "documents": 1000000
+                    }
+                  ],
+                  "correctionsTotal": {
+                    "taxableAmount": "taxableAmount",
+                    "vatAmount": "vatAmount"
+                  },
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "periodQuarter": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EuOssNonUnionComputeDeclarationsResponse(
+            periodYear: 1000000,
+            fromDate: CalendarDate("2026-07-01")!,
+            toDate: CalendarDate("2026-07-01")!,
+            memberStateOfIdentification: "memberStateOfIdentification",
+            rows: [
+                EuOssNonUnionComputeDeclarationsResponseRowsItem(
+                    countryCode: "countryCode",
+                    rateType: .standard,
+                    vatRatePercent: "vatRatePercent",
+                    taxableAmount: "taxableAmount",
+                    vatAmount: "vatAmount",
+                    documents: 1000000
+                )
+            ],
+            totals: EuOssNonUnionComputeDeclarationsResponseTotals(
+                taxableAmount: "taxableAmount",
+                vatAmount: "vatAmount"
+            ),
+            corrections: [
+                EuOssNonUnionComputeDeclarationsResponseCorrectionsItem(
+                    countryCode: "countryCode",
+                    periodYear: 1000000,
+                    periodQuarter: Nullable<Int64>.value(1000000),
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    taxableAmount: "taxableAmount",
+                    vatAmount: "vatAmount",
+                    documents: 1000000
+                )
+            ],
+            correctionsTotal: EuOssNonUnionComputeDeclarationsResponseCorrectionsTotal(
+                taxableAmount: "taxableAmount",
+                vatAmount: "vatAmount"
+            ),
+            warnings: [
+                "warnings"
+            ],
+            periodQuarter: 1000000
+        )
+        let response = try await client.declarations.euOssNonUnionCompute(
+            request: .init(
+                year: 1000000,
+                quarter: 1000000,
+                memberStateOfIdentification: .at
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func euOssNonUnionCompute2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "periodYear": 1000000,
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
+                  "memberStateOfIdentification": "memberStateOfIdentification",
+                  "rows": [
+                    {
+                      "countryCode": "countryCode",
+                      "rateType": "STANDARD",
+                      "vatRatePercent": "vatRatePercent",
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "documents": 1000000
+                    },
+                    {
+                      "countryCode": "countryCode",
+                      "rateType": "STANDARD",
+                      "vatRatePercent": "vatRatePercent",
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "documents": 1000000
+                    }
+                  ],
+                  "totals": {
+                    "taxableAmount": "taxableAmount",
+                    "vatAmount": "vatAmount"
+                  },
+                  "corrections": [
+                    {
+                      "countryCode": "countryCode",
+                      "periodYear": 1000000,
+                      "periodQuarter": 1000000,
+                      "periodMonth": 1000000,
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "documents": 1000000
+                    },
+                    {
+                      "countryCode": "countryCode",
+                      "periodYear": 1000000,
+                      "periodQuarter": 1000000,
+                      "periodMonth": 1000000,
+                      "taxableAmount": "taxableAmount",
+                      "vatAmount": "vatAmount",
+                      "documents": 1000000
+                    }
+                  ],
+                  "correctionsTotal": {
+                    "taxableAmount": "taxableAmount",
+                    "vatAmount": "vatAmount"
+                  },
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "periodQuarter": 1000000
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EuOssNonUnionComputeDeclarationsResponse(
+            periodYear: 1000000,
+            fromDate: CalendarDate("2023-01-15")!,
+            toDate: CalendarDate("2023-01-15")!,
+            memberStateOfIdentification: "memberStateOfIdentification",
+            rows: [
+                EuOssNonUnionComputeDeclarationsResponseRowsItem(
+                    countryCode: "countryCode",
+                    rateType: .standard,
+                    vatRatePercent: "vatRatePercent",
+                    taxableAmount: "taxableAmount",
+                    vatAmount: "vatAmount",
+                    documents: 1000000
+                ),
+                EuOssNonUnionComputeDeclarationsResponseRowsItem(
+                    countryCode: "countryCode",
+                    rateType: .standard,
+                    vatRatePercent: "vatRatePercent",
+                    taxableAmount: "taxableAmount",
+                    vatAmount: "vatAmount",
+                    documents: 1000000
+                )
+            ],
+            totals: EuOssNonUnionComputeDeclarationsResponseTotals(
+                taxableAmount: "taxableAmount",
+                vatAmount: "vatAmount"
+            ),
+            corrections: [
+                EuOssNonUnionComputeDeclarationsResponseCorrectionsItem(
+                    countryCode: "countryCode",
+                    periodYear: 1000000,
+                    periodQuarter: Nullable<Int64>.value(1000000),
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    taxableAmount: "taxableAmount",
+                    vatAmount: "vatAmount",
+                    documents: 1000000
+                ),
+                EuOssNonUnionComputeDeclarationsResponseCorrectionsItem(
+                    countryCode: "countryCode",
+                    periodYear: 1000000,
+                    periodQuarter: Nullable<Int64>.value(1000000),
+                    periodMonth: Nullable<Int64>.value(1000000),
+                    taxableAmount: "taxableAmount",
+                    vatAmount: "vatAmount",
+                    documents: 1000000
+                )
+            ],
+            correctionsTotal: EuOssNonUnionComputeDeclarationsResponseCorrectionsTotal(
+                taxableAmount: "taxableAmount",
+                vatAmount: "vatAmount"
+            ),
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            periodQuarter: 1000000
+        )
+        let response = try await client.declarations.euOssNonUnionCompute(
+            request: .init(
+                year: 1000000,
+                quarter: 1000000,
+                memberStateOfIdentification: .at
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func euIossCompute1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -6465,6 +6705,190 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func vatProrataAdjustmentGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fiscalYear": 1000000,
+                  "provisionalPercent": "provisionalPercent",
+                  "computedPercent": "computedPercent",
+                  "definitivePercent": "definitivePercent",
+                  "turnoverWithDeduction": "turnoverWithDeduction",
+                  "turnoverWithoutDeduction": "turnoverWithoutDeduction",
+                  "capitalGoodsSales": "capitalGoodsSales",
+                  "proRataVat": "proRataVat",
+                  "deductedVat": "deductedVat",
+                  "definitiveDeductibleVat": "definitiveDeductibleVat",
+                  "adjustment": "adjustment",
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = VatProrataAdjustmentGetDeclarationsResponse(
+            fiscalYear: 1000000,
+            provisionalPercent: Nullable<String>.value("provisionalPercent"),
+            computedPercent: Nullable<String>.value("computedPercent"),
+            definitivePercent: Nullable<String>.value("definitivePercent"),
+            turnoverWithDeduction: "turnoverWithDeduction",
+            turnoverWithoutDeduction: "turnoverWithoutDeduction",
+            capitalGoodsSales: "capitalGoodsSales",
+            proRataVat: "proRataVat",
+            deductedVat: "deductedVat",
+            definitiveDeductibleVat: Nullable<String>.value("definitiveDeductibleVat"),
+            adjustment: Nullable<String>.value("adjustment"),
+            warnings: [
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.vatProrataAdjustmentGet(
+            request: .init(fiscalYear: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func vatProrataAdjustmentGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fiscalYear": 1000000,
+                  "provisionalPercent": "provisionalPercent",
+                  "computedPercent": "computedPercent",
+                  "definitivePercent": "definitivePercent",
+                  "turnoverWithDeduction": "turnoverWithDeduction",
+                  "turnoverWithoutDeduction": "turnoverWithoutDeduction",
+                  "capitalGoodsSales": "capitalGoodsSales",
+                  "proRataVat": "proRataVat",
+                  "deductedVat": "deductedVat",
+                  "definitiveDeductibleVat": "definitiveDeductibleVat",
+                  "adjustment": "adjustment",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = VatProrataAdjustmentGetDeclarationsResponse(
+            fiscalYear: 1000000,
+            provisionalPercent: Nullable<String>.value("provisionalPercent"),
+            computedPercent: Nullable<String>.value("computedPercent"),
+            definitivePercent: Nullable<String>.value("definitivePercent"),
+            turnoverWithDeduction: "turnoverWithDeduction",
+            turnoverWithoutDeduction: "turnoverWithoutDeduction",
+            capitalGoodsSales: "capitalGoodsSales",
+            proRataVat: "proRataVat",
+            deductedVat: "deductedVat",
+            definitiveDeductibleVat: Nullable<String>.value("definitiveDeductibleVat"),
+            adjustment: Nullable<String>.value("adjustment"),
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.vatProrataAdjustmentGet(
+            request: .init(fiscalYear: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func vatProrataAdjustmentPost1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "date": "2026-07-01",
+                  "fiscalYear": 1000000,
+                  "definitivePercent": "definitivePercent",
+                  "amount": "amount"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = VatProrataAdjustmentPostDeclarationsResponse(
+            id: "id",
+            date: CalendarDate("2026-07-01")!,
+            fiscalYear: 1000000,
+            definitivePercent: "definitivePercent",
+            amount: "amount"
+        )
+        let response = try await client.declarations.vatProrataAdjustmentPost(
+            request: .init(
+                fiscalYear: 1000000,
+                accountCode: "accountCode"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func vatProrataAdjustmentPost2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "date": "2023-01-15",
+                  "fiscalYear": 1000000,
+                  "definitivePercent": "definitivePercent",
+                  "amount": "amount"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = VatProrataAdjustmentPostDeclarationsResponse(
+            id: "id",
+            date: CalendarDate("2023-01-15")!,
+            fiscalYear: 1000000,
+            definitivePercent: "definitivePercent",
+            amount: "amount"
+        )
+        let response = try await client.declarations.vatProrataAdjustmentPost(
+            request: .init(
+                fiscalYear: 1000000,
+                accountCode: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func vatProrataList1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -9883,6 +10307,1202 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func eeTsdAnnexesGet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "month": 1000000,
+                  "input": {
+                    "annex4": {
+                      "housing": "121.00",
+                      "insurancePremiums": "121.00",
+                      "carCompensationAboveLimit": "121.00",
+                      "employerVehicle": "121.00",
+                      "otherProperty": "121.00",
+                      "loanMarketInterest": "121.00",
+                      "loanContractInterest": "121.00",
+                      "transferMarketPrice": "121.00",
+                      "transferAppliedPrice": "121.00",
+                      "stockOption": {
+                        "event": "sale",
+                        "marketPrice": "121.00",
+                        "exercisePrice": "121.00",
+                        "premium": "121.00"
+                      },
+                      "purchaseAppliedPrice": "121.00",
+                      "purchaseMarketPrice": "121.00",
+                      "waivedClaims": "121.00",
+                      "education": "121.00",
+                      "healthPromotion": "121.00",
+                      "other": "121.00",
+                      "notTaxedWithIncomeTax": "121.00",
+                      "notTaxedWithSocialTax": "121.00"
+                    },
+                    "annex5": {
+                      "gifts": "121.00",
+                      "giftsToListedPersons": "121.00",
+                      "limit": "socialTax",
+                      "lastYearProfit": "121.00",
+                      "entertainment": "121.00",
+                      "listedPersonTaxableGifts": "121.00"
+                    },
+                    "annex6": {
+                      "relatedParties": [
+                        {
+                          "registryCode": "registryCode",
+                          "name": "name",
+                          "country": "country",
+                          "amount": "121.00",
+                          "typeCode": "621"
+                        }
+                      ],
+                      "fines": "121.00",
+                      "taxInterest": "121.00",
+                      "confiscatedProperty": "121.00",
+                      "environmentalCharges": "121.00",
+                      "bribes": "121.00",
+                      "membershipFees": "121.00",
+                      "undocumentedPayments": "121.00",
+                      "nonBusinessExpenses": "121.00",
+                      "lowTaxSecurities": "121.00",
+                      "lowTaxHoldings": "121.00",
+                      "lowTaxPenalties": "121.00",
+                      "lowTaxLoans": "121.00",
+                      "creditInstitutionLosses": "121.00",
+                      "reductions": [
+                        {
+                          "month": 1000000,
+                          "year": 1000000,
+                          "amount": "121.00"
+                        }
+                      ]
+                    }
+                  },
+                  "annexes": {
+                    "annex4": [
+                      {
+                        "element": "element",
+                        "amount": "amount"
+                      }
+                    ],
+                    "annex5": [
+                      {
+                        "element": "element",
+                        "amount": "amount"
+                      }
+                    ],
+                    "annex6": {
+                      "fields": [
+                        {
+                          "element": "element",
+                          "amount": "amount"
+                        }
+                      ],
+                      "reductions": [
+                        {
+                          "month": 1000000,
+                          "year": 1000000,
+                          "amount": "amount"
+                        }
+                      ],
+                      "relatedParties": [
+                        {
+                          "registryCode": "registryCode",
+                          "name": "name",
+                          "country": "country",
+                          "amount": "amount",
+                          "typeCode": "typeCode"
+                        }
+                      ]
+                    },
+                    "incomeTax": "incomeTax",
+                    "socialTax": "socialTax"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EeTsdAnnexesGetDeclarationsResponse(
+            year: 1000000,
+            month: 1000000,
+            input: EeTsdAnnexesGetDeclarationsResponseInput(
+                annex4: Optional(EeTsdAnnexesGetDeclarationsResponseInputAnnex4(
+                    housing: Optional("121.00"),
+                    insurancePremiums: Optional("121.00"),
+                    carCompensationAboveLimit: Optional("121.00"),
+                    employerVehicle: Optional("121.00"),
+                    otherProperty: Optional("121.00"),
+                    loanMarketInterest: Optional("121.00"),
+                    loanContractInterest: Optional("121.00"),
+                    transferMarketPrice: Optional("121.00"),
+                    transferAppliedPrice: Optional("121.00"),
+                    stockOption: Optional(EeTsdAnnexesGetDeclarationsResponseInputAnnex4StockOption(
+                        event: .sale,
+                        marketPrice: "121.00",
+                        exercisePrice: Optional("121.00"),
+                        premium: "121.00"
+                    )),
+                    purchaseAppliedPrice: Optional("121.00"),
+                    purchaseMarketPrice: Optional("121.00"),
+                    waivedClaims: Optional("121.00"),
+                    education: Optional("121.00"),
+                    healthPromotion: Optional("121.00"),
+                    other: Optional("121.00"),
+                    notTaxedWithIncomeTax: Optional("121.00"),
+                    notTaxedWithSocialTax: Optional("121.00")
+                )),
+                annex5: Optional(EeTsdAnnexesGetDeclarationsResponseInputAnnex5(
+                    gifts: Optional("121.00"),
+                    giftsToListedPersons: Optional("121.00"),
+                    limit: Optional(.socialTax),
+                    lastYearProfit: Optional("121.00"),
+                    entertainment: Optional("121.00"),
+                    listedPersonTaxableGifts: Optional("121.00")
+                )),
+                annex6: Optional(EeTsdAnnexesGetDeclarationsResponseInputAnnex6(
+                    relatedParties: Optional([
+                        EeTsdAnnexesGetDeclarationsResponseInputAnnex6RelatedPartiesItem(
+                            registryCode: "registryCode",
+                            name: "name",
+                            country: "country",
+                            amount: "121.00",
+                            typeCode: .sixHundredTwentyOne
+                        )
+                    ]),
+                    fines: Optional("121.00"),
+                    taxInterest: Optional("121.00"),
+                    confiscatedProperty: Optional("121.00"),
+                    environmentalCharges: Optional("121.00"),
+                    bribes: Optional("121.00"),
+                    membershipFees: Optional("121.00"),
+                    undocumentedPayments: Optional("121.00"),
+                    nonBusinessExpenses: Optional("121.00"),
+                    lowTaxSecurities: Optional("121.00"),
+                    lowTaxHoldings: Optional("121.00"),
+                    lowTaxPenalties: Optional("121.00"),
+                    lowTaxLoans: Optional("121.00"),
+                    creditInstitutionLosses: Optional("121.00"),
+                    reductions: Optional([
+                        EeTsdAnnexesGetDeclarationsResponseInputAnnex6ReductionsItem(
+                            month: 1000000,
+                            year: 1000000,
+                            amount: "121.00"
+                        )
+                    ])
+                ))
+            ),
+            annexes: Nullable<EeTsdAnnexesGetDeclarationsResponseAnnexes>.value(EeTsdAnnexesGetDeclarationsResponseAnnexes(
+                annex4: Nullable<[EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex4Item]>.value([
+                    EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex4Item(
+                        element: "element",
+                        amount: "amount"
+                    )
+                ]),
+                annex5: Nullable<[EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex5Item]>.value([
+                    EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex5Item(
+                        element: "element",
+                        amount: "amount"
+                    )
+                ]),
+                annex6: Nullable<EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex6>.value(EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex6(
+                    fields: [
+                        EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex6FieldsItem(
+                            element: "element",
+                            amount: "amount"
+                        )
+                    ],
+                    reductions: [
+                        EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex6ReductionsItem(
+                            month: 1000000,
+                            year: 1000000,
+                            amount: "amount"
+                        )
+                    ],
+                    relatedParties: [
+                        EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex6RelatedPartiesItem(
+                            registryCode: "registryCode",
+                            name: "name",
+                            country: "country",
+                            amount: "amount",
+                            typeCode: "typeCode"
+                        )
+                    ]
+                )),
+                incomeTax: "incomeTax",
+                socialTax: "socialTax"
+            ))
+        )
+        let response = try await client.declarations.eeTsdAnnexesGet(
+            request: .init(
+                year: 1000000,
+                month: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func eeTsdAnnexesGet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "month": 1000000,
+                  "input": {
+                    "annex4": {
+                      "housing": "housing",
+                      "insurancePremiums": "insurancePremiums",
+                      "carCompensationAboveLimit": "carCompensationAboveLimit",
+                      "employerVehicle": "employerVehicle",
+                      "otherProperty": "otherProperty",
+                      "loanMarketInterest": "loanMarketInterest",
+                      "loanContractInterest": "loanContractInterest",
+                      "transferMarketPrice": "transferMarketPrice",
+                      "transferAppliedPrice": "transferAppliedPrice",
+                      "stockOption": {
+                        "event": "sale",
+                        "marketPrice": "marketPrice",
+                        "exercisePrice": "exercisePrice",
+                        "premium": "premium"
+                      },
+                      "purchaseAppliedPrice": "purchaseAppliedPrice",
+                      "purchaseMarketPrice": "purchaseMarketPrice",
+                      "waivedClaims": "waivedClaims",
+                      "education": "education",
+                      "healthPromotion": "healthPromotion",
+                      "other": "other",
+                      "notTaxedWithIncomeTax": "notTaxedWithIncomeTax",
+                      "notTaxedWithSocialTax": "notTaxedWithSocialTax"
+                    },
+                    "annex5": {
+                      "gifts": "gifts",
+                      "giftsToListedPersons": "giftsToListedPersons",
+                      "limit": "socialTax",
+                      "lastYearProfit": "lastYearProfit",
+                      "entertainment": "entertainment",
+                      "listedPersonTaxableGifts": "listedPersonTaxableGifts"
+                    },
+                    "annex6": {
+                      "relatedParties": [
+                        {
+                          "registryCode": "x",
+                          "name": "x",
+                          "country": "country",
+                          "amount": "amount",
+                          "typeCode": "621"
+                        },
+                        {
+                          "registryCode": "x",
+                          "name": "x",
+                          "country": "country",
+                          "amount": "amount",
+                          "typeCode": "621"
+                        }
+                      ],
+                      "fines": "fines",
+                      "taxInterest": "taxInterest",
+                      "confiscatedProperty": "confiscatedProperty",
+                      "environmentalCharges": "environmentalCharges",
+                      "bribes": "bribes",
+                      "membershipFees": "membershipFees",
+                      "undocumentedPayments": "undocumentedPayments",
+                      "nonBusinessExpenses": "nonBusinessExpenses",
+                      "lowTaxSecurities": "lowTaxSecurities",
+                      "lowTaxHoldings": "lowTaxHoldings",
+                      "lowTaxPenalties": "lowTaxPenalties",
+                      "lowTaxLoans": "lowTaxLoans",
+                      "creditInstitutionLosses": "creditInstitutionLosses",
+                      "reductions": [
+                        {
+                          "month": 1000000,
+                          "year": 1000000,
+                          "amount": "amount"
+                        },
+                        {
+                          "month": 1000000,
+                          "year": 1000000,
+                          "amount": "amount"
+                        }
+                      ]
+                    }
+                  },
+                  "annexes": {
+                    "annex4": [
+                      {
+                        "element": "element",
+                        "amount": "amount"
+                      },
+                      {
+                        "element": "element",
+                        "amount": "amount"
+                      }
+                    ],
+                    "annex5": [
+                      {
+                        "element": "element",
+                        "amount": "amount"
+                      },
+                      {
+                        "element": "element",
+                        "amount": "amount"
+                      }
+                    ],
+                    "annex6": {
+                      "fields": [
+                        {
+                          "element": "element",
+                          "amount": "amount"
+                        },
+                        {
+                          "element": "element",
+                          "amount": "amount"
+                        }
+                      ],
+                      "reductions": [
+                        {
+                          "month": 1000000,
+                          "year": 1000000,
+                          "amount": "amount"
+                        },
+                        {
+                          "month": 1000000,
+                          "year": 1000000,
+                          "amount": "amount"
+                        }
+                      ],
+                      "relatedParties": [
+                        {
+                          "registryCode": "registryCode",
+                          "name": "name",
+                          "country": "country",
+                          "amount": "amount",
+                          "typeCode": "typeCode"
+                        },
+                        {
+                          "registryCode": "registryCode",
+                          "name": "name",
+                          "country": "country",
+                          "amount": "amount",
+                          "typeCode": "typeCode"
+                        }
+                      ]
+                    },
+                    "incomeTax": "incomeTax",
+                    "socialTax": "socialTax"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EeTsdAnnexesGetDeclarationsResponse(
+            year: 1000000,
+            month: 1000000,
+            input: EeTsdAnnexesGetDeclarationsResponseInput(
+                annex4: Optional(EeTsdAnnexesGetDeclarationsResponseInputAnnex4(
+                    housing: Optional("housing"),
+                    insurancePremiums: Optional("insurancePremiums"),
+                    carCompensationAboveLimit: Optional("carCompensationAboveLimit"),
+                    employerVehicle: Optional("employerVehicle"),
+                    otherProperty: Optional("otherProperty"),
+                    loanMarketInterest: Optional("loanMarketInterest"),
+                    loanContractInterest: Optional("loanContractInterest"),
+                    transferMarketPrice: Optional("transferMarketPrice"),
+                    transferAppliedPrice: Optional("transferAppliedPrice"),
+                    stockOption: Optional(EeTsdAnnexesGetDeclarationsResponseInputAnnex4StockOption(
+                        event: .sale,
+                        marketPrice: "marketPrice",
+                        exercisePrice: Optional("exercisePrice"),
+                        premium: "premium"
+                    )),
+                    purchaseAppliedPrice: Optional("purchaseAppliedPrice"),
+                    purchaseMarketPrice: Optional("purchaseMarketPrice"),
+                    waivedClaims: Optional("waivedClaims"),
+                    education: Optional("education"),
+                    healthPromotion: Optional("healthPromotion"),
+                    other: Optional("other"),
+                    notTaxedWithIncomeTax: Optional("notTaxedWithIncomeTax"),
+                    notTaxedWithSocialTax: Optional("notTaxedWithSocialTax")
+                )),
+                annex5: Optional(EeTsdAnnexesGetDeclarationsResponseInputAnnex5(
+                    gifts: Optional("gifts"),
+                    giftsToListedPersons: Optional("giftsToListedPersons"),
+                    limit: Optional(.socialTax),
+                    lastYearProfit: Optional("lastYearProfit"),
+                    entertainment: Optional("entertainment"),
+                    listedPersonTaxableGifts: Optional("listedPersonTaxableGifts")
+                )),
+                annex6: Optional(EeTsdAnnexesGetDeclarationsResponseInputAnnex6(
+                    relatedParties: Optional([
+                        EeTsdAnnexesGetDeclarationsResponseInputAnnex6RelatedPartiesItem(
+                            registryCode: "x",
+                            name: "x",
+                            country: "country",
+                            amount: "amount",
+                            typeCode: .sixHundredTwentyOne
+                        ),
+                        EeTsdAnnexesGetDeclarationsResponseInputAnnex6RelatedPartiesItem(
+                            registryCode: "x",
+                            name: "x",
+                            country: "country",
+                            amount: "amount",
+                            typeCode: .sixHundredTwentyOne
+                        )
+                    ]),
+                    fines: Optional("fines"),
+                    taxInterest: Optional("taxInterest"),
+                    confiscatedProperty: Optional("confiscatedProperty"),
+                    environmentalCharges: Optional("environmentalCharges"),
+                    bribes: Optional("bribes"),
+                    membershipFees: Optional("membershipFees"),
+                    undocumentedPayments: Optional("undocumentedPayments"),
+                    nonBusinessExpenses: Optional("nonBusinessExpenses"),
+                    lowTaxSecurities: Optional("lowTaxSecurities"),
+                    lowTaxHoldings: Optional("lowTaxHoldings"),
+                    lowTaxPenalties: Optional("lowTaxPenalties"),
+                    lowTaxLoans: Optional("lowTaxLoans"),
+                    creditInstitutionLosses: Optional("creditInstitutionLosses"),
+                    reductions: Optional([
+                        EeTsdAnnexesGetDeclarationsResponseInputAnnex6ReductionsItem(
+                            month: 1000000,
+                            year: 1000000,
+                            amount: "amount"
+                        ),
+                        EeTsdAnnexesGetDeclarationsResponseInputAnnex6ReductionsItem(
+                            month: 1000000,
+                            year: 1000000,
+                            amount: "amount"
+                        )
+                    ])
+                ))
+            ),
+            annexes: Nullable<EeTsdAnnexesGetDeclarationsResponseAnnexes>.value(EeTsdAnnexesGetDeclarationsResponseAnnexes(
+                annex4: Nullable<[EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex4Item]>.value([
+                    EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex4Item(
+                        element: "element",
+                        amount: "amount"
+                    ),
+                    EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex4Item(
+                        element: "element",
+                        amount: "amount"
+                    )
+                ]),
+                annex5: Nullable<[EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex5Item]>.value([
+                    EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex5Item(
+                        element: "element",
+                        amount: "amount"
+                    ),
+                    EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex5Item(
+                        element: "element",
+                        amount: "amount"
+                    )
+                ]),
+                annex6: Nullable<EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex6>.value(EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex6(
+                    fields: [
+                        EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex6FieldsItem(
+                            element: "element",
+                            amount: "amount"
+                        ),
+                        EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex6FieldsItem(
+                            element: "element",
+                            amount: "amount"
+                        )
+                    ],
+                    reductions: [
+                        EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex6ReductionsItem(
+                            month: 1000000,
+                            year: 1000000,
+                            amount: "amount"
+                        ),
+                        EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex6ReductionsItem(
+                            month: 1000000,
+                            year: 1000000,
+                            amount: "amount"
+                        )
+                    ],
+                    relatedParties: [
+                        EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex6RelatedPartiesItem(
+                            registryCode: "registryCode",
+                            name: "name",
+                            country: "country",
+                            amount: "amount",
+                            typeCode: "typeCode"
+                        ),
+                        EeTsdAnnexesGetDeclarationsResponseAnnexesAnnex6RelatedPartiesItem(
+                            registryCode: "registryCode",
+                            name: "name",
+                            country: "country",
+                            amount: "amount",
+                            typeCode: "typeCode"
+                        )
+                    ]
+                )),
+                incomeTax: "incomeTax",
+                socialTax: "socialTax"
+            ))
+        )
+        let response = try await client.declarations.eeTsdAnnexesGet(
+            request: .init(
+                year: 1000000,
+                month: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func eeTsdAnnexesSet1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "month": 1000000,
+                  "input": {
+                    "annex4": {
+                      "housing": "121.00",
+                      "insurancePremiums": "121.00",
+                      "carCompensationAboveLimit": "121.00",
+                      "employerVehicle": "121.00",
+                      "otherProperty": "121.00",
+                      "loanMarketInterest": "121.00",
+                      "loanContractInterest": "121.00",
+                      "transferMarketPrice": "121.00",
+                      "transferAppliedPrice": "121.00",
+                      "stockOption": {
+                        "event": "sale",
+                        "marketPrice": "121.00",
+                        "exercisePrice": "121.00",
+                        "premium": "121.00"
+                      },
+                      "purchaseAppliedPrice": "121.00",
+                      "purchaseMarketPrice": "121.00",
+                      "waivedClaims": "121.00",
+                      "education": "121.00",
+                      "healthPromotion": "121.00",
+                      "other": "121.00",
+                      "notTaxedWithIncomeTax": "121.00",
+                      "notTaxedWithSocialTax": "121.00"
+                    },
+                    "annex5": {
+                      "gifts": "121.00",
+                      "giftsToListedPersons": "121.00",
+                      "limit": "socialTax",
+                      "lastYearProfit": "121.00",
+                      "entertainment": "121.00",
+                      "listedPersonTaxableGifts": "121.00"
+                    },
+                    "annex6": {
+                      "relatedParties": [
+                        {
+                          "registryCode": "registryCode",
+                          "name": "name",
+                          "country": "country",
+                          "amount": "121.00",
+                          "typeCode": "621"
+                        }
+                      ],
+                      "fines": "121.00",
+                      "taxInterest": "121.00",
+                      "confiscatedProperty": "121.00",
+                      "environmentalCharges": "121.00",
+                      "bribes": "121.00",
+                      "membershipFees": "121.00",
+                      "undocumentedPayments": "121.00",
+                      "nonBusinessExpenses": "121.00",
+                      "lowTaxSecurities": "121.00",
+                      "lowTaxHoldings": "121.00",
+                      "lowTaxPenalties": "121.00",
+                      "lowTaxLoans": "121.00",
+                      "creditInstitutionLosses": "121.00",
+                      "reductions": [
+                        {
+                          "month": 1000000,
+                          "year": 1000000,
+                          "amount": "121.00"
+                        }
+                      ]
+                    }
+                  },
+                  "annexes": {
+                    "annex4": [
+                      {
+                        "element": "element",
+                        "amount": "amount"
+                      }
+                    ],
+                    "annex5": [
+                      {
+                        "element": "element",
+                        "amount": "amount"
+                      }
+                    ],
+                    "annex6": {
+                      "fields": [
+                        {
+                          "element": "element",
+                          "amount": "amount"
+                        }
+                      ],
+                      "reductions": [
+                        {
+                          "month": 1000000,
+                          "year": 1000000,
+                          "amount": "amount"
+                        }
+                      ],
+                      "relatedParties": [
+                        {
+                          "registryCode": "registryCode",
+                          "name": "name",
+                          "country": "country",
+                          "amount": "amount",
+                          "typeCode": "typeCode"
+                        }
+                      ]
+                    },
+                    "incomeTax": "incomeTax",
+                    "socialTax": "socialTax"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EeTsdAnnexesSetDeclarationsResponse(
+            year: 1000000,
+            month: 1000000,
+            input: EeTsdAnnexesSetDeclarationsResponseInput(
+                annex4: Optional(EeTsdAnnexesSetDeclarationsResponseInputAnnex4(
+                    housing: Optional("121.00"),
+                    insurancePremiums: Optional("121.00"),
+                    carCompensationAboveLimit: Optional("121.00"),
+                    employerVehicle: Optional("121.00"),
+                    otherProperty: Optional("121.00"),
+                    loanMarketInterest: Optional("121.00"),
+                    loanContractInterest: Optional("121.00"),
+                    transferMarketPrice: Optional("121.00"),
+                    transferAppliedPrice: Optional("121.00"),
+                    stockOption: Optional(EeTsdAnnexesSetDeclarationsResponseInputAnnex4StockOption(
+                        event: .sale,
+                        marketPrice: "121.00",
+                        exercisePrice: Optional("121.00"),
+                        premium: "121.00"
+                    )),
+                    purchaseAppliedPrice: Optional("121.00"),
+                    purchaseMarketPrice: Optional("121.00"),
+                    waivedClaims: Optional("121.00"),
+                    education: Optional("121.00"),
+                    healthPromotion: Optional("121.00"),
+                    other: Optional("121.00"),
+                    notTaxedWithIncomeTax: Optional("121.00"),
+                    notTaxedWithSocialTax: Optional("121.00")
+                )),
+                annex5: Optional(EeTsdAnnexesSetDeclarationsResponseInputAnnex5(
+                    gifts: Optional("121.00"),
+                    giftsToListedPersons: Optional("121.00"),
+                    limit: Optional(.socialTax),
+                    lastYearProfit: Optional("121.00"),
+                    entertainment: Optional("121.00"),
+                    listedPersonTaxableGifts: Optional("121.00")
+                )),
+                annex6: Optional(EeTsdAnnexesSetDeclarationsResponseInputAnnex6(
+                    relatedParties: Optional([
+                        EeTsdAnnexesSetDeclarationsResponseInputAnnex6RelatedPartiesItem(
+                            registryCode: "registryCode",
+                            name: "name",
+                            country: "country",
+                            amount: "121.00",
+                            typeCode: .sixHundredTwentyOne
+                        )
+                    ]),
+                    fines: Optional("121.00"),
+                    taxInterest: Optional("121.00"),
+                    confiscatedProperty: Optional("121.00"),
+                    environmentalCharges: Optional("121.00"),
+                    bribes: Optional("121.00"),
+                    membershipFees: Optional("121.00"),
+                    undocumentedPayments: Optional("121.00"),
+                    nonBusinessExpenses: Optional("121.00"),
+                    lowTaxSecurities: Optional("121.00"),
+                    lowTaxHoldings: Optional("121.00"),
+                    lowTaxPenalties: Optional("121.00"),
+                    lowTaxLoans: Optional("121.00"),
+                    creditInstitutionLosses: Optional("121.00"),
+                    reductions: Optional([
+                        EeTsdAnnexesSetDeclarationsResponseInputAnnex6ReductionsItem(
+                            month: 1000000,
+                            year: 1000000,
+                            amount: "121.00"
+                        )
+                    ])
+                ))
+            ),
+            annexes: Nullable<EeTsdAnnexesSetDeclarationsResponseAnnexes>.value(EeTsdAnnexesSetDeclarationsResponseAnnexes(
+                annex4: Nullable<[EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex4Item]>.value([
+                    EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex4Item(
+                        element: "element",
+                        amount: "amount"
+                    )
+                ]),
+                annex5: Nullable<[EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex5Item]>.value([
+                    EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex5Item(
+                        element: "element",
+                        amount: "amount"
+                    )
+                ]),
+                annex6: Nullable<EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex6>.value(EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex6(
+                    fields: [
+                        EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex6FieldsItem(
+                            element: "element",
+                            amount: "amount"
+                        )
+                    ],
+                    reductions: [
+                        EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex6ReductionsItem(
+                            month: 1000000,
+                            year: 1000000,
+                            amount: "amount"
+                        )
+                    ],
+                    relatedParties: [
+                        EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex6RelatedPartiesItem(
+                            registryCode: "registryCode",
+                            name: "name",
+                            country: "country",
+                            amount: "amount",
+                            typeCode: "typeCode"
+                        )
+                    ]
+                )),
+                incomeTax: "incomeTax",
+                socialTax: "socialTax"
+            ))
+        )
+        let response = try await client.declarations.eeTsdAnnexesSet(
+            request: .init(
+                year: 1000000,
+                month: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func eeTsdAnnexesSet2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "month": 1000000,
+                  "input": {
+                    "annex4": {
+                      "housing": "housing",
+                      "insurancePremiums": "insurancePremiums",
+                      "carCompensationAboveLimit": "carCompensationAboveLimit",
+                      "employerVehicle": "employerVehicle",
+                      "otherProperty": "otherProperty",
+                      "loanMarketInterest": "loanMarketInterest",
+                      "loanContractInterest": "loanContractInterest",
+                      "transferMarketPrice": "transferMarketPrice",
+                      "transferAppliedPrice": "transferAppliedPrice",
+                      "stockOption": {
+                        "event": "sale",
+                        "marketPrice": "marketPrice",
+                        "exercisePrice": "exercisePrice",
+                        "premium": "premium"
+                      },
+                      "purchaseAppliedPrice": "purchaseAppliedPrice",
+                      "purchaseMarketPrice": "purchaseMarketPrice",
+                      "waivedClaims": "waivedClaims",
+                      "education": "education",
+                      "healthPromotion": "healthPromotion",
+                      "other": "other",
+                      "notTaxedWithIncomeTax": "notTaxedWithIncomeTax",
+                      "notTaxedWithSocialTax": "notTaxedWithSocialTax"
+                    },
+                    "annex5": {
+                      "gifts": "gifts",
+                      "giftsToListedPersons": "giftsToListedPersons",
+                      "limit": "socialTax",
+                      "lastYearProfit": "lastYearProfit",
+                      "entertainment": "entertainment",
+                      "listedPersonTaxableGifts": "listedPersonTaxableGifts"
+                    },
+                    "annex6": {
+                      "relatedParties": [
+                        {
+                          "registryCode": "x",
+                          "name": "x",
+                          "country": "country",
+                          "amount": "amount",
+                          "typeCode": "621"
+                        },
+                        {
+                          "registryCode": "x",
+                          "name": "x",
+                          "country": "country",
+                          "amount": "amount",
+                          "typeCode": "621"
+                        }
+                      ],
+                      "fines": "fines",
+                      "taxInterest": "taxInterest",
+                      "confiscatedProperty": "confiscatedProperty",
+                      "environmentalCharges": "environmentalCharges",
+                      "bribes": "bribes",
+                      "membershipFees": "membershipFees",
+                      "undocumentedPayments": "undocumentedPayments",
+                      "nonBusinessExpenses": "nonBusinessExpenses",
+                      "lowTaxSecurities": "lowTaxSecurities",
+                      "lowTaxHoldings": "lowTaxHoldings",
+                      "lowTaxPenalties": "lowTaxPenalties",
+                      "lowTaxLoans": "lowTaxLoans",
+                      "creditInstitutionLosses": "creditInstitutionLosses",
+                      "reductions": [
+                        {
+                          "month": 1000000,
+                          "year": 1000000,
+                          "amount": "amount"
+                        },
+                        {
+                          "month": 1000000,
+                          "year": 1000000,
+                          "amount": "amount"
+                        }
+                      ]
+                    }
+                  },
+                  "annexes": {
+                    "annex4": [
+                      {
+                        "element": "element",
+                        "amount": "amount"
+                      },
+                      {
+                        "element": "element",
+                        "amount": "amount"
+                      }
+                    ],
+                    "annex5": [
+                      {
+                        "element": "element",
+                        "amount": "amount"
+                      },
+                      {
+                        "element": "element",
+                        "amount": "amount"
+                      }
+                    ],
+                    "annex6": {
+                      "fields": [
+                        {
+                          "element": "element",
+                          "amount": "amount"
+                        },
+                        {
+                          "element": "element",
+                          "amount": "amount"
+                        }
+                      ],
+                      "reductions": [
+                        {
+                          "month": 1000000,
+                          "year": 1000000,
+                          "amount": "amount"
+                        },
+                        {
+                          "month": 1000000,
+                          "year": 1000000,
+                          "amount": "amount"
+                        }
+                      ],
+                      "relatedParties": [
+                        {
+                          "registryCode": "registryCode",
+                          "name": "name",
+                          "country": "country",
+                          "amount": "amount",
+                          "typeCode": "typeCode"
+                        },
+                        {
+                          "registryCode": "registryCode",
+                          "name": "name",
+                          "country": "country",
+                          "amount": "amount",
+                          "typeCode": "typeCode"
+                        }
+                      ]
+                    },
+                    "incomeTax": "incomeTax",
+                    "socialTax": "socialTax"
+                  }
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EeTsdAnnexesSetDeclarationsResponse(
+            year: 1000000,
+            month: 1000000,
+            input: EeTsdAnnexesSetDeclarationsResponseInput(
+                annex4: Optional(EeTsdAnnexesSetDeclarationsResponseInputAnnex4(
+                    housing: Optional("housing"),
+                    insurancePremiums: Optional("insurancePremiums"),
+                    carCompensationAboveLimit: Optional("carCompensationAboveLimit"),
+                    employerVehicle: Optional("employerVehicle"),
+                    otherProperty: Optional("otherProperty"),
+                    loanMarketInterest: Optional("loanMarketInterest"),
+                    loanContractInterest: Optional("loanContractInterest"),
+                    transferMarketPrice: Optional("transferMarketPrice"),
+                    transferAppliedPrice: Optional("transferAppliedPrice"),
+                    stockOption: Optional(EeTsdAnnexesSetDeclarationsResponseInputAnnex4StockOption(
+                        event: .sale,
+                        marketPrice: "marketPrice",
+                        exercisePrice: Optional("exercisePrice"),
+                        premium: "premium"
+                    )),
+                    purchaseAppliedPrice: Optional("purchaseAppliedPrice"),
+                    purchaseMarketPrice: Optional("purchaseMarketPrice"),
+                    waivedClaims: Optional("waivedClaims"),
+                    education: Optional("education"),
+                    healthPromotion: Optional("healthPromotion"),
+                    other: Optional("other"),
+                    notTaxedWithIncomeTax: Optional("notTaxedWithIncomeTax"),
+                    notTaxedWithSocialTax: Optional("notTaxedWithSocialTax")
+                )),
+                annex5: Optional(EeTsdAnnexesSetDeclarationsResponseInputAnnex5(
+                    gifts: Optional("gifts"),
+                    giftsToListedPersons: Optional("giftsToListedPersons"),
+                    limit: Optional(.socialTax),
+                    lastYearProfit: Optional("lastYearProfit"),
+                    entertainment: Optional("entertainment"),
+                    listedPersonTaxableGifts: Optional("listedPersonTaxableGifts")
+                )),
+                annex6: Optional(EeTsdAnnexesSetDeclarationsResponseInputAnnex6(
+                    relatedParties: Optional([
+                        EeTsdAnnexesSetDeclarationsResponseInputAnnex6RelatedPartiesItem(
+                            registryCode: "x",
+                            name: "x",
+                            country: "country",
+                            amount: "amount",
+                            typeCode: .sixHundredTwentyOne
+                        ),
+                        EeTsdAnnexesSetDeclarationsResponseInputAnnex6RelatedPartiesItem(
+                            registryCode: "x",
+                            name: "x",
+                            country: "country",
+                            amount: "amount",
+                            typeCode: .sixHundredTwentyOne
+                        )
+                    ]),
+                    fines: Optional("fines"),
+                    taxInterest: Optional("taxInterest"),
+                    confiscatedProperty: Optional("confiscatedProperty"),
+                    environmentalCharges: Optional("environmentalCharges"),
+                    bribes: Optional("bribes"),
+                    membershipFees: Optional("membershipFees"),
+                    undocumentedPayments: Optional("undocumentedPayments"),
+                    nonBusinessExpenses: Optional("nonBusinessExpenses"),
+                    lowTaxSecurities: Optional("lowTaxSecurities"),
+                    lowTaxHoldings: Optional("lowTaxHoldings"),
+                    lowTaxPenalties: Optional("lowTaxPenalties"),
+                    lowTaxLoans: Optional("lowTaxLoans"),
+                    creditInstitutionLosses: Optional("creditInstitutionLosses"),
+                    reductions: Optional([
+                        EeTsdAnnexesSetDeclarationsResponseInputAnnex6ReductionsItem(
+                            month: 1000000,
+                            year: 1000000,
+                            amount: "amount"
+                        ),
+                        EeTsdAnnexesSetDeclarationsResponseInputAnnex6ReductionsItem(
+                            month: 1000000,
+                            year: 1000000,
+                            amount: "amount"
+                        )
+                    ])
+                ))
+            ),
+            annexes: Nullable<EeTsdAnnexesSetDeclarationsResponseAnnexes>.value(EeTsdAnnexesSetDeclarationsResponseAnnexes(
+                annex4: Nullable<[EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex4Item]>.value([
+                    EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex4Item(
+                        element: "element",
+                        amount: "amount"
+                    ),
+                    EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex4Item(
+                        element: "element",
+                        amount: "amount"
+                    )
+                ]),
+                annex5: Nullable<[EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex5Item]>.value([
+                    EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex5Item(
+                        element: "element",
+                        amount: "amount"
+                    ),
+                    EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex5Item(
+                        element: "element",
+                        amount: "amount"
+                    )
+                ]),
+                annex6: Nullable<EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex6>.value(EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex6(
+                    fields: [
+                        EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex6FieldsItem(
+                            element: "element",
+                            amount: "amount"
+                        ),
+                        EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex6FieldsItem(
+                            element: "element",
+                            amount: "amount"
+                        )
+                    ],
+                    reductions: [
+                        EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex6ReductionsItem(
+                            month: 1000000,
+                            year: 1000000,
+                            amount: "amount"
+                        ),
+                        EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex6ReductionsItem(
+                            month: 1000000,
+                            year: 1000000,
+                            amount: "amount"
+                        )
+                    ],
+                    relatedParties: [
+                        EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex6RelatedPartiesItem(
+                            registryCode: "registryCode",
+                            name: "name",
+                            country: "country",
+                            amount: "amount",
+                            typeCode: "typeCode"
+                        ),
+                        EeTsdAnnexesSetDeclarationsResponseAnnexesAnnex6RelatedPartiesItem(
+                            registryCode: "registryCode",
+                            name: "name",
+                            country: "country",
+                            amount: "amount",
+                            typeCode: "typeCode"
+                        )
+                    ]
+                )),
+                incomeTax: "incomeTax",
+                socialTax: "socialTax"
+            ))
+        )
+        let response = try await client.declarations.eeTsdAnnexesSet(
+            request: .init(
+                year: 1000000,
+                month: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func eeEmploymentRegisterGenerate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "entryDate": "2026-07-01",
+                  "xml": "xml",
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EeEmploymentRegisterGenerateDeclarationsResponse(
+            fileName: "fileName",
+            entryDate: CalendarDate("2026-07-01")!,
+            xml: "xml",
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.eeEmploymentRegisterGenerate(
+            request: .init(
+                contractId: "contractId",
+                event: .start
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func eeEmploymentRegisterGenerate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "entryDate": "2023-01-15",
+                  "xml": "xml",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = EeEmploymentRegisterGenerateDeclarationsResponse(
+            fileName: "fileName",
+            entryDate: CalendarDate("2023-01-15")!,
+            xml: "xml",
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.eeEmploymentRegisterGenerate(
+            request: .init(
+                contractId: "x",
+                event: .start
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func eeEmploymentRegisterSend1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -10499,6 +12119,206 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func ieRtdGenerate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "taxRegNumber": "taxRegNumber",
+                  "rows": [
+                    {
+                      "rate": "rate",
+                      "label": "label",
+                      "supplies": "supplies",
+                      "acquisitions": "acquisitions",
+                      "purchasesResale": "purchasesResale",
+                      "purchasesNonResale": "purchasesNonResale"
+                    }
+                  ],
+                  "totals": {
+                    "supplies": "supplies",
+                    "acquisitions": "acquisitions",
+                    "purchasesResale": "purchasesResale",
+                    "purchasesNonResale": "purchasesNonResale"
+                  },
+                  "counts": {
+                    "salesInvoices": 1000000,
+                    "purchaseInvoices": 1000000
+                  },
+                  "fileName": "fileName",
+                  "xml": "xml",
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "notes": [
+                    "notes"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = IeRtdGenerateDeclarationsResponse(
+            year: 1000000,
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            taxRegNumber: "taxRegNumber",
+            rows: [
+                IeRtdGenerateDeclarationsResponseRowsItem(
+                    rate: "rate",
+                    label: "label",
+                    supplies: "supplies",
+                    acquisitions: "acquisitions",
+                    purchasesResale: "purchasesResale",
+                    purchasesNonResale: "purchasesNonResale"
+                )
+            ],
+            totals: IeRtdGenerateDeclarationsResponseTotals(
+                supplies: "supplies",
+                acquisitions: "acquisitions",
+                purchasesResale: "purchasesResale",
+                purchasesNonResale: "purchasesNonResale"
+            ),
+            counts: IeRtdGenerateDeclarationsResponseCounts(
+                salesInvoices: 1000000,
+                purchaseInvoices: 1000000
+            ),
+            fileName: "fileName",
+            xml: "xml",
+            warnings: [
+                "warnings"
+            ],
+            notes: [
+                "notes"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.ieRtdGenerate(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func ieRtdGenerate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "periodStart": "periodStart",
+                  "periodEnd": "periodEnd",
+                  "taxRegNumber": "taxRegNumber",
+                  "rows": [
+                    {
+                      "rate": "rate",
+                      "label": "label",
+                      "supplies": "supplies",
+                      "acquisitions": "acquisitions",
+                      "purchasesResale": "purchasesResale",
+                      "purchasesNonResale": "purchasesNonResale"
+                    },
+                    {
+                      "rate": "rate",
+                      "label": "label",
+                      "supplies": "supplies",
+                      "acquisitions": "acquisitions",
+                      "purchasesResale": "purchasesResale",
+                      "purchasesNonResale": "purchasesNonResale"
+                    }
+                  ],
+                  "totals": {
+                    "supplies": "supplies",
+                    "acquisitions": "acquisitions",
+                    "purchasesResale": "purchasesResale",
+                    "purchasesNonResale": "purchasesNonResale"
+                  },
+                  "counts": {
+                    "salesInvoices": 1000000,
+                    "purchaseInvoices": 1000000
+                  },
+                  "fileName": "fileName",
+                  "xml": "xml",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "notes": [
+                    "notes",
+                    "notes"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = IeRtdGenerateDeclarationsResponse(
+            year: 1000000,
+            periodStart: "periodStart",
+            periodEnd: "periodEnd",
+            taxRegNumber: "taxRegNumber",
+            rows: [
+                IeRtdGenerateDeclarationsResponseRowsItem(
+                    rate: "rate",
+                    label: "label",
+                    supplies: "supplies",
+                    acquisitions: "acquisitions",
+                    purchasesResale: "purchasesResale",
+                    purchasesNonResale: "purchasesNonResale"
+                ),
+                IeRtdGenerateDeclarationsResponseRowsItem(
+                    rate: "rate",
+                    label: "label",
+                    supplies: "supplies",
+                    acquisitions: "acquisitions",
+                    purchasesResale: "purchasesResale",
+                    purchasesNonResale: "purchasesNonResale"
+                )
+            ],
+            totals: IeRtdGenerateDeclarationsResponseTotals(
+                supplies: "supplies",
+                acquisitions: "acquisitions",
+                purchasesResale: "purchasesResale",
+                purchasesNonResale: "purchasesNonResale"
+            ),
+            counts: IeRtdGenerateDeclarationsResponseCounts(
+                salesInvoices: 1000000,
+                purchaseInvoices: 1000000
+            ),
+            fileName: "fileName",
+            xml: "xml",
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            notes: [
+                "notes",
+                "notes"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.ieRtdGenerate(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func itSdiPurchaseSend1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -10686,6 +12506,1270 @@ import Api
         )
         let response = try await client.declarations.itSdiPurchasePreview(
             request: .init(purchaseInvoiceId: "x"),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itTfrAccrualCompute1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "month": 1000000,
+                  "date": "2026-07-01",
+                  "rows": [
+                    {
+                      "employeeId": "employeeId",
+                      "name": "name",
+                      "destination": "azienda",
+                      "base": "base",
+                      "quota": "quota",
+                      "contributionBase": "contributionBase",
+                      "contribution": "contribution",
+                      "accrual": "accrual",
+                      "leftOut": [
+                        {
+                          "paymentType": "paymentType",
+                          "amount": "amount"
+                        }
+                      ]
+                    }
+                  ],
+                  "totals": {
+                    "kept": "kept",
+                    "paidOut": "paidOut",
+                    "accrual": "accrual"
+                  },
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItTfrAccrualComputeDeclarationsResponse(
+            year: 1000000,
+            month: 1000000,
+            date: CalendarDate("2026-07-01")!,
+            rows: [
+                ItTfrAccrualComputeDeclarationsResponseRowsItem(
+                    employeeId: "employeeId",
+                    name: "name",
+                    destination: .azienda,
+                    base: "base",
+                    quota: "quota",
+                    contributionBase: "contributionBase",
+                    contribution: "contribution",
+                    accrual: "accrual",
+                    leftOut: [
+                        ItTfrAccrualComputeDeclarationsResponseRowsItemLeftOutItem(
+                            paymentType: "paymentType",
+                            amount: "amount"
+                        )
+                    ]
+                )
+            ],
+            totals: ItTfrAccrualComputeDeclarationsResponseTotals(
+                kept: "kept",
+                paidOut: "paidOut",
+                accrual: "accrual"
+            ),
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.itTfrAccrualCompute(
+            request: .init(
+                year: 1000000,
+                month: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itTfrAccrualCompute2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "month": 1000000,
+                  "date": "2023-01-15",
+                  "rows": [
+                    {
+                      "employeeId": "employeeId",
+                      "name": "name",
+                      "destination": "azienda",
+                      "base": "base",
+                      "quota": "quota",
+                      "contributionBase": "contributionBase",
+                      "contribution": "contribution",
+                      "accrual": "accrual",
+                      "leftOut": [
+                        {
+                          "paymentType": "paymentType",
+                          "amount": "amount"
+                        },
+                        {
+                          "paymentType": "paymentType",
+                          "amount": "amount"
+                        }
+                      ]
+                    },
+                    {
+                      "employeeId": "employeeId",
+                      "name": "name",
+                      "destination": "azienda",
+                      "base": "base",
+                      "quota": "quota",
+                      "contributionBase": "contributionBase",
+                      "contribution": "contribution",
+                      "accrual": "accrual",
+                      "leftOut": [
+                        {
+                          "paymentType": "paymentType",
+                          "amount": "amount"
+                        },
+                        {
+                          "paymentType": "paymentType",
+                          "amount": "amount"
+                        }
+                      ]
+                    }
+                  ],
+                  "totals": {
+                    "kept": "kept",
+                    "paidOut": "paidOut",
+                    "accrual": "accrual"
+                  },
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItTfrAccrualComputeDeclarationsResponse(
+            year: 1000000,
+            month: 1000000,
+            date: CalendarDate("2023-01-15")!,
+            rows: [
+                ItTfrAccrualComputeDeclarationsResponseRowsItem(
+                    employeeId: "employeeId",
+                    name: "name",
+                    destination: .azienda,
+                    base: "base",
+                    quota: "quota",
+                    contributionBase: "contributionBase",
+                    contribution: "contribution",
+                    accrual: "accrual",
+                    leftOut: [
+                        ItTfrAccrualComputeDeclarationsResponseRowsItemLeftOutItem(
+                            paymentType: "paymentType",
+                            amount: "amount"
+                        ),
+                        ItTfrAccrualComputeDeclarationsResponseRowsItemLeftOutItem(
+                            paymentType: "paymentType",
+                            amount: "amount"
+                        )
+                    ]
+                ),
+                ItTfrAccrualComputeDeclarationsResponseRowsItem(
+                    employeeId: "employeeId",
+                    name: "name",
+                    destination: .azienda,
+                    base: "base",
+                    quota: "quota",
+                    contributionBase: "contributionBase",
+                    contribution: "contribution",
+                    accrual: "accrual",
+                    leftOut: [
+                        ItTfrAccrualComputeDeclarationsResponseRowsItemLeftOutItem(
+                            paymentType: "paymentType",
+                            amount: "amount"
+                        ),
+                        ItTfrAccrualComputeDeclarationsResponseRowsItemLeftOutItem(
+                            paymentType: "paymentType",
+                            amount: "amount"
+                        )
+                    ]
+                )
+            ],
+            totals: ItTfrAccrualComputeDeclarationsResponseTotals(
+                kept: "kept",
+                paidOut: "paidOut",
+                accrual: "accrual"
+            ),
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.itTfrAccrualCompute(
+            request: .init(
+                year: 1000000,
+                month: 1000000
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itTfrAccrualPost1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "year": 1000000,
+                  "month": 1000000,
+                  "date": "2026-07-01",
+                  "rows": [
+                    {
+                      "employeeId": "employeeId",
+                      "name": "name",
+                      "destination": "azienda",
+                      "base": "base",
+                      "quota": "quota",
+                      "contributionBase": "contributionBase",
+                      "contribution": "contribution",
+                      "accrual": "accrual",
+                      "leftOut": [
+                        {
+                          "paymentType": "paymentType",
+                          "amount": "amount"
+                        }
+                      ]
+                    }
+                  ],
+                  "totals": {
+                    "kept": "kept",
+                    "paidOut": "paidOut",
+                    "accrual": "accrual"
+                  },
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItTfrAccrualPostDeclarationsResponse(
+            id: "id",
+            year: 1000000,
+            month: 1000000,
+            date: CalendarDate("2026-07-01")!,
+            rows: [
+                ItTfrAccrualPostDeclarationsResponseRowsItem(
+                    employeeId: "employeeId",
+                    name: "name",
+                    destination: .azienda,
+                    base: "base",
+                    quota: "quota",
+                    contributionBase: "contributionBase",
+                    contribution: "contribution",
+                    accrual: "accrual",
+                    leftOut: [
+                        ItTfrAccrualPostDeclarationsResponseRowsItemLeftOutItem(
+                            paymentType: "paymentType",
+                            amount: "amount"
+                        )
+                    ]
+                )
+            ],
+            totals: ItTfrAccrualPostDeclarationsResponseTotals(
+                kept: "kept",
+                paidOut: "paidOut",
+                accrual: "accrual"
+            ),
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.itTfrAccrualPost(
+            request: .init(
+                year: 1000000,
+                month: 1000000,
+                expenseAccountCode: "expenseAccountCode"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itTfrAccrualPost2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "year": 1000000,
+                  "month": 1000000,
+                  "date": "2023-01-15",
+                  "rows": [
+                    {
+                      "employeeId": "employeeId",
+                      "name": "name",
+                      "destination": "azienda",
+                      "base": "base",
+                      "quota": "quota",
+                      "contributionBase": "contributionBase",
+                      "contribution": "contribution",
+                      "accrual": "accrual",
+                      "leftOut": [
+                        {
+                          "paymentType": "paymentType",
+                          "amount": "amount"
+                        },
+                        {
+                          "paymentType": "paymentType",
+                          "amount": "amount"
+                        }
+                      ]
+                    },
+                    {
+                      "employeeId": "employeeId",
+                      "name": "name",
+                      "destination": "azienda",
+                      "base": "base",
+                      "quota": "quota",
+                      "contributionBase": "contributionBase",
+                      "contribution": "contribution",
+                      "accrual": "accrual",
+                      "leftOut": [
+                        {
+                          "paymentType": "paymentType",
+                          "amount": "amount"
+                        },
+                        {
+                          "paymentType": "paymentType",
+                          "amount": "amount"
+                        }
+                      ]
+                    }
+                  ],
+                  "totals": {
+                    "kept": "kept",
+                    "paidOut": "paidOut",
+                    "accrual": "accrual"
+                  },
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItTfrAccrualPostDeclarationsResponse(
+            id: "x",
+            year: 1000000,
+            month: 1000000,
+            date: CalendarDate("2023-01-15")!,
+            rows: [
+                ItTfrAccrualPostDeclarationsResponseRowsItem(
+                    employeeId: "employeeId",
+                    name: "name",
+                    destination: .azienda,
+                    base: "base",
+                    quota: "quota",
+                    contributionBase: "contributionBase",
+                    contribution: "contribution",
+                    accrual: "accrual",
+                    leftOut: [
+                        ItTfrAccrualPostDeclarationsResponseRowsItemLeftOutItem(
+                            paymentType: "paymentType",
+                            amount: "amount"
+                        ),
+                        ItTfrAccrualPostDeclarationsResponseRowsItemLeftOutItem(
+                            paymentType: "paymentType",
+                            amount: "amount"
+                        )
+                    ]
+                ),
+                ItTfrAccrualPostDeclarationsResponseRowsItem(
+                    employeeId: "employeeId",
+                    name: "name",
+                    destination: .azienda,
+                    base: "base",
+                    quota: "quota",
+                    contributionBase: "contributionBase",
+                    contribution: "contribution",
+                    accrual: "accrual",
+                    leftOut: [
+                        ItTfrAccrualPostDeclarationsResponseRowsItemLeftOutItem(
+                            paymentType: "paymentType",
+                            amount: "amount"
+                        ),
+                        ItTfrAccrualPostDeclarationsResponseRowsItemLeftOutItem(
+                            paymentType: "paymentType",
+                            amount: "amount"
+                        )
+                    ]
+                )
+            ],
+            totals: ItTfrAccrualPostDeclarationsResponseTotals(
+                kept: "kept",
+                paidOut: "paidOut",
+                accrual: "accrual"
+            ),
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.itTfrAccrualPost(
+            request: .init(
+                year: 1000000,
+                month: 1000000,
+                expenseAccountCode: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itTfrRevaluationCompute1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "date": "2026-07-01",
+                  "rate": "rate",
+                  "rows": [
+                    {
+                      "employeeId": "employeeId",
+                      "name": "name",
+                      "fund": "fund",
+                      "revaluation": "revaluation",
+                      "substituteTax": "substituteTax",
+                      "fundAfter": "fundAfter"
+                    }
+                  ],
+                  "totals": {
+                    "revaluation": "revaluation",
+                    "substituteTax": "substituteTax",
+                    "accontoNextYear": "accontoNextYear"
+                  },
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItTfrRevaluationComputeDeclarationsResponse(
+            year: 1000000,
+            date: CalendarDate("2026-07-01")!,
+            rate: "rate",
+            rows: [
+                ItTfrRevaluationComputeDeclarationsResponseRowsItem(
+                    employeeId: "employeeId",
+                    name: "name",
+                    fund: "fund",
+                    revaluation: "revaluation",
+                    substituteTax: "substituteTax",
+                    fundAfter: "fundAfter"
+                )
+            ],
+            totals: ItTfrRevaluationComputeDeclarationsResponseTotals(
+                revaluation: "revaluation",
+                substituteTax: "substituteTax",
+                accontoNextYear: "accontoNextYear"
+            ),
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.itTfrRevaluationCompute(
+            request: .init(
+                year: 1000000,
+                foiPreviousDecember: "121.0000",
+                foiDecember: "121.0000",
+                funds: [
+                    ItTfrRevaluationComputeDeclarationsRequestFundsItem(
+                        employeeId: "employeeId",
+                        amount: "121.00"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itTfrRevaluationCompute2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "date": "2023-01-15",
+                  "rate": "rate",
+                  "rows": [
+                    {
+                      "employeeId": "employeeId",
+                      "name": "name",
+                      "fund": "fund",
+                      "revaluation": "revaluation",
+                      "substituteTax": "substituteTax",
+                      "fundAfter": "fundAfter"
+                    },
+                    {
+                      "employeeId": "employeeId",
+                      "name": "name",
+                      "fund": "fund",
+                      "revaluation": "revaluation",
+                      "substituteTax": "substituteTax",
+                      "fundAfter": "fundAfter"
+                    }
+                  ],
+                  "totals": {
+                    "revaluation": "revaluation",
+                    "substituteTax": "substituteTax",
+                    "accontoNextYear": "accontoNextYear"
+                  },
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItTfrRevaluationComputeDeclarationsResponse(
+            year: 1000000,
+            date: CalendarDate("2023-01-15")!,
+            rate: "rate",
+            rows: [
+                ItTfrRevaluationComputeDeclarationsResponseRowsItem(
+                    employeeId: "employeeId",
+                    name: "name",
+                    fund: "fund",
+                    revaluation: "revaluation",
+                    substituteTax: "substituteTax",
+                    fundAfter: "fundAfter"
+                ),
+                ItTfrRevaluationComputeDeclarationsResponseRowsItem(
+                    employeeId: "employeeId",
+                    name: "name",
+                    fund: "fund",
+                    revaluation: "revaluation",
+                    substituteTax: "substituteTax",
+                    fundAfter: "fundAfter"
+                )
+            ],
+            totals: ItTfrRevaluationComputeDeclarationsResponseTotals(
+                revaluation: "revaluation",
+                substituteTax: "substituteTax",
+                accontoNextYear: "accontoNextYear"
+            ),
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.itTfrRevaluationCompute(
+            request: .init(
+                year: 1000000,
+                foiPreviousDecember: "foiPreviousDecember",
+                foiDecember: "foiDecember",
+                funds: [
+                    ItTfrRevaluationComputeDeclarationsRequestFundsItem(
+                        employeeId: "x",
+                        amount: "amount"
+                    ),
+                    ItTfrRevaluationComputeDeclarationsRequestFundsItem(
+                        employeeId: "x",
+                        amount: "amount"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itTfrRevaluationPost1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "year": 1000000,
+                  "date": "2026-07-01",
+                  "rate": "rate",
+                  "rows": [
+                    {
+                      "employeeId": "employeeId",
+                      "name": "name",
+                      "fund": "fund",
+                      "revaluation": "revaluation",
+                      "substituteTax": "substituteTax",
+                      "fundAfter": "fundAfter"
+                    }
+                  ],
+                  "totals": {
+                    "revaluation": "revaluation",
+                    "substituteTax": "substituteTax",
+                    "accontoNextYear": "accontoNextYear"
+                  },
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItTfrRevaluationPostDeclarationsResponse(
+            id: "id",
+            year: 1000000,
+            date: CalendarDate("2026-07-01")!,
+            rate: "rate",
+            rows: [
+                ItTfrRevaluationPostDeclarationsResponseRowsItem(
+                    employeeId: "employeeId",
+                    name: "name",
+                    fund: "fund",
+                    revaluation: "revaluation",
+                    substituteTax: "substituteTax",
+                    fundAfter: "fundAfter"
+                )
+            ],
+            totals: ItTfrRevaluationPostDeclarationsResponseTotals(
+                revaluation: "revaluation",
+                substituteTax: "substituteTax",
+                accontoNextYear: "accontoNextYear"
+            ),
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.itTfrRevaluationPost(
+            request: .init(
+                year: 1000000,
+                foiPreviousDecember: "121.0000",
+                foiDecember: "121.0000",
+                funds: [
+                    ItTfrRevaluationPostDeclarationsRequestFundsItem(
+                        employeeId: "employeeId",
+                        amount: "121.00"
+                    )
+                ],
+                expenseAccountCode: "expenseAccountCode",
+                fundAccountCode: "fundAccountCode",
+                taxAccountCode: "taxAccountCode"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itTfrRevaluationPost2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "year": 1000000,
+                  "date": "2023-01-15",
+                  "rate": "rate",
+                  "rows": [
+                    {
+                      "employeeId": "employeeId",
+                      "name": "name",
+                      "fund": "fund",
+                      "revaluation": "revaluation",
+                      "substituteTax": "substituteTax",
+                      "fundAfter": "fundAfter"
+                    },
+                    {
+                      "employeeId": "employeeId",
+                      "name": "name",
+                      "fund": "fund",
+                      "revaluation": "revaluation",
+                      "substituteTax": "substituteTax",
+                      "fundAfter": "fundAfter"
+                    }
+                  ],
+                  "totals": {
+                    "revaluation": "revaluation",
+                    "substituteTax": "substituteTax",
+                    "accontoNextYear": "accontoNextYear"
+                  },
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItTfrRevaluationPostDeclarationsResponse(
+            id: "x",
+            year: 1000000,
+            date: CalendarDate("2023-01-15")!,
+            rate: "rate",
+            rows: [
+                ItTfrRevaluationPostDeclarationsResponseRowsItem(
+                    employeeId: "employeeId",
+                    name: "name",
+                    fund: "fund",
+                    revaluation: "revaluation",
+                    substituteTax: "substituteTax",
+                    fundAfter: "fundAfter"
+                ),
+                ItTfrRevaluationPostDeclarationsResponseRowsItem(
+                    employeeId: "employeeId",
+                    name: "name",
+                    fund: "fund",
+                    revaluation: "revaluation",
+                    substituteTax: "substituteTax",
+                    fundAfter: "fundAfter"
+                )
+            ],
+            totals: ItTfrRevaluationPostDeclarationsResponseTotals(
+                revaluation: "revaluation",
+                substituteTax: "substituteTax",
+                accontoNextYear: "accontoNextYear"
+            ),
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.itTfrRevaluationPost(
+            request: .init(
+                year: 1000000,
+                foiPreviousDecember: "foiPreviousDecember",
+                foiDecember: "foiDecember",
+                funds: [
+                    ItTfrRevaluationPostDeclarationsRequestFundsItem(
+                        employeeId: "x",
+                        amount: "amount"
+                    ),
+                    ItTfrRevaluationPostDeclarationsRequestFundsItem(
+                        employeeId: "x",
+                        amount: "amount"
+                    )
+                ],
+                expenseAccountCode: "x",
+                fundAccountCode: "x",
+                taxAccountCode: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itInailAutoliquidazioneCompute1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "positions": [
+                    {
+                      "pat": "pat",
+                      "patControlCode": "patControlCode",
+                      "voce": "voce",
+                      "employees": 1000000,
+                      "retribuzioni": "retribuzioni",
+                      "quoteEsenti": "quoteEsenti",
+                      "imponibileRegolazione": "imponibileRegolazione",
+                      "premioRegolazione": "premioRegolazione",
+                      "riduzioneRegolazione": "riduzioneRegolazione",
+                      "totaleRegolazione": "totaleRegolazione",
+                      "imponibileRata": "imponibileRata",
+                      "premioRata": "premioRata",
+                      "riduzioneRata": "riduzioneRata",
+                      "totaleRata": "totaleRata"
+                    }
+                  ],
+                  "regolazione": {
+                    "totale": "totale",
+                    "addizionale": "addizionale",
+                    "rataAnticipata": "rataAnticipata",
+                    "importo": "importo"
+                  },
+                  "rata": {
+                    "totale": "totale",
+                    "addizionale": "addizionale",
+                    "importo": "importo"
+                  },
+                  "total": "total",
+                  "instalments": [
+                    {
+                      "number": 1000000,
+                      "dueDate": "2026-07-01",
+                      "amount": "amount",
+                      "interest": "interest"
+                    }
+                  ],
+                  "f24": [
+                    {
+                      "codiceSede": "codiceSede",
+                      "codiceDitta": "codiceDitta",
+                      "cc": "cc",
+                      "numeroRiferimento": "numeroRiferimento",
+                      "causale": "causale",
+                      "importo": "importo",
+                      "credito": true
+                    }
+                  ],
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItInailAutoliquidazioneComputeDeclarationsResponse(
+            year: 1000000,
+            positions: [
+                ItInailAutoliquidazioneComputeDeclarationsResponsePositionsItem(
+                    pat: "pat",
+                    patControlCode: "patControlCode",
+                    voce: "voce",
+                    employees: 1000000,
+                    retribuzioni: "retribuzioni",
+                    quoteEsenti: "quoteEsenti",
+                    imponibileRegolazione: "imponibileRegolazione",
+                    premioRegolazione: "premioRegolazione",
+                    riduzioneRegolazione: "riduzioneRegolazione",
+                    totaleRegolazione: "totaleRegolazione",
+                    imponibileRata: "imponibileRata",
+                    premioRata: "premioRata",
+                    riduzioneRata: "riduzioneRata",
+                    totaleRata: "totaleRata"
+                )
+            ],
+            regolazione: ItInailAutoliquidazioneComputeDeclarationsResponseRegolazione(
+                totale: "totale",
+                addizionale: "addizionale",
+                rataAnticipata: "rataAnticipata",
+                importo: "importo"
+            ),
+            rata: ItInailAutoliquidazioneComputeDeclarationsResponseRata(
+                totale: "totale",
+                addizionale: "addizionale",
+                importo: "importo"
+            ),
+            total: "total",
+            instalments: [
+                ItInailAutoliquidazioneComputeDeclarationsResponseInstalmentsItem(
+                    number: 1000000,
+                    dueDate: CalendarDate("2026-07-01")!,
+                    amount: "amount",
+                    interest: Nullable<String>.value("interest")
+                )
+            ],
+            f24: [
+                ItInailAutoliquidazioneComputeDeclarationsResponseF24Item(
+                    codiceSede: "codiceSede",
+                    codiceDitta: "codiceDitta",
+                    cc: "cc",
+                    numeroRiferimento: "numeroRiferimento",
+                    causale: "causale",
+                    importo: "importo",
+                    credito: Optional(true)
+                )
+            ],
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.itInailAutoliquidazioneCompute(
+            request: .init(
+                year: 1000000,
+                positions: [
+                    ItInailAutoliquidazioneComputeDeclarationsRequestPositionsItem(
+                        pat: "pat",
+                        patControlCode: "patControlCode",
+                        voce: "voce",
+                        tassoRegolazione: "121.00000",
+                        tassoRata: "121.00000"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itInailAutoliquidazioneCompute2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "positions": [
+                    {
+                      "pat": "pat",
+                      "patControlCode": "patControlCode",
+                      "voce": "voce",
+                      "employees": 1000000,
+                      "retribuzioni": "retribuzioni",
+                      "quoteEsenti": "quoteEsenti",
+                      "imponibileRegolazione": "imponibileRegolazione",
+                      "premioRegolazione": "premioRegolazione",
+                      "riduzioneRegolazione": "riduzioneRegolazione",
+                      "totaleRegolazione": "totaleRegolazione",
+                      "imponibileRata": "imponibileRata",
+                      "premioRata": "premioRata",
+                      "riduzioneRata": "riduzioneRata",
+                      "totaleRata": "totaleRata"
+                    },
+                    {
+                      "pat": "pat",
+                      "patControlCode": "patControlCode",
+                      "voce": "voce",
+                      "employees": 1000000,
+                      "retribuzioni": "retribuzioni",
+                      "quoteEsenti": "quoteEsenti",
+                      "imponibileRegolazione": "imponibileRegolazione",
+                      "premioRegolazione": "premioRegolazione",
+                      "riduzioneRegolazione": "riduzioneRegolazione",
+                      "totaleRegolazione": "totaleRegolazione",
+                      "imponibileRata": "imponibileRata",
+                      "premioRata": "premioRata",
+                      "riduzioneRata": "riduzioneRata",
+                      "totaleRata": "totaleRata"
+                    }
+                  ],
+                  "regolazione": {
+                    "totale": "totale",
+                    "addizionale": "addizionale",
+                    "rataAnticipata": "rataAnticipata",
+                    "importo": "importo"
+                  },
+                  "rata": {
+                    "totale": "totale",
+                    "addizionale": "addizionale",
+                    "importo": "importo"
+                  },
+                  "total": "total",
+                  "instalments": [
+                    {
+                      "number": 1000000,
+                      "dueDate": "2023-01-15",
+                      "amount": "amount",
+                      "interest": "interest"
+                    },
+                    {
+                      "number": 1000000,
+                      "dueDate": "2023-01-15",
+                      "amount": "amount",
+                      "interest": "interest"
+                    }
+                  ],
+                  "f24": [
+                    {
+                      "codiceSede": "codiceSede",
+                      "codiceDitta": "codiceDitta",
+                      "cc": "cc",
+                      "numeroRiferimento": "numeroRiferimento",
+                      "causale": "causale",
+                      "importo": "importo",
+                      "credito": true
+                    },
+                    {
+                      "codiceSede": "codiceSede",
+                      "codiceDitta": "codiceDitta",
+                      "cc": "cc",
+                      "numeroRiferimento": "numeroRiferimento",
+                      "causale": "causale",
+                      "importo": "importo",
+                      "credito": true
+                    }
+                  ],
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItInailAutoliquidazioneComputeDeclarationsResponse(
+            year: 1000000,
+            positions: [
+                ItInailAutoliquidazioneComputeDeclarationsResponsePositionsItem(
+                    pat: "pat",
+                    patControlCode: "patControlCode",
+                    voce: "voce",
+                    employees: 1000000,
+                    retribuzioni: "retribuzioni",
+                    quoteEsenti: "quoteEsenti",
+                    imponibileRegolazione: "imponibileRegolazione",
+                    premioRegolazione: "premioRegolazione",
+                    riduzioneRegolazione: "riduzioneRegolazione",
+                    totaleRegolazione: "totaleRegolazione",
+                    imponibileRata: "imponibileRata",
+                    premioRata: "premioRata",
+                    riduzioneRata: "riduzioneRata",
+                    totaleRata: "totaleRata"
+                ),
+                ItInailAutoliquidazioneComputeDeclarationsResponsePositionsItem(
+                    pat: "pat",
+                    patControlCode: "patControlCode",
+                    voce: "voce",
+                    employees: 1000000,
+                    retribuzioni: "retribuzioni",
+                    quoteEsenti: "quoteEsenti",
+                    imponibileRegolazione: "imponibileRegolazione",
+                    premioRegolazione: "premioRegolazione",
+                    riduzioneRegolazione: "riduzioneRegolazione",
+                    totaleRegolazione: "totaleRegolazione",
+                    imponibileRata: "imponibileRata",
+                    premioRata: "premioRata",
+                    riduzioneRata: "riduzioneRata",
+                    totaleRata: "totaleRata"
+                )
+            ],
+            regolazione: ItInailAutoliquidazioneComputeDeclarationsResponseRegolazione(
+                totale: "totale",
+                addizionale: "addizionale",
+                rataAnticipata: "rataAnticipata",
+                importo: "importo"
+            ),
+            rata: ItInailAutoliquidazioneComputeDeclarationsResponseRata(
+                totale: "totale",
+                addizionale: "addizionale",
+                importo: "importo"
+            ),
+            total: "total",
+            instalments: [
+                ItInailAutoliquidazioneComputeDeclarationsResponseInstalmentsItem(
+                    number: 1000000,
+                    dueDate: CalendarDate("2023-01-15")!,
+                    amount: "amount",
+                    interest: Nullable<String>.value("interest")
+                ),
+                ItInailAutoliquidazioneComputeDeclarationsResponseInstalmentsItem(
+                    number: 1000000,
+                    dueDate: CalendarDate("2023-01-15")!,
+                    amount: "amount",
+                    interest: Nullable<String>.value("interest")
+                )
+            ],
+            f24: [
+                ItInailAutoliquidazioneComputeDeclarationsResponseF24Item(
+                    codiceSede: "codiceSede",
+                    codiceDitta: "codiceDitta",
+                    cc: "cc",
+                    numeroRiferimento: "numeroRiferimento",
+                    causale: "causale",
+                    importo: "importo",
+                    credito: Optional(true)
+                ),
+                ItInailAutoliquidazioneComputeDeclarationsResponseF24Item(
+                    codiceSede: "codiceSede",
+                    codiceDitta: "codiceDitta",
+                    cc: "cc",
+                    numeroRiferimento: "numeroRiferimento",
+                    causale: "causale",
+                    importo: "importo",
+                    credito: Optional(true)
+                )
+            ],
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.itInailAutoliquidazioneCompute(
+            request: .init(
+                year: 1000000,
+                positions: [
+                    ItInailAutoliquidazioneComputeDeclarationsRequestPositionsItem(
+                        pat: "pat",
+                        patControlCode: "patControlCode",
+                        voce: "voce",
+                        tassoRegolazione: "tassoRegolazione",
+                        tassoRata: "tassoRata"
+                    ),
+                    ItInailAutoliquidazioneComputeDeclarationsRequestPositionsItem(
+                        pat: "pat",
+                        patControlCode: "patControlCode",
+                        voce: "voce",
+                        tassoRegolazione: "tassoRegolazione",
+                        tassoRata: "tassoRata"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itInailAutoliquidazioneF241() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "total": "total",
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItInailAutoliquidazioneF24DeclarationsResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            total: "total",
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.itInailAutoliquidazioneF24(
+            request: .init(
+                year: 1000000,
+                positions: [
+                    ItInailAutoliquidazioneF24DeclarationsRequestPositionsItem(
+                        pat: "pat",
+                        patControlCode: "patControlCode",
+                        voce: "voce",
+                        tassoRegolazione: "121.00000",
+                        tassoRata: "121.00000"
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func itInailAutoliquidazioneF242() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "contentType": "contentType",
+                  "data": "data",
+                  "total": "total",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = ItInailAutoliquidazioneF24DeclarationsResponse(
+            fileName: "fileName",
+            contentType: "contentType",
+            data: "data",
+            total: "total",
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.itInailAutoliquidazioneF24(
+            request: .init(
+                year: 1000000,
+                positions: [
+                    ItInailAutoliquidazioneF24DeclarationsRequestPositionsItem(
+                        pat: "pat",
+                        patControlCode: "patControlCode",
+                        voce: "voce",
+                        tassoRegolazione: "tassoRegolazione",
+                        tassoRata: "tassoRata"
+                    ),
+                    ItInailAutoliquidazioneF24DeclarationsRequestPositionsItem(
+                        pat: "pat",
+                        patControlCode: "patControlCode",
+                        voce: "voce",
+                        tassoRegolazione: "tassoRegolazione",
+                        tassoRata: "tassoRata"
+                    )
+                ]
+            ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -10949,6 +14033,216 @@ import Api
             ]
         )
         let response = try await client.declarations.ltPln204Ffdata(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func lvEmployeeNoticeGenerate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "entryDate": "2026-07-01",
+                  "xml": "xml",
+                  "warnings": [
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = LvEmployeeNoticeGenerateDeclarationsResponse(
+            fileName: "fileName",
+            entryDate: CalendarDate("2026-07-01")!,
+            xml: "xml",
+            warnings: [
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.lvEmployeeNoticeGenerate(
+            request: .init(
+                contractId: "contractId",
+                event: .start
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func lvEmployeeNoticeGenerate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "fileName": "fileName",
+                  "entryDate": "2023-01-15",
+                  "xml": "xml",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = LvEmployeeNoticeGenerateDeclarationsResponse(
+            fileName: "fileName",
+            entryDate: CalendarDate("2023-01-15")!,
+            xml: "xml",
+            warnings: [
+                "warnings",
+                "warnings"
+            ]
+        )
+        let response = try await client.declarations.lvEmployeeNoticeGenerate(
+            request: .init(
+                contractId: "x",
+                event: .start
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func mtFs7Generate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "boxes": [
+                    {
+                      "box": "box",
+                      "description": "description",
+                      "value": "value"
+                    }
+                  ],
+                  "leftToPayer": [
+                    "leftToPayer"
+                  ],
+                  "fileName": "fileName",
+                  "pdf": "pdf",
+                  "warnings": [
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = MtFs7GenerateDeclarationsResponse(
+            year: 1000000,
+            boxes: [
+                MtFs7GenerateDeclarationsResponseBoxesItem(
+                    box: "box",
+                    description: "description",
+                    value: "value"
+                )
+            ],
+            leftToPayer: [
+                "leftToPayer"
+            ],
+            fileName: "fileName",
+            pdf: "pdf",
+            warnings: [
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.mtFs7Generate(
+            request: .init(year: 1000000),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func mtFs7Generate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "year": 1000000,
+                  "boxes": [
+                    {
+                      "box": "box",
+                      "description": "description",
+                      "value": "value"
+                    },
+                    {
+                      "box": "box",
+                      "description": "description",
+                      "value": "value"
+                    }
+                  ],
+                  "leftToPayer": [
+                    "leftToPayer",
+                    "leftToPayer"
+                  ],
+                  "fileName": "fileName",
+                  "pdf": "pdf",
+                  "warnings": [
+                    "warnings",
+                    "warnings"
+                  ],
+                  "source": "source"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = MtFs7GenerateDeclarationsResponse(
+            year: 1000000,
+            boxes: [
+                MtFs7GenerateDeclarationsResponseBoxesItem(
+                    box: "box",
+                    description: "description",
+                    value: "value"
+                ),
+                MtFs7GenerateDeclarationsResponseBoxesItem(
+                    box: "box",
+                    description: "description",
+                    value: "value"
+                )
+            ],
+            leftToPayer: [
+                "leftToPayer",
+                "leftToPayer"
+            ],
+            fileName: "fileName",
+            pdf: "pdf",
+            warnings: [
+                "warnings",
+                "warnings"
+            ],
+            source: "source"
+        )
+        let response = try await client.declarations.mtFs7Generate(
             request: .init(year: 1000000),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

@@ -14,6 +14,7 @@ extension Requests {
         public let allocatedTo: Nullable<Int64>?
         public let warehouseId: Nullable<String>?
         public let printSeries: Bool?
+        public let suffix: String?
         public let isDefault: Bool?
         public let isActive: Bool?
         /// Additional properties that are not explicitly defined in the schema
@@ -32,6 +33,7 @@ extension Requests {
             allocatedTo: Nullable<Int64>? = nil,
             warehouseId: Nullable<String>? = nil,
             printSeries: Bool? = nil,
+            suffix: String? = nil,
             isDefault: Bool? = nil,
             isActive: Bool? = nil,
             additionalProperties: [String: JSONValue] = .init()
@@ -48,6 +50,7 @@ extension Requests {
             self.allocatedTo = allocatedTo
             self.warehouseId = warehouseId
             self.printSeries = printSeries
+            self.suffix = suffix
             self.isDefault = isDefault
             self.isActive = isActive
             self.additionalProperties = additionalProperties
@@ -67,6 +70,7 @@ extension Requests {
             self.allocatedTo = try container.decodeNullableIfPresent(Int64.self, forKey: .allocatedTo)
             self.warehouseId = try container.decodeNullableIfPresent(String.self, forKey: .warehouseId)
             self.printSeries = try container.decodeIfPresent(Bool.self, forKey: .printSeries)
+            self.suffix = try container.decodeIfPresent(String.self, forKey: .suffix)
             self.isDefault = try container.decodeIfPresent(Bool.self, forKey: .isDefault)
             self.isActive = try container.decodeIfPresent(Bool.self, forKey: .isActive)
             self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -87,6 +91,7 @@ extension Requests {
             try container.encodeNullableIfPresent(self.allocatedTo, forKey: .allocatedTo)
             try container.encodeNullableIfPresent(self.warehouseId, forKey: .warehouseId)
             try container.encodeIfPresent(self.printSeries, forKey: .printSeries)
+            try container.encodeIfPresent(self.suffix, forKey: .suffix)
             try container.encodeIfPresent(self.isDefault, forKey: .isDefault)
             try container.encodeIfPresent(self.isActive, forKey: .isActive)
         }
@@ -105,6 +110,7 @@ extension Requests {
             case allocatedTo
             case warehouseId
             case printSeries
+            case suffix
             case isDefault
             case isActive
         }

@@ -16,6 +16,9 @@ extension Requests {
         public let intrastatRegion: Nullable<String>?
         public let intrastatNatureOfTransaction: Nullable<String>?
         public let einvoiceNumber: Nullable<String>?
+        public let paymentReference: Nullable<String>?
+        public let agreementId: Nullable<String>?
+        public let agreementPeriodStart: Nullable<CalendarDate>?
         public let lines: [InvoicesUpdatePurchasesRequestLinesItem]?
         public let netTotal: String?
         public let vatTotal: String?
@@ -38,6 +41,9 @@ extension Requests {
             intrastatRegion: Nullable<String>? = nil,
             intrastatNatureOfTransaction: Nullable<String>? = nil,
             einvoiceNumber: Nullable<String>? = nil,
+            paymentReference: Nullable<String>? = nil,
+            agreementId: Nullable<String>? = nil,
+            agreementPeriodStart: Nullable<CalendarDate>? = nil,
             lines: [InvoicesUpdatePurchasesRequestLinesItem]? = nil,
             netTotal: String? = nil,
             vatTotal: String? = nil,
@@ -58,6 +64,9 @@ extension Requests {
             self.intrastatRegion = intrastatRegion
             self.intrastatNatureOfTransaction = intrastatNatureOfTransaction
             self.einvoiceNumber = einvoiceNumber
+            self.paymentReference = paymentReference
+            self.agreementId = agreementId
+            self.agreementPeriodStart = agreementPeriodStart
             self.lines = lines
             self.netTotal = netTotal
             self.vatTotal = vatTotal
@@ -81,6 +90,9 @@ extension Requests {
             self.intrastatRegion = try container.decodeNullableIfPresent(String.self, forKey: .intrastatRegion)
             self.intrastatNatureOfTransaction = try container.decodeNullableIfPresent(String.self, forKey: .intrastatNatureOfTransaction)
             self.einvoiceNumber = try container.decodeNullableIfPresent(String.self, forKey: .einvoiceNumber)
+            self.paymentReference = try container.decodeNullableIfPresent(String.self, forKey: .paymentReference)
+            self.agreementId = try container.decodeNullableIfPresent(String.self, forKey: .agreementId)
+            self.agreementPeriodStart = try container.decodeNullableIfPresent(CalendarDate.self, forKey: .agreementPeriodStart)
             self.lines = try container.decodeIfPresent([InvoicesUpdatePurchasesRequestLinesItem].self, forKey: .lines)
             self.netTotal = try container.decodeIfPresent(String.self, forKey: .netTotal)
             self.vatTotal = try container.decodeIfPresent(String.self, forKey: .vatTotal)
@@ -105,6 +117,9 @@ extension Requests {
             try container.encodeNullableIfPresent(self.intrastatRegion, forKey: .intrastatRegion)
             try container.encodeNullableIfPresent(self.intrastatNatureOfTransaction, forKey: .intrastatNatureOfTransaction)
             try container.encodeNullableIfPresent(self.einvoiceNumber, forKey: .einvoiceNumber)
+            try container.encodeNullableIfPresent(self.paymentReference, forKey: .paymentReference)
+            try container.encodeNullableIfPresent(self.agreementId, forKey: .agreementId)
+            try container.encodeNullableIfPresent(self.agreementPeriodStart, forKey: .agreementPeriodStart)
             try container.encodeIfPresent(self.lines, forKey: .lines)
             try container.encodeIfPresent(self.netTotal, forKey: .netTotal)
             try container.encodeIfPresent(self.vatTotal, forKey: .vatTotal)
@@ -127,6 +142,9 @@ extension Requests {
             case intrastatRegion
             case intrastatNatureOfTransaction
             case einvoiceNumber
+            case paymentReference
+            case agreementId
+            case agreementPeriodStart
             case lines
             case netTotal
             case vatTotal

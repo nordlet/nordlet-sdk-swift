@@ -12,6 +12,7 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
     public let unitPriceInclVat: Nullable<String>
     public let vatRatePercent: String
     public let vatClassifierCode: Nullable<String>
+    public let deductiblePercent: Nullable<Int64>
     public let costCenterId: Nullable<String>
     public let projectId: Nullable<String>
     public let accountCode: Nullable<String>
@@ -19,6 +20,7 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
     public let deferralEndDate: Nullable<CalendarDate>
     public let lotNumber: Nullable<String>
     public let expiryDate: Nullable<CalendarDate>
+    public let chassisNumbers: Nullable<[String]>
     public let lineNet: String
     public let lineVat: String
     public let lineGross: String
@@ -38,6 +40,7 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         unitPriceInclVat: Nullable<String>,
         vatRatePercent: String,
         vatClassifierCode: Nullable<String>,
+        deductiblePercent: Nullable<Int64>,
         costCenterId: Nullable<String>,
         projectId: Nullable<String>,
         accountCode: Nullable<String>,
@@ -45,6 +48,7 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         deferralEndDate: Nullable<CalendarDate>,
         lotNumber: Nullable<String>,
         expiryDate: Nullable<CalendarDate>,
+        chassisNumbers: Nullable<[String]>,
         lineNet: String,
         lineVat: String,
         lineGross: String,
@@ -62,6 +66,7 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         self.unitPriceInclVat = unitPriceInclVat
         self.vatRatePercent = vatRatePercent
         self.vatClassifierCode = vatClassifierCode
+        self.deductiblePercent = deductiblePercent
         self.costCenterId = costCenterId
         self.projectId = projectId
         self.accountCode = accountCode
@@ -69,6 +74,7 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         self.deferralEndDate = deferralEndDate
         self.lotNumber = lotNumber
         self.expiryDate = expiryDate
+        self.chassisNumbers = chassisNumbers
         self.lineNet = lineNet
         self.lineVat = lineVat
         self.lineGross = lineGross
@@ -89,6 +95,7 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         self.unitPriceInclVat = try container.decode(Nullable<String>.self, forKey: .unitPriceInclVat)
         self.vatRatePercent = try container.decode(String.self, forKey: .vatRatePercent)
         self.vatClassifierCode = try container.decode(Nullable<String>.self, forKey: .vatClassifierCode)
+        self.deductiblePercent = try container.decode(Nullable<Int64>.self, forKey: .deductiblePercent)
         self.costCenterId = try container.decode(Nullable<String>.self, forKey: .costCenterId)
         self.projectId = try container.decode(Nullable<String>.self, forKey: .projectId)
         self.accountCode = try container.decode(Nullable<String>.self, forKey: .accountCode)
@@ -96,6 +103,7 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         self.deferralEndDate = try container.decode(Nullable<CalendarDate>.self, forKey: .deferralEndDate)
         self.lotNumber = try container.decode(Nullable<String>.self, forKey: .lotNumber)
         self.expiryDate = try container.decode(Nullable<CalendarDate>.self, forKey: .expiryDate)
+        self.chassisNumbers = try container.decode(Nullable<[String]>.self, forKey: .chassisNumbers)
         self.lineNet = try container.decode(String.self, forKey: .lineNet)
         self.lineVat = try container.decode(String.self, forKey: .lineVat)
         self.lineGross = try container.decode(String.self, forKey: .lineGross)
@@ -117,6 +125,7 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         try container.encode(self.unitPriceInclVat, forKey: .unitPriceInclVat)
         try container.encode(self.vatRatePercent, forKey: .vatRatePercent)
         try container.encode(self.vatClassifierCode, forKey: .vatClassifierCode)
+        try container.encode(self.deductiblePercent, forKey: .deductiblePercent)
         try container.encode(self.costCenterId, forKey: .costCenterId)
         try container.encode(self.projectId, forKey: .projectId)
         try container.encode(self.accountCode, forKey: .accountCode)
@@ -124,6 +133,7 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         try container.encode(self.deferralEndDate, forKey: .deferralEndDate)
         try container.encode(self.lotNumber, forKey: .lotNumber)
         try container.encode(self.expiryDate, forKey: .expiryDate)
+        try container.encode(self.chassisNumbers, forKey: .chassisNumbers)
         try container.encode(self.lineNet, forKey: .lineNet)
         try container.encode(self.lineVat, forKey: .lineVat)
         try container.encode(self.lineGross, forKey: .lineGross)
@@ -143,6 +153,7 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         case unitPriceInclVat
         case vatRatePercent
         case vatClassifierCode
+        case deductiblePercent
         case costCenterId
         case projectId
         case accountCode
@@ -150,6 +161,7 @@ public struct DocumentsConfirmCaptureResponseOppositeInvoiceLinesItem: Codable, 
         case deferralEndDate
         case lotNumber
         case expiryDate
+        case chassisNumbers
         case lineNet
         case lineVat
         case lineGross

@@ -59,7 +59,7 @@ public final class LedgerClient: Sendable {
         )
     }
 
-    /// Replaces the seeded chart with the chart template of the company country (the Romanian general chart for a company registered in Romania, the Estonian e-arveldaja chart for a company registered in Estonia, the Lithuanian standard chart otherwise) and switches the posting defaults with it. Answers 409 when the company already uses that chart, has journal entries, holds accounts created by hand, or has settings that name an account the new chart does not have.
+    /// Replaces the seeded chart with the chart template of the company country (the national chart for a company registered in Belgium, the Czech Republic, Denmark, Estonia, France, Luxembourg, the Netherlands, Portugal, Romania, Slovakia, Slovenia, Spain, the United Kingdom or the United States, the chart of the balance sheet and profit and loss items of Directive 2013/34/EU for a company registered in Austria, Bulgaria, Croatia, Cyprus, Finland, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Malta, Norway, Poland or Sweden, the Lithuanian standard chart otherwise) and switches the posting defaults with it. Answers 409 when the company already uses that chart, has journal entries, holds accounts created by hand, or has settings that name an account the new chart does not have.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func accountsSwitchChart(request: Requests.AccountsSwitchChartLedgerRequest, requestOptions: RequestOptions? = nil) async throws -> AccountsSwitchChartLedgerResponse {
@@ -319,7 +319,59 @@ public final class LedgerClient: Sendable {
         )
     }
 
-    /// Posts a journal transaction (`documentType` `manual_reversal`, `documentId` the original) dated `date` (default the original date) whose entries mirror the original's (debits and credits swapped). Only a `manual` transaction or a `tax_provision` (posted by `ledger/tax-provision/post`) is reversed here; a transaction posted by a document is reversed through that document. Answers 409 when the transaction is neither, when it is already reversed and when the accounting period of `date` is locked, and 400 when `date` is before the original date.
+    /// Save a journal template: the accounts of a recurring manual transaction, each with its side (`debit` or `credit`), for example the lines of a payslip from an outside payroll provider. `ledger/journal/templates/post` then posts it with the amounts of the month. The accounts, cost centers, projects and partners are checked as in `ledger/journal/transactions/create` (422); the template needs at least one debit and one credit line (422), and a repeated `name` is refused with 409.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func journalTemplatesCreate(request: Requests.JournalTemplatesCreateLedgerRequest, requestOptions: RequestOptions? = nil) async throws -> JournalTemplatesCreateLedgerResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/ledger/journal/templates/create",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: JournalTemplatesCreateLedgerResponse.self
+        )
+    }
+
+    /// Lists the journal templates with their lines. Filterable by `name`; sortable by `name` and `createdAt`.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func journalTemplatesList(request: Requests.JournalTemplatesListLedgerRequest, requestOptions: RequestOptions? = nil) async throws -> JournalTemplatesListLedgerResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/ledger/journal/templates/list",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: JournalTemplatesListLedgerResponse.self
+        )
+    }
+
+    /// Deletes a journal template. The transactions already posted from it stay. Answers 404 for an unknown template.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func journalTemplatesDelete(request: Requests.JournalTemplatesDeleteLedgerRequest, requestOptions: RequestOptions? = nil) async throws -> JournalTemplatesDeleteLedgerResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/ledger/journal/templates/delete",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: JournalTemplatesDeleteLedgerResponse.self
+        )
+    }
+
+    /// Posts a manual journal transaction from a journal template: `amounts` gives one amount per template line, in the template's order, on the line's side; a line with amount 0 is left out. The transaction is posted as by `ledger/journal/transactions/create` (`documentType` `manual`, base currency) with `description`, else the template name. Answers 404 for an unknown template and 422 when the number of amounts differs from the number of lines, when fewer than two lines have an amount or when the debits differ from the credits, besides the answers of `ledger/journal/transactions/create`.
+    ///
+    /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
+    public func journalTemplatesPost(request: Requests.JournalTemplatesPostLedgerRequest, requestOptions: RequestOptions? = nil) async throws -> JournalTemplatesPostLedgerResponse {
+        return try await httpClient.performRequest(
+            method: .post,
+            path: "/v1/ledger/journal/templates/post",
+            body: request,
+            requestOptions: requestOptions,
+            responseType: JournalTemplatesPostLedgerResponse.self
+        )
+    }
+
+    /// Posts a journal transaction (`documentType` `manual_reversal`, `documentId` the original) dated `date` (default the original date) whose entries mirror the original's (debits and credits swapped). Only a `manual` transaction, a `tax_provision` (posted by `ledger/tax-provision/post`), a `vat_prorata_adjustment` (posted by `declarations/vat-prorata/adjustment/post`) or an `it_tfr_accrual` or `it_tfr_revaluation` (posted by `declarations/it/tfr/accrual/post` and `declarations/it/tfr/revaluation/post`) is reversed here; a transaction posted by a document is reversed through that document. Answers 409 when the transaction is neither, when it is already reversed and when the accounting period of `date` is locked, and 400 when `date` is before the original date.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func journalTransactionsReverse(request: Requests.JournalTransactionsReverseLedgerRequest, requestOptions: RequestOptions? = nil) async throws -> JournalTransactionsReverseLedgerResponse {
@@ -384,7 +436,7 @@ public final class LedgerClient: Sendable {
         )
     }
 
-    /// The rows or codes of each return or registry deposit of the company country that are filled from account balances. Accounts fall into a row by the layout defaults for the standard chart of accounts unless mapped under Account → Statement rows.
+    /// The rows or codes of each return or registry deposit of the company country that are filled from account balances. Accounts fall into a row by the layout defaults for the standard chart of accounts unless mapped with ledger/statement-rows/set.
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
     public func statementRowsSchemes(request: Requests.StatementRowsSchemesLedgerRequest, requestOptions: RequestOptions? = nil) async throws -> StatementRowsSchemesLedgerResponse {

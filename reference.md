@@ -12,7 +12,7 @@
 <dl>
 <dd>
 
-Fetches the official exchange rates for `date` (default: the company's current date) quoted against the company's base currency and stores them in the rate table shared by all companies, replacing the rates already stored for the same base, currency and date. A company that keeps its books in GBP gets the HMRC monthly rates of the month of `date` (units per 1 GBP, dated the first day of the month), one in USD the Federal Reserve H.10 rates of the two weeks up to `date` (units per 1 USD), and every other company the euro rates the Bank of Lithuania publishes for `date` (units per 1 EUR). `baseCurrency` in the answer names the base the rates are quoted against. Answers 404 when no rates are published for the date.
+Fetches the official exchange rates for `date` (default: the company's current date) quoted against the company's base currency and stores them in the rate table shared by all companies, replacing the rates already stored for the same base, currency and date. A company that keeps its books in GBP gets the HMRC monthly rates of the month of `date` (units per 1 GBP, dated the first day of the month), one in USD the Federal Reserve H.10 rates of the two weeks up to `date` (units per 1 USD), one in PLN the National Bank of Poland table A average rates of the two weeks up to `date` (stored as units per 1 PLN, the inverse of the published rate), and every other company the euro rates the Bank of Lithuania publishes for `date` (units per 1 EUR). `baseCurrency` in the answer names the base the rates are quoted against. Answers 404 when no rates are published for the date.
 </dd>
 </dl>
 </dd>
@@ -83,7 +83,7 @@ try await main()
 <dl>
 <dd>
 
-Lists the stored official exchange rates, which are shared by all companies. `rate` is the units of `currencyCode` per one unit of `baseCurrency`: EUR rates come from the Bank of Lithuania, GBP rates from HMRC, USD rates from the Federal Reserve. Filterable by `baseCurrency`, `currencyCode` and `date`; sortable by `date`, `baseCurrency` and `currencyCode`.
+Lists the stored official exchange rates, which are shared by all companies. `rate` is the units of `currencyCode` per one unit of `baseCurrency`: EUR rates come from the Bank of Lithuania, GBP rates from HMRC, USD rates from the Federal Reserve, PLN rates from the National Bank of Poland (table A). Filterable by `baseCurrency`, `currencyCode` and `date`; sortable by `date`, `baseCurrency` and `currencyCode`.
 </dd>
 </dl>
 </dd>
@@ -3614,7 +3614,7 @@ try await main()
 <dl>
 <dd>
 
-Creates a partner; without `isCustomer` it is a customer unless `isSupplier` is true. `groupId`, `statusId` and `priceListId` must belong to the company; without `legalCountryClass` the class is derived from the address country (`lt`, `eu` or `non_eu`); `documentRef` attaches an uploaded file that is not yet linked to a record; a `code` already used by a live partner of the company is refused with 409. A `vatCode` is checked at once against VIES, or a UK number with HMRC and the result stored on the partner: an invalid number, a VIES name that shares no word with the partner's name, or a VIES failure opens a VAT review (`vat_review.opened`), while a code that neither service can check is stored unchecked (see `partners/validate-vat`). An entry of `identifiers` that is not a partner identifier of the company's country or does not have its format is refused with 422.
+Creates a partner; without `isCustomer` it is a customer unless `isSupplier` is true. `groupId`, `statusId` and `priceListId` must belong to the company; without `legalCountryClass` the class is derived from the address country (`domestic` for the company's own country, `eu` or `non_eu`); `documentRef` attaches an uploaded file that is not yet linked to a record; a `code` already used by a live partner of the company is refused with 409. A `vatCode` is checked at once against VIES, or a UK number with HMRC and the result stored on the partner: an invalid number, a VIES name that shares no word with the partner's name, or a VIES failure opens a VAT review (`vat_review.opened`), while a code that neither service can check is stored unchecked (see `partners/validate-vat`). An entry of `identifiers` that is not a partner identifier of the company's country or does not have its format is refused with 422.
 </dd>
 </dl>
 </dd>
@@ -6539,7 +6539,7 @@ try await main()
 <dl>
 <dd>
 
-Create a catalog item: a product, a service or a set of other items. `unit` must be `vnt`, a global measurement unit or one of the company's own units (`catalog/units/options`), the sale, purchase and expense account codes must be postable accounts of the chart, and `priceFrom`/`priceTo` and `validFrom`/`validTo` must be in order; otherwise 422. A `set` needs at least one component and none of them may be a set; `components` on any other type is refused with 422. 409 when an active item already carries the `code`. `documentRef` is the storage key of a file uploaded with `files/upload`, which is attached to the item. Emits `item.created`.
+Create a catalog item: a product, a service or a set of other items. `unit` must be a global measurement unit or one of the company's own units (`catalog/units/options`; create one with `catalog/units/create`), the sale, purchase and expense account codes must be postable accounts of the chart, and `priceFrom`/`priceTo` and `validFrom`/`validTo` must be in order; otherwise 422. A `set` needs at least one component and none of them may be a set; `components` on any other type is refused with 422. 409 when an active item already carries the `code`. `documentRef` is the storage key of a file uploaded with `files/upload`, which is attached to the item. Emits `item.created`.
 </dd>
 </dl>
 </dd>
@@ -9275,7 +9275,7 @@ try await main()
 <dl>
 <dd>
 
-Send an issued invoice or credit note to the customer over Peppol through the company's own access point (Account → Compliance → EU; Nordlet supports Recommand, Storecove and e-invoice.be). Without one the call is refused with 422 and the document can only be downloaded with `sales/invoices/peppol-xml`. `status` is `pending` until the receiving access point confirms, then `delivered`; `failed` and `rejected` come with `detail`, and the invoice can then be sent again. Later changes arrive through the access point's webhook and are announced as `sale_invoice.peppol_delivered`, `sale_invoice.peppol_rejected` and `sale_invoice.peppol_failed`.
+Send an issued invoice or credit note to the customer over Peppol through the company's own access point (declarations/configs/update (system peppol); Nordlet supports Recommand, Storecove and e-invoice.be). Without one the call is refused with 422 and the document can only be downloaded with `sales/invoices/peppol-xml`. `status` is `pending` until the receiving access point confirms, then `delivered`; `failed` and `rejected` come with `detail`, and the invoice can then be sent again. Later changes arrive through the access point's webhook and are announced as `sale_invoice.peppol_delivered`, `sale_invoice.peppol_rejected` and `sale_invoice.peppol_failed`.
 </dd>
 </dl>
 </dd>
@@ -9417,7 +9417,7 @@ try await main()
 <dl>
 <dd>
 
-Render an issued invoice as the national e-invoicing payload for the company country: SII or Veri*Factu (ES), Factur-X (FR), myDATA (GR), Fiskalizacija (HR), NAV Online Számla (HU), FatturaPA (IT), KSeF FA(3) (PL), AT comunicação de faturas (PT) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is flagged, never invented.
+Render an issued invoice as the national e-invoicing payload for the company country: XRechnung UBL (DE), SII or Veri*Factu (ES), Factur-X (FR), myDATA (GR), Fiskalizacija (HR), NAV Online Számla (HU), FatturaPA (IT), KSeF FA(3) (PL), AT comunicação de faturas (PT) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is flagged, never invented. For XRechnung, answers 422 naming what the BR-DE rules need and the company or invoice lacks; a customer whose Peppol ID has scheme 0204 gets its Leitweg-ID as the buyer reference.
 </dd>
 </dl>
 </dd>
@@ -9457,6 +9457,77 @@ try await main()
 <dd>
 
 **request:** `Requests.InvoicesEinvoiceXmlSalesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/Sources/Resources/Sales/SalesClient.swift">invoicesZugferdPdf</a>(request: Requests.InvoicesZugferdPdfSalesRequest, requestOptions: RequestOptions?) -> InvoicesZugferdPdfSalesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Render an issued invoice or credit note of a German company as a ZUGFeRD 2.5.2 (Factur-X 1.09.2) hybrid e-invoice in the EN 16931 profile, returned base64-encoded: the PDF of `sales/invoices/pdf` as PDF/A-3 with the invoice data embedded as `factur-x.xml` (UN/CEFACT Cross Industry Invoice). The embedded XML is the leading part of the invoice. The seller is the one printed on the document, with the Steuernummer of the `de-elster` compliance settings (scheme FC) and the USt-IdNr. (scheme VA). The date of supply written is the issue date. Answers 422 for a company outside Germany, a draft, a document other than an invoice or credit note, a document with sales tax, and a seller with neither a Steuernummer nor a USt-IdNr.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.sales.invoicesZugferdPdf(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.InvoicesZugferdPdfSalesRequest` 
     
 </dd>
 </dl>
@@ -9772,7 +9843,7 @@ try await main()
 <dl>
 <dd>
 
-Issue a draft sale document: assigns the next number (from its document series, else from `series` or the type's default prefix and the year), the issue date (`issueDate`, else the draft's, else today) and a missing due date from the partner's payment term, and for an invoice, credit note or advance invoice posts the journal entry and stores the VAT evidence. `warehouseId` (or the series' warehouse) takes the sold goods of an invoice out of stock, the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first), leaving out expired lots, with a cost of goods sold entry; `returnToStock` puts them back for a credit note that credits an invoice. A credit note is set against the unpaid balance of the credited document. Emits `sale_invoice.issued`, `sale_invoice.paid` when a credit note settles the credited invoice in full, and `intercompany.invoice_mirrored` when the partner is linked to another company of the group (a draft purchase invoice is created there). Answers 409 when the document is already issued or locked, the accounting period is locked or the credited invoice is reversed, 422 when the lines carry VAT under a scheme that charges none, when credit notes would exceed the credited total, or when `returnToStock` is used on anything but a credit note of an invoice. `warnings` carries the VAT type warnings of `sales/invoices/create` and `document_date_before_last_number` when the document is dated before the last number issued in its series.
+Issue a draft sale document: assigns the next number (from its document series, else from `series` or the type's default prefix and the year), or keeps `number`, the number a document issued in another program (a webshop, a till) already carries, without moving the series counter (409 when the company already has a document with that number, 422 in a country whose sale documents get national marks at issue, Portugal), the issue date (`issueDate`, else the draft's, else today) and a missing due date from the partner's payment term, and for an invoice, credit note or advance invoice posts the journal entry and stores the VAT evidence. `warehouseId` (or the series' warehouse) takes the sold goods of an invoice out of stock, the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first), leaving out expired lots, with a cost of goods sold entry; `returnToStock` puts them back for a credit note that credits an invoice. A credit note is set against the unpaid balance of the credited document. An advance invoice whose VAT is due when it is paid (`advanceVatOnPayment`: the VAT country is AT, BG, CZ, DE, EE, ES, FI, FR, HR, HU, LT, LV, PL, SE, SI or SK, or BE, IE, LU or NL with a customer who is not a business) posts no VAT at issue: each payment posts and declares the VAT of the part paid, and a credit note takes back only VAT already declared. Emits `sale_invoice.issued`, `sale_invoice.paid` when a credit note settles the credited invoice in full, and `intercompany.invoice_mirrored` when the partner is linked to another company of the group (a draft purchase invoice is created there). Answers 409 when the document is already issued or locked, the accounting period is locked or the credited invoice is reversed, 422 when the lines carry VAT under a scheme that charges none, when credit notes would exceed the credited total, or when `returnToStock` is used on anything but a credit note of an invoice. `warnings` carries the VAT type warnings of `sales/invoices/create` and `document_date_before_last_number` when the document is dated before the last number issued in its series.
 </dd>
 </dl>
 </dd>
@@ -13141,7 +13212,7 @@ try await main()
 <dl>
 <dd>
 
-Create a numbering series for sale invoices, credit notes, proformas or advance invoices (`documentType`). Numbers run from `nextNumber`, padded to `numberLength` digits, and are written as `prefix`-number or, with `printSeries` false, as the bare number; a series may be bound to an operation type (a default series of an operation type is picked for its documents that name no series) and to a warehouse, which `sales/invoices/issue` takes the goods from. `isDefault` makes it the default of its document type and clears the previous one. Answers 422 when only one end of the allocated range `allocatedFrom`..`allocatedTo` is given or the range is reversed, 409 when the prefix exists for the document type.
+Create a numbering series for sale invoices, credit notes, proformas or advance invoices (`documentType`). Numbers run from `nextNumber`, padded to `numberLength` digits, and are written as `prefix`-number or, with `printSeries` false, as the bare number, followed by `suffix` (a Croatian series is `printSeries` false with `suffix` `/<business premises>/<cash register>`, which gives `1/POSL1/1`); a series may be bound to an operation type (a default series of an operation type is picked for its documents that name no series) and to a warehouse, which `sales/invoices/issue` takes the goods from. `isDefault` makes it the default of its document type and clears the previous one. Answers 422 when only one end of the allocated range `allocatedFrom`..`allocatedTo` is given or the range is reversed, 409 when the prefix exists for the document type.
 </dd>
 </dl>
 </dd>
@@ -13497,7 +13568,7 @@ try await main()
 <dl>
 <dd>
 
-Create a draft purchase invoice or credit note (`type`) from a supplier document; it is posted with `purchases/invoices/register`. Lines without a unit price take the item's supplier or purchase price, `currency` defaults to the company's invoice currency, `documentRef` links an uploaded file, and the gross total is the amount owed: it leaves out self-assessed VAT (reverse charge, intra-EU acquisitions and import VAT the buyer declares in its VAT return) and the value of lines whose VAT type is import VAT assessed by customs. `netTotal`, `vatTotal` and `grossTotal` are the totals printed on the document, with the meanings of the response fields: a difference of at most 0.01 from the totals of the lines is put on the line with the largest amount and the printed totals are stored, a larger one is refused with 422 naming both sets of totals. `creditedInvoiceId` (credit notes only) must be an invoice of the same partner, `purchaseOrderId` an order of the same partner that is not draft, submitted or cancelled, and `operationTypeId` an active purchase operation type, each 422 otherwise; the same `documentNumber` for the same partner is refused with 409; numbers are compared without regard to case or leading zeros of a number (`0885101` is `885101`, `INV-007` is `INV-7`), and spaces, dashes, slashes, dots and underscores count as one separator. `warnings` lists what does not refuse the document but needs a look, each with a `fix` naming the call or field that resolves it: `partner_vat_invalid` (the VAT number of the supplier failed its VIES check), `vat_type_not_valid_on_date`, `vat_type_domestic_for_eu_partner` and `vat_type_intra_eu_for_domestic_partner` as on `sales/invoices/create` (on the document date), and `possible_duplicate` when the supplier already has a document of the same type with the same document date and gross total.
+Create a draft purchase invoice or credit note (`type`) from a supplier document; it is posted with `purchases/invoices/register`. Lines without a unit price take the item's supplier or purchase price, `currency` defaults to the company's invoice currency, `documentRef` links an uploaded file, and the gross total is the amount owed: it leaves out self-assessed VAT (reverse charge, intra-EU acquisitions and import VAT the buyer declares in its VAT return) and the value of lines whose VAT type is import VAT assessed by customs. `netTotal`, `vatTotal` and `grossTotal` are the totals printed on the document, with the meanings of the response fields: a difference of at most 0.01 from the totals of the lines is put on the line with the largest amount and the printed totals are stored, a larger one is refused with 422 naming both sets of totals. `creditedInvoiceId` (credit notes only) must be an invoice of the same partner, `purchaseOrderId` an order of the same partner that is not draft, submitted or cancelled, and `operationTypeId` an active purchase operation type, each 422 otherwise; `agreementId` with `agreementPeriodStart` (both or neither) puts the document in that period of an agreement with the same partner, listed by `agreements/agreements/expected-invoices`, 422 when the agreement is not one with the supplier, has no `billingPeriod` or no period starts on that date; the same `documentNumber` for the same partner is refused with 409; numbers are compared without regard to case or leading zeros of a number (`0885101` is `885101`, `INV-007` is `INV-7`), and spaces, dashes, slashes, dots and underscores count as one separator. `warnings` lists what does not refuse the document but needs a look, each with a `fix` naming the call or field that resolves it: `partner_vat_invalid` (the VAT number of the supplier failed its VIES check), `vat_type_not_valid_on_date`, `vat_type_domestic_for_eu_partner` and `vat_type_intra_eu_for_domestic_partner` as on `sales/invoices/create` (on the document date), and `possible_duplicate` when the supplier already has a document of the same type with the same document date and gross total. `paymentReference` is the reference the supplier asks the payment to carry (an OCR number or an RF creditor reference), used by `bank/payments/export`.
 </dd>
 </dl>
 </dd>
@@ -13648,7 +13719,7 @@ try await main()
 <dl>
 <dd>
 
-Change a draft purchase invoice (409 once registered, naming `purchases/invoices/reverse` and credit notes); only the fields sent are changed, and `lines` replace all existing lines with the totals recomputed. `netTotal`, `vatTotal` and `grossTotal` are the printed totals as on `purchases/invoices/create`; sent without `lines`, they are applied to the stored lines. `purchaseOrderId` and `operationTypeId` are checked as on `purchases/invoices/create` (422). A `documentNumber` already used for the partner is refused with 409, compared as on `purchases/invoices/create`.
+Change a draft purchase invoice (409 once registered, naming `purchases/invoices/reverse` and credit notes); only the fields sent are changed, and `lines` replace all existing lines with the totals recomputed. `netTotal`, `vatTotal` and `grossTotal` are the printed totals as on `purchases/invoices/create`; sent without `lines`, they are applied to the stored lines. `purchaseOrderId`, `operationTypeId`, `agreementId` and `agreementPeriodStart` are checked as on `purchases/invoices/create` (422); `null` for both takes the invoice out of the agreement. A `documentNumber` already used for the partner is refused with 409, compared as on `purchases/invoices/create`.
 </dd>
 </dl>
 </dd>
@@ -13778,6 +13849,84 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">invoicesProposeLines</a>(request: Requests.InvoicesProposeLinesPurchasesRequest, requestOptions: RequestOptions?) -> InvoicesProposeLinesPurchasesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Propose an account and a VAT type for each line of a supplier document before it is created, each with the reason. The account is, in this order: the account of the same item on the supplier's latest registered document that names one, the item's purchase account (product) or expense account, the account of a line without an item on the supplier's latest registered document, the `purchases.goodsForResale` (product) or `purchases.defaultExpense` rule. The VAT type is the one of the same item, else of any line, on the supplier's latest registered document whose type is still valid on `documentDate` and, for a domestic type, has the line's `vatRatePercent`; else it comes from the supplier's country and VAT status: domestic supplier, the domestic purchase types of the line's rate (category S, or Z and E at 0 %); supplier in another EU country with a VAT number that did not fail the VIES check and no VAT charged (`vatAmount` 0 or left out), the intra-Community acquisition types (category K); supplier outside the EU with no VAT charged, the types outside the scope of VAT (category O) for imported goods. A service from abroad gets no type from the country, because the VAT types do not record whether a reverse-charge type is for services from the EU, from outside the EU or domestic. `vatCandidates` lists the types that fit and `vatClassifierCode` is set only when exactly one fits. Types with a deductible share, pro-rata, triangular, line-share or customs import VAT are never proposed from the country. A company that is not a VAT payer gets no VAT type. Nothing is stored.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.purchases.invoicesProposeLines(request: .init(
+        partnerId: "partnerId",
+        lines: [
+            InvoicesProposeLinesPurchasesRequestLinesItem(
+
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.InvoicesProposeLinesPurchasesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.purchases.<a href="/Sources/Resources/Purchases/PurchasesClient.swift">invoicesRegister</a>(request: Requests.InvoicesRegisterPurchasesRequest, requestOptions: RequestOptions?) -> InvoicesRegisterPurchasesResponse</code></summary>
 <dl>
 <dd>
@@ -13790,7 +13939,7 @@ try await main()
 <dl>
 <dd>
 
-Register a draft purchase invoice or credit note: posts the journal entry dated `registrationDate` (default the document date) and sets the status to `registered`. The entry debits each line's expense account (the line's `accountCode`, else the item's purchase or expense account, else the operation type's expense account, else the `purchases.goodsForResale` or `purchases.defaultExpense` rule account), debits VAT receivable with the deductible VAT (the share of the line's VAT that its VAT type allows to deduct; the rest, and all VAT of a company that is not a VAT payer, is booked into the expense), credits payables (the operation type's credit account when set) and credits output VAT for self-assessed VAT (reverse charge, intra-EU acquisitions and import VAT the buyer declares in its VAT return); a line whose VAT type is import VAT assessed by customs posts only its VAT, owed to the document's partner, and is not received into stock; a credit note posts the reverse. Lines with `deferralStartDate` and `deferralEndDate` are debited to the `purchases.prepaidExpenses` account instead and get a monthly release schedule for `purchases/deferrals/post`. With `warehouseId` the product lines of an invoice are received into stock at their base-currency cost, into the lot named by the line's `lotNumber` (an unknown lot is created, and the line's `expiryDate` is stored on a lot that has none) (422 on an order-linked invoice, whose goods arrive through `purchases/receipts/create`, for a line that is also deferred and for a lot- or serial-tracked item without `lotNumber`); `returnFromStock` on a credit note that credits an invoice takes the goods back out of stock at their FIFO cost and books the difference to the credited amount on the `inventory.cogs` account (422 on an invoice, without `creditedInvoiceId`, or when no goods of the credited invoice are in stock). A credit note that credits a registered invoice in the same currency is applied to it as a payment up to the open amount. Refused with 409 when already registered or the accounting period is locked, and with 422 when the credit notes would exceed the credited invoice, the gross total differs from what the lines give by more than 0.01 (or the converted amounts by more than their conversion rounding), a posting account is missing or no exchange rate exists for the date. Emits `purchase_invoice.registered`, `purchase_invoice.paid` when the credited invoice becomes fully paid, and `stock.changed` when stock moves. `warnings` carries the VAT type warnings of `purchases/invoices/create` and `prorata_not_set` when a line is on a pro-rata VAT type and no percentage is set for the fiscal year with `declarations/vat-prorata/set` (the line then deducts 100 %; with a percentage it deducts that share and the rest goes into the line expense). A draft whose stored gross total is the net plus VAT of its lines, as drafts saved before import VAT types left it out of the amount owed, is registered with the gross total the lines give.
+Register a draft purchase invoice or credit note: posts the journal entry dated `registrationDate` (default the document date) and sets the status to `registered`. The entry debits each line's expense account (the line's `accountCode`, else the item's purchase or expense account, else the operation type's expense account, else the `purchases.goodsForResale` or `purchases.defaultExpense` rule account), debits VAT receivable with the deductible VAT (the share of the line's VAT that its VAT type allows to deduct; the rest, and all VAT of a company that is not a VAT payer, is booked into the expense), credits payables (the operation type's credit account when set) and credits output VAT for self-assessed VAT (reverse charge, intra-EU acquisitions and import VAT the buyer declares in its VAT return); a line whose VAT type is import VAT assessed by customs posts only its VAT, owed to the document's partner, and is not received into stock; a credit note posts the reverse. Lines with `deferralStartDate` and `deferralEndDate` are debited to the `purchases.prepaidExpenses` account instead and get a monthly release schedule for `purchases/deferrals/post`. With `warehouseId` the product lines of an invoice are received into stock at their base-currency cost, into the lot named by the line's `lotNumber` (an unknown lot is created, and the line's `expiryDate` is stored on a lot that has none) (422 on an order-linked invoice, whose goods arrive through `purchases/receipts/create`, for a line that is also deferred and for a lot- or serial-tracked item without `lotNumber`); `returnFromStock` on a credit note that credits an invoice takes the goods back out of stock at their FIFO cost and books the difference to the credited amount on the `inventory.cogs` account (422 on an invoice, without `creditedInvoiceId`, or when no goods of the credited invoice are in stock). A credit note that credits a registered invoice in the same currency is applied to it as a payment up to the open amount. Refused with 409 when already registered or the accounting period is locked, and with 422 when the credit notes would exceed the credited invoice, the gross total differs from what the lines give by more than 0.01 (or the converted amounts by more than their conversion rounding), a posting account is missing or no exchange rate exists for the date, or, for a Bulgarian VAT payer, when `registrationDate` falls in a month whose VAT return was filed and whose deadline has passed (a document missing from a filed return goes into the purchase ledger of the period in which it is found, ЗДДС чл. 126, ал. 3, т. 1). Emits `purchase_invoice.registered`, `purchase_invoice.paid` when the credited invoice becomes fully paid, and `stock.changed` when stock moves. `warnings` carries the VAT type warnings of `purchases/invoices/create` and `prorata_not_set` when a line is on a pro-rata VAT type and no percentage is set for the fiscal year with `declarations/vat-prorata/set` (the line then deducts 100 %; with a percentage it deducts that share and the rest goes into the line expense). A draft whose stored gross total is the net plus VAT of its lines, as drafts saved before import VAT types left it out of the amount owed, is registered with the gross total the lines give.
 </dd>
 </dl>
 </dd>
@@ -16770,6 +16919,81 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">euOssNonUnionCompute</a>(request: Requests.EuOssNonUnionComputeDeclarationsRequest, requestOptions: RequestOptions?) -> EuOssNonUnionComputeDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Computes the non-Union OSS return of a quarter (Directive 2006/112/EC art. 358a to 369k) from the issued invoices and credit notes with the `oss_non_union` VAT scheme: services to consumers in the EU by a company established outside it. The rows, corrections and EUR conversion are those of `declarations/eu/oss/compute` (art. 365: per Member State of consumption the value without VAT and the VAT per rate; amendments of an earlier return in a later one within three years; art. 366: euro at the rate of the last day of the period). `memberStateOfIdentification` is the Member State the company registered with for the scheme (art. 358a(2)). Answers 422 when the company is established in the EU.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.euOssNonUnionCompute(request: .init(
+        year: 1000000,
+        quarter: 1000000,
+        memberStateOfIdentification: .at
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.EuOssNonUnionComputeDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">euIossCompute</a>(request: Requests.EuIossComputeDeclarationsRequest, requestOptions: RequestOptions?) -> EuIossComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
@@ -17800,7 +18024,7 @@ try await main()
 <dl>
 <dd>
 
-Build the rows of the Polish INTRASTAT declaration for a month, arrivals or dispatches, grouped by CN code, partner country, country of origin, partner VAT number, nature of transaction, transport and delivery terms. Values are whole złoty converted at the invoice rate; credit notes with goods lines are returns (code 21). Goods without a CN code are left out and named in the warnings. The IST message itself goes out from the Intrastat deadline in the calendar.
+Build the rows of the Polish INTRASTAT declaration for a month, arrivals or dispatches, grouped by CN code, partner country, country of origin, partner VAT number, nature of transaction, transport and delivery terms. Values are whole złoty converted at the invoice rate; credit notes with goods lines are returns (code 21). Answers 422 naming the lines when an intra-EU goods line has no CN code: a product item without an eight-digit `cnCode`, or a line without a product item whose VAT type is an intra-EU supply or acquisition of goods; lines of a triangular trade in which the company is the intermediary are left out. The IST message itself goes out from the Intrastat deadline in the calendar.
 </dd>
 </dl>
 </dd>
@@ -18674,7 +18898,7 @@ try await main()
 <dl>
 <dd>
 
-Sets the provisional pro-rata percentage of the company for a fiscal year (the year in which it ends, by the company's fiscal year end month). Purchase lines on a VAT type marked pro-rata (`prorata`) deduct that share of their VAT, book the rest into the line's expense, and the VAT returns declare only the deductible part. Without a percentage for the year such a line deducts 100 % and `purchases/invoices/register` answers the warning `prorata_not_set`. Setting it again replaces the percentage for documents registered afterwards; documents already registered are not changed and the year-end adjustment is not built.
+Sets the provisional pro-rata percentage of the company for a calendar year (`fiscalYear`). Purchase lines on a VAT type marked pro-rata (`prorata`) deduct that share of their VAT, book the rest into the line's expense, and the VAT returns declare only the deductible part. Without a percentage for the year such a line deducts 100 % and `purchases/invoices/register` answers the warning `prorata_not_set`. Setting it again replaces the percentage for documents registered afterwards; documents already registered are not changed. The year-end adjustment to the definitive pro-rata is `declarations/vat-prorata/adjustment/get` and `post`.
 </dd>
 </dl>
 </dd>
@@ -18788,6 +19012,151 @@ try await main()
 <dd>
 
 **request:** `Requests.VatProrataGetDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">vatProrataAdjustmentGet</a>(request: Requests.VatProrataAdjustmentGetDeclarationsRequest, requestOptions: RequestOptions?) -> VatProrataAdjustmentGetDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Computes the definitive pro-rata of a calendar year and the adjustment of the VAT deducted at the provisional pro-rata (Codul fiscal art. 300 alin. (8), (12) and (14)), for a Romanian company. `computedPercent` is the supplies of the year with the right of deduction (D300 rows 1, 3, 9-11, 13, 14, 16-18 and the regularisations) over those plus the supplies without it (row 15), net of credit notes and of the sale invoices of disposed fixed assets (alin. (7) lit. a)), rounded up to the next whole percent. `definitivePercent` in the body replaces it, for the exclusions Nordlet does not detect or a special pro-rata (alin. (16)). `proRataVat` is the VAT of the year's purchase lines on pro-rata VAT types before the pro-rata, `deductedVat` what the VAT returns deducted at the provisional percentage, `adjustment` the definitive deductible VAT less `deductedVat` (positive: more VAT to deduct). 422 for a company outside Romania.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.vatProrataAdjustmentGet(request: .init(fiscalYear: 1000000))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.VatProrataAdjustmentGetDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">vatProrataAdjustmentPost</a>(request: Requests.VatProrataAdjustmentPostDeclarationsRequest, requestOptions: RequestOptions?) -> VatProrataAdjustmentPostDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Posts the `adjustment` of `declarations/vat-prorata/adjustment/get` as a journal transaction (`documentType` `vat_prorata_adjustment`, `documentId` the year) dated 31 December: a positive adjustment debits the `purchases.vatReceivable` posting rule account and credits `accountCode`, a negative one the other way round. The D300 of the period that contains 31 December declares it in row 34 (`R31_2`, Ajustări conform pro-rata), as Codul fiscal art. 300 alin. (14) lit. b) and the OPANAF 174/2026 instructions say. 422 when there is no adjustment or it is zero, for a company outside Romania and for an account that is missing or not postable; 409 when the period is locked and when the year already has an adjustment that is not reversed (reverse it with `ledger/journal/transactions/reverse`).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.vatProrataAdjustmentPost(request: .init(
+        fiscalYear: 1000000,
+        accountCode: "accountCode"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.VatProrataAdjustmentPostDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -19844,7 +20213,7 @@ try await main()
 <dl>
 <dd>
 
-The Anlage EÜR and the Anlage AVEÜR of a year for a company that determines its profit on a cash basis (§ 4 Abs. 3 EStG), as the Zeilen and Kennzahlen of the official 2025 forms with their amounts: the receipts and payments of the year from the invoice payments (each payment split over the lines of its invoice), the payroll and tax payments and the journal transactions on cash and bank accounts, and the asset register for the Anlage AVEÜR and the AfA. Accounts are placed on the Zeilen through the de-euer statement scheme (Account → Statement rows). Refused with 422 for a company without the cash-basis flag.
+The Anlage EÜR and the Anlage AVEÜR of a year for a company that determines its profit on a cash basis (§ 4 Abs. 3 EStG), as the Zeilen and Kennzahlen of the official 2025 forms with their amounts: the receipts and payments of the year from the invoice payments (each payment split over the lines of its invoice), the payroll and tax payments and the journal transactions on cash and bank accounts, and the asset register for the Anlage AVEÜR and the AfA. Accounts are placed on the Zeilen through the de-euer statement scheme (ledger/statement-rows/set). Refused with 422 for a company without the cash-basis flag.
 </dd>
 </dl>
 </dd>
@@ -20269,6 +20638,228 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">eeTsdAnnexesGet</a>(request: Requests.EeTsdAnnexesGetDeclarationsRequest, requestOptions: RequestOptions?) -> EeTsdAnnexesGetDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The figures of TSD annexes 4 (fringe benefits), 5 (gifts, donations and entertainment costs) and 6 (non-business expenses and other payments) entered for a month, and the annexes Nordlet calculates from them: the calculated codes, the income tax added to code 114 and the social tax (code 4180) added to code 115. Annex 5 sums the year: the gifts to listed persons and the entertainment costs of the earlier months, and the personalised social-taxed payments of annex 1 from the payroll runs paid in the year so far. The `ee-cit-return` file carries the annexes next to annex 7. From 2025 (rate 22/78).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.eeTsdAnnexesGet(request: .init(
+        year: 1000000,
+        month: 1000000
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.EeTsdAnnexesGetDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">eeTsdAnnexesSet</a>(request: Requests.EeTsdAnnexesSetDeclarationsRequest, requestOptions: RequestOptions?) -> EeTsdAnnexesSetDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replace the figures of TSD annexes 4, 5 and 6 for a month; an annex left out is not filed that month, and a body with no annex removes the month. Amounts are the figures the form asks the company to enter; Nordlet calculates the rest (4060, 4070, 4080, 4090, 4140, 4170, 4180, 4181; 5020, 5030 or 5050, 5060 to 5090, 5110 to 5170, 5190; 6000, 6140 to 6170) and refuses (422) a month whose figures do not compute. Annex 5 part II (`listedPersonTaxableGifts`, 5180) is for a person on the TuMS § 11 lg 1 list and excludes part I.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.eeTsdAnnexesSet(request: .init(
+        year: 1000000,
+        month: 1000000
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.EeTsdAnnexesSetDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">eeEmploymentRegisterGenerate</a>(request: Requests.EeEmploymentRegisterGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> EeEmploymentRegisterGenerateDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build, without sending, the employment register (töötamise register) entry for an employment contract: the start of work, or its end with the reason recorded on the contract, as the TOOTREG v2 XML that `employment-register/send` sends to e-MTA over X-tee.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.eeEmploymentRegisterGenerate(request: .init(
+        contractId: "contractId",
+        event: .start
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.EeEmploymentRegisterGenerateDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">eeEmploymentRegisterSend</a>(request: Requests.EeEmploymentRegisterSendDeclarationsRequest, requestOptions: RequestOptions?) -> EeEmploymentRegisterSendDeclarationsResponse</code></summary>
 <dl>
 <dd>
@@ -20497,7 +21088,7 @@ try await main()
 <dl>
 <dd>
 
-Build the working paper for the Form B1 annual return of a financial year - company details, registered office, directors and secretary from Account → Officers, the members from Account → Shareholders, the issued share capital and the figures of the financial statements - in the order the CORE screens ask for them. The CRO publishes no file format for the B1, so it is keyed into CORE.
+Build the working paper for the Form B1 annual return of a financial year - company details, registered office, directors and secretary recorded with officers/create, the members recorded with ledger/owners/create, the issued share capital and the figures of the financial statements - in the order the CORE screens ask for them. The CRO publishes no file format for the B1, so it is keyed into CORE.
 </dd>
 </dl>
 </dd>
@@ -20556,6 +21147,77 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">ieRtdGenerate</a>(request: Requests.IeRtdGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> IeRtdGenerateDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the Return of Trading Details of a calendar year from the issued sale documents and the registered purchase invoices: the net value of supplies, intra-Community acquisitions, purchases for resale and purchases not for resale, in whole euro, by Irish VAT rate, in the order the ROS screen asks for them. Revenue publishes no upload format for the RTD, so the figures are keyed into ROS; `xml` is a working paper, not a file ROS accepts.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.ieRtdGenerate(request: .init(year: 1000000))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.IeRtdGenerateDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">itSdiPurchaseSend</a>(request: Requests.ItSdiPurchaseSendDeclarationsRequest, requestOptions: RequestOptions?) -> ItSdiPurchaseSendDeclarationsResponse</code></summary>
 <dl>
 <dd>
@@ -20568,7 +21230,7 @@ try await main()
 <dl>
 <dd>
 
-Build the TD16-TD19 integration document for a registered purchase invoice and send it to the Sistema di Interscambio. Since July 2022 a purchase from a supplier established abroad is reported this way instead of the esterometro. The Italian VAT rate to self-assess is a judgement about the supply: pass vatRatePercent unless the purchase lines already carry it, otherwise the request is refused rather than guessed.
+Build the TD16-TD19 integration document for a registered purchase invoice and send it to the Sistema di Interscambio. Since July 2022 a purchase from a supplier established abroad is reported this way instead of the esterometro. The Italian VAT rate to self-assess is a judgement about the supply: pass vatRatePercent unless the purchase lines already carry it, otherwise the request is refused rather than guessed. The document type is `tipoDocumento` when given, else the one the VAT types of the lines name (TD17-*, TD18-*, TD19-*; 422 when the lines name different ones), else TD18 or TD19 for catalog products and TD17 otherwise. Lines whose VAT type is import VAT paid at customs are left out, and a purchase with only such lines is refused with 422: the customs declaration documents it (art. 77 c. 4 of the Testo unico IVA, DLgs 10/2026).
 </dd>
 </dl>
 </dd>
@@ -20639,7 +21301,7 @@ try await main()
 <dl>
 <dd>
 
-Render the TD16-TD19 integration document for a registered purchase invoice without sending it, so the rate and the document type can be checked first.
+Render the TD16-TD19 integration document for a registered purchase invoice without sending it, so the rate and the document type can be checked first. The document type and the customs lines are decided as in `declarations/it/sdi/purchase-send`.
 </dd>
 </dl>
 </dd>
@@ -20679,6 +21341,484 @@ try await main()
 <dd>
 
 **request:** `Requests.ItSdiPurchasePreviewDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">itTfrAccrualCompute</a>(request: Requests.ItTfrAccrualComputeDeclarationsRequest, requestOptions: RequestOptions?) -> ItTfrAccrualComputeDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Compute the TFR of each employee in the approved payroll run of `year` and `month`: the quota is the TFR base divided by 13.5 (art. 2120 c. 2 c.c.), less the 0.50% contribution of art. 3 L. 297/1982 on the base of the employee's INPS IVS contribution. The TFR base is the pay of the period (`retribuzione`), the tredicesima, the quattordicesima and the benefit in kind; other payment types count only when listed in `includePaymentTypes`, because art. 2120 c. 3 counts a payment only when it is not occasional and the collective agreement may say otherwise (tips and the TFR paid out are refused). `destination` is the employee option `itTfrDestinazione`: `azienda` (default, kept in the company), `fondo-tesoreria` or `previdenza-complementare`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.itTfrAccrualCompute(request: .init(
+        year: 1000000,
+        month: 1000000
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ItTfrAccrualComputeDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">itTfrAccrualPost</a>(request: Requests.ItTfrAccrualPostDeclarationsRequest, requestOptions: RequestOptions?) -> ItTfrAccrualPostDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Post the TFR of each employee in the approved payroll run of `year` and `month`: the quota is the TFR base divided by 13.5 (art. 2120 c. 2 c.c.), less the 0.50% contribution of art. 3 L. 297/1982 on the base of the employee's INPS IVS contribution. The TFR base is the pay of the period (`retribuzione`), the tredicesima, the quattordicesima and the benefit in kind; other payment types count only when listed in `includePaymentTypes`, because art. 2120 c. 3 counts a payment only when it is not occasional and the collective agreement may say otherwise (tips and the TFR paid out are refused). `destination` is the employee option `itTfrDestinazione`: `azienda` (default, kept in the company), `fondo-tesoreria` or `previdenza-complementare`. The journal transaction (`documentType` `it_tfr_accrual`, `documentId` YYYY-MM) is dated the last day of the month: debit `expenseAccountCode` (B9 c) with the whole accrual, credit `fundAccountCode` (liability C) with the TFR kept in the company and `payableAccountCode` (D14) with the TFR due to the Fondo di Tesoreria or a pension fund (OIC 31 §§ 60-76). 422 when there is nothing to accrue or an account the accrual needs is missing; 409 when the accounting period is locked and when the month is already posted and not reversed (reverse it with `ledger/journal/transactions/reverse`).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.itTfrAccrualPost(request: .init(
+        year: 1000000,
+        month: 1000000,
+        expenseAccountCode: "expenseAccountCode"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ItTfrAccrualPostDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">itTfrRevaluationCompute</a>(request: Requests.ItTfrRevaluationComputeDeclarationsRequest, requestOptions: RequestOptions?) -> ItTfrRevaluationComputeDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Compute the revaluation at 31 December of `year` of the TFR kept in the company (art. 2120 c. 5 c.c.): each `funds` amount is the TFR of the employee at 31 December of the previous year, without the quota of `year`, as the company keeps it; the rate is 1.5% plus 75% of the increase of the ISTAT FOI index of December (`foiDecember`) against the previous December (`foiPreviousDecember`), not rounded, and a fall of the index adds nothing. The 17% substitute tax (art. 11 c. 3 D.Lgs. 47/2000) is taken from the revaluation and paid with F24 code 1713 by 16 February; `accontoNextYear` is the acconto of the next year (code 1712, 16 December) at 17% of 90% of the revaluation. An employee who left in or before `year` is left out with a warning, because art. 2120 c. 6 revalues to the month of termination.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.itTfrRevaluationCompute(request: .init(
+        year: 1000000,
+        foiPreviousDecember: "121.0000",
+        foiDecember: "121.0000",
+        funds: [
+            ItTfrRevaluationComputeDeclarationsRequestFundsItem(
+                employeeId: "employeeId",
+                amount: "121.00"
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ItTfrRevaluationComputeDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">itTfrRevaluationPost</a>(request: Requests.ItTfrRevaluationPostDeclarationsRequest, requestOptions: RequestOptions?) -> ItTfrRevaluationPostDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Post the revaluation at 31 December of `year` of the TFR kept in the company (art. 2120 c. 5 c.c.): each `funds` amount is the TFR of the employee at 31 December of the previous year, without the quota of `year`, as the company keeps it; the rate is 1.5% plus 75% of the increase of the ISTAT FOI index of December (`foiDecember`) against the previous December (`foiPreviousDecember`), not rounded, and a fall of the index adds nothing. The 17% substitute tax (art. 11 c. 3 D.Lgs. 47/2000) is taken from the revaluation and paid with F24 code 1713 by 16 February; `accontoNextYear` is the acconto of the next year (code 1712, 16 December) at 17% of 90% of the revaluation. An employee who left in or before `year` is left out with a warning, because art. 2120 c. 6 revalues to the month of termination. The journal transaction (`documentType` `it_tfr_revaluation`, `documentId` the year) is dated 31 December: debit `expenseAccountCode` (B9 c) with the revaluation, credit `fundAccountCode` (liability C) with the revaluation less the tax and `taxAccountCode` with the tax. 422 when there is nothing to revalue; 409 when the accounting period is locked and when the year is already posted and not reversed (reverse it with `ledger/journal/transactions/reverse`).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.itTfrRevaluationPost(request: .init(
+        year: 1000000,
+        foiPreviousDecember: "121.0000",
+        foiDecember: "121.0000",
+        funds: [
+            ItTfrRevaluationPostDeclarationsRequestFundsItem(
+                employeeId: "employeeId",
+                amount: "121.00"
+            )
+        ],
+        expenseAccountCode: "expenseAccountCode",
+        fundAccountCode: "fundAccountCode",
+        taxAccountCode: "taxAccountCode"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ItTfrRevaluationPostDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">itInailAutoliquidazioneCompute</a>(request: Requests.ItInailAutoliquidazioneComputeDeclarationsRequest, requestOptions: RequestOptions?) -> ItInailAutoliquidazioneComputeDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Compute the INAIL autoliquidazione premium of the employees' policy (polizza dipendenti) due by 16 February of `year` + 1: the regolazione of `year` on the wages paid in `year` and the rata of `year` + 1. The wages are the INAIL bases of the approved Italian payroll runs paid in `year` (DPR 1124/1965 art. 28: the wages actually paid), rounded to the euro; a run without the INAIL component counts the base of its INPS IVS contribution, with a warning. Each entry of `positions` is a PAT and voce of the INAIL basi di calcolo with its `tassoRegolazione` and `tassoRata` (the tasso applicato, per mille), the reduction of the basi di calcolo in percent of the premium (`riduzioneRegolazione`, `riduzioneRata`), the partly exempt wages (`quoteEsenti`), a lower presumed wage for the rata communicated to INAIL (`retribuzioniRata`) and the employees it covers (`employeeIds`, required when there is more than one position). premium = wages x tasso / 1000, less the reduction, plus the 1% addizionale ex ANMIL; the regolazione subtracts `rataAnticipata`, the rata requested for `year` in the basi di calcolo; intermediate amounts have five decimals and the total is rounded to the cent (INAIL guide to the autoliquidazione 2025/2026). With `rateazione` the total is paid in four instalments of 25% on 16 February, 16 May, 20 August and 16 November (moved to the next working day), the last three with the interest coefficients INAIL publishes each January (recorded for 2026 only). With `codiceDitta`, `codiceDittaControlCode` and `sedeInail` the response carries the F24 INAIL row: numero di riferimento 90 followed by `year` + 1, causale P.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.itInailAutoliquidazioneCompute(request: .init(
+        year: 1000000,
+        positions: [
+            ItInailAutoliquidazioneComputeDeclarationsRequestPositionsItem(
+                pat: "pat",
+                patControlCode: "patControlCode",
+                voce: "voce",
+                tassoRegolazione: "121.00000",
+                tassoRata: "121.00000"
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ItInailAutoliquidazioneComputeDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">itInailAutoliquidazioneF24</a>(request: Requests.ItInailAutoliquidazioneF24DeclarationsRequest, requestOptions: RequestOptions?) -> ItInailAutoliquidazioneF24DeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the F24 telematic file (Agenzia delle Entrate specification for taxpayers, records A, M, V and Z) that pays instalment `instalment` (1 for the single payment) of the INAIL autoliquidazione premium of the employees' policy (polizza dipendenti) due by 16 February of `year` + 1: the regolazione of `year` on the wages paid in `year` and the rata of `year` + 1. The wages are the INAIL bases of the approved Italian payroll runs paid in `year` (DPR 1124/1965 art. 28: the wages actually paid), rounded to the euro; a run without the INAIL component counts the base of its INPS IVS contribution, with a warning. Each entry of `positions` is a PAT and voce of the INAIL basi di calcolo with its `tassoRegolazione` and `tassoRata` (the tasso applicato, per mille), the reduction of the basi di calcolo in percent of the premium (`riduzioneRegolazione`, `riduzioneRata`), the partly exempt wages (`quoteEsenti`), a lower presumed wage for the rata communicated to INAIL (`retribuzioniRata`) and the employees it covers (`employeeIds`, required when there is more than one position). premium = wages x tasso / 1000, less the reduction, plus the 1% addizionale ex ANMIL; the regolazione subtracts `rataAnticipata`, the rata requested for `year` in the basi di calcolo; intermediate amounts have five decimals and the total is rounded to the cent (INAIL guide to the autoliquidazione 2025/2026). With `rateazione` the total is paid in four instalments of 25% on 16 February, 16 May, 20 August and 16 November (moved to the next working day), the last three with the interest coefficients INAIL publishes each January (recorded for 2026 only). With `codiceDitta`, `codiceDittaControlCode` and `sedeInail` the response carries the F24 INAIL row: numero di riferimento 90 followed by `year` + 1, causale P. The file carries the INAIL row only, dated the instalment's due date; the debit account is given when the file is authenticated unless the company has exactly one active EUR account with an Italian IBAN. 422 without `codiceDitta`, when nothing is due (a credit is compensated in another F24) and for an instalment whose interest coefficients are not recorded.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.itInailAutoliquidazioneF24(request: .init(
+        year: 1000000,
+        positions: [
+            ItInailAutoliquidazioneF24DeclarationsRequestPositionsItem(
+                pat: "pat",
+                patControlCode: "patControlCode",
+                voce: "voce",
+                tassoRegolazione: "121.00000",
+                tassoRata: "121.00000"
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.ItInailAutoliquidazioneF24DeclarationsRequest` 
     
 </dd>
 </dl>
@@ -20899,6 +22039,151 @@ try await main()
 <dd>
 
 **request:** `Requests.LtPln204FfdataDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">lvEmployeeNoticeGenerate</a>(request: Requests.LvEmployeeNoticeGenerateDeclarationsRequest, requestOptions: RequestOptions?) -> LvEmployeeNoticeGenerateDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the notice of employees (Ziņas par darba ņēmējiem, VID EDS document DokZDNv3) for an employment contract, for upload in EDS: the start of work with ziņu kods 11 and the employee's profession code (`lvProfesijasKods`), or the end of the contract with `endCode`, the ziņu kods 21 to 26 of annex 1 of MK noteikumi Nr. 827. Answers 422 when the start has no profession code, the end has no `endCode`, the contract has no end date or the employee's personal code is not a Latvian personas kods.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.lvEmployeeNoticeGenerate(request: .init(
+        contractId: "contractId",
+        event: .start
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.LvEmployeeNoticeGenerateDeclarationsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/Sources/Resources/Declarations/DeclarationsClient.swift">mtFs7Generate</a>(request: Requests.MtFs7GenerateDeclarationsRequest, requestOptions: RequestOptions?) -> MtFs7GenerateDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The boxes of the FS7 Payer's Annual Reconciliation Statement of a year (A1 to A4, the share options question, B1, C1 to C4, D1 to D4, E1, E2 and F2) from the approved payroll runs, equal to the totals of the FS3 lodgement file of the `mt-annual-payroll-statements` deadline, with a PDF working copy that lists them. The Malta Tax and Customs Administration publishes no file for the FS7: a payer with fewer than 10 FS3s files the barcoded FS7 it issues, and the others key the figures into its FS7 web form or e-filing spreadsheet, so the figures are transcribed. `leftToPayer` names what Nordlet does not hold: the principal's name, position and signature, the Jobsplus number, the childcare question, tax arrears (PCU2(A)) and the payments of section F with F1 and F3.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.declarations.mtFs7Generate(request: .init(year: 1000000))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.MtFs7GenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -25373,7 +26658,7 @@ try await main()
 <dl>
 <dd>
 
-Replaces the seeded chart with the chart template of the company country (the Romanian general chart for a company registered in Romania, the Estonian e-arveldaja chart for a company registered in Estonia, the Lithuanian standard chart otherwise) and switches the posting defaults with it. Answers 409 when the company already uses that chart, has journal entries, holds accounts created by hand, or has settings that name an account the new chart does not have.
+Replaces the seeded chart with the chart template of the company country (the national chart for a company registered in Belgium, the Czech Republic, Denmark, Estonia, France, Luxembourg, the Netherlands, Portugal, Romania, Slovakia, Slovenia, Spain, the United Kingdom or the United States, the chart of the balance sheet and profit and loss items of Directive 2013/34/EU for a company registered in Austria, Bulgaria, Croatia, Cyprus, Finland, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Malta, Norway, Poland or Sweden, the Lithuanian standard chart otherwise) and switches the posting defaults with it. Answers 409 when the company already uses that chart, has journal entries, holds accounts created by hand, or has settings that name an account the new chart does not have.
 </dd>
 </dl>
 </dd>
@@ -26805,6 +28090,304 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">journalTemplatesCreate</a>(request: Requests.JournalTemplatesCreateLedgerRequest, requestOptions: RequestOptions?) -> JournalTemplatesCreateLedgerResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Save a journal template: the accounts of a recurring manual transaction, each with its side (`debit` or `credit`), for example the lines of a payslip from an outside payroll provider. `ledger/journal/templates/post` then posts it with the amounts of the month. The accounts, cost centers, projects and partners are checked as in `ledger/journal/transactions/create` (422); the template needs at least one debit and one credit line (422), and a repeated `name` is refused with 409.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.ledger.journalTemplatesCreate(request: .init(
+        name: "name",
+        lines: [
+            JournalTemplatesCreateLedgerRequestLinesItem(
+                accountCode: "accountCode",
+                side: .debit
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.JournalTemplatesCreateLedgerRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">journalTemplatesList</a>(request: Requests.JournalTemplatesListLedgerRequest, requestOptions: RequestOptions?) -> JournalTemplatesListLedgerResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Lists the journal templates with their lines. Filterable by `name`; sortable by `name` and `createdAt`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.ledger.journalTemplatesList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.JournalTemplatesListLedgerRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">journalTemplatesDelete</a>(request: Requests.JournalTemplatesDeleteLedgerRequest, requestOptions: RequestOptions?) -> JournalTemplatesDeleteLedgerResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Deletes a journal template. The transactions already posted from it stay. Answers 404 for an unknown template.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.ledger.journalTemplatesDelete(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.JournalTemplatesDeleteLedgerRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">journalTemplatesPost</a>(request: Requests.JournalTemplatesPostLedgerRequest, requestOptions: RequestOptions?) -> JournalTemplatesPostLedgerResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Posts a manual journal transaction from a journal template: `amounts` gives one amount per template line, in the template's order, on the line's side; a line with amount 0 is left out. The transaction is posted as by `ledger/journal/transactions/create` (`documentType` `manual`, base currency) with `description`, else the template name. Answers 404 for an unknown template and 422 when the number of amounts differs from the number of lines, when fewer than two lines have an amount or when the debits differ from the credits, besides the answers of `ledger/journal/transactions/create`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.ledger.journalTemplatesPost(request: .init(
+        id: "id",
+        date: CalendarDate("2026-07-01")!,
+        amounts: [
+            "121.0000"
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.JournalTemplatesPostLedgerRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.ledger.<a href="/Sources/Resources/Ledger/LedgerClient.swift">journalTransactionsReverse</a>(request: Requests.JournalTransactionsReverseLedgerRequest, requestOptions: RequestOptions?) -> JournalTransactionsReverseLedgerResponse</code></summary>
 <dl>
 <dd>
@@ -26817,7 +28400,7 @@ try await main()
 <dl>
 <dd>
 
-Posts a journal transaction (`documentType` `manual_reversal`, `documentId` the original) dated `date` (default the original date) whose entries mirror the original's (debits and credits swapped). Only a `manual` transaction or a `tax_provision` (posted by `ledger/tax-provision/post`) is reversed here; a transaction posted by a document is reversed through that document. Answers 409 when the transaction is neither, when it is already reversed and when the accounting period of `date` is locked, and 400 when `date` is before the original date.
+Posts a journal transaction (`documentType` `manual_reversal`, `documentId` the original) dated `date` (default the original date) whose entries mirror the original's (debits and credits swapped). Only a `manual` transaction, a `tax_provision` (posted by `ledger/tax-provision/post`), a `vat_prorata_adjustment` (posted by `declarations/vat-prorata/adjustment/post`) or an `it_tfr_accrual` or `it_tfr_revaluation` (posted by `declarations/it/tfr/accrual/post` and `declarations/it/tfr/revaluation/post`) is reversed here; a transaction posted by a document is reversed through that document. Answers 409 when the transaction is neither, when it is already reversed and when the accounting period of `date` is locked, and 400 when `date` is before the original date.
 </dd>
 </dl>
 </dd>
@@ -27186,7 +28769,7 @@ try await main()
 <dl>
 <dd>
 
-The rows or codes of each return or registry deposit of the company country that are filled from account balances. Accounts fall into a row by the layout defaults for the standard chart of accounts unless mapped under Account → Statement rows.
+The rows or codes of each return or registry deposit of the company country that are filled from account balances. Accounts fall into a row by the layout defaults for the standard chart of accounts unless mapped with ledger/statement-rows/set.
 </dd>
 </dl>
 </dd>
@@ -28134,7 +29717,7 @@ try await main()
 <dl>
 <dd>
 
-Brings a company over from another system in one call: chart of accounts, partners, items, opening balances (or the full journal history), open customer and supplier invoices, fixed assets with their accumulated depreciation, and stock on hand. The whole package is written in one database transaction - if any row fails, nothing is stored.
+Brings a company over from another system in one call: chart of accounts, partners, items, opening balances (or the full journal history), open customer and supplier invoices, fixed assets with their accumulated depreciation, and stock on hand. The numbering of the open customer invoices continues: each series and year starts after its highest number, and a company without `invoicePrefix` takes the series of the latest open invoice, so `sales/invoices/issue` numbers the next invoice in it. The whole package is written in one database transaction - if any row fails, nothing is stored.
 </dd>
 </dl>
 </dd>
@@ -28206,7 +29789,7 @@ try await main()
 <dl>
 <dd>
 
-Read-only. Lists, each with its `kind`, the `id` of the record, a `message` and the `fix` (the call or field that resolves it): `draft_warning` (a draft purchase or sale document with a warning of `purchases/invoices/create` or `sales/invoices/create`, one item per warning, with its `code`), `bank_transaction_unbooked` (a bank line with the status `new`), `partner_vat_invalid` (a partner whose VAT number failed its VIES check) and `filing_settings_missing` (a filing due in the window of `account/companies/context` whose settings are missing, with the `declarations/configs/update` call; the id is the calendar key). Each kind lists at most 200 records, the newest first. An empty list means nothing needs a look.
+Read-only. Lists, each with its `kind`, the `id` of the record, a `message` and the `fix` (the call or field that resolves it): `draft_warning` (a draft purchase or sale document with a warning of `purchases/invoices/create` or `sales/invoices/create`, one item per warning, with its `code`), `bank_transaction_unbooked` (a bank line with the status `new`), `partner_vat_invalid` (a partner whose VAT number failed its VIES check) and `filing_settings_missing` (a filing due in the window of `account/companies/context` whose settings are missing, with the `declarations/configs/update` call; the id is the calendar key) and `file_unattached` (a file stored with `files/upload` or an upload link without `entityId` and not yet given as a document of a record, such as a document no other call fits). Each kind lists at most 200 records, the newest first. An empty list means nothing needs a look.
 </dd>
 </dl>
 </dd>
@@ -28613,6 +30196,81 @@ try await main()
 <dd>
 
 **request:** `Requests.AssetsCreateAssetsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="/Sources/Resources/Assets/AssetsClient.swift">assetsCreateFromPurchase</a>(request: Requests.AssetsCreateFromPurchaseAssetsRequest, requestOptions: RequestOptions?) -> AssetsCreateFromPurchaseAssetsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Register a fixed asset from a line of a registered purchase invoice that was booked to the asset account of the group (422 otherwise, and for a credit note, a draft or reversed invoice and a deferred line). The acquisition date is the invoice's registration date, else its document date. The acquisition cost is what the line booked, in the company currency (its net amount plus the VAT not deducted), less what earlier assets from the same line took; `acquisitionCost` takes a part of it instead, for a line that holds several assets (422 above what is left, 409 when nothing is left). The name defaults to the line description. The asset keeps `purchaseInvoiceLineId`. Otherwise as `assets/assets/create`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.assets.assetsCreateFromPurchase(request: .init(
+        purchaseInvoiceLineId: "purchaseInvoiceLineId",
+        groupId: "groupId",
+        code: "code"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.AssetsCreateFromPurchaseAssetsRequest` 
     
 </dd>
 </dl>
@@ -29453,7 +31111,7 @@ try await main()
 <dl>
 <dd>
 
-Creates an employee record. `payrollOptions` holds the country-specific settings the payroll engine reads for the person (see `hr/employees/fields`); `applyAllowance` defaults to true and `pensionAccumulation` to false. An `iban` whose check digits fail (ISO 13616), a `birthDate` in the future or before 1900, and a `personalCode` that is not a valid OIB (Croatia) or DNI/NIE (Spain) are refused with 422.
+Creates an employee record. `payrollOptions` holds the country-specific settings the payroll engine reads for the person (see `hr/employees/fields`); `applyAllowance` defaults to true and `pensionAccumulation` to false, except in a Croatian company, where an employee with a `birthDate` who is under 40 on the `hireDate` (today without one) is in pension pillar II by default (Zakon o obveznim mirovinskim fondovima čl. 90 st. 1). An `iban` whose check digits fail (ISO 13616), a `birthDate` in the future or before 1900, and a `personalCode` that is not a valid OIB (Croatia) or DNI/NIE (Spain) are refused with 422.
 </dd>
 </dl>
 </dd>
@@ -31403,7 +33061,7 @@ try await main()
 <dl>
 <dd>
 
-Builds the timesheet of the month for every employee with a contract in it, or for one employee with `employeeId`, replacing any existing timesheet: the Monday to Friday days within the contract get the contract's daily hours (its weekly hours over five), and for a Lithuanian company the public holidays are `holiday` days with 0 hours. Answers 422 when no contract covers the month.
+Builds the timesheet of the month for every employee with a contract in it, or for one employee with `employeeId`, replacing any existing timesheet: the Monday to Friday days within the contract get the contract's daily hours (its weekly hours over five), and the public holidays of the company's country (of its region, from the address `subdivision`, where they differ) are `holiday` days with 0 hours. Answers 422 when no contract covers the month.
 </dd>
 </dl>
 </dd>
@@ -32869,7 +34527,7 @@ try await main()
 <dl>
 <dd>
 
-Creates a draft payroll run for a pay period, computing each line with the company country's payroll engine, the employee's approved runs of the tax year before the period and of the two previous tax years, the timesheets of the period and `payDate` (default the last day of the period). A `monthly` run (the default `frequency`) takes `year` and `month`; a `semimonthly` run takes a `periodStart` on the 1st (to the 15th) or the 16th (to the month end), and a `weekly`, `biweekly` or `four_weekly` run a `periodStart` from which the period runs 7, 14 or 28 days. `payroll/frequencies/list` gives the frequencies the company country's engine calculates; the engine also sets the run's `taxYear` and `taxPeriod` (by default the calendar year and the month). A run of a frequency other than monthly gets the year and month of its period end. Without `lines`, every employee whose contract has the run's pay frequency and overlaps the period gets a line, whatever the employee's status: the gross is the contract's salary for one period (a monthly, weekly or yearly salary brought to a year and divided by the periods of the year: 12, 24, 13, 26 or 52) reduced to the paid working days of the contract and the timesheets, unless `grossOverrides` sets it; the per diems of approved business trips ending in the period are added untaxed and the trips linked to the run; for a Lithuanian company the car benefit in kind (`includeNatura`) and the compensation for unused leave of a contract ending in the period are added. The timesheets count only when every month the period touches has one. With `lines`, only the given employees are computed with their gross, additions and deductions, and the per diems of their approved, unlinked business trips ending in the period are added untaxed and the trips linked to the run; a taxable addition may carry a `paymentType` from `payroll/payment-types/list` and `hours`. Answers 422 when the country has no engine or its engine does not calculate the frequency, the period is not given the way its frequency needs, an employee is given twice, has two contracts in the period, has no contract and no gross, or is paid by the hour or day without a gross; 409 when a run of the same frequency already covers part of the period or the accounting period is locked.
+Creates a draft payroll run for a pay period, computing each line with the company country's payroll engine, the employee's approved runs of the tax year before the period and of the two previous tax years, the timesheets of the period and `payDate` (default the last day of the period). A `monthly` run (the default `frequency`) takes `year` and `month`; a `semimonthly` run takes a `periodStart` on the 1st (to the 15th) or the 16th (to the month end), and a `weekly`, `biweekly` or `four_weekly` run a `periodStart` from which the period runs 7, 14 or 28 days. `payroll/frequencies/list` gives the frequencies the company country's engine calculates; the engine also sets the run's `taxYear` and `taxPeriod` (by default the calendar year and the month). A run of a frequency other than monthly gets the year and month of its period end. Without `lines`, every employee whose contract has the run's pay frequency and overlaps the period gets a line, whatever the employee's status: the gross is the contract's salary for one period (a monthly, weekly or yearly salary brought to a year and divided by the periods of the year: 12, 24, 13, 26 or 52) reduced to the paid working days of the contract and the timesheets, unless `grossOverrides` sets it; the per diems of approved business trips ending in the period are added untaxed and the trips linked to the run; for a Lithuanian company the car benefit in kind (`includeNatura`) and the compensation for unused leave of a contract ending in the period are added. The timesheets count only when every month the period touches has one. `warnings` names an employee whose `sick` days on working days reduced the salary (no employer sick pay is computed; add it to the line's additions) and an employee whose timesheet has no paid day, so that the salary is 0. With `lines`, only the given employees are computed with their gross, additions and deductions, and the per diems of their approved, unlinked business trips ending in the period are added untaxed and the trips linked to the run; a taxable addition may carry a `paymentType` from `payroll/payment-types/list` and `hours`. Answers 422 when the country has no engine or its engine does not calculate the frequency, the period is not given the way its frequency needs, an employee is given twice, has two contracts in the period, has no contract and no gross, or is paid by the hour or day without a gross; 409 when a run of the same frequency already covers part of the period or the accounting period is locked.
 </dd>
 </dl>
 </dd>
@@ -34129,6 +35787,228 @@ try await main()
 <dd>
 
 **request:** `Requests.AgreementsGenerateInvoiceAgreementsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">agreementsExpectedInvoices</a>(request: Requests.AgreementsExpectedInvoicesAgreementsRequest, requestOptions: RequestOptions?) -> AgreementsExpectedInvoicesAgreementsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The schedule of the supplier invoices an agreement with a `billingPeriod` leads you to expect, such as a lease: each period from `startDate` up to `to` (default today), on the grid of `agreements/agreements/generate-invoice` (prorated by days when cut by `endDate`, an `autoRenew` agreement continuing by whole terms), with `expectedNet`, the sum of quantity times unit price of the agreement items, else `value`, times the prorated share, rounded to the cent (null when an item has no unit price or the agreement has neither), and the purchase invoices registered for the period: those created or updated with this `agreementId` and the period's `periodStart` as `agreementPeriodStart`. A period without one is `missing`. Answers 404 for an unknown agreement and 422 when it has no `billingPeriod`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.agreements.agreementsExpectedInvoices(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.AgreementsExpectedInvoicesAgreementsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">agreementsPaymentScheduleSet</a>(request: Requests.AgreementsPaymentScheduleSetAgreementsRequest, requestOptions: RequestOptions?) -> AgreementsPaymentScheduleSetAgreementsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Keep the repayment schedule of a loan or lease agreement as the lender or lessor gives it: one row per instalment with its `dueDate`, the `principal` it repays and the `interest` it pays. The rows replace the agreement's earlier schedule; an empty list removes it. Nordlet does not compute instalments, because the interest rate, day count and rounding are the lender's. Answers 404 for an unknown agreement and 422 when two rows have the same `dueDate`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.agreements.agreementsPaymentScheduleSet(request: .init(
+        id: "id",
+        rows: [
+            AgreementsPaymentScheduleSetAgreementsRequestRowsItem(
+                dueDate: CalendarDate("2026-07-01")!,
+                principal: "121.0000",
+                interest: "121.0000"
+            )
+        ]
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.AgreementsPaymentScheduleSetAgreementsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.agreements.<a href="/Sources/Resources/Agreements/AgreementsClient.swift">agreementsPaymentScheduleGet</a>(request: Requests.AgreementsPaymentScheduleGetAgreementsRequest, requestOptions: RequestOptions?) -> AgreementsPaymentScheduleGetAgreementsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The repayment schedule kept with `agreements/agreements/payment-schedule/set`, by due date, with each instalment's total and, when the agreement has a `value` (the amount lent or financed), the principal outstanding after it. Answers 404 for an unknown agreement.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.agreements.agreementsPaymentScheduleGet(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.AgreementsPaymentScheduleGetAgreementsRequest` 
     
 </dd>
 </dl>
@@ -38447,7 +40327,7 @@ try await main()
 <dl>
 <dd>
 
-Creates a numbered expense report (series `AA`) for the employee and posts it: each line's net amount is debited to its `accountCode` and the VAT total to the input VAT account of the posting rules (`purchases.vatReceivable`), or the gross amount to the line account when the company is not a VAT payer, and the total is credited to the cash advances account (`cash.advances`), which settles the employee's advance balance shown by `cash/advance-holders/balances`. Answers 422 when the total is zero or a line account is missing from the chart or not postable, and 409 when the accounting period of `date` is locked.
+Creates a numbered expense report (series `AA`) for the employee and posts it: each line's net amount is debited to its `accountCode` and the VAT total to the input VAT account of the posting rules (`purchases.vatReceivable`), or the gross amount to the line account when the company is not a VAT payer, and the total is credited to the cash advances account (`cash.advances`), which settles the employee's advance balance shown by `cash/advance-holders/balances`. A line may name its supplier (`partnerId`) and its VAT type (`vatClassifierCode`, a purchase type of the company's country): only the deductible part of its VAT (the type's deductible share and the pro-rata percentage of the year, `deductibleVat` in the response) is debited to the input VAT account, the rest to the line account, and the line is counted in the VAT return of the report date. A line with VAT and no VAT type is in no VAT return, which warns about it. Answers 422 when the total is zero, a line account is missing from the chart or not postable, `partnerId` is not a partner of the company, or `vatClassifierCode` is not in the country's catalog (`reference/vat-classifiers/list`), is a sale type, or is self-assessed, assessed by customs or needs the line's own deductible share (record those with `purchases/invoices/create`), and 409 when the accounting period of `date` is locked.
 </dd>
 </dl>
 </dd>
@@ -41276,7 +43156,7 @@ try await main()
 <dl>
 <dd>
 
-Builds the file of a deadline whose format Nordlet produces but whose administration takes it only through the company's own account or program. Nothing is sent and no filing is recorded. `key` is `<ruleKey>:<period>` as `calendar/list` returns it. Answers 404 for an unknown rule or an invalid period, and 422 with the reason when Nordlet builds no single file for the deadline.
+Builds the file of a deadline whose format Nordlet produces but whose administration takes it only through the company's own account or program. Nothing is sent and no filing is recorded. `key` is `<ruleKey>:<period>` as `calendar/list` returns it. A deadline filed as one document per person or flow (REK-O, Intrastat, PIT-11, FPS) comes as one zip of its documents when there are several. Answers 404 for an unknown rule or an invalid period, and 422 with the reason when Nordlet builds no file for the deadline.
 </dd>
 </dl>
 </dd>
@@ -42802,7 +44682,7 @@ try await main()
 <dl>
 <dd>
 
-Book one new bank transaction against a ledger account, for lines that settle no invoice (bank fees, interest, tax payments, transfers). Posts a journal transaction dated on the line's booking date between the bank account's ledger account and `accountCode` (incoming money: debit bank, credit the account; outgoing money the reverse), with the optional `partnerId` on the transaction and `costCenterId` and `projectId` on the counter entry, and sets the line to matched with `matchedDocumentType` `journal_transaction`. With `taxPaymentId` the line settles a tax payment recorded with `declarations/tax-payments/create`: an outgoing line for a payment, an incoming line for a refund, in the company currency and for the same amount (422 otherwise), not yet booked from another line (409); the line is matched as `tax_payment`. VAT is not booked here, because VAT returns are built from documents: a `vatClassifierCode` answers 422, and a fee with VAT is registered as a purchase invoice and the line matched to it. Answers 409 when the line is already matched or ignored or when the accounting period of the line date is locked. `bank/transactions/unmatch` reverses the posting.
+Book one new bank transaction against a ledger account, for lines that settle no invoice (bank fees, interest, tax payments, transfers). Posts a journal transaction dated on the line's booking date between the bank account's ledger account and `accountCode` (incoming money: debit bank, credit the account; outgoing money the reverse), with the optional `partnerId` on the transaction and `costCenterId` and `projectId` on the counter entry, and sets the line to matched with `matchedDocumentType` `journal_transaction`. With `taxPaymentId` the line settles a tax payment recorded with `declarations/tax-payments/create`: an outgoing line for a payment, an incoming line for a refund, in the company currency and for the same amount (422 otherwise), not yet booked from another line (409); the line is matched as `tax_payment`. VAT is not booked here, because VAT returns are built from documents: a `vatClassifierCode` answers 422, and a fee with VAT is registered as a purchase invoice and the line matched to it. With `saveRule` the account and the partner are also kept as a posting rule (see `bank/posting-rules/create`), which `bank/transactions/suggest-matches` proposes for later lines; each text given must be in this line's counterparty name or description (422 otherwise). Answers 409 when the line is already matched or ignored or when the accounting period of the line date is locked. `bank/transactions/unmatch` reverses the posting.
 </dd>
 </dl>
 </dd>
@@ -43172,7 +45052,7 @@ try await main()
 <dl>
 <dd>
 
-Build a payment file that pays the remaining amount of each registered purchase invoice from the bank account on `executionDate`, to the partner's default bank account that the format can use. The format follows the bank account: a GBP account of a UK company with a sort code and account number gets a Bacs Standard 18 Direct Credit file (needs `paymentFileSettings.serviceUserNumber`; `executionDate` is the day the money arrives, a Bacs working day whose processing day is after today, default the earliest), a USD account of a US company with a routing number and account number gets a Nacha ACH credit file (needs `paymentFileSettings.immediateOrigin` and `companyIdentification`; CCD for a business partner, PPD for a partner that is not one, see `partners/update` `isBusiness`; default `executionDate` today), and an account with an IBAN gets ISO 20022 pain.001.001.03, a SEPA credit transfer in EUR and a generic pain.001 in other currencies (default `executionDate` today). Every invoice must be in the currency of the bank account and the partner must have a bank account the format can use (IBAN; sort code and account number; routing number, account number and `accountType`), 422 otherwise, see `partners/bank-accounts/create`; an invoice that is already paid answers 409. The file is returned in `content`, with `format`, `fileName` and `contentType`; nothing is posted or marked paid.
+Build a payment file that pays the remaining amount of each registered purchase invoice from the bank account on `executionDate`, to the partner's default bank account that the format can use. The format follows the bank account: a GBP account of a UK company with a sort code and account number gets a Bacs Standard 18 Direct Credit file (needs `paymentFileSettings.serviceUserNumber`; `executionDate` is the day the money arrives, a Bacs working day whose processing day is after today, default the earliest), a USD account of a US company with a routing number and account number gets a Nacha ACH credit file (needs `paymentFileSettings.immediateOrigin` and `companyIdentification`; CCD for a business partner, PPD for a partner that is not one, see `partners/update` `isBusiness`; default `executionDate` today), and an account with an IBAN gets ISO 20022 pain.001.001.03, a SEPA credit transfer in EUR and a generic pain.001 in other currencies (default `executionDate` today); a SEK account with a Swedish IBAN gets a Swedish domestic pain.001 (needs `paymentFileSettings.bic`; SvcLvl NURG, or MPNS when the BIC is SEB's ESSESESS; CtgyPurp SUPP; ChrgBr SHAR; `paymentFileSettings.initiatingPartyBankId` is written as the initiating party's bank id), in which a partner may also be paid on a Bankgiro number (`bankCode` 9900 and the 7 or 8 digit number as `bankAccountNumber`) or a PlusGiro number (`bankCode` 9960 and 2 to 8 digits); the invoice's `paymentReference` goes as a structured reference (SCOR) when it is an OCR number paid to a Bankgiro or PlusGiro number (at most 25 digits with a modulus 10 check digit) or an RF creditor reference paid to an account (ISO 11649, issuer ISO; as text when the bank is Nordea, which does not take it yet), 422 when its check digits are wrong, and any other reference goes as the unstructured text in place of the invoice number. Every invoice must be in the currency of the bank account and the partner must have a bank account the format can use (IBAN; sort code and account number; routing number, account number and `accountType`), 422 otherwise, see `partners/bank-accounts/create`; an invoice that is already paid answers 409. The file is returned in `content`, with `format`, `fileName` and `contentType`; nothing is posted or marked paid.
 </dd>
 </dl>
 </dd>
@@ -43952,6 +45832,219 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postingRulesCreate</a>(request: Requests.PostingRulesCreateBankRequest, requestOptions: RequestOptions?) -> PostingRulesCreateBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Keep a posting rule: a new bank line whose counterparty name contains `counterpartyContains` and whose description contains `descriptionContains` (case-insensitive; a text not given is not checked, at least one is required, 422 otherwise) is proposed for `accountCode` and `partnerId` in `bank/transactions/suggest-matches`. Nothing is posted until `bank/transactions/post` is called. `accountCode` must be a postable account (422).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postingRulesCreate(request: .init(accountCode: "accountCode"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostingRulesCreateBankRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postingRulesList</a>(request: Requests.PostingRulesListBankRequest, requestOptions: RequestOptions?) -> PostingRulesListBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List the posting rules of the company, newest first.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postingRulesList(request: .init())
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostingRulesListBankRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">postingRulesDelete</a>(request: Requests.PostingRulesDeleteBankRequest, requestOptions: RequestOptions?) -> PostingRulesDeleteBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a posting rule. Lines already posted are not changed.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.bank.postingRulesDelete(request: .init(id: "id"))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.PostingRulesDeleteBankRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.bank.<a href="/Sources/Resources/Bank/BankClient.swift">mandatesCreate</a>(request: Requests.MandatesCreateBankRequest, requestOptions: RequestOptions?) -> MandatesCreateBankResponse</code></summary>
 <dl>
 <dd>
@@ -44540,7 +46633,7 @@ try await main()
 <dl>
 <dd>
 
-Suggest documents for a new bank transaction: issued sale invoices and advances for incoming money; registered purchase invoices, issued sale credit notes and approved payroll runs for outgoing money. Candidates are unpaid documents with any remaining balance, also one below the payment, scored by an equal remaining balance, the document number or payroll period in the payment description and a counterparty IBAN or name matching the partner or an employee on the run; the best `limit` come back with their reasons; a candidate with no matching reason (score 0) is left out. A transaction that is already matched answers 409.
+Suggest documents for a new bank transaction: issued sale invoices and advances for incoming money; registered purchase invoices, issued sale credit notes and approved payroll runs for outgoing money. Candidates are unpaid documents with any remaining balance, also one below the payment, scored by an equal remaining balance, the document number or payroll period in the payment description and a counterparty IBAN or name matching the partner or an employee on the run; the best `limit` come back with their reasons; a candidate with no matching reason (score 0) is left out. `allocations` names two or more invoices or credit notes in the currency of the payment whose numbers all stand as whole words in the payment description and whose remaining balances add up to the payment, each with its remaining balance, ready for `bank/transactions/match-many`; otherwise it is null. `postingRules` lists the posting rules (`bank/posting-rules/create`) whose texts the counterparty name and description of the line contain, newest first, each with its account and partner for `bank/transactions/post`. A transaction that is already matched answers 409.
 </dd>
 </dl>
 </dd>
@@ -46185,6 +48278,80 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.files.<a href="/Sources/Resources/Files/FilesClient.swift">uploadLinksCreate</a>(request: Requests.UploadLinksCreateFilesRequest, requestOptions: RequestOptions?) -> UploadLinksCreateFilesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a link that takes one file of up to 10 MB as the raw request body, so the file does not have to be sent base64-encoded: `POST` the bytes to `url` with any `Content-Type`; no API key is needed, the link is the permission. The link works once and until `expiresAt` (`expiresInMinutes`, 60 by default, at most 1440). The file is stored under `entity`, `entityId`, `fileName` and `mimeType` (else the media type of the upload request) with the id `fileId` and the `storageKey` given here, which other calls take as `documentRef` once the file is uploaded; `files/get` with `fileId` answers 404 until then. The upload answers 404 for an unknown or expired link and 409 for a link already used.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.files.uploadLinksCreate(request: .init(
+        entity: "entity",
+        fileName: "fileName"
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.UploadLinksCreateFilesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.files.<a href="/Sources/Resources/Files/FilesClient.swift">get</a>(request: Requests.GetFilesRequest, requestOptions: RequestOptions?) -> GetFilesResponse</code></summary>
 <dl>
 <dd>
@@ -46485,7 +48652,7 @@ try await main()
 <dl>
 <dd>
 
-Classify the company's size for a calendar year as micro, small, medium or large from total assets at the year end, the net turnover of the year and the average number of employees under employment contracts, against the limits returned in `thresholds`; a category applies when at least two of its three limits are met. This is the default category of `reports/financial-statements`.
+Classify the company's size for a calendar year as micro, small, medium or large from total assets at the year end, the net turnover of the year and the average number of employees under employment contracts, against the limits returned in `thresholds`; a category applies when at least two of its three limits are met. The limits are those of the accounting law of the company's country for a financial year starting on 1 January of that year, in `currency` (the company's base currency, converted at the year-end rate when the law sets them in another currency); a category the law does not have is left out of `thresholds`. A country without recorded limits uses those of Directive 2013/34/EU as amended by Delegated Directive (EU) 2023/2775. The category follows the law's rule over the years: in most countries it changes only when the limits are crossed at two consecutive year ends, and in AT, BE, BG, CZ, HU, PT and SK from the year after; DK and FI need both years within a category's limits, SE both years over its limits to be large, EE two year ends outside a category to leave it, LV the higher category while the category changes every year, HR the figures of the year before, and the Maltese medium category one year end; a Bulgarian company that leaves its category takes the category of the later year. The earlier years are the financial years before with postings in Nordlet, each tested against the limits of the year classified at its own year-end rate; a year without postings ends the chain, and the first year is classified on its own figures. CY, GR and countries without recorded limits classify each year on its own figures. This is the default category of `reports/financial-statements`.
 </dd>
 </dl>
 </dd>
@@ -47137,7 +49304,7 @@ try await main()
 <dl>
 <dd>
 
-VAT of issued sale invoices (by issue date) or registered purchase invoices (by registration date) in a period, summed per VAT rate: net, VAT and gross in the base currency and the number of documents, credit notes counting negative. The rows of `reports/vat-detail` grouped by rate.
+VAT of issued sale invoices (by issue date; an advance invoice whose VAT is due when it is paid, by payment date) or registered purchase invoices (by registration date) in a period, summed per VAT rate: net, VAT and gross in the base currency and the number of documents, credit notes counting negative. The rows of `reports/vat-detail` grouped by rate.
 </dd>
 </dl>
 </dd>
@@ -47637,6 +49804,154 @@ try await main()
 </dl>
 </details>
 
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">saftNo</a>(request: Requests.SaftNoReportsRequest, requestOptions: RequestOptions?) -> SaftNoReportsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Export the posted ledger of a period of a Norwegian company as a SAF-T Financial file (Skatteetaten, Norwegian SAF-T Financial data), which the company hands over when the Tax Administration asks for it (bokføringsforskriften § 7-8). The contact person is the one stored for the Skatteetaten system (`declarations/configs/update`, `contactFirstName`, `contactLastName`). Answers 422 for a company outside Norway.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.reports.saftNo(request: .init(
+        fromDate: CalendarDate("2026-07-01")!,
+        toDate: CalendarDate("2026-07-01")!
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.SaftNoReportsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">vatAccounts</a>(request: Requests.VatAccountsReportsRequest, requestOptions: RequestOptions?) -> VatAccountsReportsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Compares, for the `months` months starting in `month`, the VAT posted on each account of the posting rules `sales.vatPayable`, `sales.ossVatPayable` and `purchases.vatReceivable` with the VAT the documents read by the company's VAT return carry. `posted` is the movement of the account in the period (credit less debit on an output account, debit less credit on the input account) without the bank, cash and year-end closing postings, which are shown as `settlements`; `expected` is, from the documents of the period: output VAT and self-assessed VAT for `sales.vatPayable`, VAT of the issued invoices, credit notes and advance invoices under the OSS and IOSS schemes (`vatScheme` `oss_union`, `oss_non_union`, `ioss`, by issue date) for `sales.ossVatPayable` and deductible VAT for `purchases.vatReceivable`, summed when rules share an account (deductible VAT subtracted on an output account). `difference` is `posted` less `expected`; `byDocumentType` gives the debit and credit of the period by journal document type. `warnings` are those of the VAT return collector, such as lines without a VAT type.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Api
+
+private func main() async throws {
+    let client = ApiClient(token: "<token>")
+
+    _ = try await client.reports.vatAccounts(request: .init(
+        year: 1000000,
+        month: 1000000
+    ))
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Requests.VatAccountsReportsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.reports.<a href="/Sources/Resources/Reports/ReportsClient.swift">periodChecklist</a>(request: Requests.PeriodChecklistReportsRequest, requestOptions: RequestOptions?) -> PeriodChecklistReportsResponse</code></summary>
 <dl>
 <dd>
@@ -47649,7 +49964,7 @@ try await main()
 <dl>
 <dd>
 
-Lists what is still open for `period`: a month (`YYYY-MM`) or the fiscal year that ends in `YYYY`. Items: draft sale documents (invoices, credit notes and advance invoices with an issue date in the period) and draft purchase documents dated in the period, bank lines dated in the period with status `new`, assets with depreciation months not posted up to the period end, expense deferral rows due by the period end and not posted, active recurring invoices whose next run date is on or before the period end, payroll runs of the period's months still in draft, and for a fiscal year the issued sale and registered purchase documents in a currency other than the base currency still open at the year end. Each item carries the `count` and the `ids` of the documents, rows, assets, recurring invoices or runs; an item with nothing open is left out. `ledger/periods/lock` returns the same items as `warnings`.
+Lists what is still open for `period`: a month (`YYYY-MM`) or the fiscal year that ends in `YYYY`. Items: draft sale documents (invoices, credit notes and advance invoices with an issue date in the period) and draft purchase documents dated in the period, bank lines dated in the period with status `new`, assets with depreciation months not posted up to the period end, expense deferral rows due by the period end and not posted, active recurring invoices whose next run date is on or before the period end, payroll runs of the period's months still in draft, for a fiscal year the issued sale and registered purchase documents in a currency other than the base currency still open at the year end, the bank accounts whose ledger balance at the period end differs from the statement balance stored by an import (`bank/reconciliation/get`), the posted manual entries and accruals in the period on the VAT accounts of the posting rules `sales.vatPayable`, `sales.ossVatPayable` and `purchases.vatReceivable` and the expense reports in the period with VAT on a line without a VAT type, which no VAT return reads, and the filings of the period (`calendar/list` keys) whose filing system has settings without a stored value. Each item carries the `count` and the `ids` of the documents, rows, assets, recurring invoices, runs, bank accounts, journal transactions or calendar keys; an item with nothing open is left out. `ledger/periods/lock` returns the same items as `warnings`.
 </dd>
 </dl>
 </dd>
@@ -47794,7 +50109,7 @@ try await main()
 <dl>
 <dd>
 
-VAT of issued sale invoices (by issue date) or registered purchase invoices (by registration date) in a period, one row per document and VAT rate: net, VAT and gross in the base currency, with totals; credit notes count negative. `reports/vat-summary` groups these rows by rate.
+VAT of issued sale invoices (by issue date; an advance invoice whose VAT is due when it is paid, by payment date) or registered purchase invoices (by registration date) in a period, one row per document and VAT rate: net, VAT and gross in the base currency, with totals; credit notes count negative. `reports/vat-summary` groups these rows by rate.
 </dd>
 </dl>
 </dd>

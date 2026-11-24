@@ -401,6 +401,7 @@ import Api
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
                   "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -450,6 +451,7 @@ import Api
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
             disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsCreate(
@@ -518,6 +520,7 @@ import Api
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
                   "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -576,6 +579,7 @@ import Api
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
             disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsCreate(
@@ -585,6 +589,240 @@ import Api
                 name: "x",
                 acquisitionDate: CalendarDate("2023-01-15")!,
                 acquisitionCost: "acquisitionCost"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func assetsCreateFromPurchase1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "id",
+                  "groupId": "groupId",
+                  "code": "code",
+                  "name": "name",
+                  "acquisitionDate": "2026-07-01",
+                  "depreciationStartDate": "2026-07-01",
+                  "acquisitionCost": "acquisitionCost",
+                  "salvageValue": "salvageValue",
+                  "usefulLifeMonths": 1000000,
+                  "totalCost": "totalCost",
+                  "accumulatedDepreciation": "accumulatedDepreciation",
+                  "netBookValue": "netBookValue",
+                  "depreciatedMonths": 1000000,
+                  "totalLifeMonths": 1000000,
+                  "status": "active",
+                  "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "name",
+                      "ref": "ref"
+                    }
+                  ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "2026-07-01",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "121.00",
+                      "reason": "use_change"
+                    }
+                  ],
+                  "disposalDate": "2026-07-01",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
+                  "createdAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AssetsCreateFromPurchaseAssetsResponse(
+            id: "id",
+            groupId: "groupId",
+            code: "code",
+            name: "name",
+            acquisitionDate: CalendarDate("2026-07-01")!,
+            depreciationStartDate: CalendarDate("2026-07-01")!,
+            acquisitionCost: "acquisitionCost",
+            salvageValue: "salvageValue",
+            usefulLifeMonths: 1000000,
+            totalCost: "totalCost",
+            accumulatedDepreciation: "accumulatedDepreciation",
+            netBookValue: "netBookValue",
+            depreciatedMonths: 1000000,
+            totalLifeMonths: 1000000,
+            status: .active,
+            notes: Nullable<String>.value("notes"),
+            documents: Nullable<[AssetsCreateFromPurchaseAssetsResponseDocumentsItem]>.value([
+                AssetsCreateFromPurchaseAssetsResponseDocumentsItem(
+                    name: "name",
+                    ref: "ref"
+                )
+            ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                AssetsCreateFromPurchaseAssetsResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "121.00",
+                    reason: .useChange
+                )
+            ],
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+            disposalReason: Nullable<AssetsCreateFromPurchaseAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
+            createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.assets.assetsCreateFromPurchase(
+            request: .init(
+                purchaseInvoiceLineId: "purchaseInvoiceLineId",
+                groupId: "groupId",
+                code: "code"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func assetsCreateFromPurchase2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "id": "x",
+                  "groupId": "x",
+                  "code": "code",
+                  "name": "name",
+                  "acquisitionDate": "2023-01-15",
+                  "depreciationStartDate": "2023-01-15",
+                  "acquisitionCost": "acquisitionCost",
+                  "salvageValue": "salvageValue",
+                  "usefulLifeMonths": 1000000,
+                  "totalCost": "totalCost",
+                  "accumulatedDepreciation": "accumulatedDepreciation",
+                  "netBookValue": "netBookValue",
+                  "depreciatedMonths": 1000000,
+                  "totalLifeMonths": 1000000,
+                  "status": "active",
+                  "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "2023-01-15",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    },
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    }
+                  ],
+                  "disposalDate": "2023-01-15",
+                  "disposalReason": "sold",
+                  "disposalProceeds": "disposalProceeds",
+                  "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
+                  "createdAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = AssetsCreateFromPurchaseAssetsResponse(
+            id: "x",
+            groupId: "x",
+            code: "code",
+            name: "name",
+            acquisitionDate: CalendarDate("2023-01-15")!,
+            depreciationStartDate: CalendarDate("2023-01-15")!,
+            acquisitionCost: "acquisitionCost",
+            salvageValue: "salvageValue",
+            usefulLifeMonths: 1000000,
+            totalCost: "totalCost",
+            accumulatedDepreciation: "accumulatedDepreciation",
+            netBookValue: "netBookValue",
+            depreciatedMonths: 1000000,
+            totalLifeMonths: 1000000,
+            status: .active,
+            notes: Nullable<String>.value("notes"),
+            documents: Nullable<[AssetsCreateFromPurchaseAssetsResponseDocumentsItem]>.value([
+                AssetsCreateFromPurchaseAssetsResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                ),
+                AssetsCreateFromPurchaseAssetsResponseDocumentsItem(
+                    name: "x",
+                    ref: "x"
+                )
+            ]),
+            inputVatAmount: Nullable<String>.value("inputVatAmount"),
+            inputVatFirstUseDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            inputVatDeductiblePercent: Nullable<String>.value("inputVatDeductiblePercent"),
+            inputVatRealEstate: true,
+            inputVatUseChanges: [
+                AssetsCreateFromPurchaseAssetsResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                ),
+                AssetsCreateFromPurchaseAssetsResponseInputVatUseChangesItem(
+                    year: 1000000,
+                    percent: "percent",
+                    reason: .useChange
+                )
+            ],
+            disposalDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+            disposalReason: Nullable<AssetsCreateFromPurchaseAssetsResponseDisposalReason>.value(.sold),
+            disposalProceeds: Nullable<String>.value("disposalProceeds"),
+            disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
+            disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
+            createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.assets.assetsCreateFromPurchase(
+            request: .init(
+                purchaseInvoiceLineId: "x",
+                groupId: "x",
+                code: "x"
             ),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
@@ -635,6 +873,7 @@ import Api
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
                   "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -684,6 +923,7 @@ import Api
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
             disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsUpdate(
@@ -746,6 +986,7 @@ import Api
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
                   "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -804,6 +1045,7 @@ import Api
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
             disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsUpdate(
@@ -857,6 +1099,7 @@ import Api
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
                   "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -906,6 +1149,7 @@ import Api
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
             disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsInputVat(
@@ -981,6 +1225,7 @@ import Api
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
                   "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -1039,6 +1284,7 @@ import Api
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
             disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsInputVat(
@@ -1110,6 +1356,7 @@ import Api
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
                   "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -1159,6 +1406,7 @@ import Api
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
             disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsGet(
@@ -1221,6 +1469,7 @@ import Api
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
                   "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -1279,6 +1528,7 @@ import Api
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
             disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsGet(
@@ -1334,6 +1584,7 @@ import Api
                       "disposalProceeds": "disposalProceeds",
                       "disposalJournalTransactionId": "disposalJournalTransactionId",
                       "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                      "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                       "createdAt": "2026-07-01T09:30:00Z"
                     }
                   ],
@@ -1398,6 +1649,7 @@ import Api
                     disposalProceeds: Nullable<String>.value("disposalProceeds"),
                     disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
                     disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+                    purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
                 )
             ],
@@ -1475,6 +1727,7 @@ import Api
                       "disposalProceeds": "disposalProceeds",
                       "disposalJournalTransactionId": "disposalJournalTransactionId",
                       "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                      "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                       "createdAt": "2024-01-15T09:30:00Z"
                     },
                     {
@@ -1525,6 +1778,7 @@ import Api
                       "disposalProceeds": "disposalProceeds",
                       "disposalJournalTransactionId": "disposalJournalTransactionId",
                       "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                      "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                       "createdAt": "2024-01-15T09:30:00Z"
                     }
                   ],
@@ -1598,6 +1852,7 @@ import Api
                     disposalProceeds: Nullable<String>.value("disposalProceeds"),
                     disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
                     disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+                    purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 ),
                 AssetsListAssetsResponseRowsItem(
@@ -1648,6 +1903,7 @@ import Api
                     disposalProceeds: Nullable<String>.value("disposalProceeds"),
                     disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
                     disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+                    purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
                 )
             ],
@@ -1714,6 +1970,7 @@ import Api
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
                   "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -1763,6 +2020,7 @@ import Api
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
             disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsModernize(
@@ -1829,6 +2087,7 @@ import Api
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
                   "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -1887,6 +2146,7 @@ import Api
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
             disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsModernize(
@@ -1944,6 +2204,7 @@ import Api
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
                   "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                   "createdAt": "2026-07-01T09:30:00Z"
                 }
                 """#.utf8
@@ -1993,6 +2254,7 @@ import Api
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
             disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsDispose(
@@ -2059,6 +2321,7 @@ import Api
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
                   "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+                  "purchaseInvoiceLineId": "purchaseInvoiceLineId",
                   "createdAt": "2024-01-15T09:30:00Z"
                 }
                 """#.utf8
@@ -2117,6 +2380,7 @@ import Api
             disposalProceeds: Nullable<String>.value("disposalProceeds"),
             disposalJournalTransactionId: Nullable<String>.value("disposalJournalTransactionId"),
             disposalSaleInvoiceId: Nullable<String>.value("disposalSaleInvoiceId"),
+            purchaseInvoiceLineId: Nullable<String>.value("purchaseInvoiceLineId"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
         )
         let response = try await client.assets.assetsDispose(

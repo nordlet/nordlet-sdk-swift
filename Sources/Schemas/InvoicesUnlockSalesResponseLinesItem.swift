@@ -13,6 +13,7 @@ public struct InvoicesUnlockSalesResponseLinesItem: Codable, Hashable, Sendable 
     public let vatRatePercent: String
     public let vatClassifierCode: Nullable<String>
     public let vatExemptionBasis: Nullable<String>
+    public let accountCode: Nullable<String>
     public let assetId: Nullable<String>
     public let costCenterId: Nullable<String>
     public let projectId: Nullable<String>
@@ -43,6 +44,7 @@ public struct InvoicesUnlockSalesResponseLinesItem: Codable, Hashable, Sendable 
         vatRatePercent: String,
         vatClassifierCode: Nullable<String>,
         vatExemptionBasis: Nullable<String>,
+        accountCode: Nullable<String>,
         assetId: Nullable<String>,
         costCenterId: Nullable<String>,
         projectId: Nullable<String>,
@@ -71,6 +73,7 @@ public struct InvoicesUnlockSalesResponseLinesItem: Codable, Hashable, Sendable 
         self.vatRatePercent = vatRatePercent
         self.vatClassifierCode = vatClassifierCode
         self.vatExemptionBasis = vatExemptionBasis
+        self.accountCode = accountCode
         self.assetId = assetId
         self.costCenterId = costCenterId
         self.projectId = projectId
@@ -102,6 +105,7 @@ public struct InvoicesUnlockSalesResponseLinesItem: Codable, Hashable, Sendable 
         self.vatRatePercent = try container.decode(String.self, forKey: .vatRatePercent)
         self.vatClassifierCode = try container.decode(Nullable<String>.self, forKey: .vatClassifierCode)
         self.vatExemptionBasis = try container.decode(Nullable<String>.self, forKey: .vatExemptionBasis)
+        self.accountCode = try container.decode(Nullable<String>.self, forKey: .accountCode)
         self.assetId = try container.decode(Nullable<String>.self, forKey: .assetId)
         self.costCenterId = try container.decode(Nullable<String>.self, forKey: .costCenterId)
         self.projectId = try container.decode(Nullable<String>.self, forKey: .projectId)
@@ -134,6 +138,7 @@ public struct InvoicesUnlockSalesResponseLinesItem: Codable, Hashable, Sendable 
         try container.encode(self.vatRatePercent, forKey: .vatRatePercent)
         try container.encode(self.vatClassifierCode, forKey: .vatClassifierCode)
         try container.encode(self.vatExemptionBasis, forKey: .vatExemptionBasis)
+        try container.encode(self.accountCode, forKey: .accountCode)
         try container.encode(self.assetId, forKey: .assetId)
         try container.encode(self.costCenterId, forKey: .costCenterId)
         try container.encode(self.projectId, forKey: .projectId)
@@ -164,6 +169,7 @@ public struct InvoicesUnlockSalesResponseLinesItem: Codable, Hashable, Sendable 
         case vatRatePercent
         case vatClassifierCode
         case vatExemptionBasis
+        case accountCode
         case assetId
         case costCenterId
         case projectId

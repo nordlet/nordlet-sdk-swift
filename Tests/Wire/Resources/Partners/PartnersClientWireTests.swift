@@ -3051,7 +3051,7 @@ import Api
                   "isEmployee": true,
                   "isGroupMember": true,
                   "isActive": true,
-                  "legalCountryClass": "lt",
+                  "legalCountryClass": "domestic",
                   "identifiers": {
                     "key": "value"
                   },
@@ -3122,7 +3122,7 @@ import Api
             isEmployee: true,
             isGroupMember: true,
             isActive: true,
-            legalCountryClass: Nullable<CreatePartnersResponseLegalCountryClass>.value(.lt),
+            legalCountryClass: Nullable<CreatePartnersResponseLegalCountryClass>.value(.domestic),
             identifiers: [
                 "key": "value"
             ],
@@ -3197,7 +3197,7 @@ import Api
                   "isEmployee": true,
                   "isGroupMember": true,
                   "isActive": true,
-                  "legalCountryClass": "lt",
+                  "legalCountryClass": "domestic",
                   "identifiers": {
                     "identifiers": "identifiers"
                   },
@@ -3268,7 +3268,7 @@ import Api
             isEmployee: true,
             isGroupMember: true,
             isActive: true,
-            legalCountryClass: Nullable<CreatePartnersResponseLegalCountryClass>.value(.lt),
+            legalCountryClass: Nullable<CreatePartnersResponseLegalCountryClass>.value(.domestic),
             identifiers: [
                 "identifiers": "identifiers"
             ],
@@ -3345,7 +3345,7 @@ import Api
                     "isEmployee": true,
                     "isGroupMember": true,
                     "isActive": true,
-                    "legalCountryClass": "lt",
+                    "legalCountryClass": "domestic",
                     "identifiers": {
                       "key": "value"
                     },
@@ -3419,7 +3419,7 @@ import Api
                 isEmployee: true,
                 isGroupMember: true,
                 isActive: true,
-                legalCountryClass: Nullable<FindOrCreatePartnersResponsePartnerLegalCountryClass>.value(.lt),
+                legalCountryClass: Nullable<FindOrCreatePartnersResponsePartnerLegalCountryClass>.value(.domestic),
                 identifiers: [
                     "key": "value"
                 ],
@@ -3497,7 +3497,7 @@ import Api
                     "isEmployee": true,
                     "isGroupMember": true,
                     "isActive": true,
-                    "legalCountryClass": "lt",
+                    "legalCountryClass": "domestic",
                     "identifiers": {
                       "identifiers": "identifiers"
                     },
@@ -3571,7 +3571,7 @@ import Api
                 isEmployee: true,
                 isGroupMember: true,
                 isActive: true,
-                legalCountryClass: Nullable<FindOrCreatePartnersResponsePartnerLegalCountryClass>.value(.lt),
+                legalCountryClass: Nullable<FindOrCreatePartnersResponsePartnerLegalCountryClass>.value(.domestic),
                 identifiers: [
                     "identifiers": "identifiers"
                 ],
@@ -3647,7 +3647,7 @@ import Api
                   "isEmployee": true,
                   "isGroupMember": true,
                   "isActive": true,
-                  "legalCountryClass": "lt",
+                  "legalCountryClass": "domestic",
                   "identifiers": {
                     "key": "value"
                   },
@@ -3718,7 +3718,7 @@ import Api
             isEmployee: true,
             isGroupMember: true,
             isActive: true,
-            legalCountryClass: Nullable<GetPartnersResponseLegalCountryClass>.value(.lt),
+            legalCountryClass: Nullable<GetPartnersResponseLegalCountryClass>.value(.domestic),
             identifiers: [
                 "key": "value"
             ],
@@ -3793,7 +3793,7 @@ import Api
                   "isEmployee": true,
                   "isGroupMember": true,
                   "isActive": true,
-                  "legalCountryClass": "lt",
+                  "legalCountryClass": "domestic",
                   "identifiers": {
                     "identifiers": "identifiers"
                   },
@@ -3864,7 +3864,7 @@ import Api
             isEmployee: true,
             isGroupMember: true,
             isActive: true,
-            legalCountryClass: Nullable<GetPartnersResponseLegalCountryClass>.value(.lt),
+            legalCountryClass: Nullable<GetPartnersResponseLegalCountryClass>.value(.domestic),
             identifiers: [
                 "identifiers": "identifiers"
             ],
@@ -3939,7 +3939,7 @@ import Api
                   "isEmployee": true,
                   "isGroupMember": true,
                   "isActive": true,
-                  "legalCountryClass": "lt",
+                  "legalCountryClass": "domestic",
                   "identifiers": {
                     "key": "value"
                   },
@@ -4010,7 +4010,7 @@ import Api
             isEmployee: true,
             isGroupMember: true,
             isActive: true,
-            legalCountryClass: Nullable<UpdatePartnersResponseLegalCountryClass>.value(.lt),
+            legalCountryClass: Nullable<UpdatePartnersResponseLegalCountryClass>.value(.domestic),
             identifiers: [
                 "key": "value"
             ],
@@ -4085,7 +4085,7 @@ import Api
                   "isEmployee": true,
                   "isGroupMember": true,
                   "isActive": true,
-                  "legalCountryClass": "lt",
+                  "legalCountryClass": "domestic",
                   "identifiers": {
                     "identifiers": "identifiers"
                   },
@@ -4156,7 +4156,7 @@ import Api
             isEmployee: true,
             isGroupMember: true,
             isActive: true,
-            legalCountryClass: Nullable<UpdatePartnersResponseLegalCountryClass>.value(.lt),
+            legalCountryClass: Nullable<UpdatePartnersResponseLegalCountryClass>.value(.domestic),
             identifiers: [
                 "identifiers": "identifiers"
             ],
@@ -4425,7 +4425,7 @@ import Api
                       "isEmployee": true,
                       "isGroupMember": true,
                       "isActive": true,
-                      "legalCountryClass": "lt",
+                      "legalCountryClass": "domestic",
                       "identifiers": {
                         "key": "value"
                       },
@@ -4499,7 +4499,7 @@ import Api
                     isEmployee: true,
                     isGroupMember: true,
                     isActive: true,
-                    legalCountryClass: Nullable<ListPartnersResponseRowsItemLegalCountryClass>.value(.lt),
+                    legalCountryClass: Nullable<ListPartnersResponseRowsItemLegalCountryClass>.value(.domestic),
                     identifiers: [
                         "key": "value"
                     ],
@@ -4589,7 +4589,7 @@ import Api
                       "isEmployee": true,
                       "isGroupMember": true,
                       "isActive": true,
-                      "legalCountryClass": "lt",
+                      "legalCountryClass": "domestic",
                       "identifiers": {
                         "identifiers": "identifiers"
                       },
@@ -4652,7 +4652,7 @@ import Api
                       "isEmployee": true,
                       "isGroupMember": true,
                       "isActive": true,
-                      "legalCountryClass": "lt",
+                      "legalCountryClass": "domestic",
                       "identifiers": {
                         "identifiers": "identifiers"
                       },
@@ -4738,7 +4738,7 @@ import Api
                     isEmployee: true,
                     isGroupMember: true,
                     isActive: true,
-                    legalCountryClass: Nullable<ListPartnersResponseRowsItemLegalCountryClass>.value(.lt),
+                    legalCountryClass: Nullable<ListPartnersResponseRowsItemLegalCountryClass>.value(.domestic),
                     identifiers: [
                         "identifiers": "identifiers"
                     ],
@@ -4801,7 +4801,7 @@ import Api
                     isEmployee: true,
                     isGroupMember: true,
                     isActive: true,
-                    legalCountryClass: Nullable<ListPartnersResponseRowsItemLegalCountryClass>.value(.lt),
+                    legalCountryClass: Nullable<ListPartnersResponseRowsItemLegalCountryClass>.value(.domestic),
                     identifiers: [
                         "identifiers": "identifiers"
                     ],

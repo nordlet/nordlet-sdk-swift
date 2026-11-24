@@ -2,7 +2,7 @@ import Foundation
 
 public struct QueueListReviewResponseItemsItem: Codable, Hashable, Sendable {
     public let kind: QueueListReviewResponseItemsItemKind
-    /// The id of the draft, bank transaction or partner, or the key of the filing
+    /// The id of the draft, bank transaction, partner or file, or the key of the filing
     public let id: String
     public let message: String
     public let fix: String

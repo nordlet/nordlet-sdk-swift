@@ -1,7 +1,7 @@
 import Foundation
 
 public enum UpdatePartnersRequestLegalCountryClass: String, Codable, Hashable, CaseIterable, Sendable {
-    case lt
+    case domestic
     case eu
     case nonEu = "non_eu"
 }

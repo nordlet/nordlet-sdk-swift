@@ -36,7 +36,10 @@ import Api
                   "intrastatRegion": "intrastatRegion",
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
+                  "paymentReference": "paymentReference",
                   "documentRef": "documentRef",
+                  "agreementId": "agreementId",
+                  "agreementPeriodStart": "agreementPeriodStart",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
@@ -52,6 +55,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "accountCode": "accountCode",
@@ -59,6 +63,9 @@ import Api
                       "deferralEndDate": "2026-07-01",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2026-07-01",
+                      "chassisNumbers": [
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -109,7 +116,10 @@ import Api
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            paymentReference: Nullable<String>.value("paymentReference"),
             documentRef: Nullable<String>.value("documentRef"),
+            agreementId: Nullable<String>.value("agreementId"),
+            agreementPeriodStart: Nullable<String>.value("agreementPeriodStart"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
@@ -125,6 +135,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -132,6 +143,9 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -195,7 +209,10 @@ import Api
                   "intrastatRegion": "intrastatRegion",
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
+                  "paymentReference": "paymentReference",
                   "documentRef": "documentRef",
+                  "agreementId": "x",
+                  "agreementPeriodStart": "agreementPeriodStart",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
@@ -211,6 +228,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
@@ -218,6 +236,10 @@ import Api
                       "deferralEndDate": "2023-01-15",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2023-01-15",
+                      "chassisNumbers": [
+                        "chassisNumbers",
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -235,6 +257,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
@@ -242,6 +265,10 @@ import Api
                       "deferralEndDate": "2023-01-15",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2023-01-15",
+                      "chassisNumbers": [
+                        "chassisNumbers",
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -297,7 +324,10 @@ import Api
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            paymentReference: Nullable<String>.value("paymentReference"),
             documentRef: Nullable<String>.value("documentRef"),
+            agreementId: Nullable<String>.value("x"),
+            agreementPeriodStart: Nullable<String>.value("agreementPeriodStart"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
@@ -313,6 +343,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -320,6 +351,10 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers",
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -337,6 +372,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -344,6 +380,10 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers",
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -415,7 +455,10 @@ import Api
                   "intrastatRegion": "intrastatRegion",
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
+                  "paymentReference": "paymentReference",
                   "documentRef": "documentRef",
+                  "agreementId": "agreementId",
+                  "agreementPeriodStart": "agreementPeriodStart",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
@@ -431,6 +474,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "accountCode": "accountCode",
@@ -438,6 +482,9 @@ import Api
                       "deferralEndDate": "2026-07-01",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2026-07-01",
+                      "chassisNumbers": [
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -481,7 +528,10 @@ import Api
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            paymentReference: Nullable<String>.value("paymentReference"),
             documentRef: Nullable<String>.value("documentRef"),
+            agreementId: Nullable<String>.value("agreementId"),
+            agreementPeriodStart: Nullable<String>.value("agreementPeriodStart"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
@@ -497,6 +547,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -504,6 +555,9 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -551,7 +605,10 @@ import Api
                   "intrastatRegion": "intrastatRegion",
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
+                  "paymentReference": "paymentReference",
                   "documentRef": "documentRef",
+                  "agreementId": "x",
+                  "agreementPeriodStart": "agreementPeriodStart",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
@@ -567,6 +624,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
@@ -574,6 +632,10 @@ import Api
                       "deferralEndDate": "2023-01-15",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2023-01-15",
+                      "chassisNumbers": [
+                        "chassisNumbers",
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -591,6 +653,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
@@ -598,6 +661,10 @@ import Api
                       "deferralEndDate": "2023-01-15",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2023-01-15",
+                      "chassisNumbers": [
+                        "chassisNumbers",
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -641,7 +708,10 @@ import Api
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            paymentReference: Nullable<String>.value("paymentReference"),
             documentRef: Nullable<String>.value("documentRef"),
+            agreementId: Nullable<String>.value("x"),
+            agreementPeriodStart: Nullable<String>.value("agreementPeriodStart"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
@@ -657,6 +727,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -664,6 +735,10 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers",
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -681,6 +756,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -688,6 +764,10 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers",
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -735,7 +815,10 @@ import Api
                   "intrastatRegion": "intrastatRegion",
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
+                  "paymentReference": "paymentReference",
                   "documentRef": "documentRef",
+                  "agreementId": "agreementId",
+                  "agreementPeriodStart": "agreementPeriodStart",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
@@ -751,6 +834,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "accountCode": "accountCode",
@@ -758,6 +842,9 @@ import Api
                       "deferralEndDate": "2026-07-01",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2026-07-01",
+                      "chassisNumbers": [
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -801,7 +888,10 @@ import Api
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            paymentReference: Nullable<String>.value("paymentReference"),
             documentRef: Nullable<String>.value("documentRef"),
+            agreementId: Nullable<String>.value("agreementId"),
+            agreementPeriodStart: Nullable<String>.value("agreementPeriodStart"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
@@ -817,6 +907,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -824,6 +915,9 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -871,7 +965,10 @@ import Api
                   "intrastatRegion": "intrastatRegion",
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
+                  "paymentReference": "paymentReference",
                   "documentRef": "documentRef",
+                  "agreementId": "x",
+                  "agreementPeriodStart": "agreementPeriodStart",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
@@ -887,6 +984,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
@@ -894,6 +992,10 @@ import Api
                       "deferralEndDate": "2023-01-15",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2023-01-15",
+                      "chassisNumbers": [
+                        "chassisNumbers",
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -911,6 +1013,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
@@ -918,6 +1021,10 @@ import Api
                       "deferralEndDate": "2023-01-15",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2023-01-15",
+                      "chassisNumbers": [
+                        "chassisNumbers",
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -961,7 +1068,10 @@ import Api
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            paymentReference: Nullable<String>.value("paymentReference"),
             documentRef: Nullable<String>.value("documentRef"),
+            agreementId: Nullable<String>.value("x"),
+            agreementPeriodStart: Nullable<String>.value("agreementPeriodStart"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
@@ -977,6 +1087,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -984,6 +1095,10 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers",
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1001,6 +1116,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -1008,6 +1124,10 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers",
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1074,6 +1194,137 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func invoicesProposeLines1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "lines": [
+                    {
+                      "accountCode": "accountCode",
+                      "accountReason": "accountReason",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "vatReason": "vatReason",
+                      "vatCandidates": [
+                        "vatCandidates"
+                      ]
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesProposeLinesPurchasesResponse(
+            lines: [
+                InvoicesProposeLinesPurchasesResponseLinesItem(
+                    accountCode: Nullable<String>.value("accountCode"),
+                    accountReason: Nullable<String>.value("accountReason"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    vatReason: Nullable<String>.value("vatReason"),
+                    vatCandidates: [
+                        "vatCandidates"
+                    ]
+                )
+            ]
+        )
+        let response = try await client.purchases.invoicesProposeLines(
+            request: .init(
+                partnerId: "partnerId",
+                lines: [
+                    InvoicesProposeLinesPurchasesRequestLinesItem(
+
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func invoicesProposeLines2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "lines": [
+                    {
+                      "accountCode": "accountCode",
+                      "accountReason": "accountReason",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "vatReason": "vatReason",
+                      "vatCandidates": [
+                        "vatCandidates",
+                        "vatCandidates"
+                      ]
+                    },
+                    {
+                      "accountCode": "accountCode",
+                      "accountReason": "accountReason",
+                      "vatClassifierCode": "vatClassifierCode",
+                      "vatReason": "vatReason",
+                      "vatCandidates": [
+                        "vatCandidates",
+                        "vatCandidates"
+                      ]
+                    }
+                  ]
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = InvoicesProposeLinesPurchasesResponse(
+            lines: [
+                InvoicesProposeLinesPurchasesResponseLinesItem(
+                    accountCode: Nullable<String>.value("accountCode"),
+                    accountReason: Nullable<String>.value("accountReason"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    vatReason: Nullable<String>.value("vatReason"),
+                    vatCandidates: [
+                        "vatCandidates",
+                        "vatCandidates"
+                    ]
+                ),
+                InvoicesProposeLinesPurchasesResponseLinesItem(
+                    accountCode: Nullable<String>.value("accountCode"),
+                    accountReason: Nullable<String>.value("accountReason"),
+                    vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    vatReason: Nullable<String>.value("vatReason"),
+                    vatCandidates: [
+                        "vatCandidates",
+                        "vatCandidates"
+                    ]
+                )
+            ]
+        )
+        let response = try await client.purchases.invoicesProposeLines(
+            request: .init(
+                partnerId: "x",
+                lines: [
+                    InvoicesProposeLinesPurchasesRequestLinesItem(
+
+                    ),
+                    InvoicesProposeLinesPurchasesRequestLinesItem(
+
+                    )
+                ]
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func invoicesRegister1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(
@@ -1107,7 +1358,10 @@ import Api
                   "intrastatRegion": "intrastatRegion",
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
+                  "paymentReference": "paymentReference",
                   "documentRef": "documentRef",
+                  "agreementId": "agreementId",
+                  "agreementPeriodStart": "agreementPeriodStart",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
@@ -1123,6 +1377,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "accountCode": "accountCode",
@@ -1130,6 +1385,9 @@ import Api
                       "deferralEndDate": "2026-07-01",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2026-07-01",
+                      "chassisNumbers": [
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -1180,7 +1438,10 @@ import Api
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            paymentReference: Nullable<String>.value("paymentReference"),
             documentRef: Nullable<String>.value("documentRef"),
+            agreementId: Nullable<String>.value("agreementId"),
+            agreementPeriodStart: Nullable<String>.value("agreementPeriodStart"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
@@ -1196,6 +1457,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -1203,6 +1465,9 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1257,7 +1522,10 @@ import Api
                   "intrastatRegion": "intrastatRegion",
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
+                  "paymentReference": "paymentReference",
                   "documentRef": "documentRef",
+                  "agreementId": "x",
+                  "agreementPeriodStart": "agreementPeriodStart",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
@@ -1273,6 +1541,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
@@ -1280,6 +1549,10 @@ import Api
                       "deferralEndDate": "2023-01-15",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2023-01-15",
+                      "chassisNumbers": [
+                        "chassisNumbers",
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -1297,6 +1570,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
@@ -1304,6 +1578,10 @@ import Api
                       "deferralEndDate": "2023-01-15",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2023-01-15",
+                      "chassisNumbers": [
+                        "chassisNumbers",
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -1359,7 +1637,10 @@ import Api
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            paymentReference: Nullable<String>.value("paymentReference"),
             documentRef: Nullable<String>.value("documentRef"),
+            agreementId: Nullable<String>.value("x"),
+            agreementPeriodStart: Nullable<String>.value("agreementPeriodStart"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
@@ -1375,6 +1656,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -1382,6 +1664,10 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers",
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1399,6 +1685,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -1406,6 +1693,10 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers",
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -1709,7 +2000,10 @@ import Api
                       "intrastatRegion": "intrastatRegion",
                       "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                       "einvoiceNumber": "einvoiceNumber",
+                      "paymentReference": "paymentReference",
                       "documentRef": "documentRef",
+                      "agreementId": "agreementId",
+                      "agreementPeriodStart": "agreementPeriodStart",
                       "createdAt": "2026-07-01T09:30:00Z",
                       "updatedAt": "2026-07-01T09:30:00Z",
                       "partnerName": "partnerName"
@@ -1765,7 +2059,10 @@ import Api
                     intrastatRegion: Nullable<String>.value("intrastatRegion"),
                     intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
                     einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+                    paymentReference: Nullable<String>.value("paymentReference"),
                     documentRef: Nullable<String>.value("documentRef"),
+                    agreementId: Nullable<String>.value("agreementId"),
+                    agreementPeriodStart: Nullable<String>.value("agreementPeriodStart"),
                     createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
                     partnerName: Nullable<String>.value("partnerName")
@@ -1825,7 +2122,10 @@ import Api
                       "intrastatRegion": "intrastatRegion",
                       "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                       "einvoiceNumber": "einvoiceNumber",
+                      "paymentReference": "paymentReference",
                       "documentRef": "documentRef",
+                      "agreementId": "x",
+                      "agreementPeriodStart": "agreementPeriodStart",
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z",
                       "partnerName": "partnerName"
@@ -1858,7 +2158,10 @@ import Api
                       "intrastatRegion": "intrastatRegion",
                       "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                       "einvoiceNumber": "einvoiceNumber",
+                      "paymentReference": "paymentReference",
                       "documentRef": "documentRef",
+                      "agreementId": "x",
+                      "agreementPeriodStart": "agreementPeriodStart",
                       "createdAt": "2024-01-15T09:30:00Z",
                       "updatedAt": "2024-01-15T09:30:00Z",
                       "partnerName": "partnerName"
@@ -1914,7 +2217,10 @@ import Api
                     intrastatRegion: Nullable<String>.value("intrastatRegion"),
                     intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
                     einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+                    paymentReference: Nullable<String>.value("paymentReference"),
                     documentRef: Nullable<String>.value("documentRef"),
+                    agreementId: Nullable<String>.value("x"),
+                    agreementPeriodStart: Nullable<String>.value("agreementPeriodStart"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     partnerName: Nullable<String>.value("partnerName")
@@ -1947,7 +2253,10 @@ import Api
                     intrastatRegion: Nullable<String>.value("intrastatRegion"),
                     intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
                     einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+                    paymentReference: Nullable<String>.value("paymentReference"),
                     documentRef: Nullable<String>.value("documentRef"),
+                    agreementId: Nullable<String>.value("x"),
+                    agreementPeriodStart: Nullable<String>.value("agreementPeriodStart"),
                     createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
                     partnerName: Nullable<String>.value("partnerName")
@@ -2005,7 +2314,10 @@ import Api
                   "intrastatRegion": "intrastatRegion",
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
+                  "paymentReference": "paymentReference",
                   "documentRef": "documentRef",
+                  "agreementId": "agreementId",
+                  "agreementPeriodStart": "agreementPeriodStart",
                   "createdAt": "2026-07-01T09:30:00Z",
                   "updatedAt": "2026-07-01T09:30:00Z",
                   "lines": [
@@ -2021,6 +2333,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "costCenterId",
                       "projectId": "projectId",
                       "accountCode": "accountCode",
@@ -2028,6 +2341,9 @@ import Api
                       "deferralEndDate": "2026-07-01",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2026-07-01",
+                      "chassisNumbers": [
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -2071,7 +2387,10 @@ import Api
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            paymentReference: Nullable<String>.value("paymentReference"),
             documentRef: Nullable<String>.value("documentRef"),
+            agreementId: Nullable<String>.value("agreementId"),
+            agreementPeriodStart: Nullable<String>.value("agreementPeriodStart"),
             createdAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601),
             lines: [
@@ -2087,6 +2406,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("costCenterId"),
                     projectId: Nullable<String>.value("projectId"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -2094,6 +2414,9 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2026-07-01")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -2144,7 +2467,10 @@ import Api
                   "intrastatRegion": "intrastatRegion",
                   "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                   "einvoiceNumber": "einvoiceNumber",
+                  "paymentReference": "paymentReference",
                   "documentRef": "documentRef",
+                  "agreementId": "x",
+                  "agreementPeriodStart": "agreementPeriodStart",
                   "createdAt": "2024-01-15T09:30:00Z",
                   "updatedAt": "2024-01-15T09:30:00Z",
                   "lines": [
@@ -2160,6 +2486,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
@@ -2167,6 +2494,10 @@ import Api
                       "deferralEndDate": "2023-01-15",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2023-01-15",
+                      "chassisNumbers": [
+                        "chassisNumbers",
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -2184,6 +2515,7 @@ import Api
                       "unitPriceInclVat": "unitPriceInclVat",
                       "vatRatePercent": "vatRatePercent",
                       "vatClassifierCode": "vatClassifierCode",
+                      "deductiblePercent": 1000000,
                       "costCenterId": "x",
                       "projectId": "x",
                       "accountCode": "accountCode",
@@ -2191,6 +2523,10 @@ import Api
                       "deferralEndDate": "2023-01-15",
                       "lotNumber": "lotNumber",
                       "expiryDate": "2023-01-15",
+                      "chassisNumbers": [
+                        "chassisNumbers",
+                        "chassisNumbers"
+                      ],
                       "lineNet": "lineNet",
                       "lineVat": "lineVat",
                       "lineGross": "lineGross",
@@ -2234,7 +2570,10 @@ import Api
             intrastatRegion: Nullable<String>.value("intrastatRegion"),
             intrastatNatureOfTransaction: Nullable<String>.value("intrastatNatureOfTransaction"),
             einvoiceNumber: Nullable<String>.value("einvoiceNumber"),
+            paymentReference: Nullable<String>.value("paymentReference"),
             documentRef: Nullable<String>.value("documentRef"),
+            agreementId: Nullable<String>.value("x"),
+            agreementPeriodStart: Nullable<String>.value("agreementPeriodStart"),
             createdAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             updatedAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601),
             lines: [
@@ -2250,6 +2589,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -2257,6 +2597,10 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers",
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",
@@ -2274,6 +2618,7 @@ import Api
                     unitPriceInclVat: Nullable<String>.value("unitPriceInclVat"),
                     vatRatePercent: "vatRatePercent",
                     vatClassifierCode: Nullable<String>.value("vatClassifierCode"),
+                    deductiblePercent: Nullable<Int64>.value(1000000),
                     costCenterId: Nullable<String>.value("x"),
                     projectId: Nullable<String>.value("x"),
                     accountCode: Nullable<String>.value("accountCode"),
@@ -2281,6 +2626,10 @@ import Api
                     deferralEndDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
                     lotNumber: Nullable<String>.value("lotNumber"),
                     expiryDate: Nullable<CalendarDate>.value(CalendarDate("2023-01-15")!),
+                    chassisNumbers: Nullable<[String]>.value([
+                        "chassisNumbers",
+                        "chassisNumbers"
+                    ]),
                     lineNet: "lineNet",
                     lineVat: "lineVat",
                     lineGross: "lineGross",

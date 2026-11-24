@@ -27,7 +27,7 @@ public struct CompaniesProfileAccountResponse: Codable, Hashable, Sendable {
     public let bankCode: Nullable<String>
     public let bankBranchCode: Nullable<String>
     public let bankAccountNumber: Nullable<String>
-    /// Prefix of the numbers of invoices issued without a document series (SF when none was set)
+    /// Prefix of the numbers of invoices issued without a document series (SF when none was set; empty in Bulgaria, where invoices and notes share one ten-digit number range)
     public let invoicePrefix: String
     /// Number the next invoice issued without a document series gets, before any country-specific format
     public let nextInvoiceNumber: String

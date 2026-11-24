@@ -97,6 +97,76 @@ import Api
         try #require(response == expectedResponse)
     }
 
+    @Test func uploadLinksCreate1() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "url": "url",
+                  "fileId": "fileId",
+                  "storageKey": "storageKey",
+                  "expiresAt": "2026-07-01T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UploadLinksCreateFilesResponse(
+            url: "url",
+            fileId: "fileId",
+            storageKey: "storageKey",
+            expiresAt: try! Date("2026-07-01T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.files.uploadLinksCreate(
+            request: .init(
+                entity: "entity",
+                fileName: "fileName"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
+    @Test func uploadLinksCreate2() async throws -> Void {
+        let stub = HTTPStub()
+        stub.setResponse(
+            body: Foundation.Data(
+                #"""
+                {
+                  "url": "url",
+                  "fileId": "x",
+                  "storageKey": "storageKey",
+                  "expiresAt": "2024-01-15T09:30:00Z"
+                }
+                """#.utf8
+            )
+        )
+        let client = ApiClient(
+            baseURL: "https://api.fern.com",
+            token: "<token>",
+            urlSession: stub.urlSession
+        )
+        let expectedResponse = UploadLinksCreateFilesResponse(
+            url: "url",
+            fileId: "x",
+            storageKey: "storageKey",
+            expiresAt: try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)
+        )
+        let response = try await client.files.uploadLinksCreate(
+            request: .init(
+                entity: "x",
+                fileName: "x"
+            ),
+            requestOptions: RequestOptions(additionalHeaders: stub.headers)
+        )
+        try #require(response == expectedResponse)
+    }
+
     @Test func get1() async throws -> Void {
         let stub = HTTPStub()
         stub.setResponse(

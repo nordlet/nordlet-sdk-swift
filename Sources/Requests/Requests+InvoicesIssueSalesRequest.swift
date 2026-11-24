@@ -4,6 +4,7 @@ extension Requests {
     public struct InvoicesIssueSalesRequest: Codable, Hashable, Sendable {
         public let id: String
         public let series: String?
+        public let number: String?
         public let issueDate: CalendarDate?
         public let warehouseId: String?
         public let returnToStock: Bool?
@@ -13,6 +14,7 @@ extension Requests {
         public init(
             id: String,
             series: String? = nil,
+            number: String? = nil,
             issueDate: CalendarDate? = nil,
             warehouseId: String? = nil,
             returnToStock: Bool? = nil,
@@ -20,6 +22,7 @@ extension Requests {
         ) {
             self.id = id
             self.series = series
+            self.number = number
             self.issueDate = issueDate
             self.warehouseId = warehouseId
             self.returnToStock = returnToStock
@@ -30,6 +33,7 @@ extension Requests {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.id = try container.decode(String.self, forKey: .id)
             self.series = try container.decodeIfPresent(String.self, forKey: .series)
+            self.number = try container.decodeIfPresent(String.self, forKey: .number)
             self.issueDate = try container.decodeIfPresent(CalendarDate.self, forKey: .issueDate)
             self.warehouseId = try container.decodeIfPresent(String.self, forKey: .warehouseId)
             self.returnToStock = try container.decodeIfPresent(Bool.self, forKey: .returnToStock)
@@ -41,6 +45,7 @@ extension Requests {
             try encoder.encodeAdditionalProperties(self.additionalProperties)
             try container.encode(self.id, forKey: .id)
             try container.encodeIfPresent(self.series, forKey: .series)
+            try container.encodeIfPresent(self.number, forKey: .number)
             try container.encodeIfPresent(self.issueDate, forKey: .issueDate)
             try container.encodeIfPresent(self.warehouseId, forKey: .warehouseId)
             try container.encodeIfPresent(self.returnToStock, forKey: .returnToStock)
@@ -50,6 +55,7 @@ extension Requests {
         enum CodingKeys: String, CodingKey, CaseIterable {
             case id
             case series
+            case number
             case issueDate
             case warehouseId
             case returnToStock

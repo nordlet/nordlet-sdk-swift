@@ -15,6 +15,8 @@ public struct InvoicesUpdateSalesRequestLinesItem: Codable, Hashable, Sendable {
     /// A fixed asset sold on this line: the line net is booked to the assets.disposalProceeds posting rule account and `assets/assets/dispose` takes the proceeds from the issued invoice. Only on an invoice (422), only for an asset that is not disposed, and not with revenue recognition over time.
     public let assetId: String?
     public let vatExemptionBasis: String?
+    /// The revenue account the line is credited to at issue, a postable account of the company's chart (422 otherwise); without it the operation type's income account, else the item's sale account, else the services revenue posting rule account for a service item or a line without an item and the products revenue posting rule account for a product item. A line that sells a fixed asset always goes to `assets.disposalProceeds`.
+    public let accountCode: String?
     public let standaloneSellingPrice: String?
     public let refundEstimatePercent: String?
     /// Additional properties that are not explicitly defined in the schema
@@ -34,6 +36,7 @@ public struct InvoicesUpdateSalesRequestLinesItem: Codable, Hashable, Sendable {
         recognition: InvoicesUpdateSalesRequestLinesItemRecognition? = nil,
         assetId: String? = nil,
         vatExemptionBasis: String? = nil,
+        accountCode: String? = nil,
         standaloneSellingPrice: String? = nil,
         refundEstimatePercent: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
@@ -51,6 +54,7 @@ public struct InvoicesUpdateSalesRequestLinesItem: Codable, Hashable, Sendable {
         self.recognition = recognition
         self.assetId = assetId
         self.vatExemptionBasis = vatExemptionBasis
+        self.accountCode = accountCode
         self.standaloneSellingPrice = standaloneSellingPrice
         self.refundEstimatePercent = refundEstimatePercent
         self.additionalProperties = additionalProperties
@@ -71,6 +75,7 @@ public struct InvoicesUpdateSalesRequestLinesItem: Codable, Hashable, Sendable {
         self.recognition = try container.decodeIfPresent(InvoicesUpdateSalesRequestLinesItemRecognition.self, forKey: .recognition)
         self.assetId = try container.decodeIfPresent(String.self, forKey: .assetId)
         self.vatExemptionBasis = try container.decodeIfPresent(String.self, forKey: .vatExemptionBasis)
+        self.accountCode = try container.decodeIfPresent(String.self, forKey: .accountCode)
         self.standaloneSellingPrice = try container.decodeIfPresent(String.self, forKey: .standaloneSellingPrice)
         self.refundEstimatePercent = try container.decodeIfPresent(String.self, forKey: .refundEstimatePercent)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
@@ -92,6 +97,7 @@ public struct InvoicesUpdateSalesRequestLinesItem: Codable, Hashable, Sendable {
         try container.encodeIfPresent(self.recognition, forKey: .recognition)
         try container.encodeIfPresent(self.assetId, forKey: .assetId)
         try container.encodeIfPresent(self.vatExemptionBasis, forKey: .vatExemptionBasis)
+        try container.encodeIfPresent(self.accountCode, forKey: .accountCode)
         try container.encodeIfPresent(self.standaloneSellingPrice, forKey: .standaloneSellingPrice)
         try container.encodeIfPresent(self.refundEstimatePercent, forKey: .refundEstimatePercent)
     }
@@ -111,6 +117,7 @@ public struct InvoicesUpdateSalesRequestLinesItem: Codable, Hashable, Sendable {
         case recognition
         case assetId
         case vatExemptionBasis
+        case accountCode
         case standaloneSellingPrice
         case refundEstimatePercent
     }

@@ -16,6 +16,10 @@ public struct OrdersCreatePurchasesRequestLinesItem: Codable, Hashable, Sendable
     public let deferralEndDate: CalendarDate?
     public let lotNumber: String?
     public let expiryDate: CalendarDate?
+    /// The share of the purchase used for the company's taxable supplies, in whole percent rounded up: required on a VAT type that deducts the line's own share (CZ-D21-P, CZ-D12-P, the poměrný koeficient of § 75 odst. 3 ZDPH) and refused on any other
+    public let deductiblePercent: Int64?
+    /// The chassis numbers of the passenger cars bought on the line. A Hungarian company lists them on sheet 2665A-09 of the VAT return of the period when the line is an intra-Community acquisition or an import (Áfa tv. 4/A. számú melléklet II.)
+    public let chassisNumbers: [String]?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
@@ -35,6 +39,8 @@ public struct OrdersCreatePurchasesRequestLinesItem: Codable, Hashable, Sendable
         deferralEndDate: CalendarDate? = nil,
         lotNumber: String? = nil,
         expiryDate: CalendarDate? = nil,
+        deductiblePercent: Int64? = nil,
+        chassisNumbers: [String]? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.itemId = itemId
@@ -52,6 +58,8 @@ public struct OrdersCreatePurchasesRequestLinesItem: Codable, Hashable, Sendable
         self.deferralEndDate = deferralEndDate
         self.lotNumber = lotNumber
         self.expiryDate = expiryDate
+        self.deductiblePercent = deductiblePercent
+        self.chassisNumbers = chassisNumbers
         self.additionalProperties = additionalProperties
     }
 
@@ -72,6 +80,8 @@ public struct OrdersCreatePurchasesRequestLinesItem: Codable, Hashable, Sendable
         self.deferralEndDate = try container.decodeIfPresent(CalendarDate.self, forKey: .deferralEndDate)
         self.lotNumber = try container.decodeIfPresent(String.self, forKey: .lotNumber)
         self.expiryDate = try container.decodeIfPresent(CalendarDate.self, forKey: .expiryDate)
+        self.deductiblePercent = try container.decodeIfPresent(Int64.self, forKey: .deductiblePercent)
+        self.chassisNumbers = try container.decodeIfPresent([String].self, forKey: .chassisNumbers)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -93,6 +103,8 @@ public struct OrdersCreatePurchasesRequestLinesItem: Codable, Hashable, Sendable
         try container.encodeIfPresent(self.deferralEndDate, forKey: .deferralEndDate)
         try container.encodeIfPresent(self.lotNumber, forKey: .lotNumber)
         try container.encodeIfPresent(self.expiryDate, forKey: .expiryDate)
+        try container.encodeIfPresent(self.deductiblePercent, forKey: .deductiblePercent)
+        try container.encodeIfPresent(self.chassisNumbers, forKey: .chassisNumbers)
     }
 
     /// Keys for encoding/decoding struct properties.
@@ -112,5 +124,7 @@ public struct OrdersCreatePurchasesRequestLinesItem: Codable, Hashable, Sendable
         case deferralEndDate
         case lotNumber
         case expiryDate
+        case deductiblePercent
+        case chassisNumbers
     }
 }
